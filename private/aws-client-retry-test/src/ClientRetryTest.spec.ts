@@ -1,3 +1,5 @@
+import { test as it, describe, expect } from "vitest";
+
 import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";

@@ -2,8 +2,8 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    exclude: ["**/*.{e2e,browser}.spec.ts"],
-    include: ["{clients,lib,packages,private}/**/*.integ.spec.ts"],
+    exclude: ["**/*.{integ,e2e,browser}.spec.ts"],
+    include: ["**/*.spec.ts"],
     environment: "node",
   },
 });

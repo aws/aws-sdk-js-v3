@@ -8,7 +8,7 @@ AWS SDK for JavaScript JsonProtocol Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-json
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-json
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-json`

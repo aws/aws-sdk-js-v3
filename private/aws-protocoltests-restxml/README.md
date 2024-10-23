@@ -10,7 +10,7 @@ A REST XML service that sends XML requests and responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-restxml
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-restxml
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-restxml`

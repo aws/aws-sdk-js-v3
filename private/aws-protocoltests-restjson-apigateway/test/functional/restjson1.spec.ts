@@ -1,3 +1,5 @@
+import { test as it, expect } from "vitest";
+
 // smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";

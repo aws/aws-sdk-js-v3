@@ -1,3 +1,5 @@
+import { test as it, vi, expect } from "vitest";
+
 // smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
@@ -220,7 +222,7 @@ function normalizeByteArrayType(data: any) {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -259,7 +261,7 @@ it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -298,7 +300,7 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumTraitString_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -337,7 +339,7 @@ it("RestJsonMalformedEnumTraitString_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumTraitString_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -376,7 +378,7 @@ it("RestJsonMalformedEnumTraitString_case1:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -415,7 +417,7 @@ it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -454,7 +456,7 @@ it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -493,7 +495,7 @@ it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -532,7 +534,7 @@ it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -571,7 +573,7 @@ it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -610,7 +612,7 @@ it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -649,7 +651,7 @@ it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
  * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -687,7 +689,7 @@ it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthBlob_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -725,7 +727,7 @@ it("RestJsonMalformedLengthBlob_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthBlob_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -763,7 +765,7 @@ it("RestJsonMalformedLengthBlob_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthString_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -801,7 +803,7 @@ it("RestJsonMalformedLengthString_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthString_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -839,7 +841,7 @@ it("RestJsonMalformedLengthString_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthString_case2:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -877,7 +879,7 @@ it("RestJsonMalformedLengthString_case2:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMinString:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -915,7 +917,7 @@ it("RestJsonMalformedLengthMinString:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMaxString:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -953,7 +955,7 @@ it("RestJsonMalformedLengthMaxString:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -991,7 +993,7 @@ it("RestJsonMalformedLengthList_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1029,7 +1031,7 @@ it("RestJsonMalformedLengthList_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthListValue_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1067,7 +1069,7 @@ it("RestJsonMalformedLengthListValue_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthListValue_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1105,7 +1107,7 @@ it("RestJsonMalformedLengthListValue_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMap_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1143,7 +1145,7 @@ it("RestJsonMalformedLengthMap_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMap_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1183,7 +1185,7 @@ it("RestJsonMalformedLengthMap_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapKey_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1223,7 +1225,7 @@ it("RestJsonMalformedLengthMapKey_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapKey_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1263,7 +1265,7 @@ it("RestJsonMalformedLengthMapKey_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapValue_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1301,7 +1303,7 @@ it("RestJsonMalformedLengthMapValue_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapValue_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1341,7 +1343,7 @@ it("RestJsonMalformedLengthMapValue_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthBlobOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1379,7 +1381,7 @@ it("RestJsonMalformedLengthBlobOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthBlobOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1417,7 +1419,7 @@ it("RestJsonMalformedLengthBlobOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthStringOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1455,7 +1457,7 @@ it("RestJsonMalformedLengthStringOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthStringOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1493,7 +1495,7 @@ it("RestJsonMalformedLengthStringOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthStringOverride_case2:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1531,7 +1533,7 @@ it("RestJsonMalformedLengthStringOverride_case2:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMinStringOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1569,7 +1571,7 @@ it("RestJsonMalformedLengthMinStringOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMaxStringOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1607,7 +1609,7 @@ it("RestJsonMalformedLengthMaxStringOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthListOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1645,7 +1647,7 @@ it("RestJsonMalformedLengthListOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthListOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1683,7 +1685,7 @@ it("RestJsonMalformedLengthListOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1723,7 +1725,7 @@ it("RestJsonMalformedLengthMapOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthMapOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1763,7 +1765,7 @@ it("RestJsonMalformedLengthMapOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedLengthQueryStringNoValue:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1803,7 +1805,7 @@ it("RestJsonMalformedLengthQueryStringNoValue:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternString_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1841,7 +1843,7 @@ it("RestJsonMalformedPatternString_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternString_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1879,7 +1881,7 @@ it("RestJsonMalformedPatternString_case1:MalformedRequest", async () => {
  * hang indefinitely while evaluating the pattern
  */
 it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1919,7 +1921,7 @@ it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1957,7 +1959,7 @@ it("RestJsonMalformedPatternList_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -1995,7 +1997,7 @@ it("RestJsonMalformedPatternList_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapKey_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2033,7 +2035,7 @@ it("RestJsonMalformedPatternMapKey_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapKey_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2071,7 +2073,7 @@ it("RestJsonMalformedPatternMapKey_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapValue_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2109,7 +2111,7 @@ it("RestJsonMalformedPatternMapValue_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapValue_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2147,7 +2149,7 @@ it("RestJsonMalformedPatternMapValue_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternUnion_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2185,7 +2187,7 @@ it("RestJsonMalformedPatternUnion_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternUnion_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2223,7 +2225,7 @@ it("RestJsonMalformedPatternUnion_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternStringOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2261,7 +2263,7 @@ it("RestJsonMalformedPatternStringOverride_case0:MalformedRequest", async () => 
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternStringOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2299,7 +2301,7 @@ it("RestJsonMalformedPatternStringOverride_case1:MalformedRequest", async () => 
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternListOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2337,7 +2339,7 @@ it("RestJsonMalformedPatternListOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternListOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2375,7 +2377,7 @@ it("RestJsonMalformedPatternListOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapKeyOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2413,7 +2415,7 @@ it("RestJsonMalformedPatternMapKeyOverride_case0:MalformedRequest", async () => 
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapKeyOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2451,7 +2453,7 @@ it("RestJsonMalformedPatternMapKeyOverride_case1:MalformedRequest", async () => 
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapValueOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2489,7 +2491,7 @@ it("RestJsonMalformedPatternMapValueOverride_case0:MalformedRequest", async () =
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternMapValueOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2527,7 +2529,7 @@ it("RestJsonMalformedPatternMapValueOverride_case1:MalformedRequest", async () =
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternUnionOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2565,7 +2567,7 @@ it("RestJsonMalformedPatternUnionOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedPatternUnionOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2603,7 +2605,7 @@ it("RestJsonMalformedPatternUnionOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeByte_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2641,7 +2643,7 @@ it("RestJsonMalformedRangeByte_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeByte_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2679,7 +2681,7 @@ it("RestJsonMalformedRangeByte_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinByte:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2717,7 +2719,7 @@ it("RestJsonMalformedRangeMinByte:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxByte:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2755,7 +2757,7 @@ it("RestJsonMalformedRangeMaxByte:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeFloat_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2793,7 +2795,7 @@ it("RestJsonMalformedRangeFloat_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeFloat_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2831,7 +2833,7 @@ it("RestJsonMalformedRangeFloat_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinFloat:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2869,7 +2871,7 @@ it("RestJsonMalformedRangeMinFloat:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2907,7 +2909,7 @@ it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2945,7 +2947,7 @@ it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -2983,7 +2985,7 @@ it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3021,7 +3023,7 @@ it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3059,7 +3061,7 @@ it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3097,7 +3099,7 @@ it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3135,7 +3137,7 @@ it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3173,7 +3175,7 @@ it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3211,7 +3213,7 @@ it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3249,7 +3251,7 @@ it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3287,7 +3289,7 @@ it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3325,7 +3327,7 @@ it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3363,7 +3365,7 @@ it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeByteOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3401,7 +3403,7 @@ it("RestJsonMalformedRangeByteOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeByteOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3439,7 +3441,7 @@ it("RestJsonMalformedRangeByteOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinByteOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3477,7 +3479,7 @@ it("RestJsonMalformedRangeMinByteOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxByteOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3515,7 +3517,7 @@ it("RestJsonMalformedRangeMaxByteOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeFloatOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3553,7 +3555,7 @@ it("RestJsonMalformedRangeFloatOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeFloatOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3591,7 +3593,7 @@ it("RestJsonMalformedRangeFloatOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinFloatOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3629,7 +3631,7 @@ it("RestJsonMalformedRangeMinFloatOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3667,7 +3669,7 @@ it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3705,7 +3707,7 @@ it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3743,7 +3745,7 @@ it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3781,7 +3783,7 @@ it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3819,7 +3821,7 @@ it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3857,7 +3859,7 @@ it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3895,7 +3897,7 @@ it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3933,7 +3935,7 @@ it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -3971,7 +3973,7 @@ it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4009,7 +4011,7 @@ it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4047,7 +4049,7 @@ it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4085,7 +4087,7 @@ it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4123,7 +4125,7 @@ it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRequiredBodyUnset:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4164,7 +4166,7 @@ it("RestJsonMalformedRequiredBodyUnset:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRequiredBodyExplicitNull:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4205,7 +4207,7 @@ it("RestJsonMalformedRequiredBodyExplicitNull:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedRequiredHeaderUnset:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4245,7 +4247,7 @@ it("RestJsonMalformedRequiredHeaderUnset:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsBlobList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4283,7 +4285,7 @@ it("RestJsonMalformedUniqueItemsBlobList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsBooleanList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4321,7 +4323,7 @@ it("RestJsonMalformedUniqueItemsBooleanList_case0:MalformedRequest", async () =>
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsBooleanList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4359,7 +4361,7 @@ it("RestJsonMalformedUniqueItemsBooleanList_case1:MalformedRequest", async () =>
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsStringList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4397,7 +4399,7 @@ it("RestJsonMalformedUniqueItemsStringList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsByteList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4435,7 +4437,7 @@ it("RestJsonMalformedUniqueItemsByteList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsShortList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4473,7 +4475,7 @@ it("RestJsonMalformedUniqueItemsShortList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsIntegerList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4511,7 +4513,7 @@ it("RestJsonMalformedUniqueItemsIntegerList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsLongList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4549,7 +4551,7 @@ it("RestJsonMalformedUniqueItemsLongList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsTimestampList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4587,7 +4589,7 @@ it("RestJsonMalformedUniqueItemsTimestampList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsDateTimeList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4625,7 +4627,7 @@ it("RestJsonMalformedUniqueItemsDateTimeList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4663,7 +4665,7 @@ it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () =
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsEnumList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4701,7 +4703,7 @@ it("RestJsonMalformedUniqueItemsEnumList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsIntEnumList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4739,7 +4741,7 @@ it("RestJsonMalformedUniqueItemsIntEnumList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsListList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4777,7 +4779,7 @@ it("RestJsonMalformedUniqueItemsListList:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4816,7 +4818,7 @@ it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
  * a 500 error.
  */
 it("RestJsonMalformedUniqueItemsStructureMissingKeyList:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4854,7 +4856,7 @@ it("RestJsonMalformedUniqueItemsStructureMissingKeyList:MalformedRequest", async
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsUnionList_case0:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4892,7 +4894,7 @@ it("RestJsonMalformedUniqueItemsUnionList_case0:MalformedRequest", async () => {
  * the response should be a 400 ValidationException.
  */
 it("RestJsonMalformedUniqueItemsUnionList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4929,7 +4931,7 @@ it("RestJsonMalformedUniqueItemsUnionList_case1:MalformedRequest", async () => {
  * Validation should work with recursive structures.
  */
 it("RestJsonRecursiveStructuresValidate:ServerRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonValidationService<{}>> = {
     RecursiveStructures: testFunction as RecursiveStructures<{}>,
@@ -4972,7 +4974,7 @@ it("RestJsonRecursiveStructuresValidate:ServerRequest", async () => {
  * a 400 ValidationException is returned.
  */
 it("RestJsonMalformedRecursiveStructures:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -5010,7 +5012,7 @@ it("RestJsonMalformedRecursiveStructures:MalformedRequest", async () => {
  * ValidationException will omit the value of the input.
  */
 it("RestJsonMalformedPatternSensitiveString:MalformedRequest", async () => {
-  const testFunction = jest.fn();
+  const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });

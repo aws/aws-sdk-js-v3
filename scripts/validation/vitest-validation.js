@@ -7,7 +7,6 @@ const paths = [
   // path.join(__dirname, "..", "..", "clients", "client-s3"),
   // path.join(__dirname, "..", "..", "clients", "client-sts"),
   // path.join(__dirname, "..", "..", "clients", "client-transcribe-streaming"),
-
   // path.join(__dirname, "..", "..", "lib", "lib-dynamodb"),
   // path.join(__dirname, "..", "..", "lib", "lib-storage"),
   // path.join(__dirname, "..", "..", "packages", "body-checksum-browser"),
@@ -27,7 +26,6 @@ const paths = [
   // path.join(__dirname, "..", "..", "packages", "ec2-metadata-service"),
   // path.join(__dirname, "..", "..", "packages", "endpoint-cache"),
   // path.join(__dirname, "..", "..", "packages", "eventstream-handler-node"),
-
   // path.join(__dirname, "..", "..", "packages", "middleware-api-key"),
   // path.join(__dirname, "..", "..", "packages", "middleware-bucket-endpoint"),
   // path.join(__dirname, "..", "..", "packages", "middleware-endpoint-discovery"),
@@ -54,11 +52,24 @@ const paths = [
   // path.join(__dirname, "..", "..", "packages", "middleware-token"),
   // path.join(__dirname, "..", "..", "packages", "middleware-user-agent"),
   // path.join(__dirname, "..", "..", "packages", "middleware-websocket"),
-
   // path.join(__dirname, "..", "..", "packages", "s3-presigned-post"),
-
   // path.join(__dirname, "..", "..", "private", "aws-middleware-test"),
-  path.join(__dirname, "..", "..", "private", "aws-util-test"),
+  // path.join(__dirname, "..", "..", "private", "aws-util-test"),
+  // path.join(__dirname, "..", "..", "private", "aws-client-api-test"),
+  // path.join(__dirname, "..", "..", "private", "aws-client-retry-test"),
+  // path.join(__dirname, "..", "..", "private", "aws-echo-service"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-ec2"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-10"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-machinelearning"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-query"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-apigateway"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-glacier"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restxml"),
+  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-smithy-rpcv2-cbor"),
+  // path.join(__dirname, "..", "..", "private", "aws-restjson-server"),
+  // path.join(__dirname, "..", "..", "private", "aws-restjson-validation-server"),
 ];
 
 (async () => {
@@ -66,12 +77,12 @@ const paths = [
     const pkgJson = require(path.join(folder, "package.json"));
 
     if (pkgJson.scripts.test) {
+      fs.rmSync(path.join(folder, "jest.config.js"));
       if (pkgJson.scripts.test.includes("jest")) {
         console.log("setting unit test to vitest");
 
         pkgJson.scripts.test = "vitest run";
         pkgJson.scripts["test:watch"] = "vitest watch";
-        fs.rmSync(path.join(folder, "jest.config.js"));
         fs.writeFileSync(
           path.join(folder, "vitest.config.ts"),
           `import { defineConfig } from "vitest/config";

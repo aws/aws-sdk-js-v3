@@ -10,7 +10,7 @@ A REST JSON service that sends JSON requests and responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-restjson
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-restjson
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-restjson`
