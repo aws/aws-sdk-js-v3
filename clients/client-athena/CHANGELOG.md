@@ -24,7 +24,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **client-athena:** Removing FEDERATED from Create/List/Delete/GetDataCatalog API ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
+* **client-athena:** **BREAKING CHANGE**: Remove DataCatalog from Create/DeleteDataCatalog. Remove Status, ConnectionType, and Error from DataCatalog and DataCatalogSummary. These were released inadvertently with no functionality. They were not populated or populated with a default value. Code related to these changes can be safely removed. ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
 
 
 

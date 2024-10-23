@@ -70,7 +70,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **client-athena:** Removing FEDERATED from Create/List/Delete/GetDataCatalog API ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
+* **client-athena:** **BREAKING CHANGE**: Remove DataCatalog from Create/DeleteDataCatalog. Remove Status, ConnectionType, and Error from DataCatalog and DataCatalogSummary. These were released inadvertently with no functionality. They were not populated or populated with a default value. Code related to these changes can be safely removed. ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
 * **client-bedrock-runtime:** Added converse support for custom imported models ([ae2b967](https://github.com/aws/aws-sdk-js-v3/commit/ae2b967a7eede8123b18aad7e5365fd0ba203eda))
 * **client-bedrock:** Adding converse support to CMI API's ([46406ae](https://github.com/aws/aws-sdk-js-v3/commit/46406aead13168fc5e895d02bb282d4aafdf3a1e))
 * **client-datazone:** Adding the following project member designations: PROJECT_CATALOG_VIEWER, PROJECT_CATALOG_CONSUMER and PROJECT_CATALOG_STEWARD in the CreateProjectMembership API and PROJECT_CATALOG_STEWARD designation in the AddPolicyGrant API. ([678f17d](https://github.com/aws/aws-sdk-js-v3/commit/678f17d82335dbe3dc5e01812ffdee5fc800fe54))
