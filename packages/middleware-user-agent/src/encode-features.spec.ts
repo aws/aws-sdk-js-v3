@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { encodeFeatures } from "./encode-features";
 
 describe(encodeFeatures.name, () => {

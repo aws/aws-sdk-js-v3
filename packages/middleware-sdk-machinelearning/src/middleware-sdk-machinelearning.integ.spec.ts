@@ -1,4 +1,5 @@
 import { MachineLearning } from "@aws-sdk/client-machine-learning";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

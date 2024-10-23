@@ -1,4 +1,5 @@
 import { normalizeProvider } from "@smithy/util-middleware";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import {
   DEFAULT_REQUEST_CHECKSUM_CALCULATION,
@@ -8,15 +9,15 @@ import {
 } from "./constants";
 import { resolveFlexibleChecksumsConfig } from "./resolveFlexibleChecksumsConfig";
 
-jest.mock("@smithy/util-middleware");
+vi.mock("@smithy/util-middleware");
 
 describe(resolveFlexibleChecksumsConfig.name, () => {
   beforeEach(() => {
-    (normalizeProvider as jest.Mock).mockImplementation((input) => input);
+    vi.mocked(normalizeProvider).mockImplementation((input) => input);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("returns default client checksums configuration, if not provided", () => {

@@ -8432,7 +8432,7 @@ jest-config@^29.7.0:
     slash "^3.0.0"
     strip-json-comments "^3.1.1"
 
-jest-diff@^28.0.2, jest-diff@^28.1.3:
+jest-diff@^28.1.3:
   version "28.1.3"
   resolved "https://registry.npmjs.org/jest-diff/-/jest-diff-28.1.3.tgz"
   integrity sha512-8RqP1B/OXzjjTWkqMX67iqgwBVJRgCyKD3L9nq+6ZqJMdvjE8RgHktqZ6jNrkdMT+dJuYNI3rhQpxaz7drJHfw==
@@ -8441,6 +8441,16 @@ jest-diff@^28.0.2, jest-diff@^28.1.3:
     diff-sequences "^28.1.1"
     jest-get-type "^28.0.2"
     pretty-format "^28.1.3"
+
+jest-diff@^29.2.0, jest-diff@^29.7.0:
+  version "29.7.0"
+  resolved "https://registry.npmjs.org/jest-diff/-/jest-diff-29.7.0.tgz"
+  integrity sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^29.6.3"
+    jest-get-type "^29.6.3"
+    pretty-format "^29.7.0"
 
 jest-diff@^29.6.1:
   version "29.6.1"
@@ -8451,16 +8461,6 @@ jest-diff@^29.6.1:
     diff-sequences "^29.4.3"
     jest-get-type "^29.4.3"
     pretty-format "^29.6.1"
-
-jest-diff@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-diff/-/jest-diff-29.7.0.tgz"
-  integrity sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==
-  dependencies:
-    chalk "^4.0.0"
-    diff-sequences "^29.6.3"
-    jest-get-type "^29.6.3"
-    pretty-format "^29.7.0"
 
 jest-docblock@^28.1.1:
   version "28.1.1"
@@ -8998,14 +8998,6 @@ jest-watcher@^29.7.0:
     emittery "^0.13.1"
     jest-util "^29.7.0"
     string-length "^4.0.1"
-
-jest-websocket-mock@^2.0.2:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/jest-websocket-mock/-/jest-websocket-mock-2.4.0.tgz"
-  integrity sha512-AOwyuRw6fgROXHxMOiTDl1/T4dh3fV4jDquha5N0csS/PNp742HeTZWPAuKppVRSQ8s3fUGgJHoyZT9JDO0hMA==
-  dependencies:
-    jest-diff "^28.0.2"
-    mock-socket "^9.1.0"
 
 jest-worker@^27.4.5, jest-worker@^27.4.6:
   version "27.5.1"
@@ -10184,10 +10176,10 @@ mock-socket@9.1.5:
   resolved "https://registry.npmjs.org/mock-socket/-/mock-socket-9.1.5.tgz"
   integrity sha512-3DeNIcsQixWHHKk6NdoBhWI4t1VMj5/HzfnI1rE/pLl5qKx7+gd4DNA07ehTaZ6MoUU053si6Hd+YtiM/tQZfg==
 
-mock-socket@^9.1.0:
-  version "9.2.1"
-  resolved "https://registry.npmjs.org/mock-socket/-/mock-socket-9.2.1.tgz"
-  integrity sha512-aw9F9T9G2zpGipLLhSNh6ZpgUyUl4frcVmRN08uE1NWPWg43Wx6+sGPDbQ7E5iFZZDJW5b5bypMeAEHqTbIFag==
+mock-socket@^9.2.1:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/mock-socket/-/mock-socket-9.3.1.tgz#24fb00c2f573c84812aa4a24181bb025de80cc8e"
+  integrity sha512-qxBgB7Qa2sEQgHFjj0dSigq7fX4k6Saisd5Nelwp2q8mlbAFh5dHV9JTTlF8viYJLSSWgMCZFUom8PJcMNBoJw==
 
 modify-values@^1.0.0:
   version "1.0.1"
@@ -13448,6 +13440,14 @@ vite@4.5.5, "vite@^3.0.0 || ^4.0.0", "vite@^3.0.0 || ^4.0.0 || ^5.0.0-0", "vite@
     rollup "^3.27.1"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vitest-websocket-mock@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vitest-websocket-mock/-/vitest-websocket-mock-0.2.3.tgz#664a17a3f3ec38283810e4191dcc159c55b5fa33"
+  integrity sha512-Ea2CcXHWJj/DhXcFeZsAjCPQ/SD0LDkin8k5zexq4/1izaPqRROta4eYCBbD3l9NfEWOnvrcOPkk+jNNieLCWQ==
+  dependencies:
+    jest-diff "^29.2.0"
+    mock-socket "^9.2.1"
 
 vitest@0.34.6:
   version "0.34.6"

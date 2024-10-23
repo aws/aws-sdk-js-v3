@@ -1,14 +1,15 @@
 import { AwsCrc32 } from "@aws-crypto/crc32";
 import { AwsCrc32c } from "@aws-crypto/crc32c";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { ChecksumAlgorithm } from "./constants";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 describe(selectChecksumAlgorithmFunction.name, () => {
   const mockConfig = {
-    md5: jest.fn(),
-    sha1: jest.fn(),
-    sha256: jest.fn(),
+    md5: vi.fn(),
+    sha1: vi.fn(),
+    sha256: vi.fn(),
   };
 
   it.each([

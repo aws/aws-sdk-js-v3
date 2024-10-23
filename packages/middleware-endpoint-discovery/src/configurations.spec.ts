@@ -1,3 +1,5 @@
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
+
 import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "./configurations";
 
 const {

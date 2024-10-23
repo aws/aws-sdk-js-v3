@@ -1,7 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-
-jest.setTimeout(100000);
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 const testValue = "Hello S3 global client!";
 
@@ -65,7 +64,7 @@ describe("S3 Global Client Test", () => {
       }
     }
   });
-});
+}, 100_000);
 
 async function deleteBucket(s3: S3, bucketName: string) {
   const Bucket = bucketName;

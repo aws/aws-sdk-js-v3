@@ -1,12 +1,13 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { addExpectContinueMiddleware } from "./index";
 
 describe("addExpectContinueMiddleware", () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("sets the Expect header to 100-continue if there is a request body in node runtime", async () => {

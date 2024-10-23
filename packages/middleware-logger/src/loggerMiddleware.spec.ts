@@ -1,14 +1,15 @@
 import { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 
 describe("getLoggerPlugin", () => {
   const mockClientStack = {
-    add: jest.fn(),
+    add: vi.fn(),
   };
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("adds loggerMiddleware", () => {
@@ -19,7 +20,7 @@ describe("getLoggerPlugin", () => {
 });
 
 describe("loggerMiddleware", () => {
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
 
   const mockArgs = {
     input: {
@@ -54,7 +55,7 @@ describe("loggerMiddleware", () => {
   };
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("returns without logging if context.logger is not defined", async () => {
@@ -84,14 +85,14 @@ describe("loggerMiddleware", () => {
     it("success case with clientName, commandName, input, metadata", async () => {
       mockNext.mockResolvedValueOnce(mockResponse);
 
-      const logger = { info: jest.fn() } as unknown as Logger;
+      const logger = { info: vi.fn() } as unknown as Logger;
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
       const mockInputLog = { inputKey: "inputKey", inputSensitiveKey: "SENSITIVE_VALUE" };
-      const inputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockInputLog);
+      const inputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockInputLog);
       const mockOutputLog = { outputKey: "outputKey", outputSensitiveKey: "SENSITIVE_VALUE" };
-      const outputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockOutputLog);
+      const outputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockOutputLog);
 
       const context = {
         logger,
@@ -125,14 +126,14 @@ describe("loggerMiddleware", () => {
     it("should use override log filters for DynamoDBDocumentClient if present", async () => {
       mockNext.mockResolvedValueOnce(mockResponse);
 
-      const logger = { info: jest.fn() } as unknown as Logger;
+      const logger = { info: vi.fn() } as unknown as Logger;
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
       const mockInputLog = { inputKey: "inputKey", inputSensitiveKey: "SENSITIVE_VALUE" };
-      const inputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockInputLog);
+      const inputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockInputLog);
       const mockOutputLog = { outputKey: "outputKey", outputSensitiveKey: "SENSITIVE_VALUE" };
-      const outputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockOutputLog);
+      const outputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockOutputLog);
 
       const context: HandlerExecutionContext = {
         logger,
@@ -183,9 +184,9 @@ describe("loggerMiddleware", () => {
         },
       };
       mockNext.mockResolvedValueOnce(customResponse);
-      const logger = { info: jest.fn() } as unknown as Logger;
-      const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
-      const outputFilterSensitiveLog = jest.fn().mockImplementationOnce((output) => output);
+      const logger = { info: vi.fn() } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn().mockImplementationOnce((input) => input);
+      const outputFilterSensitiveLog = vi.fn().mockImplementationOnce((output) => output);
 
       const context = {
         logger,
@@ -219,9 +220,9 @@ describe("loggerMiddleware", () => {
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
-      const logger = { error: jest.fn() } as unknown as Logger;
-      const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
-      const outputFilterSensitiveLog = jest.fn().mockImplementationOnce((output) => output);
+      const logger = { error: vi.fn() } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn().mockImplementationOnce((input) => input);
+      const outputFilterSensitiveLog = vi.fn().mockImplementationOnce((output) => output);
 
       const context = {
         clientName,
@@ -253,9 +254,9 @@ describe("loggerMiddleware", () => {
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
-      const logger = { error: jest.fn() } as unknown as Logger;
-      const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
-      const outputFilterSensitiveLog = jest.fn().mockImplementationOnce((output) => output);
+      const logger = { error: vi.fn() } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn().mockImplementationOnce((input) => input);
+      const outputFilterSensitiveLog = vi.fn().mockImplementationOnce((output) => output);
 
       const context = {
         clientName,
@@ -284,14 +285,14 @@ describe("loggerMiddleware", () => {
       Object.assign(nextError, { $metadata });
       mockNext.mockRejectedValueOnce(nextError);
 
-      const logger = { error: jest.fn() } as unknown as Logger;
+      const logger = { error: vi.fn() } as unknown as Logger;
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
       const mockInputLog = { inputKey: "inputKey", inputSensitiveKey: "SENSITIVE_VALUE" };
-      const inputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockInputLog);
+      const inputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockInputLog);
       const mockOutputLog = { outputKey: "outputKey", outputSensitiveKey: "SENSITIVE_VALUE" };
-      const outputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockOutputLog);
+      const outputFilterSensitiveLog = vi.fn().mockReturnValueOnce(mockOutputLog);
 
       const context: HandlerExecutionContext = {
         logger,

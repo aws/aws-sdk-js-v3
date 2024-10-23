@@ -8,3 +8,4 @@
 *.log
 package-lock.json
 !karma.conf.js
+/test/browser-build/browser-s3-bundle.js

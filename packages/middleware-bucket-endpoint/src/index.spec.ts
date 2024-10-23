@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { bucketEndpointMiddleware, getBucketEndpointPlugin, resolveBucketEndpointConfig } from "./index";
 
 describe("middleware-bucket-endpoint package exports", () => {

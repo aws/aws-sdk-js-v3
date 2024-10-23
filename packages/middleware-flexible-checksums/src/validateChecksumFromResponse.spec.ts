@@ -1,4 +1,5 @@
 import { HttpResponse } from "@smithy/protocol-http";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -8,15 +9,15 @@ import { getChecksumLocationName } from "./getChecksumLocationName";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
-jest.mock("./getChecksum");
-jest.mock("./getChecksumLocationName");
-jest.mock("./getChecksumAlgorithmListForResponse");
-jest.mock("./selectChecksumAlgorithmFunction");
+vi.mock("./getChecksum");
+vi.mock("./getChecksumLocationName");
+vi.mock("./getChecksumAlgorithmListForResponse");
+vi.mock("./selectChecksumAlgorithmFunction");
 
 describe(validateChecksumFromResponse.name, () => {
   const mockConfig = {
-    streamHasher: jest.fn(),
-    base64Encoder: jest.fn(),
+    streamHasher: vi.fn(),
+    base64Encoder: vi.fn(),
   } as unknown as PreviouslyResolved;
 
   const mockBody = {};
@@ -34,7 +35,7 @@ describe(validateChecksumFromResponse.name, () => {
     responseAlgorithms: mockResponseAlgorithms,
   };
 
-  const mockChecksumAlgorithmFn = jest.fn();
+  const mockChecksumAlgorithmFn = vi.fn();
 
   const getMockResponseWithHeader = (headerKey: string, headerValue: string) => ({
     ...mockResponse,
@@ -45,15 +46,15 @@ describe(validateChecksumFromResponse.name, () => {
   });
 
   beforeEach(() => {
-    (getChecksumLocationName as jest.Mock).mockImplementation((algorithm) => algorithm);
-    (getChecksumAlgorithmListForResponse as jest.Mock).mockImplementation((responseAlgorithms) => responseAlgorithms);
-    (selectChecksumAlgorithmFunction as jest.Mock).mockReturnValue(mockChecksumAlgorithmFn);
-    (getChecksum as jest.Mock).mockResolvedValue(mockChecksum);
+    vi.mocked(getChecksumLocationName).mockImplementation((algorithm) => algorithm);
+    vi.mocked(getChecksumAlgorithmListForResponse).mockImplementation((responseAlgorithms) => responseAlgorithms);
+    vi.mocked(selectChecksumAlgorithmFunction).mockReturnValue(mockChecksumAlgorithmFn);
+    vi.mocked(getChecksum).mockResolvedValue(mockChecksum);
   });
 
   afterEach(() => {
     expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("skip validation", () => {
@@ -70,7 +71,7 @@ describe(validateChecksumFromResponse.name, () => {
     });
 
     it("if updated algorithm list from response is empty", async () => {
-      (getChecksumAlgorithmListForResponse as jest.Mock).mockImplementation(() => []);
+      vi.mocked(getChecksumAlgorithmListForResponse).mockImplementation(() => []);
       await validateChecksumFromResponse(mockResponse, mockOptions);
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(getChecksumLocationName).not.toHaveBeenCalled();

@@ -1,3 +1,5 @@
+import { test as it, afterAll, describe, expect } from "vitest";
+
 import { createReadStream } from "fs";
 import { join } from "path";
 
@@ -11,7 +13,7 @@ describe("TranscribeStream client", () => {
   });
 
   // TODO: not working in Node.js with HTTP2 handler?
-  xit("should stream the transcript", async () => {
+  it.skip("should stream the transcript", async () => {
     const LanguageCode = "en-GB";
     const MediaEncoding = "pcm";
     const MediaSampleRateHertz = 44100;

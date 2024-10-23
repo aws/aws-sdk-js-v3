@@ -1,5 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildHandlerArguments } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -11,19 +12,19 @@ import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
 
-jest.mock("@smithy/protocol-http");
-jest.mock("./getChecksumAlgorithmForRequest");
-jest.mock("./getChecksumLocationName");
-jest.mock("./hasHeader");
-jest.mock("./isStreaming");
-jest.mock("./selectChecksumAlgorithmFunction");
-jest.mock("./stringHasher");
+vi.mock("@smithy/protocol-http");
+vi.mock("./getChecksumAlgorithmForRequest");
+vi.mock("./getChecksumLocationName");
+vi.mock("./hasHeader");
+vi.mock("./isStreaming");
+vi.mock("./selectChecksumAlgorithmFunction");
+vi.mock("./stringHasher");
 
 describe(flexibleChecksumsMiddleware.name, () => {
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
 
   const mockChecksum = "mockChecksum";
-  const mockChecksumAlgorithmFunction = jest.fn();
+  const mockChecksumAlgorithmFunction = vi.fn();
   const mockChecksumLocationName = "mock-checksum-location-name";
 
   const mockInput = {};
@@ -39,23 +40,23 @@ describe(flexibleChecksumsMiddleware.name, () => {
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
     const { isInstance } = HttpRequest;
-    (isInstance as unknown as jest.Mock).mockReturnValue(true);
-    (getChecksumAlgorithmForRequest as jest.Mock).mockReturnValue(ChecksumAlgorithm.MD5);
-    (getChecksumLocationName as jest.Mock).mockReturnValue(mockChecksumLocationName);
-    (hasHeader as jest.Mock).mockReturnValue(true);
-    (isStreaming as jest.Mock).mockReturnValue(false);
-    (selectChecksumAlgorithmFunction as jest.Mock).mockReturnValue(mockChecksumAlgorithmFunction);
+    (isInstance as unknown as any).mockReturnValue(true);
+    vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(ChecksumAlgorithm.MD5);
+    vi.mocked(getChecksumLocationName).mockReturnValue(mockChecksumLocationName);
+    vi.mocked(hasHeader).mockReturnValue(true);
+    vi.mocked(isStreaming).mockReturnValue(false);
+    vi.mocked(selectChecksumAlgorithmFunction).mockReturnValue(mockChecksumAlgorithmFunction);
   });
 
   afterEach(() => {
     expect(mockNext).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("skips", () => {
     it("if not an instance of HttpRequest", async () => {
       const { isInstance } = HttpRequest;
-      (isInstance as unknown as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as any).mockReturnValue(false);
       const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
       await handler(mockArgs);
       expect(getChecksumAlgorithmForRequest).not.toHaveBeenCalled();
@@ -67,7 +68,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
       });
 
       it("if checksumAlgorithm is not defined", async () => {
-        (getChecksumAlgorithmForRequest as jest.Mock).mockReturnValue(undefined);
+        vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(undefined);
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
         await handler(mockArgs);
         expect(getChecksumLocationName).not.toHaveBeenCalled();
@@ -99,13 +100,13 @@ describe(flexibleChecksumsMiddleware.name, () => {
     });
 
     it("for streaming body", async () => {
-      (isStreaming as jest.Mock).mockReturnValue(true);
+      vi.mocked(isStreaming).mockReturnValue(true);
       const mockUpdatedBody = { body: "mockUpdatedBody" };
 
-      const mockBase64Encoder = jest.fn();
-      const mockStreamHasher = jest.fn();
-      const mockBodyLengthChecker = jest.fn();
-      const mockGetAwsChunkedEncodingStream = jest.fn().mockReturnValue(mockUpdatedBody);
+      const mockBase64Encoder = vi.fn();
+      const mockStreamHasher = vi.fn();
+      const mockBodyLengthChecker = vi.fn();
+      const mockGetAwsChunkedEncodingStream = vi.fn().mockReturnValue(mockUpdatedBody);
 
       const handler = flexibleChecksumsMiddleware(
         {
@@ -146,9 +147,9 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
     it("for non-streaming body", async () => {
       const mockRawChecksum = Buffer.from(mockChecksum);
-      const mockBase64Encoder = jest.fn().mockReturnValue(mockChecksum);
-      (stringHasher as jest.Mock).mockResolvedValue(mockRawChecksum);
-      (hasHeader as jest.Mock).mockReturnValue(false);
+      const mockBase64Encoder = vi.fn().mockReturnValue(mockChecksum);
+      vi.mocked(stringHasher).mockResolvedValue(mockRawChecksum);
+      vi.mocked(hasHeader).mockReturnValue(false);
 
       const handler = flexibleChecksumsMiddleware(
         { ...mockConfig, base64Encoder: mockBase64Encoder },

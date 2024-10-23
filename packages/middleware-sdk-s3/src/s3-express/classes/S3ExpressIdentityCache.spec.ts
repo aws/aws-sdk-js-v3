@@ -1,3 +1,5 @@
+import { afterAll, describe, expect, test as it } from "vitest";
+
 import { S3ExpressIdentityCache } from "./S3ExpressIdentityCache";
 import { S3ExpressIdentityCacheEntry } from "./S3ExpressIdentityCacheEntry";
 

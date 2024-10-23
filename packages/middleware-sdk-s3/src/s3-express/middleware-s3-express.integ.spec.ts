@@ -1,5 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { describe, expect, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
 import { S3ExpressIdentity, S3ExpressIdentityProvider } from "./index";

@@ -12,11 +12,12 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo s3",
-    "test": "yarn test:unit",
-    "test:e2e": "yarn test:e2e:node && yarn test:e2e:browser",
-    "test:e2e:browser": "ts-mocha test/**/*.browser.ispec.ts && karma start karma.conf.js",
-    "test:e2e:node": "jest --c jest.config.e2e.js",
-    "test:unit": "ts-mocha test/unit/**/*.spec.ts"
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:e2e": "vitest run -c vitest.config.e2e.ts && yarn test:browser",
+    "test:e2e:watch": "vitest watch -c vitest.config.e2e.ts",
+    "test:browser": "node ./test/browser-build/esbuild && vitest run -c vitest.config.browser.ts",
+    "test:browser:watch": "node ./test/browser-build/esbuild && vitest watch -c vitest.config.browser.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

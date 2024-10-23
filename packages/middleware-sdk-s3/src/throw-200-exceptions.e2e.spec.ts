@@ -1,7 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-
-jest.setTimeout(100000);
+import { afterAll, beforeAll, describe, test as it } from "vitest";
 
 describe("S3 throw 200 exceptions", () => {
   const config = {
@@ -54,4 +53,4 @@ describe("S3 throw 200 exceptions", () => {
       });
     }
   });
-});
+}, 100_000);

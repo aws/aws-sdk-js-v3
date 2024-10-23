@@ -1,4 +1,5 @@
 import { Weather } from "@aws-sdk/weather";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../requests/test-http-handler";
 

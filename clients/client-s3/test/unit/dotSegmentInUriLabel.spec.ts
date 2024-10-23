@@ -1,12 +1,8 @@
-/// <reference types="mocha" />
+import { test as it, describe, expect } from "vitest";
+
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { HttpHandlerOptions } from "@smithy/types";
 import { S3 } from "../../src/S3";
-import chai from "chai";
-import chaiAsPromised from "chai-as-promised";
-
-chai.use(chaiAsPromised);
-const { expect } = chai;
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -39,10 +35,10 @@ describe("Dot Segment in URI Label", () => {
         Bucket: "mybucket",
         Key: "../key.txt",
       });
-      fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+      throw new Error("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     } catch (err) {
       if (!(err instanceof ExpectedRequestSerializationError)) {
-        fail(err);
+        throw new Error(err);
       }
       const r = err.request;
       expect(r.method).to.eql("GET");
@@ -56,10 +52,10 @@ describe("Dot Segment in URI Label", () => {
         Bucket: "mybucket",
         Key: "foo/../key.txt",
       });
-      fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+      throw new Error("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     } catch (err) {
       if (!(err instanceof ExpectedRequestSerializationError)) {
-        fail(err);
+        throw new Error(err);
       }
       const r = err.request;
       expect(r.method).to.eql("GET");

@@ -1,27 +1,28 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildHandlerArguments, MiddlewareStack } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { getCacheKey } from "./getCacheKey";
 import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCache";
 
-jest.mock("./updateDiscoveredEndpointInCache");
-jest.mock("./getCacheKey");
-jest.mock("@smithy/protocol-http");
+vi.mock("./updateDiscoveredEndpointInCache");
+vi.mock("./getCacheKey");
+vi.mock("@smithy/protocol-http");
 
 describe(endpointDiscoveryMiddleware.name, () => {
   const cacheKey = "cacheKey";
   const endpoint = "endpoint";
-  const getEndpoint = jest.fn().mockReturnValue(endpoint);
+  const getEndpoint = vi.fn().mockReturnValue(endpoint);
   const mockConfig = {
-    credentials: jest.fn(),
+    credentials: vi.fn(),
     endpointCache: {
       getEndpoint,
     } as unknown as EndpointCache,
-    endpointDiscoveryEnabled: jest.fn().mockResolvedValue(undefined),
-    endpointDiscoveryEnabledProvider: jest.fn(),
-    endpointDiscoveryCommandCtor: jest.fn(),
+    endpointDiscoveryEnabled: vi.fn().mockResolvedValue(undefined),
+    endpointDiscoveryEnabledProvider: vi.fn(),
+    endpointDiscoveryCommandCtor: vi.fn(),
     isCustomEndpoint: false,
     isClientEndpointDiscoveryEnabled: false,
   };
@@ -31,7 +32,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
     clientStack: {} as MiddlewareStack<any, any>,
   };
 
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
   const mockContext = {
     clientName: "ExampleClient",
     commandName: "ExampleCommand",
@@ -39,14 +40,14 @@ describe(endpointDiscoveryMiddleware.name, () => {
   const mockArgs = { request: {} };
 
   beforeEach(() => {
-    (getCacheKey as jest.Mock).mockResolvedValue(cacheKey);
-    (updateDiscoveredEndpointInCache as jest.Mock).mockResolvedValue(undefined);
+    vi.mocked(getCacheKey).mockResolvedValue(cacheKey);
+    vi.mocked(updateDiscoveredEndpointInCache).mockResolvedValue(undefined);
     const { isInstance } = HttpRequest;
-    (isInstance as unknown as jest.Mock).mockReturnValue(true);
+    (isInstance as unknown as any).mockReturnValue(true);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe(`isCustomEndpoint=true`, () => {
@@ -75,7 +76,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
         mockContext
       )(mockArgs as BuildHandlerArguments<any>);
       expect(mockNext).toHaveBeenCalledWith(mockArgs);
-      expect(updateDiscoveredEndpointInCache as jest.Mock).not.toHaveBeenCalled();
+      expect(vi.mocked(updateDiscoveredEndpointInCache)).not.toHaveBeenCalled();
     });
   });
 

@@ -1,5 +1,6 @@
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Transform } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

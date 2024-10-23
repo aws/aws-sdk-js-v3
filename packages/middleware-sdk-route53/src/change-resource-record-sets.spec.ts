@@ -1,3 +1,5 @@
+import { describe, expect, test as it, vi } from "vitest";
+
 import { changeResourceRecordSetsMiddleware } from "./change-resource-record-sets";
 
 const prefixedProps = ["/hostedzone/ID", "/change/ID", "/delegationset/ID"];
@@ -5,7 +7,7 @@ const prefixedProps = ["/hostedzone/ID", "/change/ID", "/delegationset/ID"];
 describe("changeResourceRecordSetsMiddleware", () => {
   for (const prefixed of prefixedProps) {
     it(`should strip the prefix from the ChangeBatch.Changes[*].ResourceRecordSet.AliasTarget.HostedZoneId parameter`, async () => {
-      const next = jest.fn();
+      const next = vi.fn();
       const input = {
         ChangeBatch: {
           Changes: (function* () {

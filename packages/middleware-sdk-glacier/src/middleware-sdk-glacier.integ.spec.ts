@@ -1,4 +1,5 @@
 import { Glacier } from "@aws-sdk/client-glacier";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

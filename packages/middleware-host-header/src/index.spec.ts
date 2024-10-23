@@ -1,11 +1,12 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, expect, test as it, vi } from "vitest";
 
 import { hostHeaderMiddleware } from "./index";
 describe("hostHeaderMiddleware", () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should set host header if not already set", async () => {

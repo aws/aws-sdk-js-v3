@@ -1,5 +1,6 @@
 import { streamCollector } from "@smithy/node-http-handler";
 import { toUtf8 } from "@smithy/util-utf8";
+import { describe, expect, test as it } from "vitest";
 
 import { createReadStreamOnBuffer } from "./create-read-stream-on-buffer";
 

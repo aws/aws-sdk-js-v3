@@ -1,13 +1,15 @@
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { locationConstraintMiddleware } from "./";
 
 describe("locationConstrainMiddleware", () => {
-  const next = jest.fn();
+  const next = vi.fn();
   const basicInput = {
     foo: "bar",
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("for region us-east-1", () => {
