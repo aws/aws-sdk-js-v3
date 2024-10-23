@@ -1,5 +1,3 @@
-import { test as it, expect } from "vitest";
-
 // smithy-typescript generated code
 import { cbor } from "@smithy/core/cbor";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";

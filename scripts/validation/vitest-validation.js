@@ -75,6 +75,11 @@ const paths = [
 (async () => {
   for (const folder of paths) {
     const pkgJson = require(path.join(folder, "package.json"));
+    const isPrivate = folder.includes("/private/");
+    let configExtension = "ts";
+    if (folder.includes("/private/")) {
+      configExtension = "js";
+    }
 
     if (pkgJson.scripts.test) {
       if (fs.existsSync(path.join(folder, "jest.config.js"))) {
@@ -87,14 +92,15 @@ const paths = [
         pkgJson.scripts.test = "vitest run";
         pkgJson.scripts["test:watch"] = "vitest watch";
         fs.writeFileSync(
-          path.join(folder, "vitest.config.ts"),
+          path.join(folder, `vitest.config.${configExtension}`),
           `import { defineConfig } from "vitest/config";
 
   export default defineConfig({
     test: {
-      exclude: ["**/*.{integ,e2e,browser}.spec.{ts,js}"],
-      include: ["**/*.spec.{ts,js}"],
+      exclude: ["**/*.{integ,e2e,browser}.spec.ts"],
+      include: ["**/*.spec.ts"],
       environment: "node",
+      ${isPrivate ? "globals: true,\n" : ""}
     },
   });
   `
@@ -110,21 +116,22 @@ const paths = [
         fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
       }
       if (pkgJson.scripts[`test:${script}`]) {
-        pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.ts`;
+        pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.${configExtension}`;
         if (
           pkgJson.scripts[`test:${script}`].includes("jest") ||
           pkgJson.scripts[`test:${script}`].includes("vitest")
         ) {
           console.log(`setting ${testType} test to vitest`);
-          pkgJson.scripts[`test:${script}`] = `vitest run -c vitest.config.${testType}.ts`;
+          pkgJson.scripts[`test:${script}`] = `vitest run -c vitest.config.${testType}.${configExtension}`;
           fs.writeFileSync(
-            path.join(folder, `vitest.config.${testType}.ts`),
+            path.join(folder, `vitest.config.${testType}.${configExtension}`),
             `import { defineConfig } from "vitest/config";
 
     export default defineConfig({
       test: {
-        include: ["**/*.${testType}.spec.{ts,js}"],
+        include: ["**/*.${testType}.spec.ts"],
         environment: "node",
+        ${isPrivate ? "globals: true,\n" : ""}
       },
     });
     `
@@ -134,6 +141,10 @@ const paths = [
     }
 
     fs.writeFileSync(path.join(folder, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+
+    if (isPrivate) {
+      continue;
+    }
 
     for await (const file of walk(path.join(folder))) {
       if (file.endsWith(".spec.ts")) {

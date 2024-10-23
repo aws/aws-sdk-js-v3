@@ -5,5 +5,6 @@ export default defineConfig({
     exclude: ["**/*.{integ,e2e,browser}.spec.ts"],
     include: ["**/*.spec.ts"],
     environment: "node",
+    globals: true,
   },
 });

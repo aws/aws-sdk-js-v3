@@ -1,10 +1,9 @@
-import { test as it, describe, expect } from "vitest";
-
 import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";
 import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { Readable } from "stream";
+import { describe, expect, test as it, vi } from "vitest";
 
 const MOCK_REGION = "us-west-2";
 
@@ -66,7 +65,7 @@ describe("util-retry integration tests", () => {
   });
 
   it("should retry until success", async () => {
-    const mockHandle = jest
+    const mockHandle = vi
       .fn()
       .mockResolvedValueOnce(mockThrottled)
       .mockResolvedValueOnce(mockThrottled)
