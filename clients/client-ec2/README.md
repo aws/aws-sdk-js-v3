@@ -13,7 +13,7 @@ see the <a href="https://docs.aws.amazon.com/ec2/latest/devguide">Amazon EC2 Dev
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ec2
+To install this package, simply type add or install @aws-sdk/client-ec2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ec2`
