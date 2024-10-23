@@ -61,6 +61,7 @@ import {
 } from "./commands/CreateWebLoginTokenCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import { InvokeRestApiCommandInput, InvokeRestApiCommandOutput } from "./commands/InvokeRestApiCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -90,6 +91,7 @@ export type ServiceInputTypes =
   | CreateWebLoginTokenCommandInput
   | DeleteEnvironmentCommandInput
   | GetEnvironmentCommandInput
+  | InvokeRestApiCommandInput
   | ListEnvironmentsCommandInput
   | ListTagsForResourceCommandInput
   | PublishMetricsCommandInput
@@ -106,6 +108,7 @@ export type ServiceOutputTypes =
   | CreateWebLoginTokenCommandOutput
   | DeleteEnvironmentCommandOutput
   | GetEnvironmentCommandOutput
+  | InvokeRestApiCommandOutput
   | ListEnvironmentsCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishMetricsCommandOutput
@@ -349,6 +352,11 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
  *                   <li>
  *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html">InvokeRestApi</a>
  *                      </p>
  *                   </li>
  *                </ul>

@@ -67,6 +67,11 @@
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
  *                      </p>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html">InvokeRestApi</a>
+ *                      </p>
+ *                   </li>
  *                </ul>
  *             </li>
  *          </ul>

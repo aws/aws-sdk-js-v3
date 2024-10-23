@@ -73,6 +73,11 @@ AWS SDK for JavaScript MWAA Client for Node.js, Browser and React Native.
 <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
 </p>
 </li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html">InvokeRestApi</a>
+</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -83,7 +88,7 @@ AWS SDK for JavaScript MWAA Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mwaa
+To install this package, simply type add or install @aws-sdk/client-mwaa
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mwaa`
@@ -314,6 +319,14 @@ GetEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/GetEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/GetEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/GetEnvironmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+InvokeRestApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/InvokeRestApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/InvokeRestApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/InvokeRestApiCommandOutput/)
 
 </details>
 <details>

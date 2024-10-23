@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { MWAAServiceException as __BaseException } from "./MWAAServiceException";
 
 /**
@@ -191,7 +193,7 @@ export const WebserverAccessMode = {
 export type WebserverAccessMode = (typeof WebserverAccessMode)[keyof typeof WebserverAccessMode];
 
 /**
- * <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation to create an environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get started with Amazon Managed Workflows for Apache Airflow</a>.</p>
+ * <p>This section contains the Amazon Managed Workflows for Apache Airflow (Amazon MWAA) API reference documentation to create an environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get started with Amazon Managed Workflows for Apache Airflow</a>.</p>
  * @public
  */
 export interface CreateEnvironmentInput {
@@ -303,10 +305,10 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version.
-   *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
-   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>
-   *             <code>2.8.1</code>
-   *          </p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon MWAA)</a>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
+   *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
+   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
    * @public
    */
   AirflowVersion?: string;
@@ -769,7 +771,9 @@ export interface Environment {
 
   /**
    * <p>The Apache Airflow version on your environment.</p>
-   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>, <code>2.8.1</code>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
+   *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
+   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
    * @public
    */
   AirflowVersion?: string;
@@ -982,6 +986,151 @@ export interface GetEnvironmentOutput {
    * @public
    */
   Environment?: Environment;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RestApiMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type RestApiMethod = (typeof RestApiMethod)[keyof typeof RestApiMethod];
+
+/**
+ * @public
+ */
+export interface InvokeRestApiRequest {
+  /**
+   * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Apache Airflow REST API endpoint path to be called. For example,
+   *             <code>/dags/123456/clearTaskInstances</code>. For more information, see <a href="https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html">Apache Airflow API</a>
+   *          </p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The HTTP method used for making Airflow REST API calls. For example,
+   *             <code>POST</code>. </p>
+   * @public
+   */
+  Method: RestApiMethod | undefined;
+
+  /**
+   * <p>Query parameters to be included in the Apache Airflow REST API call, provided as a
+   *             JSON object. </p>
+   * @public
+   */
+  QueryParameters?: __DocumentType;
+
+  /**
+   * <p>The request body for the Apache Airflow REST API call, provided as a JSON
+   *             object.</p>
+   * @public
+   */
+  Body?: __DocumentType;
+}
+
+/**
+ * @public
+ */
+export interface InvokeRestApiResponse {
+  /**
+   * <p>The HTTP status code returned by the Apache Airflow REST API call.</p>
+   * @public
+   */
+  RestApiStatusCode?: number;
+
+  /**
+   * <p>The response data from the Apache Airflow REST API call, provided as a JSON
+   *             object.</p>
+   * @public
+   */
+  RestApiResponse?: __DocumentType;
+}
+
+/**
+ * <p>An exception indicating that a client-side error occurred during the Apache Airflow
+ *             REST API call.</p>
+ * @public
+ */
+export class RestApiClientException extends __BaseException {
+  readonly name: "RestApiClientException" = "RestApiClientException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The HTTP status code returned by the Apache Airflow REST API call.</p>
+   * @public
+   */
+  RestApiStatusCode?: number;
+
+  /**
+   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON
+   *             object.</p>
+   * @public
+   */
+  RestApiResponse?: __DocumentType;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RestApiClientException, __BaseException>) {
+    super({
+      name: "RestApiClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RestApiClientException.prototype);
+    this.RestApiStatusCode = opts.RestApiStatusCode;
+    this.RestApiResponse = opts.RestApiResponse;
+  }
+}
+
+/**
+ * <p>An exception indicating that a server-side error occurred during the Apache Airflow
+ *             REST API call.</p>
+ * @public
+ */
+export class RestApiServerException extends __BaseException {
+  readonly name: "RestApiServerException" = "RestApiServerException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The HTTP status code returned by the Apache Airflow REST API call.</p>
+   * @public
+   */
+  RestApiStatusCode?: number;
+
+  /**
+   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON
+   *             object.</p>
+   * @public
+   */
+  RestApiResponse?: __DocumentType;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RestApiServerException, __BaseException>) {
+    super({
+      name: "RestApiServerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RestApiServerException.prototype);
+    this.RestApiStatusCode = opts.RestApiStatusCode;
+    this.RestApiResponse = opts.RestApiResponse;
+  }
 }
 
 /**
@@ -1296,7 +1445,9 @@ export interface UpdateEnvironmentInput {
    * <p>The Apache Airflow version for your environment. To upgrade your environment, specify a newer version of Apache Airflow supported by Amazon MWAA.</p>
    *          <p>Before you upgrade an environment, make sure your requirements, DAGs, plugins, and other resources used in your workflows are compatible with the new Apache Airflow version. For more information about updating
    *             your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading an Amazon MWAA environment</a>.</p>
-   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>, <code>2.8.1</code>.</p>
+   *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
+   *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
+   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
    * @public
    */
   AirflowVersion?: string;
@@ -1497,6 +1648,22 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
 export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
   ...obj,
   ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeRestApiRequestFilterSensitiveLog = (obj: InvokeRestApiRequest): any => ({
+  ...obj,
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeRestApiResponseFilterSensitiveLog = (obj: InvokeRestApiResponse): any => ({
+  ...obj,
+  ...(obj.RestApiResponse && { RestApiResponse: SENSITIVE_STRING }),
 });
 
 /**

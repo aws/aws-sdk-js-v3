@@ -28,6 +28,11 @@ import {
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  InvokeRestApiCommand,
+  InvokeRestApiCommandInput,
+  InvokeRestApiCommandOutput,
+} from "./commands/InvokeRestApiCommand";
+import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
@@ -61,6 +66,7 @@ const commands = {
   CreateWebLoginTokenCommand,
   DeleteEnvironmentCommand,
   GetEnvironmentCommand,
+  InvokeRestApiCommand,
   ListEnvironmentsCommand,
   ListTagsForResourceCommand,
   PublishMetricsCommand,
@@ -147,6 +153,17 @@ export interface MWAA {
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeRestApiCommand}
+   */
+  invokeRestApi(args: InvokeRestApiCommandInput, options?: __HttpHandlerOptions): Promise<InvokeRestApiCommandOutput>;
+  invokeRestApi(args: InvokeRestApiCommandInput, cb: (err: any, data?: InvokeRestApiCommandOutput) => void): void;
+  invokeRestApi(
+    args: InvokeRestApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeRestApiCommandOutput) => void
   ): void;
 
   /**
@@ -303,6 +320,11 @@ export interface MWAA {
  *                   <li>
  *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html">InvokeRestApi</a>
  *                      </p>
  *                   </li>
  *                </ul>
