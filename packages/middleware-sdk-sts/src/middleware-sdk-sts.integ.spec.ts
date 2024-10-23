@@ -1,4 +1,5 @@
 import { STS, STSClient } from "@aws-sdk/client-sts";
+import { describe, expect, test as it } from "vitest";
 
 describe("middleware-sdk-sts", () => {
   describe(STS.name, () => {

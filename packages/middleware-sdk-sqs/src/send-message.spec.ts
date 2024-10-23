@@ -1,11 +1,12 @@
 import { ChecksumConstructor } from "@smithy/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { sendMessageMiddleware } from "./send-message";
 
 describe("sendMessageMiddleware", () => {
-  const mockHashUpdate = jest.fn();
-  const mockHashReset = jest.fn();
-  const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(1));
+  const mockHashUpdate = vi.fn();
+  const mockHashReset = vi.fn();
+  const mockHashDigest = vi.fn().mockReturnValue(new Uint8Array(1));
   const MockHash: ChecksumConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
@@ -18,7 +19,7 @@ describe("sendMessageMiddleware", () => {
   });
 
   it("should only call next once", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         MD5OfMessageBody: "00",
       },
@@ -31,7 +32,7 @@ describe("sendMessageMiddleware", () => {
   });
 
   it("should do nothing if the checksum matches", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         MD5OfMessageBody: "00",
       },
@@ -47,7 +48,7 @@ describe("sendMessageMiddleware", () => {
   });
 
   it("should throw if the checksum does not match", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         MD5OfMessageBody: "1",
       },

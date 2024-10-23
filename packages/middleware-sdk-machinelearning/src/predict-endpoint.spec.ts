@@ -1,14 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { predictEndpointMiddleware } from "./predict-endpoint";
 
 describe("predictEndpointMiddleware", () => {
-  const mockUrlParser = jest.fn().mockReturnValue({
+  const mockUrlParser = vi.fn().mockReturnValue({
     hostname: "api.example.com",
     path: "/foo/bar",
     protocol: "http:",
   });
-  const next = jest.fn();
+  const next = vi.fn();
 
   beforeEach(() => {
     mockUrlParser.mockClear();

@@ -1,3 +1,5 @@
+import { describe, test as it } from "vitest";
+
 import { s3ExpressMiddleware } from "./s3ExpressMiddleware";
 
 describe(s3ExpressMiddleware.name, () => {

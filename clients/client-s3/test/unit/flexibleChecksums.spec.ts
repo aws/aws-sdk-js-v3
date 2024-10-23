@@ -1,15 +1,11 @@
-/// <reference types="mocha" />
+import { test as it, describe, expect } from "vitest";
+
 import { ChecksumAlgorithm } from "@aws-sdk/middleware-flexible-checksums";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildMiddleware } from "@smithy/types";
-import chai from "chai";
-import chaiAsPromised from "chai-as-promised";
 import { Readable } from "stream";
 
-import { S3 } from "../../src/S3";
-
-chai.use(chaiAsPromised);
-const { expect } = chai;
+import { S3, ChecksumAlgorithm as Algo } from "../../src/index";
 
 describe("Flexible Checksums", () => {
   const testCases = [
@@ -69,11 +65,11 @@ describe("Flexible Checksums", () => {
             Bucket: "bucket",
             Key: "key",
             Body: body,
-            ChecksumAlgorithm: checksumAlgorithm,
+            ChecksumAlgorithm: checksumAlgorithm as Algo,
           });
         });
 
-        it(`when body is sent as a stream`, (done) => {
+        it(`when body is sent as a stream`, async () => {
           const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
             // middleware intercept the request and return it early
             const request = args.request as HttpRequest;
@@ -88,7 +84,6 @@ describe("Flexible Checksums", () => {
               if (stringValue.startsWith(checksumHeader)) {
                 const receivedChecksum = stringValue.replace("\r\n", "").split(":")[1];
                 expect(receivedChecksum).to.equal(checksumValue);
-                done();
               }
             });
             return { output: {} as any, response: {} as any };
@@ -101,11 +96,11 @@ describe("Flexible Checksums", () => {
           });
 
           const bodyStream = getBodyAsReadableStream(body);
-          client.putObject({
+          await client.putObject({
             Bucket: "bucket",
             Key: "key",
             Body: bodyStream,
-            ChecksumAlgorithm: checksumAlgorithm,
+            ChecksumAlgorithm: checksumAlgorithm as Algo,
           });
         });
       });

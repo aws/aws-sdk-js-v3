@@ -1,15 +1,17 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { getChecksum } from "./getChecksum";
 import { isStreaming } from "./isStreaming";
 import { stringHasher } from "./stringHasher";
 
-jest.mock("./isStreaming");
-jest.mock("./stringHasher");
+vi.mock("./isStreaming");
+vi.mock("./stringHasher");
 
 describe(getChecksum.name, () => {
   const mockOptions = {
-    streamHasher: jest.fn(),
-    checksumAlgorithmFn: jest.fn(),
-    base64Encoder: jest.fn(),
+    streamHasher: vi.fn(),
+    checksumAlgorithmFn: vi.fn(),
+    base64Encoder: vi.fn(),
   };
 
   const mockBody = "mockBody";
@@ -21,11 +23,11 @@ describe(getChecksum.name, () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("gets checksum from streamHasher if body is streaming", async () => {
-    (isStreaming as jest.Mock).mockReturnValue(true);
+    vi.mocked(isStreaming).mockReturnValue(true);
     mockOptions.streamHasher.mockResolvedValue(mockRawOutput);
     const checksum = await getChecksum(mockBody, mockOptions);
     expect(checksum).toEqual(mockOutput);
@@ -34,8 +36,8 @@ describe(getChecksum.name, () => {
   });
 
   it("gets checksum from stringHasher if body is not streaming", async () => {
-    (isStreaming as jest.Mock).mockReturnValue(false);
-    (stringHasher as jest.Mock).mockResolvedValue(mockRawOutput);
+    vi.mocked(isStreaming).mockReturnValue(false);
+    vi.mocked(stringHasher).mockResolvedValue(mockRawOutput);
     const checksum = await getChecksum(mockBody, mockOptions);
     expect(checksum).toEqual(mockOutput);
     expect(mockOptions.streamHasher).not.toHaveBeenCalled();

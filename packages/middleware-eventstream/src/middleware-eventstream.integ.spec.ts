@@ -1,6 +1,7 @@
 import { LexRuntimeV2 } from "@aws-sdk/client-lex-runtime-v2";
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -14,7 +15,7 @@ describe("middleware-eventstream", () => {
   };
 
   // TODO: http2 in CI
-  xdescribe(LexRuntimeV2.name, () => {
+  describe.skip(LexRuntimeV2.name, () => {
     it("should set streaming headers", async () => {
       const client = new LexRuntimeV2({ region: "us-west-2", logger });
 
@@ -61,7 +62,7 @@ describe("middleware-eventstream", () => {
   });
 
   // TODO: http2 in CI
-  xdescribe(TranscribeStreaming.name, () => {
+  describe.skip(TranscribeStreaming.name, () => {
     it("should set streaming headers", async () => {
       const client = new TranscribeStreaming({ region: "us-west-2", logger });
 

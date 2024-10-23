@@ -1,3 +1,5 @@
+import { describe, expect, test as it, vi } from "vitest";
+
 import { idNormalizerMiddleware } from "./id-normalizer";
 
 const prefixedProps = ["/hostedzone/ID", "/change/ID", "/delegationset/ID"];
@@ -7,7 +9,7 @@ describe("idNormalizerMiddleware", () => {
   for (const paramName of idParams) {
     for (const prefixed of prefixedProps) {
       it(`should strip the prefix from the ${paramName} parameter`, async () => {
-        const next = jest.fn();
+        const next = vi.fn();
         const input = { [paramName]: prefixed };
 
         const handler = idNormalizerMiddleware()(next, {} as any);

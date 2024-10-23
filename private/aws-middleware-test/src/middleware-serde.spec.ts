@@ -2,6 +2,7 @@ import { EC2 } from "@aws-sdk/client-ec2";
 import { S3 } from "@aws-sdk/client-s3";
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { SageMakerRuntime } from "@aws-sdk/client-sagemaker-runtime";
+import { describe, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 

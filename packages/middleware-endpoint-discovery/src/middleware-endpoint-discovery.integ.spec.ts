@@ -1,6 +1,7 @@
 import { TimestreamQuery } from "@aws-sdk/client-timestream-query";
 import { TimestreamWrite } from "@aws-sdk/client-timestream-write";
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 import { getCacheKey } from "./getCacheKey";

@@ -1,4 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./awsAuthConfiguration";
 
@@ -13,20 +14,20 @@ describe("AuthConfig", () => {
   describe("resolveAwsAuthConfig", () => {
     const inputParams = {
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
-      region: jest.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
+      region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       regionInfoProvider: () => Promise.resolve({ hostname: "foo.com", partition: "aws" }),
       serviceId: "foo",
-      sha256: jest.fn().mockReturnValue({
-        update: jest.fn(),
-        digest: jest.fn().mockReturnValue("SHA256 hash"),
+      sha256: vi.fn().mockReturnValue({
+        update: vi.fn(),
+        digest: vi.fn().mockReturnValue("SHA256 hash"),
       }),
-      credentials: jest.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
+      credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       useFipsEndpoint: () => Promise.resolve(false),
       useDualstackEndpoint: () => Promise.resolve(false),
     };
 
     beforeEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     it("should memoize custom credential provider", async () => {
@@ -44,7 +45,7 @@ describe("AuthConfig", () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
         ...inputParams,
-        credentials: jest
+        credentials: vi
           .fn()
           .mockResolvedValueOnce({
             accessKeyId: "key",
@@ -67,17 +68,17 @@ describe("AuthConfig", () => {
   describe("resolveSigV4AuthConfig", () => {
     const inputParams = {
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
-      region: jest.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
+      region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       signingName: "foo",
-      sha256: jest.fn().mockReturnValue({
-        update: jest.fn(),
-        digest: jest.fn().mockReturnValue("SHA256 hash"),
+      sha256: vi.fn().mockReturnValue({
+        update: vi.fn(),
+        digest: vi.fn().mockReturnValue("SHA256 hash"),
       }),
-      credentials: jest.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
+      credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
     };
 
     beforeEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     it("should memoize custom credential provider", async () => {
@@ -95,7 +96,7 @@ describe("AuthConfig", () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
         ...inputParams,
-        credentials: jest
+        credentials: vi
           .fn()
           .mockResolvedValueOnce({
             accessKeyId: "key",

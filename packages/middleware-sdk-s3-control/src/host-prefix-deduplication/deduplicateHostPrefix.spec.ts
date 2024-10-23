@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { deduplicateHostPrefix } from "./deduplicateHostPrefix";
 
 describe(deduplicateHostPrefix.name, () => {

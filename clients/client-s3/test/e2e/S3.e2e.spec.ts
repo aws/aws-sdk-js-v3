@@ -1,21 +1,36 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { Credentials } from "@aws-sdk/types";
+import { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import { S3, SelectObjectContentEventStream } from "../../src/index";
+import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { createBuffer } from "./helpers";
-
-const region: string | undefined = (globalThis as any).defaultRegion || process?.env?.AWS_SMOKE_TEST_REGION;
-const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
-const Bucket = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET || process?.env?.AWS_SMOKE_TEST_BUCKET;
-const mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
 let Key = `${Date.now()}`;
 
 describe("@aws-sdk/client-s3", () => {
-  const client = new S3({
-    region: region,
-    credentials,
+  let client: S3;
+  let Bucket: string;
+  let region: string;
+  let credentials: AwsCredentialIdentity;
+  let mrapArn: string;
+
+  beforeAll(async () => {
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+    credentials = (globalThis as any).credentials || undefined;
+    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+    mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
+
+    Key = ``;
+
+    client = new S3({
+      region,
+      credentials,
+    });
   });
 
   describe("PutObject", () => {
@@ -54,8 +69,7 @@ describe("@aws-sdk/client-s3", () => {
     });
   });
 
-  describe("GetObject", function () {
-    jest.setTimeout(10 * 1000);
+  describe("GetObject", () => {
     beforeAll(async () => {
       Key = `${Date.now()}`;
     });
@@ -87,7 +101,7 @@ describe("@aws-sdk/client-s3", () => {
       const { Readable } = require("stream");
       expect(result.Body).toBeInstanceOf(Readable);
     });
-  });
+  }, 10_000);
 
   describe("ListObjects", () => {
     beforeAll(async () => {

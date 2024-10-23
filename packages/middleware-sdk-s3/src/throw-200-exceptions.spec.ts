@@ -1,18 +1,19 @@
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { toUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
+import { beforeEach, describe, expect, expect, test as it, vi } from "vitest";
 
 import { throw200ExceptionsMiddleware } from "./throw-200-exceptions";
 
 describe("throw200ExceptionsMiddlewareOptions", () => {
-  const mockNextHandler = jest.fn();
-  const mockResponse = jest.fn();
+  const mockNextHandler = vi.fn();
+  const mockResponse = vi.fn();
   const mockConfig = {
     utf8Encoder: toUtf8,
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("tests for statusCode < 200 and >= 300", () => {

@@ -1,3 +1,5 @@
+import { beforeEach, describe, expect, test as it } from "vitest";
+
 import { SelectorType, stringUnionSelector } from "./stringUnionSelector";
 
 describe(stringUnionSelector.name, () => {

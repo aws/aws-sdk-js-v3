@@ -1,5 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@smithy/types";
+import { expect } from "vitest";
 
 /**
  * Instructs {@link TestHttpHandler} how to match the handled request and the expected request.

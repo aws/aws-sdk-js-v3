@@ -1,14 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { recursionDetectionMiddleware } from "./index";
 
 describe(recursionDetectionMiddleware.name, () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
   const originEnv = process.env;
   const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     process.env = {};
   });
 

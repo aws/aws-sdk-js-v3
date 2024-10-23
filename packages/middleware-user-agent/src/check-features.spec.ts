@@ -1,11 +1,12 @@
 import { AwsHandlerExecutionContext } from "@aws-sdk/types";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { checkFeatures } from "./check-features";
 
 describe(checkFeatures.name, () => {
   it("should not call the credentials provider to retrieve the identity", async () => {
     const config = {
-      credentials: jest.fn(),
+      credentials: vi.fn(),
     };
 
     const context = {

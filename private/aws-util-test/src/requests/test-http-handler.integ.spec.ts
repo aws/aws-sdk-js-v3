@@ -1,15 +1,14 @@
+import { describe, expect, test as it } from "vitest";
+
 // import { JsonProtocol } from "@aws-sdk/aws-protocoltests-json";
 // CI has difficult importing a named private client from the workspace.
 // This file remains as a code sample.
-
 import { TestHttpHandler } from "./test-http-handler";
 
 describe(TestHttpHandler.name, () => {
   it("checks requests using matchers", async () => {
     // const client = new JsonProtocol({});
-
     // expect.assertions(15);
-
     // new TestHttpHandler({
     //   method: "POST",
     //   hostname: /jsonprotocol\.(.*?)\.amazonaws\.com/,
@@ -35,7 +34,6 @@ describe(TestHttpHandler.name, () => {
     //     expect(parse.Boolean).toBe(false);
     //   },
     // }).watch(client);
-
     // await client.kitchenSinkOperation({
     //   Blob: new Uint8Array(),
     //   Boolean: false,

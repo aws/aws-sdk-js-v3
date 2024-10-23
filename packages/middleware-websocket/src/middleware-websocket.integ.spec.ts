@@ -1,4 +1,5 @@
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
+import { describe, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

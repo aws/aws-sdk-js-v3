@@ -1,17 +1,18 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { addChecksumHeadersMiddleware } from "./add-checksum-headers";
 
 describe("addChecksumHeadersMiddleware", () => {
-  const bodyChecksumGenerator = jest
+  const bodyChecksumGenerator = vi
     .fn()
     .mockReturnValue([
       "733cf513448ce6b20ad1bc5e50eb27c06aefae0c320713a5dd99f4e51bc1ca60",
       "733cf513448ce6b20ad1bc5e50eb27c06aefae0c320713a5dd99f4e51bc1ca60",
     ]);
-  const sha256 = jest.fn();
-  const utf8Decoder = jest.fn();
-  const next = jest.fn();
+  const sha256 = vi.fn();
+  const utf8Decoder = vi.fn();
+  const next = vi.fn();
 
   const minimalRequest = {
     method: "POST",
@@ -29,7 +30,7 @@ describe("addChecksumHeadersMiddleware", () => {
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("will not set content-sha256 headers if request body is empty", async () => {

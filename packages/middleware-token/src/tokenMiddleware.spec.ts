@@ -1,8 +1,9 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { tokenMiddleware } from "./tokenMiddleware";
 
-jest.mock("@smithy/protocol-http");
+vi.mock("@smithy/protocol-http");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 
@@ -11,23 +12,23 @@ describe(tokenMiddleware.name, () => {
     token: "mockAccessToken",
     expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
   };
-  const mockTokenProvider = jest.fn().mockReturnValue(Promise.resolve(mockToken));
+  const mockTokenProvider = vi.fn().mockReturnValue(Promise.resolve(mockToken));
 
   const mockOptions = {
     token: mockTokenProvider,
   };
 
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
   const mockContext = {};
   const mockArgs = { request: { headers: {} } };
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("no changes if it's not an HttpRequest", async () => {
     const { isInstance } = HttpRequest;
-    (isInstance as unknown as jest.Mock).mockReturnValue(false);
+    (isInstance as unknown as any).mockReturnValue(false);
     await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
     expect(mockNext).toHaveBeenCalledWith(mockArgs);
     expect(mockOptions.token).not.toHaveBeenCalled();
@@ -36,7 +37,7 @@ describe(tokenMiddleware.name, () => {
   describe("HttpRequest", () => {
     beforeEach(() => {
       const { isInstance } = HttpRequest;
-      (isInstance as unknown as jest.Mock).mockReturnValue(true);
+      (isInstance as unknown as any).mockReturnValue(true);
     });
 
     it("continues if token is not provided", async () => {

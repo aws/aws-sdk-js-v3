@@ -1,5 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { HttpAuthLocation, MiddlewareStack } from "@smithy/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { apiKeyMiddleware, getApiKeyPlugin } from "./index";
 
@@ -14,8 +15,8 @@ describe("getApiKeyPlugin", () => {
         name: "key",
       }
     );
-    const mockApplied = jest.fn();
-    const mockOther = jest.fn();
+    const mockApplied = vi.fn();
+    const mockOther = vi.fn();
 
     // TODO there's got to be a better way to do this mocking
     plugin.applyToStack({
@@ -39,10 +40,10 @@ describe("getApiKeyPlugin", () => {
 
 describe(apiKeyMiddleware.name, () => {
   describe("returned middleware function", () => {
-    const mockNextHandler = jest.fn();
+    const mockNextHandler = vi.fn();
 
     beforeEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     it("should set the query parameter if the location is `query`", async () => {

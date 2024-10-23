@@ -1,19 +1,20 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveEndpointDiscoveryConfig } from "./resolveEndpointDiscoveryConfig";
 
-jest.mock("@aws-sdk/endpoint-cache");
+vi.mock("@aws-sdk/endpoint-cache");
 
 describe(resolveEndpointDiscoveryConfig.name, () => {
-  const endpointDiscoveryCommandCtor = jest.fn();
+  const endpointDiscoveryCommandCtor = vi.fn();
   const mockInput = {
     isCustomEndpoint: false,
-    credentials: jest.fn(),
-    endpointDiscoveryEnabledProvider: jest.fn(),
+    credentials: vi.fn(),
+    endpointDiscoveryEnabledProvider: vi.fn(),
   };
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("assigns endpointDiscoveryCommandCtor in resolvedConfig", () => {

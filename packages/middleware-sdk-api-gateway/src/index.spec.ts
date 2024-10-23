@@ -1,12 +1,13 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { acceptHeaderMiddleware } from "./index";
 
 describe("acceptHeaderMiddleware", () => {
-  const next = jest.fn();
+  const next = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("sets Accept header to application/json", async () => {

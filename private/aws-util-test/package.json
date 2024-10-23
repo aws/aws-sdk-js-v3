@@ -10,7 +10,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "prepack": "yarn run clean && yarn run build",
-    "test:integration": "jest --coverage --passWithNoTests --config jest.config.integ.js"
+    "test:integration": "vitest run -c vitest.config.integ.ts",
+    "test:integration:watch": "vitest watch -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

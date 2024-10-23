@@ -7,4 +7,4 @@
 *.tgz
 *.log
 package-lock.json
-!jest*.config.js
+!vite*.ts
