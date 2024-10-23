@@ -344,6 +344,8 @@ export const KeyAlgorithm = {
   AES_128: "AES_128",
   AES_192: "AES_192",
   AES_256: "AES_256",
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",

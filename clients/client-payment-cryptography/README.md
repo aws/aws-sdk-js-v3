@@ -14,7 +14,7 @@ AWS SDK for JavaScript PaymentCryptography Client for Node.js, Browser and React
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-payment-cryptography
+To install this package, simply type add or install @aws-sdk/client-payment-cryptography
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-payment-cryptography`
