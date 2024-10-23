@@ -53,23 +53,23 @@ const paths = [
   // path.join(__dirname, "..", "..", "packages", "middleware-user-agent"),
   // path.join(__dirname, "..", "..", "packages", "middleware-websocket"),
   // path.join(__dirname, "..", "..", "packages", "s3-presigned-post"),
-  // path.join(__dirname, "..", "..", "private", "aws-middleware-test"),
-  // path.join(__dirname, "..", "..", "private", "aws-util-test"),
-  // path.join(__dirname, "..", "..", "private", "aws-client-api-test"),
-  // path.join(__dirname, "..", "..", "private", "aws-client-retry-test"),
-  // path.join(__dirname, "..", "..", "private", "aws-echo-service"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-ec2"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-10"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-machinelearning"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-query"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-apigateway"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-glacier"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-restxml"),
-  // path.join(__dirname, "..", "..", "private", "aws-protocoltests-smithy-rpcv2-cbor"),
-  // path.join(__dirname, "..", "..", "private", "aws-restjson-server"),
-  // path.join(__dirname, "..", "..", "private", "aws-restjson-validation-server"),
+  path.join(__dirname, "..", "..", "private", "aws-middleware-test"),
+  path.join(__dirname, "..", "..", "private", "aws-util-test"),
+  path.join(__dirname, "..", "..", "private", "aws-client-api-test"),
+  path.join(__dirname, "..", "..", "private", "aws-client-retry-test"),
+  path.join(__dirname, "..", "..", "private", "aws-echo-service"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-ec2"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-10"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-machinelearning"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-query"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-apigateway"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-glacier"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restxml"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-smithy-rpcv2-cbor"),
+  path.join(__dirname, "..", "..", "private", "aws-restjson-server"),
+  path.join(__dirname, "..", "..", "private", "aws-restjson-validation-server"),
 ];
 
 (async () => {
@@ -77,8 +77,11 @@ const paths = [
     const pkgJson = require(path.join(folder, "package.json"));
 
     if (pkgJson.scripts.test) {
-      fs.rmSync(path.join(folder, "jest.config.js"));
-      if (pkgJson.scripts.test.includes("jest")) {
+      if (fs.existsSync(path.join(folder, "jest.config.js"))) {
+        fs.rmSync(path.join(folder, "jest.config.js"));
+      }
+
+      if (pkgJson.scripts.test.includes("jest") || pkgJson.scripts.test.includes("vitest")) {
         console.log("setting unit test to vitest");
 
         pkgJson.scripts.test = "vitest run";
@@ -97,19 +100,23 @@ const paths = [
   `
         );
       } else if (pkgJson.scripts.test.includes("vitest")) {
-        pkgJson.scripts["test:watch"] ??= "vitest watch --passWithNot";
+        pkgJson.scripts["test:watch"] ??= "vitest watch --passWithNoTests";
       }
     }
 
     for (const testType of ["integ", "e2e"]) {
       const script = testType === "integ" ? "integration" : testType;
+      if (fs.existsSync(path.join(folder, `jest.config.${testType}.js`))) {
+        fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
+      }
       if (pkgJson.scripts[`test:${script}`]) {
         pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.ts`;
-        if (pkgJson.scripts[`test:${script}`].includes("jest")) {
+        if (
+          pkgJson.scripts[`test:${script}`].includes("jest") ||
+          pkgJson.scripts[`test:${script}`].includes("vitest")
+        ) {
           console.log(`setting ${testType} test to vitest`);
-
           pkgJson.scripts[`test:${script}`] = `vitest run -c vitest.config.${testType}.ts`;
-          fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
           fs.writeFileSync(
             path.join(folder, `vitest.config.${testType}.ts`),
             `import { defineConfig } from "vitest/config";
