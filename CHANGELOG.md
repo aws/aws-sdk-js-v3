@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+
+### Bug Fixes
+
+* update error messge to NumberValue ([#6579](https://github.com/aws/aws-sdk-js-v3/issues/6579)) ([1902196](https://github.com/aws/aws-sdk-js-v3/commit/1902196a2a13e46cdcd44ef0f6be82dc8d8dd5b8))
+
+
+### Features
+
+* **client-connect:** Amazon Connect Service Feature: Add support to start screen sharing for a web calling contact. ([aa53886](https://github.com/aws/aws-sdk-js-v3/commit/aa53886739c6929e8e49d620ca9699e688e7270b))
+* **client-ec2:** Amazon EC2 X8g, C8g and M8g instances are powered by AWS Graviton4 processors. X8g provide the lowest cost per GiB of memory among Graviton4 instances. C8g provide the best price performance for compute-intensive workloads. M8g provide the best price performance in for general purpose workloads. ([fe1251e](https://github.com/aws/aws-sdk-js-v3/commit/fe1251ec777e4ad3ecce38427dfda02d6cb774a5))
+* **client-mwaa:** Introducing InvokeRestApi which allows users to invoke the Apache Airflow REST API on the webserver with the specified inputs. ([180dd23](https://github.com/aws/aws-sdk-js-v3/commit/180dd234729a580f5541fd48881e538a03ce7d23))
+* **client-payment-cryptography-data:** Add ECDH support on PIN operations. ([2f74e23](https://github.com/aws/aws-sdk-js-v3/commit/2f74e23b71cd5960b1ac0404ce39d62a42a3aa64))
+* **client-payment-cryptography:** Add support for ECC P-256 and P-384 Keys. ([e4119ab](https://github.com/aws/aws-sdk-js-v3/commit/e4119ab14f52e6cd715363fae3cc24d61bd60a91))
+* **clients:** update client endpoints as of 2024-10-23 ([a03b3ee](https://github.com/aws/aws-sdk-js-v3/commit/a03b3eec0debf494171c38754b72c7bbfe8e51d3))
+
+
+
+
+
 # [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
 
 

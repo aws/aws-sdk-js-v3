@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Add ECDH support on PIN operations. ([2f74e23](https://github.com/aws/aws-sdk-js-v3/commit/2f74e23b71cd5960b1ac0404ce39d62a42a3aa64))
+
+
+
+
+
 # [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

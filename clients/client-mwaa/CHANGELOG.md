@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+
+### Features
+
+* **client-mwaa:** Introducing InvokeRestApi which allows users to invoke the Apache Airflow REST API on the webserver with the specified inputs. ([180dd23](https://github.com/aws/aws-sdk-js-v3/commit/180dd234729a580f5541fd48881e538a03ce7d23))
+
+
+
+
+
 # [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa
