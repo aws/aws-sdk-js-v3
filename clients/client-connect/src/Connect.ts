@@ -924,6 +924,11 @@ import {
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
 import {
+  StartScreenSharingCommand,
+  StartScreenSharingCommandInput,
+  StartScreenSharingCommandOutput,
+} from "./commands/StartScreenSharingCommand";
+import {
   StartTaskContactCommand,
   StartTaskContactCommandInput,
   StartTaskContactCommandOutput,
@@ -1402,6 +1407,7 @@ const commands = {
   StartContactStreamingCommand,
   StartOutboundChatContactCommand,
   StartOutboundVoiceContactCommand,
+  StartScreenSharingCommand,
   StartTaskContactCommand,
   StartWebRTCContactCommand,
   StopContactCommand,
@@ -4568,6 +4574,23 @@ export interface Connect {
     args: StartOutboundVoiceContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartScreenSharingCommand}
+   */
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartScreenSharingCommandOutput>;
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    cb: (err: any, data?: StartScreenSharingCommandOutput) => void
+  ): void;
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartScreenSharingCommandOutput) => void
   ): void;
 
   /**

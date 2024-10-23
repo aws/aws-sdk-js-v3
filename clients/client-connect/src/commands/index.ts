@@ -196,6 +196,7 @@ export * from "./StartContactRecordingCommand";
 export * from "./StartContactStreamingCommand";
 export * from "./StartOutboundChatContactCommand";
 export * from "./StartOutboundVoiceContactCommand";
+export * from "./StartScreenSharingCommand";
 export * from "./StartTaskContactCommand";
 export * from "./StartWebRTCContactCommand";
 export * from "./StopContactCommand";

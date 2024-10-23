@@ -572,6 +572,7 @@ import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "../commands/StartOutboundVoiceContactCommand";
+import { StartScreenSharingCommandInput, StartScreenSharingCommandOutput } from "../commands/StartScreenSharingCommand";
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "../commands/StartTaskContactCommand";
 import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "../commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "../commands/StopContactCommand";
@@ -770,7 +771,6 @@ import {
   AllowedCapabilities,
   Application,
   AssignContactCategoryActionDefinition,
-  AttributeCondition,
   AudioQualityMetricsInfo,
   AuthenticationProfile,
   Campaign,
@@ -871,6 +871,7 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
+  AttributeCondition,
   AuthenticationProfileSummary,
   ContactFilter,
   ContactFlowNotPublishedException,
@@ -5366,6 +5367,30 @@ export const se_StartOutboundVoiceContactCommand = async (
       RelatedContactId: [],
       SourcePhoneNumber: [],
       TrafficType: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartScreenSharingCommand
+ */
+export const se_StartScreenSharingCommand = async (
+  input: StartScreenSharingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/screen-sharing");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactId: [],
+      InstanceId: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -10939,6 +10964,23 @@ export const de_StartOutboundVoiceContactCommand = async (
     ContactId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartScreenSharingCommand
+ */
+export const de_StartScreenSharingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartScreenSharingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 

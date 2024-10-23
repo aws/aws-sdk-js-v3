@@ -6,9 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest } from "../models/models_1";
-import { ListTagsForResourceResponse } from "../models/models_2";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_2";
+import { de_StartScreenSharingCommand, se_StartScreenSharingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -18,45 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link StartScreenSharingCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface StartScreenSharingCommandInput extends StartScreenSharingRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link StartScreenSharingCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface StartScreenSharingCommandOutput extends StartScreenSharingResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource.</p>
- *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
- *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
+ * <p>Starts screen sharing for a contact. For more information about screen sharing, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
+ *    video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListTagsForResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListTagsForResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartScreenSharingCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, StartScreenSharingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // StartScreenSharingRequest
+ *   ClientToken: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new StartScreenSharingCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param StartScreenSharingCommandInput - {@link StartScreenSharingCommandInput}
+ * @returns {@link StartScreenSharingCommandOutput}
+ * @see {@link StartScreenSharingCommandInput} for command's `input` shape.
+ * @see {@link StartScreenSharingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -78,10 +76,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class StartScreenSharingCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    StartScreenSharingCommandInput,
+    StartScreenSharingCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +91,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ListTagsForResource", {})
-  .n("ConnectClient", "ListTagsForResourceCommand")
+  .s("AmazonConnectService", "StartScreenSharing", {})
+  .n("ConnectClient", "StartScreenSharingCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_StartScreenSharingCommand)
+  .de(de_StartScreenSharingCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: StartScreenSharingRequest;
+      output: {};
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: StartScreenSharingCommandInput;
+      output: StartScreenSharingCommandOutput;
     };
   };
 }

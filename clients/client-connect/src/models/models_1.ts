@@ -32,6 +32,7 @@ import {
   LexBot,
   LexV2Bot,
   ListFlowAssociationResourceType,
+  MatchCriteria,
   MediaConcurrency,
   OutboundCallerConfig,
   ParticipantRole,
@@ -57,6 +58,42 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>An object to specify the predefined attribute condition.</p>
+ * @public
+ */
+export interface AttributeCondition {
+  /**
+   * <p>The name of predefined attribute.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of predefined attribute.</p>
+   * @public
+   */
+  Value?: string;
+
+  /**
+   * <p>The proficiency level of the condition.</p>
+   * @public
+   */
+  ProficiencyLevel?: number;
+
+  /**
+   * <p>An object to define <code>AgentsCriteria</code>.</p>
+   * @public
+   */
+  MatchCriteria?: MatchCriteria;
+
+  /**
+   * <p>The operator of the condition.</p>
+   * @public
+   */
+  ComparisonOperator?: string;
+}
 
 /**
  * @public
@@ -3025,8 +3062,7 @@ export interface DisassociateSecurityKeyRequest {
 export interface DisassociateTrafficDistributionGroupUserRequest {
   /**
    * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
+   * This can be the ID or the ARN of the traffic distribution group.</p>
    * @public
    */
   TrafficDistributionGroupId: string | undefined;
@@ -4626,35 +4662,52 @@ export interface IntervalDetails {
 export interface MetricFilterV2 {
   /**
    * <p>The key to use for filtering data. </p>
-   *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>.
-   *    These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code>
-   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator Guide</i>.
-   *   </p>
+   *          <p>Valid metric filter keys: </p>
+   *          <ul>
+   *             <li>
+   *                <p>ANSWERING_MACHINE_DETECTION_STATUS</p>
+   *             </li>
+   *             <li>
+   *                <p>CASE_STATUS</p>
+   *             </li>
+   *             <li>
+   *                <p>DISCONNECT_REASON</p>
+   *             </li>
+   *             <li>
+   *                <p>FLOWS_ACTION_IDENTIFIER</p>
+   *             </li>
+   *             <li>
+   *                <p>FLOWS_NEXT_ACTION_IDENTIFIER</p>
+   *             </li>
+   *             <li>
+   *                <p>FLOWS_OUTCOME_TYPE</p>
+   *             </li>
+   *             <li>
+   *                <p>FLOWS_RESOURCE_TYPE</p>
+   *             </li>
+   *             <li>
+   *                <p>INITIATION_METHOD</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   MetricFilterKey?: string;
 
   /**
-   * <p>The values to use for filtering data. </p>
-   *          <p>Valid metric filter values for <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
-   *     <code>OUTBOUND</code> | <code>TRANSFER</code> | <code>QUEUE_TRANSFER</code> |
-   *     <code>CALLBACK</code> | <code>API</code> | <code>WEBRTC_API</code> | <code>MONITOR</code> |
-   *     <code>DISCONNECT</code> | <code>EXTERNAL_OUTBOUND</code>
-   *          </p>
-   *          <p>Valid metric filter values for <code>DISCONNECT_REASON</code>:
-   *     <code>CUSTOMER_DISCONNECT</code> | <code>AGENT_DISCONNECT</code> |
-   *     <code>THIRD_PARTY_DISCONNECT</code> | <code>TELECOM_PROBLEM</code> | <code>BARGED</code> |
-   *     <code>CONTACT_FLOW_DISCONNECT</code> | <code>OTHER</code> | <code>EXPIRED</code> |
-   *     <code>API</code>
-   *          </p>
+   * <p>The values to use for filtering data. Values for metric-level filters can be either a fixed
+   *    set of values or a customized list, depending on the use case.</p>
+   *          <p>For valid values of metric-level filters <code>INITIATION_METHOD</code>,
+   *     <code>DISCONNECT_REASON</code>, and <code>ANSWERING_MACHINE_DETECTION_STATUS</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *          <p>For valid values of the metric-level filter <code>FLOWS_OUTCOME_TYPE</code>, see the description
+   *    for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#flows-outcome-historical">Flow outcome</a> metric in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    * @public
    */
   MetricFilterValues?: string[];
 
   /**
-   * <p>The flag to use to filter on requested metric filter values or to not filter on requested
-   *    metric filter values. By default the negate is <code>false</code>, which indicates to filter on
-   *    the requested metric filter. </p>
+   * <p>If set to <code>true</code>, the API response contains results that filter out the results matched
+   *    by the metric-level filters condition. By default, <code>Negate</code> is set to <code>false</code>. </p>
    * @public
    */
   Negate?: boolean;
@@ -5016,7 +5069,7 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-avg-agent-api-connecting-time">Average agent API connecting time</a>
    *                </p>
    *                <note>
-   *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this
+   *                   <p>The <code>Negate</code> key in metric-level filters is not applicable for this
    *        metric.</p>
    *                </note>
    *             </dd>
@@ -5383,7 +5436,7 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
    *       Q in Connect</p>
-   *                <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
    *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
    *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-resolved-historical">Contacts resolved in X</a>
@@ -5636,7 +5689,7 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-agent-api-connecting-time">Agent API connecting time</a>
    *                </p>
    *                <note>
-   *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this
+   *                   <p>The <code>Negate</code> key in metric-level filters is not applicable for this
    *        metric.</p>
    *                </note>
    *             </dd>
@@ -9854,17 +9907,6 @@ export interface ListTagsForResourceRequest {
    * @public
    */
   resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Information about the tags.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
 }
 
 /**

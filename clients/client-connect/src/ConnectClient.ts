@@ -589,6 +589,7 @@ import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
+import { StartScreenSharingCommandInput, StartScreenSharingCommandOutput } from "./commands/StartScreenSharingCommand";
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "./commands/StartTaskContactCommand";
 import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "./commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
@@ -983,6 +984,7 @@ export type ServiceInputTypes =
   | StartContactStreamingCommandInput
   | StartOutboundChatContactCommandInput
   | StartOutboundVoiceContactCommandInput
+  | StartScreenSharingCommandInput
   | StartTaskContactCommandInput
   | StartWebRTCContactCommandInput
   | StopContactCommandInput
@@ -1244,6 +1246,7 @@ export type ServiceOutputTypes =
   | StartContactStreamingCommandOutput
   | StartOutboundChatContactCommandOutput
   | StartOutboundVoiceContactCommandOutput
+  | StartScreenSharingCommandOutput
   | StartTaskContactCommandOutput
   | StartWebRTCContactCommandOutput
   | StopContactCommandOutput

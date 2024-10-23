@@ -90,6 +90,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       },
  * //       Capabilities: { // ParticipantCapabilities
  * //         Video: "SEND",
+ * //         ScreenShare: "SEND",
  * //       },
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
@@ -172,6 +173,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       },
  * //       Capabilities: {
  * //         Video: "SEND",
+ * //         ScreenShare: "SEND",
  * //       },
  * //     },
  * //     Campaign: { // Campaign

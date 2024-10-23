@@ -453,6 +453,19 @@ export interface AgentHierarchyGroups {
  * @public
  * @enum
  */
+export const ScreenShareCapability = {
+  SEND: "SEND",
+} as const;
+
+/**
+ * @public
+ */
+export type ScreenShareCapability = (typeof ScreenShareCapability)[keyof typeof ScreenShareCapability];
+
+/**
+ * @public
+ * @enum
+ */
 export const VideoCapability = {
   SEND: "SEND",
 } as const;
@@ -463,17 +476,24 @@ export const VideoCapability = {
 export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
 
 /**
- * <p>The configuration for the allowed capabilities for participants present over the
- *    call.</p>
+ * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
+ *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
+ *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @public
  */
 export interface ParticipantCapabilities {
   /**
-   * <p>The configuration having the video sharing capabilities for participants over the
+   * <p>The configuration having the video and screen sharing capabilities for participants over the
    *    call.</p>
    * @public
    */
   Video?: VideoCapability;
+
+  /**
+   * <p>The screen sharing capability that is enabled for the participant. <code>SEND</code> indicates the participant can share their screen.</p>
+   * @public
+   */
+  ScreenShare?: ScreenShareCapability;
 }
 
 /**
@@ -573,8 +593,9 @@ export interface AgentInfo {
   DeviceInfo?: DeviceInfo;
 
   /**
-   * <p>The configuration for the allowed capabilities for participants present over the
-   *    call.</p>
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
+   *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
+   *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   Capabilities?: ParticipantCapabilities;
@@ -1772,8 +1793,7 @@ export interface AssociateSecurityKeyResponse {
 export interface AssociateTrafficDistributionGroupUserRequest {
   /**
    * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
+   * This can be the ID or the ARN of the traffic distribution group.</p>
    * @public
    */
   TrafficDistributionGroupId: string | undefined;
@@ -5453,8 +5473,7 @@ export interface CreateTrafficDistributionGroupRequest {
 export interface CreateTrafficDistributionGroupResponse {
   /**
    * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
+   * This can be the ID or the ARN of the traffic distribution group.</p>
    * @public
    */
   Id?: string;
@@ -6589,8 +6608,7 @@ export interface DeleteTaskTemplateResponse {}
 export interface DeleteTrafficDistributionGroupRequest {
   /**
    * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
+   * This can be the ID or the ARN of the traffic distribution group.</p>
    * @public
    */
   TrafficDistributionGroupId: string | undefined;
@@ -6961,8 +6979,9 @@ export interface Customer {
   DeviceInfo?: DeviceInfo;
 
   /**
-   * <p>The configuration for the allowed capabilities for participants present over the
-   *    call.</p>
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
+   *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
+   *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   Capabilities?: ParticipantCapabilities;
@@ -7076,42 +7095,6 @@ export interface MatchCriteria {
    * @public
    */
   AgentsCriteria?: AgentsCriteria;
-}
-
-/**
- * <p>An object to specify the predefined attribute condition.</p>
- * @public
- */
-export interface AttributeCondition {
-  /**
-   * <p>The name of predefined attribute.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The value of predefined attribute.</p>
-   * @public
-   */
-  Value?: string;
-
-  /**
-   * <p>The proficiency level of the condition.</p>
-   * @public
-   */
-  ProficiencyLevel?: number;
-
-  /**
-   * <p>An object to define <code>AgentsCriteria</code>.</p>
-   * @public
-   */
-  MatchCriteria?: MatchCriteria;
-
-  /**
-   * <p>The operator of the condition.</p>
-   * @public
-   */
-  ComparisonOperator?: string;
 }
 
 /**

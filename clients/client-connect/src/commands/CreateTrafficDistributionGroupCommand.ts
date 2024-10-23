@@ -33,7 +33,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
+ * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated.</p>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the

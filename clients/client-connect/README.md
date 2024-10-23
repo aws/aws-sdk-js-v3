@@ -33,7 +33,7 @@ a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/gen
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connect
+To install this package, simply type add or install @aws-sdk/client-connect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connect`
@@ -1800,6 +1800,14 @@ StartOutboundVoiceContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartOutboundVoiceContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundVoiceContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundVoiceContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartScreenSharing
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartScreenSharingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartScreenSharingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartScreenSharingCommandOutput/)
 
 </details>
 <details>

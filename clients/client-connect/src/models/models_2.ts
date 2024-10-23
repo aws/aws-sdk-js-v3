@@ -14,7 +14,6 @@ import {
   AllowedCapabilities,
   AnsweringMachineDetectionStatus,
   Application,
-  AttributeCondition,
   Campaign,
   Channel,
   ContactFlowStatus,
@@ -70,6 +69,7 @@ import {
 } from "./models_0";
 
 import {
+  AttributeCondition,
   ContactFlow,
   ContactFlowModule,
   ContactFlowModuleState,
@@ -98,6 +98,17 @@ import {
   TrafficDistributionGroupStatus,
   WisdomInfo,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Information about the tags.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
 
 /**
  * @public
@@ -3891,6 +3902,37 @@ export interface StartOutboundVoiceContactResponse {
    */
   ContactId?: string;
 }
+
+/**
+ * @public
+ */
+export interface StartScreenSharingRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartScreenSharingResponse {}
 
 /**
  * @public

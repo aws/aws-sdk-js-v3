@@ -51,9 +51,11 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  *   AllowedCapabilities: { // AllowedCapabilities
  *     Customer: { // ParticipantCapabilities
  *       Video: "SEND",
+ *       ScreenShare: "SEND",
  *     },
  *     Agent: {
  *       Video: "SEND",
+ *       ScreenShare: "SEND",
  *     },
  *   },
  *   ParticipantDetails: { // ParticipantDetails
