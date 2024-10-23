@@ -3324,7 +3324,7 @@ export interface GetImportedModelResponse {
   modelKmsKeyArn?: string;
 
   /**
-   * <p>Specifies if the imported model supports fine tuning.</p>
+   * <p>Specifies if the imported model supports converse.</p>
    * @public
    */
   instructSupported?: boolean;
@@ -3524,7 +3524,7 @@ export interface ImportedModelSummary {
   creationTime: Date | undefined;
 
   /**
-   * <p>Specifies if the imported model supports fine tuning.</p>
+   * <p>Specifies if the imported model supports converse.</p>
    * @public
    */
   instructSupported?: boolean;
