@@ -8,7 +8,7 @@ AWS SDK for JavaScript MachineLearning Client for Node.js, Browser and React Nat
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-json-machinelearning
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-json-machinelearning
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-json-machinelearning`

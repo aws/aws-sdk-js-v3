@@ -7,7 +7,6 @@ const paths = [
   // path.join(__dirname, "..", "..", "clients", "client-s3"),
   // path.join(__dirname, "..", "..", "clients", "client-sts"),
   // path.join(__dirname, "..", "..", "clients", "client-transcribe-streaming"),
-
   // path.join(__dirname, "..", "..", "lib", "lib-dynamodb"),
   // path.join(__dirname, "..", "..", "lib", "lib-storage"),
   // path.join(__dirname, "..", "..", "packages", "body-checksum-browser"),
@@ -27,7 +26,6 @@ const paths = [
   // path.join(__dirname, "..", "..", "packages", "ec2-metadata-service"),
   // path.join(__dirname, "..", "..", "packages", "endpoint-cache"),
   // path.join(__dirname, "..", "..", "packages", "eventstream-handler-node"),
-
   // path.join(__dirname, "..", "..", "packages", "middleware-api-key"),
   // path.join(__dirname, "..", "..", "packages", "middleware-bucket-endpoint"),
   // path.join(__dirname, "..", "..", "packages", "middleware-endpoint-discovery"),
@@ -54,59 +52,86 @@ const paths = [
   // path.join(__dirname, "..", "..", "packages", "middleware-token"),
   // path.join(__dirname, "..", "..", "packages", "middleware-user-agent"),
   // path.join(__dirname, "..", "..", "packages", "middleware-websocket"),
-
   // path.join(__dirname, "..", "..", "packages", "s3-presigned-post"),
-
-  // path.join(__dirname, "..", "..", "private", "aws-middleware-test"),
+  path.join(__dirname, "..", "..", "private", "aws-middleware-test"),
   path.join(__dirname, "..", "..", "private", "aws-util-test"),
+  path.join(__dirname, "..", "..", "private", "aws-client-api-test"),
+  path.join(__dirname, "..", "..", "private", "aws-client-retry-test"),
+  path.join(__dirname, "..", "..", "private", "aws-echo-service"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-ec2"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-10"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-json-machinelearning"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-query"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-apigateway"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restjson-glacier"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-restxml"),
+  path.join(__dirname, "..", "..", "private", "aws-protocoltests-smithy-rpcv2-cbor"),
+  path.join(__dirname, "..", "..", "private", "aws-restjson-server"),
+  path.join(__dirname, "..", "..", "private", "aws-restjson-validation-server"),
 ];
 
 (async () => {
   for (const folder of paths) {
     const pkgJson = require(path.join(folder, "package.json"));
+    const isPrivate = folder.includes("/private/");
+    let configExtension = "ts";
+    if (folder.includes("/private/")) {
+      configExtension = "js";
+    }
 
     if (pkgJson.scripts.test) {
-      if (pkgJson.scripts.test.includes("jest")) {
+      if (fs.existsSync(path.join(folder, "jest.config.js"))) {
+        fs.rmSync(path.join(folder, "jest.config.js"));
+      }
+
+      if (pkgJson.scripts.test.includes("jest") || pkgJson.scripts.test.includes("vitest")) {
         console.log("setting unit test to vitest");
 
         pkgJson.scripts.test = "vitest run";
         pkgJson.scripts["test:watch"] = "vitest watch";
-        fs.rmSync(path.join(folder, "jest.config.js"));
         fs.writeFileSync(
-          path.join(folder, "vitest.config.ts"),
+          path.join(folder, `vitest.config.${configExtension}`),
           `import { defineConfig } from "vitest/config";
 
   export default defineConfig({
     test: {
-      exclude: ["**/*.{integ,e2e,browser}.spec.{ts,js}"],
-      include: ["**/*.spec.{ts,js}"],
+      exclude: ["**/*.{integ,e2e,browser}.spec.ts"],
+      include: ["**/*.spec.ts"],
       environment: "node",
+      ${isPrivate ? "globals: true,\n" : ""}
     },
   });
   `
         );
       } else if (pkgJson.scripts.test.includes("vitest")) {
-        pkgJson.scripts["test:watch"] ??= "vitest watch --passWithNot";
+        pkgJson.scripts["test:watch"] ??= "vitest watch --passWithNoTests";
       }
     }
 
     for (const testType of ["integ", "e2e"]) {
       const script = testType === "integ" ? "integration" : testType;
+      if (fs.existsSync(path.join(folder, `jest.config.${testType}.js`))) {
+        fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
+      }
       if (pkgJson.scripts[`test:${script}`]) {
-        pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.ts`;
-        if (pkgJson.scripts[`test:${script}`].includes("jest")) {
+        pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.${configExtension}`;
+        if (
+          pkgJson.scripts[`test:${script}`].includes("jest") ||
+          pkgJson.scripts[`test:${script}`].includes("vitest")
+        ) {
           console.log(`setting ${testType} test to vitest`);
-
-          pkgJson.scripts[`test:${script}`] = `vitest run -c vitest.config.${testType}.ts`;
-          fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
+          pkgJson.scripts[`test:${script}`] = `vitest run -c vitest.config.${testType}.${configExtension}`;
           fs.writeFileSync(
-            path.join(folder, `vitest.config.${testType}.ts`),
+            path.join(folder, `vitest.config.${testType}.${configExtension}`),
             `import { defineConfig } from "vitest/config";
 
     export default defineConfig({
       test: {
-        include: ["**/*.${testType}.spec.{ts,js}"],
+        include: ["**/*.${testType}.spec.ts"],
         environment: "node",
+        ${isPrivate ? "globals: true,\n" : ""}
       },
     });
     `
@@ -116,6 +141,10 @@ const paths = [
     }
 
     fs.writeFileSync(path.join(folder, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+
+    if (isPrivate) {
+      continue;
+    }
 
     for await (const file of walk(path.join(folder))) {
       if (file.endsWith(".spec.ts")) {

@@ -1,7 +1,8 @@
+import { test as it, describe, expect } from "vitest";
+
 import { AccessAnalyzer } from "@aws-sdk/client-accessanalyzer";
 import { S3 } from "@aws-sdk/client-s3";
 import { XRay } from "@aws-sdk/client-xray";
-import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

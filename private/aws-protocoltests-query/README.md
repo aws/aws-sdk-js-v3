@@ -10,7 +10,7 @@ A query service that sends query requests and XML responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-query
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-query
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-query`

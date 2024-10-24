@@ -2,7 +2,9 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    include: ["**/*.integ.spec.{ts,js}"],
+    exclude: ["**/*.{integ,e2e,browser}.spec.ts"],
+    include: ["**/*.spec.ts"],
     environment: "node",
+    globals: true,
   },
 });

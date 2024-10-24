@@ -1,5 +1,6 @@
+import { test as it, describe, expect } from "vitest";
+
 import { Lambda } from "@aws-sdk/client-lambda";
-import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 

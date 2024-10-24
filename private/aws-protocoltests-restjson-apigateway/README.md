@@ -8,7 +8,7 @@ AWS SDK for JavaScript APIGateway Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-protocoltests-restjson-apigateway
+To install this package, simply type add or install @aws-sdk/aws-protocoltests-restjson-apigateway
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-protocoltests-restjson-apigateway`
