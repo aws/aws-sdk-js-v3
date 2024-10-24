@@ -144,7 +144,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
  *           deleteOnTermination: true || false, // required
  *         },
- *         filesystemType: "ext3" || "ext4" || "xfs",
+ *         filesystemType: "ext3" || "ext4" || "xfs" || "ntfs",
  *       },
  *     },
  *   ],

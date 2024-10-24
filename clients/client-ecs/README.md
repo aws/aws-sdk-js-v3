@@ -23,7 +23,7 @@ You also don't need to worry about scaling your management infrastructure. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ecs
+To install this package, simply type add or install @aws-sdk/client-ecs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ecs`

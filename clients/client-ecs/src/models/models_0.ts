@@ -2494,6 +2494,7 @@ export interface ServiceRegistry {
 export const TaskFilesystemType = {
   EXT3: "ext3",
   EXT4: "ext4",
+  NTFS: "ntfs",
   XFS: "xfs",
 } as const;
 
@@ -2544,9 +2545,10 @@ export interface EBSTagSpecification {
 }
 
 /**
- * <p>The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf.
- * 			These settings are used to create each Amazon EBS volume, with one volume created for each
- * 			task in the service.</p>
+ * <p>The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These
+ * 			settings are used to create each Amazon EBS volume, with one volume created for each task in
+ * 			the service. For information about the supported launch types and operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration">Supported operating systems and launch types</a>
+ * 			in the<i> Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>Many of these parameters map 1:1 with the Amazon EBS <code>CreateVolume</code> API request
  * 			parameters.</p>
  * @public
@@ -2707,12 +2709,13 @@ export interface ServiceManagedEBSVolumeConfiguration {
   roleArn: string | undefined;
 
   /**
-   * <p>The Linux filesystem type for the volume. For volumes created from a snapshot, you
-   * 			must specify the same filesystem type that the volume was using when the snapshot was
-   * 			created. If there is a filesystem type mismatch, the task will fail to start.</p>
-   *          <p>The available filesystem types are  <code>ext3</code>, <code>ext4</code>, and
+   * <p>The filesystem type for the volume. For volumes created from a snapshot, you must specify
+   * 			the same filesystem type that the volume was using when the snapshot was created. If
+   * 			there is a filesystem type mismatch, the task will fail to start.</p>
+   *          <p>The available Linux filesystem types are  <code>ext3</code>, <code>ext4</code>, and
    * 				<code>xfs</code>. If no value is specified, the <code>xfs</code> filesystem type is
    * 			used by default.</p>
+   *          <p>The available Windows filesystem types are <code>NTFS</code>.</p>
    * @public
    */
   filesystemType?: TaskFilesystemType;
@@ -5013,7 +5016,7 @@ export interface HealthCheck {
    *             <code> CMD-SHELL, curl -f http://localhost/ || exit 1</code>
    *          </p>
    *          <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
-   * 			more information, see <code>HealthCheck</code> in the docker container create command</p>
+   * 			more information, see <code>HealthCheck</code> in the docker container create command.</p>
    * @public
    */
   command: string[] | undefined;

@@ -286,7 +286,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //                 },
  * //               ],
  * //               roleArn: "STRING_VALUE", // required
- * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //               filesystemType: "ext3" || "ext4" || "xfs" || "ntfs",
  * //             },
  * //           },
  * //         ],
