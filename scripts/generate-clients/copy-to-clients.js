@@ -229,7 +229,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           },
         };
         if (!mergedManifest.scripts.test) {
-          mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
+          mergedManifest.scripts.test = "jest";
         }
         if (mergedManifest.private) {
           // don't generate documentation for private packages

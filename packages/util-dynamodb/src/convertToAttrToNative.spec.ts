@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 /**
  * @jest-environment jsdom
  */

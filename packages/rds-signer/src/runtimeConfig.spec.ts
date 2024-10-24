@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 import { getRuntimeConfig as getRnRuntimeConfig } from "./runtimeConfig.native";
 import { SignerConfig } from "./Signer";

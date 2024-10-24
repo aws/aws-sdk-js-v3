@@ -1,25 +1,24 @@
-import { isValidHostLabel } from "@smithy/util-endpoints";
+import { isIpAddress, isValidHostLabel } from "@smithy/util-endpoints";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { isIpAddress } from "../isIpAddress";
 import { isVirtualHostableS3Bucket } from "./isVirtualHostableS3Bucket";
 
-jest.mock("../isIpAddress");
-jest.mock("@smithy/util-endpoints");
+vi.mock("@smithy/util-endpoints");
 
 describe(isVirtualHostableS3Bucket.name, () => {
   const mockValue = "mockvalue";
 
   beforeEach(() => {
-    (isIpAddress as jest.Mock).mockReturnValue(false);
-    (isValidHostLabel as jest.Mock).mockReturnValue(true);
+    vi.mocked(isIpAddress).mockReturnValue(false);
+    vi.mocked(isValidHostLabel).mockReturnValue(true);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("returns false if value is not a valid host label", () => {
-    (isValidHostLabel as jest.Mock).mockReturnValue(false);
+    vi.mocked(isValidHostLabel).mockReturnValue(false);
     expect(isVirtualHostableS3Bucket(mockValue)).toBe(false);
     expect(isValidHostLabel).toHaveBeenCalledWith(mockValue);
     expect(isIpAddress).not.toHaveBeenCalled();
@@ -47,7 +46,7 @@ describe(isVirtualHostableS3Bucket.name, () => {
   });
 
   it("returns false if value is an IP address", () => {
-    (isIpAddress as jest.Mock).mockReturnValue(true);
+    vi.mocked(isIpAddress).mockReturnValue(true);
     expect(isVirtualHostableS3Bucket(mockValue)).toBe(false);
     expect(isValidHostLabel).toHaveBeenCalledWith(mockValue);
     expect(isIpAddress).toHaveBeenCalledWith(mockValue);
@@ -80,8 +79,8 @@ describe(isVirtualHostableS3Bucket.name, () => {
       const mockValueWithSubdomain = `${mockValue}.${mockSubdomain}`;
 
       it("returns false if value is not a valid host label", () => {
-        (isValidHostLabel as jest.Mock).mockReturnValueOnce(true);
-        (isValidHostLabel as jest.Mock).mockReturnValueOnce(false);
+        vi.mocked(isValidHostLabel).mockReturnValueOnce(true);
+        vi.mocked(isValidHostLabel).mockReturnValueOnce(false);
 
         expect(isVirtualHostableS3Bucket(mockValueWithSubdomain, true)).toBe(false);
         expect(isValidHostLabel).toHaveBeenNthCalledWith(1, mockValue);
@@ -104,8 +103,8 @@ describe(isVirtualHostableS3Bucket.name, () => {
       });
 
       it("returns false if value is an IP address", () => {
-        (isIpAddress as jest.Mock).mockReturnValueOnce(false);
-        (isIpAddress as jest.Mock).mockReturnValueOnce(true);
+        vi.mocked(isIpAddress).mockReturnValueOnce(false);
+        vi.mocked(isIpAddress).mockReturnValueOnce(true);
 
         expect(isVirtualHostableS3Bucket(mockValueWithSubdomain, true)).toBe(false);
         expect(isIpAddress).toHaveBeenNthCalledWith(1, mockValue);

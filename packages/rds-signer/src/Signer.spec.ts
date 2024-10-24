@@ -3,22 +3,23 @@ import { formatUrl } from "@aws-sdk/util-format-url";
 import { loadConfig } from "@smithy/node-config-provider";
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
+import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { Signer, SignerConfig } from "./Signer";
 
-const mockPresign = jest.fn();
-jest.mock("@smithy/signature-v4", () => {
+const mockPresign = vi.fn();
+vi.mock("@smithy/signature-v4", () => {
   return {
-    SignatureV4: jest.fn().mockImplementation(() => {
+    SignatureV4: vi.fn().mockImplementation(() => {
       return { presign: mockPresign };
     }),
   };
 });
 
-jest.mock("@smithy/node-config-provider");
-jest.mock("@smithy/config-resolver");
-jest.mock("@aws-sdk/credential-providers");
-jest.mock("@aws-sdk/util-format-url");
+vi.mock("@smithy/node-config-provider");
+vi.mock("@smithy/config-resolver");
+vi.mock("@aws-sdk/credential-providers");
+vi.mock("@aws-sdk/util-format-url");
 
 describe("rds-signer", () => {
   const minimalParams: SignerConfig = {
@@ -28,11 +29,11 @@ describe("rds-signer", () => {
   };
 
   beforeAll(() => {
-    (formatUrl as jest.Mock).mockReturnValue("https://testhost:5432?other=url&parameters=here");
+    vi.mocked(formatUrl).mockReturnValue("https://testhost:5432?other=url&parameters=here");
   });
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should provide correct parameters to the SigV4 signer", async () => {
@@ -40,8 +41,8 @@ describe("rds-signer", () => {
       accessKeyId: "xyz",
       secretAccessKey: "123",
     };
-    (loadConfig as jest.Mock).mockReturnValue(async () => "us-foo-1");
-    (fromNodeProviderChain as jest.Mock).mockReturnValue(async () => credentials);
+    vi.mocked(loadConfig).mockReturnValue(async () => "us-foo-1");
+    vi.mocked(fromNodeProviderChain).mockReturnValue(async () => credentials);
     const signer = new Signer(minimalParams);
     await signer.getAuthToken();
     //@ts-ignore

@@ -1,19 +1,21 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { createDefaultUserAgentProvider, PreviouslyResolved } from ".";
 
 const ua =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36";
 
 const mockConfig: PreviouslyResolved = {
-  userAgentAppId: jest.fn().mockResolvedValue(undefined),
+  userAgentAppId: vi.fn().mockResolvedValue(undefined),
 };
 
 describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
-    jest.spyOn(window.navigator, "userAgent", "get").mockReturnValue(ua);
+    vi.spyOn(window.navigator, "userAgent", "get").mockReturnValue(ua);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should populate metrics", async () => {
@@ -37,7 +39,7 @@ describe("createDefaultUserAgentProvider", () => {
 
   it("should include appId when provided", async () => {
     const configWithAppId: PreviouslyResolved = {
-      userAgentAppId: jest.fn().mockResolvedValue("test-app-id"),
+      userAgentAppId: vi.fn().mockResolvedValue("test-app-id"),
     };
     const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(
       configWithAppId

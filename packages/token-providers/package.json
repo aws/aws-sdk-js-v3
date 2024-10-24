@@ -14,7 +14,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "keywords": [
     "aws",

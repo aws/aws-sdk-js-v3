@@ -1,4 +1,5 @@
 import { HostResolverArguments } from "@aws-sdk/types";
+import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { HostEntryTable } from "./HostEntryTable";
 

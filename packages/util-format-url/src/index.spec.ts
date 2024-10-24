@@ -1,4 +1,5 @@
 import { HttpRequest } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { formatUrl } from "./";
 

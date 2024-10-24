@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,

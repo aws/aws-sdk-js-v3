@@ -1,4 +1,5 @@
 import { HostAddressType } from "@aws-sdk/types";
+import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { HostAddressEntryCollection } from "./HostAddressEntryCollection";
 import { HostAddressEntry } from "./HostEntry";
