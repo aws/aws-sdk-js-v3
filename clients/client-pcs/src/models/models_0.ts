@@ -1240,7 +1240,9 @@ export type Size = (typeof Size)[keyof typeof Size];
  */
 export interface ClusterSlurmConfigurationRequest {
   /**
-   * <p>The time before an idle node is scaled down.</p>
+   * <p>The time (in seconds) before an idle node is scaled down.</p>
+   *          <p>Default: <code>600</code>
+   *          </p>
    * @public
    */
   scaleDownIdleTimeInSeconds?: number;
@@ -1484,7 +1486,9 @@ export interface SlurmAuthKey {
  */
 export interface ClusterSlurmConfiguration {
   /**
-   * <p>The time before an idle node is scaled down.</p>
+   * <p>The time (in seconds) before an idle node is scaled down.</p>
+   *          <p>Default: <code>600</code>
+   *          </p>
    * @public
    */
   scaleDownIdleTimeInSeconds?: number;

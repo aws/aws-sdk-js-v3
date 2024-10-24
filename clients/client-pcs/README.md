@@ -27,7 +27,7 @@ related to those compute nodes.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pcs
+To install this package, simply type add or install @aws-sdk/client-pcs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pcs`
