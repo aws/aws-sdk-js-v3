@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+
+### Features
+
+* **client-ecs:** This release adds support for EBS volumes attached to Amazon ECS Windows tasks running on EC2 instances. ([eba29d1](https://github.com/aws/aws-sdk-js-v3/commit/eba29d1eeabf1a4e2ec8276d4dbe599096d5ed53))
+
+
+
+
+
 # [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

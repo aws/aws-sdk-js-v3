@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+
+### Features
+
+* **client-appconfig:** This release improves deployment safety by granting customers the ability to REVERT completed deployments, to the last known good state.In the StopDeployment API revert case the status of a COMPLETE deployment will be REVERTED. AppConfig only allows a revert within 72 hours of deployment completion. ([9c9494a](https://github.com/aws/aws-sdk-js-v3/commit/9c9494a64255ebd923fc4adb5081afa7be476056))
+
+
+
+
+
 # [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-appconfig

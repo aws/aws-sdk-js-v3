@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+
+### Features
+
+* **client-qbusiness:** Add a new field in chat response. This field can be used to support nested schemas in array fields ([e7c6ed5](https://github.com/aws/aws-sdk-js-v3/commit/e7c6ed54abfb89203cc746890afdc5af006ca293))
+
+
+
+
+
 # [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-qbusiness

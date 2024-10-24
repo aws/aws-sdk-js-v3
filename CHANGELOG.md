@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+
+### Features
+
+* **client-appconfig:** This release improves deployment safety by granting customers the ability to REVERT completed deployments, to the last known good state.In the StopDeployment API revert case the status of a COMPLETE deployment will be REVERTED. AppConfig only allows a revert within 72 hours of deployment completion. ([9c9494a](https://github.com/aws/aws-sdk-js-v3/commit/9c9494a64255ebd923fc4adb5081afa7be476056))
+* **client-ec2:** This release includes a new API to describe some details of the Amazon Machine Images (AMIs) that were used to launch EC2 instances, even if those AMIs are no longer available for use. ([f624638](https://github.com/aws/aws-sdk-js-v3/commit/f6246389e5c8ba06f29eca28ee8fc2728a596419))
+* **client-ecs:** This release adds support for EBS volumes attached to Amazon ECS Windows tasks running on EC2 instances. ([eba29d1](https://github.com/aws/aws-sdk-js-v3/commit/eba29d1eeabf1a4e2ec8276d4dbe599096d5ed53))
+* **client-qbusiness:** Add a new field in chat response. This field can be used to support nested schemas in array fields ([e7c6ed5](https://github.com/aws/aws-sdk-js-v3/commit/e7c6ed54abfb89203cc746890afdc5af006ca293))
+* **clients:** update client endpoints as of 2024-10-24 ([c296fb5](https://github.com/aws/aws-sdk-js-v3/commit/c296fb575cc201b4b883057995f7f720f039434e))
+
+
+
+
+
 # [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
 
 
