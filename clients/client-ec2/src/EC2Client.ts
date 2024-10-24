@@ -949,6 +949,10 @@ import {
   DescribeInstanceEventWindowsCommandInput,
   DescribeInstanceEventWindowsCommandOutput,
 } from "./commands/DescribeInstanceEventWindowsCommand";
+import {
+  DescribeInstanceImageMetadataCommandInput,
+  DescribeInstanceImageMetadataCommandOutput,
+} from "./commands/DescribeInstanceImageMetadataCommand";
 import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
   DescribeInstanceStatusCommandInput,
@@ -2491,6 +2495,7 @@ export type ServiceInputTypes =
   | DescribeInstanceCreditSpecificationsCommandInput
   | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceEventWindowsCommandInput
+  | DescribeInstanceImageMetadataCommandInput
   | DescribeInstanceStatusCommandInput
   | DescribeInstanceTopologyCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
@@ -3129,6 +3134,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceCreditSpecificationsCommandOutput
   | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceEventWindowsCommandOutput
+  | DescribeInstanceImageMetadataCommandOutput
   | DescribeInstanceStatusCommandOutput
   | DescribeInstanceTopologyCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput

@@ -274,6 +274,7 @@ export * from "./DescribeInstanceConnectEndpointsCommand";
 export * from "./DescribeInstanceCreditSpecificationsCommand";
 export * from "./DescribeInstanceEventNotificationAttributesCommand";
 export * from "./DescribeInstanceEventWindowsCommand";
+export * from "./DescribeInstanceImageMetadataCommand";
 export * from "./DescribeInstanceStatusCommand";
 export * from "./DescribeInstanceTopologyCommand";
 export * from "./DescribeInstanceTypeOfferingsCommand";

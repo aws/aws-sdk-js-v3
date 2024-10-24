@@ -920,6 +920,10 @@ import {
   DescribeInstanceEventWindowsCommandInput,
   DescribeInstanceEventWindowsCommandOutput,
 } from "../commands/DescribeInstanceEventWindowsCommand";
+import {
+  DescribeInstanceImageMetadataCommandInput,
+  DescribeInstanceImageMetadataCommandOutput,
+} from "../commands/DescribeInstanceImageMetadataCommand";
 import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "../commands/DescribeInstancesCommand";
 import {
   DescribeInstanceStatusCommandInput,
@@ -3181,6 +3185,8 @@ import {
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
+  DescribeInstanceImageMetadataRequest,
+  DescribeInstanceImageMetadataResult,
   DescribeInstancesRequest,
   DescribeInstancesResult,
   DescribeInstanceStatusRequest,
@@ -3296,8 +3302,6 @@ import {
   DescribeSpotFleetInstancesRequest,
   DescribeSpotFleetInstancesResponse,
   DescribeSpotFleetRequestHistoryRequest,
-  DescribeSpotFleetRequestHistoryResponse,
-  DescribeSpotFleetRequestsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3318,6 +3322,7 @@ import {
   HistoryRecord,
   Image,
   ImageAttribute,
+  ImageMetadata,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportSnapshotTask,
@@ -3330,6 +3335,7 @@ import {
   InstanceAttribute,
   InstanceBlockDeviceMapping,
   InstanceCreditSpecification,
+  InstanceImageMetadata,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
@@ -3402,7 +3408,6 @@ import {
   SnapshotDetail,
   SnapshotTaskDetail,
   SnapshotTierStatus,
-  SpotFleetMonitoring,
   SupportedAdditionalProcessorFeature,
   UsageClassType,
   UserBucketDetails,
@@ -3418,6 +3423,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSpotFleetRequestHistoryResponse,
+  DescribeSpotFleetRequestsRequest,
   DescribeSpotFleetRequestsResponse,
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
@@ -3644,9 +3651,6 @@ import {
   GetDefaultCreditSpecificationRequest,
   GetDefaultCreditSpecificationResult,
   GetEbsDefaultKmsKeyIdRequest,
-  GetEbsDefaultKmsKeyIdResult,
-  GetEbsEncryptionByDefaultRequest,
-  GetEbsEncryptionByDefaultResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
@@ -3662,6 +3666,7 @@ import {
   ServiceDetail,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
+  SpotFleetMonitoring,
   SpotFleetRequestConfig,
   SpotFleetRequestConfigData,
   SpotFleetTagSpecification,
@@ -3706,6 +3711,9 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetEbsDefaultKmsKeyIdResult,
+  GetEbsEncryptionByDefaultRequest,
+  GetEbsEncryptionByDefaultResult,
   GetFlowLogsIntegrationTemplateRequest,
   GetFlowLogsIntegrationTemplateResult,
   GetGroupsForCapacityReservationRequest,
@@ -3932,12 +3940,8 @@ import {
   ModifyVolumeRequest,
   ModifyVolumeResult,
   ModifyVpcAttributeRequest,
-  ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointConnectionNotificationResult,
   ModifyVpcEndpointRequest,
   ModifyVpcEndpointResult,
-  ModifyVpcEndpointServiceConfigurationRequest,
-  ModifyVpcEndpointServiceConfigurationResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3990,6 +3994,10 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcEndpointConnectionNotificationRequest,
+  ModifyVpcEndpointConnectionNotificationResult,
+  ModifyVpcEndpointServiceConfigurationRequest,
+  ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
   ModifyVpcEndpointServicePermissionsRequest,
@@ -8834,6 +8842,23 @@ export const se_DescribeInstanceEventWindowsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeInstanceEventWindowsRequest(input, context),
     [_A]: _DIEWe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceImageMetadataCommand
+ */
+export const se_DescribeInstanceImageMetadataCommand = async (
+  input: DescribeInstanceImageMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeInstanceImageMetadataRequest(input, context),
+    [_A]: _DIIM,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -20338,6 +20363,26 @@ export const de_DescribeInstanceEventWindowsCommand = async (
   let contents: any = {};
   contents = de_DescribeInstanceEventWindowsResult(data, context);
   const response: DescribeInstanceEventWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeInstanceImageMetadataCommand
+ */
+export const de_DescribeInstanceImageMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceImageMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceImageMetadataResult(data, context);
+  const response: DescribeInstanceImageMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -36263,6 +36308,40 @@ const se_DescribeInstanceEventWindowsRequest = (
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeInstanceImageMetadataRequest
+ */
+const se_DescribeInstanceImageMetadataRequest = (
+  input: DescribeInstanceImageMetadataRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_IIns] != null) {
+    const memberEntries = se_InstanceIdStringList(input[_IIns], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -61295,6 +61374,25 @@ const de_DescribeInstanceEventWindowsResult = (
 };
 
 /**
+ * deserializeAws_ec2DescribeInstanceImageMetadataResult
+ */
+const de_DescribeInstanceImageMetadataResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstanceImageMetadataResult => {
+  const contents: any = {};
+  if (output.instanceImageMetadataSet === "") {
+    contents[_IIM] = [];
+  } else if (output[_iIMS] != null && output[_iIMS][_i] != null) {
+    contents[_IIM] = de_InstanceImageMetadataList(__getArrayIfSingleItem(output[_iIMS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeInstancesResult
  */
 const de_DescribeInstancesResult = (output: any, context: __SerdeContext): DescribeInstancesResult => {
@@ -67521,6 +67619,38 @@ const de_ImageList = (output: any, context: __SerdeContext): Image[] => {
 };
 
 /**
+ * deserializeAws_ec2ImageMetadata
+ */
+const de_ImageMetadata = (output: any, context: __SerdeContext): ImageMetadata => {
+  const contents: any = {};
+  if (output[_iIma] != null) {
+    contents[_IIma] = __expectString(output[_iIma]);
+  }
+  if (output[_n] != null) {
+    contents[_N] = __expectString(output[_n]);
+  }
+  if (output[_iOI] != null) {
+    contents[_OIwn] = __expectString(output[_iOI]);
+  }
+  if (output[_iSma] != null) {
+    contents[_Stat] = __expectString(output[_iSma]);
+  }
+  if (output[_iOA] != null) {
+    contents[_IOA] = __expectString(output[_iOA]);
+  }
+  if (output[_cDr] != null) {
+    contents[_CDre] = __expectString(output[_cDr]);
+  }
+  if (output[_dTe] != null) {
+    contents[_DTep] = __expectString(output[_dTe]);
+  }
+  if (output[_iPs] != null) {
+    contents[_IPs] = __parseBoolean(output[_iPs]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ImageRecycleBinInfo
  */
 const de_ImageRecycleBinInfo = (output: any, context: __SerdeContext): ImageRecycleBinInfo => {
@@ -68571,6 +68701,54 @@ const de_InstanceIdsSet = (output: any, context: __SerdeContext): string[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_ec2InstanceImageMetadata
+ */
+const de_InstanceImageMetadata = (output: any, context: __SerdeContext): InstanceImageMetadata => {
+  const contents: any = {};
+  if (output[_iI] != null) {
+    contents[_IIn] = __expectString(output[_iI]);
+  }
+  if (output[_iT] != null) {
+    contents[_IT] = __expectString(output[_iT]);
+  }
+  if (output[_lTau] != null) {
+    contents[_LTaun] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lTau]));
+  }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_zI] != null) {
+    contents[_ZIo] = __expectString(output[_zI]);
+  }
+  if (output[_iSnst] != null) {
+    contents[_Stat] = de_InstanceState(output[_iSnst], context);
+  }
+  if (output[_iOIn] != null) {
+    contents[_OIwn] = __expectString(output[_iOIn]);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_iM] != null) {
+    contents[_IMm] = de_ImageMetadata(output[_iM], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceImageMetadataList
+ */
+const de_InstanceImageMetadataList = (output: any, context: __SerdeContext): InstanceImageMetadata[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InstanceImageMetadata(entry, context);
     });
 };
 
@@ -73468,7 +73646,7 @@ const de_NatGatewayAddress = (output: any, context: __SerdeContext): NatGatewayA
     contents[_AIss] = __expectString(output[_aIs]);
   }
   if (output[_iPsr] != null) {
-    contents[_IPs] = __parseBoolean(output[_iPsr]);
+    contents[_IPsr] = __parseBoolean(output[_iPsr]);
   }
   if (output[_fM] != null) {
     contents[_FM] = __expectString(output[_fM]);
@@ -83731,6 +83909,7 @@ const _DIG = "DeleteInternetGateway";
 const _DIGe = "DescribeInternetGateways";
 const _DIGet = "DetachInternetGateway";
 const _DIIF = "DescribeIdentityIdFormat";
+const _DIIM = "DescribeInstanceImageMetadata";
 const _DIIP = "DisassociateIamInstanceProfile";
 const _DIIPA = "DescribeIamInstanceProfileAssociations";
 const _DIIT = "DescribeImportImageTasks";
@@ -84344,6 +84523,7 @@ const _IH = "InstanceHealth";
 const _IHn = "InboundHeader";
 const _II = "ImportImage";
 const _IIB = "InstanceInterruptionBehavior";
+const _IIM = "InstanceImageMetadata";
 const _IIP = "IamInstanceProfile";
 const _IIPA = "IamInstanceProfileAssociation";
 const _IIPAa = "IamInstanceProfileAssociations";
@@ -84370,6 +84550,7 @@ const _IMO = "InstanceMarketOptions";
 const _IMOn = "InstanceMetadataOptions";
 const _IMT = "InstanceMetadataTags";
 const _IMU = "ImportManifestUrl";
+const _IMm = "ImageMetadata";
 const _IMn = "InstanceMonitorings";
 const _IN = "Ipv6Native";
 const _INL = "Ipv6NetmaskLength";
@@ -84411,7 +84592,8 @@ const _IPpv = "Ipv6Pool";
 const _IPpvo = "Ipv6Pools";
 const _IPpvr = "Ipv4Prefix";
 const _IPpvre = "Ipv6Prefix";
-const _IPs = "IsPrimary";
+const _IPs = "IsPublic";
+const _IPsr = "IsPrimary";
 const _IR = "InstanceRequirements";
 const _IRC = "IpamResourceCidrs";
 const _IRCp = "IpamResourceCidr";
@@ -86321,6 +86503,7 @@ const _iH = "instanceHealth";
 const _iHn = "inboundHeader";
 const _iI = "instanceId";
 const _iIB = "instanceInterruptionBehavior";
+const _iIMS = "instanceImageMetadataSet";
 const _iIP = "iamInstanceProfile";
 const _iIPA = "iamInstanceProfileAssociation";
 const _iIPAS = "iamInstanceProfileAssociationSet";
@@ -86333,6 +86516,7 @@ const _iIn = "instanceIds";
 const _iIp = "ipamId";
 const _iL = "imageLocation";
 const _iLn = "instanceLifecycle";
+const _iM = "imageMetadata";
 const _iMC = "instanceMatchCriteria";
 const _iMO = "instanceMetadataOptions";
 const _iMOn = "instanceMarketOptions";

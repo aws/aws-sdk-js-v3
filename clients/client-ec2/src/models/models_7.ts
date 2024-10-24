@@ -97,6 +97,137 @@ import { CapacityReservationSpecification, Purchase } from "./models_6";
 /**
  * @public
  */
+export interface ModifyVpcEndpointConnectionNotificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the notification.</p>
+   * @public
+   */
+  ConnectionNotificationId: string | undefined;
+
+  /**
+   * <p>The ARN for the SNS topic for the notification.</p>
+   * @public
+   */
+  ConnectionNotificationArn?: string;
+
+  /**
+   * <p>The events for the endpoint. Valid values are <code>Accept</code>,
+   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   * @public
+   */
+  ConnectionEvents?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointConnectionNotificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServiceConfigurationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
+   * @public
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
+   * @public
+   */
+  RemovePrivateDnsName?: boolean;
+
+  /**
+   * <p>Indicates whether requests to create an endpoint to your service must be accepted.</p>
+   * @public
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
+   *             configuration.</p>
+   * @public
+   */
+  AddNetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
+   *             configuration.</p>
+   * @public
+   */
+  RemoveNetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
+   *             configuration.</p>
+   * @public
+   */
+  AddGatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
+   *             configuration.</p>
+   * @public
+   */
+  RemoveGatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The IP address types to add to your service configuration.</p>
+   * @public
+   */
+  AddSupportedIpAddressTypes?: string[];
+
+  /**
+   * <p>The IP address types to remove from your service configuration.</p>
+   * @public
+   */
+  RemoveSupportedIpAddressTypes?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServiceConfigurationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

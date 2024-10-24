@@ -1334,6 +1334,11 @@ import {
   DescribeInstanceEventWindowsCommandOutput,
 } from "./commands/DescribeInstanceEventWindowsCommand";
 import {
+  DescribeInstanceImageMetadataCommand,
+  DescribeInstanceImageMetadataCommandInput,
+  DescribeInstanceImageMetadataCommandOutput,
+} from "./commands/DescribeInstanceImageMetadataCommand";
+import {
   DescribeInstancesCommand,
   DescribeInstancesCommandInput,
   DescribeInstancesCommandOutput,
@@ -3377,6 +3382,7 @@ const commands = {
   DescribeInstanceCreditSpecificationsCommand,
   DescribeInstanceEventNotificationAttributesCommand,
   DescribeInstanceEventWindowsCommand,
+  DescribeInstanceImageMetadataCommand,
   DescribeInstancesCommand,
   DescribeInstanceStatusCommand,
   DescribeInstanceTopologyCommand,
@@ -8275,6 +8281,24 @@ export interface EC2 {
     args: DescribeInstanceEventWindowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstanceEventWindowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceImageMetadataCommand}
+   */
+  describeInstanceImageMetadata(): Promise<DescribeInstanceImageMetadataCommandOutput>;
+  describeInstanceImageMetadata(
+    args: DescribeInstanceImageMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceImageMetadataCommandOutput>;
+  describeInstanceImageMetadata(
+    args: DescribeInstanceImageMetadataCommandInput,
+    cb: (err: any, data?: DescribeInstanceImageMetadataCommandOutput) => void
+  ): void;
+  describeInstanceImageMetadata(
+    args: DescribeInstanceImageMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceImageMetadataCommandOutput) => void
   ): void;
 
   /**

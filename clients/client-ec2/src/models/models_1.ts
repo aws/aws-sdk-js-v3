@@ -6999,7 +6999,6 @@ export interface CreateIpamPoolRequest {
    *                <p>The network border group for an Amazon Web Services Local Zone where you want this IPAM pool to be available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported Local Zones</a>). This option is only available for IPAM IPv4 pools in the public scope.</p>
    *             </li>
    *          </ul>
-   *          <p>If you do not choose a locale, resources in Regions others than the IPAM's home region cannot use CIDRs from this pool.</p>
    *          <p>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local Zone. Default is <code>none</code> and means any locale.</p>
    * @public
    */
@@ -7037,7 +7036,7 @@ export interface CreateIpamPoolRequest {
   AutoImport?: boolean;
 
   /**
-   * <p>Determines if the pool is publicly advertisable. This option is not available for pools with AddressFamily set to <code>ipv4</code>.</p>
+   * <p>Determines if the pool is publicly advertisable. The request can only contain <code>PubliclyAdvertisable</code> if <code>AddressFamily</code> is <code>ipv6</code> and <code>PublicIpSource</code> is <code>byoip</code>.</p>
    * @public
    */
   PubliclyAdvertisable?: boolean;
@@ -7862,7 +7861,8 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
   Iops?: number;
 
   /**
-   * <p>The ARN of the symmetric Key Management Service (KMS) CMK used for encryption.</p>
+   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
+   *             to use for EBS encryption.</p>
    * @public
    */
   KmsKeyId?: string;
@@ -8099,7 +8099,7 @@ export interface ElasticGpuSpecification {
  * <note>
  *             <p>Amazon Elastic Inference is no longer available.</p>
  *          </note>
- *          <p> Describes an elastic inference accelerator.</p>
+ *          <p> Describes an elastic inference accelerator. </p>
  * @public
  */
 export interface LaunchTemplateElasticInferenceAccelerator {
@@ -9099,16 +9099,30 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
    *          </note>
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
 
   /**
-   * <p>Deprecated.</p>
-   *          <note>
+   * <note>
    *             <p>Amazon Elastic Inference is no longer available.</p>
+   *          </note>
+   *          <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
    *          </note>
    * @public
    */
@@ -9499,7 +9513,8 @@ export interface LaunchTemplateEbsBlockDevice {
   Iops?: number;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) CMK used for encryption.</p>
+   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
+   *             to use for EBS encryption.</p>
    * @public
    */
   KmsKeyId?: string;
@@ -9650,15 +9665,22 @@ export interface CreditSpecification {
 }
 
 /**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+ * <p>Deprecated.</p>
+ *          <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
  *          </note>
- *          <p>Describes an elastic GPU.</p>
  * @public
  */
 export interface ElasticGpuSpecificationResponse {
   /**
-   * <p>The elastic GPU type.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    * @public
    */
   Type?: string;
@@ -10425,16 +10447,30 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
    *          </note>
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[];
 
   /**
-   * <p>Deprecated.</p>
-   *          <note>
+   * <note>
    *             <p>Amazon Elastic Inference is no longer available.</p>
+   *          </note>
+   *          <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
    *          </note>
    * @public
    */

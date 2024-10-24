@@ -1881,6 +1881,308 @@ export interface DescribeInstanceEventWindowsResult {
 /**
  * @public
  */
+export interface DescribeInstanceImageMetadataRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The name of the Availability Zone (for example,
+   *             <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
+   *           the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-name</code> - The state of the instance (<code>pending</code> |
+   *             <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
+   *             <code>stopping</code> | <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The type of instance (for example,
+   *           <code>t3.micro</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>launch-time</code> - The time when the instance was launched, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *             <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2023-09-29T*</code>, which matches an entire day. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
+   *             <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *          <p>If you don't specify an instance ID or filters, the output includes information for all
+   *       instances.</p>
+   * @public
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Information about the AMI.</p>
+ * @public
+ */
+export interface ImageMetadata {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the AMI.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the AMI.</p>
+   * @public
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of the AMI. If the state is <code>available</code>, the AMI
+   *       is successfully registered and can be used to launch an instance.</p>
+   * @public
+   */
+  State?: ImageState;
+
+  /**
+   * <p>The alias of the AMI owner.</p>
+   *          <p>Valid values: <code>amazon</code> | <code>aws-marketplace</code>
+   *          </p>
+   * @public
+   */
+  ImageOwnerAlias?: string;
+
+  /**
+   * <p>The date and time the AMI was created.</p>
+   * @public
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The deprecation date and time of the AMI, in UTC, in the following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
+   * @public
+   */
+  DeprecationTime?: string;
+
+  /**
+   * <p>Indicates whether the AMI has public launch permissions. A value of <code>true</code>
+   *       means this AMI has public launch permissions, while <code>false</code> means it has only
+   *       implicit (AMI owner) or explicit (shared with your account) launch permissions.</p>
+   * @public
+   */
+  IsPublic?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStateName = {
+  pending: "pending",
+  running: "running",
+  shutting_down: "shutting-down",
+  stopped: "stopped",
+  stopping: "stopping",
+  terminated: "terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
+
+/**
+ * <p>Describes the current state of an instance.</p>
+ * @public
+ */
+export interface InstanceState {
+  /**
+   * <p>The state of the instance as a 16-bit unsigned integer. </p>
+   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
+   *             between 256 and 65,535. These numerical values are used for internal purposes and should
+   *             be ignored.</p>
+   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
+   *             between 0 and 255. </p>
+   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
+   *             they are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> : <code>pending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>16</code> : <code>running</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>32</code> : <code>shutting-down</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>48</code> : <code>terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>64</code> : <code>stopping</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>80</code> : <code>stopped</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
+   *             decimal.</p>
+   * @public
+   */
+  Code?: number;
+
+  /**
+   * <p>The current state of the instance.</p>
+   * @public
+   */
+  Name?: InstanceStateName;
+}
+
+/**
+ * <p>Information about the instance and the AMI used to launch the instance.</p>
+ * @public
+ */
+export interface InstanceImageMetadata {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType;
+
+  /**
+   * <p>The time the instance was launched.</p>
+   * @public
+   */
+  LaunchTime?: Date;
+
+  /**
+   * <p>The Availability Zone or Local Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone or Local Zone of the instance.</p>
+   * @public
+   */
+  ZoneId?: string;
+
+  /**
+   * <p>The current state of the instance.</p>
+   * @public
+   */
+  State?: InstanceState;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
+   * @public
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Information about the AMI used to launch the instance.</p>
+   * @public
+   */
+  ImageMetadata?: ImageMetadata;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceImageMetadataResult {
+  /**
+   * <p>Information about the instance and the AMI used to launch the instance.</p>
+   * @public
+   */
+  InstanceImageMetadata?: InstanceImageMetadata[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeInstancesRequest {
   /**
    * <p>The instance IDs.</p>
@@ -3352,83 +3654,6 @@ export interface PrivateDnsNameOptionsResponse {
    * @public
    */
   EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceStateName = {
-  pending: "pending",
-  running: "running",
-  shutting_down: "shutting-down",
-  stopped: "stopped",
-  stopping: "stopping",
-  terminated: "terminated",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
-
-/**
- * <p>Describes the current state of an instance.</p>
- * @public
- */
-export interface InstanceState {
-  /**
-   * <p>The state of the instance as a 16-bit unsigned integer. </p>
-   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
-   *             between 256 and 65,535. These numerical values are used for internal purposes and should
-   *             be ignored.</p>
-   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
-   *             between 0 and 255. </p>
-   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
-   *             they are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>0</code> : <code>pending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>16</code> : <code>running</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>32</code> : <code>shutting-down</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>48</code> : <code>terminated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>64</code> : <code>stopping</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>80</code> : <code>stopped</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
-   *             decimal.</p>
-   * @public
-   */
-  Code?: number;
-
-  /**
-   * <p>The current state of the instance.</p>
-   * @public
-   */
-  Name?: InstanceStateName;
 }
 
 /**
@@ -12238,113 +12463,6 @@ export interface HistoryRecord {
    * @public
    */
   Timestamp?: Date;
-}
-
-/**
- * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
- * @public
- */
-export interface DescribeSpotFleetRequestHistoryResponse {
-  /**
-   * <p>Information about the events in the history of the Spot Fleet request.</p>
-   * @public
-   */
-  HistoryRecords?: HistoryRecord[];
-
-  /**
-   * <p>The last date and time for the events, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
-   *             present.</p>
-   * @public
-   */
-  LastEvaluatedTime?: Date;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId?: string;
-
-  /**
-   * <p>The starting date and time for the events, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime?: Date;
-}
-
-/**
- * <p>Contains the parameters for DescribeSpotFleetRequests.</p>
- * @public
- */
-export interface DescribeSpotFleetRequestsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the Spot Fleet requests.</p>
-   * @public
-   */
-  SpotFleetRequestIds?: string[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const ExcessCapacityTerminationPolicy = {
-  DEFAULT: "default",
-  NO_TERMINATION: "noTermination",
-} as const;
-
-/**
- * @public
- */
-export type ExcessCapacityTerminationPolicy =
-  (typeof ExcessCapacityTerminationPolicy)[keyof typeof ExcessCapacityTerminationPolicy];
-
-/**
- * <p>Describes whether monitoring is enabled.</p>
- * @public
- */
-export interface SpotFleetMonitoring {
-  /**
-   * <p>Enables monitoring for the instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Enabled?: boolean;
 }
 
 /**

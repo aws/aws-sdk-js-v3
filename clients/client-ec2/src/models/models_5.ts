@@ -70,7 +70,6 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   SpotInstanceStateFault,
-  SSEType,
   State,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -106,12 +105,114 @@ import {
   StatisticType,
 } from "./models_3";
 
-import {
-  AttributeBooleanValue,
-  ExcessCapacityTerminationPolicy,
-  RIProductDescription,
-  SpotFleetMonitoring,
-} from "./models_4";
+import { AttributeBooleanValue, HistoryRecord, RIProductDescription } from "./models_4";
+
+/**
+ * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
+ * @public
+ */
+export interface DescribeSpotFleetRequestHistoryResponse {
+  /**
+   * <p>Information about the events in the history of the Spot Fleet request.</p>
+   * @public
+   */
+  HistoryRecords?: HistoryRecord[];
+
+  /**
+   * <p>The last date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             All records up to this time were retrieved.</p>
+   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
+   *             present.</p>
+   * @public
+   */
+  LastEvaluatedTime?: Date;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestId?: string;
+
+  /**
+   * <p>The starting date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime?: Date;
+}
+
+/**
+ * <p>Contains the parameters for DescribeSpotFleetRequests.</p>
+ * @public
+ */
+export interface DescribeSpotFleetRequestsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the Spot Fleet requests.</p>
+   * @public
+   */
+  SpotFleetRequestIds?: string[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExcessCapacityTerminationPolicy = {
+  DEFAULT: "default",
+  NO_TERMINATION: "noTermination",
+} as const;
+
+/**
+ * @public
+ */
+export type ExcessCapacityTerminationPolicy =
+  (typeof ExcessCapacityTerminationPolicy)[keyof typeof ExcessCapacityTerminationPolicy];
+
+/**
+ * <p>Describes whether monitoring is enabled.</p>
+ * @public
+ */
+export interface SpotFleetMonitoring {
+  /**
+   * <p>Enables monitoring for the instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  Enabled?: boolean;
+}
 
 /**
  * <p>Describes a network interface.</p>
@@ -9693,63 +9794,6 @@ export interface GetEbsDefaultKmsKeyIdRequest {
    */
   DryRun?: boolean;
 }
-
-/**
- * @public
- */
-export interface GetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
-   * @public
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * @public
- */
-export interface GetEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetEbsEncryptionByDefaultResult {
-  /**
-   * <p>Indicates whether encryption by default is enabled.</p>
-   * @public
-   */
-  EbsEncryptionByDefault?: boolean;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  SseType?: SSEType;
-}
-
-/**
- * @public
- * @enum
- */
-export const PartitionLoadFrequency = {
-  DAILY: "daily",
-  MONTHLY: "monthly",
-  NONE: "none",
-  WEEKLY: "weekly",
-} as const;
-
-/**
- * @public
- */
-export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeof PartitionLoadFrequency];
 
 /**
  * @internal

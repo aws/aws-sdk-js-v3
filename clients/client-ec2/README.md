@@ -2408,6 +2408,14 @@ DescribeInstanceEventWindows
 </details>
 <details>
 <summary>
+DescribeInstanceImageMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceImageMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceImageMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceImageMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeInstances
 </summary>
 
