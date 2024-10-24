@@ -1,5 +1,6 @@
 import { AbortSignal } from "@smithy/abort-controller";
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 import { XhrHttpHandler } from "./xhr-http-handler";
 
@@ -57,7 +58,7 @@ describe(XhrHttpHandler.name, () => {
       public writable = {
         getWriter() {
           return {
-            releaseLock: jest.fn(),
+            releaseLock: vi.fn(),
           };
         },
         close() {},

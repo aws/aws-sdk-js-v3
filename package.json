@@ -32,7 +32,7 @@
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
-    "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
+    "test:all": "yarn build:all && jest --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
     "test:ci": "lerna run test --since origin/main",
     "test:e2e": "node ./scripts/turbo test:e2e && node ./tests/canary/canary",
     "test:e2e:legacy": "cucumber-js --fail-fast",

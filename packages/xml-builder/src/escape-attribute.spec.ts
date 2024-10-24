@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { escapeAttribute } from "./escape-attribute";
 
 describe("escape-attribute", () => {

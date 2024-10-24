@@ -1,4 +1,5 @@
 import { EndpointARN } from "@aws-sdk/types";
+import { describe, expect, test as it } from "vitest";
 
 import { parseArn } from "./parseArn";
 

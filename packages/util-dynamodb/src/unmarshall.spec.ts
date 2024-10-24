@@ -1,17 +1,19 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { convertToNative } from "./convertToNative";
 import { unmarshall } from "./unmarshall";
 
-jest.mock("./convertToNative");
+vi.mock("./convertToNative");
 
 describe("marshall", () => {
   const input = { a: "A" };
 
   beforeEach(() => {
-    (convertToNative as jest.Mock).mockReturnValue(input);
+    vi.mocked(convertToNative).mockReturnValue(input);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("calls convertToNative", () => {

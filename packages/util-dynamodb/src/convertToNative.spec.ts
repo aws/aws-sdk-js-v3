@@ -1,4 +1,5 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import { describe, expect, test as it } from "vitest";
 
 import { convertToNative } from "./convertToNative";
 import { NativeAttributeValue } from "./models";

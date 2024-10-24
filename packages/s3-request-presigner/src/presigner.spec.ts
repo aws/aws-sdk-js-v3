@@ -1,5 +1,6 @@
 import { Hash } from "@smithy/hash-node";
 import { HttpRequest } from "@smithy/protocol-http";
+import { describe, expect, test as it } from "vitest";
 
 import {
   ALGORITHM_IDENTIFIER,

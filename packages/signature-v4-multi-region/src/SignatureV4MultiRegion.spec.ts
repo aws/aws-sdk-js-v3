@@ -1,11 +1,13 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
-jest.mock("@smithy/signature-v4");
+vi.mock("@smithy/signature-v4");
+vi.mock("@aws-sdk/middleware-sdk-s3");
+vi.mock("@aws-sdk/signature-v4-crt");
 
-jest.mock("@aws-sdk/signature-v4-crt");
-
+import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
-import { SignatureV4 } from "@smithy/signature-v4";
+import { Checksum } from "@smithy/types";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
@@ -18,7 +20,21 @@ describe("SignatureV4MultiRegion", () => {
       accessKeyId: "akid",
       secretAccessKey: "secret",
     },
-    sha256: (() => {}) as any,
+    sha256: class implements Checksum {
+      public data = new Uint8Array();
+      public async digest() {
+        return this.data;
+      }
+      public update(bytes: Uint8Array) {
+        const oldData = this.data;
+        this.data = new Uint8Array(this.data.byteLength + bytes.byteLength);
+        this.data.set(oldData);
+        this.data.set(bytes, oldData.byteLength);
+      }
+      public reset() {
+        this.data = new Uint8Array();
+      }
+    },
     runtime: "node",
   };
   const minimalRequest = new HttpRequest({
@@ -28,21 +44,22 @@ describe("SignatureV4MultiRegion", () => {
 
   beforeEach(() => {
     signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should sign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.sign(minimalRequest);
+
     //@ts-ignore
-    expect(SignatureV4.mock.instances[0].sign).toBeCalledTimes(1);
+    expect(SignatureV4S3Express.mock.instances[0].sign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest);
     //@ts-ignore
-    expect(SignatureV4.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(SignatureV4S3Express.mock.instances[0].presign).toBeCalledTimes(1);
   });
 
   it("should sign with SigV4a signer if mult_region option is set", async () => {

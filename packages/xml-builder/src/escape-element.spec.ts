@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { escapeElement } from "./escape-element";
 
 describe("escape-element", () => {

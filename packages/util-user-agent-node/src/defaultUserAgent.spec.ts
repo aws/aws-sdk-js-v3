@@ -1,40 +1,47 @@
-jest.mock("os", () => ({
+import process from "process";
+import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+vi.mock("os", () => ({
   platform: () => "darwin",
   release: () => "19.6.0",
 }));
 
-const mockEnv = {};
+vi.mock("process", () => {
+  const pkg = {
+    env: {},
+    versions: {
+      node: "14.13.1",
+    },
+  };
+  return {
+    ...pkg,
+    default: pkg,
+  };
+});
 
-jest.mock("process", () => ({
-  env: mockEnv,
-  versions: {
-    node: "14.13.1",
-  },
-}));
-
-
-jest.mock("./is-crt-available", () => ({
-  isCrtAvailable: jest.fn().mockReturnValue(null),
+vi.mock("./is-crt-available", () => ({
+  isCrtAvailable: vi.fn().mockReturnValue(null),
 }));
 
 import { UserAgent } from "@smithy/types";
+
 import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUserAgent";
 import { isCrtAvailable } from "./is-crt-available";
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
-  expect(userAgent.length).toBe(expected.length);
   for (const pair of expected) {
     expect(userAgent).toContainEqual(pair);
   }
+  expect(userAgent.length).toBe(expected.length);
 };
 
 describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   afterAll(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const basicUserAgent: UserAgent = [
@@ -47,7 +54,7 @@ describe("createDefaultUserAgentProvider", () => {
   ];
 
   const mockConfig: PreviouslyResolved = {
-    userAgentAppId: jest.fn().mockResolvedValue(undefined),
+    userAgentAppId: vi.fn().mockResolvedValue(undefined),
   };
 
   it("should return basic node default user agent", async () => {
@@ -57,7 +64,7 @@ describe("createDefaultUserAgentProvider", () => {
   });
 
   it("should set crt available key if aws-crt is available in runtime", async () => {
-    (isCrtAvailable as jest.Mock).mockReturnValue(["md/crt-avail"]);
+    vi.mocked(isCrtAvailable).mockReturnValue(["md/crt-avail"]);
     const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
     const userAgent = await userAgentProvider(mockConfig);
     expect(userAgent).toContainEqual(["md/crt-avail"]);
@@ -72,21 +79,25 @@ describe("createDefaultUserAgentProvider", () => {
     );
   });
 
-  it("should add AWS_EXECUTION_ENV", async () => {
-    //@ts-ignore mock environmental variables
-    mockEnv.AWS_EXECUTION_ENV = "lambda";
-    const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
-    const userAgent = await userAgentProvider(mockConfig);
-    const expectedUserAgent: UserAgent = [...basicUserAgent, ["exec-env/lambda"]];
-    validateUserAgent(userAgent, expectedUserAgent);
-    //@ts-ignore mock environmental variables
-    delete mockEnv.AWS_EXECUTION_ENV;
+  describe("env", () => {
+    beforeEach(() => {
+      process.env.AWS_EXECUTION_ENV = "lambda";
+    });
+    afterEach(() => {
+      delete process.env.AWS_EXECUTION_ENV;
+    });
+    it("should add AWS_EXECUTION_ENV", async () => {
+      const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
+      const userAgent = await userAgentProvider(mockConfig);
+      const expectedUserAgent: UserAgent = [...basicUserAgent, ["exec-env/lambda"]];
+      validateUserAgent(userAgent, expectedUserAgent);
+    });
   });
 
   it("should add app id if available", async () => {
     const appId = "appId12345";
     const configWithAppId: PreviouslyResolved = {
-      userAgentAppId: jest.fn().mockResolvedValue(appId),
+      userAgentAppId: vi.fn().mockResolvedValue(appId),
     };
     const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
     const userAgent = await userAgentProvider(configWithAppId);

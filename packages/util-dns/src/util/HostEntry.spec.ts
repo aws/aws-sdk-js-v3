@@ -1,4 +1,5 @@
 import { HostAddress, HostAddressType } from "@aws-sdk/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { HostAddressEntry, HostEntry } from "./HostEntry";
 
@@ -34,7 +35,7 @@ describe(HostEntry.name, () => {
   let expirationTtlMs: number;
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     hostEntry = new HostEntry(Date.now());
     expirationTtlMs = Date.now() + EXPIRATION_OFFSET_MS;
     addresses = [HOST_ADDRESS_A_0, HOST_ADDRESS_A_1, HOST_ADDRESS_AAAA_0, HOST_ADDRESS_AAAA_1];
@@ -88,7 +89,7 @@ describe(HostEntry.name, () => {
   describe("processRecords()", () => {
     it("removes expired records from good records except 1 good record", () => {
       hostEntry.updateRecords(addresses, expirationTtlMs);
-      jest.advanceTimersByTime(EXPIRATION_OFFSET_MS);
+      vi.advanceTimersByTime(EXPIRATION_OFFSET_MS);
       hostEntry.processRecords();
       expect(hostEntry.aRecords.length).toEqual(1);
       expect(hostEntry.failedARecords.length).toEqual(0);
@@ -102,7 +103,7 @@ describe(HostEntry.name, () => {
       hostEntry.failAddressInRecords(HOST_ADDRESS_A_1);
       hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_0);
       hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_1);
-      jest.advanceTimersByTime(EXPIRATION_OFFSET_MS);
+      vi.advanceTimersByTime(EXPIRATION_OFFSET_MS);
       hostEntry.processRecords();
       expect(hostEntry.aRecords.length).toEqual(0);
       expect(hostEntry.failedARecords.length).toEqual(1);
@@ -129,7 +130,7 @@ describe(HostEntry.name, () => {
       hostEntry.failAddressInRecords(HOST_ADDRESS_A_1);
       hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_0);
       hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_1);
-      jest.advanceTimersByTime(EXPIRATION_OFFSET_MS);
+      vi.advanceTimersByTime(EXPIRATION_OFFSET_MS);
       hostEntry.processRecords();
       expect(hostEntry.aRecords.length).toEqual(0);
       expect(hostEntry.failedARecords.length).toEqual(1);

@@ -1,10 +1,11 @@
 import { CreateTokenCommand } from "@aws-sdk/client-sso-oidc";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";
 import { getSsoOidcClient } from "./getSsoOidcClient";
 
-jest.mock("@aws-sdk/client-sso-oidc");
-jest.mock("./getSsoOidcClient");
+vi.mock("@aws-sdk/client-sso-oidc");
+vi.mock("./getSsoOidcClient");
 
 describe(getNewSsoOidcToken.name, () => {
   let mockSend: any;
@@ -30,16 +31,16 @@ describe(getNewSsoOidcToken.name, () => {
   };
 
   beforeEach(() => {
-    mockSend = jest.fn().mockResolvedValueOnce(mockNewToken);
-    (getSsoOidcClient as jest.Mock).mockReturnValue({ send: mockSend });
-    (CreateTokenCommand as unknown as jest.Mock).mockImplementation((args) => args);
+    mockSend = vi.fn().mockResolvedValueOnce(mockNewToken);
+    vi.mocked(getSsoOidcClient).mockReturnValue({ send: mockSend });
+    (CreateTokenCommand as unknown as any).mockImplementation((args) => args);
   });
 
   describe("re-throws", () => {
     const mockError = new Error("mockError");
 
     it("if getSsoOidcClient throws", async () => {
-      (getSsoOidcClient as jest.Mock).mockImplementationOnce(() => {
+      vi.mocked(getSsoOidcClient).mockImplementationOnce(() => {
         throw mockError;
       });
       try {
@@ -54,8 +55,8 @@ describe(getNewSsoOidcToken.name, () => {
     });
 
     it("if client.send() throws", async () => {
-      const mockSendWithError = jest.fn().mockRejectedValueOnce(mockError);
-      (getSsoOidcClient as jest.Mock).mockReturnValueOnce({ send: mockSendWithError });
+      const mockSendWithError = vi.fn().mockRejectedValueOnce(mockError);
+      vi.mocked(getSsoOidcClient).mockReturnValueOnce({ send: mockSendWithError });
       try {
         await getNewSsoOidcToken(mockSsoToken, mockSsoRegion);
         fail(`expected ${mockError}`);
@@ -68,7 +69,7 @@ describe(getNewSsoOidcToken.name, () => {
     });
 
     it("if CreateTokenCommand throws", async () => {
-      (CreateTokenCommand as unknown as jest.Mock).mockImplementation(() => {
+      (CreateTokenCommand as unknown as any).mockImplementation(() => {
         throw mockError;
       });
       try {

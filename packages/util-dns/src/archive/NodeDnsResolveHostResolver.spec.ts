@@ -1,4 +1,5 @@
 import { HostAddress, HostAddressType, HostResolverArguments } from "@aws-sdk/types";
+import { describe, expect, test } from "vitest";
 
 import { NodeDnsResolveHostResolver } from "./NodeDnsResolveHostResolver";
 
