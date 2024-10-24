@@ -868,7 +868,9 @@ export const se_StopDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_ar]: [() => isSerializableHeaderValue(input[_AR]), () => input[_AR]!.toString()],
+  });
   b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}");
   b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
@@ -2548,6 +2550,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _AI = "ApplicationId";
+const _AR = "AllowRevert";
 const _CCV = "ClientConfigurationVersion";
 const _CI = "ClientId";
 const _CPI = "ConfigurationProfileId";
@@ -2568,6 +2571,7 @@ const _TK = "TagKeys";
 const _VL = "VersionLabel";
 const _VN = "VersionNumber";
 const _ai = "application-id";
+const _ar = "allow-revert";
 const _ccv = "client_configuration_version";
 const _ci = "client_id";
 const _cpi = "configuration-profile-id";

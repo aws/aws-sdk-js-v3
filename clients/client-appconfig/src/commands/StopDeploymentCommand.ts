@@ -29,8 +29,11 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
 
 /**
  * <p>Stops a deployment. This API action works only on deployments that have a status of
- *             <code>DEPLOYING</code>. This action moves the deployment to a status of
- *             <code>ROLLED_BACK</code>.</p>
+ *             <code>DEPLOYING</code>, unless an <code>AllowRevert</code> parameter is supplied. If the
+ *             <code>AllowRevert</code> parameter is supplied, the status of an in-progress deployment
+ *          will be <code>ROLLED_BACK</code>. The status of a completed deployment will be
+ *             <code>REVERTED</code>. AppConfig only allows a revert within 72 hours of
+ *          deployment completion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +44,7 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  *   ApplicationId: "STRING_VALUE", // required
  *   EnvironmentId: "STRING_VALUE", // required
  *   DeploymentNumber: Number("int"), // required
+ *   AllowRevert: true || false,
  * };
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);
@@ -58,10 +62,10 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * //   GrowthType: "LINEAR" || "EXPONENTIAL",
  * //   GrowthFactor: Number("float"),
  * //   FinalBakeTimeInMinutes: Number("int"),
- * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   EventLog: [ // DeploymentEvents
  * //     { // DeploymentEvent
- * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED",
+ * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED" || "REVERT_COMPLETED",
  * //       TriggeredBy: "USER" || "APPCONFIG" || "CLOUDWATCH_ALARM" || "INTERNAL_ERROR",
  * //       Description: "STRING_VALUE",
  * //       ActionInvocations: [ // ActionInvocations

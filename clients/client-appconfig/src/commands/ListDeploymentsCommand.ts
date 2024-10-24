@@ -53,7 +53,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * //       GrowthType: "LINEAR" || "EXPONENTIAL",
  * //       GrowthFactor: Number("float"),
  * //       FinalBakeTimeInMinutes: Number("int"),
- * //       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //       PercentageComplete: Number("float"),
  * //       StartedAt: new Date("TIMESTAMP"),
  * //       CompletedAt: new Date("TIMESTAMP"),

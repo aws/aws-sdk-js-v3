@@ -54,7 +54,7 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * //   Id: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   Monitors: [ // MonitorList
  * //     { // Monitor
  * //       AlarmArn: "STRING_VALUE", // required

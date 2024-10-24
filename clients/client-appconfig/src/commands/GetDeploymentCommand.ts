@@ -56,10 +56,10 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * //   GrowthType: "LINEAR" || "EXPONENTIAL",
  * //   GrowthFactor: Number("float"),
  * //   FinalBakeTimeInMinutes: Number("int"),
- * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   EventLog: [ // DeploymentEvents
  * //     { // DeploymentEvent
- * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED",
+ * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED" || "REVERT_COMPLETED",
  * //       TriggeredBy: "USER" || "APPCONFIG" || "CLOUDWATCH_ALARM" || "INTERNAL_ERROR",
  * //       Description: "STRING_VALUE",
  * //       ActionInvocations: [ // ActionInvocations

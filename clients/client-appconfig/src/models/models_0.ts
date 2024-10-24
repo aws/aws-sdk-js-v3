@@ -914,6 +914,7 @@ export interface CreateEnvironmentRequest {
 export const EnvironmentState = {
   DEPLOYING: "DEPLOYING",
   READY_FOR_DEPLOYMENT: "READY_FOR_DEPLOYMENT",
+  REVERTED: "REVERTED",
   ROLLED_BACK: "ROLLED_BACK",
   ROLLING_BACK: "ROLLING_BACK",
 } as const;
@@ -1626,8 +1627,9 @@ export interface GetConfigurationRequest {
    *                <code>ConfigurationVersion</code> attribute returned by <a>GetConfiguration</a> when there is new or updated data, and should be saved
    *             for subsequent calls to <a>GetConfiguration</a>.</p>
    *          </important>
-   *          <p>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the
-   *             Configuration</a> in the <i>AppConfig User Guide</i>.</p>
+   *          <p>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html">Retrieving feature flags and
+   *             configuration data in AppConfig</a> in the <i>AppConfig
+   *             User Guide</i>.</p>
    * @public
    */
   ClientConfigurationVersion?: string;
@@ -1690,6 +1692,7 @@ export const DeploymentEventType = {
   DEPLOYMENT_COMPLETED: "DEPLOYMENT_COMPLETED",
   DEPLOYMENT_STARTED: "DEPLOYMENT_STARTED",
   PERCENTAGE_UPDATED: "PERCENTAGE_UPDATED",
+  REVERT_COMPLETED: "REVERT_COMPLETED",
   ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
   ROLLBACK_STARTED: "ROLLBACK_STARTED",
 } as const;
@@ -1775,6 +1778,7 @@ export const DeploymentState = {
   BAKING: "BAKING",
   COMPLETE: "COMPLETE",
   DEPLOYING: "DEPLOYING",
+  REVERTED: "REVERTED",
   ROLLED_BACK: "ROLLED_BACK",
   ROLLING_BACK: "ROLLING_BACK",
   VALIDATING: "VALIDATING",
@@ -2764,6 +2768,14 @@ export interface StopDeploymentRequest {
    * @public
    */
   DeploymentNumber: number | undefined;
+
+  /**
+   * <p>A Boolean that enables AppConfig to rollback a <code>COMPLETED</code>
+   *          deployment to the previous configuration version. This action moves the deployment to a
+   *          status of <code>REVERTED</code>.</p>
+   * @public
+   */
+  AllowRevert?: boolean;
 }
 
 /**
