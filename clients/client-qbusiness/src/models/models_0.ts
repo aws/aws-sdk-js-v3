@@ -363,6 +363,13 @@ export interface ActionReviewPayloadField {
   allowedFormat?: string;
 
   /**
+   * <p>Use to create a custom form with array fields (fields with nested objects inside an
+   *             array). </p>
+   * @public
+   */
+  arrayItemJsonSchema?: __DocumentType;
+
+  /**
    * <p>Information about whether the field is required.</p>
    * @public
    */

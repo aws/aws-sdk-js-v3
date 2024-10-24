@@ -177,6 +177,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //           },
  * //         ],
  * //         allowedFormat: "STRING_VALUE",
+ * //         arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //         required: true || false,
  * //       },
  * //     },

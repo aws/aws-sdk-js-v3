@@ -3586,6 +3586,7 @@ const de_ActionReviewPayloadField = (output: any, context: __SerdeContext): Acti
   return take(output, {
     allowedFormat: __expectString,
     allowedValues: (_: any) => de_ActionReviewPayloadFieldAllowedValues(_, context),
+    arrayItemJsonSchema: (_: any) => de_ActionReviewPayloadFieldArrayItemJsonSchema(_, context),
     displayDescription: __expectString,
     displayName: __expectString,
     displayOrder: __expectInt32,
@@ -3621,6 +3622,13 @@ const de_ActionReviewPayloadFieldAllowedValues = (
       return de_ActionReviewPayloadFieldAllowedValue(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ActionReviewPayloadFieldArrayItemJsonSchema
+ */
+const de_ActionReviewPayloadFieldArrayItemJsonSchema = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
 };
 
 // de_APISchema omitted.

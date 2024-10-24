@@ -96,6 +96,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               },
  * //             ],
  * //             allowedFormat: "STRING_VALUE",
+ * //             arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //             required: true || false,
  * //           },
  * //         },

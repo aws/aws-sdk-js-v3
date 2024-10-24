@@ -215,6 +215,7 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //             },
  * //           ],
  * //           allowedFormat: "STRING_VALUE",
+ * //           arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //           required: true || false,
  * //         },
  * //       },
