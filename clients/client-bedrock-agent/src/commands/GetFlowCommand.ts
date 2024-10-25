@@ -103,6 +103,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //                     ],
  * //                   },
  * //                 },
+ * //                 additionalModelRequestFields: "DOCUMENT_VALUE",
  * //               },
  * //             },
  * //           },

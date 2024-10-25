@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { BedrockAgentServiceException as __BaseException } from "./BedrockAgentServiceException";
 
 /**
@@ -1648,7 +1650,25 @@ export interface CreateAgentRequest {
   instruction?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model to be used for orchestration by the agent you create.</p>
+   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   foundationModel?: string;
@@ -1915,7 +1935,25 @@ export interface UpdateAgentRequest {
   instruction?: string;
 
   /**
-   * <p>Specifies a new foundation model to be used for orchestration by the agent.</p>
+   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   foundationModel: string | undefined;
@@ -4136,6 +4174,12 @@ export interface PromptFlowNodeInlineConfiguration {
    * @public
    */
   inferenceConfiguration?: PromptInferenceConfiguration;
+
+  /**
+   * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
+   * @public
+   */
+  additionalModelRequestFields?: __DocumentType;
 }
 
 /**
@@ -7527,6 +7571,12 @@ export interface PromptVariant {
    * @public
    */
   metadata?: PromptMetadataEntry[];
+
+  /**
+   * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
+   * @public
+   */
+  additionalModelRequestFields?: __DocumentType;
 }
 
 /**
@@ -8576,7 +8626,7 @@ export const FlowConditionFilterSensitiveLog = (obj: FlowCondition): any => ({
  */
 export const ConditionFlowNodeConfigurationFilterSensitiveLog = (obj: ConditionFlowNodeConfiguration): any => ({
   ...obj,
-  ...(obj.conditions && { conditions: SENSITIVE_STRING }),
+  ...(obj.conditions && { conditions: obj.conditions.map((item) => FlowConditionFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -8668,7 +8718,7 @@ export const FlowNodeFilterSensitiveLog = (obj: FlowNode): any => ({
  */
 export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
   ...obj,
-  ...(obj.nodes && { nodes: SENSITIVE_STRING }),
+  ...(obj.nodes && { nodes: obj.nodes.map((item) => FlowNodeFilterSensitiveLog(item)) }),
   ...(obj.connections && { connections: obj.connections.map((item) => item) }),
 });
 
@@ -8677,7 +8727,7 @@ export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
  */
 export const CreateFlowRequestFilterSensitiveLog = (obj: CreateFlowRequest): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8685,7 +8735,7 @@ export const CreateFlowRequestFilterSensitiveLog = (obj: CreateFlowRequest): any
  */
 export const CreateFlowResponseFilterSensitiveLog = (obj: CreateFlowResponse): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8693,7 +8743,7 @@ export const CreateFlowResponseFilterSensitiveLog = (obj: CreateFlowResponse): a
  */
 export const CreateFlowVersionResponseFilterSensitiveLog = (obj: CreateFlowVersionResponse): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8701,7 +8751,7 @@ export const CreateFlowVersionResponseFilterSensitiveLog = (obj: CreateFlowVersi
  */
 export const GetFlowVersionResponseFilterSensitiveLog = (obj: GetFlowVersionResponse): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8709,7 +8759,7 @@ export const GetFlowVersionResponseFilterSensitiveLog = (obj: GetFlowVersionResp
  */
 export const GetFlowResponseFilterSensitiveLog = (obj: GetFlowResponse): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8717,7 +8767,7 @@ export const GetFlowResponseFilterSensitiveLog = (obj: GetFlowResponse): any => 
  */
 export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -8725,7 +8775,7 @@ export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any
  */
 export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
   ...obj,
-  ...(obj.definition && { definition: FlowDefinitionFilterSensitiveLog(obj.definition) }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**

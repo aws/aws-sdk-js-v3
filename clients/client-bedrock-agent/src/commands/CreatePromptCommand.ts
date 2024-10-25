@@ -76,6 +76,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *           value: "STRING_VALUE", // required
  *         },
  *       ],
+ *       additionalModelRequestFields: "DOCUMENT_VALUE",
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
@@ -121,6 +122,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //           value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       additionalModelRequestFields: "DOCUMENT_VALUE",
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

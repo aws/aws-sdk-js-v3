@@ -76,6 +76,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  *           value: "STRING_VALUE", // required
  *         },
  *       ],
+ *       additionalModelRequestFields: "DOCUMENT_VALUE",
  *     },
  *   ],
  *   promptIdentifier: "STRING_VALUE", // required
@@ -118,6 +119,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * //           value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       additionalModelRequestFields: "DOCUMENT_VALUE",
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

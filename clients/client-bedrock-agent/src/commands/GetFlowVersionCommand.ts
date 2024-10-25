@@ -107,6 +107,7 @@ export interface GetFlowVersionCommandOutput extends GetFlowVersionResponse, __M
  * //                     ],
  * //                   },
  * //                 },
+ * //                 additionalModelRequestFields: "DOCUMENT_VALUE",
  * //               },
  * //             },
  * //           },

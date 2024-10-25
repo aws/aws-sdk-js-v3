@@ -25,6 +25,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -3481,6 +3482,7 @@ const se_PromptFlowNodeInlineConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    additionalModelRequestFields: (_) => se_Document(_, context),
     inferenceConfiguration: (_) => se_PromptInferenceConfiguration(_, context),
     modelId: [],
     templateConfiguration: _json,
@@ -3554,6 +3556,7 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
  */
 const se_PromptVariant = (input: PromptVariant, context: __SerdeContext): any => {
   return take(input, {
+    additionalModelRequestFields: (_) => se_Document(_, context),
     inferenceConfiguration: (_) => se_PromptInferenceConfiguration(_, context),
     metadata: _json,
     modelId: [],
@@ -3653,6 +3656,13 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 // se_WebDataSourceConfiguration omitted.
 
 // se_WebSourceConfiguration omitted.
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // de_ActionGroupExecutor omitted.
 
@@ -4423,6 +4433,7 @@ const de_PromptFlowNodeInlineConfiguration = (
   context: __SerdeContext
 ): PromptFlowNodeInlineConfiguration => {
   return take(output, {
+    additionalModelRequestFields: (_: any) => de_Document(_, context),
     inferenceConfiguration: (_: any) => de_PromptInferenceConfiguration(__expectUnion(_), context),
     modelId: __expectString,
     templateConfiguration: (_: any) => _json(__expectUnion(_)),
@@ -4531,6 +4542,7 @@ const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary =
  */
 const de_PromptVariant = (output: any, context: __SerdeContext): PromptVariant => {
   return take(output, {
+    additionalModelRequestFields: (_: any) => de_Document(_, context),
     inferenceConfiguration: (_: any) => de_PromptInferenceConfiguration(__expectUnion(_), context),
     metadata: _json,
     modelId: __expectString,
@@ -4637,6 +4649,13 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_WebDataSourceConfiguration omitted.
 
 // de_WebSourceConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

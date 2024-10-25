@@ -10,7 +10,7 @@ AWS SDK for JavaScript BedrockAgent Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-bedrock-agent
+To install this package, simply type add or install @aws-sdk/client-bedrock-agent
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-bedrock-agent`

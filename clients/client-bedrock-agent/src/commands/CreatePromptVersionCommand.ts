@@ -85,6 +85,7 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //           value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       additionalModelRequestFields: "DOCUMENT_VALUE",
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

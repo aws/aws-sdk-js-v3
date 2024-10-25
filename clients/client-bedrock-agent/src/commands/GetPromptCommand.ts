@@ -77,6 +77,7 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //           value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       additionalModelRequestFields: "DOCUMENT_VALUE",
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

@@ -108,6 +108,7 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                     ],
  * //                   },
  * //                 },
+ * //                 additionalModelRequestFields: "DOCUMENT_VALUE",
  * //               },
  * //             },
  * //           },
