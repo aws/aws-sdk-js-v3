@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Adding inferred token name for dynamic tokens in Anomalies. ([1429c43](https://github.com/aws/aws-sdk-js-v3/commit/1429c43213899b0e92513d3218dc83aeac02e754))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

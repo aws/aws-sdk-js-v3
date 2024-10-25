@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support of new model types for Bedrock Agents, Adding inference profile support for Flows and Prompt Management, Adding new field to configure additional inference configurations for Flows and Prompt Management ([5cf2e4b](https://github.com/aws/aws-sdk-js-v3/commit/5cf2e4b606b96c16711074cd50d5bc7fb8517423))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

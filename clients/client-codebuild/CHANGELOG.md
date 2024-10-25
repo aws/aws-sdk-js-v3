@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports automatically retrying failed builds ([0642ee5](https://github.com/aws/aws-sdk-js-v3/commit/0642ee5995caddebc2365fba905e9364872ae284))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support of new model types for Bedrock Agents, Adding inference profile support for Flows and Prompt Management, Adding new field to configure additional inference configurations for Flows and Prompt Management ([5cf2e4b](https://github.com/aws/aws-sdk-js-v3/commit/5cf2e4b606b96c16711074cd50d5bc7fb8517423))
+* **client-cloudwatch-logs:** Adding inferred token name for dynamic tokens in Anomalies. ([1429c43](https://github.com/aws/aws-sdk-js-v3/commit/1429c43213899b0e92513d3218dc83aeac02e754))
+* **client-codebuild:** AWS CodeBuild now supports automatically retrying failed builds ([0642ee5](https://github.com/aws/aws-sdk-js-v3/commit/0642ee5995caddebc2365fba905e9364872ae284))
+* **client-lambda:** Add TagsError field in Lambda GetFunctionResponse. The TagsError field contains details related to errors retrieving tags. ([cc7f367](https://github.com/aws/aws-sdk-js-v3/commit/cc7f367878d6cdc1f8f871e6655c2f283c1b6cde))
+* **client-supplychain:** API doc updates, and also support showing error message on a failed instance ([08bfafb](https://github.com/aws/aws-sdk-js-v3/commit/08bfafb93d7e5a3375a261f8c8287233222cc7a6))
+* **clients:** update client endpoints as of 2024-10-25 ([20cc81f](https://github.com/aws/aws-sdk-js-v3/commit/20cc81f3ac225d140ee28a80f42501c92947f947))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 

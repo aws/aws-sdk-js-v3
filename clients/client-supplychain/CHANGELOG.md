@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-supplychain:** API doc updates, and also support showing error message on a failed instance ([08bfafb](https://github.com/aws/aws-sdk-js-v3/commit/08bfafb93d7e5a3375a261f8c8287233222cc7a6))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-supplychain

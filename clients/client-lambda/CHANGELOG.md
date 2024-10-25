@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-lambda:** Add TagsError field in Lambda GetFunctionResponse. The TagsError field contains details related to errors retrieving tags. ([cc7f367](https://github.com/aws/aws-sdk-js-v3/commit/cc7f367878d6cdc1f8f871e6655c2f283c1b6cde))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
