@@ -226,6 +226,12 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * //       sessionTarget: "STRING_VALUE",
  * //     },
  * //     buildBatchArn: "STRING_VALUE",
+ * //     autoRetryConfig: { // AutoRetryConfig
+ * //       autoRetryLimit: Number("int"),
+ * //       autoRetryNumber: Number("int"),
+ * //       nextAutoRetry: "STRING_VALUE",
+ * //       previousAutoRetry: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -158,6 +158,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   fleetOverride: { // ProjectFleet
  *     fleetArn: "STRING_VALUE",
  *   },
+ *   autoRetryLimitOverride: Number("int"),
  * };
  * const command = new StartBuildCommand(input);
  * const response = await client.send(command);
@@ -346,6 +347,12 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       sessionTarget: "STRING_VALUE",
  * //     },
  * //     buildBatchArn: "STRING_VALUE",
+ * //     autoRetryConfig: { // AutoRetryConfig
+ * //       autoRetryLimit: Number("int"),
+ * //       autoRetryNumber: Number("int"),
+ * //       nextAutoRetry: "STRING_VALUE",
+ * //       previousAutoRetry: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

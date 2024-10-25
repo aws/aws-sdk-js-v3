@@ -21,7 +21,7 @@ Guide</a>.</i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codebuild
+To install this package, simply type add or install @aws-sdk/client-codebuild
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codebuild`

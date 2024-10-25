@@ -2294,6 +2294,8 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
 
 // de_AccountLimitExceededException omitted.
 
+// de_AutoRetryConfig omitted.
+
 // de_BatchDeleteBuildsOutput omitted.
 
 /**
@@ -2365,6 +2367,7 @@ const de_Build = (output: any, context: __SerdeContext): Build => {
   return take(output, {
     arn: __expectString,
     artifacts: _json,
+    autoRetryConfig: _json,
     buildBatchArn: __expectString,
     buildComplete: __expectBoolean,
     buildNumber: __expectLong,
@@ -2833,6 +2836,7 @@ const de_Project = (output: any, context: __SerdeContext): Project => {
   return take(output, {
     arn: __expectString,
     artifacts: _json,
+    autoRetryLimit: __expectInt32,
     badge: _json,
     buildBatchConfig: _json,
     cache: _json,

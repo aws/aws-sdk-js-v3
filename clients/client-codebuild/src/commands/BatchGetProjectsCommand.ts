@@ -238,6 +238,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //       projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * //       publicProjectAlias: "STRING_VALUE",
  * //       resourceAccessRole: "STRING_VALUE",
+ * //       autoRetryLimit: Number("int"),
  * //     },
  * //   ],
  * //   projectsNotFound: [ // ProjectNames

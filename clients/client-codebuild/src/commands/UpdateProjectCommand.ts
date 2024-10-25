@@ -197,6 +197,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *     batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
  *   },
  *   concurrentBuildLimit: Number("int"),
+ *   autoRetryLimit: Number("int"),
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -395,6 +396,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //     projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * //     publicProjectAlias: "STRING_VALUE",
  * //     resourceAccessRole: "STRING_VALUE",
+ * //     autoRetryLimit: Number("int"),
  * //   },
  * // };
  *

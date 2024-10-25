@@ -228,6 +228,12 @@ export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __Met
  * //         sessionTarget: "STRING_VALUE",
  * //       },
  * //       buildBatchArn: "STRING_VALUE",
+ * //       autoRetryConfig: { // AutoRetryConfig
+ * //         autoRetryLimit: Number("int"),
+ * //         autoRetryNumber: Number("int"),
+ * //         nextAutoRetry: "STRING_VALUE",
+ * //         previousAutoRetry: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   buildsNotFound: [ // BuildIds

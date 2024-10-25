@@ -84,6 +84,40 @@ export const AuthType = {
 export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
+ * <p>Information about the auto-retry configuration for the build.</p>
+ * @public
+ */
+export interface AutoRetryConfig {
+  /**
+   * <p>The maximum number of additional automatic retries after a failed build. For example, if the
+   *             auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically
+   *             retry your build for up to 2 additional times.</p>
+   * @public
+   */
+  autoRetryLimit?: number;
+
+  /**
+   * <p>The number of times that the build has been retried. The initial build will have an auto-retry number of 0.</p>
+   * @public
+   */
+  autoRetryNumber?: number;
+
+  /**
+   * <p>The build ARN of the auto-retried build triggered by the current build. The next auto-retry
+   *             will be <code>null</code> for builds that don't trigger an auto-retry.</p>
+   * @public
+   */
+  nextAutoRetry?: string;
+
+  /**
+   * <p>The build ARN of the build that triggered the current auto-retry build. The previous auto-retry will be
+   *             <code>null</code> for the initial build.</p>
+   * @public
+   */
+  previousAutoRetry?: string;
+}
+
+/**
  * @public
  */
 export interface BatchDeleteBuildsInput {
@@ -2686,6 +2720,12 @@ export interface Build {
    * @public
    */
   buildBatchArn?: string;
+
+  /**
+   * <p>Information about the auto-retry configuration for the build.</p>
+   * @public
+   */
+  autoRetryConfig?: AutoRetryConfig;
 }
 
 /**
@@ -4140,6 +4180,14 @@ export interface Project {
    * @public
    */
   resourceAccessRole?: string;
+
+  /**
+   * <p>The maximum number of additional automatic retries after a failed build. For example, if the
+   *       auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically
+   *       retry your build for up to 2 additional times.</p>
+   * @public
+   */
+  autoRetryLimit?: number;
 }
 
 /**
@@ -5089,6 +5137,14 @@ export interface CreateProjectInput {
    * @public
    */
   concurrentBuildLimit?: number;
+
+  /**
+   * <p>The maximum number of additional automatic retries after a failed build. For example, if the
+   *       auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically
+   *       retry your build for up to 2 additional times.</p>
+   * @public
+   */
+  autoRetryLimit?: number;
 }
 
 /**
@@ -7528,6 +7584,14 @@ export interface StartBuildInput {
    * @public
    */
   fleetOverride?: ProjectFleet;
+
+  /**
+   * <p>The maximum number of additional automatic retries after a failed build. For example, if the
+   *             auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically
+   *             retry your build for up to 2 additional times.</p>
+   * @public
+   */
+  autoRetryLimitOverride?: number;
 }
 
 /**
@@ -8280,6 +8344,14 @@ export interface UpdateProjectInput {
    * @public
    */
   concurrentBuildLimit?: number;
+
+  /**
+   * <p>The maximum number of additional automatic retries after a failed build. For example, if the
+   *       auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically
+   *       retry your build for up to 2 additional times.</p>
+   * @public
+   */
+  autoRetryLimit?: number;
 }
 
 /**
