@@ -865,6 +865,12 @@ export interface Instance {
   state: InstanceState | undefined;
 
   /**
+   * <p>The Amazon Web Services Supply Chain instance error message. If the instance results in an unhealthy state, customers need to check the error message, delete the current instance, and recreate a new one based on the mitigation from the error message.</p>
+   * @public
+   */
+  errorMessage?: string;
+
+  /**
    * <p>The WebApp DNS domain name of the instance.</p>
    * @public
    */

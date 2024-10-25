@@ -16,7 +16,7 @@ All AWS Supply chain API operations are Amazon-authenticated and certificate-sig
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-supplychain
+To install this package, simply type add or install @aws-sdk/client-supplychain
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-supplychain`

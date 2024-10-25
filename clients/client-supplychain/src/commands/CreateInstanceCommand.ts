@@ -28,7 +28,8 @@ export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new instance for AWS Supply Chain. This is an asynchronous operation. Upon receiving a CreateInstance request, AWS Supply Chain immediately returns the instance resource, with instance ID,  and the initializing state while simultaneously creating all required Amazon Web Services resources for an instance creation. You can use GetInstance to check the status of the instance.</p>
+ * <p>Enables you to programmatically create an Amazon Web Services Supply Chain instance by applying KMS keys and relevant information associated with the API without using the Amazon Web Services console.</p>
+ *          <p>This is an asynchronous operation. Upon receiving a CreateInstance request, Amazon Web Services Supply Chain immediately returns the instance resource, instance ID, and the initializing state while simultaneously creating all required Amazon Web Services resources for an instance creation. You can use GetInstance to check the status of the instance. If the instance results in an unhealthy state, you need to check the error message, delete the current instance, and recreate a new one based on the mitigation from the error message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +52,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * //     instanceId: "STRING_VALUE", // required
  * //     awsAccountId: "STRING_VALUE", // required
  * //     state: "Initializing" || "Active" || "CreateFailed" || "DeleteFailed" || "Deleting" || "Deleted", // required
+ * //     errorMessage: "STRING_VALUE",
  * //     webAppDnsDomain: "STRING_VALUE",
  * //     createdTime: new Date("TIMESTAMP"),
  * //     lastModifiedTime: new Date("TIMESTAMP"),

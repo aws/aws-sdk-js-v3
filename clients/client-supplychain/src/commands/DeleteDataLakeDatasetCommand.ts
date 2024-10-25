@@ -28,7 +28,7 @@ export interface DeleteDataLakeDatasetCommandInput extends DeleteDataLakeDataset
 export interface DeleteDataLakeDatasetCommandOutput extends DeleteDataLakeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a data lake dataset.</p>
+ * <p>Enables you to programmatically delete an Amazon Web Services Supply Chain data lake dataset. Developers can delete the existing datasets for a given instance ID, namespace, and instance name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

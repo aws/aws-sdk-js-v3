@@ -28,7 +28,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Delete tags for an Amazon Web Services Supply chain resource.</p>
+ * <p>You can delete tags for an Amazon Web Services Supply chain resource such as instance, data flow, or dataset in AWS Supply Chain. During the data ingestion process, you can delete tags such as dev, test, or prod to data flows
+ *             created during the data ingestion process in the AWS Supply Chain datasets. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

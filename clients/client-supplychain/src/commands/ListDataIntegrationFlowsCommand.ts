@@ -28,7 +28,7 @@ export interface ListDataIntegrationFlowsCommandInput extends ListDataIntegratio
 export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrationFlowsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the DataIntegrationFlows in a paginated way.</p>
+ * <p>Enables you to programmatically list all data pipelines for the provided Amazon Web Services Supply Chain instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

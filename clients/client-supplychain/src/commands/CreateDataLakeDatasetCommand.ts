@@ -28,7 +28,7 @@ export interface CreateDataLakeDatasetCommandInput extends CreateDataLakeDataset
 export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Create a data lake dataset.</p>
+ * <p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake dataset. Developers can create the datasets using their pre-defined or custom schema for a given instance ID, namespace, and dataset name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

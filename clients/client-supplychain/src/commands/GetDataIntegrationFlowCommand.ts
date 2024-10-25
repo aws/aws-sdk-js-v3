@@ -28,7 +28,7 @@ export interface GetDataIntegrationFlowCommandInput extends GetDataIntegrationFl
 export interface GetDataIntegrationFlowCommandOutput extends GetDataIntegrationFlowResponse, __MetadataBearer {}
 
 /**
- * <p>View the DataIntegrationFlow details.</p>
+ * <p>Enables you to programmatically view a specific data pipeline for the provided Amazon Web Services Supply Chain instance and DataIntegrationFlow name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface GetDataLakeDatasetCommandInput extends GetDataLakeDatasetReques
 export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Get a data lake dataset.</p>
+ * <p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

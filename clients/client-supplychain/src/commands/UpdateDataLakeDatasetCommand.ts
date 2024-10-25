@@ -28,7 +28,7 @@ export interface UpdateDataLakeDatasetCommandInput extends UpdateDataLakeDataset
 export interface UpdateDataLakeDatasetCommandOutput extends UpdateDataLakeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Update a data lake dataset.</p>
+ * <p>Enables you to programmatically update an Amazon Web Services Supply Chain data lake dataset. Developers can update the description of a data lake dataset for a given instance ID, namespace, and dataset name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

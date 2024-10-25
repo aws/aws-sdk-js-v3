@@ -28,7 +28,7 @@ export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Update the instance.</p>
+ * <p>Enables you to programmatically update an Amazon Web Services Supply Chain instance description by providing all the relevant information such as account ID, instance ID and so on without using the AWS console.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +47,7 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  * //     instanceId: "STRING_VALUE", // required
  * //     awsAccountId: "STRING_VALUE", // required
  * //     state: "Initializing" || "Active" || "CreateFailed" || "DeleteFailed" || "Deleting" || "Deleted", // required
+ * //     errorMessage: "STRING_VALUE",
  * //     webAppDnsDomain: "STRING_VALUE",
  * //     createdTime: new Date("TIMESTAMP"),
  * //     lastModifiedTime: new Date("TIMESTAMP"),

@@ -28,7 +28,7 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>List all the AWS Supply Chain instances in a paginated way.</p>
+ * <p>List all Amazon Web Services Supply Chain instances for a specific account. Enables you to programmatically list all Amazon Web Services Supply Chain instances based on their account ID, instance name, and state of the instance (active or delete).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +53,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //       instanceId: "STRING_VALUE", // required
  * //       awsAccountId: "STRING_VALUE", // required
  * //       state: "Initializing" || "Active" || "CreateFailed" || "DeleteFailed" || "Deleting" || "Deleted", // required
+ * //       errorMessage: "STRING_VALUE",
  * //       webAppDnsDomain: "STRING_VALUE",
  * //       createdTime: new Date("TIMESTAMP"),
  * //       lastModifiedTime: new Date("TIMESTAMP"),

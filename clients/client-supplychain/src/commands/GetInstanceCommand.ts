@@ -28,7 +28,7 @@ export interface GetInstanceCommandInput extends GetInstanceRequest {}
 export interface GetInstanceCommandOutput extends GetInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Get the AWS Supply Chain instance details.</p>
+ * <p>Enables you to programmatically retrieve the information related to an Amazon Web Services Supply Chain instance ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,7 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * //     instanceId: "STRING_VALUE", // required
  * //     awsAccountId: "STRING_VALUE", // required
  * //     state: "Initializing" || "Active" || "CreateFailed" || "DeleteFailed" || "Deleting" || "Deleted", // required
+ * //     errorMessage: "STRING_VALUE",
  * //     webAppDnsDomain: "STRING_VALUE",
  * //     createdTime: new Date("TIMESTAMP"),
  * //     lastModifiedTime: new Date("TIMESTAMP"),

@@ -28,7 +28,7 @@ export interface ListDataLakeDatasetsCommandInput extends ListDataLakeDatasetsRe
 export interface ListDataLakeDatasetsCommandOutput extends ListDataLakeDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>List the data lake datasets for a specific instance and name space.</p>
+ * <p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake datasets. Developers can view the datasets and the corresponding information such as namespace, schema, and so on for a given instance ID and namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

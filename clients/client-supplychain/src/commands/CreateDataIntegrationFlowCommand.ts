@@ -28,7 +28,7 @@ export interface CreateDataIntegrationFlowCommandInput extends CreateDataIntegra
 export interface CreateDataIntegrationFlowCommandOutput extends CreateDataIntegrationFlowResponse, __MetadataBearer {}
 
 /**
- * <p>Create DataIntegrationFlow to map one or more different sources to one target using the SQL transformation query.</p>
+ * <p>Enables you to programmatically create a data pipeline to ingest data from source systems such as Amazon S3 buckets, to a predefined Amazon Web Services Supply Chain dataset (product, inbound_order) or a temporary dataset along with the data transformation query provided with the API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface DeleteDataIntegrationFlowCommandInput extends DeleteDataIntegra
 export interface DeleteDataIntegrationFlowCommandOutput extends DeleteDataIntegrationFlowResponse, __MetadataBearer {}
 
 /**
- * <p>Delete the DataIntegrationFlow.</p>
+ * <p>Enable you to programmatically delete an existing data pipeline for the provided Amazon Web Services Supply Chain instance and DataIntegrationFlow name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

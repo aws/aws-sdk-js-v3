@@ -1291,6 +1291,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   return take(output, {
     awsAccountId: __expectString,
     createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorMessage: __expectString,
     instanceDescription: __expectString,
     instanceId: __expectString,
     instanceName: __expectString,
