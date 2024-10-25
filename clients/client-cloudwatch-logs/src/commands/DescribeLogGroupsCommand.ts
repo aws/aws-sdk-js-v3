@@ -30,7 +30,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
 /**
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
- *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
+ *          <p>CloudWatch Logs doesn't support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
  *       <code>aws:ResourceTag/<i>key-name</i>
  *             </code> condition key. Other CloudWatch Logs actions
  *       do support the use of the <code>aws:ResourceTag/<i>key-name</i>

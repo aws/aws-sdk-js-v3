@@ -75,6 +75,7 @@ export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __Met
  * //           enumerations: { // Enumerations
  * //             "<keys>": Number("long"),
  * //           },
+ * //           inferredTokenName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       logGroupArnList: [ // LogGroupArnList // required

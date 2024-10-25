@@ -175,6 +175,17 @@ export interface PatternToken {
    * @public
    */
   enumerations?: Record<string, number>;
+
+  /**
+   * <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of
+   *       the <code>inferredTokenName</code> gives you a clearer idea of the content of this token. The number part of
+   *       the <code>inferredTokenName</code> shows where in the pattern this token appears, compared to other dynamic tokens.
+   *       CloudWatch Logs assigns the string part of the name based on analyzing the content of the log events that contain it.</p>
+   *          <p>For example, an inferred token name of <code>IPAddress-3</code> means that the token represents an IP address, and this
+   *       token is the third dynamic token in the pattern.</p>
+   * @public
+   */
+  inferredTokenName?: string;
 }
 
 /**
@@ -713,7 +724,7 @@ export interface ConfigurationTemplate {
   deliveryDestinationType?: DeliveryDestinationType;
 
   /**
-   * <p>A mapping that displays the default value of each property within a delivery’s configuration,
+   * <p>A mapping that displays the default value of each property within a delivery's configuration,
    *       if it is not specified in the request.</p>
    * @public
    */
@@ -792,7 +803,7 @@ export interface CreateDeliveryRequest {
 
   /**
    * <p>The list of record fields to be delivered to the destination, in order.
-   *       If the delivery’s log source has mandatory fields, they must be included in this list.</p>
+   *       If the delivery's log source has mandatory fields, they must be included in this list.</p>
    * @public
    */
   recordFields?: string[];
@@ -805,7 +816,7 @@ export interface CreateDeliveryRequest {
   fieldDelimiter?: string;
 
   /**
-   * <p>This structure contains parameters that are valid only when the delivery’s delivery destination is an S3 bucket.</p>
+   * <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
    * @public
    */
   s3DeliveryConfiguration?: S3DeliveryConfiguration;
@@ -825,7 +836,7 @@ export interface CreateDeliveryRequest {
  *          <p>A delivery is a connection between a logical <i>delivery source</i> and a logical
  *      <i>delivery destination</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
- *          <p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ *          <p>To update an existing delivery configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>.</p>
  * @public
  */
 export interface Delivery {
@@ -1005,6 +1016,8 @@ export interface CreateExportTaskRequest {
   /**
    * <p>The prefix used as the start of the key for every object exported. If you don't
    *       specify a value, the default is <code>exportedlogs</code>.</p>
+   *          <p>The length of this parameter must comply with the S3 object key name length limits. The object key name is a sequence of Unicode characters with UTF-8 encoding,
+   *       and can be up to 1,024 bytes.</p>
    * @public
    */
   destinationPrefix?: string;
@@ -5325,7 +5338,7 @@ export interface StartQueryRequest {
 
   /**
    * <p>The maximum number of log events to return in the query. If the query string uses the <code>fields</code> command,
-   *     only the specified fields and their values are returned. The default is 1000.</p>
+   *     only the specified fields and their values are returned. The default is 10,000.</p>
    * @public
    */
   limit?: number;
@@ -5634,7 +5647,7 @@ export interface UpdateDeliveryConfigurationRequest {
 
   /**
    * <p>The list of record fields to be delivered to the destination, in order.
-   *       If the delivery’s log source has mandatory fields, they must be included in this list.</p>
+   *       If the delivery's log source has mandatory fields, they must be included in this list.</p>
    * @public
    */
   recordFields?: string[];
@@ -5647,7 +5660,7 @@ export interface UpdateDeliveryConfigurationRequest {
   fieldDelimiter?: string;
 
   /**
-   * <p>This structure contains parameters that are valid only when the delivery’s delivery destination is an S3 bucket.</p>
+   * <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
    * @public
    */
   s3DeliveryConfiguration?: S3DeliveryConfiguration;

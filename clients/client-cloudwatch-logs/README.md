@@ -44,7 +44,7 @@ into the log service. You can then access the raw log data when you need it.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudwatch-logs
+To install this package, simply type add or install @aws-sdk/client-cloudwatch-logs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudwatch-logs`

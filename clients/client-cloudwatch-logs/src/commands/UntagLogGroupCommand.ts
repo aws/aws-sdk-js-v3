@@ -35,7 +35,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  *          <p>Removes the specified tags from the specified log group.</p>
  *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
  *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
- *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
+ *          <p>CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified tags to
  *       log groups using the <code>aws:Resource/<i>key-name</i>
  *             </code> or <code>aws:TagKeys</code> condition keys.
  *      </p>

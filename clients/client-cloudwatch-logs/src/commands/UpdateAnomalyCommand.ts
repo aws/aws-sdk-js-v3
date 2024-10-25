@@ -29,9 +29,9 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Use this operation to <i>suppress</i> anomaly detection for a specified anomaly or pattern. If you suppress
- *        an anomaly, CloudWatch Logs won’t report new occurrences of that anomaly and won't
+ *        an anomaly, CloudWatch Logs won't report new occurrences of that anomaly and won't
  *        update that anomaly
- *        with new data. If you suppress a pattern, CloudWatch Logs won’t report any anomalies related to that pattern.</p>
+ *        with new data. If you suppress a pattern, CloudWatch Logs won't report any anomalies related to that pattern.</p>
  *          <p>You must specify either <code>anomalyId</code> or <code>patternId</code>, but you can't specify both parameters in the
  *      same operation.</p>
  *          <p>If you have previously used this operation to suppress detection of a pattern or anomaly, you can use it again to cause

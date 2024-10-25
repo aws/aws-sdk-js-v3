@@ -63,7 +63,7 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  *          </ul>
  *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
  *        can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
- *          <p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ *          <p>To update an existing delivery configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
