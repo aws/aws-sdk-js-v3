@@ -156,6 +156,10 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   TagsError: { // TagsError
+ * //     ErrorCode: "STRING_VALUE", // required
+ * //     Message: "STRING_VALUE", // required
+ * //   },
  * //   Concurrency: { // Concurrency
  * //     ReservedConcurrentExecutions: Number("int"),
  * //   },

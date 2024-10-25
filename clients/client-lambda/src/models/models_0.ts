@@ -3364,6 +3364,24 @@ export interface Concurrency {
 }
 
 /**
+ * <p>An object that contains details about an error related to retrieving tags.</p>
+ * @public
+ */
+export interface TagsError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetFunctionResponse {
@@ -3380,10 +3398,17 @@ export interface GetFunctionResponse {
   Code?: FunctionCodeLocation;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda
+   *       returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>An object that contains details about an error related to retrieving tags.</p>
+   * @public
+   */
+  TagsError?: TagsError;
 
   /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved

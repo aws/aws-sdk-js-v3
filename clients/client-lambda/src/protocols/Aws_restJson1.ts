@@ -2394,6 +2394,7 @@ export const de_GetFunctionCommand = async (
     Concurrency: _json,
     Configuration: _json,
     Tags: _json,
+    TagsError: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4961,6 +4962,8 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
 // de_SubnetIds omitted.
 
 // de_Tags omitted.
+
+// de_TagsError omitted.
 
 // de_Topics omitted.
 

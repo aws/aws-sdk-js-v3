@@ -75,7 +75,7 @@ up-to-date is the more straightforward solution. To learn more about ACM-provide
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lambda
+To install this package, simply type add or install @aws-sdk/client-lambda
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lambda`
