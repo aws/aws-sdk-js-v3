@@ -242,18 +242,38 @@ describe("convertToNative", () => {
           new Set(input.map((numString) => ({ value: numString })))
         );
       });
+
+      it("with options.preferNativeArrays=true", () => {
+        expect(convertToNative({ NS: input }, { preferNativeArrays: true })).toEqual(input);
+      });
     });
 
-    it("binary set", () => {
-      const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
-      const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
-      const input = [uint8Arr1, uint8Arr2];
-      expect(convertToNative({ BS: input })).toEqual(new Set(input));
+    describe("binary set", () => {
+      it("without options.preferNativeArrays", () => {
+        const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+        const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+        const input = [uint8Arr1, uint8Arr2];
+        expect(convertToNative({ BS: input })).toEqual(new Set(input));
+      });
+
+      it("with options.preferNativeArrays=true", () => {
+        const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+        const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+        const input = [uint8Arr1, uint8Arr2];
+        expect(convertToNative({ BS: input })).toEqual(input);
+      });
     });
 
-    it("string set", () => {
-      const input = ["one", "two", "three"];
-      expect(convertToNative({ SS: input })).toEqual(new Set(input));
+    describe("string set", () => {
+      it("without options.preferNativeArrays", () => {
+        const input = ["one", "two", "three"];
+        expect(convertToNative({ SS: input })).toEqual(new Set(input));
+      });
+
+      it("with options.preferNativeArrays=true", () => {
+        const input = ["one", "two", "three"];
+        expect(convertToNative({ SS: input })).toEqual(input);
+      });
     });
   });
 
