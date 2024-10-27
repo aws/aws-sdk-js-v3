@@ -244,7 +244,7 @@ describe("convertToNative", () => {
       });
 
       it("with options.preferNativeArrays=true", () => {
-        expect(convertToNative({ NS: input }, { preferNativeArrays: true })).toEqual(input);
+        expect(convertToNative({ NS: input }, { preferNativeArrays: true })).toEqual([1, 2, BigInt(9007199254740996)]);
       });
     });
 
@@ -260,7 +260,7 @@ describe("convertToNative", () => {
         const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
         const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
         const input = [uint8Arr1, uint8Arr2];
-        expect(convertToNative({ BS: input })).toEqual(input);
+        expect(convertToNative({ BS: input }, { preferNativeArrays: true })).toEqual(input);
       });
     });
 
@@ -272,7 +272,7 @@ describe("convertToNative", () => {
 
       it("with options.preferNativeArrays=true", () => {
         const input = ["one", "two", "three"];
-        expect(convertToNative({ SS: input })).toEqual(input);
+        expect(convertToNative({ SS: input }, { preferNativeArrays: true })).toEqual(input);
       });
     });
   });
