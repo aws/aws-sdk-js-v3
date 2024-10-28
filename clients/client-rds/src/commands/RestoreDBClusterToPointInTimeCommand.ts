@@ -112,6 +112,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     TransitGatewayMulticastDomainId: "STRING_VALUE",
  *     ReplicaMode: "open-read-only" || "mounted",
  *   },
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
  *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);

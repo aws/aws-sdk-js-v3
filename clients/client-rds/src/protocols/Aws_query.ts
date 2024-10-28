@@ -15221,6 +15221,21 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
+  }
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
+  }
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
+  }
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
+  }
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
+  }
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
   }
@@ -15354,6 +15369,21 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       const loc = `RdsCustomClusterConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
+  }
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
+  }
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
+  }
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
+  }
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];

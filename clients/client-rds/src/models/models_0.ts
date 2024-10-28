@@ -771,9 +771,37 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
-   *          <p>Valid Values: <code>system-update</code>, <code>db-upgrade</code>,
-   *           <code>hardware-maintenance</code>, <code>ca-certificate-rotation</code>
-   *          </p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ca-certificate-rotation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hardware-maintenance</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>os-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-update</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these actions, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   ApplyAction: string | undefined;
@@ -811,8 +839,37 @@ export interface PendingMaintenanceAction {
   /**
    * <p>The type of pending maintenance action that is available for the resource. </p>
    *          <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p>
-   *          <p>Valid Values:<code> system-update | db-upgrade | hardware-maintenance | ca-certificate-rotation</code>
-   *          </p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ca-certificate-rotation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hardware-maintenance</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>os-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-update</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these actions, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   Action?: string;
@@ -5153,6 +5210,9 @@ export interface CreateDBClusterMessage {
   /**
    * <p>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
    *          <p>Valid for: Aurora DB clusters only</p>
+   *          <note>
+   *             <p>This setting is no longer used. Instead use the <code>ClusterScalabilityType</code> setting.</p>
+   *          </note>
    * @public
    */
   EnableLimitlessDatabase?: boolean;

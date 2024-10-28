@@ -7994,6 +7994,9 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
    *          <p>Valid for: Aurora DB clusters only</p>
+   *          <note>
+   *             <p>This setting is no longer used. Instead use the <code>ClusterScalabilityType</code> setting when you create your Aurora Limitless Database DB cluster.</p>
+   *          </note>
    * @public
    */
   EnableLimitlessDatabase?: boolean;
@@ -11880,6 +11883,67 @@ export interface RestoreDBClusterFromSnapshotMessage {
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
 
   /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off
+   *             collecting Enhanced Monitoring metrics, specify <code>0</code>.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code> to a value other than <code>0</code>.</p>
+   *          <p>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code>
+   *          </p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+   *             An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply a <code>MonitoringRoleArn</code> value.</p>
+   * @public
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
+   * @public
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS uses your default KMS key.
+   *             There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>The number of days to retain Performance Insights data.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23.
+   *                     Examples: <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code> (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>731</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>7</code> days</p>
+   *          <p>If you specify a retention period that isn't valid, such as <code>94</code>,  Amazon RDS issues an error.</p>
+   * @public
+   */
+  PerformanceInsightsRetentionPeriod?: number;
+
+  /**
    * <p>The life cycle type for this DB cluster.</p>
    *          <note>
    *             <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support.
@@ -12339,6 +12403,67 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off
+   *             collecting Enhanced Monitoring metrics, specify <code>0</code>.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code> to a value other than <code>0</code>.</p>
+   *          <p>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code>
+   *          </p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+   *             An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply a <code>MonitoringRoleArn</code> value.</p>
+   * @public
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
+   * @public
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS uses your default KMS key.
+   *             There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>The number of days to retain Performance Insights data.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23.
+   *                     Examples: <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code> (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>731</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>7</code> days</p>
+   *          <p>If you specify a retention period that isn't valid, such as <code>94</code>,  Amazon RDS issues an error.</p>
+   * @public
+   */
+  PerformanceInsightsRetentionPeriod?: number;
 
   /**
    * <p>The life cycle type for this DB cluster.</p>
