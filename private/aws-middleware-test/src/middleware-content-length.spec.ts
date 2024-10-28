@@ -1,15 +1,20 @@
-import { test as it, describe, expect } from "vitest";
-
 import { AccessAnalyzer } from "@aws-sdk/client-accessanalyzer";
 import { S3 } from "@aws-sdk/client-s3";
 import { XRay } from "@aws-sdk/client-xray";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-content-length", () => {
   describe(AccessAnalyzer.name, () => {
     it("should not add content-length if no body", async () => {
-      const client = new AccessAnalyzer({ region: "us-west-2" });
+      const client = new AccessAnalyzer({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-length": /undefined/,
@@ -24,7 +29,13 @@ describe("middleware-content-length", () => {
     });
 
     it("should add content-length if body present", async () => {
-      const client = new AccessAnalyzer({ region: "us-west-2" });
+      const client = new AccessAnalyzer({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-length": /106/,
@@ -42,7 +53,13 @@ describe("middleware-content-length", () => {
 
   describe(S3.name, () => {
     it("should not add content-length if no body", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-length": /undefined/,
@@ -58,7 +75,13 @@ describe("middleware-content-length", () => {
     });
 
     it("should add content-length if body present", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-length": /4/,
@@ -77,7 +100,13 @@ describe("middleware-content-length", () => {
 
   describe(XRay.name, () => {
     it("should add content-length if body present", async () => {
-      const client = new XRay({ region: "us-west-2" });
+      const client = new XRay({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         headers: {
           "content-length": /24/,
