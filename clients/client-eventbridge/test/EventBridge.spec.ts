@@ -1,14 +1,9 @@
-/// <reference types="mocha" />
 import "@aws-sdk/signature-v4-crt";
 
 import { FinalizeRequestMiddleware } from "@aws-sdk/types";
-import chai from "chai";
-import chaiAsPromised from "chai-as-promised";
+import { describe, expect, test as it } from "vitest";
 
 import { EventBridge } from "../src/EventBridge";
-
-chai.use(chaiAsPromised);
-const { expect } = chai;
 
 describe("EventBridge", () => {
   const client = new EventBridge({});
