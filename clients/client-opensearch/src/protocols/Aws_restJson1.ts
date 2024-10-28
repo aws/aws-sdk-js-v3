@@ -257,6 +257,8 @@ import {
   LogType,
   MasterUserOptions,
   NaturalLanguageQueryGenerationOptionsInput,
+  NodeConfig,
+  NodeOption,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
   OffPeakWindow,
@@ -3393,6 +3395,12 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_NaturalLanguageQueryGenerationOptionsInput omitted.
 
+// se_NodeConfig omitted.
+
+// se_NodeOption omitted.
+
+// se_NodeOptionsList omitted.
+
 // se_NodeToNodeEncryptionOptions omitted.
 
 // se_OffPeakWindow omitted.
@@ -3948,6 +3956,12 @@ const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): Lo
 // de_ModifyingPropertiesList omitted.
 
 // de_NaturalLanguageQueryGenerationOptionsOutput omitted.
+
+// de_NodeConfig omitted.
+
+// de_NodeOption omitted.
+
+// de_NodeOptionsList omitted.
 
 // de_NodeToNodeEncryptionOptions omitted.
 

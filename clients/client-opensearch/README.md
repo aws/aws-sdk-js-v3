@@ -14,7 +14,7 @@ endpoints</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opensearch
+To install this package, simply type add or install @aws-sdk/client-opensearch
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opensearch`
