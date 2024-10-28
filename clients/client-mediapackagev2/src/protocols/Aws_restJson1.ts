@@ -29,8 +29,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CancelHarvestJobCommandInput, CancelHarvestJobCommandOutput } from "../commands/CancelHarvestJobCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import { CreateChannelGroupCommandInput, CreateChannelGroupCommandOutput } from "../commands/CreateChannelGroupCommand";
+import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "../commands/CreateHarvestJobCommand";
 import {
   CreateOriginEndpointCommandInput,
   CreateOriginEndpointCommandOutput,
@@ -52,6 +54,7 @@ import {
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetChannelGroupCommandInput, GetChannelGroupCommandOutput } from "../commands/GetChannelGroupCommand";
 import { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "../commands/GetChannelPolicyCommand";
+import { GetHarvestJobCommandInput, GetHarvestJobCommandOutput } from "../commands/GetHarvestJobCommand";
 import { GetOriginEndpointCommandInput, GetOriginEndpointCommandOutput } from "../commands/GetOriginEndpointCommand";
 import {
   GetOriginEndpointPolicyCommandInput,
@@ -59,6 +62,7 @@ import {
 } from "../commands/GetOriginEndpointPolicyCommand";
 import { ListChannelGroupsCommandInput, ListChannelGroupsCommandOutput } from "../commands/ListChannelGroupsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
+import { ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput } from "../commands/ListHarvestJobsCommand";
 import {
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput,
@@ -91,6 +95,7 @@ import {
   CreateLowLatencyHlsManifestConfiguration,
   DashPeriodTrigger,
   DashUtcTiming,
+  Destination,
   DrmSystem,
   Encryption,
   EncryptionContractConfiguration,
@@ -101,9 +106,16 @@ import {
   GetDashManifestConfiguration,
   GetHlsManifestConfiguration,
   GetLowLatencyHlsManifestConfiguration,
+  HarvestedDashManifest,
+  HarvestedHlsManifest,
+  HarvestedLowLatencyHlsManifest,
+  HarvestedManifests,
+  HarvesterScheduleConfiguration,
+  HarvestJob,
   InternalServerException,
   OriginEndpointListConfiguration,
   ResourceNotFoundException,
+  S3DestinationConfig,
   Scte,
   ScteDash,
   ScteFilter,
@@ -115,6 +127,29 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CancelHarvestJobCommand
+ */
+export const se_CancelHarvestJobCommand = async (
+  input: CancelHarvestJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xauim]: input[_ET]!,
+  });
+  b.bp(
+    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob/{HarvestJobName}"
+  );
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
+  b.p("HarvestJobName", () => input.HarvestJobName!, "{HarvestJobName}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateChannelCommand
@@ -162,6 +197,37 @@ export const se_CreateChannelGroupCommand = async (
       ChannelGroupName: [],
       Description: [],
       tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateHarvestJobCommand
+ */
+export const se_CreateHarvestJobCommand = async (
+  input: CreateHarvestJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
+  });
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Destination: (_) => _json(_),
+      HarvestJobName: [],
+      HarvestedManifests: (_) => _json(_),
+      ScheduleConfiguration: (_) => se_HarvesterScheduleConfiguration(_, context),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -339,6 +405,27 @@ export const se_GetChannelPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetHarvestJobCommand
+ */
+export const se_GetHarvestJobCommand = async (
+  input: GetHarvestJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob/{HarvestJobName}"
+  );
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
+  b.p("HarvestJobName", () => input.HarvestJobName!, "{HarvestJobName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetOriginEndpointCommand
  */
 export const se_GetOriginEndpointCommand = async (
@@ -405,6 +492,29 @@ export const se_ListChannelsCommand = async (
   b.bp("/channelGroup/{ChannelGroupName}/channel");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListHarvestJobsCommand
+ */
+export const se_ListHarvestJobsCommand = async (
+  input: ListHarvestJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/channelGroup/{ChannelGroupName}/harvestJob");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  const query: any = map({
+    [_cN]: [, input[_CN]!],
+    [_oEN]: [, input[_OEN]!],
+    [_iS]: [, input[_S]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -624,6 +734,23 @@ export const se_UpdateOriginEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelHarvestJobCommand
+ */
+export const de_CancelHarvestJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelHarvestJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateChannelCommand
  */
 export const de_CreateChannelCommand = async (
@@ -675,6 +802,41 @@ export const de_CreateChannelGroupCommand = async (
     ETag: __expectString,
     EgressDomain: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateHarvestJobCommand
+ */
+export const de_CreateHarvestJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHarvestJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelGroupName: __expectString,
+    ChannelName: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Destination: _json,
+    ETag: __expectString,
+    ErrorMessage: __expectString,
+    HarvestJobName: __expectString,
+    HarvestedManifests: _json,
+    ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OriginEndpointName: __expectString,
+    ScheduleConfiguration: (_) => de_HarvesterScheduleConfiguration(_, context),
+    Status: __expectString,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -884,6 +1046,41 @@ export const de_GetChannelPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetHarvestJobCommand
+ */
+export const de_GetHarvestJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHarvestJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelGroupName: __expectString,
+    ChannelName: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Destination: _json,
+    ETag: __expectString,
+    ErrorMessage: __expectString,
+    HarvestJobName: __expectString,
+    HarvestedManifests: _json,
+    ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OriginEndpointName: __expectString,
+    ScheduleConfiguration: (_) => de_HarvesterScheduleConfiguration(_, context),
+    Status: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetOriginEndpointCommand
  */
 export const de_GetOriginEndpointCommand = async (
@@ -981,6 +1178,28 @@ export const de_ListChannelsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Items: (_) => de_ChannelList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListHarvestJobsCommand
+ */
+export const de_ListHarvestJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHarvestJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_HarvestJobsList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1214,15 +1433,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.mediapackagev2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mediapackagev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.mediapackagev2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.mediapackagev2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mediapackagev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1460,6 +1679,8 @@ const se_CreateLowLatencyHlsManifests = (
 
 // se_DashUtcTiming omitted.
 
+// se_Destination omitted.
+
 // se_DrmSystems omitted.
 
 // se_Encryption omitted.
@@ -1484,6 +1705,32 @@ const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeCont
 };
 
 // se_ForceEndpointErrorConfiguration omitted.
+
+// se_HarvestedDashManifest omitted.
+
+// se_HarvestedDashManifestsList omitted.
+
+// se_HarvestedHlsManifest omitted.
+
+// se_HarvestedHlsManifestsList omitted.
+
+// se_HarvestedLowLatencyHlsManifest omitted.
+
+// se_HarvestedLowLatencyHlsManifestsList omitted.
+
+// se_HarvestedManifests omitted.
+
+/**
+ * serializeAws_restJson1HarvesterScheduleConfiguration
+ */
+const se_HarvesterScheduleConfiguration = (input: HarvesterScheduleConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
+  });
+};
+
+// se_S3DestinationConfig omitted.
 
 // se_Scte omitted.
 
@@ -1564,6 +1811,8 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
 // de_DashPeriodTriggers omitted.
 
 // de_DashUtcTiming omitted.
+
+// de_Destination omitted.
 
 // de_DrmSystems omitted.
 
@@ -1684,6 +1933,64 @@ const de_GetLowLatencyHlsManifests = (
   return retVal;
 };
 
+// de_HarvestedDashManifest omitted.
+
+// de_HarvestedDashManifestsList omitted.
+
+// de_HarvestedHlsManifest omitted.
+
+// de_HarvestedHlsManifestsList omitted.
+
+// de_HarvestedLowLatencyHlsManifest omitted.
+
+// de_HarvestedLowLatencyHlsManifestsList omitted.
+
+// de_HarvestedManifests omitted.
+
+/**
+ * deserializeAws_restJson1HarvesterScheduleConfiguration
+ */
+const de_HarvesterScheduleConfiguration = (output: any, context: __SerdeContext): HarvesterScheduleConfiguration => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1HarvestJob
+ */
+const de_HarvestJob = (output: any, context: __SerdeContext): HarvestJob => {
+  return take(output, {
+    Arn: __expectString,
+    ChannelGroupName: __expectString,
+    ChannelName: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Destination: _json,
+    ETag: __expectString,
+    ErrorMessage: __expectString,
+    HarvestJobName: __expectString,
+    HarvestedManifests: _json,
+    ModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OriginEndpointName: __expectString,
+    ScheduleConfiguration: (_: any) => de_HarvesterScheduleConfiguration(_, context),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1HarvestJobsList
+ */
+const de_HarvestJobsList = (output: any, context: __SerdeContext): HarvestJob[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HarvestJob(entry, context);
+    });
+  return retVal;
+};
+
 // de_IngestEndpoint omitted.
 
 // de_IngestEndpointList omitted.
@@ -1732,6 +2039,8 @@ const de_OriginEndpointsList = (output: any, context: __SerdeContext): OriginEnd
   return retVal;
 };
 
+// de_S3DestinationConfig omitted.
+
 // de_Scte omitted.
 
 // de_ScteDash omitted.
@@ -1768,13 +2077,19 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _CN = "ChannelName";
 const _CT = "ClientToken";
 const _ET = "ETag";
 const _MR = "MaxResults";
 const _NT = "NextToken";
+const _OEN = "OriginEndpointName";
+const _S = "Status";
 const _TK = "TagKeys";
+const _cN = "channelName";
+const _iS = "includeStatus";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _oEN = "originEndpointName";
 const _tK = "tagKeys";
 const _xact = "x-amzn-client-token";
 const _xauim = "x-amzn-update-if-match";

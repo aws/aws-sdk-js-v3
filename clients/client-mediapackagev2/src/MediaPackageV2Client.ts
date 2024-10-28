@@ -53,8 +53,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelHarvestJobCommandInput, CancelHarvestJobCommandOutput } from "./commands/CancelHarvestJobCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateChannelGroupCommandInput, CreateChannelGroupCommandOutput } from "./commands/CreateChannelGroupCommand";
+import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand";
 import {
   CreateOriginEndpointCommandInput,
   CreateOriginEndpointCommandOutput,
@@ -76,6 +78,7 @@ import {
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetChannelGroupCommandInput, GetChannelGroupCommandOutput } from "./commands/GetChannelGroupCommand";
 import { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand";
+import { GetHarvestJobCommandInput, GetHarvestJobCommandOutput } from "./commands/GetHarvestJobCommand";
 import { GetOriginEndpointCommandInput, GetOriginEndpointCommandOutput } from "./commands/GetOriginEndpointCommand";
 import {
   GetOriginEndpointPolicyCommandInput,
@@ -83,6 +86,7 @@ import {
 } from "./commands/GetOriginEndpointPolicyCommand";
 import { ListChannelGroupsCommandInput, ListChannelGroupsCommandOutput } from "./commands/ListChannelGroupsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput } from "./commands/ListHarvestJobsCommand";
 import {
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput,
@@ -119,8 +123,10 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelHarvestJobCommandInput
   | CreateChannelCommandInput
   | CreateChannelGroupCommandInput
+  | CreateHarvestJobCommandInput
   | CreateOriginEndpointCommandInput
   | DeleteChannelCommandInput
   | DeleteChannelGroupCommandInput
@@ -130,10 +136,12 @@ export type ServiceInputTypes =
   | GetChannelCommandInput
   | GetChannelGroupCommandInput
   | GetChannelPolicyCommandInput
+  | GetHarvestJobCommandInput
   | GetOriginEndpointCommandInput
   | GetOriginEndpointPolicyCommandInput
   | ListChannelGroupsCommandInput
   | ListChannelsCommandInput
+  | ListHarvestJobsCommandInput
   | ListOriginEndpointsCommandInput
   | ListTagsForResourceCommandInput
   | PutChannelPolicyCommandInput
@@ -148,8 +156,10 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelHarvestJobCommandOutput
   | CreateChannelCommandOutput
   | CreateChannelGroupCommandOutput
+  | CreateHarvestJobCommandOutput
   | CreateOriginEndpointCommandOutput
   | DeleteChannelCommandOutput
   | DeleteChannelGroupCommandOutput
@@ -159,10 +169,12 @@ export type ServiceOutputTypes =
   | GetChannelCommandOutput
   | GetChannelGroupCommandOutput
   | GetChannelPolicyCommandOutput
+  | GetHarvestJobCommandOutput
   | GetOriginEndpointCommandOutput
   | GetOriginEndpointPolicyCommandOutput
   | ListChannelGroupsCommandOutput
   | ListChannelsCommandOutput
+  | ListHarvestJobsCommandOutput
   | ListOriginEndpointsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutChannelPolicyCommandOutput

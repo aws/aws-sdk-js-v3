@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CancelHarvestJobCommand,
+  CancelHarvestJobCommandInput,
+  CancelHarvestJobCommandOutput,
+} from "./commands/CancelHarvestJobCommand";
+import {
   CreateChannelCommand,
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
@@ -12,6 +17,11 @@ import {
   CreateChannelGroupCommandInput,
   CreateChannelGroupCommandOutput,
 } from "./commands/CreateChannelGroupCommand";
+import {
+  CreateHarvestJobCommand,
+  CreateHarvestJobCommandInput,
+  CreateHarvestJobCommandOutput,
+} from "./commands/CreateHarvestJobCommand";
 import {
   CreateOriginEndpointCommand,
   CreateOriginEndpointCommandInput,
@@ -54,6 +64,11 @@ import {
   GetChannelPolicyCommandOutput,
 } from "./commands/GetChannelPolicyCommand";
 import {
+  GetHarvestJobCommand,
+  GetHarvestJobCommandInput,
+  GetHarvestJobCommandOutput,
+} from "./commands/GetHarvestJobCommand";
+import {
   GetOriginEndpointCommand,
   GetOriginEndpointCommandInput,
   GetOriginEndpointCommandOutput,
@@ -73,6 +88,11 @@ import {
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListHarvestJobsCommand,
+  ListHarvestJobsCommandInput,
+  ListHarvestJobsCommandOutput,
+} from "./commands/ListHarvestJobsCommand";
 import {
   ListOriginEndpointsCommand,
   ListOriginEndpointsCommandInput,
@@ -117,8 +137,10 @@ import {
 import { MediaPackageV2Client, MediaPackageV2ClientConfig } from "./MediaPackageV2Client";
 
 const commands = {
+  CancelHarvestJobCommand,
   CreateChannelCommand,
   CreateChannelGroupCommand,
+  CreateHarvestJobCommand,
   CreateOriginEndpointCommand,
   DeleteChannelCommand,
   DeleteChannelGroupCommand,
@@ -128,10 +150,12 @@ const commands = {
   GetChannelCommand,
   GetChannelGroupCommand,
   GetChannelPolicyCommand,
+  GetHarvestJobCommand,
   GetOriginEndpointCommand,
   GetOriginEndpointPolicyCommand,
   ListChannelGroupsCommand,
   ListChannelsCommand,
+  ListHarvestJobsCommand,
   ListOriginEndpointsCommand,
   ListTagsForResourceCommand,
   PutChannelPolicyCommand,
@@ -144,6 +168,23 @@ const commands = {
 };
 
 export interface MediaPackageV2 {
+  /**
+   * @see {@link CancelHarvestJobCommand}
+   */
+  cancelHarvestJob(
+    args: CancelHarvestJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelHarvestJobCommandOutput>;
+  cancelHarvestJob(
+    args: CancelHarvestJobCommandInput,
+    cb: (err: any, data?: CancelHarvestJobCommandOutput) => void
+  ): void;
+  cancelHarvestJob(
+    args: CancelHarvestJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelHarvestJobCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateChannelCommand}
    */
@@ -170,6 +211,23 @@ export interface MediaPackageV2 {
     args: CreateChannelGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateChannelGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHarvestJobCommand}
+   */
+  createHarvestJob(
+    args: CreateHarvestJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHarvestJobCommandOutput>;
+  createHarvestJob(
+    args: CreateHarvestJobCommandInput,
+    cb: (err: any, data?: CreateHarvestJobCommandOutput) => void
+  ): void;
+  createHarvestJob(
+    args: CreateHarvestJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHarvestJobCommandOutput) => void
   ): void;
 
   /**
@@ -311,6 +369,17 @@ export interface MediaPackageV2 {
   ): void;
 
   /**
+   * @see {@link GetHarvestJobCommand}
+   */
+  getHarvestJob(args: GetHarvestJobCommandInput, options?: __HttpHandlerOptions): Promise<GetHarvestJobCommandOutput>;
+  getHarvestJob(args: GetHarvestJobCommandInput, cb: (err: any, data?: GetHarvestJobCommandOutput) => void): void;
+  getHarvestJob(
+    args: GetHarvestJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHarvestJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetOriginEndpointCommand}
    */
   getOriginEndpoint(
@@ -371,6 +440,20 @@ export interface MediaPackageV2 {
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHarvestJobsCommand}
+   */
+  listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHarvestJobsCommandOutput>;
+  listHarvestJobs(args: ListHarvestJobsCommandInput, cb: (err: any, data?: ListHarvestJobsCommandOutput) => void): void;
+  listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
   ): void;
 
   /**

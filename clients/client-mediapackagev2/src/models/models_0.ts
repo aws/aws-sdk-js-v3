@@ -53,40 +53,44 @@ export const AdMarkerHls = {
 export type AdMarkerHls = (typeof AdMarkerHls)[keyof typeof AdMarkerHls];
 
 /**
- * <p>The configuration of the channel group.</p>
  * @public
  */
-export interface ChannelGroupListConfiguration {
+export interface CancelHarvestJobRequest {
   /**
-   * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
+   * <p>The name of the channel group containing the channel from which the harvest job is running.</p>
    * @public
    */
   ChannelGroupName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+   * <p>The name of the channel from which the harvest job is running.</p>
    * @public
    */
-  Arn: string | undefined;
+  ChannelName: string | undefined;
 
   /**
-   * <p>The date and time the channel group was created.</p>
+   * <p>The name of the origin endpoint that the harvest job is harvesting from. This cannot be changed after the harvest job is submitted.</p>
    * @public
    */
-  CreatedAt: Date | undefined;
+  OriginEndpointName: string | undefined;
 
   /**
-   * <p>The date and time the channel group was modified.</p>
+   * <p>The name of the harvest job to cancel. This name must be unique within the channel and cannot be changed after the harvest job is submitted.</p>
    * @public
    */
-  ModifiedAt: Date | undefined;
+  HarvestJobName: string | undefined;
 
   /**
-   * <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
+   * <p>The current Entity Tag (ETag) associated with the harvest job. Used for concurrency control.</p>
    * @public
    */
-  Description?: string;
+  ETag?: string;
 }
+
+/**
+ * @public
+ */
+export interface CancelHarvestJobResponse {}
 
 /**
  * @public
@@ -133,28 +137,6 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
- */
-export interface DeleteChannelPolicyRequest {
-  /**
-   * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
-   * @public
-   */
-  ChannelGroupName: string | undefined;
-
-  /**
-   * <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group.</p>
-   * @public
-   */
-  ChannelName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteChannelPolicyResponse {}
-
-/**
  * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  * @public
  */
@@ -173,6 +155,50 @@ export class InternalServerException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeNotFound = {
+  CHANNEL: "CHANNEL",
+  CHANNEL_GROUP: "CHANNEL_GROUP",
+  HARVEST_JOB: "HARVEST_JOB",
+  ORIGIN_ENDPOINT: "ORIGIN_ENDPOINT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTypeNotFound = (typeof ResourceTypeNotFound)[keyof typeof ResourceTypeNotFound];
+
+/**
+ * <p>The specified resource doesn't exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The specified resource type wasn't found.</p>
+   * @public
+   */
+  ResourceTypeNotFound?: ResourceTypeNotFound;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceTypeNotFound = opts.ResourceTypeNotFound;
   }
 }
 
@@ -214,6 +240,13 @@ export const ValidationExceptionType = {
   ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
   ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
   END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
+  HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION: "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION",
+  HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT: "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT",
+  HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED: "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED",
+  HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION: "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION",
+  HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE: "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE",
+  HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION: "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION",
+  INVALID_HARVEST_JOB_DURATION: "INVALID_HARVEST_JOB_DURATION",
   INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
   INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
   INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
@@ -242,6 +275,7 @@ export const ValidationExceptionType = {
   SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
   START_TAG_TIME_OFFSET_INVALID: "START_TAG_TIME_OFFSET_INVALID",
   TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
+  TOO_MANY_IN_PROGRESS_HARVEST_JOBS: "TOO_MANY_IN_PROGRESS_HARVEST_JOBS",
   TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
   UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
   URL_INVALID: "URL_INVALID",
@@ -289,6 +323,64 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The configuration of the channel group.</p>
+ * @public
+ */
+export interface ChannelGroupListConfiguration {
+  /**
+   * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time the channel group was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the channel group was modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteChannelPolicyRequest {
+  /**
+   * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteChannelPolicyResponse {}
+
+/**
  * @public
  */
 export interface GetChannelPolicyRequest {
@@ -326,49 +418,6 @@ export interface GetChannelPolicyResponse {
    * @public
    */
   Policy: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceTypeNotFound = {
-  CHANNEL: "CHANNEL",
-  CHANNEL_GROUP: "CHANNEL_GROUP",
-  ORIGIN_ENDPOINT: "ORIGIN_ENDPOINT",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeNotFound = (typeof ResourceTypeNotFound)[keyof typeof ResourceTypeNotFound];
-
-/**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The specified resource type wasn't found.</p>
-   * @public
-   */
-  ResourceTypeNotFound?: ResourceTypeNotFound;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceTypeNotFound = opts.ResourceTypeNotFound;
-  }
 }
 
 /**
@@ -2866,6 +2915,569 @@ export interface GetChannelGroupResponse {
    * @public
    */
   Tags?: Record<string, string>;
+}
+
+/**
+ * <p>Configuration parameters for where in an S3 bucket to place the harvested content.</p>
+ * @public
+ */
+export interface S3DestinationConfig {
+  /**
+   * <p>The name of an S3 bucket within which harvested content will be exported.</p>
+   * @public
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The path within the specified S3 bucket where the harvested content will be placed.</p>
+   * @public
+   */
+  DestinationPath: string | undefined;
+}
+
+/**
+ * <p>The configuration for the destination where the harvested content will be exported.</p>
+ * @public
+ */
+export interface Destination {
+  /**
+   * <p>The configuration for exporting harvested content to an S3 bucket. This includes details such as the bucket name and destination path within the bucket.</p>
+   * @public
+   */
+  S3Destination: S3DestinationConfig | undefined;
+}
+
+/**
+ * <p>Information about a harvested DASH manifest.</p>
+ * @public
+ */
+export interface HarvestedDashManifest {
+  /**
+   * <p>The name of the harvested DASH manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>Information about a harvested HLS manifest.</p>
+ * @public
+ */
+export interface HarvestedHlsManifest {
+  /**
+   * <p>The name of the harvested HLS manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>Information about a harvested Low-Latency HLS manifest.</p>
+ * @public
+ */
+export interface HarvestedLowLatencyHlsManifest {
+  /**
+   * <p>The name of the harvested Low-Latency HLS manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+}
+
+/**
+ * <p>A collection of harvested manifests of different types.</p>
+ * @public
+ */
+export interface HarvestedManifests {
+  /**
+   * <p>A list of harvested HLS manifests.</p>
+   * @public
+   */
+  HlsManifests?: HarvestedHlsManifest[];
+
+  /**
+   * <p>A list of harvested DASH manifests.</p>
+   * @public
+   */
+  DashManifests?: HarvestedDashManifest[];
+
+  /**
+   * <p>A list of harvested Low-Latency HLS manifests.</p>
+   * @public
+   */
+  LowLatencyHlsManifests?: HarvestedLowLatencyHlsManifest[];
+}
+
+/**
+ * <p>Defines the schedule configuration for a harvest job.</p>
+ * @public
+ */
+export interface HarvesterScheduleConfiguration {
+  /**
+   * <p>The start time for the harvest job.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end time for the harvest job.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * <p>The request object for creating a new harvest job.</p>
+ * @public
+ */
+export interface CreateHarvestJobRequest {
+  /**
+   * <p>The name of the channel group containing the channel from which to harvest content.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel from which to harvest content.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint from which to harvest content.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>An optional description for the harvest job.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of manifests to be harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The configuration for when the harvest job should run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A name for the harvest job. This name must be unique within the channel.</p>
+   * @public
+   */
+  HarvestJobName?: string;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HarvestJobStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
+
+/**
+ * @public
+ */
+export type HarvestJobStatus = (typeof HarvestJobStatus)[keyof typeof HarvestJobStatus];
+
+/**
+ * <p>The response object returned after creating a harvest job.</p>
+ * @public
+ */
+export interface CreateHarvestJobResponse {
+  /**
+   * <p>The name of the channel group containing the channel from which content is being harvested.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel from which content is being harvested.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint from which content is being harvested.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the created harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that will be harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The description of the harvest job, if provided.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration for when the harvest job will run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., CREATED, IN_PROGRESS, ABORTED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job creation failed.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * <p>The request object for retrieving a specific harvest job.</p>
+ * @public
+ */
+export interface GetHarvestJobRequest {
+  /**
+   * <p>The name of the channel group containing the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with the harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The name of the harvest job to retrieve.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+}
+
+/**
+ * <p>The response object containing the details of the requested harvest job.</p>
+ * @public
+ */
+export interface GetHarvestJobResponse {
+  /**
+   * <p>The name of the channel group containing the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with the harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with the harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content is being placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that are being or have been harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>The description of the harvest job, if provided.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration for when the harvest job is scheduled to run, including start and end times.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., QUEUED, IN_PROGRESS, CANCELLED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job encountered any issues.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string;
+
+  /**
+   * <p>A collection of tags associated with the harvest job.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * <p>The request object for listing harvest jobs.</p>
+ * @public
+ */
+export interface ListHarvestJobsRequest {
+  /**
+   * <p>The name of the channel group to filter the harvest jobs by. If specified, only harvest jobs associated with channels in this group will be returned.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel to filter the harvest jobs by. If specified, only harvest jobs associated with this channel will be returned.</p>
+   * @public
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The name of the origin endpoint to filter the harvest jobs by. If specified, only harvest jobs associated with this origin endpoint will be returned.</p>
+   * @public
+   */
+  OriginEndpointName?: string;
+
+  /**
+   * <p>The status to filter the harvest jobs by. If specified, only harvest jobs with this status will be returned.</p>
+   * @public
+   */
+  Status?: HarvestJobStatus;
+
+  /**
+   * <p>The maximum number of harvest jobs to return in a single request. If not specified, a default value will be used.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token used for pagination. Provide this value in subsequent requests to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Represents a harvest job resource in MediaPackage v2, which is used to export content from an origin endpoint to an S3 bucket.</p>
+ * @public
+ */
+export interface HarvestJob {
+  /**
+   * <p>The name of the channel group containing the channel associated with this harvest job.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel associated with this harvest job.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint associated with this harvest job.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The S3 destination where the harvested content will be placed.</p>
+   * @public
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>The name of the harvest job.</p>
+   * @public
+   */
+  HarvestJobName: string | undefined;
+
+  /**
+   * <p>A list of manifests that are being or have been harvested.</p>
+   * @public
+   */
+  HarvestedManifests: HarvestedManifests | undefined;
+
+  /**
+   * <p>An optional description of the harvest job.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration for when the harvest job is scheduled to run.</p>
+   * @public
+   */
+  ScheduleConfiguration: HarvesterScheduleConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the harvest job.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the harvest job was last modified.</p>
+   * @public
+   */
+  ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the harvest job (e.g., QUEUED, IN_PROGRESS, CANCELLED, COMPLETED, FAILED).</p>
+   * @public
+   */
+  Status: HarvestJobStatus | undefined;
+
+  /**
+   * <p>An error message if the harvest job encountered any issues.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The current version of the harvest job. Used for concurrency control.</p>
+   * @public
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>The response object containing the list of harvest jobs that match the specified criteria.</p>
+ * @public
+ */
+export interface ListHarvestJobsResponse {
+  /**
+   * <p>An array of harvest job objects that match the specified criteria.</p>
+   * @public
+   */
+  Items?: HarvestJob[];
+
+  /**
+   * <p>A token used for pagination. Include this value in subsequent requests to retrieve the next set of results. If null, there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
