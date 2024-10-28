@@ -47,7 +47,28 @@ export class TestHttpHandler implements HttpHandler {
   private client?: Client<any, any, any>;
   private assertions = 0;
 
-  public constructor(public readonly matcher: HttpRequestMatcher) {}
+  public constructor(public readonly matcher: HttpRequestMatcher) {
+    const RESERVED_ENVIRONMENT_VARIABLES = {
+      AWS_DEFAULT_REGION: 1,
+      AWS_REGION: 1,
+      AWS_PROFILE: 1,
+      AWS_ACCESS_KEY_ID: 1,
+      AWS_SECRET_ACCESS_KEY: 1,
+      AWS_SESSION_TOKEN: 1,
+      AWS_CREDENTIAL_EXPIRATION: 1,
+      AWS_CREDENTIAL_SCOPE: 1,
+      AWS_EC2_METADATA_DISABLED: 1,
+      AWS_WEB_IDENTITY_TOKEN_FILE: 1,
+      AWS_ROLE_ARN: 1,
+      AWS_CONTAINER_CREDENTIALS_FULL_URI: 1,
+      AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
+      AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
+      AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
+    };
+    for (const key in RESERVED_ENVIRONMENT_VARIABLES) {
+      delete process.env[key];
+    }
+  }
 
   /**
    * @param client - to watch for requests.
