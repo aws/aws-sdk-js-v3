@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.681.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.680.0...v3.681.0) (2024-10-28)
+
+
+### Features
+
+* **client-mediapackagev2:** MediaPackage V2 Live to VOD Harvester is a MediaPackage V2 feature, which is used to export content from an origin endpoint to a S3 bucket. ([5755a32](https://github.com/aws/aws-sdk-js-v3/commit/5755a320240ef866953e7739ec4a56b0d44ce489))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

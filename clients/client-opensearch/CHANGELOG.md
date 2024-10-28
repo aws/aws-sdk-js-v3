@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.681.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.680.0...v3.681.0) (2024-10-28)
+
+
+### Features
+
+* **client-opensearch:** Adds support for provisioning dedicated coordinator nodes. Coordinator nodes can be specified using the new NodeOptions parameter in ClusterConfig. ([81e60f6](https://github.com/aws/aws-sdk-js-v3/commit/81e60f675662f8eb45dc4e7eae817f1d4051270c))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

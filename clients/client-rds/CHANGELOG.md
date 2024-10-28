@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.681.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.680.0...v3.681.0) (2024-10-28)
+
+
+### Features
+
+* **client-rds:** This release adds support for Enhanced Monitoring and Performance Insights when restoring Aurora Limitless Database DB clusters. It also adds support for the os-upgrade pending maintenance action. ([02407f8](https://github.com/aws/aws-sdk-js-v3/commit/02407f89d0477ba7a33583675881df2eb9607ba6))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

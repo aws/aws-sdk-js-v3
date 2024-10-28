@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.681.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.680.0...v3.681.0) (2024-10-28)
+
+
+### Features
+
+* **client-mediapackagev2:** MediaPackage V2 Live to VOD Harvester is a MediaPackage V2 feature, which is used to export content from an origin endpoint to a S3 bucket. ([5755a32](https://github.com/aws/aws-sdk-js-v3/commit/5755a320240ef866953e7739ec4a56b0d44ce489))
+* **client-opensearch:** Adds support for provisioning dedicated coordinator nodes. Coordinator nodes can be specified using the new NodeOptions parameter in ClusterConfig. ([81e60f6](https://github.com/aws/aws-sdk-js-v3/commit/81e60f675662f8eb45dc4e7eae817f1d4051270c))
+* **client-rds:** This release adds support for Enhanced Monitoring and Performance Insights when restoring Aurora Limitless Database DB clusters. It also adds support for the os-upgrade pending maintenance action. ([02407f8](https://github.com/aws/aws-sdk-js-v3/commit/02407f89d0477ba7a33583675881df2eb9607ba6))
+* **clients:** update client endpoints as of 2024-10-28 ([de48f9d](https://github.com/aws/aws-sdk-js-v3/commit/de48f9d1848662d52a7328df2ffee9f122a6e314))
+
+
+
+
+
 # [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
 
 
