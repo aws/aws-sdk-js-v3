@@ -32,6 +32,7 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
       // Retry without additional filters
       return await runTurbo(task, null, apiSecret, apiEndpoint);
     }
+    throw error;
   }
 };
 
