@@ -7,7 +7,12 @@
 AWS SDK for JavaScript StorageGateway Client for Node.js, Browser and React Native.
 
 <fullname>Storage Gateway Service</fullname>
+<important>
 
+<p>Amazon FSx File Gateway is no longer available to new customers. Existing
+customers of FSx File Gateway can continue to use the service normally. For
+capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+</important>
 <p>Storage Gateway is the service that connects an on-premises software appliance
 with cloud-based storage to provide seamless and secure integration between an
 organization's on-premises IT environment and the Amazon Web Services storage
@@ -69,7 +74,7 @@ Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-storage-gateway
+To install this package, simply type add or install @aws-sdk/client-storage-gateway
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-storage-gateway`

@@ -115,6 +115,11 @@ export interface ActivateGatewayInput {
    * <p>A value that defines the type of gateway to activate. The type specified is critical to
    *          all later functions of the gateway and cannot be changed after activation. The default
    *          value is <code>CACHED</code>.</p>
+   *          <important>
+   *             <p>Amazon FSx File Gateway is no longer available to new customers. Existing
+   *             customers of FSx File Gateway can continue to use the service normally. For
+   *             capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+   *          </important>
    *          <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code>
    *          | <code>FILE_S3</code> |
    *          <code>FILE_FSX_SMB</code>
@@ -822,10 +827,13 @@ export type AvailabilityMonitorTestStatus =
   (typeof AvailabilityMonitorTestStatus)[keyof typeof AvailabilityMonitorTestStatus];
 
 /**
- * <p> Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit
- *          schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit
- *          interval defines a period of time on one or more days of the week, during which bandwidth
- *          rate limits are specified for uploading, downloading, or both. </p>
+ * <p>Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit schedule
+ *          consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval
+ *          defines a period of time on one or more days of the week, during which bandwidth rate
+ *          limits are specified for uploading, downloading, or both.</p>
+ *          <note>
+ *             <p>FSx File Gateway does not support this feature.</p>
+ *          </note>
  * @public
  */
 export interface BandwidthRateLimitInterval {
@@ -871,8 +879,8 @@ export interface BandwidthRateLimitInterval {
    *          per second. This field does not appear in the response if the upload rate limit is not set. </p>
    *          <note>
    *             <p>For Tape Gateway and Volume Gateway, the minimum value is <code>51200</code>.</p>
-   *             <p>For S3 File Gateway and FSx File Gateway, the minimum value is
-   *             <code>104857600</code>.</p>
+   *             <p>This field is required for S3 File Gateway, and the minimum value is
+   *                <code>104857600</code>.</p>
    *          </note>
    * @public
    */
@@ -882,6 +890,9 @@ export interface BandwidthRateLimitInterval {
    * <p> The average download rate limit component of the bandwidth rate limit interval, in bits
    *          per second. This field does not appear in the response if the download rate limit is not
    *          set. </p>
+   *          <note>
+   *             <p>S3 File Gateway does not support this feature.</p>
+   *          </note>
    * @public
    */
   AverageDownloadRateLimitInBitsPerSec?: number;
@@ -1425,7 +1436,7 @@ export interface CreateNFSFileShareInput {
    *             as shown in the following examples.</p>
    *             <p>Bucket ARN:</p>
    *             <p>
-   *                <code>arn:aws:s3:::my-bucket/prefix/</code>
+   *                <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>
    *             </p>
    *             <p>Access point ARN:</p>
    *             <p>
@@ -1542,6 +1553,10 @@ export interface CreateNFSFileShareInput {
    *             <p>
    *                <code>FileShareName</code> must be set if an S3 prefix name is set in
    *                <code>LocationARN</code>, or if an access point or access point alias is used.</p>
+   *             <p>A valid NFS file share name can only contain the following characters:
+   *                <code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>,
+   *                <code>0</code>-<code>9</code>, <code>-</code>, <code>.</code>, and
+   *             <code>_</code>.</p>
    *          </note>
    * @public
    */
@@ -1705,7 +1720,7 @@ export interface CreateSMBFileShareInput {
    *             as shown in the following examples.</p>
    *             <p>Bucket ARN:</p>
    *             <p>
-   *                <code>arn:aws:s3:::my-bucket/prefix/</code>
+   *                <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>
    *             </p>
    *             <p>Access point ARN:</p>
    *             <p>
@@ -1871,6 +1886,9 @@ export interface CreateSMBFileShareInput {
    *             <p>
    *                <code>FileShareName</code> must be set if an S3 prefix name is set in
    *                <code>LocationARN</code>, or if an access point or access point alias is used.</p>
+   *             <p>A valid SMB file share name cannot contain the following characters:
+   *                <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>"</code>,<code>\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>,
+   *             or ASCII control characters <code>1-31</code>.</p>
    *          </note>
    * @public
    */
@@ -3353,6 +3371,11 @@ export interface DescribeGatewayInformationOutput {
 
   /**
    * <p>The type of the gateway.</p>
+   *          <important>
+   *             <p>Amazon FSx File Gateway is no longer available to new customers. Existing
+   *             customers of FSx File Gateway can continue to use the service normally. For
+   *             capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+   *          </important>
    * @public
    */
   GatewayType?: string;
@@ -3728,7 +3751,7 @@ export interface NFSFileShareInfo {
    *             as shown in the following examples.</p>
    *             <p>Bucket ARN:</p>
    *             <p>
-   *                <code>arn:aws:s3:::my-bucket/prefix/</code>
+   *                <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>
    *             </p>
    *             <p>Access point ARN:</p>
    *             <p>
@@ -4039,7 +4062,7 @@ export interface SMBFileShareInfo {
    *             as shown in the following examples.</p>
    *             <p>Bucket ARN:</p>
    *             <p>
-   *                <code>arn:aws:s3:::my-bucket/prefix/</code>
+   *                <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code>
    *             </p>
    *             <p>Access point ARN:</p>
    *             <p>
@@ -5621,6 +5644,11 @@ export interface GatewayInfo {
 
   /**
    * <p>The type of the gateway.</p>
+   *          <important>
+   *             <p>Amazon FSx File Gateway is no longer available to new customers. Existing
+   *             customers of FSx File Gateway can continue to use the service normally. For
+   *             capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+   *          </important>
    * @public
    */
   GatewayType?: string;
@@ -7478,6 +7506,10 @@ export interface UpdateNFSFileShareInput {
    *             <p>
    *                <code>FileShareName</code> must be set if an S3 prefix name is set in
    *                <code>LocationARN</code>, or if an access point or access point alias is used.</p>
+   *             <p>A valid NFS file share name can only contain the following characters:
+   *                <code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>,
+   *                <code>0</code>-<code>9</code>, <code>-</code>, <code>.</code>, and
+   *             <code>_</code>.</p>
    *          </note>
    * @public
    */
@@ -7719,6 +7751,9 @@ export interface UpdateSMBFileShareInput {
    *             <p>
    *                <code>FileShareName</code> must be set if an S3 prefix name is set in
    *                <code>LocationARN</code>, or if an access point or access point alias is used.</p>
+   *             <p>A valid SMB file share name cannot contain the following characters:
+   *                <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>"</code>,<code>\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>,
+   *             or ASCII control characters <code>1-31</code>.</p>
    *          </note>
    * @public
    */

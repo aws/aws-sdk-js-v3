@@ -2,6 +2,11 @@
 /* eslint-disable */
 /**
  * <fullname>Storage Gateway Service</fullname>
+ *          <important>
+ *             <p>Amazon FSx File Gateway is no longer available to new customers. Existing
+ *             customers of FSx File Gateway can continue to use the service normally. For
+ *             capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+ *          </important>
  *          <p>Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
  *          organization's on-premises IT environment and the Amazon Web Services storage
