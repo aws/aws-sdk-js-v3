@@ -12,8 +12,8 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo eventbridge",
-    "test": "yarn test:unit",
-    "test:unit": "ts-mocha test/**/*.spec.ts"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

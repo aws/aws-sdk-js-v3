@@ -12,8 +12,8 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo lex-runtime-service",
-    "test": "yarn test:unit",
-    "test:unit": "ts-mocha test/**/*.spec.ts"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -65,8 +65,6 @@
   },
   "devDependencies": {
     "@tsconfig/node16": "16.1.3",
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^8.0.4",
     "@types/node": "^16.18.96",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

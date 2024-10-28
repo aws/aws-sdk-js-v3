@@ -7,4 +7,3 @@
 *.tgz
 *.log
 package-lock.json
-!karma.conf.js

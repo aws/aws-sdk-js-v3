@@ -1,7 +1,6 @@
-/// <reference types="mocha" />
 import { HttpRequest } from "@smithy/protocol-http";
 import { SerializeMiddleware } from "@smithy/types";
-import { expect } from "chai";
+import { describe, expect, test as it } from "vitest";
 
 import { MediaStoreData } from "../src/MediaStoreData";
 
