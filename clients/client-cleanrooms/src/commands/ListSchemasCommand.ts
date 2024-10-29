@@ -56,7 +56,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
  * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //       ],
- * //       analysisMethod: "STRING_VALUE",
+ * //       analysisMethod: "DIRECT_QUERY",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

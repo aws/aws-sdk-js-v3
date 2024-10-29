@@ -59,7 +59,8 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
  * //       preserveNulls: true || false, // required
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };
  *

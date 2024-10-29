@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateMembershipInput, UpdateMembershipOutput } from "../models/models_0";
+import { UpdateMembershipInput, UpdateMembershipOutput } from "../models/models_1";
 import { de_UpdateMembershipCommand, se_UpdateMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -44,6 +44,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  *         resultFormat: "STRING_VALUE", // required
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
+ *         singleFileOutput: true || false,
  *       },
  *     },
  *     roleArn: "STRING_VALUE",
@@ -64,7 +65,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     status: "STRING_VALUE", // required
  * //     memberAbilities: [ // MemberAbilities // required
- * //       "STRING_VALUE",
+ * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //     ],
  * //     queryLogStatus: "STRING_VALUE", // required
  * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
@@ -73,6 +74,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
  * //         },
  * //       },
  * //       roleArn: "STRING_VALUE",

@@ -44,7 +44,7 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *   description: "STRING_VALUE",
  *   membershipIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   format: "STRING_VALUE", // required
+ *   format: "SQL", // required
  *   source: { // AnalysisSource Union: only one key present
  *     text: "STRING_VALUE",
  *   },
@@ -54,7 +54,7 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *   analysisParameters: [ // AnalysisParameterList
  *     { // AnalysisParameter
  *       name: "STRING_VALUE", // required
- *       type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ *       type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE" || "BINARY" || "BYTE" || "CHARACTER" || "DOUBLE" || "FLOAT" || "INT" || "LONG" || "NUMERIC" || "SHORT" || "STRING" || "TIMESTAMP_LTZ" || "TIMESTAMP_NTZ" || "TINYINT", // required
  *       defaultValue: "STRING_VALUE",
  *     },
  *   ],
@@ -78,14 +78,14 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     format: "STRING_VALUE", // required
+ * //     format: "SQL", // required
  * //     source: { // AnalysisSource Union: only one key present
  * //       text: "STRING_VALUE",
  * //     },
  * //     analysisParameters: [ // AnalysisParameterList
  * //       { // AnalysisParameter
  * //         name: "STRING_VALUE", // required
- * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE" || "BINARY" || "BYTE" || "CHARACTER" || "DOUBLE" || "FLOAT" || "INT" || "LONG" || "NUMERIC" || "SHORT" || "STRING" || "TIMESTAMP_LTZ" || "TIMESTAMP_NTZ" || "TINYINT", // required
  * //         defaultValue: "STRING_VALUE",
  * //       },
  * //     ],

@@ -48,6 +48,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *         resultFormat: "STRING_VALUE", // required
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
+ *         singleFileOutput: true || false,
  *       },
  *     },
  *     roleArn: "STRING_VALUE",
@@ -73,7 +74,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     status: "STRING_VALUE", // required
  * //     memberAbilities: [ // MemberAbilities // required
- * //       "STRING_VALUE",
+ * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //     ],
  * //     queryLogStatus: "STRING_VALUE", // required
  * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
@@ -82,6 +83,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
  * //         },
  * //       },
  * //       roleArn: "STRING_VALUE",

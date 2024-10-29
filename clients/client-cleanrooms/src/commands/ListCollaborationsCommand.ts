@@ -56,6 +56,7 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * //       memberStatus: "STRING_VALUE", // required
  * //       membershipId: "STRING_VALUE",
  * //       membershipArn: "STRING_VALUE",
+ * //       analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //     },
  * //   ],
  * // };

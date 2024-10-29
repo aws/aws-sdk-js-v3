@@ -37,8 +37,7 @@ export interface DeleteConfiguredTableAssociationAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes
- *          an analysis rule for a configured table association.</p>
+ * <p>Deletes an analysis rule for a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

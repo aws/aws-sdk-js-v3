@@ -59,7 +59,7 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "STRING_VALUE", // required
+ * //     analysisMethod: "DIRECT_QUERY", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
  * //     ],

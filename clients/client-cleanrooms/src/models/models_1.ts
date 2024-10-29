@@ -1,11 +1,98 @@
 // smithy-typescript generated code
 import {
+  Membership,
+  MembershipProtectedQueryResultConfiguration,
+  MembershipQueryLogStatus,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetTemplateParametersOutput,
   PrivacyBudgetType,
   ProtectedQuery,
   ProtectedQueryFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StartProtectedQueryOutput {
+  /**
+   * <p>The protected query.</p>
+   * @public
+   */
+  protectedQuery: ProtectedQuery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMembershipInput {
+  /**
+   * <p>The unique identifier of the membership.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the
+   *          membership.</p>
+   * @public
+   */
+  queryLogStatus?: MembershipQueryLogStatus;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can
+   *          receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMembershipOutput {
+  /**
+   * <p>The membership object.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetProtectedQueryStatus = (typeof TargetProtectedQueryStatus)[keyof typeof TargetProtectedQueryStatus];
+
+/**
+ * @public
+ */
+export interface UpdateProtectedQueryInput {
+  /**
+   * <p>The identifier for a member of a protected query instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for a protected query instance.</p>
+   * @public
+   */
+  protectedQueryIdentifier: string | undefined;
+
+  /**
+   * <p>The target status of a query. Used to update the execution status of a currently running
+   *          query.</p>
+   * @public
+   */
+  targetStatus: TargetProtectedQueryStatus | undefined;
+}
 
 /**
  * @public
@@ -186,9 +273,7 @@ export interface PrivacyBudgetTemplate {
   autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
 
   /**
-   * <p>Specifies the
-   *          epsilon
-   *          and noise parameters for the privacy budget template.</p>
+   * <p>Specifies the epsilon and noise parameters for the privacy budget template.</p>
    * @public
    */
   parameters: PrivacyBudgetTemplateParametersOutput | undefined;
@@ -266,16 +351,14 @@ export interface ListPrivacyBudgetTemplatesInput {
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of
-   *          results.</p>
+   * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum size of the results that is returned per call. Service chooses a default if
-   *          it has not been set. Service may return a nextToken even if the maximum results has not
-   *          been met.</p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
+   * `maxResults` value has not been met.</p>
    * @public
    */
   maxResults?: number;
@@ -346,8 +429,7 @@ export interface PrivacyBudgetTemplateSummary {
  */
 export interface ListPrivacyBudgetTemplatesOutput {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of
-   *          results.</p>
+   * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
   nextToken?: string;
@@ -501,6 +583,14 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @internal
+ */
+export const StartProtectedQueryOutputFilterSensitiveLog = (obj: StartProtectedQueryOutput): any => ({
+  ...obj,
+  ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
+});
 
 /**
  * @internal

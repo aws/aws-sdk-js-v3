@@ -40,7 +40,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     { // MemberSpecification
  *       accountId: "STRING_VALUE", // required
  *       memberAbilities: [ // MemberAbilities // required
- *         "STRING_VALUE",
+ *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  *       ],
  *       displayName: "STRING_VALUE", // required
  *       paymentConfiguration: { // PaymentConfiguration
@@ -53,7 +53,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE", // required
  *   creatorMemberAbilities: [ // required
- *     "STRING_VALUE",
+ *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  *   ],
  *   creatorDisplayName: "STRING_VALUE", // required
  *   dataEncryptionMetadata: { // DataEncryptionMetadata
@@ -62,7 +62,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     allowJoinsOnColumnsWithDifferentNames: true || false, // required
  *     preserveNulls: true || false, // required
  *   },
- *   queryLogStatus: "STRING_VALUE", // required
+ *   queryLogStatus: "ENABLED" || "DISABLED", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -71,6 +71,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *       isResponsible: true || false, // required
  *     },
  *   },
+ *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * };
  * const command = new CreateCollaborationCommand(input);
  * const response = await client.send(command);
@@ -93,7 +94,8 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
  * //       preserveNulls: true || false, // required
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };
  *

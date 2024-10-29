@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartProtectedQueryInput,
-  StartProtectedQueryInputFilterSensitiveLog,
-  StartProtectedQueryOutput,
-  StartProtectedQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartProtectedQueryInput, StartProtectedQueryInputFilterSensitiveLog } from "../models/models_0";
+import { StartProtectedQueryOutput, StartProtectedQueryOutputFilterSensitiveLog } from "../models/models_1";
 import { de_StartProtectedQueryCommand, se_StartProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -56,10 +52,17 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *         resultFormat: "STRING_VALUE", // required
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
+ *         singleFileOutput: true || false,
  *       },
  *       member: { // ProtectedQueryMemberOutputConfiguration
  *         accountId: "STRING_VALUE", // required
  *       },
+ *     },
+ *   },
+ *   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ *     worker: { // WorkerComputeConfiguration
+ *       type: "CR.1X" || "CR.4X",
+ *       number: Number("int"),
  *     },
  *   },
  * };
@@ -85,6 +88,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
  * //         },
  * //         member: { // ProtectedQueryMemberOutputConfiguration
  * //           accountId: "STRING_VALUE", // required
@@ -93,6 +97,9 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //     },
  * //     statistics: { // ProtectedQueryStatistics
  * //       totalDurationInMillis: Number("long"),
+ * //       billedResourceUtilization: { // BilledResourceUtilization
+ * //         units: Number("double"), // required
+ * //       },
  * //     },
  * //     result: { // ProtectedQueryResult
  * //       output: { // ProtectedQueryOutput Union: only one key present
@@ -120,6 +127,12 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //           maxColumnValue: Number("float"),
  * //         },
  * //       ],
+ * //     },
+ * //     computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //       worker: { // WorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X",
+ * //         number: Number("int"),
+ * //       },
  * //     },
  * //   },
  * // };

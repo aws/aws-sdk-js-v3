@@ -57,7 +57,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
  * //       memberAbilities: [ // MemberAbilities // required
- * //         "STRING_VALUE",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //       ],
  * //       paymentConfiguration: { // MembershipPaymentConfiguration
  * //         queryCompute: { // MembershipQueryComputePaymentConfig

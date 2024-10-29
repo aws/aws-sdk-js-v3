@@ -13,6 +13,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -312,6 +313,7 @@ import {
   AnalysisSource,
   AnalysisTemplate,
   AnalysisTemplateSummary,
+  BilledResourceUtilization,
   Collaboration,
   CollaborationAnalysisTemplate,
   CollaborationAnalysisTemplateSummary,
@@ -323,6 +325,7 @@ import {
   CollaborationPrivacyBudgetTemplate,
   CollaborationPrivacyBudgetTemplateSummary,
   CollaborationSummary,
+  ComputeConfiguration,
   ConfiguredAudienceModelAssociation,
   ConfiguredAudienceModelAssociationSummary,
   ConfiguredTable,
@@ -374,6 +377,7 @@ import {
   ProtectedQueryResultConfiguration,
   ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
+  ProtectedQueryStatistics,
   ProtectedQuerySummary,
   QueryComputePaymentConfig,
   ResourceNotFoundException,
@@ -385,6 +389,7 @@ import {
   TableReference,
   ThrottlingException,
   ValidationException,
+  WorkerComputeConfiguration,
 } from "../models/models_0";
 import {
   DifferentialPrivacyTemplateParametersInput,
@@ -507,6 +512,7 @@ export const se_CreateCollaborationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      analyticsEngine: [],
       creatorDisplayName: [],
       creatorMemberAbilities: (_) => _json(_),
       creatorPaymentConfiguration: (_) => _json(_),
@@ -1782,6 +1788,7 @@ export const se_StartProtectedQueryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      computeConfiguration: (_) => _json(_),
       resultConfiguration: (_) => _json(_),
       sqlParameters: (_) => _json(_),
       type: [],
@@ -4023,6 +4030,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AnalysisTemplateArnList omitted.
 
+// se_ComputeConfiguration omitted.
+
 // se_ConfiguredTableAnalysisRulePolicy omitted.
 
 // se_ConfiguredTableAnalysisRulePolicyV1 omitted.
@@ -4108,6 +4117,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TableReference omitted.
 
 // se_TagMap omitted.
+
+// se_WorkerComputeConfiguration omitted.
 
 // de_AggregateColumn omitted.
 
@@ -4241,10 +4252,20 @@ const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): A
 // de_BatchGetSchemaErrorList omitted.
 
 /**
+ * deserializeAws_restJson1BilledResourceUtilization
+ */
+const de_BilledResourceUtilization = (output: any, context: __SerdeContext): BilledResourceUtilization => {
+  return take(output, {
+    units: __limitedParseDouble,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Collaboration
  */
 const de_Collaboration = (output: any, context: __SerdeContext): Collaboration => {
   return take(output, {
+    analyticsEngine: __expectString,
     arn: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     creatorAccountId: __expectString,
@@ -4545,6 +4566,7 @@ const de_CollaborationPrivacyBudgetTemplateSummaryList = (
  */
 const de_CollaborationSummary = (output: any, context: __SerdeContext): CollaborationSummary => {
   return take(output, {
+    analyticsEngine: __expectString,
     arn: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     creatorAccountId: __expectString,
@@ -4573,6 +4595,8 @@ const de_CollaborationSummaryList = (output: any, context: __SerdeContext): Coll
 // de_Column omitted.
 
 // de_ColumnList omitted.
+
+// de_ComputeConfiguration omitted.
 
 // de_ConfigurationDetails omitted.
 
@@ -5189,6 +5213,7 @@ const de_PrivacyBudgetTemplateSummaryList = (output: any, context: __SerdeContex
  */
 const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery => {
   return take(output, {
+    computeConfiguration: (_: any) => _json(__expectUnion(_)),
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     differentialPrivacy: (_: any) => de_DifferentialPrivacyParameters(_, context),
     error: _json,
@@ -5198,7 +5223,7 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
     result: _json,
     resultConfiguration: _json,
     sqlParameters: _json,
-    statistics: _json,
+    statistics: (_: any) => de_ProtectedQueryStatistics(_, context),
     status: __expectString,
   }) as any;
 };
@@ -5225,7 +5250,15 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 
 // de_ProtectedQuerySQLParameters omitted.
 
-// de_ProtectedQueryStatistics omitted.
+/**
+ * deserializeAws_restJson1ProtectedQueryStatistics
+ */
+const de_ProtectedQueryStatistics = (output: any, context: __SerdeContext): ProtectedQueryStatistics => {
+  return take(output, {
+    billedResourceUtilization: (_: any) => de_BilledResourceUtilization(_, context),
+    totalDurationInMillis: __expectLong,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ProtectedQuerySummary
@@ -5365,6 +5398,8 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+// de_WorkerComputeConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Document

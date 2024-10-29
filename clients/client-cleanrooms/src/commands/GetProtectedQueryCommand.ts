@@ -65,6 +65,7 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
  * //         },
  * //         member: { // ProtectedQueryMemberOutputConfiguration
  * //           accountId: "STRING_VALUE", // required
@@ -73,6 +74,9 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //     },
  * //     statistics: { // ProtectedQueryStatistics
  * //       totalDurationInMillis: Number("long"),
+ * //       billedResourceUtilization: { // BilledResourceUtilization
+ * //         units: Number("double"), // required
+ * //       },
  * //     },
  * //     result: { // ProtectedQueryResult
  * //       output: { // ProtectedQueryOutput Union: only one key present
@@ -100,6 +104,12 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //           maxColumnValue: Number("float"),
  * //         },
  * //       ],
+ * //     },
+ * //     computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //       worker: { // WorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X",
+ * //         number: Number("int"),
+ * //       },
  * //     },
  * //   },
  * // };

@@ -52,7 +52,7 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * //       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //         "AGGREGATION" || "LIST" || "CUSTOM",
  * //       ],
- * //       analysisMethod: "STRING_VALUE", // required
+ * //       analysisMethod: "DIRECT_QUERY", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

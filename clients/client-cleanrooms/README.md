@@ -18,7 +18,7 @@ party getting access to the other party's raw data.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cleanrooms
+To install this package, simply type add or install @aws-sdk/client-cleanrooms
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cleanrooms`

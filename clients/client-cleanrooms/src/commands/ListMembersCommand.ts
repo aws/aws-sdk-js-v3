@@ -50,7 +50,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       status: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE", // required
  * //       abilities: [ // MemberAbilities // required
- * //         "STRING_VALUE",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //       ],
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required

@@ -37,9 +37,7 @@ export interface UpdateConfiguredTableAssociationAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Updates
- *          the analysis rule for a configured table association.</p>
+ * <p> Updates the analysis rule for a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
