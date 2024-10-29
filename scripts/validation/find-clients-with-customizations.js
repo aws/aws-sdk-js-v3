@@ -27,6 +27,7 @@ const keep = [
   "route-53",
   "s3",
   "s3-control",
+  "sagemaker",
   "sqs",
   "sts",
   "transcribe-streaming",
