@@ -1,10 +1,14 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { SignatureV4 } from "@smithy/signature-v4";
 import {
+  AwsCredentialIdentity,
   Client,
   HandlerExecutionContext,
   HttpHandlerOptions,
+  IdentityProvider,
   RequestHandler,
   RequestHandlerOutput,
+  SelectedHttpAuthScheme,
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 import { expect } from "vitest";
@@ -118,8 +122,13 @@ export class TestHttpHandler implements HttpHandler {
     }
     client.middlewareStack.addRelativeTo(
       (next: any, context: HandlerExecutionContext) => (args: any) => {
-        if (context[SMITHY_CONTEXT_KEY]?.selectedHttpAuthScheme) {
-          (context[SMITHY_CONTEXT_KEY] as any).selectedHttpAuthScheme.identity = MOCK_CREDENTIALS;
+        const scheme = context[SMITHY_CONTEXT_KEY]?.selectedHttpAuthScheme as SelectedHttpAuthScheme;
+        if (scheme) {
+          scheme.identity = MOCK_CREDENTIALS as AwsCredentialIdentity;
+          if ((scheme.signer as any).credentialProvider) {
+            (scheme.signer as any).credentialProvider = (async () =>
+              MOCK_CREDENTIALS) as IdentityProvider<AwsCredentialIdentity>;
+          }
         }
         return next(args);
       },
