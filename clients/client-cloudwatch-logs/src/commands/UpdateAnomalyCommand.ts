@@ -52,6 +52,7 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  *     value: Number("int"),
  *     suppressionUnit: "SECONDS" || "MINUTES" || "HOURS",
  *   },
+ *   baseline: true || false,
  * };
  * const command = new UpdateAnomalyCommand(input);
  * const response = await client.send(command);

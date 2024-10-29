@@ -5633,6 +5633,16 @@ export interface UpdateAnomalyRequest {
    * @public
    */
   suppressionPeriod?: SuppressionPeriod;
+
+  /**
+   * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior as an anomaly in the future. The behavior is then treated as
+   *       baseline behavior. However, if similar but
+   *     more severe occurrences of this behavior occur in the future, those will still be reported as anomalies. </p>
+   *          <p>The default is <code>false</code>
+   *          </p>
+   * @public
+   */
+  baseline?: boolean;
 }
 
 /**
