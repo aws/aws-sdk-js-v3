@@ -1,8 +1,5 @@
 import { describe, expect, test as it } from "vitest";
 
-/**
- * @jest-environment jsdom
- */
 import { convertToAttr } from "./convertToAttr";
 import { convertToNative } from "./convertToNative";
 import { NativeAttributeValue } from "./models";

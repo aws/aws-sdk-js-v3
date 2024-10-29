@@ -1,8 +1,5 @@
 import { describe, expect, test as it } from "vitest";
 
-/**
- * @jest-environment jsdom
- */
 import { tokenDefaultProvider } from "./tokenDefaultProvider.browser";
 
 describe(tokenDefaultProvider.name, () => {
