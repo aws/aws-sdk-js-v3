@@ -29,15 +29,6 @@ export type HttpRequestMatcher = {
 };
 
 /**
- * @internal
- */
-const MOCK_CREDENTIALS = {
-  accessKeyId: "MOCK_ACCESS_KEY_ID",
-  secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
-  token: "MOCK_TOKEN",
-};
-
-/**
  * Supplied to test clients to assert correct requests.
  * @internal
  */
@@ -82,7 +73,6 @@ export class TestHttpHandler implements HttpHandler {
   public watch(client: Client<any, any, any>, matcher: HttpRequestMatcher = this.matcher) {
     this.client = client;
     this.originalRequestHandler = client.config.requestHandler;
-    // mock credentials to avoid default chain lookup.
 
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
