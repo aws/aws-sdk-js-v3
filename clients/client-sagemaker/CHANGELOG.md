@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+
+### Features
+
+* **client-sagemaker:** Adding `notebook-al2-v3` as allowed value to SageMaker NotebookInstance PlatformIdentifier attribute ([8c8cce5](https://github.com/aws/aws-sdk-js-v3/commit/8c8cce53b0960633dfa13cbe7939058ee376071e))
+
+
+
+
+
 # [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

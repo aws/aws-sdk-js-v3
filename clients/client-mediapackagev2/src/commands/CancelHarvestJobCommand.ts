@@ -76,6 +76,20 @@ export interface CancelHarvestJobCommandOutput extends CancelHarvestJobResponse,
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Cancel a Harvest Job
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannelName",
+ *   "HarvestJobName": "HarvestJobName",
+ *   "OriginEndpointName": "exampleOriginEndpointName"
+ * };
+ * const command = new CancelHarvestJobCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class CancelHarvestJobCommand extends $Command
   .classBuilder<

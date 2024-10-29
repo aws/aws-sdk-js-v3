@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+
+### Features
+
+* **client-bedrock-runtime:** Update Application Inference Profile ([aae686f](https://github.com/aws/aws-sdk-js-v3/commit/aae686f95f3fa441c90f6a1a7c39c3cf47dbeffe))
+* **client-bedrock:** Update Application Inference Profile ([cd3a5ec](https://github.com/aws/aws-sdk-js-v3/commit/cd3a5ec8ce31adc220bfbf9f38c2a939b886c5d6))
+* **client-cleanrooms:** This release adds the option for customers to configure analytics engine when creating a collaboration, and introduces the new SPARK analytics engine type in addition to maintaining the legacy CLEAN_ROOMS_SQL engine type. ([2ccb11c](https://github.com/aws/aws-sdk-js-v3/commit/2ccb11c7e8a386cad936d9be3aee9fb0b5c40e37))
+* **client-cloudwatch-logs:** Added support for new optional baseline parameter in the UpdateAnomaly API. For UpdateAnomaly requests with baseline set to True, The anomaly behavior is then treated as baseline behavior. However, more severe occurrences of this behavior will still be reported as anomalies. ([da1de11](https://github.com/aws/aws-sdk-js-v3/commit/da1de11cd3cef9866ad0d7e9a06bf3c5473908f4))
+* **client-iotfleetwise:** Updated BatchCreateVehicle and BatchUpdateVehicle APIs: LimitExceededException has been added and the maximum number of vehicles in a batch has been set to 10 explicitly ([820ad6d](https://github.com/aws/aws-sdk-js-v3/commit/820ad6d33b63dba8fb8821e1fd81ab26af1df70e))
+* **client-redshift-data:** Adding a new API GetStatementResultV2 that supports CSV formatted results from ExecuteStatement and BatchExecuteStatement calls. ([5943dd5](https://github.com/aws/aws-sdk-js-v3/commit/5943dd5e4d8b1a2b71290d998eb3eb9f95997478))
+* **client-sagemaker:** Adding `notebook-al2-v3` as allowed value to SageMaker NotebookInstance PlatformIdentifier attribute ([8c8cce5](https://github.com/aws/aws-sdk-js-v3/commit/8c8cce53b0960633dfa13cbe7939058ee376071e))
+* **clients:** update client endpoints as of 2024-10-29 ([d7b891c](https://github.com/aws/aws-sdk-js-v3/commit/d7b891c82e5a5661d575408e19166abde6eeb92c))
+
+
+
+
+
 # [3.681.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.680.0...v3.681.0) (2024-10-28)
 
 

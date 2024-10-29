@@ -118,6 +118,346 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example ListHarvestJobs: Specify ChannelGroup only
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup"
+ * };
+ * const command = new ListHarvestJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName",
+ *       "CreatedAt": "2024-05-28T09:36:00.00Z",
+ *       "Description": "Example HarvestJob description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *       "HarvestJobName": "HarvestJobName",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T09:36:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T06:00:00.00Z"
+ *       },
+ *       "Status": "QUEUED",
+ *       "Tags": {
+ *         "key1": "value1",
+ *         "key2": "value2"
+ *       }
+ *     },
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName2/originEndpoint/exampleOriginEndpointName2/harvestJob/HarvestJobName2",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName2",
+ *       "CreatedAt": "2024-05-28T15:30:00.00Z",
+ *       "Description": "Example HarvestJob2 description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *       "HarvestJobName": "HarvestJobName2",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T15:30:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName2",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T02:00:00.00Z"
+ *       },
+ *       "Status": "IN_PROGRESS",
+ *       "Tags": {
+ *         "key1": "value1",
+ *         "key2": "value2"
+ *       }
+ *     }
+ *   ],
+ *   "NextToken": "someTokenValue"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example ListHarvestJobs: Specify ChannelGroup, Channel only
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannelName"
+ * };
+ * const command = new ListHarvestJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName",
+ *       "CreatedAt": "2024-05-28T09:36:00.00Z",
+ *       "Description": "Example HarvestJob description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *       "HarvestJobName": "HarvestJobName",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T09:36:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T06:00:00.00Z"
+ *       },
+ *       "Status": "QUEUED",
+ *       "Tags": {
+ *         "key1": "value1",
+ *         "key2": "value2"
+ *       }
+ *     },
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName2/harvestJob/HarvestJobName2",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName",
+ *       "CreatedAt": "2024-05-28T15:30:00.00Z",
+ *       "Description": "Example HarvestJob2 description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "HarvestJobName": "HarvestJobName2",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T15:30:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName2",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T02:00:00.00Z"
+ *       },
+ *       "Status": "IN_PROGRESS",
+ *       "Tags": {
+ *         "key1": "value1",
+ *         "key2": "value2"
+ *       }
+ *     }
+ *   ],
+ *   "NextToken": "someTokenValue"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
+ * @example ListHarvestJobs: Specify ChannelGroup, Channel, OriginEndpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannelName",
+ *   "OriginEndpointName": "exampleOriginEndpointName"
+ * };
+ * const command = new ListHarvestJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName",
+ *       "CreatedAt": "2024-05-28T09:36:00.00Z",
+ *       "Description": "Example HarvestJob description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *       "HarvestJobName": "HarvestJobName",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T09:36:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T06:00:00.00Z"
+ *       },
+ *       "Status": "QUEUED"
+ *     }
+ *   ],
+ *   "NextToken": "someTokenValue"
+ * }
+ * *\/
+ * // example id: example-3
+ * ```
+ *
+ * @example ListHarvestJobs: Specify ChannelGroup, Channel, OriginEndpoint + Status filter
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannelName",
+ *   "OriginEndpointName": "exampleOriginEndpointName",
+ *   "Status": "QUEUED"
+ * };
+ * const command = new ListHarvestJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannelName",
+ *       "CreatedAt": "2024-05-28T09:36:00.00Z",
+ *       "Description": "Example HarvestJob description",
+ *       "Destination": {
+ *         "S3Destination": {
+ *           "BucketName": "harvestJobS3DestinationBucket",
+ *           "DestinationPath": "manifests"
+ *         }
+ *       },
+ *       "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *       "HarvestJobName": "HarvestJobName",
+ *       "HarvestedManifests": {
+ *         "DashManifests": [
+ *           {
+ *             "ManifestName": "DashManifest"
+ *           }
+ *         ],
+ *         "HlsManifests": [
+ *           {
+ *             "ManifestName": "HlsManifest"
+ *           }
+ *         ],
+ *         "LowLatencyHlsManifests": [
+ *           {
+ *             "ManifestName": "LowLatencyHlsManifest"
+ *           }
+ *         ]
+ *       },
+ *       "ModifiedAt": "2024-05-28T09:36:00.00Z",
+ *       "OriginEndpointName": "exampleOriginEndpointName",
+ *       "ScheduleConfiguration": {
+ *         "EndTime": "2024-05-28T12:00:00.00Z",
+ *         "StartTime": "2024-05-28T06:00:00.00Z"
+ *       },
+ *       "Status": "QUEUED"
+ *     }
+ *   ],
+ *   "NextToken": "someTokenValue"
+ * }
+ * *\/
+ * // example id: example-4
+ * ```
+ *
+ * @example ListHarvestJobs: Empty response
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannelName",
+ *   "OriginEndpointName": "exampleOriginEndpointName"
+ * };
+ * const command = new ListHarvestJobsCommand(input);
+ * await client.send(command);
+ * // example id: example-5
+ * ```
+ *
  */
 export class ListHarvestJobsCommand extends $Command
   .classBuilder<
