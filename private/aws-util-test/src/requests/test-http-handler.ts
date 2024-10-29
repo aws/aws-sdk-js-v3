@@ -1,16 +1,5 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import type { SignatureV4 } from "@smithy/signature-v4";
-import {
-  AwsCredentialIdentity,
-  Client,
-  HandlerExecutionContext,
-  HttpHandlerOptions,
-  IdentityProvider,
-  RequestHandler,
-  RequestHandlerOutput,
-  SelectedHttpAuthScheme,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@smithy/types";
 import { expect } from "vitest";
 
 /**
@@ -80,6 +69,8 @@ export class TestHttpHandler implements HttpHandler {
     for (const key in RESERVED_ENVIRONMENT_VARIABLES) {
       delete process.env[key];
     }
+    process.env.AWS_ACCESS_KEY_ID = "INTEGRATION_TEST_MOCK";
+    process.env.AWS_SECRET_ACCESS_KEY = "INTEGRATION_TEST_MOCK";
   }
 
   /**
@@ -92,53 +83,6 @@ export class TestHttpHandler implements HttpHandler {
     this.client = client;
     this.originalRequestHandler = client.config.requestHandler;
     // mock credentials to avoid default chain lookup.
-    client.config.credentials = async () => MOCK_CREDENTIALS;
-    client.config.credentialDefaultProvider = () => {
-      return async () => {
-        return MOCK_CREDENTIALS;
-      };
-    };
-    const signerProvider = client.config.signer;
-    if (typeof signerProvider === "function") {
-      client.config.signer = async () => {
-        const _signer = await signerProvider();
-        if (typeof _signer.credentialProvider === "function") {
-          // signer is instance of SignatureV4
-          _signer.credentialProvider = async () => {
-            return MOCK_CREDENTIALS;
-          };
-        }
-        return _signer;
-      };
-    }
-    if (client.config.httpAuthSchemes) {
-      for (const authScheme of client.config.httpAuthSchemes) {
-        authScheme.identityProvider = () => {
-          return async () => {
-            return MOCK_CREDENTIALS;
-          };
-        };
-      }
-    }
-    client.middlewareStack.addRelativeTo(
-      (next: any, context: HandlerExecutionContext) => (args: any) => {
-        const scheme = context[SMITHY_CONTEXT_KEY]?.selectedHttpAuthScheme as SelectedHttpAuthScheme;
-        if (scheme) {
-          scheme.identity = MOCK_CREDENTIALS as AwsCredentialIdentity;
-          if ((scheme.signer as any).credentialProvider) {
-            (scheme.signer as any).credentialProvider = (async () =>
-              MOCK_CREDENTIALS) as IdentityProvider<AwsCredentialIdentity>;
-          }
-        }
-        return next(args);
-      },
-      {
-        name: "integrationTestMiddleware",
-        override: true,
-        toMiddleware: "httpSigningMiddleware",
-        relation: "before",
-      }
-    );
 
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
