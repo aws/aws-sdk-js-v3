@@ -1,5 +1,12 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@smithy/types";
+import {
+  Client,
+  HandlerExecutionContext,
+  HttpHandlerOptions,
+  RequestHandler,
+  RequestHandlerOutput,
+  SMITHY_CONTEXT_KEY,
+} from "@smithy/types";
 import { expect } from "vitest";
 
 /**
@@ -34,6 +41,7 @@ export type HttpRequestMatcher = {
 const MOCK_CREDENTIALS = {
   accessKeyId: "MOCK_ACCESS_KEY_ID",
   secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
+  token: "MOCK_TOKEN",
 };
 
 /**
@@ -103,14 +111,25 @@ export class TestHttpHandler implements HttpHandler {
       for (const authScheme of client.config.httpAuthSchemes) {
         authScheme.identityProvider = () => {
           return async () => {
-            return {
-              ...MOCK_CREDENTIALS,
-              token: "MOCK_TOKEN",
-            };
+            return MOCK_CREDENTIALS;
           };
         };
       }
     }
+    client.middlewareStack.addRelativeTo(
+      (next: any, context: HandlerExecutionContext) => (args: any) => {
+        if (context[SMITHY_CONTEXT_KEY]?.selectedHttpAuthScheme) {
+          (context[SMITHY_CONTEXT_KEY] as any).selectedHttpAuthScheme.identity = MOCK_CREDENTIALS;
+        }
+        return next(args);
+      },
+      {
+        name: "integrationTestMiddleware",
+        override: true,
+        toMiddleware: "httpSigningMiddleware",
+        relation: "before",
+      }
+    );
 
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
