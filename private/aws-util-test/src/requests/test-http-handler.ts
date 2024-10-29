@@ -99,6 +99,18 @@ export class TestHttpHandler implements HttpHandler {
         return _signer;
       };
     }
+    if (client.config.httpAuthSchemes) {
+      for (const authScheme of client.config.httpAuthSchemes) {
+        authScheme.identityProvider = () => {
+          return async () => {
+            return {
+              ...MOCK_CREDENTIALS,
+              token: "MOCK_TOKEN",
+            };
+          };
+        };
+      }
+    }
 
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {

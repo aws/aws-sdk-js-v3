@@ -13,7 +13,7 @@ describe("middleware-token", () => {
         },
       });
       requireRequestsFrom(client).toMatch({
-        headers: new Map([[/authorization/i, /Bearer my-token/]]),
+        headers: new Map([[/authorization/i, /Bearer MOCK_TOKEN/]]),
       });
       await client.getUserDetails({
         id: "my-id",
