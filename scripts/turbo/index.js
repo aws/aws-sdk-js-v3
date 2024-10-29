@@ -28,7 +28,7 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
     });
   } catch (error) {
     console.error("Error running turbo:", error);
-    // throw error;
+    throw error;
   }
 };
 
