@@ -66,6 +66,10 @@ import {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
+import {
+  CreateInferenceProfileCommandInput,
+  CreateInferenceProfileCommandOutput,
+} from "./commands/CreateInferenceProfileCommand";
 import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "./commands/CreateModelCopyJobCommand";
 import {
   CreateModelCustomizationJobCommandInput,
@@ -89,6 +93,10 @@ import {
   DeleteImportedModelCommandInput,
   DeleteImportedModelCommandOutput,
 } from "./commands/DeleteImportedModelCommand";
+import {
+  DeleteInferenceProfileCommandInput,
+  DeleteInferenceProfileCommandOutput,
+} from "./commands/DeleteInferenceProfileCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -196,6 +204,7 @@ export type ServiceInputTypes =
   | CreateEvaluationJobCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
+  | CreateInferenceProfileCommandInput
   | CreateModelCopyJobCommandInput
   | CreateModelCustomizationJobCommandInput
   | CreateModelImportJobCommandInput
@@ -204,6 +213,7 @@ export type ServiceInputTypes =
   | DeleteCustomModelCommandInput
   | DeleteGuardrailCommandInput
   | DeleteImportedModelCommandInput
+  | DeleteInferenceProfileCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
   | DeleteProvisionedModelThroughputCommandInput
   | GetCustomModelCommandInput
@@ -247,6 +257,7 @@ export type ServiceOutputTypes =
   | CreateEvaluationJobCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput
+  | CreateInferenceProfileCommandOutput
   | CreateModelCopyJobCommandOutput
   | CreateModelCustomizationJobCommandOutput
   | CreateModelImportJobCommandOutput
@@ -255,6 +266,7 @@ export type ServiceOutputTypes =
   | DeleteCustomModelCommandOutput
   | DeleteGuardrailCommandOutput
   | DeleteImportedModelCommandOutput
+  | DeleteInferenceProfileCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
   | GetCustomModelCommandOutput

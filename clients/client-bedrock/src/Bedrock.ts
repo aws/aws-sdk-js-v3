@@ -24,6 +24,11 @@ import {
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
 import {
+  CreateInferenceProfileCommand,
+  CreateInferenceProfileCommandInput,
+  CreateInferenceProfileCommandOutput,
+} from "./commands/CreateInferenceProfileCommand";
+import {
   CreateModelCopyJobCommand,
   CreateModelCopyJobCommandInput,
   CreateModelCopyJobCommandOutput,
@@ -63,6 +68,11 @@ import {
   DeleteImportedModelCommandInput,
   DeleteImportedModelCommandOutput,
 } from "./commands/DeleteImportedModelCommand";
+import {
+  DeleteInferenceProfileCommand,
+  DeleteInferenceProfileCommandInput,
+  DeleteInferenceProfileCommandOutput,
+} from "./commands/DeleteInferenceProfileCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommand,
   DeleteModelInvocationLoggingConfigurationCommandInput,
@@ -235,6 +245,7 @@ const commands = {
   CreateEvaluationJobCommand,
   CreateGuardrailCommand,
   CreateGuardrailVersionCommand,
+  CreateInferenceProfileCommand,
   CreateModelCopyJobCommand,
   CreateModelCustomizationJobCommand,
   CreateModelImportJobCommand,
@@ -243,6 +254,7 @@ const commands = {
   DeleteCustomModelCommand,
   DeleteGuardrailCommand,
   DeleteImportedModelCommand,
+  DeleteInferenceProfileCommand,
   DeleteModelInvocationLoggingConfigurationCommand,
   DeleteProvisionedModelThroughputCommand,
   GetCustomModelCommand,
@@ -343,6 +355,23 @@ export interface Bedrock {
     args: CreateGuardrailVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGuardrailVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInferenceProfileCommand}
+   */
+  createInferenceProfile(
+    args: CreateInferenceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInferenceProfileCommandOutput>;
+  createInferenceProfile(
+    args: CreateInferenceProfileCommandInput,
+    cb: (err: any, data?: CreateInferenceProfileCommandOutput) => void
+  ): void;
+  createInferenceProfile(
+    args: CreateInferenceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInferenceProfileCommandOutput) => void
   ): void;
 
   /**
@@ -476,6 +505,23 @@ export interface Bedrock {
     args: DeleteImportedModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteImportedModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInferenceProfileCommand}
+   */
+  deleteInferenceProfile(
+    args: DeleteInferenceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInferenceProfileCommandOutput>;
+  deleteInferenceProfile(
+    args: DeleteInferenceProfileCommandInput,
+    cb: (err: any, data?: DeleteInferenceProfileCommandOutput) => void
+  ): void;
+  deleteInferenceProfile(
+    args: DeleteInferenceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInferenceProfileCommandOutput) => void
   ): void;
 
   /**

@@ -47,6 +47,10 @@ import {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "../commands/CreateGuardrailVersionCommand";
+import {
+  CreateInferenceProfileCommandInput,
+  CreateInferenceProfileCommandOutput,
+} from "../commands/CreateInferenceProfileCommand";
 import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "../commands/CreateModelCopyJobCommand";
 import {
   CreateModelCustomizationJobCommandInput,
@@ -70,6 +74,10 @@ import {
   DeleteImportedModelCommandInput,
   DeleteImportedModelCommandOutput,
 } from "../commands/DeleteImportedModelCommand";
+import {
+  DeleteInferenceProfileCommandInput,
+  DeleteInferenceProfileCommandOutput,
+} from "../commands/DeleteInferenceProfileCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -193,6 +201,7 @@ import {
   HumanEvaluationCustomMetric,
   HumanWorkflowConfig,
   ImportedModelSummary,
+  InferenceProfileModelSource,
   InferenceProfileSummary,
   InternalServerException,
   LoggingConfig,
@@ -326,6 +335,32 @@ export const se_CreateGuardrailVersionCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateInferenceProfileCommand
+ */
+export const se_CreateInferenceProfileCommand = async (
+  input: CreateInferenceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/inference-profiles");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      inferenceProfileName: [],
+      modelSource: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -526,6 +561,22 @@ export const se_DeleteImportedModelCommand = async (
   const headers: any = {};
   b.bp("/imported-models/{modelIdentifier}");
   b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteInferenceProfileCommand
+ */
+export const se_DeleteInferenceProfileCommand = async (
+  input: DeleteInferenceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/inference-profiles/{inferenceProfileIdentifier}");
+  b.p("inferenceProfileIdentifier", () => input.inferenceProfileIdentifier!, "{inferenceProfileIdentifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -886,6 +937,7 @@ export const se_ListInferenceProfilesCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_t]: [, input[_tE]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1304,6 +1356,28 @@ export const de_CreateGuardrailVersionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateInferenceProfileCommand
+ */
+export const de_CreateInferenceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceProfileCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    inferenceProfileArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateModelCopyJobCommand
  */
 export const de_CreateModelCopyJobCommand = async (
@@ -1449,6 +1523,23 @@ export const de_DeleteImportedModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteInferenceProfileCommand
+ */
+export const de_DeleteInferenceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2582,6 +2673,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_HumanWorkflowConfig omitted.
 
+// se_InferenceProfileModelSource omitted.
+
 // se_LoggingConfig omitted.
 
 // se_ModelCustomizationHyperParameters omitted.
@@ -3161,4 +3254,6 @@ const _sMAE = "sourceModelArnEquals";
 const _sO = "sortOrder";
 const _sTA = "submitTimeAfter";
 const _sTB = "submitTimeBefore";
+const _t = "type";
+const _tE = "typeEquals";
 const _tMNC = "targetModelNameContains";

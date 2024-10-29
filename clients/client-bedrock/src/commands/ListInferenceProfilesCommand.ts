@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInferenceProfilesRequest, ListInferenceProfilesResponse } from "../models/models_0";
+import {
+  ListInferenceProfilesRequest,
+  ListInferenceProfilesResponse,
+  ListInferenceProfilesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListInferenceProfilesCommand, se_ListInferenceProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,7 +32,7 @@ export interface ListInferenceProfilesCommandInput extends ListInferenceProfiles
 export interface ListInferenceProfilesCommandOutput extends ListInferenceProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of inference profiles that you can use.</p>
+ * <p>Returns a list of inference profiles that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">Increase throughput and resilience with cross-region inference in Amazon Bedrock</a>. in the Amazon Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +42,7 @@ export interface ListInferenceProfilesCommandOutput extends ListInferenceProfile
  * const input = { // ListInferenceProfilesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   typeEquals: "SYSTEM_DEFINED" || "APPLICATION",
  * };
  * const command = new ListInferenceProfilesCommand(input);
  * const response = await client.send(command);
@@ -45,18 +50,18 @@ export interface ListInferenceProfilesCommandOutput extends ListInferenceProfile
  * //   inferenceProfileSummaries: [ // InferenceProfileSummaries
  * //     { // InferenceProfileSummary
  * //       inferenceProfileName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       inferenceProfileArn: "STRING_VALUE", // required
  * //       models: [ // InferenceProfileModels // required
  * //         { // InferenceProfileModel
  * //           modelArn: "STRING_VALUE",
  * //         },
  * //       ],
- * //       description: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"),
- * //       updatedAt: new Date("TIMESTAMP"),
- * //       inferenceProfileArn: "STRING_VALUE", // required
  * //       inferenceProfileId: "STRING_VALUE", // required
  * //       status: "ACTIVE", // required
- * //       type: "SYSTEM_DEFINED", // required
+ * //       type: "SYSTEM_DEFINED" || "APPLICATION", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -104,7 +109,7 @@ export class ListInferenceProfilesCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListInferenceProfiles", {})
   .n("BedrockClient", "ListInferenceProfilesCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListInferenceProfilesResponseFilterSensitiveLog)
   .ser(se_ListInferenceProfilesCommand)
   .de(de_ListInferenceProfilesCommand)
   .build() {

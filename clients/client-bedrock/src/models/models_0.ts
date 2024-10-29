@@ -2476,11 +2476,133 @@ export interface UpdateGuardrailResponse {
 }
 
 /**
+ * <p>Contains information about the model or system-defined inference profile that is the source for an inference profile..</p>
+ * @public
+ */
+export type InferenceProfileModelSource =
+  | InferenceProfileModelSource.CopyFromMember
+  | InferenceProfileModelSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InferenceProfileModelSource {
+  /**
+   * <p>The ARN of the model or system-defined inference profile that is the source for the inference profile.</p>
+   * @public
+   */
+  export interface CopyFromMember {
+    copyFrom: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    copyFrom?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    copyFrom: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InferenceProfileModelSource, visitor: Visitor<T>): T => {
+    if (value.copyFrom !== undefined) return visitor.copyFrom(value.copyFrom);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileRequest {
+  /**
+   * <p>A name for the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>A description for the inference profile.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The foundation model or system-defined inference profile that the inference profile will track metrics and costs for.</p>
+   * @public
+   */
+  modelSource: InferenceProfileModelSource | undefined;
+
+  /**
+   * <p>An array of objects, each of which contains a tag and its value. For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceProfileStatus = {
+  ACTIVE: "ACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceProfileStatus = (typeof InferenceProfileStatus)[keyof typeof InferenceProfileStatus];
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileResponse {
+  /**
+   * <p>The ARN of the inference profile that you created.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status?: InferenceProfileStatus;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID of the application inference profile to delete.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileResponse {}
+
+/**
  * @public
  */
 export interface GetInferenceProfileRequest {
   /**
-   * <p>The unique identifier of the inference profile.</p>
+   * <p>The ID or Amazon Resource Name (ARN) of the inference profile.</p>
    * @public
    */
   inferenceProfileIdentifier: string | undefined;
@@ -2502,20 +2624,8 @@ export interface InferenceProfileModel {
  * @public
  * @enum
  */
-export const InferenceProfileStatus = {
-  ACTIVE: "ACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type InferenceProfileStatus = (typeof InferenceProfileStatus)[keyof typeof InferenceProfileStatus];
-
-/**
- * @public
- * @enum
- */
 export const InferenceProfileType = {
+  APPLICATION: "APPLICATION",
   SYSTEM_DEFINED: "SYSTEM_DEFINED",
 } as const;
 
@@ -2533,12 +2643,6 @@ export interface GetInferenceProfileResponse {
    * @public
    */
   inferenceProfileName: string | undefined;
-
-  /**
-   * <p>A list of information about each model in the inference profile.</p>
-   * @public
-   */
-  models: InferenceProfileModel[] | undefined;
 
   /**
    * <p>The description of the inference profile.</p>
@@ -2565,19 +2669,35 @@ export interface GetInferenceProfileResponse {
   inferenceProfileArn: string | undefined;
 
   /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
    * <p>The unique identifier of the inference profile.</p>
    * @public
    */
   inferenceProfileId: string | undefined;
 
   /**
-   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is available to use.</p>
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
    * @public
    */
   status: InferenceProfileStatus | undefined;
 
   /**
-   * <p>The type of the inference profile. <code>SYSTEM_DEFINED</code> means that the inference profile is defined by Amazon Bedrock.</p>
+   * <p>The type of the inference profile. The following types are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   type: InferenceProfileType | undefined;
@@ -2598,6 +2718,22 @@ export interface ListInferenceProfilesRequest {
    * @public
    */
   nextToken?: string;
+
+  /**
+   * <p>Filters for inference profiles that match the type you specify.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  typeEquals?: InferenceProfileType;
 }
 
 /**
@@ -2610,12 +2746,6 @@ export interface InferenceProfileSummary {
    * @public
    */
   inferenceProfileName: string | undefined;
-
-  /**
-   * <p>A list of information about each model in the inference profile.</p>
-   * @public
-   */
-  models: InferenceProfileModel[] | undefined;
 
   /**
    * <p>The description of the inference profile.</p>
@@ -2642,19 +2772,35 @@ export interface InferenceProfileSummary {
   inferenceProfileArn: string | undefined;
 
   /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
    * <p>The unique identifier of the inference profile.</p>
    * @public
    */
   inferenceProfileId: string | undefined;
 
   /**
-   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is available to use.</p>
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
    * @public
    */
   status: InferenceProfileStatus | undefined;
 
   /**
-   * <p>The type of the inference profile. <code>SYSTEM_DEFINED</code> means that the inference profile is defined by Amazon Bedrock.</p>
+   * <p>The type of the inference profile. The following types are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   type: InferenceProfileType | undefined;
@@ -5982,6 +6128,43 @@ export const UpdateGuardrailRequestFilterSensitiveLog = (obj: UpdateGuardrailReq
   }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateInferenceProfileRequestFilterSensitiveLog = (obj: CreateInferenceProfileRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.modelSource && { modelSource: obj.modelSource }),
+});
+
+/**
+ * @internal
+ */
+export const GetInferenceProfileResponseFilterSensitiveLog = (obj: GetInferenceProfileResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InferenceProfileSummaryFilterSensitiveLog = (obj: InferenceProfileSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceProfilesResponseFilterSensitiveLog = (obj: ListInferenceProfilesResponse): any => ({
+  ...obj,
+  ...(obj.inferenceProfileSummaries && {
+    inferenceProfileSummaries: obj.inferenceProfileSummaries.map((item) =>
+      InferenceProfileSummaryFilterSensitiveLog(item)
+    ),
+  }),
 });
 
 /**
