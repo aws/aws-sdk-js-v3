@@ -33,7 +33,7 @@ describe("@aws-sdk/client-s3", () => {
         credentials: fromNodeProviderChain(),
         requestHandler: new FetchHttpHandler(),
       })
-    ) as S3;
+    ) as unknown as S3;
   });
 
   describe("PutObject", () => {

@@ -15,6 +15,10 @@ describe("@aws-sdk/client-mediastore-data", () => {
       };
       const client = new MediaStoreData({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "CLIENT_TEST",
+          secretAccessKey: "CLIENT_TEST",
+        },
       });
       client.middlewareStack.add(validator, {
         step: "serialize",

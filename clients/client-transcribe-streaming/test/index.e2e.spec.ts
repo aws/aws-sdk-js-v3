@@ -1,13 +1,18 @@
-import { test as it, afterAll, describe, expect } from "vitest";
-
 import { createReadStream } from "fs";
 import { join } from "path";
+import { afterAll, describe, expect, test as it } from "vitest";
 
 import { TranscribeStreaming } from "../src/index";
 const audio = createReadStream(join(__dirname, "numbers.wav"));
 
 describe("TranscribeStream client", () => {
-  const client = new TranscribeStreaming({});
+  const client = new TranscribeStreaming({
+    region: "us-west-2",
+    credentials: {
+      accessKeyId: "CLIENT_TEST",
+      secretAccessKey: "CLIENT_TEST",
+    },
+  });
   afterAll(() => {
     client.destroy();
   });

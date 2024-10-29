@@ -6,7 +6,13 @@ import { describe, expect, test as it } from "vitest";
 import { EventBridge } from "../src/EventBridge";
 
 describe("EventBridge", () => {
-  const client = new EventBridge({});
+  const client = new EventBridge({
+    region: "us-west-2",
+    credentials: {
+      accessKeyId: "CLIENT_TEST",
+      secretAccessKey: "CLIENT_TEST",
+    },
+  });
   // Middleware intercept request and return it before reaching the HTTP client. It records the request and context
   // and return them in the Metadata.
   const interceptionMiddleware: FinalizeRequestMiddleware<any, any> = (next, context) => (args) => {

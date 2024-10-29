@@ -15,6 +15,10 @@ describe("@aws-sdk/client-lex-runtime-service", () => {
       };
       const client = new LexRuntimeService({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "CLIENT_TEST",
+          secretAccessKey: "CLIENT_TEST",
+        },
       });
       client.middlewareStack.add(validator, {
         step: "serialize",
