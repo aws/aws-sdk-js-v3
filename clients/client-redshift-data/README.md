@@ -14,7 +14,7 @@ can run SQL statements, which are committed if the statement succeeds. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-redshift-data
+To install this package, simply type add or install @aws-sdk/client-redshift-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-redshift-data`
@@ -253,6 +253,14 @@ GetStatementResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/GetStatementResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetStatementResultV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/GetStatementResultV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultV2CommandOutput/)
 
 </details>
 <details>

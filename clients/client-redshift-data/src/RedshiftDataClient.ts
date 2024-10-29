@@ -62,6 +62,10 @@ import { DescribeStatementCommandInput, DescribeStatementCommandOutput } from ".
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
 import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
 import { GetStatementResultCommandInput, GetStatementResultCommandOutput } from "./commands/GetStatementResultCommand";
+import {
+  GetStatementResultV2CommandInput,
+  GetStatementResultV2CommandOutput,
+} from "./commands/GetStatementResultV2Command";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
@@ -87,6 +91,7 @@ export type ServiceInputTypes =
   | DescribeTableCommandInput
   | ExecuteStatementCommandInput
   | GetStatementResultCommandInput
+  | GetStatementResultV2CommandInput
   | ListDatabasesCommandInput
   | ListSchemasCommandInput
   | ListStatementsCommandInput
@@ -102,6 +107,7 @@ export type ServiceOutputTypes =
   | DescribeTableCommandOutput
   | ExecuteStatementCommandOutput
   | GetStatementResultCommandOutput
+  | GetStatementResultV2CommandOutput
   | ListDatabasesCommandOutput
   | ListSchemasCommandOutput
   | ListStatementsCommandOutput

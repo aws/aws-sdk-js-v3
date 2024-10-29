@@ -37,6 +37,10 @@ import { DescribeStatementCommandInput, DescribeStatementCommandOutput } from ".
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
 import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "../commands/ExecuteStatementCommand";
 import { GetStatementResultCommandInput, GetStatementResultCommandOutput } from "../commands/GetStatementResultCommand";
+import {
+  GetStatementResultV2CommandInput,
+  GetStatementResultV2CommandOutput,
+} from "../commands/GetStatementResultV2Command";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
@@ -58,6 +62,7 @@ import {
   Field,
   GetStatementResultRequest,
   GetStatementResultResponse,
+  GetStatementResultV2Request,
   InternalServerException,
   ListDatabasesRequest,
   ListSchemasRequest,
@@ -146,6 +151,19 @@ export const se_GetStatementResultCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetStatementResult");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetStatementResultV2Command
+ */
+export const se_GetStatementResultV2Command = async (
+  input: GetStatementResultV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetStatementResultV2");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,6 +335,26 @@ export const de_GetStatementResultCommand = async (
   let contents: any = {};
   contents = de_GetStatementResultResponse(data, context);
   const response: GetStatementResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetStatementResultV2Command
+ */
+export const de_GetStatementResultV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStatementResultV2CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetStatementResultV2CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -600,6 +638,7 @@ const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, contex
     ClusterIdentifier: [],
     Database: [],
     DbUser: [],
+    ResultFormat: [],
     SecretArn: [],
     SessionId: [],
     SessionKeepAliveSeconds: [],
@@ -626,6 +665,7 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
     Database: [],
     DbUser: [],
     Parameters: _json,
+    ResultFormat: [],
     SecretArn: [],
     SessionId: [],
     SessionKeepAliveSeconds: [],
@@ -637,6 +677,8 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
 };
 
 // se_GetStatementResultRequest omitted.
+
+// se_GetStatementResultV2Request omitted.
 
 // se_ListDatabasesRequest omitted.
 
@@ -706,6 +748,7 @@ const de_DescribeStatementResponse = (output: any, context: __SerdeContext): Des
     QueryString: __expectString,
     RedshiftPid: __expectLong,
     RedshiftQueryId: __expectLong,
+    ResultFormat: __expectString,
     ResultRows: __expectLong,
     ResultSize: __expectLong,
     SecretArn: __expectString,
@@ -777,6 +820,8 @@ const de_FieldList = (output: any, context: __SerdeContext): Field[] => {
   return retVal;
 };
 
+// de_FormattedSqlRecords omitted.
+
 /**
  * deserializeAws_json1_1GetStatementResultResponse
  */
@@ -788,6 +833,8 @@ const de_GetStatementResultResponse = (output: any, context: __SerdeContext): Ge
     TotalNumRows: __expectLong,
   }) as any;
 };
+
+// de_GetStatementResultV2Response omitted.
 
 // de_InternalServerException omitted.
 
@@ -806,6 +853,8 @@ const de_ListStatementsResponse = (output: any, context: __SerdeContext): ListSt
 };
 
 // de_ListTablesResponse omitted.
+
+// de_QueryRecords omitted.
 
 // de_QueryTimeoutException omitted.
 
@@ -840,6 +889,7 @@ const de_StatementData = (output: any, context: __SerdeContext): StatementData =
     QueryParameters: _json,
     QueryString: __expectString,
     QueryStrings: _json,
+    ResultFormat: __expectString,
     SecretArn: __expectString,
     SessionId: __expectString,
     StatementName: __expectString,

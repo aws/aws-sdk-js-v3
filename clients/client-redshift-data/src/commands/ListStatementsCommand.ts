@@ -69,6 +69,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * //       ],
  * //       IsBatchStatement: true || false,
  * //       SessionId: "STRING_VALUE",
+ * //       ResultFormat: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

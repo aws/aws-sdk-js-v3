@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetStatementResultRequest, GetStatementResultResponse } from "../models/models_0";
-import { de_GetStatementResultCommand, se_GetStatementResultCommand } from "../protocols/Aws_json1_1";
+import { GetStatementResultV2Request, GetStatementResultV2Response } from "../models/models_0";
+import { de_GetStatementResultV2Command, se_GetStatementResultV2Command } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
@@ -17,48 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetStatementResultCommand}.
+ * The input for {@link GetStatementResultV2Command}.
  */
-export interface GetStatementResultCommandInput extends GetStatementResultRequest {}
+export interface GetStatementResultV2CommandInput extends GetStatementResultV2Request {}
 /**
  * @public
  *
- * The output of {@link GetStatementResultCommand}.
+ * The output of {@link GetStatementResultV2Command}.
  */
-export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
+export interface GetStatementResultV2CommandOutput extends GetStatementResultV2Response, __MetadataBearer {}
 
 /**
- * <p>Fetches the temporarily cached result of an SQL statement in JSON format.
- *        The <code>ExecuteStatement</code> or <code>BatchExecuteStatement</code> operation that ran the SQL statement must have specified <code>ResultFormat</code> as <code>JSON</code>
- *        , or let the format default to JSON.
- *        A token is returned to page through the statement results.</p>
+ * <p>Fetches the temporarily cached result of an SQL statement in CSV format.
+ *       The <code>ExecuteStatement</code> or <code>BatchExecuteStatement</code> operation that ran the SQL statement must have specified <code>ResultFormat</code> as <code>CSV</code>.
+ *       A token is returned to page through the statement results.</p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
- *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
- *        <i>Amazon Redshift Management Guide</i>. </p>
+ *       <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+ *       <i>Amazon Redshift Management Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, GetStatementResultCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, GetStatementResultCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, GetStatementResultV2Command } from "@aws-sdk/client-redshift-data"; // ES Modules import
+ * // const { RedshiftDataClient, GetStatementResultV2Command } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
- * const input = { // GetStatementResultRequest
+ * const input = { // GetStatementResultV2Request
  *   Id: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new GetStatementResultCommand(input);
+ * const command = new GetStatementResultV2Command(input);
  * const response = await client.send(command);
- * // { // GetStatementResultResponse
- * //   Records: [ // SqlRecords // required
- * //     [ // FieldList
- * //       { // Field Union: only one key present
- * //         isNull: true || false,
- * //         booleanValue: true || false,
- * //         longValue: Number("long"),
- * //         doubleValue: Number("double"),
- * //         stringValue: "STRING_VALUE",
- * //         blobValue: new Uint8Array(),
- * //       },
- * //     ],
+ * // { // GetStatementResultV2Response
+ * //   Records: [ // FormattedSqlRecords // required
+ * //     { // QueryRecords Union: only one key present
+ * //       CSVRecords: "STRING_VALUE",
+ * //     },
  * //   ],
  * //   ColumnMetadata: [ // ColumnMetadataList
  * //     { // ColumnMetadata
@@ -78,15 +70,16 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * //     },
  * //   ],
  * //   TotalNumRows: Number("long"),
+ * //   ResultFormat: "STRING_VALUE",
  * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetStatementResultCommandInput - {@link GetStatementResultCommandInput}
- * @returns {@link GetStatementResultCommandOutput}
- * @see {@link GetStatementResultCommandInput} for command's `input` shape.
- * @see {@link GetStatementResultCommandOutput} for command's `response` shape.
+ * @param GetStatementResultV2CommandInput - {@link GetStatementResultV2CommandInput}
+ * @returns {@link GetStatementResultV2CommandOutput}
+ * @see {@link GetStatementResultV2CommandInput} for command's `input` shape.
+ * @see {@link GetStatementResultV2CommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -103,10 +96,10 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  *
  * @public
  */
-export class GetStatementResultCommand extends $Command
+export class GetStatementResultV2Command extends $Command
   .classBuilder<
-    GetStatementResultCommandInput,
-    GetStatementResultCommandOutput,
+    GetStatementResultV2CommandInput,
+    GetStatementResultV2CommandOutput,
     RedshiftDataClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,21 +111,21 @@ export class GetStatementResultCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("RedshiftData", "GetStatementResult", {})
-  .n("RedshiftDataClient", "GetStatementResultCommand")
+  .s("RedshiftData", "GetStatementResultV2", {})
+  .n("RedshiftDataClient", "GetStatementResultV2Command")
   .f(void 0, void 0)
-  .ser(se_GetStatementResultCommand)
-  .de(de_GetStatementResultCommand)
+  .ser(se_GetStatementResultV2Command)
+  .de(de_GetStatementResultV2Command)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetStatementResultRequest;
-      output: GetStatementResultResponse;
+      input: GetStatementResultV2Request;
+      output: GetStatementResultV2Response;
     };
     sdk: {
-      input: GetStatementResultCommandInput;
-      output: GetStatementResultCommandOutput;
+      input: GetStatementResultV2CommandInput;
+      output: GetStatementResultV2CommandOutput;
     };
   };
 }

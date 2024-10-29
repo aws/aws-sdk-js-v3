@@ -85,6 +85,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *   ClientToken: "STRING_VALUE",
  *   SessionKeepAliveSeconds: Number("int"),
  *   SessionId: "STRING_VALUE",
+ *   ResultFormat: "STRING_VALUE",
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);

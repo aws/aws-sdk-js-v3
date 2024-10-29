@@ -85,6 +85,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * //   ],
  * //   WorkgroupName: "STRING_VALUE",
  * //   SessionId: "STRING_VALUE",
+ * //   ResultFormat: "STRING_VALUE",
  * // };
  *
  * ```

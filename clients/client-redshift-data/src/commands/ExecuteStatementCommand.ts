@@ -89,6 +89,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   ClientToken: "STRING_VALUE",
  *   SessionKeepAliveSeconds: Number("int"),
  *   SessionId: "STRING_VALUE",
+ *   ResultFormat: "STRING_VALUE",
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
