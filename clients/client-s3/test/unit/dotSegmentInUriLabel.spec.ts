@@ -1,7 +1,7 @@
-import { test as it, describe, expect } from "vitest";
-
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { HttpHandlerOptions } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
+
 import { S3 } from "../../src/S3";
 
 /**
@@ -25,6 +25,7 @@ class RequestSerializationTestHandler implements HttpHandler {
 
 describe("Dot Segment in URI Label", () => {
   const client = new S3({
+    region: "us-west-2",
     credentials: { accessKeyId: "mockAccessKeyId", secretAccessKey: "mockSecretAccessKey" },
     requestHandler: new RequestSerializationTestHandler(),
   });
