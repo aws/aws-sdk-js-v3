@@ -454,7 +454,8 @@ export interface S3ModelDataSource {
   HubAccessConfig?: InferenceHubAccessConfig;
 
   /**
-   * <p>The Amazon S3 URI of the manifest file. The manifest file is a CSV file that stores the artifact locations.</p>
+   * <p>The Amazon S3 URI of the manifest file. The manifest file is a CSV file that stores the
+   *             artifact locations.</p>
    * @public
    */
   ManifestS3Uri?: string;
@@ -1919,6 +1920,8 @@ export const TrainingInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_16XLARGE: "ml.r5d.16xlarge",
@@ -1943,6 +1946,7 @@ export const TrainingInstanceType = {
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -2716,17 +2720,13 @@ export interface AmazonQSettings {
 }
 
 /**
- * <p>Configures how labels are consolidated across human workers and processes output data.
- *          </p>
+ * <p>Configures how labels are consolidated across human workers and processes output data.</p>
  * @public
  */
 export interface AnnotationConsolidationConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">annotation consolidation</a> and to process output data.</p>
-   *          <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
-   *             of the following Amazon SageMaker Ground Truth Lambda function ARNs for
-   *                 <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>. </p>
+   *          <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>.</p>
    *          <p>
    *             <b>Bounding box</b> - Finds the most similar boxes from
    *             different workers based on the Jaccard index of the boxes.</p>
@@ -6267,7 +6267,8 @@ export type AutoMLMode = (typeof AutoMLMode)[keyof typeof AutoMLMode];
 /**
  * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
  *             have access to. You can control access to and from your resources by configuring a VPC.
- *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+ *                 Resources in your Amazon VPC</a>. </p>
  * @public
  */
 export interface VpcConfig {
@@ -10503,7 +10504,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The environment variables to set in the Docker container. Don't include any
-   *         sensitive data in your environment variables.</p>
+   *             sensitive data in your environment variables.</p>
    *          <p>The maximum length of each key and value in the <code>Environment</code> map is
    *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
    *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum

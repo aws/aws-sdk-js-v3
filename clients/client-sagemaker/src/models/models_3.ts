@@ -1829,15 +1829,15 @@ export interface DescribeNotebookInstanceOutput {
   RoleArn?: string;
 
   /**
-   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the
-   *             ML storage volume attached to the instance. </p>
+   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when
+   *             storing it on the ML storage volume attached to the instance. </p>
    * @public
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The network interface IDs that SageMaker created at the time of creating the instance.
-   *         </p>
+   * <p>The network interface IDs that SageMaker created at the time of creating
+   *             the instance. </p>
    * @public
    */
   NetworkInterfaceId?: string;
@@ -1866,9 +1866,10 @@ export interface DescribeNotebookInstanceOutput {
   NotebookInstanceLifecycleConfigName?: string;
 
   /**
-   * <p>Describes whether SageMaker provides internet access to the notebook instance. If this
-   *             value is set to <i>Disabled</i>, the notebook instance does not have
-   *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
+   * <p>Describes whether SageMaker provides internet access to the notebook instance.
+   *             If this value is set to <i>Disabled</i>, the notebook instance does not
+   *             have internet access, and cannot connect to SageMaker training and endpoint
+   *             services.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    * @public
    */
@@ -1881,10 +1882,10 @@ export interface DescribeNotebookInstanceOutput {
   VolumeSizeInGB?: number;
 
   /**
-   * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
-   *             Amazon SageMaker</a>.</p>
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
+   *             available.</p>
+   *          <p>This parameter was used to specify a list of the EI instance types associated with
+   *             this notebook instance.</p>
    * @public
    */
   AcceleratorTypes?: NotebookInstanceAcceleratorType[];
@@ -1971,7 +1972,7 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
 
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
-   *          you create the notebook instance.</p>
+   *             you create the notebook instance.</p>
    * @public
    */
   OnStart?: NotebookInstanceLifecycleHook[];
@@ -9197,28 +9198,28 @@ export interface ListClustersResponse {
 export interface ListCodeRepositoriesInput {
   /**
    * <p>A filter that returns only Git repositories that were created after the specified
-   *          time.</p>
+   *             time.</p>
    * @public
    */
   CreationTimeAfter?: Date;
 
   /**
    * <p>A filter that returns only Git repositories that were created before the specified
-   *          time.</p>
+   *             time.</p>
    * @public
    */
   CreationTimeBefore?: Date;
 
   /**
    * <p>A filter that returns only Git repositories that were last modified after the
-   *          specified time.</p>
+   *             specified time.</p>
    * @public
    */
   LastModifiedTimeAfter?: Date;
 
   /**
    * <p>A filter that returns only Git repositories that were last modified before the
-   *          specified time.</p>
+   *             specified time.</p>
    * @public
    */
   LastModifiedTimeBefore?: Date;
@@ -9231,15 +9232,15 @@ export interface ListCodeRepositoriesInput {
 
   /**
    * <p>A string in the Git repositories name. This filter returns only repositories whose
-   *          name contains the specified string.</p>
+   *             name contains the specified string.</p>
    * @public
    */
   NameContains?: string;
 
   /**
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *          response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *          the token in the next request.</p>
+   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
+   *             the token in the next request.</p>
    * @public
    */
   NextToken?: string;
@@ -9263,7 +9264,7 @@ export interface ListCodeRepositoriesInput {
 export interface ListCodeRepositoriesOutput {
   /**
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
-   *          values for the repository: </p>
+   *             values for the repository: </p>
    *          <ul>
    *             <li>
    *                <p>Name</p>
@@ -9279,8 +9280,8 @@ export interface ListCodeRepositoriesOutput {
    *             </li>
    *             <li>
    *                <p>Configuration information, including the URL location of the repository and
-   *                the ARN of the Amazon Web Services Secrets Manager secret that contains the
-   *                credentials used to access the repository.</p>
+   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the
+   *                     credentials used to access the repository.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9289,8 +9290,8 @@ export interface ListCodeRepositoriesOutput {
 
   /**
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *          response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *          the token in the next request.</p>
+   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
+   *             the token in the next request.</p>
    * @public
    */
   NextToken?: string;

@@ -34,14 +34,15 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
 
 /**
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
- *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
- *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
- *             instance. The console uses this API to get the URL and show the page.</p>
- *          <p> The IAM role or user used to call this API defines the permissions to access the
- *             notebook instance. Once the presigned URL is created, no additional permission is
- *             required to access this URL. IAM authorization policies for this API are also enforced
- *             for every HTTP request and WebSocket frame that attempts to connect to the notebook
- *             instance.</p>
+ *             instance. In the SageMaker console, when you choose <code>Open</code> next to a
+ *             notebook instance, SageMaker opens a new tab showing the Jupyter server home
+ *             page from the notebook instance. The console uses this API to get the URL and show the
+ *             page.</p>
+ *          <p> The IAM role or user used to call this API defines the permissions to
+ *             access the notebook instance. Once the presigned URL is created, no additional
+ *             permission is required to access this URL. IAM authorization policies for
+ *             this API are also enforced for every HTTP request and WebSocket frame that attempts to
+ *             connect to the notebook instance.</p>
  *          <p>You can restrict access to this API and to the URL that it returns to a list of IP
  *             addresses that you specify. Use the <code>NotIpAddress</code> condition operator and the
  *                 <code>aws:SourceIP</code> condition context key to specify the list of IP addresses

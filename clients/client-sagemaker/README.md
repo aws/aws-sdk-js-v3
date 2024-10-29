@@ -25,7 +25,7 @@ Runtime API Reference</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker
+To install this package, simply type add or install @aws-sdk/client-sagemaker
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker`

@@ -28,8 +28,8 @@ export interface ListNotebookInstancesCommandInput extends ListNotebookInstances
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
- *                 Amazon Web Services Region. </p>
+ * <p>Returns a list of the SageMaker notebook instances in the requester's
+ *             account in an Amazon Web Services Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

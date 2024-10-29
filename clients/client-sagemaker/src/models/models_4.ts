@@ -2001,8 +2001,8 @@ export type NotebookInstanceLifecycleConfigSortOrder =
 export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To get the next set of
-   *          lifecycle configurations, use the token in the next request.</p>
+   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
+   *             lifecycle configurations, use the token in the next request.</p>
    * @public
    */
   NextToken?: string;
@@ -2027,35 +2027,35 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
 
   /**
    * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
-   *          configurations whose name contains the specified string.</p>
+   *             configurations whose name contains the specified string.</p>
    * @public
    */
   NameContains?: string;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were created before the
-   *          specified time (timestamp).</p>
+   *             specified time (timestamp).</p>
    * @public
    */
   CreationTimeBefore?: Date;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were created after the
-   *          specified time (timestamp).</p>
+   *             specified time (timestamp).</p>
    * @public
    */
   CreationTimeAfter?: Date;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were modified before the
-   *          specified time (timestamp).</p>
+   *             specified time (timestamp).</p>
    * @public
    */
   LastModifiedTimeBefore?: Date;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were modified after the
-   *          specified time (timestamp).</p>
+   *             specified time (timestamp).</p>
    * @public
    */
   LastModifiedTimeAfter?: Date;
@@ -2096,15 +2096,15 @@ export interface NotebookInstanceLifecycleConfigSummary {
  */
 export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
-   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
-   *          lifecycle configurations, use it in the next request. </p>
+   * <p>If the response is truncated, SageMaker returns this token. To get the next
+   *             set of lifecycle configurations, use it in the next request. </p>
    * @public
    */
   NextToken?: string;
 
   /**
    * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
-   *          a lifecycle configuration.</p>
+   *             a lifecycle configuration.</p>
    * @public
    */
   NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
@@ -2265,7 +2265,7 @@ export interface NotebookInstanceSummary {
 
   /**
    * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
-   *          instance. </p>
+   *             instance. </p>
    * @public
    */
   Url?: string;
@@ -2290,31 +2290,31 @@ export interface NotebookInstanceSummary {
 
   /**
    * <p>The name of a notebook instance lifecycle configuration associated with this notebook
-   *          instance.</p>
+   *             instance.</p>
    *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
+   *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
    * @public
    */
   NotebookInstanceLifecycleConfigName?: string;
 
   /**
    * <p>The Git repository associated with the notebook instance as its default code
-   *          repository. This can be either the name of a Git repository stored as a resource in your
-   *          account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *          or in any other Git repository. When you open a notebook instance, it opens in the
-   *          directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *             Repositories with SageMaker Notebook Instances</a>.</p>
+   *             repository. This can be either the name of a Git repository stored as a resource in your
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
   DefaultCodeRepository?: string;
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *          can be either the names of Git repositories stored as resources in your account, or the
-   *          URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *          or in any other Git repository. These repositories are cloned at the same level as the
-   *          default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *             Repositories with SageMaker Notebook Instances</a>.</p>
+   *             can be either the names of Git repositories stored as resources in your account, or the
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
   AdditionalCodeRepositories?: string[];
@@ -2326,8 +2326,8 @@ export interface NotebookInstanceSummary {
 export interface ListNotebookInstancesOutput {
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
-   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
-   *             the token in the next request.</p>
+   *             truncated, SageMaker returns this token. To retrieve the next set of notebook
+   *             instances, use the token in the next request.</p>
    * @public
    */
   NextToken?: string;
@@ -5165,7 +5165,8 @@ export interface Model {
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
    *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
    * @public
    */
   VpcConfig?: VpcConfig;
@@ -8534,12 +8535,12 @@ export interface UpdateCodeRepositoryInput {
 
   /**
    * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *          Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *          credentials used to access the repository. The secret must have a staging label of
-   *          <code>AWSCURRENT</code> and must be in the following format:</p>
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials used to access the repository. The secret must have a staging label of
+   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
    *             <code>\{"username": <i>UserName</i>, "password":
-   *             <i>Password</i>\}</code>
+   *                     <i>Password</i>\}</code>
    *          </p>
    * @public
    */
@@ -8687,7 +8688,7 @@ export interface UpdateDomainRequest {
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
   /**
-   * <p>The default settings used to create a space within the domain.</p>
+   * <p>The default settings for shared spaces that users create in the domain.</p>
    * @public
    */
   DefaultSpaceSettings?: DefaultSpaceSettings;
@@ -9673,11 +9674,11 @@ export interface UpdateNotebookInstanceInput {
   InstanceType?: _InstanceType;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access the
-   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to
+   *             access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
    *          <note>
-   *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
+   *             <p>To be able to pass this role to SageMaker, the caller of this API must
+   *                 have the <code>iam:PassRole</code> permission.</p>
    *          </note>
    * @public
    */
@@ -9702,11 +9703,11 @@ export interface UpdateNotebookInstanceInput {
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker can't determine the
-   *             amount of available free space on the volume. Because of this, you can increase the
-   *             volume size when you update a notebook instance, but you can't decrease the volume size.
-   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
-   *             instance with the desired size.</p>
+   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker can't
+   *             determine the amount of available free space on the volume. Because of this, you can
+   *             increase the volume size when you update a notebook instance, but you can't decrease the
+   *             volume size. If you want to decrease the size of the ML storage volume in use, create a
+   *             new notebook instance with the desired size.</p>
    * @public
    */
   VolumeSizeInGB?: number;
@@ -9734,19 +9735,19 @@ export interface UpdateNotebookInstanceInput {
   AdditionalCodeRepositories?: string[];
 
   /**
-   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
-   *             Amazon SageMaker</a>.</p>
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
+   *             available.</p>
+   *          <p>This parameter was used to specify a list of the EI instance types to associate with
+   *             this notebook instance.</p>
    * @public
    */
   AcceleratorTypes?: NotebookInstanceAcceleratorType[];
 
   /**
-   * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
-   *             instance. This operation is idempotent. If you specify an accelerator type that is not
-   *             associated with the notebook instance when you call this method, it does not throw an
-   *             error.</p>
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
+   *             available.</p>
+   *          <p>This parameter was used to specify a list of the EI instance types to remove from this notebook
+   *             instance.</p>
    * @public
    */
   DisassociateAcceleratorTypes?: boolean;
@@ -9804,15 +9805,15 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
 
   /**
    * <p>The shell script that runs only once, when you create a notebook instance. The shell
-   *          script must be a base64-encoded string.</p>
+   *             script must be a base64-encoded string.</p>
    * @public
    */
   OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
-   *          you create the notebook instance. The shell script must be a base64-encoded
-   *          string.</p>
+   *             you create the notebook instance. The shell script must be a base64-encoded
+   *             string.</p>
    * @public
    */
   OnStart?: NotebookInstanceLifecycleHook[];

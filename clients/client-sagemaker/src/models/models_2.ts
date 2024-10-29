@@ -1071,8 +1071,8 @@ export interface SpaceCodeEditorAppSettings {
 
 /**
  * <p>A file system, created by you in Amazon EFS, that you assign to a user profile
- *             or space for an Amazon SageMaker Domain. Permitted users can access this file
- *             system in Amazon SageMaker Studio.</p>
+ *       or space for an Amazon SageMaker Domain. Permitted users can access this file
+ *       system in Amazon SageMaker Studio.</p>
  * @public
  */
 export interface EFSFileSystem {
@@ -1085,7 +1085,7 @@ export interface EFSFileSystem {
 
 /**
  * <p>A file system, created by you, that you assign to a user profile or space for an
- *                 Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
+ *       Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
  * @public
  */
 export type CustomFileSystem = CustomFileSystem.EFSFileSystemMember | CustomFileSystem.$UnknownMember;
@@ -1215,8 +1215,8 @@ export interface SpaceSettings {
 
   /**
    * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker
-   *             Domain. Permitted users can access this file system in Amazon SageMaker
-   *             Studio.</p>
+   *       Domain. Permitted users can access this file system in Amazon SageMaker
+   *       Studio.</p>
    * @public
    */
   CustomFileSystems?: CustomFileSystem[];
@@ -3216,8 +3216,10 @@ export type RetentionType = (typeof RetentionType)[keyof typeof RetentionType];
  */
 export interface RetentionPolicy {
   /**
-   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the Amazon EFS volume.</p>
-   *          <p>Specify <code>Delete</code> to delete the data stored on the Amazon EFS volume.</p>
+   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the
+   *                 Amazon EFS volume.</p>
+   *          <p>Specify <code>Delete</code> to delete the data stored on the Amazon EFS
+   *             volume.</p>
    * @public
    */
   HomeEfsFileSystem?: RetentionType;
@@ -4945,7 +4947,8 @@ export interface DescribeClusterResponse {
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
    *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
    * @public
    */
   VpcConfig?: VpcConfig;
@@ -5032,8 +5035,8 @@ export interface DescribeCodeRepositoryOutput {
 
   /**
    * <p>Configuration details about the repository, including the URL where the repository is
-   *          located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
-   *          repository.</p>
+   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
+   *             repository.</p>
    * @public
    */
   GitConfig?: GitConfig;
@@ -5760,7 +5763,7 @@ export interface DescribeDomainResponse {
   TagPropagation?: TagPropagation;
 
   /**
-   * <p>The default settings used to create a space.</p>
+   * <p>The default settings for shared spaces that users create in the domain.</p>
    * @public
    */
   DefaultSpaceSettings?: DefaultSpaceSettings;
@@ -6186,10 +6189,10 @@ export interface PendingProductionVariantSummary {
   InstanceType?: ProductionVariantInstanceType;
 
   /**
-   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
-   *             instances provide on-demand GPU computing for inference. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
+   *             available.</p>
+   *          <p>This parameter was used to specify the size of the EI instance to use for the
+   *             production variant.</p>
    * @public
    */
   AcceleratorType?: ProductionVariantAcceleratorType;
@@ -6579,7 +6582,8 @@ export interface DescribeEndpointConfigOutput {
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
    *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
    * @public
    */
   VpcConfig?: VpcConfig;
