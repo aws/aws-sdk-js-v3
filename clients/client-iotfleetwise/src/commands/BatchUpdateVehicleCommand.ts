@@ -86,6 +86,9 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request couldn't be completed due to throttling.</p>
  *

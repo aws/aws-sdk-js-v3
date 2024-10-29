@@ -16,7 +16,7 @@ define data collection rules to transfer only high-value data to the cloud.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotfleetwise
+To install this package, simply type add or install @aws-sdk/client-iotfleetwise
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotfleetwise`

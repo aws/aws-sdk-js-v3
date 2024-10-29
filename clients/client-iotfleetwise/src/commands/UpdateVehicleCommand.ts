@@ -69,6 +69,9 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource wasn't found.</p>
  *
