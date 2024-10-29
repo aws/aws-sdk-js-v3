@@ -1,18 +1,23 @@
-import { test as it, describe, expect } from "vitest";
-
 import { Lambda } from "@aws-sdk/client-lambda";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { HttpRequest as IHttpRequest } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 
 describe("util-stream", () => {
   describe(Lambda.name, () => {
     it("should be uniform between string and Uint8Array payloads", async () => {
-      const client = new Lambda({ region: "us-west-2" });
+      const client = new Lambda({
+        region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
       requireRequestsFrom(client).toMatch({
         method: "POST",
         hostname: "lambda.us-west-2.amazonaws.com",
@@ -54,6 +59,10 @@ describe("util-stream", () => {
 
     const lambda = new Lambda({
       region: "us-west-2",
+      credentials: {
+        accessKeyId: "INTEG",
+        secretAccessKey: "INTEG",
+      },
     });
 
     requireRequestsFrom(lambda).toMatch({

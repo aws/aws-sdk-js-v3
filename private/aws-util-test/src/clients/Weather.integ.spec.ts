@@ -1,6 +1,5 @@
-import { test as it, describe, expect } from "vitest";
-
 import { Weather } from "@aws-sdk/weather";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../requests/test-http-handler";
 
@@ -12,6 +11,7 @@ describe(Weather.name, () => {
         secretAccessKey: "",
       },
       endpoint: "https://localhost",
+      region: "us-west-2",
     });
 
     requireRequestsFrom(client).toMatch({

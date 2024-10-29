@@ -40,7 +40,14 @@ describe("middleware-eventstream", () => {
 
   describe(RekognitionStreaming.name, () => {
     it("should set streaming headers", async () => {
-      const client = new RekognitionStreaming({ region: "us-west-2", logger });
+      const client = new RekognitionStreaming({
+        region: "us-west-2",
+        logger,
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
+      });
 
       requireRequestsFrom(client).toMatch({
         headers: {

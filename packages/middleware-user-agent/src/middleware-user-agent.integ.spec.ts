@@ -30,6 +30,7 @@ describe("middleware-user-agent", () => {
   describe("features", () => {
     it("should detect DDB mapper, account id, and account id mode", async () => {
       const client = new DynamoDB({
+        region: "us-west-2",
         accountIdEndpointMode: async () => "required" as const,
       });
 

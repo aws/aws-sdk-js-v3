@@ -28,10 +28,7 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
     });
   } catch (error) {
     console.error("Error running turbo:", error);
-    if (args?.length > 0) {
-      // Retry without additional filters
-      return await runTurbo(task, null, apiSecret, apiEndpoint);
-    }
+    throw error;
   }
 };
 
