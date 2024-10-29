@@ -98,6 +98,10 @@ for (const client of clients) {
     }
   }
 
+  if (pkgJson.scripts.test || pkgJson.scripts["test:integration"] || pkgJson.scripts["test:e2e"]) {
+    interesting = true;
+  }
+
   if (interesting && !keep.includes(shortName)) {
     keep.push(shortName);
   } else if (!keep.includes(shortName)) {
