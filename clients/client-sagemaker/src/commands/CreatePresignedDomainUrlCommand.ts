@@ -41,9 +41,18 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *       information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect to Amazon SageMaker
  *         Studio Through an Interface VPC Endpoint</a> .</p>
  *          <note>
- *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
- *         timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>. If
- *         you try to use the URL after the timeout limit expires, you are directed to the Amazon Web Services console sign-in page.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a
+ *             default timeout of 5 minutes. You can configure this value using
+ *               <code>ExpiresInSeconds</code>. If you try to use the URL after the timeout limit
+ *             expires, you are directed to the Amazon Web Services console sign-in page.</p>
+ *                </li>
+ *                <li>
+ *                   <p>The JupyterLab session default expiration time is 12 hours. You can configure this
+ *             value using SessionExpirationDurationInSeconds.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

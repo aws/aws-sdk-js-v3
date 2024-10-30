@@ -160,6 +160,12 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *     ModelCardContent: "STRING_VALUE",
  *     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
  *   },
+ *   ModelLifeCycle: { // ModelLifeCycle
+ *     Stage: "STRING_VALUE", // required
+ *     StageStatus: "STRING_VALUE", // required
+ *     StageDescription: "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new UpdateModelPackageCommand(input);
  * const response = await client.send(command);

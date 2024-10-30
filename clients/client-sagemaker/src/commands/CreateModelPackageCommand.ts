@@ -323,6 +323,11 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *     ModelCardContent: "STRING_VALUE",
  *     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
  *   },
+ *   ModelLifeCycle: { // ModelLifeCycle
+ *     Stage: "STRING_VALUE", // required
+ *     StageStatus: "STRING_VALUE", // required
+ *     StageDescription: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);

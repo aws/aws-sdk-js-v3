@@ -2135,8 +2135,8 @@ export interface CreateDeviceFleetRequest {
 }
 
 /**
- * <p>The settings for assigning a custom Amazon EFS file system to a user profile
- *       or space for an Amazon SageMaker Domain.</p>
+ * <p>The settings for assigning a custom Amazon EFS file system to a user profile or
+ *       space for an Amazon SageMaker Domain.</p>
  * @public
  */
 export interface EFSFileSystemConfig {
@@ -2147,16 +2147,16 @@ export interface EFSFileSystemConfig {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The path to the file system directory that is accessible in Amazon SageMaker
-   *       Studio. Permitted users can access only this directory and below.</p>
+   * <p>The path to the file system directory that is accessible in Amazon SageMaker Studio.
+   *       Permitted users can access only this directory and below.</p>
    * @public
    */
   FileSystemPath?: string;
 }
 
 /**
- * <p>The settings for assigning a custom file system to a user profile or space for an
- *       Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
+ * <p>The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker
+ *       Studio.</p>
  * @public
  */
 export type CustomFileSystemConfig =
@@ -2290,8 +2290,8 @@ export interface JupyterLabAppSettings {
   EmrSettings?: EmrSettings;
 
   /**
-   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default
-   *       lifecycle configuration.</p>
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can
+   *       override changes made in the default lifecycle configuration.</p>
    * @public
    */
   BuiltInLifecycleConfigArn?: string;
@@ -2396,7 +2396,8 @@ export interface DefaultSpaceStorageSettings {
 
 /**
  * <p>The default settings for shared spaces that users create in the domain.</p>
- *          <p>SageMaker applies these settings only to shared spaces. It doesn't apply them to private spaces.</p>
+ *          <p>SageMaker applies these settings only to shared spaces. It doesn't apply them to private
+ *       spaces.</p>
  * @public
  */
 export interface DefaultSpaceSettings {
@@ -2629,17 +2630,13 @@ export type SageMakerImageName = (typeof SageMakerImageName)[keyof typeof SageMa
  */
 export interface HiddenSageMakerImage {
   /**
-   * <p>
-   *       The SageMaker image name that you are hiding from the Studio user interface.
-   *     </p>
+   * <p> The SageMaker image name that you are hiding from the Studio user interface. </p>
    * @public
    */
   SageMakerImageName?: SageMakerImageName;
 
   /**
-   * <p>
-   *       The version aliases you are hiding from the Studio user interface.
-   *     </p>
+   * <p> The version aliases you are hiding from the Studio user interface. </p>
    * @public
    */
   VersionAliases?: string[];
@@ -2665,17 +2662,13 @@ export interface StudioWebPortalSettings {
   HiddenAppTypes?: AppType[];
 
   /**
-   * <p>
-   *       The instance types you are hiding from the Studio user interface.
-   *     </p>
+   * <p> The instance types you are hiding from the Studio user interface. </p>
    * @public
    */
   HiddenInstanceTypes?: AppInstanceType[];
 
   /**
-   * <p>
-   *       The version aliases you are hiding from the Studio user interface.
-   *     </p>
+   * <p> The version aliases you are hiding from the Studio user interface. </p>
    * @public
    */
   HiddenSageMakerImageVersionAliases?: HiddenSageMakerImage[];
@@ -2766,7 +2759,8 @@ export interface UserSettings {
 
   /**
    * <p>The Canvas app settings.</p>
-   *          <p>SageMaker applies these settings only to private spaces that SageMaker creates for the Canvas app.</p>
+   *          <p>SageMaker applies these settings only to private spaces that SageMaker creates for the Canvas
+   *       app.</p>
    * @public
    */
   CanvasAppSettings?: CanvasAppSettings;
@@ -3072,7 +3066,8 @@ export interface CreateDomainRequest {
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
   /**
-   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to
+   *         <code>DISABLED</code>.</p>
    * @public
    */
   TagPropagation?: TagPropagation;
@@ -11220,6 +11215,38 @@ export interface ModelPackageModelCard {
 }
 
 /**
+ * <p>
+ *             A structure describing the current state of the model in its life cycle.
+ *         </p>
+ * @public
+ */
+export interface ModelLifeCycle {
+  /**
+   * <p>
+   *             The current stage in the model life cycle.
+   *         </p>
+   * @public
+   */
+  Stage: string | undefined;
+
+  /**
+   * <p>
+   *             The current status of a stage in model life cycle.
+   *         </p>
+   * @public
+   */
+  StageStatus: string | undefined;
+
+  /**
+   * <p>
+   *             Describes the stage related details.
+   *         </p>
+   * @public
+   */
+  StageDescription?: string;
+}
+
+/**
  * <p>Contains explainability metrics for a model.</p>
  * @public
  */
@@ -11602,6 +11629,14 @@ export interface CreateModelPackageInput {
    * @public
    */
   ModelCard?: ModelPackageModelCard;
+
+  /**
+   * <p>
+   *             A structure describing the current state of the model in its life cycle.
+   *         </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle;
 }
 
 /**
@@ -12921,17 +12956,6 @@ export interface CreatePipelineRequest {
    * @public
    */
   ParallelismConfiguration?: ParallelismConfiguration;
-}
-
-/**
- * @public
- */
-export interface CreatePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created pipeline.</p>
-   * @public
-   */
-  PipelineArn?: string;
 }
 
 /**

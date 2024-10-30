@@ -57,6 +57,7 @@ import {
   JobType,
   ModelCardSecurityConfig,
   ModelCardStatus,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
@@ -97,10 +98,8 @@ import {
   ExperimentConfig,
   FeatureParameter,
   HyperParameterTrainingJobSummary,
-  MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
-  NotificationConfiguration,
   OidcConfig,
   OidcConfigFilterSensitiveLog,
   ProcessingInput,
@@ -121,7 +120,6 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
 
@@ -181,6 +179,63 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListModelBiasJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model bias.</p>
+   * @public
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
+   *    The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringJobDefinitionSortKey;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of model bias jobs to return in the response. The default value is
+   *          10.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for model bias jobs whose name contains a specified string.</p>
+   * @public
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model bias jobs created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model bias jobs created after a specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+}
 
 /**
  * @public
@@ -5973,6 +6028,14 @@ export interface ModelPackage {
   ModelCard?: ModelPackageModelCard;
 
   /**
+   * <p>
+   *             A structure describing the current state of the model in its life cycle.
+   *         </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle;
+
+  /**
    * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
@@ -8725,7 +8788,8 @@ export interface UpdateDomainRequest {
   AppNetworkAccessType?: AppNetworkAccessType;
 
   /**
-   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to
+   *         <code>DISABLED</code>.</p>
    * @public
    */
   TagPropagation?: TagPropagation;
@@ -9566,6 +9630,22 @@ export interface UpdateModelPackageInput {
    * @public
    */
   ModelCard?: ModelPackageModelCard;
+
+  /**
+   * <p>
+   *             A structure describing the current state of the model in its life cycle.
+   *         </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle;
+
+  /**
+   * <p>
+   *             A unique token that guarantees that the call to this API is idempotent.
+   *         </p>
+   * @public
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -10278,60 +10358,6 @@ export interface UpdateWorkforceResponse {
    * @public
    */
   Workforce: Workforce | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkteamRequest {
-  /**
-   * <p>The name of the work team to update.</p>
-   * @public
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
-   *             the workers that make up the work team. </p>
-   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
-   *             For private workforces created using Amazon Cognito use
-   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
-   *             provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input
-   *             for both of these parameters in a single request.</p>
-   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
-   *                 <i>user groups</i> within the user pool used to create a workforce. All of the
-   *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
-   *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
-   *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
-   *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
-   *                 Pools</a>.</p>
-   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want
-   *             to include in your private work team in <code>OidcMemberDefinition</code> by listing
-   *             those groups in <code>Groups</code>. Be aware that user groups that are already in the
-   *             work team must also be listed in <code>Groups</code> when you make this request to
-   *             remain on the work team. If you do not include these user groups, they will no longer be
-   *             associated with the work team you update. </p>
-   * @public
-   */
-  MemberDefinitions?: MemberDefinition[];
-
-  /**
-   * <p>An updated description for the work team.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Configures SNS topic notifications for available or expiring work items</p>
-   * @public
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-
-  /**
-   * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
-   * @public
-   */
-  WorkerAccessConfiguration?: WorkerAccessConfiguration;
 }
 
 /**

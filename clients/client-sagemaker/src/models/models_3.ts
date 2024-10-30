@@ -87,6 +87,7 @@ import {
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
@@ -155,7 +156,6 @@ import {
   InfraCheckConfig,
   LabelCounters,
   LabelingJobOutput,
-  LabelingJobStatus,
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
@@ -190,6 +190,24 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const LabelingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelingJobStatus = (typeof LabelingJobStatus)[keyof typeof LabelingJobStatus];
 
 /**
  * @public
@@ -1380,6 +1398,14 @@ export interface DescribeModelPackageOutput {
    * @public
    */
   ModelCard?: ModelPackageModelCard;
+
+  /**
+   * <p>
+   *             A structure describing the current state of the model in its life cycle.
+   *         </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle;
 }
 
 /**
@@ -11729,63 +11755,6 @@ export interface ListMlflowTrackingServersResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListModelBiasJobDefinitionsRequest {
-  /**
-   * <p>Name of the endpoint to monitor for model bias.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
-   *    The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of model bias jobs to return in the response. The default value is
-   *          10.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for model bias jobs whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model bias jobs created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model bias jobs created after a specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
 }
 
 /**

@@ -1207,7 +1207,6 @@ import {
   CreateOptimizationJobRequest,
   CreateOptimizationJobResponse,
   CreatePipelineRequest,
-  CreatePipelineResponse,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1294,6 +1293,7 @@ import {
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
   ModelPackageSecurityConfig,
@@ -1382,6 +1382,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreatePipelineResponse,
   CreatePresignedDomainUrlRequest,
   CreatePresignedDomainUrlResponse,
   CreatePresignedMlflowTrackingServerUrlRequest,
@@ -1849,7 +1850,6 @@ import {
   ListLineageGroupsResponse,
   ListMlflowTrackingServersRequest,
   ListMlflowTrackingServersResponse,
-  ListModelBiasJobDefinitionsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1888,6 +1888,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
   ListModelCardExportJobsRequest,
   ListModelCardExportJobsResponse,
@@ -2147,13 +2148,12 @@ import {
   UpdateUserProfileResponse,
   UpdateWorkforceRequest,
   UpdateWorkforceResponse,
-  UpdateWorkteamRequest,
   UserProfileDetails,
   VariantProperty,
   Vertex,
   VisibilityConditions,
 } from "../models/models_4";
-import { SearchExpression, SearchRequest, UpdateWorkteamResponse } from "../models/models_5";
+import { SearchExpression, SearchRequest, UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_5";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 /**
@@ -13668,6 +13668,7 @@ const se_CreateModelPackageInput = (input: CreateModelPackageInput, context: __S
     MetadataProperties: _json,
     ModelApprovalStatus: [],
     ModelCard: _json,
+    ModelLifeCycle: _json,
     ModelMetrics: _json,
     ModelPackageDescription: [],
     ModelPackageGroupName: [],
@@ -15632,6 +15633,8 @@ const se_ModelExplainabilityJobInput = (input: ModelExplainabilityJobInput, cont
 // se_ModelLatencyThreshold omitted.
 
 // se_ModelLatencyThresholds omitted.
+
+// se_ModelLifeCycle omitted.
 
 // se_ModelMetadataFilter omitted.
 
@@ -20701,6 +20704,7 @@ const de_DescribeModelPackageOutput = (output: any, context: __SerdeContext): De
     MetadataProperties: (_: any) => de_MetadataProperties(_, context),
     ModelApprovalStatus: __expectString,
     ModelCard: (_: any) => de_ModelPackageModelCard(_, context),
+    ModelLifeCycle: (_: any) => de_ModelLifeCycle(_, context),
     ModelMetrics: (_: any) => de_ModelMetrics(_, context),
     ModelPackageArn: __expectString,
     ModelPackageDescription: __expectString,
@@ -25433,6 +25437,17 @@ const de_ModelLatencyThresholds = (output: any, context: __SerdeContext): ModelL
 };
 
 /**
+ * deserializeAws_json1_1ModelLifeCycle
+ */
+const de_ModelLifeCycle = (output: any, context: __SerdeContext): ModelLifeCycle => {
+  return take(output, {
+    Stage: __expectString,
+    StageDescription: __expectString,
+    StageStatus: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ModelMetadataSummaries
  */
 const de_ModelMetadataSummaries = (output: any, context: __SerdeContext): ModelMetadataSummary[] => {
@@ -25488,6 +25503,7 @@ const de_ModelPackage = (output: any, context: __SerdeContext): ModelPackage => 
     MetadataProperties: (_: any) => de_MetadataProperties(_, context),
     ModelApprovalStatus: __expectString,
     ModelCard: (_: any) => de_ModelPackageModelCard(_, context),
+    ModelLifeCycle: (_: any) => de_ModelLifeCycle(_, context),
     ModelMetrics: (_: any) => de_ModelMetrics(_, context),
     ModelPackageArn: __expectString,
     ModelPackageDescription: __expectString,

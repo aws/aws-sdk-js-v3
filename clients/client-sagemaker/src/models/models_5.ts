@@ -1,11 +1,70 @@
 // smithy-typescript generated code
 import { BooleanOperator } from "./models_0";
 
-import { CrossAccountFilterOption } from "./models_2";
+import {
+  CrossAccountFilterOption,
+  MemberDefinition,
+  NotificationConfiguration,
+  WorkerAccessConfiguration,
+} from "./models_2";
 
 import { Filter, ResourceType, Workteam } from "./models_3";
 
 import { NestedFilters, SearchSortOrder, VisibilityConditions } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateWorkteamRequest {
+  /**
+   * <p>The name of the work team to update.</p>
+   * @public
+   */
+  WorkteamName: string | undefined;
+
+  /**
+   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
+   *             the workers that make up the work team. </p>
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *             For private workforces created using Amazon Cognito use
+   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
+   *             provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input
+   *             for both of these parameters in a single request.</p>
+   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
+   *                 <i>user groups</i> within the user pool used to create a workforce. All of the
+   *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
+   *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
+   *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
+   *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
+   *                 Pools</a>.</p>
+   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want
+   *             to include in your private work team in <code>OidcMemberDefinition</code> by listing
+   *             those groups in <code>Groups</code>. Be aware that user groups that are already in the
+   *             work team must also be listed in <code>Groups</code> when you make this request to
+   *             remain on the work team. If you do not include these user groups, they will no longer be
+   *             associated with the work team you update. </p>
+   * @public
+   */
+  MemberDefinitions?: MemberDefinition[];
+
+  /**
+   * <p>An updated description for the work team.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Configures SNS topic notifications for available or expiring work items</p>
+   * @public
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
+   * @public
+   */
+  WorkerAccessConfiguration?: WorkerAccessConfiguration;
+}
 
 /**
  * @public

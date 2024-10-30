@@ -1920,7 +1920,6 @@ export const TrainingInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
-  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
@@ -1946,7 +1945,6 @@ export const TrainingInstanceType = {
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
-  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -9770,8 +9768,8 @@ export interface CodeEditorAppSettings {
   AppLifecycleManagement?: AppLifecycleManagement;
 
   /**
-   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default
-   *       lifecycle configuration.</p>
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can
+   *       override changes made in the default lifecycle configuration.</p>
    * @public
    */
   BuiltInLifecycleConfigArn?: string;

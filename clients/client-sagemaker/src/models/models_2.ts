@@ -143,6 +143,17 @@ import {
 /**
  * @public
  */
+export interface CreatePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface CreatePresignedDomainUrlRequest {
   /**
    * <p>The domain ID.</p>
@@ -1070,9 +1081,9 @@ export interface SpaceCodeEditorAppSettings {
 }
 
 /**
- * <p>A file system, created by you in Amazon EFS, that you assign to a user profile
- *       or space for an Amazon SageMaker Domain. Permitted users can access this file
- *       system in Amazon SageMaker Studio.</p>
+ * <p>A file system, created by you in Amazon EFS, that you assign to a user profile or
+ *       space for an Amazon SageMaker Domain. Permitted users can access this file system in
+ *         Amazon SageMaker Studio.</p>
  * @public
  */
 export interface EFSFileSystem {
@@ -1084,8 +1095,8 @@ export interface EFSFileSystem {
 }
 
 /**
- * <p>A file system, created by you, that you assign to a user profile or space for an
- *       Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
+ * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker
+ *       Studio.</p>
  * @public
  */
 export type CustomFileSystem = CustomFileSystem.EFSFileSystemMember | CustomFileSystem.$UnknownMember;
@@ -1215,8 +1226,7 @@ export interface SpaceSettings {
 
   /**
    * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker
-   *       Domain. Permitted users can access this file system in Amazon SageMaker
-   *       Studio.</p>
+   *       Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
    * @public
    */
   CustomFileSystems?: CustomFileSystem[];
@@ -9156,24 +9166,6 @@ export interface LabelingJobOutput {
    */
   FinalActiveLearningModelArn?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const LabelingJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  INITIALIZING: "Initializing",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type LabelingJobStatus = (typeof LabelingJobStatus)[keyof typeof LabelingJobStatus];
 
 /**
  * @internal

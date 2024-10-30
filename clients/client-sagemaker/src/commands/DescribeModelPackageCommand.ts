@@ -352,6 +352,11 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //     ModelCardContent: "STRING_VALUE",
  * //     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
  * //   },
+ * //   ModelLifeCycle: { // ModelLifeCycle
+ * //     Stage: "STRING_VALUE", // required
+ * //     StageStatus: "STRING_VALUE", // required
+ * //     StageDescription: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
