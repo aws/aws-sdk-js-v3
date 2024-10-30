@@ -33,7 +33,7 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  *          <p>
  *             <code>CreateKeyspace</code> is an asynchronous operation. You can monitor the creation status of the new keyspace
  *           by using the <code>GetKeyspace</code> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create">Creating keyspaces</a> in the <i>Amazon Keyspaces Developer
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html">Create a keyspace</a> in the <i>Amazon Keyspaces Developer
  *              Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

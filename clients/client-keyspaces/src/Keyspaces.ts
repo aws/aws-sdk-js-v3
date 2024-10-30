@@ -8,12 +8,14 @@ import {
   CreateKeyspaceCommandOutput,
 } from "./commands/CreateKeyspaceCommand";
 import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import { CreateTypeCommand, CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import {
   DeleteKeyspaceCommand,
   DeleteKeyspaceCommandInput,
   DeleteKeyspaceCommandOutput,
 } from "./commands/DeleteKeyspaceCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import { DeleteTypeCommand, DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { GetKeyspaceCommand, GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
 import {
   GetTableAutoScalingSettingsCommand,
@@ -21,6 +23,7 @@ import {
   GetTableAutoScalingSettingsCommandOutput,
 } from "./commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import {
   ListKeyspacesCommand,
   ListKeyspacesCommandInput,
@@ -32,6 +35,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RestoreTableCommand,
   RestoreTableCommandInput,
@@ -49,14 +53,18 @@ import { KeyspacesClient, KeyspacesClientConfig } from "./KeyspacesClient";
 const commands = {
   CreateKeyspaceCommand,
   CreateTableCommand,
+  CreateTypeCommand,
   DeleteKeyspaceCommand,
   DeleteTableCommand,
+  DeleteTypeCommand,
   GetKeyspaceCommand,
   GetTableCommand,
   GetTableAutoScalingSettingsCommand,
+  GetTypeCommand,
   ListKeyspacesCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
+  ListTypesCommand,
   RestoreTableCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -90,6 +98,17 @@ export interface Keyspaces {
   ): void;
 
   /**
+   * @see {@link CreateTypeCommand}
+   */
+  createType(args: CreateTypeCommandInput, options?: __HttpHandlerOptions): Promise<CreateTypeCommandOutput>;
+  createType(args: CreateTypeCommandInput, cb: (err: any, data?: CreateTypeCommandOutput) => void): void;
+  createType(
+    args: CreateTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTypeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKeyspaceCommand}
    */
   deleteKeyspace(
@@ -112,6 +131,17 @@ export interface Keyspaces {
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTypeCommand}
+   */
+  deleteType(args: DeleteTypeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTypeCommandOutput>;
+  deleteType(args: DeleteTypeCommandInput, cb: (err: any, data?: DeleteTypeCommandOutput) => void): void;
+  deleteType(
+    args: DeleteTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTypeCommandOutput) => void
   ): void;
 
   /**
@@ -154,6 +184,17 @@ export interface Keyspaces {
   ): void;
 
   /**
+   * @see {@link GetTypeCommand}
+   */
+  getType(args: GetTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetTypeCommandOutput>;
+  getType(args: GetTypeCommandInput, cb: (err: any, data?: GetTypeCommandOutput) => void): void;
+  getType(
+    args: GetTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTypeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListKeyspacesCommand}
    */
   listKeyspaces(): Promise<ListKeyspacesCommandOutput>;
@@ -191,6 +232,17 @@ export interface Keyspaces {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTypesCommand}
+   */
+  listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
+  listTypes(args: ListTypesCommandInput, cb: (err: any, data?: ListTypesCommandOutput) => void): void;
+  listTypes(
+    args: ListTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTypesCommandOutput) => void
   ): void;
 
   /**

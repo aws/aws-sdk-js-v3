@@ -26,20 +26,24 @@ import {
 
 import { CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput } from "../commands/CreateKeyspaceCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
+import { CreateTypeCommandInput, CreateTypeCommandOutput } from "../commands/CreateTypeCommand";
 import { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "../commands/DeleteKeyspaceCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
+import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "../commands/DeleteTypeCommand";
 import { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "../commands/GetKeyspaceCommand";
 import {
   GetTableAutoScalingSettingsCommandInput,
   GetTableAutoScalingSettingsCommandOutput,
 } from "../commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
+import { GetTypeCommandInput, GetTypeCommandOutput } from "../commands/GetTypeCommand";
 import { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "../commands/ListKeyspacesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import { RestoreTableCommandInput, RestoreTableCommandOutput } from "../commands/RestoreTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -59,18 +63,24 @@ import {
   ConflictException,
   CreateKeyspaceRequest,
   CreateTableRequest,
+  CreateTypeRequest,
   DeleteKeyspaceRequest,
   DeleteTableRequest,
+  DeleteTypeRequest,
   EncryptionSpecification,
+  FieldDefinition,
   GetKeyspaceRequest,
   GetTableAutoScalingSettingsRequest,
   GetTableAutoScalingSettingsResponse,
   GetTableRequest,
   GetTableResponse,
+  GetTypeRequest,
+  GetTypeResponse,
   InternalServerException,
   ListKeyspacesRequest,
   ListTablesRequest,
   ListTagsForResourceRequest,
+  ListTypesRequest,
   PartitionKey,
   PointInTimeRecovery,
   PointInTimeRecoverySummary,
@@ -119,6 +129,19 @@ export const se_CreateTableCommand = async (
 };
 
 /**
+ * serializeAws_json1_0CreateTypeCommand
+ */
+export const se_CreateTypeCommand = async (
+  input: CreateTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateType");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteKeyspaceCommand
  */
 export const se_DeleteKeyspaceCommand = async (
@@ -139,6 +162,19 @@ export const se_DeleteTableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTable");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteTypeCommand
+ */
+export const se_DeleteTypeCommand = async (
+  input: DeleteTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteType");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,6 +220,19 @@ export const se_GetTableAutoScalingSettingsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetTypeCommand
+ */
+export const se_GetTypeCommand = async (
+  input: GetTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetType");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListKeyspacesCommand
  */
 export const se_ListKeyspacesCommand = async (
@@ -217,6 +266,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListTypesCommand
+ */
+export const se_ListTypesCommand = async (
+  input: ListTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTypes");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -315,6 +377,26 @@ export const de_CreateTableCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateTypeCommand
+ */
+export const de_CreateTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteKeyspaceCommand
  */
 export const de_DeleteKeyspaceCommand = async (
@@ -348,6 +430,26 @@ export const de_DeleteTableCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteTypeCommand
+ */
+export const de_DeleteTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -415,6 +517,26 @@ export const de_GetTableAutoScalingSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetTypeCommand
+ */
+export const de_GetTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTypeResponse(data, context);
+  const response: GetTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListKeyspacesCommand
  */
 export const de_ListKeyspacesCommand = async (
@@ -468,6 +590,26 @@ export const de_ListTagsForResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTypesCommand
+ */
+export const de_ListTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -750,11 +892,19 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
   });
 };
 
+// se_CreateTypeRequest omitted.
+
 // se_DeleteKeyspaceRequest omitted.
 
 // se_DeleteTableRequest omitted.
 
+// se_DeleteTypeRequest omitted.
+
 // se_EncryptionSpecification omitted.
+
+// se_FieldDefinition omitted.
+
+// se_FieldList omitted.
 
 // se_GetKeyspaceRequest omitted.
 
@@ -762,11 +912,15 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 
 // se_GetTableRequest omitted.
 
+// se_GetTypeRequest omitted.
+
 // se_ListKeyspacesRequest omitted.
 
 // se_ListTablesRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ListTypesRequest omitted.
 
 // se_PartitionKey omitted.
 
@@ -932,11 +1086,19 @@ const de_CapacitySpecificationSummary = (output: any, context: __SerdeContext): 
 
 // de_CreateTableResponse omitted.
 
+// de_CreateTypeResponse omitted.
+
 // de_DeleteKeyspaceResponse omitted.
 
 // de_DeleteTableResponse omitted.
 
+// de_DeleteTypeResponse omitted.
+
 // de_EncryptionSpecification omitted.
+
+// de_FieldDefinition omitted.
+
+// de_FieldList omitted.
 
 // de_GetKeyspaceResponse omitted.
 
@@ -978,6 +1140,23 @@ const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResp
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0GetTypeResponse
+ */
+const de_GetTypeResponse = (output: any, context: __SerdeContext): GetTypeResponse => {
+  return take(output, {
+    directParentTypes: _json,
+    directReferringTables: _json,
+    fieldDefinitions: _json,
+    keyspaceArn: __expectString,
+    keyspaceName: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    maxNestingDepth: __expectInt32,
+    status: __expectString,
+    typeName: __expectString,
+  }) as any;
+};
+
 // de_InternalServerException omitted.
 
 // de_KeyspaceSummary omitted.
@@ -989,6 +1168,8 @@ const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResp
 // de_ListTablesResponse omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_ListTypesResponse omitted.
 
 // de_PartitionKey omitted.
 
@@ -1066,6 +1247,8 @@ const de_ReplicaSpecificationSummaryList = (output: any, context: __SerdeContext
 
 // de_StaticColumnList omitted.
 
+// de_TableNameList omitted.
+
 // de_TableSummary omitted.
 
 // de_TableSummaryList omitted.
@@ -1092,6 +1275,8 @@ const de_TargetTrackingScalingPolicyConfiguration = (
 };
 
 // de_TimeToLive omitted.
+
+// de_TypeNameList omitted.
 
 // de_UntagResourceResponse omitted.
 

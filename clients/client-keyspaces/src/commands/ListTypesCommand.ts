@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
+import { ListTypesRequest, ListTypesResponse } from "../models/models_0";
+import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,50 +17,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link ListTypesCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListTypesCommandInput extends ListTypesRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link ListTypesCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags associated with the specified Amazon Keyspaces resource.</p>
- *          <p>To read keyspace metadata using <code>ListTagsForResource</code>, the
+ * <p>
+ *          The <code>ListTypes</code> operation returns a list of types for a specified keyspace.
+ *       </p>
+ *          <p>To read keyspace metadata using <code>ListTypes</code>, the
  *          IAM principal needs <code>Select</code> action
- *          permissions for the specified resource and the system keyspace.</p>
+ *          permissions for the system keyspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, ListTagsForResourceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, ListTypesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
+ * // const { KeyspacesClient, ListTypesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // ListTypesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   keyspaceName: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
+ * // { // ListTypesResponse
  * //   nextToken: "STRING_VALUE",
- * //   tags: [ // TagList
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //     },
+ * //   types: [ // TypeNameList // required
+ * //     "STRING_VALUE",
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param ListTypesCommandInput - {@link ListTypesCommandInput}
+ * @returns {@link ListTypesCommandOutput}
+ * @see {@link ListTypesCommandInput} for command's `input` shape.
+ * @see {@link ListTypesCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -85,10 +84,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class ListTypesCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    ListTypesCommandInput,
+    ListTypesCommandOutput,
     KeyspacesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,21 +99,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KeyspacesService", "ListTagsForResource", {})
-  .n("KeyspacesClient", "ListTagsForResourceCommand")
+  .s("KeyspacesService", "ListTypes", {})
+  .n("KeyspacesClient", "ListTypesCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_ListTypesCommand)
+  .de(de_ListTypesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: ListTypesRequest;
+      output: ListTypesResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: ListTypesCommandInput;
+      output: ListTypesCommandOutput;
     };
   };
 }

@@ -23,7 +23,7 @@ Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-keyspaces
+To install this package, simply type add or install @aws-sdk/client-keyspaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-keyspaces`
@@ -234,6 +234,14 @@ CreateTable
 </details>
 <details>
 <summary>
+CreateType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/CreateTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/CreateTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/CreateTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteKeyspace
 </summary>
 
@@ -246,6 +254,14 @@ DeleteTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/DeleteTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/DeleteTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/DeleteTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/DeleteTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/DeleteTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/DeleteTypeCommandOutput/)
 
 </details>
 <details>
@@ -274,6 +290,14 @@ GetTableAutoScalingSettings
 </details>
 <details>
 <summary>
+GetType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/GetTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/GetTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/GetTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListKeyspaces
 </summary>
 
@@ -294,6 +318,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/ListTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/ListTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/ListTypesCommandOutput/)
 
 </details>
 <details>

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
+import { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
+import { de_DeleteTypeCommand, se_DeleteTypeCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,54 +17,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteTypeCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteTypeCommandInput extends DeleteTypeRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteTypeCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags associated with the specified Amazon Keyspaces resource.</p>
- *          <p>To read keyspace metadata using <code>ListTagsForResource</code>, the
- *          IAM principal needs <code>Select</code> action
- *          permissions for the specified resource and the system keyspace.</p>
+ * <p>
+ *          The <code>DeleteType</code> operation deletes a user-defined type (UDT). You can only delete a type that is not used in a table
+ *          or another UDT.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, ListTagsForResourceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, DeleteTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
+ * // const { KeyspacesClient, DeleteTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ * const input = { // DeleteTypeRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteTypeCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   nextToken: "STRING_VALUE",
- * //   tags: [ // TagList
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //     },
- * //   ],
+ * // { // DeleteTypeResponse
+ * //   keyspaceArn: "STRING_VALUE", // required
+ * //   typeName: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
+ * @returns {@link DeleteTypeCommandOutput}
+ * @see {@link DeleteTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access permissions to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
+ *          perform an action and the same or a different action is already
+ *          in progress, or if you try to create a resource that already exists. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
@@ -85,10 +84,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class DeleteTypeCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    DeleteTypeCommandInput,
+    DeleteTypeCommandOutput,
     KeyspacesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,21 +99,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KeyspacesService", "ListTagsForResource", {})
-  .n("KeyspacesClient", "ListTagsForResourceCommand")
+  .s("KeyspacesService", "DeleteType", {})
+  .n("KeyspacesClient", "DeleteTypeCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_DeleteTypeCommand)
+  .de(de_DeleteTypeCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: DeleteTypeRequest;
+      output: DeleteTypeResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: DeleteTypeCommandInput;
+      output: DeleteTypeCommandOutput;
     };
   };
 }

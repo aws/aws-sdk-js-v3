@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
+import { GetTypeRequest, GetTypeResponse } from "../models/models_0";
+import { de_GetTypeCommand, se_GetTypeCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,50 +17,63 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link GetTypeCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface GetTypeCommandInput extends GetTypeRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link GetTypeCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags associated with the specified Amazon Keyspaces resource.</p>
- *          <p>To read keyspace metadata using <code>ListTagsForResource</code>, the
+ * <p>
+ *          The <code>GetType</code> operation returns information about the type, for example the field definitions, the timestamp when the type
+ *          was last modified, the level of nesting, the status, and details about if the type is used in other types and tables.
+ *       </p>
+ *          <p>To read keyspace metadata using <code>GetType</code>, the
  *          IAM principal needs <code>Select</code> action
- *          permissions for the specified resource and the system keyspace.</p>
+ *          permissions for the system keyspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, ListTagsForResourceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, GetTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
+ * // const { KeyspacesClient, GetTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ * const input = { // GetTypeRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new GetTypeCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   nextToken: "STRING_VALUE",
- * //   tags: [ // TagList
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
+ * // { // GetTypeResponse
+ * //   keyspaceName: "STRING_VALUE", // required
+ * //   typeName: "STRING_VALUE", // required
+ * //   fieldDefinitions: [ // FieldList
+ * //     { // FieldDefinition
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   status: "STRING_VALUE",
+ * //   directReferringTables: [ // TableNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   directParentTypes: [ // TypeNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   maxNestingDepth: Number("int"),
+ * //   keyspaceArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param GetTypeCommandInput - {@link GetTypeCommandInput}
+ * @returns {@link GetTypeCommandOutput}
+ * @see {@link GetTypeCommandInput} for command's `input` shape.
+ * @see {@link GetTypeCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -85,10 +98,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class GetTypeCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    GetTypeCommandInput,
+    GetTypeCommandOutput,
     KeyspacesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,21 +113,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KeyspacesService", "ListTagsForResource", {})
-  .n("KeyspacesClient", "ListTagsForResourceCommand")
+  .s("KeyspacesService", "GetType", {})
+  .n("KeyspacesClient", "GetTypeCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_GetTypeCommand)
+  .de(de_GetTypeCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: GetTypeRequest;
+      output: GetTypeResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: GetTypeCommandInput;
+      output: GetTypeCommandOutput;
     };
   };
 }

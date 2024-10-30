@@ -55,20 +55,24 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput } from "./commands/CreateKeyspaceCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "./commands/DeleteKeyspaceCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
 import {
   GetTableAutoScalingSettingsCommandInput,
   GetTableAutoScalingSettingsCommandOutput,
 } from "./commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "./commands/ListKeyspacesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import { RestoreTableCommandInput, RestoreTableCommandOutput } from "./commands/RestoreTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -90,14 +94,18 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateKeyspaceCommandInput
   | CreateTableCommandInput
+  | CreateTypeCommandInput
   | DeleteKeyspaceCommandInput
   | DeleteTableCommandInput
+  | DeleteTypeCommandInput
   | GetKeyspaceCommandInput
   | GetTableAutoScalingSettingsCommandInput
   | GetTableCommandInput
+  | GetTypeCommandInput
   | ListKeyspacesCommandInput
   | ListTablesCommandInput
   | ListTagsForResourceCommandInput
+  | ListTypesCommandInput
   | RestoreTableCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -109,14 +117,18 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateKeyspaceCommandOutput
   | CreateTableCommandOutput
+  | CreateTypeCommandOutput
   | DeleteKeyspaceCommandOutput
   | DeleteTableCommandOutput
+  | DeleteTypeCommandOutput
   | GetKeyspaceCommandOutput
   | GetTableAutoScalingSettingsCommandOutput
   | GetTableCommandOutput
+  | GetTypeCommandOutput
   | ListKeyspacesCommandOutput
   | ListTablesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTypesCommandOutput
   | RestoreTableCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

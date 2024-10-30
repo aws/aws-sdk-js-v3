@@ -1088,14 +1088,15 @@ export interface CreateTableResponse {
 }
 
 /**
- * <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ * <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
+ *          or its status might not be <code>ACTIVE</code>.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The unique identifier in the format of Amazon Resource Name (ARN), for the resource not found.</p>
+   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource could't be found.</p>
    * @public
    */
   resourceArn?: string;
@@ -1112,6 +1113,92 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.resourceArn = opts.resourceArn;
   }
+}
+
+/**
+ * <p>
+ *          A field definition consists out of a name and a type.
+ *       </p>
+ * @public
+ */
+export interface FieldDefinition {
+  /**
+   * <p>
+   *          The identifier.
+   *       </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *          Any supported Cassandra data type, including collections and other user-defined types that are
+   *          contained in the same keyspace.
+   *       </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type">Cassandra data type support</a> in the <i>Amazon Keyspaces Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  type: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the user-defined type.
+   *       </p>
+   *          <p>UDT names must contain 48 characters or less, must begin with an alphabetic character, and
+   *          can only contain alpha-numeric characters and underscores. Amazon Keyspaces converts upper case characters automatically
+   *          into lower case characters. </p>
+   *          <p>Alternatively, you can declare a UDT name in double quotes. When declaring a UDT name inside double quotes,
+   *          Amazon Keyspaces preserves upper casing and allows special characters.</p>
+   *          <p>You can also use double quotes as part of the
+   *          name when you create the UDT, but you must escape each double quote character with an additional
+   *          double quote character.</p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>
+   *          The field definitions, consisting of names and types, that define this type.
+   *       </p>
+   * @public
+   */
+  fieldDefinitions: FieldDefinition[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTypeResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace that contains the new type in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The formatted name of the user-defined type that was created. Note that Amazon Keyspaces requires the formatted name of the type for
+   *          other operations, for example <code>GetType</code>.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
 }
 
 /**
@@ -1151,6 +1238,48 @@ export interface DeleteTableRequest {
  * @public
  */
 export interface DeleteTableResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace of the to be deleted type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type to be deleted.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTypeResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace from which the type was deleted in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type that was deleted.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
 
 /**
  * @public
@@ -1465,6 +1594,120 @@ export interface GetTableAutoScalingSettingsResponse {
 /**
  * @public
  */
+export interface GetTypeRequest {
+  /**
+   * <p>
+   *          The name of the keyspace that contains this type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>The formatted name of the type. For example, if the name of the type was created
+   *          without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was
+   *          created in double quotes, you must use double quotes to specify the type name. </p>
+   * @public
+   */
+  typeName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TypeStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RESTORING: "RESTORING",
+} as const;
+
+/**
+ * @public
+ */
+export type TypeStatus = (typeof TypeStatus)[keyof typeof TypeStatus];
+
+/**
+ * @public
+ */
+export interface GetTypeResponse {
+  /**
+   * <p>
+   *          The name of the keyspace that contains this type.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the type.
+   *       </p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>
+   *          The names and types that define this type.
+   *       </p>
+   * @public
+   */
+  fieldDefinitions?: FieldDefinition[];
+
+  /**
+   * <p>
+   *          The timestamp that shows when this type was last modified.
+   *       </p>
+   * @public
+   */
+  lastModifiedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          The status of this type.
+   *       </p>
+   * @public
+   */
+  status?: TypeStatus;
+
+  /**
+   * <p>
+   *          The tables that use this type.
+   *       </p>
+   * @public
+   */
+  directReferringTables?: string[];
+
+  /**
+   * <p>
+   *          The types that use this type.
+   *       </p>
+   * @public
+   */
+  directParentTypes?: string[];
+
+  /**
+   * <p>
+   *          The level of nesting implemented for this type.
+   *       </p>
+   * @public
+   */
+  maxNestingDepth?: number;
+
+  /**
+   * <p>
+   *          The unique identifier of the keyspace that contains this type in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  keyspaceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListKeyspacesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
@@ -1639,6 +1882,58 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ListTypesRequest {
+  /**
+   * <p>
+   *          The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *          The total number of types to return in the output. If the total number of types available is more than the value specified,
+   *          a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an
+   *          argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *          The name of the keyspace that contains the listed types.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesResponse {
+  /**
+   * <p>
+   *          The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.
+   *       </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *          The list of types contained in the specified keyspace.
+   *       </p>
+   * @public
+   */
+  types: string[] | undefined;
 }
 
 /**
