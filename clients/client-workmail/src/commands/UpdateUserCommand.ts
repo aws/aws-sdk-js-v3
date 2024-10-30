@@ -55,6 +55,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *   Department: "STRING_VALUE",
  *   Country: "STRING_VALUE",
  *   Office: "STRING_VALUE",
+ *   IdentityProviderUserId: "STRING_VALUE",
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);

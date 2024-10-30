@@ -44,6 +44,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *     DisplayNamePrefix: "STRING_VALUE",
  *     PrimaryEmailPrefix: "STRING_VALUE",
  *     State: "ENABLED" || "DISABLED" || "DELETED",
+ *     IdentityProviderUserIdPrefix: "STRING_VALUE",
  *   },
  * };
  * const command = new ListUsersCommand(input);
@@ -59,6 +60,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       UserRole: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
  * //       EnabledDate: new Date("TIMESTAMP"),
  * //       DisabledDate: new Date("TIMESTAMP"),
+ * //       IdentityProviderUserId: "STRING_VALUE",
+ * //       IdentityProviderIdentityStoreId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0";
-import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_json1_1";
+import { DeletePersonalAccessTokenRequest, DeletePersonalAccessTokenResponse } from "../models/models_0";
+import { de_DeletePersonalAccessTokenCommand, se_DeletePersonalAccessTokenCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -17,48 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateGroupCommand}.
+ * The input for {@link DeletePersonalAccessTokenCommand}.
  */
-export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
+export interface DeletePersonalAccessTokenCommandInput extends DeletePersonalAccessTokenRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateGroupCommand}.
+ * The output of {@link DeletePersonalAccessTokenCommand}.
  */
-export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __MetadataBearer {}
+export interface DeletePersonalAccessTokenCommandOutput extends DeletePersonalAccessTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Updates attributes in a group.</p>
+ * <p>
+ *          Deletes the Personal Access Token from the provided WorkMail Organization.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeletePersonalAccessTokenCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeletePersonalAccessTokenCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = { // UpdateGroupRequest
+ * const input = { // DeletePersonalAccessTokenRequest
  *   OrganizationId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   HiddenFromGlobalAddressList: true || false,
+ *   PersonalAccessTokenId: "STRING_VALUE", // required
  * };
- * const command = new UpdateGroupCommand(input);
+ * const command = new DeletePersonalAccessTokenCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
- * @returns {@link UpdateGroupCommandOutput}
- * @see {@link UpdateGroupCommandInput} for command's `input` shape.
- * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
+ * @param DeletePersonalAccessTokenCommandInput - {@link DeletePersonalAccessTokenCommandInput}
+ * @returns {@link DeletePersonalAccessTokenCommandOutput}
+ * @see {@link DeletePersonalAccessTokenCommandInput} for command's `input` shape.
+ * @see {@link DeletePersonalAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
- *
- * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
- *
- * @throws {@link EntityStateException} (client fault)
- *  <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the input parameters don't match the service's restrictions.</p>
@@ -71,18 +64,15 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
- * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>You can't perform a write operation against a read-only directory.</p>
- *
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  * @public
  */
-export class UpdateGroupCommand extends $Command
+export class DeletePersonalAccessTokenCommand extends $Command
   .classBuilder<
-    UpdateGroupCommandInput,
-    UpdateGroupCommandOutput,
+    DeletePersonalAccessTokenCommandInput,
+    DeletePersonalAccessTokenCommandOutput,
     WorkMailClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,21 +84,21 @@ export class UpdateGroupCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WorkMailService", "UpdateGroup", {})
-  .n("WorkMailClient", "UpdateGroupCommand")
+  .s("WorkMailService", "DeletePersonalAccessToken", {})
+  .n("WorkMailClient", "DeletePersonalAccessTokenCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateGroupCommand)
-  .de(de_UpdateGroupCommand)
+  .ser(se_DeletePersonalAccessTokenCommand)
+  .de(de_DeletePersonalAccessTokenCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateGroupRequest;
+      input: DeletePersonalAccessTokenRequest;
       output: {};
     };
     sdk: {
-      input: UpdateGroupCommandInput;
-      output: UpdateGroupCommandOutput;
+      input: DeletePersonalAccessTokenCommandInput;
+      output: DeletePersonalAccessTokenCommandOutput;
     };
   };
 }

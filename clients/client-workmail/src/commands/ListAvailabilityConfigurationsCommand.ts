@@ -74,6 +74,9 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * @see {@link ListAvailabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link OrganizationNotFoundException} (client fault)
  *  <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>

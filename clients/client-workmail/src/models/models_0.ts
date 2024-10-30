@@ -864,6 +864,52 @@ export class ReservedNameException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface CreateIdentityCenterApplicationRequest {
+  /**
+   * <p>
+   *          The name of the IAM Identity Center application.
+   *
+   *
+   *       </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the instance.
+   *       </p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The idempotency token associated with the request.
+   *
+   *
+   *       </p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateIdentityCenterApplicationResponse {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the application.
+   *       </p>
+   * @public
+   */
+  ApplicationArn?: string;
+}
+
+/**
  * <p>The rules for the given impersonation role.</p>
  * @public
  */
@@ -1307,6 +1353,12 @@ export interface CreateUserRequest {
    * @public
    */
   HiddenFromGlobalAddressList?: boolean;
+
+  /**
+   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * @public
+   */
+  IdentityProviderUserId?: string;
 }
 
 /**
@@ -1500,6 +1552,41 @@ export interface DeleteGroupResponse {}
 /**
  * @public
  */
+export interface DeleteIdentityCenterApplicationRequest {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the application.
+   *       </p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityCenterApplicationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityProviderConfigurationRequest {
+  /**
+   * <p>
+   * The Organization ID. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityProviderConfigurationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteImpersonationRoleRequest {
   /**
    * <p>The WorkMail organization from which to delete the impersonation role.</p>
@@ -1663,6 +1750,12 @@ export interface DeleteOrganizationRequest {
    * @public
    */
   ForceDelete?: boolean;
+
+  /**
+   * <p>Deletes IAM Identity Center application for WorkMail. This action does not affect authentication settings for any organization.</p>
+   * @public
+   */
+  DeleteIdentityCenterApplication?: boolean;
 }
 
 /**
@@ -1681,6 +1774,30 @@ export interface DeleteOrganizationResponse {
    */
   State?: string;
 }
+
+/**
+ * @public
+ */
+export interface DeletePersonalAccessTokenRequest {
+  /**
+   * <p>
+   *          The Organization ID. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>
+   *         The Personal Access Token ID.</p>
+   * @public
+   */
+  PersonalAccessTokenId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePersonalAccessTokenResponse {}
 
 /**
  * @public
@@ -2043,6 +2160,134 @@ export interface DescribeGroupResponse {
    * @public
    */
   HiddenFromGlobalAddressList?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIdentityProviderConfigurationRequest {
+  /**
+   * <p>
+   *          The Organization ID. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdentityProviderAuthenticationMode = {
+  IDENTITY_PROVIDER_AND_DIRECTORY: "IDENTITY_PROVIDER_AND_DIRECTORY",
+  IDENTITY_PROVIDER_ONLY: "IDENTITY_PROVIDER_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityProviderAuthenticationMode =
+  (typeof IdentityProviderAuthenticationMode)[keyof typeof IdentityProviderAuthenticationMode];
+
+/**
+ * <p>
+ *          The IAM Identity Center configuration.
+ *       </p>
+ * @public
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the  of IAM Identity Center instance. Must be in the same AWS account and region as WorkMail organization.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of IAMIdentity Center Application for WorkMail. Must be created by the WorkMail API, see CreateIdentityCenterApplication.</p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PersonalAccessTokenConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type PersonalAccessTokenConfigurationStatus =
+  (typeof PersonalAccessTokenConfigurationStatus)[keyof typeof PersonalAccessTokenConfigurationStatus];
+
+/**
+ * <p>
+ *          Displays the Personal Access Token status.
+ *       </p>
+ * @public
+ */
+export interface PersonalAccessTokenConfiguration {
+  /**
+   * <p>
+   *          The status of the Personal Access Token allowed for the organization.
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>Active</i> - Mailbox users can login to the web application and choose <i>Settings</i> to see the new <i>Personal Access Tokens</i> page to
+   *             create and delete the Personal Access Tokens. Mailbox users can use the Personal Access Tokens to set up mailbox connection from desktop or mobile email clients.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Inactive</i> - Personal Access Tokens are disabled for your organization. Mailbox users can’t create, list, or delete Personal Access Tokens and can’t use them to connect to
+   *             their mailboxes from desktop or mobile email clients.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: PersonalAccessTokenConfigurationStatus | undefined;
+
+  /**
+   * <p>
+   *         The validity of the Personal Access Token status in days.
+   *       </p>
+   * @public
+   */
+  LifetimeInDays?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIdentityProviderConfigurationResponse {
+  /**
+   * <p>
+   * The authentication mode used in WorkMail.</p>
+   * @public
+   */
+  AuthenticationMode?: IdentityProviderAuthenticationMode;
+
+  /**
+   * <p>
+   *          The details of the IAM Identity Center configuration.
+   *       </p>
+   * @public
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
+
+  /**
+   * <p>
+   *          The details of the Personal Access Token configuration.
+   *       </p>
+   * @public
+   */
+  PersonalAccessTokenConfiguration?: PersonalAccessTokenConfiguration;
 }
 
 /**
@@ -2540,6 +2785,20 @@ export interface DescribeUserResponse {
    * @public
    */
   Office?: string;
+
+  /**
+   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * @public
+   */
+  IdentityProviderUserId?: string;
+
+  /**
+   * <p>
+   *          Identity Store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *       </p>
+   * @public
+   */
+  IdentityProviderIdentityStoreId?: string;
 }
 
 /**
@@ -3255,6 +3514,85 @@ export interface GetMobileDeviceAccessOverrideResponse {
    * @public
    */
   DateModified?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetPersonalAccessTokenMetadataRequest {
+  /**
+   * <p>
+   *          The Organization ID. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>
+   *          The Personal Access Token ID.</p>
+   * @public
+   */
+  PersonalAccessTokenId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPersonalAccessTokenMetadataResponse {
+  /**
+   * <p>
+   *          The Personal Access Token ID.</p>
+   * @public
+   */
+  PersonalAccessTokenId?: string;
+
+  /**
+   * <p>
+   *          The WorkMail User ID.
+   *       </p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>
+   *          The Personal Access Token name.
+   *       </p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The date when the Personal Access Token ID was created.
+   *       </p>
+   * @public
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>
+   *          The date when the Personal Access Token ID was last used.
+   *       </p>
+   * @public
+   */
+  DateLastUsed?: Date;
+
+  /**
+   * <p>
+   *          The time when the Personal Access Token ID will expire.
+   *       </p>
+   * @public
+   */
+  ExpiresTime?: Date;
+
+  /**
+   * <p>
+   *          Lists all the Personal Access Token permissions for a mailbox.
+   *       </p>
+   * @public
+   */
+  Scopes?: string[];
 }
 
 /**
@@ -4346,6 +4684,125 @@ export interface ListOrganizationsResponse {
 /**
  * @public
  */
+export interface ListPersonalAccessTokensRequest {
+  /**
+   * <p>
+   *          The Organization ID. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>
+   *          The WorkMail User ID.
+   *       </p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>
+   *          The token from the previous response to query the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *         The maximum amount of items that should be returned in a response.
+   *       </p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>
+ *          The summary of the Personal Access Token.
+ *       </p>
+ * @public
+ */
+export interface PersonalAccessTokenSummary {
+  /**
+   * <p>
+   *          The ID of the Personal Access Token.
+   *          </p>
+   * @public
+   */
+  PersonalAccessTokenId?: string;
+
+  /**
+   * <p>
+   *          The user ID of the WorkMail user associated with the Personal Access Token.
+   *       </p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>
+   *          The name of the Personal Access Token.
+   *       </p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The date when the Personal Access Token was created.
+   *       </p>
+   * @public
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>
+   *          The date when the Personal Access Token was last used.
+   *       </p>
+   * @public
+   */
+  DateLastUsed?: Date;
+
+  /**
+   * <p>
+   *          The date when the Personal Access Token will expire.
+   *       </p>
+   * @public
+   */
+  ExpiresTime?: Date;
+
+  /**
+   * <p>
+   *          Lists all the Personal Access Token permissions for a mailbox.
+   *       </p>
+   * @public
+   */
+  Scopes?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListPersonalAccessTokensResponse {
+  /**
+   * <p>
+   *          The token from the previous response to query the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *          Lists all the personal tokens in an organization or user, if user ID is provided.
+   *       </p>
+   * @public
+   */
+  PersonalAccessTokenSummaries?: PersonalAccessTokenSummary[];
+}
+
+/**
+ * @public
+ */
 export interface ListResourceDelegatesRequest {
   /**
    * <p>The identifier for the organization that contains the resource for which delegates
@@ -4600,6 +5057,12 @@ export interface ListUsersFilters {
    * @public
    */
   State?: EntityState;
+
+  /**
+   * <p>Filters only users with the ID from the IAM Identity Center.</p>
+   * @public
+   */
+  IdentityProviderUserIdPrefix?: string;
 }
 
 /**
@@ -4684,6 +5147,18 @@ export interface User {
    * @public
    */
   DisabledDate?: Date;
+
+  /**
+   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * @public
+   */
+  IdentityProviderUserId?: string;
+
+  /**
+   * <p>Identity store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * @public
+   */
+  IdentityProviderIdentityStoreId?: string;
 }
 
 /**
@@ -4817,6 +5292,45 @@ export interface PutEmailMonitoringConfigurationRequest {
  * @public
  */
 export interface PutEmailMonitoringConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface PutIdentityProviderConfigurationRequest {
+  /**
+   * <p>
+   *          The ID of the WorkMail Organization. </p>
+   * @public
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>
+   *          The authentication mode used in WorkMail.</p>
+   * @public
+   */
+  AuthenticationMode: IdentityProviderAuthenticationMode | undefined;
+
+  /**
+   * <p>
+   *          The details of the IAM Identity Center configuration.</p>
+   * @public
+   */
+  IdentityCenterConfiguration: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The details of the Personal Access Token configuration.
+   *       </p>
+   * @public
+   */
+  PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIdentityProviderConfigurationResponse {}
 
 /**
  * @public
@@ -5763,7 +6277,7 @@ export interface UpdateUserRequest {
   Company?: string;
 
   /**
-   * <p>Updates the user's zipcode.</p>
+   * <p>Updates the user's zip code.</p>
    * @public
    */
   ZipCode?: string;
@@ -5785,6 +6299,12 @@ export interface UpdateUserRequest {
    * @public
    */
   Office?: string;
+
+  /**
+   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * @public
+   */
+  IdentityProviderUserId?: string;
 }
 
 /**
@@ -5813,12 +6333,28 @@ export const CreateAvailabilityConfigurationRequestFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateResourceRequestFilterSensitiveLog = (obj: CreateResourceRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
   ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
   ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceResponseFilterSensitiveLog = (obj: DescribeResourceResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**
@@ -5839,6 +6375,22 @@ export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse
   ...(obj.Department && { Department: SENSITIVE_STRING }),
   ...(obj.Country && { Country: SENSITIVE_STRING }),
   ...(obj.Office && { Office: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
+  ...obj,
+  ...(obj.Resources && { Resources: obj.Resources.map((item) => ResourceFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -5891,6 +6443,14 @@ export const UpdateAvailabilityConfigurationRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProviderFilterSensitiveLog(obj.EwsProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceRequestFilterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**

@@ -45,7 +45,7 @@ model.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workmail
+To install this package, simply type add or install @aws-sdk/client-workmail
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workmail`
@@ -296,6 +296,14 @@ CreateGroup
 </details>
 <details>
 <summary>
+CreateIdentityCenterApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/CreateIdentityCenterApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/CreateIdentityCenterApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/CreateIdentityCenterApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateImpersonationRole
 </summary>
 
@@ -376,6 +384,22 @@ DeleteGroup
 </details>
 <details>
 <summary>
+DeleteIdentityCenterApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DeleteIdentityCenterApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteIdentityCenterApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteIdentityCenterApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIdentityProviderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DeleteIdentityProviderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteIdentityProviderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteIdentityProviderConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteImpersonationRole
 </summary>
 
@@ -412,6 +436,14 @@ DeleteOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DeleteOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeleteOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePersonalAccessToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DeletePersonalAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeletePersonalAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DeletePersonalAccessTokenCommandOutput/)
 
 </details>
 <details>
@@ -476,6 +508,14 @@ DescribeGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DescribeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DescribeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DescribeGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeIdentityProviderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/DescribeIdentityProviderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DescribeIdentityProviderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/DescribeIdentityProviderConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -600,6 +640,14 @@ GetMobileDeviceAccessOverride
 </details>
 <details>
 <summary>
+GetPersonalAccessTokenMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/GetPersonalAccessTokenMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/GetPersonalAccessTokenMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/GetPersonalAccessTokenMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAccessControlRules
 </summary>
 
@@ -704,6 +752,14 @@ ListOrganizations
 </details>
 <details>
 <summary>
+ListPersonalAccessTokens
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/ListPersonalAccessTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/ListPersonalAccessTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/ListPersonalAccessTokensCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListResourceDelegates
 </summary>
 
@@ -748,6 +804,14 @@ PutEmailMonitoringConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/PutEmailMonitoringConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/PutEmailMonitoringConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/PutEmailMonitoringConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutIdentityProviderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmail/command/PutIdentityProviderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/PutIdentityProviderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmail/Interface/PutIdentityProviderConfigurationCommandOutput/)
 
 </details>
 <details>

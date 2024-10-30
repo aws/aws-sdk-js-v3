@@ -76,6 +76,10 @@ import {
 } from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  CreateIdentityCenterApplicationCommandInput,
+  CreateIdentityCenterApplicationCommandOutput,
+} from "./commands/CreateIdentityCenterApplicationCommand";
+import {
   CreateImpersonationRoleCommandInput,
   CreateImpersonationRoleCommandOutput,
 } from "./commands/CreateImpersonationRoleCommand";
@@ -101,6 +105,14 @@ import {
 } from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  DeleteIdentityCenterApplicationCommandInput,
+  DeleteIdentityCenterApplicationCommandOutput,
+} from "./commands/DeleteIdentityCenterApplicationCommand";
+import {
+  DeleteIdentityProviderConfigurationCommandInput,
+  DeleteIdentityProviderConfigurationCommandOutput,
+} from "./commands/DeleteIdentityProviderConfigurationCommand";
+import {
   DeleteImpersonationRoleCommandInput,
   DeleteImpersonationRoleCommandOutput,
 } from "./commands/DeleteImpersonationRoleCommand";
@@ -117,6 +129,10 @@ import {
   DeleteMobileDeviceAccessRuleCommandOutput,
 } from "./commands/DeleteMobileDeviceAccessRuleCommand";
 import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
+import {
+  DeletePersonalAccessTokenCommandInput,
+  DeletePersonalAccessTokenCommandOutput,
+} from "./commands/DeletePersonalAccessTokenCommand";
 import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
 import {
   DeleteRetentionPolicyCommandInput,
@@ -137,6 +153,10 @@ import {
 } from "./commands/DescribeEmailMonitoringConfigurationCommand";
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
+import {
+  DescribeIdentityProviderConfigurationCommandInput,
+  DescribeIdentityProviderConfigurationCommandOutput,
+} from "./commands/DescribeIdentityProviderConfigurationCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
   DescribeInboundDmarcSettingsCommandOutput,
@@ -186,6 +206,10 @@ import {
   GetMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/GetMobileDeviceAccessOverrideCommand";
 import {
+  GetPersonalAccessTokenMetadataCommandInput,
+  GetPersonalAccessTokenMetadataCommandOutput,
+} from "./commands/GetPersonalAccessTokenMetadataCommand";
+import {
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
 } from "./commands/ListAccessControlRulesCommand";
@@ -223,6 +247,10 @@ import {
 } from "./commands/ListMobileDeviceAccessRulesCommand";
 import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "./commands/ListOrganizationsCommand";
 import {
+  ListPersonalAccessTokensCommandInput,
+  ListPersonalAccessTokensCommandOutput,
+} from "./commands/ListPersonalAccessTokensCommand";
+import {
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand";
@@ -240,6 +268,10 @@ import {
   PutEmailMonitoringConfigurationCommandInput,
   PutEmailMonitoringConfigurationCommandOutput,
 } from "./commands/PutEmailMonitoringConfigurationCommand";
+import {
+  PutIdentityProviderConfigurationCommandInput,
+  PutIdentityProviderConfigurationCommandOutput,
+} from "./commands/PutIdentityProviderConfigurationCommand";
 import {
   PutInboundDmarcSettingsCommandInput,
   PutInboundDmarcSettingsCommandOutput,
@@ -312,6 +344,7 @@ export type ServiceInputTypes =
   | CreateAliasCommandInput
   | CreateAvailabilityConfigurationCommandInput
   | CreateGroupCommandInput
+  | CreateIdentityCenterApplicationCommandInput
   | CreateImpersonationRoleCommandInput
   | CreateMobileDeviceAccessRuleCommandInput
   | CreateOrganizationCommandInput
@@ -322,11 +355,14 @@ export type ServiceInputTypes =
   | DeleteAvailabilityConfigurationCommandInput
   | DeleteEmailMonitoringConfigurationCommandInput
   | DeleteGroupCommandInput
+  | DeleteIdentityCenterApplicationCommandInput
+  | DeleteIdentityProviderConfigurationCommandInput
   | DeleteImpersonationRoleCommandInput
   | DeleteMailboxPermissionsCommandInput
   | DeleteMobileDeviceAccessOverrideCommandInput
   | DeleteMobileDeviceAccessRuleCommandInput
   | DeleteOrganizationCommandInput
+  | DeletePersonalAccessTokenCommandInput
   | DeleteResourceCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteUserCommandInput
@@ -335,6 +371,7 @@ export type ServiceInputTypes =
   | DescribeEmailMonitoringConfigurationCommandInput
   | DescribeEntityCommandInput
   | DescribeGroupCommandInput
+  | DescribeIdentityProviderConfigurationCommandInput
   | DescribeInboundDmarcSettingsCommandInput
   | DescribeMailboxExportJobCommandInput
   | DescribeOrganizationCommandInput
@@ -350,6 +387,7 @@ export type ServiceInputTypes =
   | GetMailboxDetailsCommandInput
   | GetMobileDeviceAccessEffectCommandInput
   | GetMobileDeviceAccessOverrideCommandInput
+  | GetPersonalAccessTokenMetadataCommandInput
   | ListAccessControlRulesCommandInput
   | ListAliasesCommandInput
   | ListAvailabilityConfigurationsCommandInput
@@ -363,12 +401,14 @@ export type ServiceInputTypes =
   | ListMobileDeviceAccessOverridesCommandInput
   | ListMobileDeviceAccessRulesCommandInput
   | ListOrganizationsCommandInput
+  | ListPersonalAccessTokensCommandInput
   | ListResourceDelegatesCommandInput
   | ListResourcesCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | PutAccessControlRuleCommandInput
   | PutEmailMonitoringConfigurationCommandInput
+  | PutIdentityProviderConfigurationCommandInput
   | PutInboundDmarcSettingsCommandInput
   | PutMailboxPermissionsCommandInput
   | PutMobileDeviceAccessOverrideCommandInput
@@ -401,6 +441,7 @@ export type ServiceOutputTypes =
   | CreateAliasCommandOutput
   | CreateAvailabilityConfigurationCommandOutput
   | CreateGroupCommandOutput
+  | CreateIdentityCenterApplicationCommandOutput
   | CreateImpersonationRoleCommandOutput
   | CreateMobileDeviceAccessRuleCommandOutput
   | CreateOrganizationCommandOutput
@@ -411,11 +452,14 @@ export type ServiceOutputTypes =
   | DeleteAvailabilityConfigurationCommandOutput
   | DeleteEmailMonitoringConfigurationCommandOutput
   | DeleteGroupCommandOutput
+  | DeleteIdentityCenterApplicationCommandOutput
+  | DeleteIdentityProviderConfigurationCommandOutput
   | DeleteImpersonationRoleCommandOutput
   | DeleteMailboxPermissionsCommandOutput
   | DeleteMobileDeviceAccessOverrideCommandOutput
   | DeleteMobileDeviceAccessRuleCommandOutput
   | DeleteOrganizationCommandOutput
+  | DeletePersonalAccessTokenCommandOutput
   | DeleteResourceCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteUserCommandOutput
@@ -424,6 +468,7 @@ export type ServiceOutputTypes =
   | DescribeEmailMonitoringConfigurationCommandOutput
   | DescribeEntityCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeIdentityProviderConfigurationCommandOutput
   | DescribeInboundDmarcSettingsCommandOutput
   | DescribeMailboxExportJobCommandOutput
   | DescribeOrganizationCommandOutput
@@ -439,6 +484,7 @@ export type ServiceOutputTypes =
   | GetMailboxDetailsCommandOutput
   | GetMobileDeviceAccessEffectCommandOutput
   | GetMobileDeviceAccessOverrideCommandOutput
+  | GetPersonalAccessTokenMetadataCommandOutput
   | ListAccessControlRulesCommandOutput
   | ListAliasesCommandOutput
   | ListAvailabilityConfigurationsCommandOutput
@@ -452,12 +498,14 @@ export type ServiceOutputTypes =
   | ListMobileDeviceAccessOverridesCommandOutput
   | ListMobileDeviceAccessRulesCommandOutput
   | ListOrganizationsCommandOutput
+  | ListPersonalAccessTokensCommandOutput
   | ListResourceDelegatesCommandOutput
   | ListResourcesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | PutAccessControlRuleCommandOutput
   | PutEmailMonitoringConfigurationCommandOutput
+  | PutIdentityProviderConfigurationCommandOutput
   | PutInboundDmarcSettingsCommandOutput
   | PutMailboxPermissionsCommandOutput
   | PutMobileDeviceAccessOverrideCommandOutput

@@ -11,6 +11,7 @@ export * from "./ListMailboxExportJobsPaginator";
 export * from "./ListMailboxPermissionsPaginator";
 export * from "./ListMobileDeviceAccessOverridesPaginator";
 export * from "./ListOrganizationsPaginator";
+export * from "./ListPersonalAccessTokensPaginator";
 export * from "./ListResourceDelegatesPaginator";
 export * from "./ListResourcesPaginator";
 export * from "./ListUsersPaginator";

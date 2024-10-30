@@ -65,6 +65,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //   Department: "STRING_VALUE",
  * //   Country: "STRING_VALUE",
  * //   Office: "STRING_VALUE",
+ * //   IdentityProviderUserId: "STRING_VALUE",
+ * //   IdentityProviderIdentityStoreId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -74,6 +76,12 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link DirectoryServiceAuthenticationFailedException} (client fault)
+ *  <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>The identifier supplied for the user, group, or resource does not exist in your

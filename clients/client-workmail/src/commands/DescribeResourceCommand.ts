@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeResourceRequest, DescribeResourceResponse } from "../models/models_0";
+import {
+  DescribeResourceRequest,
+  DescribeResourceResponse,
+  DescribeResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeResourceCommand, se_DescribeResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -106,7 +110,7 @@ export class DescribeResourceCommand extends $Command
   })
   .s("WorkMailService", "DescribeResource", {})
   .n("WorkMailClient", "DescribeResourceCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeResourceResponseFilterSensitiveLog)
   .ser(se_DescribeResourceCommand)
   .de(de_DescribeResourceCommand)
   .build() {

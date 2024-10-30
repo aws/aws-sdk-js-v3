@@ -44,6 +44,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   FirstName: "STRING_VALUE",
  *   LastName: "STRING_VALUE",
  *   HiddenFromGlobalAddressList: true || false,
+ *   IdentityProviderUserId: "STRING_VALUE",
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
