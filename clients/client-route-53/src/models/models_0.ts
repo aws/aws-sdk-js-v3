@@ -812,6 +812,7 @@ export const VPCRegion = {
   ca_central_1: "ca-central-1",
   ca_west_1: "ca-west-1",
   cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
   eu_central_1: "eu-central-1",
   eu_central_2: "eu-central-2",
   eu_north_1: "eu-north-1",
@@ -1510,6 +1511,7 @@ export const RRType = {
   CAA: "CAA",
   CNAME: "CNAME",
   DS: "DS",
+  HTTPS: "HTTPS",
   MX: "MX",
   NAPTR: "NAPTR",
   NS: "NS",
@@ -1517,6 +1519,9 @@ export const RRType = {
   SOA: "SOA",
   SPF: "SPF",
   SRV: "SRV",
+  SSHFP: "SSHFP",
+  SVCB: "SVCB",
+  TLSA: "TLSA",
   TXT: "TXT",
 } as const;
 
@@ -1578,17 +1583,19 @@ export interface ResourceRecordSet {
    *          <p>Valid values for basic resource record sets: <code>A</code> | <code>AAAA</code> |
    * 				<code>CAA</code> | <code>CNAME</code> | <code>DS</code> |<code>MX</code> |
    * 				<code>NAPTR</code> | <code>NS</code> | <code>PTR</code> | <code>SOA</code> |
-   * 				<code>SPF</code> | <code>SRV</code> | <code>TXT</code>
+   * 			<code>SPF</code> | <code>SRV</code> | <code>TXT</code>| <code>TLSA</code>| <code>SSHFP</code>| <code>SVCB</code>| <code>HTTPS</code>
    *          </p>
-   *          <p>Values for weighted, latency, geolocation, and failover resource record sets:
-   * 				<code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
-   * 				<code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
-   * 				<code>SRV</code> | <code>TXT</code>. When creating a group of weighted, latency,
-   * 			geolocation, or failover resource record sets, specify the same value for all of the
-   * 			resource record sets in the group.</p>
+   *          <p>Values for weighted, latency, geolocation, and failover resource record sets: <code>A</code>
+   * 			| <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> | <code>MX</code> |
+   * 				<code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> | <code>SRV</code> |
+   * 				<code>TXT</code>| <code>TLSA</code>| <code>SSHFP</code>| <code>SVCB</code>|
+   * 				<code>HTTPS</code>. When creating a group of weighted, latency, geolocation,
+   * 			or
+   * 			failover resource record sets, specify the same value for all of the resource record
+   * 			sets in the group.</p>
    *          <p>Valid values for multivalue answer resource record sets: <code>A</code> |
    * 				<code>AAAA</code> | <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> |
-   * 				<code>SPF</code> | <code>SRV</code> | <code>TXT</code>
+   * 			<code>SPF</code> | <code>SRV</code> | <code>TXT</code>| <code>CAA</code>| <code>TLSA</code>| <code>SSHFP</code>| <code>SVCB</code>| <code>HTTPS</code>
    *          </p>
    *          <note>
    *             <p>SPF records were formerly used to verify the identity of the sender of email
@@ -2678,8 +2685,8 @@ export interface HealthCheckConfig {
    * 					connection. If successful, Route 53 submits an HTTPS request and waits for an
    * 					HTTP status code of 200 or greater and less than 400.</p>
    *                <important>
-   *                   <p>If you specify <code>HTTPS</code> for the value of <code>Type</code>, the
-   * 						endpoint must support TLS v1.0 or later.</p>
+   *                   <p>If you specify <code>HTTPS</code> for the value of <code>Type</code>, the endpoint must
+   * 						support TLS v1.0, v1.1, or v1.2.</p>
    *                </important>
    *             </li>
    *             <li>

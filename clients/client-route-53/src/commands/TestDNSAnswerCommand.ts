@@ -48,7 +48,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * const input = { // TestDNSAnswerRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   RecordName: "STRING_VALUE", // required
- *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  *   ResolverIP: "STRING_VALUE",
  *   EDNS0ClientSubnetIP: "STRING_VALUE",
  *   EDNS0ClientSubnetMask: "STRING_VALUE",
@@ -58,7 +58,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * // { // TestDNSAnswerResponse
  * //   Nameserver: "STRING_VALUE", // required
  * //   RecordName: "STRING_VALUE", // required
- * //   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //   RecordData: [ // RecordData // required
  * //     "STRING_VALUE",
  * //   ],

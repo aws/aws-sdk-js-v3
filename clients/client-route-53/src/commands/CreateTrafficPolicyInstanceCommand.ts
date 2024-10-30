@@ -70,7 +70,7 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * //     Message: "STRING_VALUE", // required
  * //     TrafficPolicyId: "STRING_VALUE", // required
  * //     TrafficPolicyVersion: Number("int"), // required
- * //     TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //   },
  * //   Location: "STRING_VALUE", // required
  * // };

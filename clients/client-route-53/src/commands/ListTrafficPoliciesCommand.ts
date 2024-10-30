@@ -50,7 +50,7 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * //     { // TrafficPolicySummary
  * //       Id: "STRING_VALUE", // required
  * //       Name: "STRING_VALUE", // required
- * //       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //       LatestVersion: Number("int"), // required
  * //       TrafficPolicyCount: Number("int"), // required
  * //     },

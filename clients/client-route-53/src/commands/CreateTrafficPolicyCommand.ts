@@ -49,7 +49,7 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * //     Id: "STRING_VALUE", // required
  * //     Version: Number("int"), // required
  * //     Name: "STRING_VALUE", // required
- * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //     Document: "STRING_VALUE", // required
  * //     Comment: "STRING_VALUE",
  * //   },

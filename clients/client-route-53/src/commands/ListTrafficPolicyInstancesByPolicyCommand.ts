@@ -59,7 +59,7 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
  *   TrafficPolicyVersion: Number("int"), // required
  *   HostedZoneIdMarker: "STRING_VALUE",
  *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
- *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  *   MaxItems: Number("int"),
  * };
  * const command = new ListTrafficPolicyInstancesByPolicyCommand(input);
@@ -75,12 +75,12 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
  * //       Message: "STRING_VALUE", // required
  * //       TrafficPolicyId: "STRING_VALUE", // required
  * //       TrafficPolicyVersion: Number("int"), // required
- * //       TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //       TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //     },
  * //   ],
  * //   HostedZoneIdMarker: "STRING_VALUE",
  * //   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
- * //   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ * //   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  * //   IsTruncated: true || false, // required
  * //   MaxItems: Number("int"), // required
  * // };

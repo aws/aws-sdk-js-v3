@@ -26,7 +26,7 @@ service.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route-53
+To install this package, simply type add or install @aws-sdk/client-route-53
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route-53`
