@@ -173,6 +173,14 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //         AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //         AnonymousAuthEnabled: true || false,
  * //       },
+ * //       IdentityCenterOptions: { // IdentityCenterOptions
+ * //         EnabledAPIAccess: true || false,
+ * //         IdentityCenterInstanceARN: "STRING_VALUE",
+ * //         SubjectKey: "UserName" || "UserId" || "Email",
+ * //         RolesKey: "GroupName" || "GroupId",
+ * //         IdentityCenterApplicationARN: "STRING_VALUE",
+ * //         IdentityStoreId: "STRING_VALUE",
+ * //       },
  * //       AutoTuneOptions: { // AutoTuneOptionsOutput
  * //         State: "ENABLED" || "DISABLED" || "ENABLE_IN_PROGRESS" || "DISABLE_IN_PROGRESS" || "DISABLED_AND_ROLLBACK_SCHEDULED" || "DISABLED_AND_ROLLBACK_IN_PROGRESS" || "DISABLED_AND_ROLLBACK_COMPLETE" || "DISABLED_AND_ROLLBACK_ERROR" || "ERROR",
  * //         ErrorMessage: "STRING_VALUE",

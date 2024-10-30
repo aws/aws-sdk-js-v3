@@ -34,6 +34,11 @@ import {
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
 import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import {
   CreateDomainCommand,
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
@@ -53,6 +58,11 @@ import {
   CreateVpcEndpointCommandInput,
   CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
+import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
@@ -164,6 +174,11 @@ import {
   DissociatePackageCommandOutput,
 } from "./commands/DissociatePackageCommand";
 import {
+  GetApplicationCommand,
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput,
+} from "./commands/GetApplicationCommand";
+import {
   GetCompatibleVersionsCommand,
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
@@ -193,6 +208,11 @@ import {
   GetUpgradeStatusCommandInput,
   GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
+import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -276,6 +296,11 @@ import {
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -315,10 +340,12 @@ const commands = {
   AuthorizeVpcEndpointAccessCommand,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
+  CreateApplicationCommand,
   CreateDomainCommand,
   CreateOutboundConnectionCommand,
   CreatePackageCommand,
   CreateVpcEndpointCommand,
+  DeleteApplicationCommand,
   DeleteDataSourceCommand,
   DeleteDomainCommand,
   DeleteInboundConnectionCommand,
@@ -341,12 +368,14 @@ const commands = {
   DescribeReservedInstancesCommand,
   DescribeVpcEndpointsCommand,
   DissociatePackageCommand,
+  GetApplicationCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
+  ListApplicationsCommand,
   ListDataSourcesCommand,
   ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
@@ -365,6 +394,7 @@ const commands = {
   RevokeVpcEndpointAccessCommand,
   StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
+  UpdateApplicationCommand,
   UpdateDataSourceCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
@@ -482,6 +512,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDomainCommand}
    */
   createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
@@ -535,6 +582,23 @@ export interface OpenSearch {
     args: CreateVpcEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -899,6 +963,20 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCompatibleVersionsCommand}
    */
   getCompatibleVersions(): Promise<GetCompatibleVersionsCommandOutput>;
@@ -993,6 +1071,24 @@ export interface OpenSearch {
     args: GetUpgradeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -1278,6 +1374,23 @@ export interface OpenSearch {
     args: StartServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
   /**

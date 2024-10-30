@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemoveTagsRequest } from "../models/models_0";
+import { RemoveTagsRequest } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_restJson1";
 

@@ -218,6 +218,17 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },
+ * //     IdentityCenterOptions: { // IdentityCenterOptionsStatus
+ * //       Options: { // IdentityCenterOptions
+ * //         EnabledAPIAccess: true || false,
+ * //         IdentityCenterInstanceARN: "STRING_VALUE",
+ * //         SubjectKey: "UserName" || "UserId" || "Email",
+ * //         RolesKey: "GroupName" || "GroupId",
+ * //         IdentityCenterApplicationARN: "STRING_VALUE",
+ * //         IdentityStoreId: "STRING_VALUE",
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //     AutoTuneOptions: { // AutoTuneOptionsStatus
  * //       Options: { // AutoTuneOptions
  * //         DesiredState: "ENABLED" || "DISABLED",

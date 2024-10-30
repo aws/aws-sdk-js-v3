@@ -31,6 +31,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AcceptInboundConnectionCommandInput,
@@ -51,6 +52,7 @@ import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "../commands/CancelServiceSoftwareUpdateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
   CreateOutboundConnectionCommandInput,
@@ -58,6 +60,7 @@ import {
 } from "../commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "../commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
@@ -122,6 +125,7 @@ import {
   DescribeVpcEndpointsCommandOutput,
 } from "../commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "../commands/DissociatePackageCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
@@ -137,6 +141,7 @@ import {
 } from "../commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "../commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
@@ -191,6 +196,7 @@ import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "../commands/StartServiceSoftwareUpdateCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
@@ -209,6 +215,8 @@ import {
   AdvancedSecurityOptionsStatus,
   AIMLOptionsInput,
   AIMLOptionsStatus,
+  AppConfig,
+  ApplicationSummary,
   AutoTune,
   AutoTuneDetails,
   AutoTuneMaintenanceSchedule,
@@ -229,6 +237,7 @@ import {
   ConflictException,
   ConnectionProperties,
   CrossClusterSearchConnectionProperties,
+  DataSource,
   DataSourceType,
   DependencyFailureException,
   DescribePackagesFilter,
@@ -246,6 +255,9 @@ import {
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
   Filter,
+  IamIdentityCenterOptionsInput,
+  IdentityCenterOptionsInput,
+  IdentityCenterOptionsStatus,
   InternalException,
   InvalidPaginationTokenException,
   InvalidTypeException,
@@ -278,7 +290,6 @@ import {
   SAMLOptionsInput,
   ScheduledAutoTuneDetails,
   ServiceSoftwareOptions,
-  SlotNotAvailableException,
   SnapshotOptions,
   SnapshotOptionsStatus,
   SoftwareUpdateOptions,
@@ -293,6 +304,7 @@ import {
   WindowStartTime,
   ZoneAwarenessConfig,
 } from "../models/models_0";
+import { SlotNotAvailableException } from "../models/models_1";
 import { OpenSearchServiceException as __BaseException } from "../models/OpenSearchServiceException";
 
 /**
@@ -393,6 +405,7 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+      Service: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -445,6 +458,33 @@ export const se_CancelServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
+  input: CreateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/application");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appConfigs: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      dataSources: (_) => _json(_),
+      iamIdentityCenterOptions: (_) => _json(_),
+      name: [],
+      tagList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateDomainCommand
  */
 export const se_CreateDomainCommand = async (
@@ -472,6 +512,7 @@ export const se_CreateDomainCommand = async (
       EncryptionAtRestOptions: (_) => _json(_),
       EngineVersion: [],
       IPAddressType: [],
+      IdentityCenterOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -557,6 +598,22 @@ export const se_CreateVpcEndpointCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -978,6 +1035,22 @@ export const se_DissociatePackageCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetApplicationCommand
+ */
+export const se_GetApplicationCommand = async (
+  input: GetApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetCompatibleVersionsCommand
  */
 export const se_GetCompatibleVersionsCommand = async (
@@ -1088,6 +1161,26 @@ export const se_GetUpgradeStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
+  input: ListApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/list-applications");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_s]: [() => input.statuses !== void 0, () => input[_s]! || []],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDataSourcesCommand
  */
 export const se_ListDataSourcesCommand = async (
@@ -1116,7 +1209,7 @@ export const se_ListDomainMaintenancesCommand = async (
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
     [_a]: [, input[_A]!],
-    [_s]: [, input[_S]!],
+    [_st]: [, input[_S]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1399,6 +1492,7 @@ export const se_RevokeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+      Service: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1450,6 +1544,30 @@ export const se_StartServiceSoftwareUpdateCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
+  input: UpdateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appConfigs: (_) => _json(_),
+      dataSources: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1508,6 +1626,7 @@ export const se_UpdateDomainConfigCommand = async (
       EBSOptions: (_) => _json(_),
       EncryptionAtRestOptions: (_) => _json(_),
       IPAddressType: [],
+      IdentityCenterOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -1765,6 +1884,34 @@ export const de_CancelServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    name: __expectString,
+    tagList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateDomainCommand
  */
 export const de_CreateDomainCommand = async (
@@ -1851,6 +1998,23 @@ export const de_CreateVpcEndpointCommand = async (
     VpcEndpoint: _json,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2338,6 +2502,36 @@ export const de_DissociatePackageCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    endpoint: __expectString,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCompatibleVersionsCommand
  */
 export const de_GetCompatibleVersionsCommand = async (
@@ -2471,6 +2665,28 @@ export const de_GetUpgradeStatusCommand = async (
     StepStatus: __expectString,
     UpgradeName: __expectString,
     UpgradeStep: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationSummaries: (_) => de_ApplicationSummaries(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2851,6 +3067,34 @@ export const de_StartServiceSoftwareUpdateCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3304,6 +3548,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AIMLOptionsInput omitted.
 
+// se_AppConfig omitted.
+
+// se_AppConfigs omitted.
+
 /**
  * serializeAws_restJson1AutoTuneMaintenanceSchedule
  */
@@ -3361,6 +3609,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_CrossClusterSearchConnectionProperties omitted.
 
+// se_DataSource omitted.
+
+// se_DataSources omitted.
+
 // se_DataSourceType omitted.
 
 // se_DescribePackagesFilter omitted.
@@ -3384,6 +3636,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 // se_Filter omitted.
 
 // se_FilterList omitted.
+
+// se_IamIdentityCenterOptionsInput omitted.
+
+// se_IdentityCenterOptionsInput omitted.
 
 // se_JWTOptionsInput omitted.
 
@@ -3494,6 +3750,37 @@ const de_AIMLOptionsStatus = (output: any, context: __SerdeContext): AIMLOptions
   return take(output, {
     Options: _json,
     Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_AppConfig omitted.
+
+// de_AppConfigs omitted.
+
+/**
+ * deserializeAws_restJson1ApplicationSummaries
+ */
+const de_ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ApplicationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ApplicationSummary
+ */
+const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endpoint: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
   }) as any;
 };
 
@@ -3695,9 +3982,13 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
 
 // de_CrossClusterSearchConnectionProperties omitted.
 
+// de_DataSource omitted.
+
 // de_DataSourceDetails omitted.
 
 // de_DataSourceList omitted.
+
+// de_DataSources omitted.
 
 // de_DataSourceType omitted.
 
@@ -3719,6 +4010,7 @@ const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => 
     EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
     EngineVersion: (_: any) => de_VersionStatus(_, context),
     IPAddressType: (_: any) => de_IPAddressTypeStatus(_, context),
+    IdentityCenterOptions: (_: any) => de_IdentityCenterOptionsStatus(_, context),
     LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
     ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
@@ -3836,6 +4128,7 @@ const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => 
     Endpoints: _json,
     EngineVersion: __expectString,
     IPAddressType: __expectString,
+    IdentityCenterOptions: _json,
     LogPublishingOptions: _json,
     ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: _json,
@@ -3900,6 +4193,20 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 // de_ErrorDetails omitted.
 
 // de_GUIDList omitted.
+
+// de_IamIdentityCenterOptions omitted.
+
+// de_IdentityCenterOptions omitted.
+
+/**
+ * deserializeAws_restJson1IdentityCenterOptionsStatus
+ */
+const de_IdentityCenterOptionsStatus = (output: any, context: __SerdeContext): IdentityCenterOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
 
 // de_InboundConnection omitted.
 
@@ -4363,4 +4670,5 @@ const _nT = "nextToken";
 const _oI = "offeringId";
 const _rAZ = "retrieveAZs";
 const _rI = "reservationId";
-const _s = "status";
+const _s = "statuses";
+const _st = "status";

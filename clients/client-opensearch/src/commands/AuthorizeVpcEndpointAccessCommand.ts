@@ -38,7 +38,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * const client = new OpenSearchClient(config);
  * const input = { // AuthorizeVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE",
+ *   Service: "application.opensearchservice.amazonaws.com",
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);

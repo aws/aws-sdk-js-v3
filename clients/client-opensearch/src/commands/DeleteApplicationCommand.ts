@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_1";
+import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_StartDomainMaintenanceCommand, se_StartDomainMaintenanceCommand } from "../protocols/Aws_restJson1";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,46 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartDomainMaintenanceCommand}.
+ * The input for {@link DeleteApplicationCommand}.
  */
-export interface StartDomainMaintenanceCommandInput extends StartDomainMaintenanceRequest {}
+export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
 /**
  * @public
  *
- * The output of {@link StartDomainMaintenanceCommand}.
+ * The output of {@link DeleteApplicationCommand}.
  */
-export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintenanceResponse, __MetadataBearer {}
+export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the node maintenance process on the data node. These processes can include a node reboot, an Opensearch or Elasticsearch process restart,
- *    or a Dashboard or Kibana restart.</p>
+ * <p>Deletes an existing OpenSearch Application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, StartDomainMaintenanceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, StartDomainMaintenanceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeleteApplicationCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DeleteApplicationCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = { // StartDomainMaintenanceRequest
- *   DomainName: "STRING_VALUE", // required
- *   Action: "REBOOT_NODE" || "RESTART_SEARCH_PROCESS" || "RESTART_DASHBOARD", // required
- *   NodeId: "STRING_VALUE",
+ * const input = { // DeleteApplicationRequest
+ *   id: "STRING_VALUE", // required
  * };
- * const command = new StartDomainMaintenanceCommand(input);
+ * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
- * // { // StartDomainMaintenanceResponse
- * //   MaintenanceId: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StartDomainMaintenanceCommandInput - {@link StartDomainMaintenanceCommandInput}
- * @returns {@link StartDomainMaintenanceCommandOutput}
- * @see {@link StartDomainMaintenanceCommandInput} for command's `input` shape.
- * @see {@link StartDomainMaintenanceCommandOutput} for command's `response` shape.
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
+ * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because you don't have permissions to access the resource.</p>
  *
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
  *  <p>An error occured because the client wanted to access an unsupported operation.</p>
@@ -75,10 +76,10 @@ export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintena
  *
  * @public
  */
-export class StartDomainMaintenanceCommand extends $Command
+export class DeleteApplicationCommand extends $Command
   .classBuilder<
-    StartDomainMaintenanceCommandInput,
-    StartDomainMaintenanceCommandOutput,
+    DeleteApplicationCommandInput,
+    DeleteApplicationCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,21 +91,21 @@ export class StartDomainMaintenanceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonOpenSearchService", "StartDomainMaintenance", {})
-  .n("OpenSearchClient", "StartDomainMaintenanceCommand")
+  .s("AmazonOpenSearchService", "DeleteApplication", {})
+  .n("OpenSearchClient", "DeleteApplicationCommand")
   .f(void 0, void 0)
-  .ser(se_StartDomainMaintenanceCommand)
-  .de(de_StartDomainMaintenanceCommand)
+  .ser(se_DeleteApplicationCommand)
+  .de(de_DeleteApplicationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartDomainMaintenanceRequest;
-      output: StartDomainMaintenanceResponse;
+      input: DeleteApplicationRequest;
+      output: {};
     };
     sdk: {
-      input: StartDomainMaintenanceCommandInput;
-      output: StartDomainMaintenanceCommandOutput;
+      input: DeleteApplicationCommandInput;
+      output: DeleteApplicationCommandOutput;
     };
   };
 }

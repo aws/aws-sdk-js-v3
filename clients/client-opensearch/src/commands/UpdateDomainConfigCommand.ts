@@ -9,7 +9,7 @@ import {
   UpdateDomainConfigRequest,
   UpdateDomainConfigRequestFilterSensitiveLog,
   UpdateDomainConfigResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_UpdateDomainConfigCommand, se_UpdateDomainConfigCommand } from "../protocols/Aws_restJson1";
 
@@ -146,6 +146,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       PublicKey: "STRING_VALUE",
  *     },
  *     AnonymousAuthEnabled: true || false,
+ *   },
+ *   IdentityCenterOptions: { // IdentityCenterOptionsInput
+ *     EnabledAPIAccess: true || false,
+ *     IdentityCenterInstanceARN: "STRING_VALUE",
+ *     SubjectKey: "UserName" || "UserId" || "Email",
+ *     RolesKey: "GroupName" || "GroupId",
  *   },
  *   AutoTuneOptions: { // AutoTuneOptions
  *     DesiredState: "ENABLED" || "DISABLED",
@@ -359,6 +365,17 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         },
  * //         AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //         AnonymousAuthEnabled: true || false,
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     IdentityCenterOptions: { // IdentityCenterOptionsStatus
+ * //       Options: { // IdentityCenterOptions
+ * //         EnabledAPIAccess: true || false,
+ * //         IdentityCenterInstanceARN: "STRING_VALUE",
+ * //         SubjectKey: "UserName" || "UserId" || "Email",
+ * //         RolesKey: "GroupName" || "GroupId",
+ * //         IdentityCenterApplicationARN: "STRING_VALUE",
+ * //         IdentityStoreId: "STRING_VALUE",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },
