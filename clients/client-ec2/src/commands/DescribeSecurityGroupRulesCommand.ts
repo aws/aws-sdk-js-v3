@@ -80,6 +80,7 @@ export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurit
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SecurityGroupRuleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  ActiveInstance,
   ActivityStatus,
   AddressTransfer,
   AllocationStrategy,
@@ -16,6 +17,7 @@ import {
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
   ResourceType,
+  SecurityGroupVpcAssociationState,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -69,6 +71,7 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SpotDatafeedSubscription,
   SpotInstanceStateFault,
   State,
   TrafficMirrorFilter,
@@ -92,6 +95,7 @@ import {
 } from "./models_2";
 
 import {
+  EventInformation,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
@@ -105,7 +109,190 @@ import {
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, HistoryRecord, RIProductDescription } from "./models_4";
+import { AttributeBooleanValue, RIProductDescription } from "./models_4";
+
+/**
+ * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
+ * @public
+ */
+export interface DescribeSpotDatafeedSubscriptionResult {
+  /**
+   * <p>The Spot Instance data feed subscription.</p>
+   * @public
+   */
+  SpotDatafeedSubscription?: SpotDatafeedSubscription;
+}
+
+/**
+ * <p>Contains the parameters for DescribeSpotFleetInstances.</p>
+ * @public
+ */
+export interface DescribeSpotFleetInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestId: string | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains the output of DescribeSpotFleetInstances.</p>
+ * @public
+ */
+export interface DescribeSpotFleetInstancesResponse {
+  /**
+   * <p>The running instances. This list is refreshed periodically and might be out of
+   *             date.</p>
+   * @public
+   */
+  ActiveInstances?: ActiveInstance[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  BATCH_CHANGE: "fleetRequestChange",
+  ERROR: "error",
+  INFORMATION: "information",
+  INSTANCE_CHANGE: "instanceChange",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * <p>Contains the parameters for DescribeSpotFleetRequestHistory.</p>
+ * @public
+ */
+export interface DescribeSpotFleetRequestHistoryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestId: string | undefined;
+
+  /**
+   * <p>The type of events to describe. By default, all events are described.</p>
+   * @public
+   */
+  EventType?: EventType;
+
+  /**
+   * <p>The starting date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes an event in the history of the Spot Fleet request.</p>
+ * @public
+ */
+export interface HistoryRecord {
+  /**
+   * <p>Information about the event.</p>
+   * @public
+   */
+  EventInformation?: EventInformation;
+
+  /**
+   * <p>The event type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>error</code> - An error with the Spot Fleet request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fleetRequestChange</code> - A change in the status or configuration of
+   *                     the Spot Fleet request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instanceChange</code> - An instance was launched or terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Information</code> - An informational event.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EventType?: EventType;
+
+  /**
+   * <p>The date and time of the event, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  Timestamp?: Date;
+}
 
 /**
  * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
@@ -323,7 +510,9 @@ export interface InstanceNetworkInterfaceSpecification {
 
   /**
    * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code>
+   *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
+   * 	        interface. EFA-only network interfaces do not support IP addresses.</p>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code>
    *          </p>
    * @public
    */
@@ -1975,8 +2164,7 @@ export interface DescribeStaleSecurityGroupsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token returned from a previous paginated request.
-   *           Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string;
@@ -2080,8 +2268,7 @@ export interface StaleSecurityGroup {
  */
 export interface DescribeStaleSecurityGroupsResult {
   /**
-   * <p>The token to include in another request to get the next page of items.
-   *           If there are no additional items to return, the string is empty.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -7670,6 +7857,42 @@ export interface DisassociateRouteTableRequest {
 /**
  * @public
  */
+export interface DisassociateSecurityGroupVpcRequest {
+  /**
+   * <p>A security group ID.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>A VPC ID.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityGroupVpcResult {
+  /**
+   * <p>The state of the disassociation.</p>
+   * @public
+   */
+  State?: SecurityGroupVpcAssociationState;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateSubnetCidrBlockRequest {
   /**
    * <p>The association ID for the CIDR block.</p>
@@ -9643,153 +9866,6 @@ export interface GetConsoleOutputRequest {
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetConsoleOutputResult {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The time at which the output was last updated.</p>
-   * @public
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>The console output, base64-encoded. If you are using a command line tool, the tool
-   *             decodes the output for you.</p>
-   * @public
-   */
-  Output?: string;
-}
-
-/**
- * @public
- */
-export interface GetConsoleScreenshotRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
-   *             in standby or "sleep" mode.</p>
-   * @public
-   */
-  WakeUp?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetConsoleScreenshotResult {
-  /**
-   * <p>The data that comprises the image.</p>
-   * @public
-   */
-  ImageData?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const UnlimitedSupportedInstanceFamily = {
-  t2: "t2",
-  t3: "t3",
-  t3a: "t3a",
-  t4g: "t4g",
-} as const;
-
-/**
- * @public
- */
-export type UnlimitedSupportedInstanceFamily =
-  (typeof UnlimitedSupportedInstanceFamily)[keyof typeof UnlimitedSupportedInstanceFamily];
-
-/**
- * @public
- */
-export interface GetDefaultCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
-}
-
-/**
- * <p>Describes the default credit option for CPU usage of a burstable performance instance
- *             family.</p>
- * @public
- */
-export interface InstanceFamilyCreditSpecification {
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily?: UnlimitedSupportedInstanceFamily;
-
-  /**
-   * <p>The default credit option for CPU usage of the instance family. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
-   * @public
-   */
-  CpuCredits?: string;
-}
-
-/**
- * @public
- */
-export interface GetDefaultCreditSpecificationResult {
-  /**
-   * <p>The default credit option for CPU usage of the instance family.</p>
-   * @public
-   */
-  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
-}
-
-/**
- * @public
- */
-export interface GetEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;

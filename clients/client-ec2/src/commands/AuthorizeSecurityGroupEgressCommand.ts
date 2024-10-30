@@ -136,6 +136,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SecurityGroupRuleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

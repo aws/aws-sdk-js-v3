@@ -138,6 +138,11 @@ import {
   AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
 import {
+  AssociateSecurityGroupVpcCommand,
+  AssociateSecurityGroupVpcCommandInput,
+  AssociateSecurityGroupVpcCommandOutput,
+} from "./commands/AssociateSecurityGroupVpcCommand";
+import {
   AssociateSubnetCidrBlockCommand,
   AssociateSubnetCidrBlockCommandInput,
   AssociateSubnetCidrBlockCommandOutput,
@@ -1599,6 +1604,11 @@ import {
   DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand";
 import {
+  DescribeSecurityGroupVpcAssociationsCommand,
+  DescribeSecurityGroupVpcAssociationsCommandInput,
+  DescribeSecurityGroupVpcAssociationsCommandOutput,
+} from "./commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
   DescribeSnapshotAttributeCommand,
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
@@ -2008,6 +2018,11 @@ import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
+import {
+  DisassociateSecurityGroupVpcCommand,
+  DisassociateSecurityGroupVpcCommandInput,
+  DisassociateSecurityGroupVpcCommandOutput,
+} from "./commands/DisassociateSecurityGroupVpcCommand";
 import {
   DisassociateSubnetCidrBlockCommand,
   DisassociateSubnetCidrBlockCommandInput,
@@ -3134,6 +3149,7 @@ const commands = {
   AssociateIpamResourceDiscoveryCommand,
   AssociateNatGatewayAddressCommand,
   AssociateRouteTableCommand,
+  AssociateSecurityGroupVpcCommand,
   AssociateSubnetCidrBlockCommand,
   AssociateTransitGatewayMulticastDomainCommand,
   AssociateTransitGatewayPolicyTableCommand,
@@ -3435,6 +3451,7 @@ const commands = {
   DescribeSecurityGroupReferencesCommand,
   DescribeSecurityGroupRulesCommand,
   DescribeSecurityGroupsCommand,
+  DescribeSecurityGroupVpcAssociationsCommand,
   DescribeSnapshotAttributeCommand,
   DescribeSnapshotsCommand,
   DescribeSnapshotTierStatusCommand,
@@ -3517,6 +3534,7 @@ const commands = {
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateNatGatewayAddressCommand,
   DisassociateRouteTableCommand,
+  DisassociateSecurityGroupVpcCommand,
   DisassociateSubnetCidrBlockCommand,
   DisassociateTransitGatewayMulticastDomainCommand,
   DisassociateTransitGatewayPolicyTableCommand,
@@ -4195,6 +4213,23 @@ export interface EC2 {
     args: AssociateRouteTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateRouteTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSecurityGroupVpcCommand}
+   */
+  associateSecurityGroupVpc(
+    args: AssociateSecurityGroupVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSecurityGroupVpcCommandOutput>;
+  associateSecurityGroupVpc(
+    args: AssociateSecurityGroupVpcCommandInput,
+    cb: (err: any, data?: AssociateSecurityGroupVpcCommandOutput) => void
+  ): void;
+  associateSecurityGroupVpc(
+    args: AssociateSecurityGroupVpcCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSecurityGroupVpcCommandOutput) => void
   ): void;
 
   /**
@@ -9226,6 +9261,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
+   */
+  describeSecurityGroupVpcAssociations(): Promise<DescribeSecurityGroupVpcAssociationsCommandOutput>;
+  describeSecurityGroupVpcAssociations(
+    args: DescribeSecurityGroupVpcAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityGroupVpcAssociationsCommandOutput>;
+  describeSecurityGroupVpcAssociations(
+    args: DescribeSecurityGroupVpcAssociationsCommandInput,
+    cb: (err: any, data?: DescribeSecurityGroupVpcAssociationsCommandOutput) => void
+  ): void;
+  describeSecurityGroupVpcAssociations(
+    args: DescribeSecurityGroupVpcAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityGroupVpcAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSnapshotAttributeCommand}
    */
   describeSnapshotAttribute(
@@ -10637,6 +10690,23 @@ export interface EC2 {
     args: DisassociateRouteTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateRouteTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSecurityGroupVpcCommand}
+   */
+  disassociateSecurityGroupVpc(
+    args: DisassociateSecurityGroupVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSecurityGroupVpcCommandOutput>;
+  disassociateSecurityGroupVpc(
+    args: DisassociateSecurityGroupVpcCommandInput,
+    cb: (err: any, data?: DisassociateSecurityGroupVpcCommandOutput) => void
+  ): void;
+  disassociateSecurityGroupVpc(
+    args: DisassociateSecurityGroupVpcCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSecurityGroupVpcCommandOutput) => void
   ): void;
 
   /**

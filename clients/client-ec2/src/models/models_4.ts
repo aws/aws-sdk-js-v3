@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  ActiveInstance,
   AlternatePathHint,
   AttachmentStatus,
   CurrencyCodeValues,
@@ -14,6 +13,7 @@ import {
   PathComponent,
   ReservedInstancesListing,
   SecurityGroupRule,
+  SecurityGroupVpcAssociationState,
   Tag,
 } from "./models_0";
 
@@ -62,20 +62,70 @@ import {
   RouteTable,
   Snapshot,
   SnapshotState,
-  SpotDatafeedSubscription,
   StorageTier,
 } from "./models_2";
 
-import {
-  Byoasn,
-  EventInformation,
-  Filter,
-  IdFormat,
-  ImageAttributeName,
-  InstanceTagNotificationAttribute,
-  PermissionGroup,
-  ProductCode,
-} from "./models_3";
+import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup, ProductCode } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeIdFormatRequest {
+  /**
+   * <p>The type of resource: <code>bundle</code> |
+   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+   *            <code>network-acl</code> | <code>network-acl-association</code> |
+   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
+   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+   *            <code>route-table-association</code> | <code>security-group</code> |
+   *            <code>snapshot</code> | <code>subnet</code> |
+   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
+   *          </p>
+   * @public
+   */
+  Resource?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIdFormatResult {
+  /**
+   * <p>Information about the ID format for the resource.</p>
+   * @public
+   */
+  Statuses?: IdFormat[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageAttributeName = {
+  blockDeviceMapping: "blockDeviceMapping",
+  bootMode: "bootMode",
+  deregistrationProtection: "deregistrationProtection",
+  description: "description",
+  imdsSupport: "imdsSupport",
+  kernel: "kernel",
+  lastLaunchedTime: "lastLaunchedTime",
+  launchPermission: "launchPermission",
+  productCodes: "productCodes",
+  ramdisk: "ramdisk",
+  sriovNetSupport: "sriovNetSupport",
+  tpmSupport: "tpmSupport",
+  uefiData: "uefiData",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageAttributeName = (typeof ImageAttributeName)[keyof typeof ImageAttributeName];
 
 /**
  * <p>Contains the parameters for DescribeImageAttribute.</p>
@@ -3605,7 +3655,7 @@ export interface InstanceNetworkInterface {
 
   /**
    * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> | <code>trunk</code>
    *          </p>
    * @public
    */
@@ -5013,8 +5063,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
-   *       <code>spot</code>).</p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code> |
+   *      <code>capacity-block</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6037,7 +6087,7 @@ export interface InstanceTypeInfo {
   FreeTierEligible?: boolean;
 
   /**
-   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
+   * <p>Indicates whether the instance type is offered for spot, On-Demand, or Capacity Blocks.</p>
    * @public
    */
   SupportedUsageClasses?: UsageClassType[];
@@ -9307,15 +9357,11 @@ export interface DescribeNetworkInterfacesRequest {
    *             <li>
    *                <p>
    *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
-   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> |
-   * 		               <code>ec2_instance_connect_endpoint</code> | <code>efa</code> | <code>efs</code> |
-   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> |
-   * 		               <code>global_accelerator_managed</code> |
-   * 		               <code>interface</code> | <code>iot_rules_managed</code> |
-   * 		               <code>lambda</code> | <code>load_balancer</code> |
-   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> |
-   * 		               <code>quicksight</code> |
-   * 		               <code>transit_gateway</code> | <code>trunk</code> |
+   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>ec2_instance_connect_endpoint</code> |
+   * 		               <code>efa</code> | <code>efa-only</code> | <code>efs</code> | <code>gateway_load_balancer</code> |
+   * 		               <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |  <code>interface</code> |
+   * 		               <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> | <code>nat_gateway</code> |
+   * 		               <code>network_load_balancer</code> | <code>quicksight</code> |  <code>transit_gateway</code> | <code>trunk</code> |
    * 		               <code>vpc_endpoint</code>).</p>
    *             </li>
    *             <li>
@@ -11837,6 +11883,12 @@ export interface SecurityGroup {
   VpcId?: string;
 
   /**
+   * <p>The ARN of the security group.</p>
+   * @public
+   */
+  SecurityGroupArn?: string;
+
+  /**
    * <p>The Amazon Web Services account ID of the owner of the security group.</p>
    * @public
    */
@@ -11866,8 +11918,7 @@ export interface SecurityGroup {
  */
 export interface DescribeSecurityGroupsResult {
   /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -11877,6 +11928,122 @@ export interface DescribeSecurityGroupsResult {
    * @public
    */
   SecurityGroups?: SecurityGroup[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupVpcAssociationsRequest {
+  /**
+   * <p>Security group VPC association filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code>: The security group ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code>: The ID of the associated VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-owner-id</code>: The account ID of the VPC owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code>: The state of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code>: The key/value combination of a tag assigned to the resource. Use
+   *                     the tag key in the filter name and the tag value as the filter value. For
+   *                     example, to find all resources that have a tag with the key <code>Owner</code>
+   *                     and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter
+   *                     name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code>: The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>A security group association with a VPC that you made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>
+ * @public
+ */
+export interface SecurityGroupVpcAssociation {
+  /**
+   * <p>The association's security group ID.</p>
+   * @public
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The association's VPC ID.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the VPC.</p>
+   * @public
+   */
+  VpcOwnerId?: string;
+
+  /**
+   * <p>The association's state.</p>
+   * @public
+   */
+  State?: SecurityGroupVpcAssociationState;
+
+  /**
+   * <p>The association's state reason.</p>
+   * @public
+   */
+  StateReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupVpcAssociationsResult {
+  /**
+   * <p>The security group VPC associations.</p>
+   * @public
+   */
+  SecurityGroupVpcAssociations?: SecurityGroupVpcAssociation[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -12280,189 +12447,6 @@ export interface DescribeSpotDatafeedSubscriptionRequest {
    * @public
    */
   DryRun?: boolean;
-}
-
-/**
- * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
- * @public
- */
-export interface DescribeSpotDatafeedSubscriptionResult {
-  /**
-   * <p>The Spot Instance data feed subscription.</p>
-   * @public
-   */
-  SpotDatafeedSubscription?: SpotDatafeedSubscription;
-}
-
-/**
- * <p>Contains the parameters for DescribeSpotFleetInstances.</p>
- * @public
- */
-export interface DescribeSpotFleetInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId: string | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains the output of DescribeSpotFleetInstances.</p>
- * @public
- */
-export interface DescribeSpotFleetInstancesResponse {
-  /**
-   * <p>The running instances. This list is refreshed periodically and might be out of
-   *             date.</p>
-   * @public
-   */
-  ActiveInstances?: ActiveInstance[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  BATCH_CHANGE: "fleetRequestChange",
-  ERROR: "error",
-  INFORMATION: "information",
-  INSTANCE_CHANGE: "instanceChange",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
- * <p>Contains the parameters for DescribeSpotFleetRequestHistory.</p>
- * @public
- */
-export interface DescribeSpotFleetRequestHistoryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId: string | undefined;
-
-  /**
-   * <p>The type of events to describe. By default, all events are described.</p>
-   * @public
-   */
-  EventType?: EventType;
-
-  /**
-   * <p>The starting date and time for the events, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Describes an event in the history of the Spot Fleet request.</p>
- * @public
- */
-export interface HistoryRecord {
-  /**
-   * <p>Information about the event.</p>
-   * @public
-   */
-  EventInformation?: EventInformation;
-
-  /**
-   * <p>The event type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>error</code> - An error with the Spot Fleet request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fleetRequestChange</code> - A change in the status or configuration of
-   *                     the Spot Fleet request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instanceChange</code> - An instance was launched or terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Information</code> - An informational event.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  EventType?: EventType;
-
-  /**
-   * <p>The date and time of the event, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  Timestamp?: Date;
 }
 
 /**

@@ -85,6 +85,7 @@ export * from "./DescribeRouteTablesPaginator";
 export * from "./DescribeScheduledInstanceAvailabilityPaginator";
 export * from "./DescribeScheduledInstancesPaginator";
 export * from "./DescribeSecurityGroupRulesPaginator";
+export * from "./DescribeSecurityGroupVpcAssociationsPaginator";
 export * from "./DescribeSecurityGroupsPaginator";
 export * from "./DescribeSnapshotTierStatusPaginator";
 export * from "./DescribeSnapshotsPaginator";

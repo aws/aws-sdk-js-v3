@@ -121,6 +121,10 @@ import {
   AssociateRouteTableCommandOutput,
 } from "../commands/AssociateRouteTableCommand";
 import {
+  AssociateSecurityGroupVpcCommandInput,
+  AssociateSecurityGroupVpcCommandOutput,
+} from "../commands/AssociateSecurityGroupVpcCommand";
+import {
   AssociateSubnetCidrBlockCommandInput,
   AssociateSubnetCidrBlockCommandOutput,
 } from "../commands/AssociateSubnetCidrBlockCommand";
@@ -1106,6 +1110,10 @@ import {
   DescribeSecurityGroupsCommandOutput,
 } from "../commands/DescribeSecurityGroupsCommand";
 import {
+  DescribeSecurityGroupVpcAssociationsCommandInput,
+  DescribeSecurityGroupVpcAssociationsCommandOutput,
+} from "../commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
 } from "../commands/DescribeSnapshotAttributeCommand";
@@ -1406,6 +1414,10 @@ import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "../commands/DisassociateRouteTableCommand";
+import {
+  DisassociateSecurityGroupVpcCommandInput,
+  DisassociateSecurityGroupVpcCommandOutput,
+} from "../commands/DisassociateSecurityGroupVpcCommand";
 import {
   DisassociateSubnetCidrBlockCommandInput,
   DisassociateSubnetCidrBlockCommandOutput,
@@ -2263,6 +2275,8 @@ import {
   AssociateNatGatewayAddressResult,
   AssociateRouteTableRequest,
   AssociateRouteTableResult,
+  AssociateSecurityGroupVpcRequest,
+  AssociateSecurityGroupVpcResult,
   AssociateSubnetCidrBlockRequest,
   AssociateSubnetCidrBlockResult,
   AssociateTransitGatewayMulticastDomainRequest,
@@ -2321,7 +2335,6 @@ import {
   CancelSpotInstanceRequestsRequest,
   CancelSpotInstanceRequestsResult,
   CapacityAllocation,
-  CapacityReservation,
   CapacityReservationFleetCancellationState,
   CidrBlock,
   ClientVpnAuthorizationRuleStatus,
@@ -2333,9 +2346,7 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
-  CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationRequest,
-  CreateCapacityReservationResult,
   DeviceOptions,
   EnaSrdSpecification,
   EnaSrdUdpSpecification,
@@ -2423,6 +2434,7 @@ import {
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
   BlockDeviceMapping,
+  CapacityReservation,
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
@@ -2439,9 +2451,11 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationFleetRequest,
   CreateCapacityReservationFleetResult,
+  CreateCapacityReservationResult,
   CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
   CreateClientVpnEndpointRequest,
@@ -2512,7 +2526,6 @@ import {
   CreateNetworkAclResult,
   CreateNetworkInsightsAccessScopeRequest,
   CreateNetworkInsightsAccessScopeResult,
-  CreateNetworkInsightsPathRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2626,13 +2639,11 @@ import {
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
-  PathRequestFilter,
   Placement,
   PlacementResponse,
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
   ProvisionedBandwidth,
-  RequestFilterPortRange,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ReservationFleetInstanceSpecification,
@@ -2657,6 +2668,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
   CreateNetworkInterfacePermissionRequest,
   CreateNetworkInterfacePermissionResult,
@@ -2792,9 +2804,6 @@ import {
   DeleteIpamScopeResult,
   DeleteKeyPairRequest,
   DeleteKeyPairResult,
-  DeleteLaunchTemplateRequest,
-  DeleteLaunchTemplateResult,
-  DeleteLaunchTemplateVersionsRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2815,6 +2824,7 @@ import {
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
   PathFilter,
+  PathRequestFilter,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsListValue,
@@ -2832,6 +2842,7 @@ import {
   PrivateDnsNameConfiguration,
   PropagatingVgw,
   ReplaceRootVolumeTask,
+  RequestFilterPortRange,
   Route,
   RouteTable,
   RouteTableAssociation,
@@ -2914,6 +2925,9 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteLaunchTemplateRequest,
+  DeleteLaunchTemplateResult,
+  DeleteLaunchTemplateVersionsRequest,
   DeleteLaunchTemplateVersionsResponseErrorItem,
   DeleteLaunchTemplateVersionsResponseSuccessItem,
   DeleteLaunchTemplateVersionsResult,
@@ -3110,8 +3124,6 @@ import {
   DescribeIamInstanceProfileAssociationsResult,
   DescribeIdentityIdFormatRequest,
   DescribeIdentityIdFormatResult,
-  DescribeIdFormatRequest,
-  DescribeIdFormatResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3169,6 +3181,8 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeIdFormatRequest,
+  DescribeIdFormatResult,
   DescribeImageAttributeRequest,
   DescribeImagesRequest,
   DescribeImagesResult,
@@ -3291,6 +3305,8 @@ import {
   DescribeSecurityGroupRulesResult,
   DescribeSecurityGroupsRequest,
   DescribeSecurityGroupsResult,
+  DescribeSecurityGroupVpcAssociationsRequest,
+  DescribeSecurityGroupVpcAssociationsResult,
   DescribeSnapshotAttributeRequest,
   DescribeSnapshotAttributeResult,
   DescribeSnapshotsRequest,
@@ -3298,10 +3314,6 @@ import {
   DescribeSnapshotTierStatusRequest,
   DescribeSnapshotTierStatusResult,
   DescribeSpotDatafeedSubscriptionRequest,
-  DescribeSpotDatafeedSubscriptionResult,
-  DescribeSpotFleetInstancesRequest,
-  DescribeSpotFleetInstancesResponse,
-  DescribeSpotFleetRequestHistoryRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3319,7 +3331,6 @@ import {
   GpuDeviceMemoryInfo,
   GpuInfo,
   HibernationOptions,
-  HistoryRecord,
   Image,
   ImageAttribute,
   ImageMetadata,
@@ -3403,6 +3414,7 @@ import {
   ScheduledInstanceRecurrenceRequest,
   SecurityGroup,
   SecurityGroupReference,
+  SecurityGroupVpcAssociation,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
   SnapshotDetail,
@@ -3423,6 +3435,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSpotDatafeedSubscriptionResult,
+  DescribeSpotFleetInstancesRequest,
+  DescribeSpotFleetInstancesResponse,
+  DescribeSpotFleetRequestHistoryRequest,
   DescribeSpotFleetRequestHistoryResponse,
   DescribeSpotFleetRequestsRequest,
   DescribeSpotFleetRequestsResponse,
@@ -3573,6 +3589,8 @@ import {
   DisassociateNatGatewayAddressRequest,
   DisassociateNatGatewayAddressResult,
   DisassociateRouteTableRequest,
+  DisassociateSecurityGroupVpcRequest,
+  DisassociateSecurityGroupVpcResult,
   DisassociateSubnetCidrBlockRequest,
   DisassociateSubnetCidrBlockResult,
   DisassociateTransitGatewayMulticastDomainRequest,
@@ -3645,14 +3663,8 @@ import {
   GetCoipPoolUsageRequest,
   GetCoipPoolUsageResult,
   GetConsoleOutputRequest,
-  GetConsoleOutputResult,
-  GetConsoleScreenshotRequest,
-  GetConsoleScreenshotResult,
-  GetDefaultCreditSpecificationRequest,
-  GetDefaultCreditSpecificationResult,
-  GetEbsDefaultKmsKeyIdRequest,
+  HistoryRecord,
   InstanceEventWindowDisassociationRequest,
-  InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
   InstanceUsage,
   Ipv6CidrAssociation,
@@ -3711,6 +3723,12 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetConsoleOutputResult,
+  GetConsoleScreenshotRequest,
+  GetConsoleScreenshotResult,
+  GetDefaultCreditSpecificationRequest,
+  GetDefaultCreditSpecificationResult,
+  GetEbsDefaultKmsKeyIdRequest,
   GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
@@ -3810,6 +3828,7 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
+  InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
@@ -3934,14 +3953,6 @@ import {
   ModifyVerifiedAccessInstanceResult,
   ModifyVerifiedAccessTrustProviderDeviceOptions,
   ModifyVerifiedAccessTrustProviderOidcOptions,
-  ModifyVerifiedAccessTrustProviderRequest,
-  ModifyVerifiedAccessTrustProviderResult,
-  ModifyVolumeAttributeRequest,
-  ModifyVolumeRequest,
-  ModifyVolumeResult,
-  ModifyVpcAttributeRequest,
-  ModifyVpcEndpointRequest,
-  ModifyVpcEndpointResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3994,8 +4005,16 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVerifiedAccessTrustProviderRequest,
+  ModifyVerifiedAccessTrustProviderResult,
+  ModifyVolumeAttributeRequest,
+  ModifyVolumeRequest,
+  ModifyVolumeResult,
+  ModifyVpcAttributeRequest,
   ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult,
+  ModifyVpcEndpointRequest,
+  ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePayerResponsibilityRequest,
@@ -4112,6 +4131,7 @@ import {
   RestoreSnapshotTierResult,
   RevokeClientVpnIngressRequest,
   RevokeClientVpnIngressResult,
+  RevokedSecurityGroupRule,
   RevokeSecurityGroupEgressRequest,
   RevokeSecurityGroupEgressResult,
   RevokeSecurityGroupIngressRequest,
@@ -4626,6 +4646,23 @@ export const se_AssociateRouteTableCommand = async (
   body = buildFormUrlencodedString({
     ...se_AssociateRouteTableRequest(input, context),
     [_A]: _ART,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2AssociateSecurityGroupVpcCommand
+ */
+export const se_AssociateSecurityGroupVpcCommand = async (
+  input: AssociateSecurityGroupVpcCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AssociateSecurityGroupVpcRequest(input, context),
+    [_A]: _ASGV,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9749,6 +9786,23 @@ export const se_DescribeSecurityGroupsCommand = async (
 };
 
 /**
+ * serializeAws_ec2DescribeSecurityGroupVpcAssociationsCommand
+ */
+export const se_DescribeSecurityGroupVpcAssociationsCommand = async (
+  input: DescribeSecurityGroupVpcAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeSecurityGroupVpcAssociationsRequest(input, context),
+    [_A]: _DSGVA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DescribeSnapshotAttributeCommand
  */
 export const se_DescribeSnapshotAttributeCommand = async (
@@ -11137,6 +11191,23 @@ export const se_DisassociateRouteTableCommand = async (
   body = buildFormUrlencodedString({
     ...se_DisassociateRouteTableRequest(input, context),
     [_A]: _DRTi,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DisassociateSecurityGroupVpcCommand
+ */
+export const se_DisassociateSecurityGroupVpcCommand = async (
+  input: DisassociateSecurityGroupVpcCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisassociateSecurityGroupVpcRequest(input, context),
+    [_A]: _DSGV,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -15481,6 +15552,26 @@ export const de_AssociateRouteTableCommand = async (
   let contents: any = {};
   contents = de_AssociateRouteTableResult(data, context);
   const response: AssociateRouteTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2AssociateSecurityGroupVpcCommand
+ */
+export const de_AssociateSecurityGroupVpcCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSecurityGroupVpcCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateSecurityGroupVpcResult(data, context);
+  const response: AssociateSecurityGroupVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -21430,6 +21521,26 @@ export const de_DescribeSecurityGroupsCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeSecurityGroupVpcAssociationsCommand
+ */
+export const de_DescribeSecurityGroupVpcAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityGroupVpcAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSecurityGroupVpcAssociationsResult(data, context);
+  const response: DescribeSecurityGroupVpcAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribeSnapshotAttributeCommand
  */
 export const de_DescribeSnapshotAttributeCommand = async (
@@ -23047,6 +23158,26 @@ export const de_DisassociateRouteTableCommand = async (
   await collectBody(output.body, context);
   const response: DisassociateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisassociateSecurityGroupVpcCommand
+ */
+export const de_DisassociateSecurityGroupVpcCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSecurityGroupVpcCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateSecurityGroupVpcResult(data, context);
+  const response: DisassociateSecurityGroupVpcCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -28515,6 +28646,23 @@ const se_AssociateRouteTableRequest = (input: AssociateRouteTableRequest, contex
   }
   if (input[_RTI] != null) {
     entries[_RTI] = input[_RTI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2AssociateSecurityGroupVpcRequest
+ */
+const se_AssociateSecurityGroupVpcRequest = (input: AssociateSecurityGroupVpcRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GIr] != null) {
+    entries[_GIr] = input[_GIr];
+  }
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -38098,6 +38246,33 @@ const se_DescribeSecurityGroupsRequest = (input: DescribeSecurityGroupsRequest, 
 };
 
 /**
+ * serializeAws_ec2DescribeSecurityGroupVpcAssociationsRequest
+ */
+const se_DescribeSecurityGroupVpcAssociationsRequest = (
+  input: DescribeSecurityGroupVpcAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DescribeSnapshotAttributeRequest
  */
 const se_DescribeSnapshotAttributeRequest = (input: DescribeSnapshotAttributeRequest, context: __SerdeContext): any => {
@@ -40259,6 +40434,26 @@ const se_DisassociateRouteTableRequest = (input: DisassociateRouteTableRequest, 
   }
   if (input[_AIss] != null) {
     entries[_AIss] = input[_AIss];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DisassociateSecurityGroupVpcRequest
+ */
+const se_DisassociateSecurityGroupVpcRequest = (
+  input: DisassociateSecurityGroupVpcRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_GIr] != null) {
+    entries[_GIr] = input[_GIr];
+  }
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -55950,6 +56145,17 @@ const de_AssociateRouteTableResult = (output: any, context: __SerdeContext): Ass
 };
 
 /**
+ * deserializeAws_ec2AssociateSecurityGroupVpcResult
+ */
+const de_AssociateSecurityGroupVpcResult = (output: any, context: __SerdeContext): AssociateSecurityGroupVpcResult => {
+  const contents: any = {};
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2AssociateSubnetCidrBlockResult
  */
 const de_AssociateSubnetCidrBlockResult = (output: any, context: __SerdeContext): AssociateSubnetCidrBlockResult => {
@@ -58791,6 +58997,9 @@ const de_CreateSecurityGroupResult = (output: any, context: __SerdeContext): Cre
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_sGA] != null) {
+    contents[_SGA] = __expectString(output[_sGA]);
   }
   return contents;
 };
@@ -62303,6 +62512,25 @@ const de_DescribeSecurityGroupsResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_ec2DescribeSecurityGroupVpcAssociationsResult
+ */
+const de_DescribeSecurityGroupVpcAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeSecurityGroupVpcAssociationsResult => {
+  const contents: any = {};
+  if (output.securityGroupVpcAssociationSet === "") {
+    contents[_SGVA] = [];
+  } else if (output[_sGVAS] != null && output[_sGVAS][_i] != null) {
+    contents[_SGVA] = de_SecurityGroupVpcAssociationList(__getArrayIfSingleItem(output[_sGVAS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeSnapshotAttributeResult
  */
 const de_DescribeSnapshotAttributeResult = (output: any, context: __SerdeContext): DescribeSnapshotAttributeResult => {
@@ -63846,6 +64074,20 @@ const de_DisassociateNatGatewayAddressResult = (
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DisassociateSecurityGroupVpcResult
+ */
+const de_DisassociateSecurityGroupVpcResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateSecurityGroupVpcResult => {
+  const contents: any = {};
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
   }
   return contents;
 };
@@ -77007,6 +77249,58 @@ const de_RevokeClientVpnIngressResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_ec2RevokedSecurityGroupRule
+ */
+const de_RevokedSecurityGroupRule = (output: any, context: __SerdeContext): RevokedSecurityGroupRule => {
+  const contents: any = {};
+  if (output[_sGRI] != null) {
+    contents[_SGRIe] = __expectString(output[_sGRI]);
+  }
+  if (output[_gIr] != null) {
+    contents[_GIr] = __expectString(output[_gIr]);
+  }
+  if (output[_iEs] != null) {
+    contents[_IE] = __parseBoolean(output[_iEs]);
+  }
+  if (output[_iPpr] != null) {
+    contents[_IPpr] = __expectString(output[_iPpr]);
+  }
+  if (output[_fP] != null) {
+    contents[_FP] = __strictParseInt32(output[_fP]) as number;
+  }
+  if (output[_tPo] != null) {
+    contents[_TP] = __strictParseInt32(output[_tPo]) as number;
+  }
+  if (output[_cIidr] != null) {
+    contents[_CIidr] = __expectString(output[_cIidr]);
+  }
+  if (output[_cIid] != null) {
+    contents[_CIid] = __expectString(output[_cIid]);
+  }
+  if (output[_pLI] != null) {
+    contents[_PLI] = __expectString(output[_pLI]);
+  }
+  if (output[_rGI] != null) {
+    contents[_RGI] = __expectString(output[_rGI]);
+  }
+  if (output[_de] != null) {
+    contents[_De] = __expectString(output[_de]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RevokedSecurityGroupRuleList
+ */
+const de_RevokedSecurityGroupRuleList = (output: any, context: __SerdeContext): RevokedSecurityGroupRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RevokedSecurityGroupRule(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2RevokeSecurityGroupEgressResult
  */
 const de_RevokeSecurityGroupEgressResult = (output: any, context: __SerdeContext): RevokeSecurityGroupEgressResult => {
@@ -77018,6 +77312,11 @@ const de_RevokeSecurityGroupEgressResult = (output: any, context: __SerdeContext
     contents[_UIP] = [];
   } else if (output[_uIPS] != null && output[_uIPS][_i] != null) {
     contents[_UIP] = de_IpPermissionList(__getArrayIfSingleItem(output[_uIPS][_i]), context);
+  }
+  if (output.revokedSecurityGroupRuleSet === "") {
+    contents[_RSGR] = [];
+  } else if (output[_rSGRS] != null && output[_rSGRS][_i] != null) {
+    contents[_RSGR] = de_RevokedSecurityGroupRuleList(__getArrayIfSingleItem(output[_rSGRS][_i]), context);
   }
   return contents;
 };
@@ -77037,6 +77336,11 @@ const de_RevokeSecurityGroupIngressResult = (
     contents[_UIP] = [];
   } else if (output[_uIPS] != null && output[_uIPS][_i] != null) {
     contents[_UIP] = de_IpPermissionList(__getArrayIfSingleItem(output[_uIPS][_i]), context);
+  }
+  if (output.revokedSecurityGroupRuleSet === "") {
+    contents[_RSGR] = [];
+  } else if (output[_rSGRS] != null && output[_rSGRS][_i] != null) {
+    contents[_RSGR] = de_RevokedSecurityGroupRuleList(__getArrayIfSingleItem(output[_rSGRS][_i]), context);
   }
   return contents;
 };
@@ -77566,6 +77870,9 @@ const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup =
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
+  if (output[_sGA] != null) {
+    contents[_SGA] = __expectString(output[_sGA]);
+  }
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
@@ -77746,8 +78053,8 @@ const de_SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGro
   if (output[_pLI] != null) {
     contents[_PLI] = __expectString(output[_pLI]);
   }
-  if (output[_rGI] != null) {
-    contents[_RGIe] = de_ReferencedSecurityGroup(output[_rGI], context);
+  if (output[_rGIe] != null) {
+    contents[_RGIe] = de_ReferencedSecurityGroup(output[_rGIe], context);
   }
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
@@ -77756,6 +78063,9 @@ const de_SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGro
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_sGRA] != null) {
+    contents[_SGRA] = __expectString(output[_sGRA]);
   }
   return contents;
 };
@@ -77768,6 +78078,40 @@ const de_SecurityGroupRuleList = (output: any, context: __SerdeContext): Securit
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SecurityGroupRule(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2SecurityGroupVpcAssociation
+ */
+const de_SecurityGroupVpcAssociation = (output: any, context: __SerdeContext): SecurityGroupVpcAssociation => {
+  const contents: any = {};
+  if (output[_gIr] != null) {
+    contents[_GIr] = __expectString(output[_gIr]);
+  }
+  if (output[_vI] != null) {
+    contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_vOIp] != null) {
+    contents[_VOIp] = __expectString(output[_vOIp]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_sR] != null) {
+    contents[_SRt] = __expectString(output[_sR]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2SecurityGroupVpcAssociationList
+ */
+const de_SecurityGroupVpcAssociationList = (output: any, context: __SerdeContext): SecurityGroupVpcAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityGroupVpcAssociation(entry, context);
     });
 };
 
@@ -83431,6 +83775,7 @@ const _ASGE = "AuthorizeSecurityGroupEgress";
 const _ASGI = "AuthorizeSecurityGroupIngress";
 const _ASGId = "AddSecurityGroupIds";
 const _ASGTCVTN = "ApplySecurityGroupsToClientVpnTargetNetwork";
+const _ASGV = "AssociateSecurityGroupVpc";
 const _ASI = "AddSubnetIds";
 const _ASIAT = "AddSupportedIpAddressTypes";
 const _ASS = "AmdSevSnp";
@@ -84057,6 +84402,8 @@ const _DSFRH = "DescribeSpotFleetRequestHistory";
 const _DSG = "DeleteSecurityGroup";
 const _DSGR = "DescribeSecurityGroupReferences";
 const _DSGRe = "DescribeSecurityGroupRules";
+const _DSGV = "DisassociateSecurityGroupVpc";
+const _DSGVA = "DescribeSecurityGroupVpcAssociations";
 const _DSGe = "DescribeSecurityGroups";
 const _DSI = "DescribeScheduledInstances";
 const _DSIA = "DescribeScheduledInstanceAvailability";
@@ -85331,6 +85678,7 @@ const _RSFRB = "RestoreSnapshotFromRecycleBin";
 const _RSGE = "RevokeSecurityGroupEgress";
 const _RSGI = "RevokeSecurityGroupIngress";
 const _RSGIe = "RemoveSecurityGroupIds";
+const _RSGR = "RevokedSecurityGroupRules";
 const _RSI = "RequestSpotInstances";
 const _RSIAT = "RemoveSupportedIpAddressTypes";
 const _RSIe = "RemoveSubnetIds";
@@ -85434,16 +85782,19 @@ const _SFRI = "SpotFleetRequestIds";
 const _SFRIp = "SpotFleetRequestId";
 const _SFRS = "SpotFleetRequestState";
 const _SG = "SecurityGroups";
+const _SGA = "SecurityGroupArn";
 const _SGFV = "SecurityGroupForVpcs";
 const _SGI = "SecurityGroupIds";
 const _SGIe = "SecurityGroupId";
 const _SGR = "SecurityGroupRules";
+const _SGRA = "SecurityGroupRuleArn";
 const _SGRD = "SecurityGroupRuleDescriptions";
 const _SGRI = "SecurityGroupRuleIds";
 const _SGRIe = "SecurityGroupRuleId";
 const _SGRS = "SecurityGroupReferencingSupport";
 const _SGRSe = "SecurityGroupReferenceSet";
 const _SGRe = "SecurityGroupRule";
+const _SGVA = "SecurityGroupVpcAssociations";
 const _SGe = "SecurityGroup";
 const _SH = "StartHour";
 const _SI = "StartInstances";
@@ -87043,7 +87394,8 @@ const _rET = "restoreExpiryTime";
 const _rEe = "regionEndpoint";
 const _rFP = "rekeyFuzzPercentage";
 const _rGA = "ruleGroupArn";
-const _rGI = "referencedGroupInfo";
+const _rGI = "referencedGroupId";
+const _rGIe = "referencedGroupInfo";
 const _rGROPS = "ruleGroupRuleOptionsPairSet";
 const _rGT = "ruleGroupType";
 const _rGTPS = "ruleGroupTypePairSet";
@@ -87087,6 +87439,7 @@ const _rRVT = "replaceRootVolumeTask";
 const _rRVTI = "replaceRootVolumeTaskId";
 const _rRVTS = "replaceRootVolumeTaskSet";
 const _rS = "reservationSet";
+const _rSGRS = "revokedSecurityGroupRuleSet";
 const _rST = "restoreStartTime";
 const _rSe = "replacementStrategy";
 const _rSes = "resourceStatement";
@@ -87163,17 +87516,20 @@ const _sFRI = "spotFleetRequestId";
 const _sFRS = "successfulFleetRequestSet";
 const _sFRSp = "spotFleetRequestState";
 const _sG = "securityGroup";
+const _sGA = "securityGroupArn";
 const _sGFVS = "securityGroupForVpcSet";
 const _sGI = "securityGroupId";
 const _sGIS = "securityGroupIdSet";
 const _sGIe = "securityGroupIds";
 const _sGIec = "securityGroupInfo";
 const _sGR = "securityGroupRule";
+const _sGRA = "securityGroupRuleArn";
 const _sGRI = "securityGroupRuleId";
 const _sGRS = "securityGroupRuleSet";
 const _sGRSe = "securityGroupReferenceSet";
 const _sGRSec = "securityGroupReferencingSupport";
 const _sGS = "securityGroupSet";
+const _sGVAS = "securityGroupVpcAssociationSet";
 const _sGe = "securityGroups";
 const _sH = "startHour";
 const _sI = "serviceId";

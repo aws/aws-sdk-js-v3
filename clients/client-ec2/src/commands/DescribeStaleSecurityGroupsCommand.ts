@@ -28,9 +28,14 @@ export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSe
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the stale security group rules for security groups in a specified VPC.
- *           Rules are stale when they reference a deleted security group in a peered VPC. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has
- *           been deleted.</p>
+ * <p>Describes the stale security group rules for security groups referenced across a VPC
+ *             peering connection, transit gateway connection, or with a security group VPC
+ *             association. Rules are stale when they reference a deleted security group. Rules can
+ *             also be stale if they reference a security group in a peer VPC for which the VPC peering
+ *             connection has been deleted, across a transit gateway where the transit gateway has been
+ *             deleted (or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">the transit
+ *                 gateway security group referencing feature</a> has been disabled), or if a
+ *             security group VPC association has been disassociated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -141,6 +141,21 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * //       ],
  * //     },
  * //   ],
+ * //   RevokedSecurityGroupRules: [ // RevokedSecurityGroupRuleList
+ * //     { // RevokedSecurityGroupRule
+ * //       SecurityGroupRuleId: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       IsEgress: true || false,
+ * //       IpProtocol: "STRING_VALUE",
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //       CidrIpv4: "STRING_VALUE",
+ * //       CidrIpv6: "STRING_VALUE",
+ * //       PrefixListId: "STRING_VALUE",
+ * //       ReferencedGroupId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -15,13 +15,17 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  CapacityReservation,
+  CapacityAllocation,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationState,
+  CapacityReservationTenancy,
+  CapacityReservationType,
+  EndDateType,
   InstanceEventWindow,
+  InstanceMatchCriteria,
   NatGatewayAddress,
   PortRange,
-  Protocol,
   ResourceType,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -31,6 +35,291 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservation {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>
+   * @public
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationArn?: string;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Reservation.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform;
+
+  /**
+   * <p>The Availability Zone in which the capacity is reserved.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy;
+
+  /**
+   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  TotalInstanceCount?: number;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides
+   * 			dedicated throughput to Amazon EBS and an optimized configuration stack to provide
+   * 			optimal I/O performance. This optimization isn't available with all instance types.
+   * 			Additional usage charges apply when using an EBS- optimized instance.</p>
+   * @public
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>
+   *             <i>Deprecated.</i>
+   *          </p>
+   * @public
+   */
+  EphemeralStorage?: boolean;
+
+  /**
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
+   * 					in your request. The reserved capacity is no longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
+   * 					longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
+   * 					provisioning is still pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
+   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
+   * 					Failed requests are retained for 60 minutes.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: CapacityReservationState;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was started.</p>
+   * @public
+   */
+  StartDate?: Date;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
+   * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
+   * 				<code>expired</code> when it reaches its end date and time.</p>
+   * @public
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
+   * 			types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndDateType?: EndDateType;
+
+  /**
+   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
+   * 			include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform,
+   * 				and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying
+   * 				any additional parameters.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes
+   * 					(instance type, platform, and Availability Zone), and explicitly target the
+   * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InstanceMatchCriteria?: InstanceMatchCriteria;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was created.</p>
+   * @public
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>Any tags assigned to the Capacity Reservation.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which the Capacity
+   * 	  		Reservation was created.</p>
+   * @public
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs.
+   * 			Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.</p>
+   * @public
+   */
+  CapacityReservationFleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
+   * 			the Capacity Reservation was created. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
+   * 				Capacity Reservations for cluster placement groups</a> in the
+   * 			<i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PlacementGroupArn?: string;
+
+  /**
+   * <p>Information about instance capacity usage.</p>
+   * @public
+   */
+  CapacityAllocations?: CapacityAllocation[];
+
+  /**
+   * <p>The type of Capacity Reservation.</p>
+   * @public
+   */
+  ReservationType?: CapacityReservationType;
+
+  /**
+   * <p>The ID of the Amazon Web Services account to which billing of the unused capacity
+   * 			of the Capacity Reservation is assigned.</p>
+   * @public
+   */
+  UnusedReservationBillingOwnerId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationResult {
+  /**
+   * <p>Information about the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservation?: CapacityReservation;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationBySplittingRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>
+   * 			The ID of the Capacity Reservation from which you want to split the available capacity.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservationId: string | undefined;
+
+  /**
+   * <p>
+   * 			The number of instances to split from the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>
+   * 			The tags to apply to the new Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+}
 
 /**
  * @public
@@ -8662,11 +8951,13 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
 
   /**
    * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
-   *                 <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
+   *             <code>efa</code> or <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you are not creating an EFA, specify <code>interface</code> or omit this
    *             parameter.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code>
+   *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
+   *             interface. EFA-only network interfaces do not support IP addresses.</p>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code>
    *          </p>
    * @public
    */
@@ -12053,131 +12344,6 @@ export interface CreateNetworkInsightsAccessScopeResult {
    * @public
    */
   NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent;
-}
-
-/**
- * <p>Describes a port range.</p>
- * @public
- */
-export interface RequestFilterPortRange {
-  /**
-   * <p>The first port in the range.</p>
-   * @public
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The last port in the range.</p>
-   * @public
-   */
-  ToPort?: number;
-}
-
-/**
- * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
- *          there can be multiple resulting paths.</p>
- * @public
- */
-export interface PathRequestFilter {
-  /**
-   * <p>The source IPv4 address.</p>
-   * @public
-   */
-  SourceAddress?: string;
-
-  /**
-   * <p>The source port range.</p>
-   * @public
-   */
-  SourcePortRange?: RequestFilterPortRange;
-
-  /**
-   * <p>The destination IPv4 address.</p>
-   * @public
-   */
-  DestinationAddress?: string;
-
-  /**
-   * <p>The destination port range.</p>
-   * @public
-   */
-  DestinationPortRange?: RequestFilterPortRange;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsPathRequest {
-  /**
-   * <p>The IP address of the source.</p>
-   * @public
-   */
-  SourceIp?: string;
-
-  /**
-   * <p>The IP address of the destination.</p>
-   * @public
-   */
-  DestinationIp?: string;
-
-  /**
-   * <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
-   * @public
-   */
-  Source: string | undefined;
-
-  /**
-   * <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
-   * @public
-   */
-  Destination?: string;
-
-  /**
-   * <p>The protocol.</p>
-   * @public
-   */
-  Protocol: Protocol | undefined;
-
-  /**
-   * <p>The destination port.</p>
-   * @public
-   */
-  DestinationPort?: number;
-
-  /**
-   * <p>The tags to add to the path.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the source. If you specify
-   *           this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
-   * @public
-   */
-  FilterAtSource?: PathRequestFilter;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify
-   *           this parameter, you can't specify the parameter for the destination IP address.</p>
-   * @public
-   */
-  FilterAtDestination?: PathRequestFilter;
 }
 
 /**

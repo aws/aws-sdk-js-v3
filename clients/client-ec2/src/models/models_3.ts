@@ -16,7 +16,6 @@ import {
   BundleTask,
   BundleTaskFilterSensitiveLog,
   ByoipCidr,
-  CapacityReservation,
   CapacityReservationFleetState,
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
@@ -35,6 +34,7 @@ import {
 
 import {
   _InstanceType,
+  CapacityReservation,
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
@@ -58,6 +58,7 @@ import {
   FleetReplacementStrategy,
   FleetType,
   InstanceLifecycle,
+  LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -89,6 +90,84 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplate?: LaunchTemplate;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version numbers of one or more launch template versions to delete. You can specify
+   *             up to 200 launch template version numbers.</p>
+   * @public
+   */
+  Versions: string[] | undefined;
+}
 
 /**
  * <p>Describes a launch template version that was successfully deleted.</p>
@@ -8732,66 +8811,6 @@ export interface DescribeIdentityIdFormatResult {
    */
   Statuses?: IdFormat[];
 }
-
-/**
- * @public
- */
-export interface DescribeIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *            <code>network-acl</code> | <code>network-acl-association</code> |
-   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *            <code>route-table-association</code> | <code>security-group</code> |
-   *            <code>snapshot</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   * @public
-   */
-  Resource?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resource.</p>
-   * @public
-   */
-  Statuses?: IdFormat[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageAttributeName = {
-  blockDeviceMapping: "blockDeviceMapping",
-  bootMode: "bootMode",
-  deregistrationProtection: "deregistrationProtection",
-  description: "description",
-  imdsSupport: "imdsSupport",
-  kernel: "kernel",
-  lastLaunchedTime: "lastLaunchedTime",
-  launchPermission: "launchPermission",
-  productCodes: "productCodes",
-  ramdisk: "ramdisk",
-  sriovNetSupport: "sriovNetSupport",
-  tpmSupport: "tpmSupport",
-  uefiData: "uefiData",
-} as const;
-
-/**
- * @public
- */
-export type ImageAttributeName = (typeof ImageAttributeName)[keyof typeof ImageAttributeName];
 
 /**
  * @internal

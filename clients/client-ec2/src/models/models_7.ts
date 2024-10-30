@@ -6,7 +6,6 @@ import {
   AddressAttribute,
   AddressAttributeName,
   ByoipCidr,
-  CapacityReservation,
   CapacityReservationInstancePlatform,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
@@ -22,12 +21,15 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 
 import {
   _InstanceType,
   AmdSevSnpSpecification,
   BlockDeviceMapping,
+  CapacityReservation,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
@@ -41,10 +43,13 @@ import {
   RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
+  VolumeType,
 } from "./models_1";
 
 import {
+  DnsOptionsSpecification,
   IKEVersionsRequestListValue,
+  IpAddressType,
   PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
@@ -54,7 +59,9 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   SnapshotState,
   SSEType,
+  SubnetConfiguration,
   TransitGatewayRoute,
+  VerifiedAccessSseSpecificationRequest,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnTunnelLogOptionsSpecification,
@@ -64,6 +71,7 @@ import { Byoasn, ClientVpnConnectionStatus, Filter, InstanceTagNotificationAttri
 
 import {
   ArchitectureValues,
+  AttributeBooleanValue,
   BootModeValues,
   HttpTokensState,
   ImdsSupportValues,
@@ -90,9 +98,358 @@ import {
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
+  VolumeModification,
 } from "./models_5";
 
-import { CapacityReservationSpecification, Purchase } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  ModifyVerifiedAccessTrustProviderDeviceOptions,
+  ModifyVerifiedAccessTrustProviderOidcOptions,
+  ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog,
+  Purchase,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Verified Access trust provider.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
+   * @public
+   */
+  OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
+
+  /**
+   * <p>The options for a device-based trust provider. This parameter is required when the
+   *          provider type is <code>device</code>.</p>
+   * @public
+   */
+  DeviceOptions?: ModifyVerifiedAccessTrustProviderDeviceOptions;
+
+  /**
+   * <p>A description for the Verified Access trust provider.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderResult {
+  /**
+   * <p>Details about the Verified Access trust provider.</p>
+   * @public
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>The target size of the volume, in GiB. The target volume size must be greater than or
+   *       equal to the existing size of the volume.</p>
+   *          <p>The following are the supported volumes sizes for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>: 4 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io2</code>: 4 - 65,536 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1 - 1024 GiB</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: The existing size is retained.</p>
+   * @public
+   */
+  Size?: number;
+
+  /**
+   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
+   *          <p>Default: The existing type is retained.</p>
+   * @public
+   */
+  VolumeType?: VolumeType;
+
+  /**
+   * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
+   *          <p>The following are the supported values for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
+   * <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
+   * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
+   *          <p>Default: The existing value is retained if you keep the same volume type. If you change
+   *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
+   * @public
+   */
+  Iops?: number;
+
+  /**
+   * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
+   *       The maximum value is 1,000.</p>
+   *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
+   *       Otherwise, the default value is 125.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   * @public
+   */
+  Throughput?: number;
+
+  /**
+   * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
+   * 	  volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
+   * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
+   * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * @public
+   */
+  MultiAttachEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeResult {
+  /**
+   * <p>Information about the volume modification.</p>
+   * @public
+   */
+  VolumeModification?: VolumeModification;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeAttributeRequest {
+  /**
+   * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
+   * @public
+   */
+  AutoEnableIO?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcAttributeRequest {
+  /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p>
+   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>
+   * @public
+   */
+  EnableDnsHostnames?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to
+   * 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP
+   * 			address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon
+   * 			provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is
+   * 			not enabled.</p>
+   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
+   * @public
+   */
+  EnableDnsSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   * @public
+   */
+  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the endpoint.</p>
+   * @public
+   */
+  VpcEndpointId: string | undefined;
+
+  /**
+   * <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the
+   *             default policy. The default policy allows full access to the service.</p>
+   * @public
+   */
+  ResetPolicy?: boolean;
+
+  /**
+   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must
+   *             be in valid JSON format.</p>
+   * @public
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</p>
+   * @public
+   */
+  AddRouteTableIds?: string[];
+
+  /**
+   * <p>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</p>
+   * @public
+   */
+  RemoveRouteTableIds?: string[];
+
+  /**
+   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to serve the endpoint.
+   *             For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   * @public
+   */
+  AddSubnetIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</p>
+   * @public
+   */
+  RemoveSubnetIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
+   * @public
+   */
+  AddSecurityGroupIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
+   * @public
+   */
+  RemoveSecurityGroupIds?: string[];
+
+  /**
+   * <p>The IP address type for the endpoint.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType;
+
+  /**
+   * <p>The DNS options for the endpoint.</p>
+   * @public
+   */
+  DnsOptions?: DnsOptionsSpecification;
+
+  /**
+   * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
+   * @public
+   */
+  PrivateDnsEnabled?: boolean;
+
+  /**
+   * <p>The subnet configurations for the endpoint.</p>
+   * @public
+   */
+  SubnetConfigurations?: SubnetConfiguration[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean;
+}
 
 /**
  * @public
@@ -3763,6 +4120,78 @@ export interface RevokeSecurityGroupEgressRequest {
 }
 
 /**
+ * <p>A security group rule removed with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeSecurityGroupEgress.html">RevokeSecurityGroupEgress</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeSecurityGroupIngress.html">RevokeSecurityGroupIngress</a>.</p>
+ * @public
+ */
+export interface RevokedSecurityGroupRule {
+  /**
+   * <p>A security group rule ID.</p>
+   * @public
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>A security group ID.</p>
+   * @public
+   */
+  GroupId?: string;
+
+  /**
+   * <p>Defines if a security group rule is an outbound rule.</p>
+   * @public
+   */
+  IsEgress?: boolean;
+
+  /**
+   * <p>The security group rule's protocol.</p>
+   * @public
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The 'from' port number of the security group rule.</p>
+   * @public
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The 'to' port number of the security group rule.</p>
+   * @public
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The IPv4 CIDR of the traffic source.</p>
+   * @public
+   */
+  CidrIpv4?: string;
+
+  /**
+   * <p>The IPv6 CIDR of the traffic source.</p>
+   * @public
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>The ID of a prefix list that's the traffic source.</p>
+   * @public
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The ID of a referenced security group.</p>
+   * @public
+   */
+  ReferencedGroupId?: string;
+
+  /**
+   * <p>A description of the revoked security group rule.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
  * @public
  */
 export interface RevokeSecurityGroupEgressResult {
@@ -3779,6 +4208,12 @@ export interface RevokeSecurityGroupEgressResult {
    * @public
    */
   UnknownIpPermissions?: IpPermission[];
+
+  /**
+   * <p>Details about the revoked security group rules.</p>
+   * @public
+   */
+  RevokedSecurityGroupRules?: RevokedSecurityGroupRule[];
 }
 
 /**
@@ -3880,6 +4315,12 @@ export interface RevokeSecurityGroupIngressResult {
    * @public
    */
   UnknownIpPermissions?: IpPermission[];
+
+  /**
+   * <p>Details about the revoked security group rules.</p>
+   * @public
+   */
+  RevokedSecurityGroupRules?: RevokedSecurityGroupRule[];
 }
 
 /**
@@ -6088,6 +6529,30 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.OidcOptions && {
+    OidcOptions: ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
 
 /**
  * @internal

@@ -33,7 +33,7 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  *          to the session to define a subset of the traffic to mirror, for example all TCP
  *          traffic.</p>
  *          <p>The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway. </p>
- *          <p>By default, no traffic is mirrored. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.htm">CreateTrafficMirrorFilter</a> to
+ *          <p>By default, no traffic is mirrored. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.html">CreateTrafficMirrorFilter</a> to
  *          create filter rules that specify the traffic to mirror.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

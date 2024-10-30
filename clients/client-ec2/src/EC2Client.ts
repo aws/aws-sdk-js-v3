@@ -150,6 +150,10 @@ import {
   AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
 import {
+  AssociateSecurityGroupVpcCommandInput,
+  AssociateSecurityGroupVpcCommandOutput,
+} from "./commands/AssociateSecurityGroupVpcCommand";
+import {
   AssociateSubnetCidrBlockCommandInput,
   AssociateSubnetCidrBlockCommandOutput,
 } from "./commands/AssociateSubnetCidrBlockCommand";
@@ -1135,6 +1139,10 @@ import {
   DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand";
 import {
+  DescribeSecurityGroupVpcAssociationsCommandInput,
+  DescribeSecurityGroupVpcAssociationsCommandOutput,
+} from "./commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
 } from "./commands/DescribeSnapshotAttributeCommand";
@@ -1435,6 +1443,10 @@ import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
+import {
+  DisassociateSecurityGroupVpcCommandInput,
+  DisassociateSecurityGroupVpcCommandOutput,
+} from "./commands/DisassociateSecurityGroupVpcCommand";
 import {
   DisassociateSubnetCidrBlockCommandInput,
   DisassociateSubnetCidrBlockCommandOutput,
@@ -2247,6 +2259,7 @@ export type ServiceInputTypes =
   | AssociateIpamResourceDiscoveryCommandInput
   | AssociateNatGatewayAddressCommandInput
   | AssociateRouteTableCommandInput
+  | AssociateSecurityGroupVpcCommandInput
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
   | AssociateTransitGatewayPolicyTableCommandInput
@@ -2547,6 +2560,7 @@ export type ServiceInputTypes =
   | DescribeScheduledInstancesCommandInput
   | DescribeSecurityGroupReferencesCommandInput
   | DescribeSecurityGroupRulesCommandInput
+  | DescribeSecurityGroupVpcAssociationsCommandInput
   | DescribeSecurityGroupsCommandInput
   | DescribeSnapshotAttributeCommandInput
   | DescribeSnapshotTierStatusCommandInput
@@ -2630,6 +2644,7 @@ export type ServiceInputTypes =
   | DisassociateIpamResourceDiscoveryCommandInput
   | DisassociateNatGatewayAddressCommandInput
   | DisassociateRouteTableCommandInput
+  | DisassociateSecurityGroupVpcCommandInput
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
   | DisassociateTransitGatewayPolicyTableCommandInput
@@ -2886,6 +2901,7 @@ export type ServiceOutputTypes =
   | AssociateIpamResourceDiscoveryCommandOutput
   | AssociateNatGatewayAddressCommandOutput
   | AssociateRouteTableCommandOutput
+  | AssociateSecurityGroupVpcCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
   | AssociateTransitGatewayPolicyTableCommandOutput
@@ -3186,6 +3202,7 @@ export type ServiceOutputTypes =
   | DescribeScheduledInstancesCommandOutput
   | DescribeSecurityGroupReferencesCommandOutput
   | DescribeSecurityGroupRulesCommandOutput
+  | DescribeSecurityGroupVpcAssociationsCommandOutput
   | DescribeSecurityGroupsCommandOutput
   | DescribeSnapshotAttributeCommandOutput
   | DescribeSnapshotTierStatusCommandOutput
@@ -3269,6 +3286,7 @@ export type ServiceOutputTypes =
   | DisassociateIpamResourceDiscoveryCommandOutput
   | DisassociateNatGatewayAddressCommandOutput
   | DisassociateRouteTableCommandOutput
+  | DisassociateSecurityGroupVpcCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
   | DisassociateTransitGatewayPolicyTableCommandOutput

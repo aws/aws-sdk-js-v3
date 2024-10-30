@@ -50,13 +50,137 @@ import {
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  LaunchTemplate,
   PrivateIpAddressSpecification,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a port range.</p>
+ * @public
+ */
+export interface RequestFilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   * @public
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   * @public
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *          there can be multiple resulting paths.</p>
+ * @public
+ */
+export interface PathRequestFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   * @public
+   */
+  SourceAddress?: string;
+
+  /**
+   * <p>The source port range.</p>
+   * @public
+   */
+  SourcePortRange?: RequestFilterPortRange;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   * @public
+   */
+  DestinationAddress?: string;
+
+  /**
+   * <p>The destination port range.</p>
+   * @public
+   */
+  DestinationPortRange?: RequestFilterPortRange;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsPathRequest {
+  /**
+   * <p>The IP address of the source.</p>
+   * @public
+   */
+  SourceIp?: string;
+
+  /**
+   * <p>The IP address of the destination.</p>
+   * @public
+   */
+  DestinationIp?: string;
+
+  /**
+   * <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
+   * @public
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
+   * @public
+   */
+  Destination?: string;
+
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol: Protocol | undefined;
+
+  /**
+   * <p>The destination port.</p>
+   * @public
+   */
+  DestinationPort?: number;
+
+  /**
+   * <p>The tags to add to the path.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source. If you specify
+   *           this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
+   * @public
+   */
+  FilterAtSource?: PathRequestFilter;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify
+   *           this parameter, you can't specify the parameter for the destination IP address.</p>
+   * @public
+   */
+  FilterAtDestination?: PathRequestFilter;
+}
 
 /**
  * <p>Describes a port range.</p>
@@ -264,7 +388,9 @@ export interface CreateNetworkInterfaceRequest {
 
   /**
    * <p>The type of network interface. The default is <code>interface</code>.</p>
-   *          <p>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</p>
+   *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
+   *             interface. EFA-only network interfaces do not support IP addresses.</p>
+   *          <p>The only supported values are <code>interface</code>, <code>efa</code>, <code>efa-only</code>, and <code>trunk</code>.</p>
    * @public
    */
   InterfaceType?: NetworkInterfaceCreationType;
@@ -2012,6 +2138,12 @@ export interface CreateSecurityGroupResult {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The security group ARN.</p>
+   * @public
+   */
+  SecurityGroupArn?: string;
 }
 
 /**
@@ -9340,84 +9472,6 @@ export interface DeleteKeyPairResult {
    * @public
    */
   KeyPairId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateResult {
-  /**
-   * <p>Information about the launch template.</p>
-   * @public
-   */
-  LaunchTemplate?: LaunchTemplate;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version numbers of one or more launch template versions to delete. You can specify
-   *             up to 200 launch template version numbers.</p>
-   * @public
-   */
-  Versions: string[] | undefined;
 }
 
 /**

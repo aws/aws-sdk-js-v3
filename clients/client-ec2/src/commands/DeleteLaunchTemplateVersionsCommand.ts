@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteLaunchTemplateVersionsRequest } from "../models/models_2";
-import { DeleteLaunchTemplateVersionsResult } from "../models/models_3";
+import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_3";
 import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersionsCommand } from "../protocols/Aws_ec2";
 
 /**

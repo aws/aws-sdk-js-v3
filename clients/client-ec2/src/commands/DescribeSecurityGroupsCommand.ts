@@ -104,6 +104,7 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * //         },
  * //       ],
  * //       VpcId: "STRING_VALUE",
+ * //       SecurityGroupArn: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       GroupName: "STRING_VALUE",
  * //       Description: "STRING_VALUE",

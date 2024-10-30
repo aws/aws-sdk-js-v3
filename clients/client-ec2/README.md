@@ -424,6 +424,14 @@ AssociateRouteTable
 </details>
 <details>
 <summary>
+AssociateSecurityGroupVpc
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateSecurityGroupVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateSecurityGroupVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateSecurityGroupVpcCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateSubnetCidrBlock
 </summary>
 
@@ -2832,6 +2840,14 @@ DescribeSecurityGroups
 </details>
 <details>
 <summary>
+DescribeSecurityGroupVpcAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupVpcAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupVpcAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupVpcAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeSnapshotAttribute
 </summary>
 
@@ -3484,6 +3500,14 @@ DisassociateRouteTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateRouteTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateSecurityGroupVpc
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateSecurityGroupVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateSecurityGroupVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateSecurityGroupVpcCommandOutput/)
 
 </details>
 <details>

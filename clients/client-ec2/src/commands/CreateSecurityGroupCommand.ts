@@ -80,6 +80,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   SecurityGroupArn: "STRING_VALUE",
  * // };
  *
  * ```
