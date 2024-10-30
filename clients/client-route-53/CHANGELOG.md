@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-route-53:** This release adds support for TLSA, SSHFP, SVCB, and HTTPS record types. ([9029bbd](https://github.com/aws/aws-sdk-js-v3/commit/9029bbde2303091cac1002233b9a849cf4204b8c))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

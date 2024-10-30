@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-keyspaces:** Adds support for interacting with user-defined types (UDTs) through the following new operations: Create-Type, Delete-Type, List-Types, Get-Type. ([e96f70e](https://github.com/aws/aws-sdk-js-v3/commit/e96f70e703c24d56788569b2c5c2ca778ad9c799))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-keyspaces

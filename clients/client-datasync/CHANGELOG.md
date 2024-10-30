@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports Enhanced mode tasks. This task mode supports transfer of virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. This mode currently supports transfers between Amazon S3 locations. ([c86827e](https://github.com/aws/aws-sdk-js-v3/commit/c86827ee4a031635ff1602ba285d9dfa2ee36e1d))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

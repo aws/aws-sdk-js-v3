@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-connect:** Updated the public documentation for the UserIdentityInfo object to accurately reflect the character limits for the FirstName and LastName fields, which were previously listed as 1-100 characters. ([83a5718](https://github.com/aws/aws-sdk-js-v3/commit/83a5718bd60ab9af4d6bbcd192e020e30c2331d5))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

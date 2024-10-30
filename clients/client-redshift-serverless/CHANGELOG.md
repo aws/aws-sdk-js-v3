@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-redshift-serverless:** Adds and updates API members for the Redshift Serverless AI-driven scaling and optimization feature using the price-performance target setting. ([2c0ec7d](https://github.com/aws/aws-sdk-js-v3/commit/2c0ec7d4a3f68afc5932d9d48c51ee02f714d9f8))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless

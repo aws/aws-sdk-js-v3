@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-ec2:** This release adds two new capabilities to VPC Security Groups: Security Group VPC Associations and Shared Security Groups. ([095a3b8](https://github.com/aws/aws-sdk-js-v3/commit/095a3b870df7963495a112130f1526506f9cda99))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

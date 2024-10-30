@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-ecs:** This release supports service deployments and service revisions which provide a comprehensive view of your Amazon ECS service history. ([09bd2fa](https://github.com/aws/aws-sdk-js-v3/commit/09bd2fa4e893d7a52cb9301f61d83cf7ab875e2f))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-appsync:** This release adds support for AppSync Event APIs. ([a680861](https://github.com/aws/aws-sdk-js-v3/commit/a680861e5d07fe5a0ecfdb6e4c3dd8bb1f6dc11e))
+* **client-connect:** Updated the public documentation for the UserIdentityInfo object to accurately reflect the character limits for the FirstName and LastName fields, which were previously listed as 1-100 characters. ([83a5718](https://github.com/aws/aws-sdk-js-v3/commit/83a5718bd60ab9af4d6bbcd192e020e30c2331d5))
+* **client-datasync:** AWS DataSync now supports Enhanced mode tasks. This task mode supports transfer of virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. This mode currently supports transfers between Amazon S3 locations. ([c86827e](https://github.com/aws/aws-sdk-js-v3/commit/c86827ee4a031635ff1602ba285d9dfa2ee36e1d))
+* **client-ec2:** This release adds two new capabilities to VPC Security Groups: Security Group VPC Associations and Shared Security Groups. ([095a3b8](https://github.com/aws/aws-sdk-js-v3/commit/095a3b870df7963495a112130f1526506f9cda99))
+* **client-ecs:** This release supports service deployments and service revisions which provide a comprehensive view of your Amazon ECS service history. ([09bd2fa](https://github.com/aws/aws-sdk-js-v3/commit/09bd2fa4e893d7a52cb9301f61d83cf7ab875e2f))
+* **client-geo-maps:** Release of Amazon Location Maps API. Maps enables you to build digital maps that showcase your locations, visualize your data, and unlock insights to drive your business ([5f4e338](https://github.com/aws/aws-sdk-js-v3/commit/5f4e338bb8a80d148d037af5ab976a85e4977093))
+* **client-geo-places:** Release of Amazon Location Places API. Places enables you to quickly search, display, and filter places, businesses, and locations based on proximity, category, and name ([676a696](https://github.com/aws/aws-sdk-js-v3/commit/676a696884f115b3531ef3709bb5cbccfdb4c6be))
+* **client-geo-routes:** Release of Amazon Location Routes API. Routes enables you to plan efficient routes and streamline deliveries by leveraging real-time traffic, vehicle restrictions, and turn-by-turn directions. ([62dc2fd](https://github.com/aws/aws-sdk-js-v3/commit/62dc2fd171e6210291fc6bc703961aa6dfa22052))
+* **client-keyspaces:** Adds support for interacting with user-defined types (UDTs) through the following new operations: Create-Type, Delete-Type, List-Types, Get-Type. ([e96f70e](https://github.com/aws/aws-sdk-js-v3/commit/e96f70e703c24d56788569b2c5c2ca778ad9c799))
+* **client-network-firewall:** AWS Network Firewall now supports configuring TCP idle timeout ([bf77a24](https://github.com/aws/aws-sdk-js-v3/commit/bf77a245bbdd35a1f9e533053911233c1d7644f3))
+* **client-opensearchserverless:** Neo Integration via IAM Identity Center (IdC) ([cecccbe](https://github.com/aws/aws-sdk-js-v3/commit/cecccbe15baf8756c9cad29c42cf90d3dd3bf138))
+* **client-opensearch:** This release introduces the new OpenSearch user interface (Dashboards), a new web-based application that can be associated with multiple data sources across OpenSearch managed clusters, serverless collections, and Amazon S3, so that users can gain a comprehensive insights in an unified interface. ([ec14d7a](https://github.com/aws/aws-sdk-js-v3/commit/ec14d7a81a46f19b676217bdb3c8334ba371108f))
+* **client-redshift-serverless:** Adds and updates API members for the Redshift Serverless AI-driven scaling and optimization feature using the price-performance target setting. ([2c0ec7d](https://github.com/aws/aws-sdk-js-v3/commit/2c0ec7d4a3f68afc5932d9d48c51ee02f714d9f8))
+* **client-redshift:** This release launches S3 event integrations to create and manage integrations from an Amazon S3 source into an Amazon Redshift database. ([32d38b0](https://github.com/aws/aws-sdk-js-v3/commit/32d38b0a731a44295f08ac3937052ab5de840ea6))
+* **client-route-53:** This release adds support for TLSA, SSHFP, SVCB, and HTTPS record types. ([9029bbd](https://github.com/aws/aws-sdk-js-v3/commit/9029bbde2303091cac1002233b9a849cf4204b8c))
+* **client-sagemaker:** Added support for Model Registry Staging construct. Users can define series of stages that models can progress through for model workflows and lifecycle. This simplifies tracking and managing models as they transition through development, testing, and production stages. ([f2d0604](https://github.com/aws/aws-sdk-js-v3/commit/f2d060494f614cea436f1bfca46594f4b49549c6))
+* **client-workmail:** This release adds support for Multi-Factor Authentication (MFA) and Personal Access Tokens through integration with AWS IAM Identity Center. ([b43c3aa](https://github.com/aws/aws-sdk-js-v3/commit/b43c3aa5d4ba1850889240b490b26dbfb21e1c31))
+* **clients:** update client endpoints as of 2024-10-30 ([3bc6bd0](https://github.com/aws/aws-sdk-js-v3/commit/3bc6bd0e24faf8f2a2d7ec8ad5e71f05c4b7c86a))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 

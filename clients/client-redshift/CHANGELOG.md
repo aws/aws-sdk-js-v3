@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
+
+
+### Features
+
+* **client-redshift:** This release launches S3 event integrations to create and manage integrations from an Amazon S3 source into an Amazon Redshift database. ([32d38b0](https://github.com/aws/aws-sdk-js-v3/commit/32d38b0a731a44295f08ac3937052ab5de840ea6))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift
