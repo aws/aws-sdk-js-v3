@@ -93,6 +93,14 @@ import {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
+import {
+  DescribeServiceDeploymentsCommandInput,
+  DescribeServiceDeploymentsCommandOutput,
+} from "./commands/DescribeServiceDeploymentsCommand";
+import {
+  DescribeServiceRevisionsCommandInput,
+  DescribeServiceRevisionsCommandOutput,
+} from "./commands/DescribeServiceRevisionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeTaskDefinitionCommandInput,
@@ -116,6 +124,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServiceDeploymentsCommandInput,
+  ListServiceDeploymentsCommandOutput,
+} from "./commands/ListServiceDeploymentsCommand";
 import {
   ListServicesByNamespaceCommandInput,
   ListServicesByNamespaceCommandOutput,
@@ -227,6 +239,8 @@ export type ServiceInputTypes =
   | DescribeCapacityProvidersCommandInput
   | DescribeClustersCommandInput
   | DescribeContainerInstancesCommandInput
+  | DescribeServiceDeploymentsCommandInput
+  | DescribeServiceRevisionsCommandInput
   | DescribeServicesCommandInput
   | DescribeTaskDefinitionCommandInput
   | DescribeTaskSetsCommandInput
@@ -238,6 +252,7 @@ export type ServiceInputTypes =
   | ListAttributesCommandInput
   | ListClustersCommandInput
   | ListContainerInstancesCommandInput
+  | ListServiceDeploymentsCommandInput
   | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
@@ -288,6 +303,8 @@ export type ServiceOutputTypes =
   | DescribeCapacityProvidersCommandOutput
   | DescribeClustersCommandOutput
   | DescribeContainerInstancesCommandOutput
+  | DescribeServiceDeploymentsCommandOutput
+  | DescribeServiceRevisionsCommandOutput
   | DescribeServicesCommandOutput
   | DescribeTaskDefinitionCommandOutput
   | DescribeTaskSetsCommandOutput
@@ -299,6 +316,7 @@ export type ServiceOutputTypes =
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
   | ListContainerInstancesCommandOutput
+  | ListServiceDeploymentsCommandOutput
   | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput

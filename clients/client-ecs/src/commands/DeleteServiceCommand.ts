@@ -109,8 +109,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //         alarmNames: [ // StringList // required
  * //           "STRING_VALUE",
  * //         ],
- * //         enable: true || false, // required
  * //         rollback: true || false, // required
+ * //         enable: true || false, // required
  * //       },
  * //     },
  * //     taskSets: [ // TaskSets
@@ -353,7 +353,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>

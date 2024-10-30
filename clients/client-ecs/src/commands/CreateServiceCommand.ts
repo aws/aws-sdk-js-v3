@@ -31,7 +31,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
- * 			service, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
+ * 			service, see the <a>UpdateService</a> action.</p>
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
@@ -164,8 +164,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       alarmNames: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
- *       enable: true || false, // required
  *       rollback: true || false, // required
+ *       enable: true || false, // required
  *     },
  *   },
  *   placementConstraints: [ // PlacementConstraints
@@ -323,8 +323,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         alarmNames: [ // StringList // required
  * //           "STRING_VALUE",
  * //         ],
- * //         enable: true || false, // required
  * //         rollback: true || false, // required
+ * //         enable: true || false, // required
  * //       },
  * //     },
  * //     taskSets: [ // TaskSets
@@ -570,7 +570,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>

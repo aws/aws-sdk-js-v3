@@ -32,7 +32,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * 			cluster when you launch your first container instance. However, you can create your own
  * 			cluster with a unique name.</p>
  *          <note>
- *             <p>When you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html">CreateCluster</a> API operation, Amazon ECS attempts to
+ *             <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
  * 				create the Amazon ECS service-linked role for your account. This is so that it can manage
  * 				required resources in other Amazon Web Services services on your behalf. However, if the user that
  * 				makes the call doesn't have permissions to create the service-linked role, it isn't
@@ -183,7 +183,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_1";
 import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -193,8 +193,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       alarmNames: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
- *       enable: true || false, // required
  *       rollback: true || false, // required
+ *       enable: true || false, // required
  *     },
  *   },
  *   networkConfiguration: { // NetworkConfiguration
@@ -360,8 +360,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //         alarmNames: [ // StringList // required
  * //           "STRING_VALUE",
  * //         ],
- * //         enable: true || false, // required
  * //         rollback: true || false, // required
+ * //         enable: true || false, // required
  * //       },
  * //     },
  * //     taskSets: [ // TaskSets
@@ -607,7 +607,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>

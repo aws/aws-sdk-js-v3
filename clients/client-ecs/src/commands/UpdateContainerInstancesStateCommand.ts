@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_0";
+import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_1";
 import {
   de_UpdateContainerInstancesStateCommand,
   se_UpdateContainerInstancesStateCommand,
@@ -206,7 +206,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>

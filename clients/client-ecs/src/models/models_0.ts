@@ -50,7 +50,7 @@ export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpd
  *             <li>
  *                <p>The <code>RunTask</code> could not be processed because you use managed
  * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					<code>PROVISIONING</code> per cluster has been reached. For information
  * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 						service quotas</a>.</p>
  *             </li>
@@ -131,8 +131,7 @@ export interface ManagedScaling {
   targetCapacity?: number;
 
   /**
-   * <p>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
-   * 			in process is not affected by this parameter If this parameter is omitted, the default
+   * <p>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default
    * 			value of <code>1</code> is used.</p>
    *          <p>When additional capacity is required, Amazon ECS will scale up the minimum scaling step
    * 			size even if the actual demand is less than the minimum scaling step size.</p>
@@ -671,7 +670,7 @@ export interface ExecuteCommandConfiguration {
  */
 export interface ManagedStorageConfiguration {
   /**
-   * <p>Specify a Key Management Service key ID to encrypt the managed storage.</p>
+   * <p>Specify a Amazon Web Services Key Management Service key ID to encrypt the managed storage.</p>
    * @public
    */
   kmsKeyId?: string;
@@ -1346,19 +1345,19 @@ export interface DeploymentAlarms {
   alarmNames: string[] | undefined;
 
   /**
-   * <p>Determines whether to use the CloudWatch alarm option in the service deployment
-   * 			process.</p>
-   * @public
-   */
-  enable: boolean | undefined;
-
-  /**
    * <p>Determines whether to configure Amazon ECS to roll back the service if a service deployment
    * 			fails. If rollback is used, when a service deployment fails, the service is rolled back
    * 			to the last deployment that completed successfully.</p>
    * @public
    */
   rollback: boolean | undefined;
+
+  /**
+   * <p>Determines whether to use the CloudWatch alarm option in the service deployment
+   * 			process.</p>
+   * @public
+   */
+  enable: boolean | undefined;
 }
 
 /**
@@ -1393,8 +1392,8 @@ export interface DeploymentCircuitBreaker {
 }
 
 /**
- * <p>Optional deployment parameters that control how many tasks run during a deployment and
- * 			the ordering of stopping and starting tasks.</p>
+ * <p>Optional deployment parameters that control how many tasks run during the deployment and the
+ * 			failure detection methods.</p>
  * @public
  */
 export interface DeploymentConfiguration {
@@ -1626,7 +1625,7 @@ export interface LoadBalancer {
   targetGroupArn?: string;
 
   /**
-   * <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
+   * <p>The name of the load balancer to associate with the service or task set.</p>
    *          <p>If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be
    * 			omitted.</p>
    * @public
@@ -2913,8 +2912,8 @@ export interface CreateServiceRequest {
   role?: string;
 
   /**
-   * <p>Optional deployment parameters that control how many tasks run during the deployment
-   * 			and the ordering of stopping and starting tasks.</p>
+   * <p>Optional deployment parameters that control how many tasks run during the deployment and the
+   * 			failure detection methods.</p>
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration;
@@ -2953,8 +2952,8 @@ export interface CreateServiceRequest {
    *          <p>If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code> in
    * 			the task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
    * 				check</a>.</p>
-   *          <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you
-   * 			can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
+   *          <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can
+   * 			specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
    * 			During that time, the Amazon ECS service scheduler ignores health check status. This grace
    * 			period can prevent the service scheduler from marking tasks as unhealthy and stopping
    * 			them before they have time to come up.</p>
@@ -3099,7 +3098,7 @@ export interface CreateServiceRequest {
  */
 export interface DeploymentEphemeralStorage {
   /**
-   * <p>Specify an Key Management Service key ID to encrypt the ephemeral storage for
+   * <p>Specify an Amazon Web Services Key Management Service key ID to encrypt the ephemeral storage for
    * 			deployment.</p>
    * @public
    */
@@ -3733,7 +3732,7 @@ export interface Service {
   launchType?: LaunchType;
 
   /**
-   * <p>The capacity provider strategy the service uses. When using the DescribeServices API,
+   * <p>The capacity provider strategy the service uses. When using <code>DescribeServices</code>,
    * 			this field is omitted if the service was created using a launch type.</p>
    * @public
    */
@@ -3869,9 +3868,8 @@ export interface Service {
   deploymentController?: DeploymentController;
 
   /**
-   * <p>The metadata that you apply to the service to help you categorize and organize them.
-   * 			Each tag consists of a key and an optional value. You define bot the key and
-   * 			value.</p>
+   * <p>The metadata that you apply to the service to help you categorize and organize them. Each
+   * 			tag consists of a key and an optional value. You define both the key and value.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
@@ -5333,13 +5331,13 @@ export const TransportProtocol = {
 export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
 
 /**
- * <p>Port mappings allow containers to access ports on the host container instance to send
- * 			or receive traffic. Port mappings are specified as part of the container
- * 			definition.</p>
- *          <p>If you use containers in a task with the <code>awsvpc</code> or <code>host</code>
- * 			network mode, specify the exposed ports using <code>containerPort</code>. The
- * 				<code>hostPort</code> can be left blank or it must be the same value as the
- * 				<code>containerPort</code>.</p>
+ * <p>Port mappings expose your container's network ports to the outside world. this allows
+ * 			clients to access your application. It's also used for inter-container communication
+ * 			within the same task.</p>
+ *          <p>For task definitions (both the Fargate and EC2 launch type) that use the
+ * 				<code>awsvpc</code> network mode, only specify the <code>containerPort</code>. The
+ * 				<code>hostPort</code> is always ignored, and the container port is automatically
+ * 			mapped to a random high-numbered port on the host.</p>
  *          <p>Most fields of this parameter (<code>containerPort</code>, <code>hostPort</code>,
  * 			<code>protocol</code>) maps to <code>PortBindings</code> in the docker container create command and the
  * 				<code>--publish</code> option to <code>docker
@@ -5359,13 +5357,16 @@ export interface PortMapping {
   /**
    * <p>The port number on the container that's bound to the user-specified or automatically
    * 			assigned host port.</p>
-   *          <p>If you use containers in a task with the <code>awsvpc</code> or <code>host</code>
-   * 			network mode, specify the exposed ports using <code>containerPort</code>.</p>
-   *          <p>If you use containers in a task with the <code>bridge</code> network mode and you
-   * 			specify a container port and not a host port, your container automatically receives a
-   * 			host port in the ephemeral port range. For more information, see <code>hostPort</code>.
-   * 			Port mappings that are automatically assigned in this way do not count toward the 100
-   * 			reserved ports limit of a container instance.</p>
+   *          <p>For tasks that use the Fargate launch type or EC2 tasks that use the
+   * 				<code>awsvpc</code> network mode, you use <code>containerPort</code> to specify the
+   * 			exposed ports.</p>
+   *          <p>For Windows containers on Fargate, you can't use port 3150 for the
+   * 				<code>containerPort</code>. This is because it's reserved.</p>
+   *          <p>Suppose that you're using containers in a task with the EC2 launch type
+   * 			and you specify a container port and not a host port. Then, your container automatically
+   * 			receives a host port in the ephemeral port range. For more information, see
+   * 				<code>hostPort</code>. Port mappings that are automatically assigned in this way
+   * 			don't count toward the 100 reserved ports quota of a container instance.</p>
    * @public
    */
   containerPort?: number;
@@ -5562,12 +5563,12 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export interface ResourceRequirement {
   /**
    * <p>The value for the specified resource type.</p>
-   *          <p>When the type is <code>GPU</code>, the value is the number of physical
-   * 				<code>GPUs</code> the Amazon ECS container agent reserves for the container. The number
-   * 			of GPUs that's reserved for all containers in a task can't exceed the number of
-   * 			available GPUs on the container instance that the task is launched on.</p>
-   *          <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the
-   * 				<code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
+   *          <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the
+   * 			Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for
+   * 			all containers in a task can't exceed the number of available GPUs on the container
+   * 			instance that the task is launched on.</p>
+   *          <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches
+   * 			the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
    * @public
    */
   value: string | undefined;
@@ -6763,12 +6764,14 @@ export interface RuntimePlatform {
    *          <p>You can run your Linux tasks on an ARM-based platform by setting the value to
    * 				<code>ARM64</code>. This option is available for tasks that run on Linux Amazon EC2
    * 			instance or Linux containers on Fargate.</p>
+   *          <p>The default is <code>X86_64</code>.</p>
    * @public
    */
   cpuArchitecture?: CPUArchitecture;
 
   /**
    * <p>The operating system.</p>
+   *          <p>The default is <code>Linux</code>.</p>
    * @public
    */
   operatingSystemFamily?: OSFamily;
@@ -7195,11 +7198,13 @@ export interface TaskDefinition {
    *                             to use a non-root user.</p>
    *          </important>
    *          <p>If the network mode is <code>awsvpc</code>, the task is allocated an elastic network
-   *             interface, and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a> value when you create
+   *             interface, and you must specify a <a>NetworkConfiguration</a> value when you create
    *             a service or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a> in the
    *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>If the network mode is <code>host</code>, you cannot run multiple instantiations of the
    *             same task on a single container instance when port mappings are used.</p>
+   *          <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+   *                 settings</a> in the <i>Docker run reference</i>.</p>
    * @public
    */
   networkMode?: NetworkMode;
@@ -7380,9 +7385,12 @@ export interface TaskDefinition {
    *          <p>If <code>task</code> is specified, all containers within the specified
    *                             task share the same process namespace.</p>
    *          <p>If no value is specified, the
-   *                             default is a private namespace for each container.</p>
+   *                             default is a private namespace for each container. For more information,
+   *                             see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
+   *                                 reference</i>.</p>
    *          <p>If the <code>host</code> PID mode is used, there's a heightened risk
-   *                             of undesired process namespace exposure.</p>
+   *                             of undesired process namespace exposure. For more information, see
+   *                                 <a href="https://docs.docker.com/engine/security/security/">Docker security</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -7405,9 +7413,12 @@ export interface TaskDefinition {
    *             share the same IPC resources. If <code>none</code> is specified, then IPC resources
    *             within the containers of a task are private and not shared with other containers in a
    *             task or on the container instance. If no value is specified, then the IPC resource
-   *             namespace sharing depends on the Docker daemon setting on the container instance.</p>
+   *             namespace sharing depends on the Docker daemon setting on the container instance. For
+   *             more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC
+   *                 settings</a> in the <i>Docker run reference</i>.</p>
    *          <p>If the <code>host</code> IPC mode is used, be aware that there is a heightened risk of
-   *             undesired IPC namespace expose.</p>
+   *             undesired IPC namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
+   *             security</a>.</p>
    *          <p>If you are setting namespaced kernel parameters using <code>systemControls</code> for
    *             the containers in the task, the following will apply to your IPC resource namespace. For
    *             more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
@@ -8175,6 +8186,501 @@ export interface DescribeContainerInstancesResponse {
 
 /**
  * @public
+ */
+export interface DescribeServiceDeploymentsRequest {
+  /**
+   * <p>The ARN of the service deployment.</p>
+   *          <p>You can specify a maximum of 20 ARNs.</p>
+   * @public
+   */
+  serviceDeploymentArns: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceDeploymentRollbackMonitorsStatus = {
+  DISABLED: "DISABLED",
+  MONITORING: "MONITORING",
+  MONITORING_COMPLETE: "MONITORING_COMPLETE",
+  TRIGGERED: "TRIGGERED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceDeploymentRollbackMonitorsStatus =
+  (typeof ServiceDeploymentRollbackMonitorsStatus)[keyof typeof ServiceDeploymentRollbackMonitorsStatus];
+
+/**
+ * <p>The CloudWatch alarms used to determine a service deployment failed. </p>
+ *          <p>Amazon ECS considers the service deployment as failed when any of the alarms move to the <code>ALARM</code> state. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-alarm-failure.html">How CloudWatch alarms detect Amazon ECS deployment failures</a> in the Amazon ECS Developer Guide.</p>
+ * @public
+ */
+export interface ServiceDeploymentAlarms {
+  /**
+   * <p>The status of the alarms check. Amazon ECS is not using alarms for service deployment failures when the status is <code>DISABLED</code>.</p>
+   * @public
+   */
+  status?: ServiceDeploymentRollbackMonitorsStatus;
+
+  /**
+   * <p>The name of the CloudWatch alarms that determine when a service deployment failed. A "," separates the alarms.</p>
+   * @public
+   */
+  alarmNames?: string[];
+
+  /**
+   * <p>One or more CloudWatch alarm names that have been triggered during the service deployment. A ","
+   * 			separates the alarm names.</p>
+   * @public
+   */
+  triggeredAlarmNames?: string[];
+}
+
+/**
+ * <p>Information about the circuit breaker used to determine when a service deployment has
+ * 			failed.</p>
+ *          <p>The deployment circuit breaker is the rolling update mechanism that determines if the
+ * 			tasks reach a steady state. The deployment circuit breaker has an option that will
+ * 			automatically roll back a failed deployment to the last cpompleted service
+ * 			revision. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-circuit-breaker.html">How the Amazon ECS
+ * 			deployment circuit breaker detects failures</a> in the<i> Amazon ECS Developer
+ * 				Guide</i>.</p>
+ * @public
+ */
+export interface ServiceDeploymentCircuitBreaker {
+  /**
+   * <p>The circuit breaker status.  Amazon ECS is not using the circuit breaker for service deployment failures when the status is <code>DISABLED</code>.</p>
+   * @public
+   */
+  status?: ServiceDeploymentRollbackMonitorsStatus;
+
+  /**
+   * <p>The number of times the circuit breaker detected a service deploymeny failure.</p>
+   * @public
+   */
+  failureCount?: number;
+
+  /**
+   * <p>The threshhold which determines that the service deployment failed.</p>
+   *          <p>The deployment circuit breaker calculates the threshold value, and then uses the value to
+   * 			determine when to move the deployment to a FAILED state. The deployment circuit breaker
+   * 			has a minimum threshold of 3 and a maximum threshold of 200. and uses the values in the
+   * 			following formula to determine the deployment failure.</p>
+   *          <p>
+   *             <code>0.5 * desired task count</code>
+   *          </p>
+   * @public
+   */
+  threshold?: number;
+}
+
+/**
+ * <p>Information about the service deployment rollback.</p>
+ * @public
+ */
+export interface Rollback {
+  /**
+   * <p>The reason the rollback happened. For example, the circuit breaker initiated the rollback operation.</p>
+   * @public
+   */
+  reason?: string;
+
+  /**
+   * <p>Time time that the rollback started. The format is  yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The ARN of the service revision deployed as part of the rollback.</p>
+   *          <p>When the type is <code>GPU</code>, the value is the number of physical
+   * 				<code>GPUs</code> the Amazon ECS container agent reserves for the container. The number
+   * 			of GPUs that's reserved for all containers in a task can't exceed the number of
+   * 			available GPUs on the container instance that the task is launched on.</p>
+   *          <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the
+   * 				<code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
+   * @public
+   */
+  serviceRevisionArn?: string;
+}
+
+/**
+ * <p>The information about the number of requested, pending, and running tasks for a service revision.</p>
+ * @public
+ */
+export interface ServiceRevisionSummary {
+  /**
+   * <p>The ARN of the service revision.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>The number of requested tasks for the service revision.</p>
+   * @public
+   */
+  requestedTaskCount?: number;
+
+  /**
+   * <p>The number of running tasks for the service revision.</p>
+   * @public
+   */
+  runningTaskCount?: number;
+
+  /**
+   * <p>The number of pending tasks for the service revision.</p>
+   * @public
+   */
+  pendingTaskCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceDeploymentStatus = {
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  ROLLBACK_SUCCESSFUL: "ROLLBACK_SUCCESSFUL",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceDeploymentStatus = (typeof ServiceDeploymentStatus)[keyof typeof ServiceDeploymentStatus];
+
+/**
+ * <p>Information about the service deployment.</p>
+ *          <p>Service deployments provide a comprehensive view of your deployments. For information
+ * 			about service deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html">View service history using Amazon ECS service deployments</a>
+ * 			in the <i>
+ *                <i>Amazon Elastic Container Service Developer Guide</i>
+ *             </i>.</p>
+ * @public
+ */
+export interface ServiceDeployment {
+  /**
+   * <p>The ARN of the service deployment.</p>
+   * @public
+   */
+  serviceDeploymentArn?: string;
+
+  /**
+   * <p>The ARN of the service for this service deployment.</p>
+   * @public
+   */
+  serviceArn?: string;
+
+  /**
+   * <p>The ARN of the cluster that hosts the service.</p>
+   * @public
+   */
+  clusterArn?: string;
+
+  /**
+   * <p>The time the service deployment was created. The format is yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time the service deployment statred. The format is yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The time the service deployment finished. The format is yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  finishedAt?: Date;
+
+  /**
+   * <p>The time the service deployment stopped. The format is yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   *          <p>The service deployment stops when any of the following actions happen:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A user manually stops the deployment</p>
+   *             </li>
+   *             <li>
+   *                <p>The rollback option is not in use for the failure detection mechanism (the
+   * 					circuit breaker or alarm-based) and the service fails.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  stoppedAt?: Date;
+
+  /**
+   * <p>The time that the service deployment was last updated. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The currently deployed workload configuration.</p>
+   * @public
+   */
+  sourceServiceRevisions?: ServiceRevisionSummary[];
+
+  /**
+   * <p>The workload configuration being deployed.</p>
+   * @public
+   */
+  targetServiceRevision?: ServiceRevisionSummary;
+
+  /**
+   * <p>The service deployment state.</p>
+   * @public
+   */
+  status?: ServiceDeploymentStatus;
+
+  /**
+   * <p>Information about why the service deployment is in the current status. For example, the circuit breaker detected a failure.</p>
+   * @public
+   */
+  statusReason?: string;
+
+  /**
+   * <p>Optional deployment parameters that control how many tasks run during the deployment and the
+   * 			failure detection methods.</p>
+   * @public
+   */
+  deploymentConfiguration?: DeploymentConfiguration;
+
+  /**
+   * <p>The rollback options the service deployment uses when the deployment fails.</p>
+   * @public
+   */
+  rollback?: Rollback;
+
+  /**
+   * <p>The circuit breaker configuration that determines a service deployment failed.</p>
+   * @public
+   */
+  deploymentCircuitBreaker?: ServiceDeploymentCircuitBreaker;
+
+  /**
+   * <p>The CloudWatch alarms that determine when a service deployment fails.</p>
+   * @public
+   */
+  alarms?: ServiceDeploymentAlarms;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceDeploymentsResponse {
+  /**
+   * <p>The list of service deployments described.</p>
+   * @public
+   */
+  serviceDeployments?: ServiceDeployment[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   *          <p>If you decsribe a deployment with a service revision created before October 25, 2024, the
+   * 			call fails. The failure includes the service revision ARN and the reason set to
+   * 				<code>MISSING</code>.</p>
+   * @public
+   */
+  failures?: Failure[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceRevisionsRequest {
+  /**
+   * <p>The ARN of the service revision. </p>
+   *          <p>You can specify a maximum of 20 ARNs.</p>
+   *          <p>You can call <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServiceDeployments.html">ListServiceDeployments</a> to
+   * 			get the ARNs.</p>
+   * @public
+   */
+  serviceRevisionArns: string[] | undefined;
+}
+
+/**
+ * <p>The details about the container image a service revision uses. </p>
+ *          <p>To ensure that all tasks in a service use the same container image, Amazon ECS resolves
+ * 			container image names and any image tags specified in the task definition to container
+ * 			image digests. </p>
+ *          <p>After the container image digest has been established, Amazon ECS uses the digest to start
+ * 			any other desired tasks, and for any future service and service revision updates. This
+ * 			leads to all tasks in a service always running identical container images, resulting in
+ * 			version consistency for your software. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability">Container image resolution</a> in the Amazon ECS Developer Guide.</p>
+ * @public
+ */
+export interface ContainerImage {
+  /**
+   * <p>The name of the container.</p>
+   * @public
+   */
+  containerName?: string;
+
+  /**
+   * <p>The container image digest.</p>
+   * @public
+   */
+  imageDigest?: string;
+
+  /**
+   * <p>The container image. </p>
+   * @public
+   */
+  image?: string;
+}
+
+/**
+ * <p>Information about the service revision.</p>
+ *          <p>A service revision contains a record of the workload configuration Amazon ECS is attempting to deploy. Whenever you create or deploy a service, Amazon ECS automatically creates and captures the configuration that you're trying to deploy in the service revision. For information
+ * 			about service revisions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html">Amazon ECS service revisions</a>
+ * 			in the <i>
+ *                <i>Amazon Elastic Container Service Developer Guide</i>
+ *             </i>.</p>
+ * @public
+ */
+export interface ServiceRevision {
+  /**
+   * <p>The ARN of the service revision.</p>
+   * @public
+   */
+  serviceRevisionArn?: string;
+
+  /**
+   * <p>The ARN of the service for the service revision.</p>
+   * @public
+   */
+  serviceArn?: string;
+
+  /**
+   * <p>The ARN of the cluster that hosts the service.</p>
+   * @public
+   */
+  clusterArn?: string;
+
+  /**
+   * <p>The task definition the service revision uses.</p>
+   * @public
+   */
+  taskDefinition?: string;
+
+  /**
+   * <p>The capacity provider strategy the service revision uses.</p>
+   * @public
+   */
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
+
+  /**
+   * <p>The launch type the service revision uses.</p>
+   * @public
+   */
+  launchType?: LaunchType;
+
+  /**
+   * <p>For the Fargate launch type, the platform version the service revision uses.</p>
+   * @public
+   */
+  platformVersion?: string;
+
+  /**
+   * <p>The platform family the service revision uses.</p>
+   * @public
+   */
+  platformFamily?: string;
+
+  /**
+   * <p>The load balancers the service revision uses.</p>
+   * @public
+   */
+  loadBalancers?: LoadBalancer[];
+
+  /**
+   * <p>The service registries (for Service Discovery) the service revision uses.</p>
+   * @public
+   */
+  serviceRegistries?: ServiceRegistry[];
+
+  /**
+   * <p>The network configuration for a task or service.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The container images the service revision uses.</p>
+   * @public
+   */
+  containerImages?: ContainerImage[];
+
+  /**
+   * <p>Indicates whether Runtime Monitoring is turned on.</p>
+   * @public
+   */
+  guardDutyEnabled?: boolean;
+
+  /**
+   * <p>The Service Connect configuration of your Amazon ECS service. The configuration for this
+   * 			service to discover and connect to services, and be discovered by, and connected from,
+   * 			other services within a namespace.</p>
+   *          <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  serviceConnectConfiguration?: ServiceConnectConfiguration;
+
+  /**
+   * <p>The volumes that are configured at deployment that the service revision uses.</p>
+   * @public
+   */
+  volumeConfigurations?: ServiceVolumeConfiguration[];
+
+  /**
+   * <p>The amount of ephemeral storage to allocate for the deployment.</p>
+   * @public
+   */
+  fargateEphemeralStorage?: DeploymentEphemeralStorage;
+
+  /**
+   * <p>The time that the service revision was created. The format is yyyy-mm-dd HH:mm:ss.SSSSS.</p>
+   * @public
+   */
+  createdAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceRevisionsResponse {
+  /**
+   * <p>The list of service revisions described.</p>
+   * @public
+   */
+  serviceRevisions?: ServiceRevision[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   * @public
+   */
+  failures?: Failure[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const ServiceField = {
@@ -8684,7 +9190,7 @@ export interface TaskEphemeralStorage {
   sizeInGiB?: number;
 
   /**
-   * <p>Specify an Key Management Service key ID to encrypt the ephemeral storage for the
+   * <p>Specify an Amazon Web Services Key Management Service key ID to encrypt the ephemeral storage for the
    * 			task.</p>
    * @public
    */
@@ -9922,6 +10428,190 @@ export interface ListContainerInstancesResponse {
 }
 
 /**
+ * <p>The optional filter to narrow the <code>ListServiceDeployment</code> results.</p>
+ *          <p> If you do not specify a value, service deployments that were created before the current
+ * 			time are included in the result.</p>
+ * @public
+ */
+export interface CreatedAt {
+  /**
+   * <p>Include service deployments in the result that were created before this time. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  before?: Date;
+
+  /**
+   * <p>Include service deployments in the result that were created after this time. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  after?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceDeploymentsRequest {
+  /**
+   * <p>The ARN or name of the service</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The cluster that hosts the service. This can either be the cluster name or ARN. Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performanceIf you don't
+   * 			specify a cluster, <code>deault</code> is used.</p>
+   * @public
+   */
+  cluster?: string;
+
+  /**
+   * <p>An optional filter you can use to narrow the results. If you do not specify a status, then
+   * 			all status values are included in the result.</p>
+   * @public
+   */
+  status?: ServiceDeploymentStatus[];
+
+  /**
+   * <p>An optional filter you can use to narrow the results by the service creation date. If you do
+   * 			not specify a value, the result includes all services created before the current
+   * 			time. The
+   * 			format is yyyy-MM-dd HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  createdAt?: CreatedAt;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a <code>ListServiceDeployments</code> request indicating that more results are available to fulfill the request and further calls are needed. If you provided <code>maxResults</code>, it's possible the number of results is fewer than <code>maxResults</code>.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of service deployment results that <code>ListServiceDeployments</code>
+   * 			returned in paginated output. When this parameter is used,
+   * 				<code>ListServiceDeployments</code> only returns <code>maxResults</code> results in
+   * 			a single page along with a <code>nextToken</code> response element. The remaining
+   * 			results of the initial request can be seen by sending another
+   * 				<code>ListServiceDeployments</code> request with the returned <code>nextToken</code>
+   * 			value. This value can be between 1 and 100. If this parameter isn't used, then
+   * 				<code>ListServiceDeployments</code> returns up to 20 results and a
+   * 				<code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>The service deployment properties that are retured when you call <code>ListServiceDeployments</code>.</p>
+ *          <p>This provides a high-level overview of the service deployment. </p>
+ * @public
+ */
+export interface ServiceDeploymentBrief {
+  /**
+   * <p>The ARN of the service deployment.</p>
+   * @public
+   */
+  serviceDeploymentArn?: string;
+
+  /**
+   * <p>The ARN of the service for this service deployment.</p>
+   * @public
+   */
+  serviceArn?: string;
+
+  /**
+   * <p>The ARN of the cluster that hosts the service.</p>
+   * @public
+   */
+  clusterArn?: string;
+
+  /**
+   * <p>The time that the service deployment statred. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The time that the service deployment was created. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time that the service deployment completed. The format is yyyy-MM-dd
+   * 			HH:mm:ss.SSSSSS.</p>
+   * @public
+   */
+  finishedAt?: Date;
+
+  /**
+   * <p>The ARN of the service revision being deplyed.</p>
+   * @public
+   */
+  targetServiceRevisionArn?: string;
+
+  /**
+   * <p>The status of the service deployment</p>
+   * @public
+   */
+  status?: ServiceDeploymentStatus;
+
+  /**
+   * <p>Information about why the service deployment is in the current status. For example, the circuit breaker detected a deployment failure.</p>
+   * @public
+   */
+  statusReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceDeploymentsResponse {
+  /**
+   * <p>An overview of the service deployment, including the following
+   * 			properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The ARN of the service deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of the service being deployed.</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN  of the cluster that hosts the service in the service deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>The time that the service deployment started.</p>
+   *             </li>
+   *             <li>
+   *                <p>The time that the service deployment completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>The service deployment status.</p>
+   *             </li>
+   *             <li>
+   *                <p>Information about why the service deployment is in the current state.</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of the service revision that is being deployed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  serviceDeployments?: ServiceDeploymentBrief[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListServiceDeployments</code> request. When the results of a <code>ListServiceDeployments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
  * @public
  */
 export interface ListServicesRequest {
@@ -11022,11 +11712,13 @@ export interface RegisterTaskDefinitionRequest {
    *                             to use a non-root user.</p>
    *          </important>
    *          <p>If the network mode is <code>awsvpc</code>, the task is allocated an elastic network
-   *             interface, and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a> value when you create
+   *             interface, and you must specify a <a>NetworkConfiguration</a> value when you create
    *             a service or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a> in the
    *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>If the network mode is <code>host</code>, you cannot run multiple instantiations of the
    *             same task on a single container instance when port mappings are used.</p>
+   *          <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+   *                 settings</a> in the <i>Docker run reference</i>.</p>
    * @public
    */
   networkMode?: NetworkMode;
@@ -11210,9 +11902,12 @@ export interface RegisterTaskDefinitionRequest {
    *          <p>If <code>task</code> is specified, all containers within the specified
    *                             task share the same process namespace.</p>
    *          <p>If no value is specified, the
-   *                             default is a private namespace for each container.</p>
+   *                             default is a private namespace for each container. For more information,
+   *                             see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
+   *                                 reference</i>.</p>
    *          <p>If the <code>host</code> PID mode is used, there's a heightened risk
-   *                             of undesired process namespace exposure.</p>
+   *                             of undesired process namespace exposure. For more information, see
+   *                                 <a href="https://docs.docker.com/engine/security/security/">Docker security</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -11235,9 +11930,12 @@ export interface RegisterTaskDefinitionRequest {
    *             share the same IPC resources. If <code>none</code> is specified, then IPC resources
    *             within the containers of a task are private and not shared with other containers in a
    *             task or on the container instance. If no value is specified, then the IPC resource
-   *             namespace sharing depends on the Docker daemon setting on the container instance.</p>
+   *             namespace sharing depends on the Docker daemon setting on the container instance. For
+   *             more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC
+   *                 settings</a> in the <i>Docker run reference</i>.</p>
    *          <p>If the <code>host</code> IPC mode is used, be aware that there is a heightened risk of
-   *             undesired IPC namespace expose.</p>
+   *             undesired IPC namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
+   *             security</a>.</p>
    *          <p>If you are setting namespaced kernel parameters using <code>systemControls</code> for
    *             the containers in the task, the following will apply to your IPC resource namespace. For
    *             more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
@@ -12465,586 +13163,6 @@ export interface UpdateCapacityProviderResponse {
    * @public
    */
   capacityProvider?: CapacityProvider;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterRequest {
-  /**
-   * <p>The name of the cluster to modify the settings for.</p>
-   * @public
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The cluster settings for your cluster.</p>
-   * @public
-   */
-  settings?: ClusterSetting[];
-
-  /**
-   * <p>The execute command configuration for the cluster.</p>
-   * @public
-   */
-  configuration?: ClusterConfiguration;
-
-  /**
-   * <p>Use this parameter to set a default Service Connect namespace. After you set a default
-   * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
-   * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
-   * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
-   * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
-   * 	parameter.</p>
-   *          <p>Tasks that run in a namespace can use short names to connect
-   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
-   * 	Tasks connect through a managed proxy container
-   * 	that collects logs and metrics for increased visibility.
-   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * @public
-   */
-  serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterResponse {
-  /**
-   * <p>Details about the cluster.</p>
-   * @public
-   */
-  cluster?: Cluster;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSettingsRequest {
-  /**
-   * <p>The name of the cluster to modify the settings for.</p>
-   * @public
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The setting to use by default for a cluster. This parameter is used to turn on CloudWatch
-   * 			Container Insights for a cluster. If this value is specified, it overrides the
-   * 			<code>containerInsights</code> value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or
-   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
-   *          <important>
-   *             <p>Currently, if you delete an existing cluster that does not have Container Insights
-   * 				turned on, and then create a new cluster with the same name with Container Insights
-   * 				tuned on, Container Insights will not actually be turned on. If you want to preserve
-   * 				the same name for your existing cluster and turn on Container Insights, you must
-   * 				wait 7 days before you can re-create it.</p>
-   *          </important>
-   * @public
-   */
-  settings: ClusterSetting[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateClusterSettingsResponse {
-  /**
-   * <p>Details about the cluster</p>
-   * @public
-   */
-  cluster?: Cluster;
-}
-
-/**
- * <p>Amazon ECS can't determine the current version of the Amazon ECS container agent on the
- * 			container instance and doesn't have enough information to proceed with an update. This
- * 			could be because the agent running on the container instance is a previous or custom
- * 			version that doesn't use our version information.</p>
- * @public
- */
-export class MissingVersionException extends __BaseException {
-  readonly name: "MissingVersionException" = "MissingVersionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingVersionException, __BaseException>) {
-    super({
-      name: "MissingVersionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingVersionException.prototype);
-  }
-}
-
-/**
- * <p>There's no update available for this Amazon ECS container agent. This might be because the
- * 			agent is already running the latest version or because it's so old that there's no
- * 			update path to the current version.</p>
- * @public
- */
-export class NoUpdateAvailableException extends __BaseException {
-  readonly name: "NoUpdateAvailableException" = "NoUpdateAvailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoUpdateAvailableException, __BaseException>) {
-    super({
-      name: "NoUpdateAvailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoUpdateAvailableException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface UpdateContainerAgentRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is
-   * 			running on. If you do not specify a cluster, the default cluster is assumed.</p>
-   * @public
-   */
-  cluster?: string;
-
-  /**
-   * <p>The container instance ID or full ARN entries for the container instance where you
-   * 			would like to update the Amazon ECS container agent.</p>
-   * @public
-   */
-  containerInstance: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContainerAgentResponse {
-  /**
-   * <p>The container instance that the container agent was updated for.</p>
-   * @public
-   */
-  containerInstance?: ContainerInstance;
-}
-
-/**
- * @public
- */
-export interface UpdateContainerInstancesStateRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
-   * 			update. If you do not specify a cluster, the default cluster is assumed.</p>
-   * @public
-   */
-  cluster?: string;
-
-  /**
-   * <p>A list of up to 10 container instance IDs or full ARN entries.</p>
-   * @public
-   */
-  containerInstances: string[] | undefined;
-
-  /**
-   * <p>The container instance state to update the container instance with. The only valid
-   * 			values for this action are <code>ACTIVE</code> and <code>DRAINING</code>. A container
-   * 			instance can only be updated to <code>DRAINING</code> status once it has reached an
-   * 				<code>ACTIVE</code> state. If a container instance is in <code>REGISTERING</code>,
-   * 				<code>DEREGISTERING</code>, or <code>REGISTRATION_FAILED</code> state you can
-   * 			describe the container instance but can't update the container instance state.</p>
-   * @public
-   */
-  status: ContainerInstanceStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContainerInstancesStateResponse {
-  /**
-   * <p>The list of container instances.</p>
-   * @public
-   */
-  containerInstances?: ContainerInstance[];
-
-  /**
-   * <p>Any failures associated with the call.</p>
-   * @public
-   */
-  failures?: Failure[];
-}
-
-/**
- * @public
- */
-export interface UpdateServiceRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your service runs on.
-   * 			If you do not specify a cluster, the default cluster is assumed.</p>
-   * @public
-   */
-  cluster?: string;
-
-  /**
-   * <p>The name of the service to update.</p>
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The number of instantiations of the task to place and keep running in your
-   * 			service.</p>
-   * @public
-   */
-  desiredCount?: number;
-
-  /**
-   * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-   * 			full ARN of the task definition to run in your service. If a <code>revision</code> is
-   * 			not specified, the latest <code>ACTIVE</code> revision is used. If you modify the task
-   * 			definition with <code>UpdateService</code>, Amazon ECS spawns a task with the new version of
-   * 			the task definition and then stops an old task after the new version is running.</p>
-   * @public
-   */
-  taskDefinition?: string;
-
-  /**
-   * <p>The capacity provider strategy to update the service to use.</p>
-   *          <p>if the service uses the default capacity provider strategy for the cluster, the
-   * 			service can be updated to use one or more capacity providers as opposed to the default
-   * 			capacity provider strategy. However, when a service is using a capacity provider
-   * 			strategy that's not the default capacity provider strategy, the service can't be updated
-   * 			to use the cluster's default capacity provider strategy.</p>
-   *          <p>A capacity provider strategy consists of one or more capacity providers along with the
-   * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API is used to associate a capacity
-   * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
-   * 				<code>UPDATING</code> status can be used.</p>
-   *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a> API operation.</p>
-   *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
-   * 			available to all accounts and only need to be associated with a cluster to be
-   * 			used.</p>
-   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>API operation is used to update the
-   * 			list of available capacity providers for a cluster after the cluster is created.</p>
-   *          <p></p>
-   * @public
-   */
-  capacityProviderStrategy?: CapacityProviderStrategyItem[];
-
-  /**
-   * <p>Optional deployment parameters that control how many tasks run during the deployment
-   * 			and the ordering of stopping and starting tasks.</p>
-   * @public
-   */
-  deploymentConfiguration?: DeploymentConfiguration;
-
-  /**
-   * <p>An object representing the network configuration for the service.</p>
-   * @public
-   */
-  networkConfiguration?: NetworkConfiguration;
-
-  /**
-   * <p>An array of task placement constraint objects to update the service to use. If no
-   * 			value is specified, the existing placement constraints for the service will remain
-   * 			unchanged. If this value is specified, it will override any existing placement
-   * 			constraints defined for the service. To remove all existing placement constraints,
-   * 			specify an empty array.</p>
-   *          <p>You can specify a maximum of 10 constraints for each task. This limit includes
-   * 			constraints in the task definition and those specified at runtime.</p>
-   * @public
-   */
-  placementConstraints?: PlacementConstraint[];
-
-  /**
-   * <p>The task placement strategy objects to update the service to use. If no value is
-   * 			specified, the existing placement strategy for the service will remain unchanged. If
-   * 			this value is specified, it will override the existing placement strategy defined for
-   * 			the service. To remove an existing placement strategy, specify an empty object.</p>
-   *          <p>You can specify a maximum of five strategy rules for each service.</p>
-   * @public
-   */
-  placementStrategy?: PlacementStrategy[];
-
-  /**
-   * <p>The platform version that your tasks in the service run on. A platform version is only
-   * 			specified for tasks using the Fargate launch type. If a platform version
-   * 			is not specified, the <code>LATEST</code> platform version is used. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
-   * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * @public
-   */
-  platformVersion?: string;
-
-  /**
-   * <p>Determines whether to force a new deployment of the service. By default, deployments
-   * 			aren't forced. You can use this option to start a new deployment with no service
-   * 			definition changes. For example, you can update a service's tasks to use a newer Docker
-   * 			image with the same image/tag combination (<code>my_image:latest</code>) or to roll
-   * 			Fargate tasks onto a newer platform version.</p>
-   * @public
-   */
-  forceNewDeployment?: boolean;
-
-  /**
-   * <p>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
-   * 			Elastic Load Balancing target health checks after a task has first started. This is only valid if your
-   * 			service is configured to use a load balancer. If your service's tasks take a while to
-   * 			start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of
-   * 			up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores
-   * 			the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler
-   * 			from marking tasks as unhealthy and stopping them before they have time to come
-   * 			up.</p>
-   * @public
-   */
-  healthCheckGracePeriodSeconds?: number;
-
-  /**
-   * <p>If <code>true</code>, this enables execute command functionality on all task
-   * 			containers.</p>
-   *          <p>If you do not want to override the value that was set when the service was created,
-   * 			you can set this to <code>null</code> when performing this action.</p>
-   * @public
-   */
-  enableExecuteCommand?: boolean;
-
-  /**
-   * <p>Determines whether to turn on Amazon ECS managed tags for the tasks in the service. For
-   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
-   * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *          <p>Only tasks launched after the update will reflect the update. To update the tags on
-   * 			all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon ECS
-   * 			starts new tasks with the updated tags.</p>
-   * @public
-   */
-  enableECSManagedTags?: boolean;
-
-  /**
-   * <p>A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
-   * 			container name, and the container port to access from the load balancer. The container
-   * 			name is as it appears in a container definition.</p>
-   *          <p>When you add, update, or remove a load balancer configuration, Amazon ECS starts new tasks
-   * 			with the updated Elastic Load Balancing configuration, and then stops the old tasks when the new tasks
-   * 			are running.</p>
-   *          <p>For services that use rolling updates, you can add, update, or remove Elastic Load Balancing target
-   * 			groups. You can update from a single target group to multiple target groups and from
-   * 			multiple target groups to a single target group.</p>
-   *          <p>For services that use blue/green deployments, you can update Elastic Load Balancing target groups by
-   * 			using <code>
-   *                <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
-   *             </code> through CodeDeploy. Note that multiple target groups
-   * 			are not supported for blue/green deployments. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
-   * 				multiple target groups with a service</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. </p>
-   *          <p>For services that use the external deployment controller, you can add, update, or
-   * 			remove load balancers by using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
-   * 			Note that multiple target groups are not supported for external deployments. For more
-   * 			information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
-   * 				multiple target groups with a service</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. </p>
-   *          <p>You can remove existing <code>loadBalancers</code> by passing an empty list.</p>
-   * @public
-   */
-  loadBalancers?: LoadBalancer[];
-
-  /**
-   * <p>Determines whether to propagate the tags from the task definition or the service to
-   * 			the task. If no value is specified, the tags aren't propagated.</p>
-   *          <p>Only tasks launched after the update will reflect the update. To update the tags on
-   * 			all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon ECS
-   * 			starts new tasks with the updated tags.</p>
-   * @public
-   */
-  propagateTags?: PropagateTags;
-
-  /**
-   * <p>The details for the service discovery registries to assign to this service. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-   * 				Discovery</a>.</p>
-   *          <p>When you add, update, or remove the service registries configuration, Amazon ECS starts new
-   * 			tasks with the updated service registries configuration, and then stops the old tasks
-   * 			when the new tasks are running.</p>
-   *          <p>You can remove existing <code>serviceRegistries</code> by passing an empty
-   * 			list.</p>
-   * @public
-   */
-  serviceRegistries?: ServiceRegistry[];
-
-  /**
-   * <p>The configuration for this service to discover and connect to
-   * 	services, and be discovered by, and connected from, other services within a namespace.</p>
-   *          <p>Tasks that run in a namespace can use short names to connect
-   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
-   * 	Tasks connect through a managed proxy container
-   * 	that collects logs and metrics for increased visibility.
-   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * @public
-   */
-  serviceConnectConfiguration?: ServiceConnectConfiguration;
-
-  /**
-   * <p>The details of the volume that was <code>configuredAtLaunch</code>. You can configure
-   * 			the size, volumeType, IOPS, throughput, snapshot and encryption in <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ServiceManagedEBSVolumeConfiguration.html">ServiceManagedEBSVolumeConfiguration</a>. The <code>name</code> of the volume
-   * 			must match the <code>name</code> from the task definition. If set to null, no new
-   * 			deployment is triggered. Otherwise, if this configuration differs from the existing one,
-   * 			it triggers a new deployment.</p>
-   * @public
-   */
-  volumeConfigurations?: ServiceVolumeConfiguration[];
-}
-
-/**
- * @public
- */
-export interface UpdateServiceResponse {
-  /**
-   * <p>The full description of your service following the update call.</p>
-   * @public
-   */
-  service?: Service;
-}
-
-/**
- * @public
- */
-export interface UpdateServicePrimaryTaskSetRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
-   * 			set exists in.</p>
-   * @public
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.</p>
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the
-   * 			deployment.</p>
-   * @public
-   */
-  primaryTaskSet: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateServicePrimaryTaskSetResponse {
-  /**
-   * <p>The details about the task set.</p>
-   * @public
-   */
-  taskSet?: TaskSet;
-}
-
-/**
- * @public
- */
-export interface UpdateTaskProtectionRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
-   * 			sets exist in.</p>
-   * @public
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>A list of up to 10 task IDs or full ARN entries.</p>
-   * @public
-   */
-  tasks: string[] | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to mark a task for protection and <code>false</code> to
-   * 			unset protection, making it eligible for termination.</p>
-   * @public
-   */
-  protectionEnabled: boolean | undefined;
-
-  /**
-   * <p>If you set <code>protectionEnabled</code> to <code>true</code>, you can specify the
-   * 			duration for task protection in minutes. You can specify a value from 1 minute to up to
-   * 			2,880 minutes (48 hours). During this time, your task will not be terminated by scale-in
-   * 			events from Service Auto Scaling or deployments. After this time period lapses,
-   * 				<code>protectionEnabled</code> will be reset to <code>false</code>.</p>
-   *          <p>If you don’t specify the time, then the task is automatically protected for 120
-   * 			minutes (2 hours).</p>
-   * @public
-   */
-  expiresInMinutes?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateTaskProtectionResponse {
-  /**
-   * <p>A list of tasks with the following information.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>taskArn</code>: The task ARN.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>protectionEnabled</code>: The protection status of the task. If scale-in
-   * 					protection is turned on for a task, the value is <code>true</code>. Otherwise,
-   * 					it is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expirationDate</code>: The epoch time when protection for the task will
-   * 					expire.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  protectedTasks?: ProtectedTask[];
-
-  /**
-   * <p>Any failures associated with the call.</p>
-   * @public
-   */
-  failures?: Failure[];
-}
-
-/**
- * @public
- */
-export interface UpdateTaskSetRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
-   * 			set is found in.</p>
-   * @public
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the service that the task set is found in.</p>
-   * @public
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the task set to update.</p>
-   * @public
-   */
-  taskSet: string | undefined;
-
-  /**
-   * <p>A floating-point percentage of the desired number of tasks to place and keep running
-   * 			in the task set.</p>
-   * @public
-   */
-  scale: Scale | undefined;
 }
 
 /**
