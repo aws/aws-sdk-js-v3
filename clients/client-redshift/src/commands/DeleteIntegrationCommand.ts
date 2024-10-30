@@ -28,7 +28,7 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationMessage 
 export interface DeleteIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Deletes a zero-ETL integration with Amazon Redshift.</p>
+ * <p>Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

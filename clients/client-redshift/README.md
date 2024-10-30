@@ -31,7 +31,7 @@ build, query, and maintain the databases that make up your data warehouse. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-redshift
+To install this package, simply type add or install @aws-sdk/client-redshift
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-redshift`

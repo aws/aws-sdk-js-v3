@@ -28,7 +28,7 @@ export interface CreateIntegrationCommandInput extends CreateIntegrationMessage 
 export interface CreateIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Creates a zero-ETL integration with Amazon Redshift.</p>
+ * <p>Creates a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,7 +96,7 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  *             and these requests conflict with each other.</p>
  *
  * @throws {@link IntegrationQuotaExceededFault} (client fault)
- *  <p>You can't create any more zero-ETL integrations because the quota has been reached.</p>
+ *  <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
  *
  * @throws {@link IntegrationSourceNotFoundFault} (client fault)
  *  <p>The specified integration source can't be found.</p>

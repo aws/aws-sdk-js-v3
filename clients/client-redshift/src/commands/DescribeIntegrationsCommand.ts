@@ -28,7 +28,7 @@ export interface DescribeIntegrationsCommandInput extends DescribeIntegrationsMe
 export interface DescribeIntegrationsCommandOutput extends IntegrationsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes one or more zero-ETL integrations with Amazon Redshift.</p>
+ * <p>Describes one or more zero-ETL or S3 event integrations with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

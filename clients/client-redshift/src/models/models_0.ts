@@ -6511,7 +6511,7 @@ export class IntegrationConflictOperationFault extends __BaseException {
 }
 
 /**
- * <p>You can't create any more zero-ETL integrations because the quota has been reached.</p>
+ * <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {

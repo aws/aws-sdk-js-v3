@@ -29,7 +29,7 @@ export interface ModifyIntegrationCommandInput extends ModifyIntegrationMessage 
 export interface ModifyIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Modifies a zero-ETL integration with Amazon Redshift.</p>
+ * <p>Modifies a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

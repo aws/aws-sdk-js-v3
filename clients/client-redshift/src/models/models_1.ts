@@ -2961,7 +2961,7 @@ export interface DescribeTagsMessage {
    *                <p>Snapshot copy grant</p>
    *             </li>
    *             <li>
-   *                <p>Integration (zero-ETL integration)</p>
+   *                <p>Integration (zero-ETL integration or S3 event integration)</p>
    *                <note>
    *                   <p>To describe the tags associated with an <code>integration</code>, don't specify <code>ResourceType</code>,
    *                     instead specify the <code>ResourceName</code> of the integration.</p>
