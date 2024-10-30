@@ -30894,6 +30894,12 @@
             }
           }
         },
+        "memory-db": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
+          }
+        },
         "metering.marketplace": {
           "defaults": {
             "credentialScope": {
