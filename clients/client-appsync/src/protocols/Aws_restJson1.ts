@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -34,7 +35,12 @@ import {
   AssociateSourceGraphqlApiCommandOutput,
 } from "../commands/AssociateSourceGraphqlApiCommand";
 import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "../commands/CreateApiCacheCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "../commands/CreateApiCommand";
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "../commands/CreateApiKeyCommand";
+import {
+  CreateChannelNamespaceCommandInput,
+  CreateChannelNamespaceCommandOutput,
+} from "../commands/CreateChannelNamespaceCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "../commands/CreateDomainNameCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../commands/CreateFunctionCommand";
@@ -42,7 +48,12 @@ import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "../
 import { CreateResolverCommandInput, CreateResolverCommandOutput } from "../commands/CreateResolverCommand";
 import { CreateTypeCommandInput, CreateTypeCommandOutput } from "../commands/CreateTypeCommand";
 import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "../commands/DeleteApiCacheCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "../commands/DeleteApiCommand";
 import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "../commands/DeleteApiKeyCommand";
+import {
+  DeleteChannelNamespaceCommandInput,
+  DeleteChannelNamespaceCommandOutput,
+} from "../commands/DeleteChannelNamespaceCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "../commands/DeleteDomainNameCommand";
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "../commands/DeleteFunctionCommand";
@@ -66,6 +77,11 @@ import {
 import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "../commands/FlushApiCacheCommand";
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "../commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "../commands/GetApiCacheCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "../commands/GetApiCommand";
+import {
+  GetChannelNamespaceCommandInput,
+  GetChannelNamespaceCommandOutput,
+} from "../commands/GetChannelNamespaceCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import {
   GetDataSourceIntrospectionCommandInput,
@@ -93,6 +109,11 @@ import {
 } from "../commands/GetSourceApiAssociationCommand";
 import { GetTypeCommandInput, GetTypeCommandOutput } from "../commands/GetTypeCommand";
 import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "../commands/ListApiKeysCommand";
+import { ListApisCommandInput, ListApisCommandOutput } from "../commands/ListApisCommand";
+import {
+  ListChannelNamespacesCommandInput,
+  ListChannelNamespacesCommandOutput,
+} from "../commands/ListChannelNamespacesCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "../commands/ListDomainNamesCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
@@ -131,7 +152,12 @@ import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "../
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "../commands/UpdateApiCacheCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "../commands/UpdateApiCommand";
 import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "../commands/UpdateApiKeyCommand";
+import {
+  UpdateChannelNamespaceCommandInput,
+  UpdateChannelNamespaceCommandOutput,
+} from "../commands/UpdateChannelNamespaceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "../commands/UpdateDomainNameCommand";
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "../commands/UpdateFunctionCommand";
@@ -146,16 +172,22 @@ import { AppSyncServiceException as __BaseException } from "../models/AppSyncSer
 import {
   AccessDeniedException,
   AdditionalAuthenticationProvider,
+  Api,
   ApiKeyLimitExceededException,
   ApiKeyValidityOutOfBoundsException,
   ApiLimitExceededException,
   AppSyncRuntime,
+  AuthMode,
   AuthorizationConfig,
+  AuthProvider,
   AwsIamConfig,
   BadRequestException,
   CachingConfig,
+  ChannelNamespace,
+  CognitoConfig,
   CognitoUserPoolConfig,
   ConcurrentModificationException,
+  ConflictException,
   DataSourceIntrospectionModel,
   DataSourceIntrospectionModelField,
   DataSourceIntrospectionModelFieldType,
@@ -165,6 +197,8 @@ import {
   ElasticsearchDataSourceConfig,
   EnhancedMetricsConfig,
   EventBridgeDataSourceConfig,
+  EventConfig,
+  EventLogConfig,
   GraphQLSchemaException,
   HttpDataSourceConfig,
   InternalFailureException,
@@ -180,6 +214,7 @@ import {
   RdsDataApiConfig,
   RdsHttpEndpointConfig,
   RelationalDatabaseDataSourceConfig,
+  ServiceQuotaExceededException,
   SourceApiAssociation,
   SourceApiAssociationConfig,
   SyncConfig,
@@ -261,6 +296,31 @@ export const se_AssociateSourceGraphqlApiCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateApiCommand
+ */
+export const se_CreateApiCommand = async (
+  input: CreateApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/apis");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      eventConfig: (_) => _json(_),
+      name: [],
+      ownerContact: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateApiCacheCommand
  */
 export const se_CreateApiCacheCommand = async (
@@ -306,6 +366,33 @@ export const se_CreateApiKeyCommand = async (
     take(input, {
       description: [],
       expires: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateChannelNamespaceCommand
+ */
+export const se_CreateChannelNamespaceCommand = async (
+  input: CreateChannelNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/apis/{apiId}/channelNamespaces");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      codeHandlers: [],
+      name: [],
+      publishAuthModes: (_) => _json(_),
+      subscribeAuthModes: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -500,6 +587,22 @@ export const se_CreateTypeCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteApiCommand
+ */
+export const se_DeleteApiCommand = async (
+  input: DeleteApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis/{apiId}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteApiCacheCommand
  */
 export const se_DeleteApiCacheCommand = async (
@@ -527,6 +630,23 @@ export const se_DeleteApiKeyCommand = async (
   b.bp("/v1/apis/{apiId}/apikeys/{id}");
   b.p("apiId", () => input.apiId!, "{apiId}", false);
   b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteChannelNamespaceCommand
+ */
+export const se_DeleteChannelNamespaceCommand = async (
+  input: DeleteChannelNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis/{apiId}/channelNamespaces/{name}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -748,6 +868,19 @@ export const se_FlushApiCacheCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetApiCommand
+ */
+export const se_GetApiCommand = async (input: GetApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis/{apiId}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetApiAssociationCommand
  */
 export const se_GetApiAssociationCommand = async (
@@ -774,6 +907,23 @@ export const se_GetApiCacheCommand = async (
   const headers: any = {};
   b.bp("/v1/apis/{apiId}/ApiCaches");
   b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetChannelNamespaceCommand
+ */
+export const se_GetChannelNamespaceCommand = async (
+  input: GetChannelNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis/{apiId}/channelNamespaces/{name}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -983,6 +1133,45 @@ export const se_ListApiKeysCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v1/apis/{apiId}/apikeys");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListApisCommand
+ */
+export const se_ListApisCommand = async (
+  input: ListApisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListChannelNamespacesCommand
+ */
+export const se_ListChannelNamespacesCommand = async (
+  input: ListChannelNamespacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/apis/{apiId}/channelNamespaces");
   b.p("apiId", () => input.apiId!, "{apiId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
@@ -1322,6 +1511,31 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateApiCommand
+ */
+export const se_UpdateApiCommand = async (
+  input: UpdateApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/apis/{apiId}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      eventConfig: (_) => _json(_),
+      name: [],
+      ownerContact: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateApiCacheCommand
  */
 export const se_UpdateApiCacheCommand = async (
@@ -1366,6 +1580,32 @@ export const se_UpdateApiKeyCommand = async (
     take(input, {
       description: [],
       expires: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateChannelNamespaceCommand
+ */
+export const se_UpdateChannelNamespaceCommand = async (
+  input: UpdateChannelNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/apis/{apiId}/channelNamespaces/{name}");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      codeHandlers: [],
+      publishAuthModes: (_) => _json(_),
+      subscribeAuthModes: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1647,6 +1887,27 @@ export const de_AssociateSourceGraphqlApiCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateApiCommand
+ */
+export const de_CreateApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    api: (_) => de_Api(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateApiCacheCommand
  */
 export const de_CreateApiCacheCommand = async (
@@ -1683,6 +1944,27 @@ export const de_CreateApiKeyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     apiKey: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateChannelNamespaceCommand
+ */
+export const de_CreateChannelNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelNamespace: (_) => de_ChannelNamespace(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1815,6 +2097,23 @@ export const de_CreateTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteApiCommand
+ */
+export const de_DeleteApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteApiCacheCommand
  */
 export const de_DeleteApiCacheCommand = async (
@@ -1838,6 +2137,23 @@ export const de_DeleteApiKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelNamespaceCommand
+ */
+export const de_DeleteChannelNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2073,6 +2389,27 @@ export const de_FlushApiCacheCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetApiCommand
+ */
+export const de_GetApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    api: (_) => de_Api(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetApiAssociationCommand
  */
 export const de_GetApiAssociationCommand = async (
@@ -2109,6 +2446,27 @@ export const de_GetApiCacheCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     apiCache: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetChannelNamespaceCommand
+ */
+export const de_GetChannelNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelNamespace: (_) => de_ChannelNamespace(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2362,6 +2720,50 @@ export const de_ListApiKeysCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     apiKeys: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListApisCommand
+ */
+export const de_ListApisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApisCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    apis: (_) => de_Apis(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListChannelNamespacesCommand
+ */
+export const de_ListChannelNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelNamespacesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelNamespaces: (_) => de_ChannelNamespaces(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2708,6 +3110,27 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateApiCommand
+ */
+export const de_UpdateApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    api: (_) => de_Api(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateApiCacheCommand
  */
 export const de_UpdateApiCacheCommand = async (
@@ -2744,6 +3167,27 @@ export const de_UpdateApiKeyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     apiKey: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelNamespaceCommand
+ */
+export const de_UpdateChannelNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelNamespace: (_) => de_ChannelNamespace(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2927,12 +3371,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnauthorizedException":
     case "com.amazonaws.appsync#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appsync#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ApiKeyLimitExceededException":
     case "com.amazonaws.appsync#ApiKeyLimitExceededException":
       throw await de_ApiKeyLimitExceededExceptionRes(parsedOutput, context);
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.appsync#ApiKeyValidityOutOfBoundsException":
       throw await de_ApiKeyValidityOutOfBoundsExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appsync#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ApiLimitExceededException":
     case "com.amazonaws.appsync#ApiLimitExceededException":
       throw await de_ApiLimitExceededExceptionRes(parsedOutput, context);
@@ -3070,6 +3520,23 @@ const de_ConcurrentModificationExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1GraphQLSchemaExceptionRes
  */
 const de_GraphQLSchemaExceptionRes = async (
@@ -3147,6 +3614,26 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1UnauthorizedExceptionRes
  */
 const de_UnauthorizedExceptionRes = async (
@@ -3172,13 +3659,23 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_AppSyncRuntime omitted.
 
+// se_AuthMode omitted.
+
+// se_AuthModes omitted.
+
 // se_AuthorizationConfig omitted.
+
+// se_AuthProvider omitted.
+
+// se_AuthProviders omitted.
 
 // se_AwsIamConfig omitted.
 
 // se_CachingConfig omitted.
 
 // se_CachingKeys omitted.
+
+// se_CognitoConfig omitted.
 
 // se_CognitoUserPoolConfig omitted.
 
@@ -3193,6 +3690,10 @@ const de_UnauthorizedExceptionRes = async (
 // se_EnvironmentVariableMap omitted.
 
 // se_EventBridgeDataSourceConfig omitted.
+
+// se_EventConfig omitted.
+
+// se_EventLogConfig omitted.
 
 // se_FunctionsIds omitted.
 
@@ -3230,6 +3731,24 @@ const de_UnauthorizedExceptionRes = async (
 
 // de_AdditionalAuthenticationProviders omitted.
 
+/**
+ * deserializeAws_restJson1Api
+ */
+const de_Api = (output: any, context: __SerdeContext): Api => {
+  return take(output, {
+    apiArn: __expectString,
+    apiId: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dns: _json,
+    eventConfig: _json,
+    name: __expectString,
+    ownerContact: __expectString,
+    tags: _json,
+    wafWebAclArn: __expectString,
+    xrayEnabled: __expectBoolean,
+  }) as any;
+};
+
 // de_ApiAssociation omitted.
 
 // de_ApiCache omitted.
@@ -3238,9 +3757,29 @@ const de_UnauthorizedExceptionRes = async (
 
 // de_ApiKeys omitted.
 
+/**
+ * deserializeAws_restJson1Apis
+ */
+const de_Apis = (output: any, context: __SerdeContext): Api[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Api(entry, context);
+    });
+  return retVal;
+};
+
 // de_AppSyncRuntime omitted.
 
+// de_AuthMode omitted.
+
+// de_AuthModes omitted.
+
 // de_AuthorizationConfig omitted.
+
+// de_AuthProvider omitted.
+
+// de_AuthProviders omitted.
 
 // de_AwsIamConfig omitted.
 
@@ -3250,11 +3789,42 @@ const de_UnauthorizedExceptionRes = async (
 
 // de_CachingKeys omitted.
 
+/**
+ * deserializeAws_restJson1ChannelNamespace
+ */
+const de_ChannelNamespace = (output: any, context: __SerdeContext): ChannelNamespace => {
+  return take(output, {
+    apiId: __expectString,
+    channelNamespaceArn: __expectString,
+    codeHandlers: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    publishAuthModes: _json,
+    subscribeAuthModes: _json,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ChannelNamespaces
+ */
+const de_ChannelNamespaces = (output: any, context: __SerdeContext): ChannelNamespace[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChannelNamespace(entry, context);
+    });
+  return retVal;
+};
+
 // de_CodeError omitted.
 
 // de_CodeErrorLocation omitted.
 
 // de_CodeErrors omitted.
+
+// de_CognitoConfig omitted.
 
 // de_CognitoUserPoolConfig omitted.
 
@@ -3368,6 +3938,10 @@ const de_DataSourceIntrospectionResult = (output: any, context: __SerdeContext):
 // de_EvaluateCodeErrorDetail omitted.
 
 // de_EventBridgeDataSourceConfig omitted.
+
+// de_EventConfig omitted.
+
+// de_EventLogConfig omitted.
 
 // de_FunctionConfiguration omitted.
 

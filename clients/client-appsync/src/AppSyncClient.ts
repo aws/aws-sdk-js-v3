@@ -63,7 +63,12 @@ import {
   AssociateSourceGraphqlApiCommandOutput,
 } from "./commands/AssociateSourceGraphqlApiCommand";
 import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
+import {
+  CreateChannelNamespaceCommandInput,
+  CreateChannelNamespaceCommandOutput,
+} from "./commands/CreateChannelNamespaceCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
@@ -71,7 +76,12 @@ import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "./c
 import { CreateResolverCommandInput, CreateResolverCommandOutput } from "./commands/CreateResolverCommand";
 import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "./commands/DeleteApiCacheCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
+import {
+  DeleteChannelNamespaceCommandInput,
+  DeleteChannelNamespaceCommandOutput,
+} from "./commands/DeleteChannelNamespaceCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
@@ -95,6 +105,11 @@ import {
 import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import {
+  GetChannelNamespaceCommandInput,
+  GetChannelNamespaceCommandOutput,
+} from "./commands/GetChannelNamespaceCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import {
   GetDataSourceIntrospectionCommandInput,
@@ -122,6 +137,11 @@ import {
 } from "./commands/GetSourceApiAssociationCommand";
 import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
+import { ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
+import {
+  ListChannelNamespacesCommandInput,
+  ListChannelNamespacesCommandOutput,
+} from "./commands/ListChannelNamespacesCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
@@ -160,7 +180,12 @@ import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
 import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
+import {
+  UpdateChannelNamespaceCommandInput,
+  UpdateChannelNamespaceCommandOutput,
+} from "./commands/UpdateChannelNamespaceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
@@ -190,7 +215,9 @@ export type ServiceInputTypes =
   | AssociateMergedGraphqlApiCommandInput
   | AssociateSourceGraphqlApiCommandInput
   | CreateApiCacheCommandInput
+  | CreateApiCommandInput
   | CreateApiKeyCommandInput
+  | CreateChannelNamespaceCommandInput
   | CreateDataSourceCommandInput
   | CreateDomainNameCommandInput
   | CreateFunctionCommandInput
@@ -198,7 +225,9 @@ export type ServiceInputTypes =
   | CreateResolverCommandInput
   | CreateTypeCommandInput
   | DeleteApiCacheCommandInput
+  | DeleteApiCommandInput
   | DeleteApiKeyCommandInput
+  | DeleteChannelNamespaceCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainNameCommandInput
   | DeleteFunctionCommandInput
@@ -213,6 +242,8 @@ export type ServiceInputTypes =
   | FlushApiCacheCommandInput
   | GetApiAssociationCommandInput
   | GetApiCacheCommandInput
+  | GetApiCommandInput
+  | GetChannelNamespaceCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceIntrospectionCommandInput
   | GetDomainNameCommandInput
@@ -225,6 +256,8 @@ export type ServiceInputTypes =
   | GetSourceApiAssociationCommandInput
   | GetTypeCommandInput
   | ListApiKeysCommandInput
+  | ListApisCommandInput
+  | ListChannelNamespacesCommandInput
   | ListDataSourcesCommandInput
   | ListDomainNamesCommandInput
   | ListFunctionsCommandInput
@@ -242,7 +275,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApiCacheCommandInput
+  | UpdateApiCommandInput
   | UpdateApiKeyCommandInput
+  | UpdateChannelNamespaceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainNameCommandInput
   | UpdateFunctionCommandInput
@@ -259,7 +294,9 @@ export type ServiceOutputTypes =
   | AssociateMergedGraphqlApiCommandOutput
   | AssociateSourceGraphqlApiCommandOutput
   | CreateApiCacheCommandOutput
+  | CreateApiCommandOutput
   | CreateApiKeyCommandOutput
+  | CreateChannelNamespaceCommandOutput
   | CreateDataSourceCommandOutput
   | CreateDomainNameCommandOutput
   | CreateFunctionCommandOutput
@@ -267,7 +304,9 @@ export type ServiceOutputTypes =
   | CreateResolverCommandOutput
   | CreateTypeCommandOutput
   | DeleteApiCacheCommandOutput
+  | DeleteApiCommandOutput
   | DeleteApiKeyCommandOutput
+  | DeleteChannelNamespaceCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainNameCommandOutput
   | DeleteFunctionCommandOutput
@@ -282,6 +321,8 @@ export type ServiceOutputTypes =
   | FlushApiCacheCommandOutput
   | GetApiAssociationCommandOutput
   | GetApiCacheCommandOutput
+  | GetApiCommandOutput
+  | GetChannelNamespaceCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceIntrospectionCommandOutput
   | GetDomainNameCommandOutput
@@ -294,6 +335,8 @@ export type ServiceOutputTypes =
   | GetSourceApiAssociationCommandOutput
   | GetTypeCommandOutput
   | ListApiKeysCommandOutput
+  | ListApisCommandOutput
+  | ListChannelNamespacesCommandOutput
   | ListDataSourcesCommandOutput
   | ListDomainNamesCommandOutput
   | ListFunctionsCommandOutput
@@ -311,7 +354,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApiCacheCommandOutput
+  | UpdateApiCommandOutput
   | UpdateApiKeyCommandOutput
+  | UpdateChannelNamespaceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainNameCommandOutput
   | UpdateFunctionCommandOutput
@@ -492,8 +537,8 @@ export type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
- *          from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  * @public
  */
 export class AppSyncClient extends __Client<

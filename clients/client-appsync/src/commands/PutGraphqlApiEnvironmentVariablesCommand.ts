@@ -49,15 +49,16 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  *                <p>Environmental variables only support string values.</p>
  *             </li>
  *             <li>
- *                <p>Any defined value in an environmental variable is considered a string literal and not
- *                expanded.</p>
+ *                <p>Any defined value in an environmental variable is considered a string literal
+ *                and not expanded.</p>
  *             </li>
  *             <li>
- *                <p>Variable evaluations should ideally be performed in the function code.</p>
+ *                <p>Variable evaluations should ideally be performed in the function
+ *                code.</p>
  *             </li>
  *          </ul>
- *          <p>When creating an environmental variable key-value pair, it must follow the additional constraints
- *          below:</p>
+ *          <p>When creating an environmental variable key-value pair, it must follow the additional
+ *          constraints below:</p>
  *          <ul>
  *             <li>
  *                <p>Keys must begin with a letter.</p>
@@ -66,7 +67,8 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  *                <p>Keys must be at least two characters long.</p>
  *             </li>
  *             <li>
- *                <p>Keys can only contain letters, numbers, and the underscore character (_).</p>
+ *                <p>Keys can only contain letters, numbers, and the underscore character
+ *                (_).</p>
  *             </li>
  *             <li>
  *                <p>Values can be up to 512 characters long.</p>
@@ -75,12 +77,13 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  *                <p>You can configure up to 50 key-value pairs in a GraphQL API.</p>
  *             </li>
  *          </ul>
- *          <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code>
- *          payload as a list in the format <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
- *          <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
- *          environmental variable list of that API. This means the existing environmental variables will be lost. To avoid
- *          this, you must include all existing and new environmental variables in the list each time you call this
- *          action.</p>
+ *          <p>You can create a list of environmental variables by adding it to the
+ *             <code>environmentVariables</code> payload as a list in the format
+ *             <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
+ *             <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of
+ *          the existing environmental variable list of that API. This means the existing environmental
+ *          variables will be lost. To avoid this, you must include all existing and new environmental
+ *          variables in the list each time you call this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,18 +116,19 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>

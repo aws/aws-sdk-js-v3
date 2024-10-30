@@ -28,7 +28,8 @@ export interface AssociateSourceGraphqlApiCommandInput extends AssociateSourceGr
 export interface AssociateSourceGraphqlApiCommandOutput extends AssociateSourceGraphqlApiResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a Merged API and source API using the Merged API's identifier.</p>
+ * <p>Creates an association between a Merged API and source API using the Merged API's
+ *          identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,12 +73,12 @@ export interface AssociateSourceGraphqlApiCommandOutput extends AssociateSourceG
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -86,7 +87,8 @@ export interface AssociateSourceGraphqlApiCommandOutput extends AssociateSourceG
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>

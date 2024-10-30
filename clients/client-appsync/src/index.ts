@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
- *          from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  *
  * @packageDocumentation
  */

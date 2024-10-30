@@ -30,9 +30,10 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
 /**
  * <p>Lists the API keys for a given API.</p>
  *          <note>
- *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
- *             response until they have actually been deleted. You can safely call <code>DeleteApiKey</code> to manually
- *             delete a key before it's automatically deleted.</p>
+ *             <p>API keys are deleted automatically 60 days after they expire. However, they may still
+ *             be included in the response until they have actually been deleted. You can safely call
+ *                <code>DeleteApiKey</code> to manually delete a key before it's automatically
+ *             deleted.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,14 +69,15 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>

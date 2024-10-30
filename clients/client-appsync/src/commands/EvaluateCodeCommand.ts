@@ -28,11 +28,12 @@ export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
 export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
- *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
- *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
- *          configuration for the selected data source operation. The response function interprets responses from the data
- *          source and maps it to the shape of the GraphQL field output type. </p>
+ * <p>Evaluates the given code and returns the response. The code definition requirements
+ *          depend on the specified runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the
+ *          request and response functions. The request function takes the incoming request after a
+ *          GraphQL operation is parsed and converts it into a request configuration for the selected
+ *          data source operation. The response function interprets responses from the data source and
+ *          maps it to the shape of the GraphQL field output type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +84,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>

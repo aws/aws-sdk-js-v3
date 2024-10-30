@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
-import { de_StartSchemaCreationCommand, se_StartSchemaCreationCommand } from "../protocols/Aws_restJson1";
+import { DeleteChannelNamespaceRequest, DeleteChannelNamespaceResponse } from "../models/models_0";
+import { de_DeleteChannelNamespaceCommand, se_DeleteChannelNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,43 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartSchemaCreationCommand}.
+ * The input for {@link DeleteChannelNamespaceCommand}.
  */
-export interface StartSchemaCreationCommandInput extends StartSchemaCreationRequest {}
+export interface DeleteChannelNamespaceCommandInput extends DeleteChannelNamespaceRequest {}
 /**
  * @public
  *
- * The output of {@link StartSchemaCreationCommand}.
+ * The output of {@link DeleteChannelNamespaceCommand}.
  */
-export interface StartSchemaCreationCommandOutput extends StartSchemaCreationResponse, __MetadataBearer {}
+export interface DeleteChannelNamespaceCommandOutput extends DeleteChannelNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new schema to your GraphQL API.</p>
- *          <p>This operation is asynchronous. Use  to
- *          determine when it has completed.</p>
+ * <p>Deletes a <code>ChannelNamespace</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, StartSchemaCreationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, StartSchemaCreationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteChannelNamespaceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteChannelNamespaceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = { // StartSchemaCreationRequest
+ * const input = { // DeleteChannelNamespaceRequest
  *   apiId: "STRING_VALUE", // required
- *   definition: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   name: "STRING_VALUE", // required
  * };
- * const command = new StartSchemaCreationCommand(input);
+ * const command = new DeleteChannelNamespaceCommand(input);
  * const response = await client.send(command);
- * // { // StartSchemaCreationResponse
- * //   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StartSchemaCreationCommandInput - {@link StartSchemaCreationCommandInput}
- * @returns {@link StartSchemaCreationCommandOutput}
- * @see {@link StartSchemaCreationCommandInput} for command's `input` shape.
- * @see {@link StartSchemaCreationCommandOutput} for command's `response` shape.
+ * @param DeleteChannelNamespaceCommandInput - {@link DeleteChannelNamespaceCommandInput}
+ * @returns {@link DeleteChannelNamespaceCommandOutput}
+ * @see {@link DeleteChannelNamespaceCommandInput} for command's `input` shape.
+ * @see {@link DeleteChannelNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The request is not well formed. For example, a value is invalid or a required field is
@@ -78,10 +77,10 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  *
  * @public
  */
-export class StartSchemaCreationCommand extends $Command
+export class DeleteChannelNamespaceCommand extends $Command
   .classBuilder<
-    StartSchemaCreationCommandInput,
-    StartSchemaCreationCommandOutput,
+    DeleteChannelNamespaceCommandInput,
+    DeleteChannelNamespaceCommandOutput,
     AppSyncClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +92,21 @@ export class StartSchemaCreationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSDeepdishControlPlaneService", "StartSchemaCreation", {})
-  .n("AppSyncClient", "StartSchemaCreationCommand")
+  .s("AWSDeepdishControlPlaneService", "DeleteChannelNamespace", {})
+  .n("AppSyncClient", "DeleteChannelNamespaceCommand")
   .f(void 0, void 0)
-  .ser(se_StartSchemaCreationCommand)
-  .de(de_StartSchemaCreationCommand)
+  .ser(se_DeleteChannelNamespaceCommand)
+  .de(de_DeleteChannelNamespaceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartSchemaCreationRequest;
-      output: StartSchemaCreationResponse;
+      input: DeleteChannelNamespaceRequest;
+      output: {};
     };
     sdk: {
-      input: StartSchemaCreationCommandInput;
-      output: StartSchemaCreationCommandOutput;
+      input: DeleteChannelNamespaceCommandInput;
+      output: DeleteChannelNamespaceCommandOutput;
     };
   };
 }

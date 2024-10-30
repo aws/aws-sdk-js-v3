@@ -23,11 +23,17 @@ import {
   CreateApiCacheCommandInput,
   CreateApiCacheCommandOutput,
 } from "./commands/CreateApiCacheCommand";
+import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import {
   CreateApiKeyCommand,
   CreateApiKeyCommandInput,
   CreateApiKeyCommandOutput,
 } from "./commands/CreateApiKeyCommand";
+import {
+  CreateChannelNamespaceCommand,
+  CreateChannelNamespaceCommandInput,
+  CreateChannelNamespaceCommandOutput,
+} from "./commands/CreateChannelNamespaceCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
@@ -59,11 +65,17 @@ import {
   DeleteApiCacheCommandInput,
   DeleteApiCacheCommandOutput,
 } from "./commands/DeleteApiCacheCommand";
+import { DeleteApiCommand, DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import {
   DeleteApiKeyCommand,
   DeleteApiKeyCommandInput,
   DeleteApiKeyCommandOutput,
 } from "./commands/DeleteApiKeyCommand";
+import {
+  DeleteChannelNamespaceCommand,
+  DeleteChannelNamespaceCommandInput,
+  DeleteChannelNamespaceCommandOutput,
+} from "./commands/DeleteChannelNamespaceCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
@@ -126,6 +138,12 @@ import {
   GetApiAssociationCommandOutput,
 } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommand, GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
+import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import {
+  GetChannelNamespaceCommand,
+  GetChannelNamespaceCommandInput,
+  GetChannelNamespaceCommandOutput,
+} from "./commands/GetChannelNamespaceCommand";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
@@ -170,6 +188,12 @@ import {
 } from "./commands/GetSourceApiAssociationCommand";
 import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListApiKeysCommand, ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
+import { ListApisCommand, ListApisCommandInput, ListApisCommandOutput } from "./commands/ListApisCommand";
+import {
+  ListChannelNamespacesCommand,
+  ListChannelNamespacesCommandInput,
+  ListChannelNamespacesCommandOutput,
+} from "./commands/ListChannelNamespacesCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -247,11 +271,17 @@ import {
   UpdateApiCacheCommandInput,
   UpdateApiCacheCommandOutput,
 } from "./commands/UpdateApiCacheCommand";
+import { UpdateApiCommand, UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
 import {
   UpdateApiKeyCommand,
   UpdateApiKeyCommandInput,
   UpdateApiKeyCommandOutput,
 } from "./commands/UpdateApiKeyCommand";
+import {
+  UpdateChannelNamespaceCommand,
+  UpdateChannelNamespaceCommandInput,
+  UpdateChannelNamespaceCommandOutput,
+} from "./commands/UpdateChannelNamespaceCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
@@ -288,16 +318,20 @@ const commands = {
   AssociateApiCommand,
   AssociateMergedGraphqlApiCommand,
   AssociateSourceGraphqlApiCommand,
+  CreateApiCommand,
   CreateApiCacheCommand,
   CreateApiKeyCommand,
+  CreateChannelNamespaceCommand,
   CreateDataSourceCommand,
   CreateDomainNameCommand,
   CreateFunctionCommand,
   CreateGraphqlApiCommand,
   CreateResolverCommand,
   CreateTypeCommand,
+  DeleteApiCommand,
   DeleteApiCacheCommand,
   DeleteApiKeyCommand,
+  DeleteChannelNamespaceCommand,
   DeleteDataSourceCommand,
   DeleteDomainNameCommand,
   DeleteFunctionCommand,
@@ -310,8 +344,10 @@ const commands = {
   EvaluateCodeCommand,
   EvaluateMappingTemplateCommand,
   FlushApiCacheCommand,
+  GetApiCommand,
   GetApiAssociationCommand,
   GetApiCacheCommand,
+  GetChannelNamespaceCommand,
   GetDataSourceCommand,
   GetDataSourceIntrospectionCommand,
   GetDomainNameCommand,
@@ -324,6 +360,8 @@ const commands = {
   GetSourceApiAssociationCommand,
   GetTypeCommand,
   ListApiKeysCommand,
+  ListApisCommand,
+  ListChannelNamespacesCommand,
   ListDataSourcesCommand,
   ListDomainNamesCommand,
   ListFunctionsCommand,
@@ -340,8 +378,10 @@ const commands = {
   StartSchemaMergeCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateApiCommand,
   UpdateApiCacheCommand,
   UpdateApiKeyCommand,
+  UpdateChannelNamespaceCommand,
   UpdateDataSourceCommand,
   UpdateDomainNameCommand,
   UpdateFunctionCommand,
@@ -398,6 +438,17 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link CreateApiCommand}
+   */
+  createApi(args: CreateApiCommandInput, options?: __HttpHandlerOptions): Promise<CreateApiCommandOutput>;
+  createApi(args: CreateApiCommandInput, cb: (err: any, data?: CreateApiCommandOutput) => void): void;
+  createApi(
+    args: CreateApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApiCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateApiCacheCommand}
    */
   createApiCache(
@@ -420,6 +471,23 @@ export interface AppSync {
     args: CreateApiKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApiKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelNamespaceCommand}
+   */
+  createChannelNamespace(
+    args: CreateChannelNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelNamespaceCommandOutput>;
+  createChannelNamespace(
+    args: CreateChannelNamespaceCommandInput,
+    cb: (err: any, data?: CreateChannelNamespaceCommandOutput) => void
+  ): void;
+  createChannelNamespace(
+    args: CreateChannelNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -513,6 +581,17 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link DeleteApiCommand}
+   */
+  deleteApi(args: DeleteApiCommandInput, options?: __HttpHandlerOptions): Promise<DeleteApiCommandOutput>;
+  deleteApi(args: DeleteApiCommandInput, cb: (err: any, data?: DeleteApiCommandOutput) => void): void;
+  deleteApi(
+    args: DeleteApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApiCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteApiCacheCommand}
    */
   deleteApiCache(
@@ -535,6 +614,23 @@ export interface AppSync {
     args: DeleteApiKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApiKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelNamespaceCommand}
+   */
+  deleteChannelNamespace(
+    args: DeleteChannelNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelNamespaceCommandOutput>;
+  deleteChannelNamespace(
+    args: DeleteChannelNamespaceCommandInput,
+    cb: (err: any, data?: DeleteChannelNamespaceCommandOutput) => void
+  ): void;
+  deleteChannelNamespace(
+    args: DeleteChannelNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -715,6 +811,17 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link GetApiCommand}
+   */
+  getApi(args: GetApiCommandInput, options?: __HttpHandlerOptions): Promise<GetApiCommandOutput>;
+  getApi(args: GetApiCommandInput, cb: (err: any, data?: GetApiCommandOutput) => void): void;
+  getApi(
+    args: GetApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApiCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetApiAssociationCommand}
    */
   getApiAssociation(
@@ -740,6 +847,23 @@ export interface AppSync {
     args: GetApiCacheCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApiCacheCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelNamespaceCommand}
+   */
+  getChannelNamespace(
+    args: GetChannelNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelNamespaceCommandOutput>;
+  getChannelNamespace(
+    args: GetChannelNamespaceCommandInput,
+    cb: (err: any, data?: GetChannelNamespaceCommandOutput) => void
+  ): void;
+  getChannelNamespace(
+    args: GetChannelNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -902,6 +1026,35 @@ export interface AppSync {
     args: ListApiKeysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApiKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApisCommand}
+   */
+  listApis(): Promise<ListApisCommandOutput>;
+  listApis(args: ListApisCommandInput, options?: __HttpHandlerOptions): Promise<ListApisCommandOutput>;
+  listApis(args: ListApisCommandInput, cb: (err: any, data?: ListApisCommandOutput) => void): void;
+  listApis(
+    args: ListApisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelNamespacesCommand}
+   */
+  listChannelNamespaces(
+    args: ListChannelNamespacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelNamespacesCommandOutput>;
+  listChannelNamespaces(
+    args: ListChannelNamespacesCommandInput,
+    cb: (err: any, data?: ListChannelNamespacesCommandOutput) => void
+  ): void;
+  listChannelNamespaces(
+    args: ListChannelNamespacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelNamespacesCommandOutput) => void
   ): void;
 
   /**
@@ -1141,6 +1294,17 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link UpdateApiCommand}
+   */
+  updateApi(args: UpdateApiCommandInput, options?: __HttpHandlerOptions): Promise<UpdateApiCommandOutput>;
+  updateApi(args: UpdateApiCommandInput, cb: (err: any, data?: UpdateApiCommandOutput) => void): void;
+  updateApi(
+    args: UpdateApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApiCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateApiCacheCommand}
    */
   updateApiCache(
@@ -1163,6 +1327,23 @@ export interface AppSync {
     args: UpdateApiKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApiKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelNamespaceCommand}
+   */
+  updateChannelNamespace(
+    args: UpdateChannelNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelNamespaceCommandOutput>;
+  updateChannelNamespace(
+    args: UpdateChannelNamespaceCommandInput,
+    cb: (err: any, data?: UpdateChannelNamespaceCommandOutput) => void
+  ): void;
+  updateChannelNamespace(
+    args: UpdateChannelNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -1274,8 +1455,8 @@ export interface AppSync {
 }
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
- *          from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  * @public
  */
 export class AppSync extends AppSyncClient implements AppSync {}
