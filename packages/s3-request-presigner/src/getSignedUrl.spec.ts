@@ -47,6 +47,10 @@ describe("getSignedUrl", () => {
   const mockSignatureV4MultiRegion = new SignatureV4MultiRegion({} as any);
   const clientParams = {
     region: "us-foo-1",
+    credentials: {
+      accessKeyId: "UNIT_TEST",
+      secretAccessKey: "UNIT_TEST",
+    },
   };
 
   beforeEach(() => {
