@@ -1490,6 +1490,39 @@ export interface CreateUsageLimitResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const PerformanceTargetStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PerformanceTargetStatus = (typeof PerformanceTargetStatus)[keyof typeof PerformanceTargetStatus];
+
+/**
+ * <p>An object that represents the price performance target settings for the workgroup.</p>
+ * @public
+ */
+export interface PerformanceTarget {
+  /**
+   * <p>Whether the price performance target is enabled for the workgroup.</p>
+   * @public
+   */
+  status?: PerformanceTargetStatus;
+
+  /**
+   * <p>The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These
+   *          correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.</p>
+   * @public
+   */
+  level?: number;
+}
+
+/**
+ * @public
  */
 export interface CreateWorkgroupRequest {
   /**
@@ -1562,6 +1595,12 @@ export interface CreateWorkgroupRequest {
    * @public
    */
   maxCapacity?: number;
+
+  /**
+   * <p>An object that represents the price performance target settings for the workgroup.</p>
+   * @public
+   */
+  pricePerformanceTarget?: PerformanceTarget;
 
   /**
    * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
@@ -1751,6 +1790,12 @@ export interface Workgroup {
    * @public
    */
   ipAddressType?: string;
+
+  /**
+   * <p>An object that represents the price performance target settings for the workgroup.</p>
+   * @public
+   */
+  pricePerformanceTarget?: PerformanceTarget;
 }
 
 /**
@@ -3832,6 +3877,12 @@ export interface UpdateWorkgroupRequest {
    * @public
    */
   ipAddressType?: string;
+
+  /**
+   * <p>An object that represents the price performance target settings for the workgroup.</p>
+   * @public
+   */
+  pricePerformanceTarget?: PerformanceTarget;
 }
 
 /**

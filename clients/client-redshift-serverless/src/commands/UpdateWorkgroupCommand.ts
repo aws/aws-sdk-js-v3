@@ -60,6 +60,10 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *   port: Number("int"),
  *   maxCapacity: Number("int"),
  *   ipAddressType: "STRING_VALUE",
+ *   pricePerformanceTarget: { // PerformanceTarget
+ *     status: "STRING_VALUE",
+ *     level: Number("int"),
+ *   },
  * };
  * const command = new UpdateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -116,6 +120,10 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //       "STRING_VALUE",
  * //     ],
  * //     ipAddressType: "STRING_VALUE",
+ * //     pricePerformanceTarget: { // PerformanceTarget
+ * //       status: "STRING_VALUE",
+ * //       level: Number("int"),
+ * //     },
  * //   },
  * // };
  *

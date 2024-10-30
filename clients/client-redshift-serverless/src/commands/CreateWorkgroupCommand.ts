@@ -65,6 +65,10 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  *   ],
  *   port: Number("int"),
  *   maxCapacity: Number("int"),
+ *   pricePerformanceTarget: { // PerformanceTarget
+ *     status: "STRING_VALUE",
+ *     level: Number("int"),
+ *   },
  *   ipAddressType: "STRING_VALUE",
  * };
  * const command = new CreateWorkgroupCommand(input);
@@ -122,6 +126,10 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * //       "STRING_VALUE",
  * //     ],
  * //     ipAddressType: "STRING_VALUE",
+ * //     pricePerformanceTarget: { // PerformanceTarget
+ * //       status: "STRING_VALUE",
+ * //       level: Number("int"),
+ * //     },
  * //   },
  * // };
  *

@@ -97,6 +97,10 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //     ipAddressType: "STRING_VALUE",
+ * //     pricePerformanceTarget: { // PerformanceTarget
+ * //       status: "STRING_VALUE",
+ * //       level: Number("int"),
+ * //     },
  * //   },
  * // };
  *

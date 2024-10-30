@@ -21,7 +21,7 @@ see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-redshift-serverless
+To install this package, simply type add or install @aws-sdk/client-redshift-serverless
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-redshift-serverless`

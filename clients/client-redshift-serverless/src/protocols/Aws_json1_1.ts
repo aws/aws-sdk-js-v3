@@ -240,6 +240,7 @@ import {
   ListWorkgroupsResponse,
   LogExport,
   Namespace,
+  PerformanceTarget,
   PutResourcePolicyRequest,
   RecoveryPoint,
   ResourceNotFoundException,
@@ -2446,6 +2447,8 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // se_LogExportList omitted.
 
+// se_PerformanceTarget omitted.
+
 // se_PutResourcePolicyRequest omitted.
 
 // se_RestoreFromRecoveryPointRequest omitted.
@@ -2948,6 +2951,8 @@ const de_NextInvocationsList = (output: any, context: __SerdeContext): Date[] =>
   return retVal;
 };
 
+// de_PerformanceTarget omitted.
+
 // de_PutResourcePolicyResponse omitted.
 
 /**
@@ -3267,6 +3272,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     namespaceName: __expectString,
     patchVersion: __expectString,
     port: __expectInt32,
+    pricePerformanceTarget: _json,
     publiclyAccessible: __expectBoolean,
     securityGroupIds: _json,
     status: __expectString,
