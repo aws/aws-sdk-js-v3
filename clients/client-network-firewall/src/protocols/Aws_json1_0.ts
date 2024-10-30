@@ -163,6 +163,7 @@ import {
   EncryptionConfiguration,
   FirewallPolicy,
   FirewallPolicyResponse,
+  FlowTimeouts,
   Header,
   InsufficientCapacityException,
   InternalServerError,
@@ -1744,6 +1745,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_Flags omitted.
 
+// se_FlowTimeouts omitted.
+
 // se_Header omitted.
 
 // se_IPSet omitted.
@@ -2112,6 +2115,8 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 // de_FirewallStatus omitted.
 
 // de_Flags omitted.
+
+// de_FlowTimeouts omitted.
 
 // de_Header omitted.
 

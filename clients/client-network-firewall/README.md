@@ -32,9 +32,7 @@ Guide</a>.</p>
 prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
 perimeter of your VPC. This includes filtering traffic going to and coming from an internet
 gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
-with Suricata, a free, open source network analysis and threat detection engine.
-Network Firewall supports Suricata version 6.0.9. For information about Suricata,
-see the <a href="https://suricata.io/">Suricata website</a>.</p>
+with Suricata, a free, open source network analysis and threat detection engine. </p>
 <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
 The following are just a few examples: </p>
 <ul>
@@ -87,7 +85,7 @@ endpoints.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-network-firewall
+To install this package, simply type add or install @aws-sdk/client-network-firewall
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-network-firewall`

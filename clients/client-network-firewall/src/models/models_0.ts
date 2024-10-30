@@ -1114,6 +1114,25 @@ export interface PolicyVariables {
 }
 
 /**
+ * <p>Describes the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle and Network Firewall removes the flow entry from its flow table.
+ *           Existing connections and flows are not impacted when you update this value. Only new connections after you update this value are impacted.
+ *      </p>
+ * @public
+ */
+export interface FlowTimeouts {
+  /**
+   * <p>The number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle.
+   *         After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall.
+   *         Clients or targets can use TCP keepalive packets to reset the idle timeout.
+   *          </p>
+   *          <p>You can define the <code>TcpIdleTimeoutSeconds</code> value to be between 60 and 6000 seconds. If no value is provided, it defaults to 350 seconds.
+   *       </p>
+   * @public
+   */
+  TcpIdleTimeoutSeconds?: number;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1176,6 +1195,13 @@ export interface StatefulEngineOptions {
    * @public
    */
   StreamExceptionPolicy?: StreamExceptionPolicy;
+
+  /**
+   * <p>Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+   *         </p>
+   * @public
+   */
+  FlowTimeouts?: FlowTimeouts;
 }
 
 /**
