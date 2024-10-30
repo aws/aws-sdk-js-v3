@@ -125,6 +125,7 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *       },
  *     },
  *   },
+ *   TaskMode: "BASIC" || "ENHANCED",
  * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);

@@ -47,6 +47,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * //     { // TaskExecutionListEntry
  * //       TaskExecutionArn: "STRING_VALUE",
  * //       Status: "QUEUED" || "CANCELLING" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //       TaskMode: "BASIC" || "ENHANCED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

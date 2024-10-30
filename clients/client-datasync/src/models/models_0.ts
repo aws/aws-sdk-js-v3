@@ -403,14 +403,14 @@ export interface Capacity {
 export interface CreateAgentRequest {
   /**
    * <p>Specifies your DataSync agent's activation key. If you don't have an
-   *       activation key, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">Activate your agent</a>.</p>
+   *       activation key, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">Activating your agent</a>.</p>
    * @public
    */
   ActivationKey: string | undefined;
 
   /**
-   * <p>Specifies a name for your agent. You can see this name in the DataSync
-   *       console.</p>
+   * <p>Specifies a name for your agent. We recommend specifying a name that you can
+   *       remember.</p>
    * @public
    */
   AgentName?: string;
@@ -423,29 +423,26 @@ export interface CreateAgentRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies the ID of the VPC endpoint that you want your agent to connect to. For example,
-   *       a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p>
+   * <p>Specifies the ID of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#datasync-in-vpc">VPC service endpoint</a> that you're using. For
+   *       example, a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p>
    *          <important>
-   *             <p>The VPC endpoint you use must include the DataSync service name (for example,
-   *           <code>com.amazonaws.us-east-2.datasync</code>).</p>
+   *             <p>The VPC service endpoint you use must include the DataSync service name (for
+   *         example, <code>com.amazonaws.us-east-2.datasync</code>).</p>
    *          </important>
    * @public
    */
   VpcEndpointId?: string;
 
   /**
-   * <p>Specifies the ARN of the subnet where you want to run your DataSync task when
-   *       using a VPC endpoint. This is the subnet where DataSync creates and manages the
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *         interfaces</a> for your transfer. You can only specify one ARN.</p>
+   * <p>Specifies the ARN of the subnet where your VPC service endpoint is located. You can only
+   *       specify one ARN.</p>
    * @public
    */
   SubnetArns?: string[];
 
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the security group that protects your task's
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *         interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using a virtual private cloud (VPC) endpoint</a>. You can only specify one ARN.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic between
+   *       your agent and VPC service endpoint. You can only specify one ARN.</p>
    * @public
    */
   SecurityGroupArns?: string[];
@@ -534,7 +531,8 @@ export interface CreateLocationAzureBlobResponse {
 }
 
 /**
- * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
+ * <p>The subnet and security groups that DataSync uses to connect to one of your
+ *         Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
  * @public
  */
 export interface Ec2Config {
@@ -585,25 +583,24 @@ export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeo
  */
 export interface CreateLocationEfsRequest {
   /**
-   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data (depending on if this is a source or destination location).
-   *       By default, DataSync uses the root directory, but you can also include
-   *       subdirectories.</p>
-   *          <note>
-   *             <p>You must specify a value with forward slashes (for example,
-   *         <code>/path/to/folder</code>).</p>
-   *          </note>
+   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data (depending on if this is a source or destination location)
+   *       on your file system.</p>
+   *          <p>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access point</a> if you provide one by using
+   *         <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for
+   *       example, <code>/path/to/folder</code>).</p>
    * @public
    */
   Subdirectory?: string;
 
   /**
-   * <p>Specifies the ARN for the Amazon EFS file system.</p>
+   * <p>Specifies the ARN for your Amazon EFS file system.</p>
    * @public
    */
   EfsFilesystemArn: string | undefined;
 
   /**
-   * <p>Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.</p>
+   * <p>Specifies the subnet and security groups DataSync uses to connect to one of
+   *       your Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
    * @public
    */
   Ec2Config: Ec2Config | undefined;
@@ -618,21 +615,22 @@ export interface CreateLocationEfsRequest {
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses
-   *       to access the Amazon EFS file system.</p>
+   *       to mount your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted file systems</a>.</p>
    * @public
    */
   AccessPointArn?: string;
 
   /**
-   * <p>Specifies an Identity and Access Management (IAM) role that DataSync
-   *       assumes when mounting the Amazon EFS file system.</p>
+   * <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p>
+   *          <p>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for file system access</a>.</p>
    * @public
    */
   FileSystemAccessRoleArn?: string;
 
   /**
    * <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2
-   *       encryption when it copies data to or from the Amazon EFS file system.</p>
+   *       encryption when it transfers data to or from your Amazon EFS file system.</p>
    *          <p>If you specify an access point using <code>AccessPointArn</code> or an IAM
    *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
    *         <code>TLS1_2</code>.</p>
@@ -1032,8 +1030,12 @@ export interface CreateLocationFsxWindowsRequest {
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>Specifies the ARNs of the security groups that provide access to your file system's
-   *       preferred subnet.</p>
+   * <p>Specifies the ARNs of the Amazon EC2 security groups that provide access to your file system's preferred subnet.</p>
+   *          <p>The security groups that you specify must be able to communicate with your file system's
+   *       security groups. For information about configuring security groups for file system access, see
+   *       the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Windows File Server User Guide</i>
+   *             </a>.</p>
    *          <note>
    *             <p>If you choose a security group that doesn't allow connections from within itself, do one
    *         of the following:</p>
@@ -1290,8 +1292,7 @@ export interface CreateLocationHdfsRequest {
   KerberosKrb5Conf?: Uint8Array;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS
-   *       cluster.</p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1309,21 +1310,22 @@ export interface CreateLocationHdfsRequest {
  */
 export interface CreateLocationHdfsResponse {
   /**
-   * <p>The ARN of the source HDFS cluster location that's created. </p>
+   * <p>The ARN of the source HDFS cluster location that you create.</p>
    * @public
    */
   LocationArn?: string;
 }
 
 /**
- * <p>The DataSync agents that are connecting to a Network File System (NFS)
- *       location.</p>
+ * <p>The DataSync agents that can connect to your Network File System (NFS)
+ *       file server.</p>
  * @public
  */
 export interface OnPremConfig {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the agents connecting to a transfer
-   *       location.</p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS file server.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using multiple DataSync
+   *       agents</a>.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1351,10 +1353,10 @@ export interface CreateLocationNfsRequest {
   ServerHostname: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can
    *       connect to your NFS file server.</p>
-   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using multiple
-   *         agents for transfers</a>.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using multiple DataSync
+   *         agents</a>.</p>
    * @public
    */
   OnPremConfig: OnPremConfig | undefined;
@@ -1456,7 +1458,7 @@ export interface CreateLocationObjectStorageRequest {
 
   /**
    * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can
-   *       securely connect with your location.</p>
+   *       connect with your object storage system.</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -1696,8 +1698,8 @@ export interface CreateLocationSmbRequest {
   Password: string | undefined;
 
   /**
-   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB
-   *       file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
+   * <p>Specifies the DataSync agent (or agents) that can connect to your SMB file
+   *       server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    * @public
    */
   AgentArns: string[] | undefined;
@@ -2069,15 +2071,19 @@ export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
  */
 export interface Options {
   /**
-   * <p>Specifies how and when DataSync checks the integrity of your data during a
-   *       transfer.</p>
+   * <p>Specifies if and how DataSync checks the integrity of your data at the end of
+   *       your transfer.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>ONLY_FILES_TRANSFERRED</code> (recommended) - DataSync calculates
-   *           the checksum of transferred files and metadata at the source location. At the end of the
-   *           transfer, DataSync then compares this checksum to the checksum calculated on
-   *           those files at the destination.</p>
+   *           the checksum of transferred data (including metadata) at the source location. At the end
+   *           of the transfer, DataSync then compares this checksum to the checksum calculated
+   *           on that data at the destination.</p>
+   *                <note>
+   *                   <p>This is the default option for <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *             tasks</a>.</p>
+   *                </note>
    *                <p>We recommend this option when transferring to S3 Glacier Flexible Retrieval
    *           or S3 Glacier Deep Archive storage classes. For more information, see
    *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
@@ -2085,9 +2091,12 @@ export interface Options {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>POINT_IN_TIME_CONSISTENT</code> (default) - At the end of the transfer,
-   *             DataSync scans the entire source and destination to verify that both locations
-   *           are fully synchronized.</p>
+   *                   <code>POINT_IN_TIME_CONSISTENT</code> - At the end of the transfer, DataSync checks the entire source and destination to verify that both locations are
+   *           fully synchronized.</p>
+   *                <note>
+   *                   <p>The is the default option for <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Basic mode tasks</a> and
+   *             isn't currently supported with Enhanced mode tasks.</p>
+   *                </note>
    *                <p>If you use a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">manifest</a>, DataSync only scans and
    *           verifies what's listed in the manifest.</p>
    *                <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval
@@ -2097,9 +2106,9 @@ export interface Options {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code> - DataSync doesn't run additional verification at the
-   *           end of the transfer. All data transmissions are still integrity-checked with checksum
-   *           verification during the transfer.</p>
+   *                   <code>NONE</code> - DataSync performs data integrity checks only during
+   *           your transfer. Unlike other options, there's no additional verification at the end of your
+   *           transfer.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2141,7 +2150,7 @@ export interface Options {
    *                <p>
    *                   <code>BEST_EFFORT</code> (default) - DataSync attempts to preserve the
    *           original <code>Atime</code> attribute on all source files (that is, the version before the
-   *             <code>PREPARING</code> phase of the task execution). This option is
+   *             <code>PREPARING</code> steps of the task execution). This option is
    *           recommended.</p>
    *             </li>
    *             <li>
@@ -2161,8 +2170,8 @@ export interface Options {
 
   /**
    * <p>Specifies whether to preserve metadata indicating the last time that a file was written
-   *       to before the <code>PREPARING</code> phase of your task execution. This option is required
-   *       when you need to run the a task more than once.</p>
+   *       to before the <code>PREPARING</code> step of your task execution. This option is required when
+   *       you need to run the a task more than once.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2215,7 +2224,7 @@ export interface Options {
    *                   <code>NONE</code> - Ignores UID and GID.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    * @public
    */
   Gid?: Gid;
@@ -2273,7 +2282,7 @@ export interface Options {
   /**
    * <p>Specifies which users or groups can access a file for a specific purpose such as reading,
    *       writing, or execution of the file.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2296,6 +2305,10 @@ export interface Options {
    * <p>Limits the bandwidth used by a DataSync task. For example, if you want
    *         DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
    *         (<code>=1024*1024</code>).</p>
+   *          <note>
+   *             <p>Not applicable to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
    * @public
    */
   BytesPerSecond?: number;
@@ -2331,14 +2344,16 @@ export interface Options {
   LogLevel?: LogLevel;
 
   /**
-   * <p>Determines whether DataSync transfers only the data and metadata that differ
-   *       between the source and the destination location or transfers all the content from the source
-   *       (without comparing what's in the destination).</p>
+   * <p>Specifies whether DataSync transfers only the data (including metadata) that
+   *       differs between locations following an initial copy or transfers all data every time you run
+   *       the task. If you're planning on recurring transfers, you might only want to transfer what's
+   *       changed since your previous task execution.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CHANGED</code> (default) - DataSync copies only data or metadata that
-   *           is new or different content from the source location to the destination location.</p>
+   *                   <code>CHANGED</code> (default) - After your initial full transfer, DataSync
+   *           copies only the data and metadata that differs between the source and destination
+   *           location.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2354,7 +2369,7 @@ export interface Options {
    * <p>Specifies which components of the SMB security descriptor are copied from source to
    *       destination objects. </p>
    *          <p>This value is only used for transfers between SMB and Amazon FSx for Windows File Server
-   *       locations or between two FSx for Windows File Server locations. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">how DataSync handles metadata</a>.</p>
+   *       locations or between two FSx for Windows File Server locations. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2434,10 +2449,20 @@ export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus
  */
 export interface TaskSchedule {
   /**
-   * <p>Specifies your task schedule by using a cron expression in UTC time. For information about
-   *       cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html">
-   *                <i>Amazon EventBridge User
-   *           Guide</i>
+   * <p>Specifies your task schedule by using a cron or rate expression.</p>
+   *          <p>Use cron expressions for task schedules that run on a specific time and day. For example,
+   *       the following cron expression creates a task schedule that runs at 8 AM on the first Wednesday
+   *       of every month:</p>
+   *          <p>
+   *             <code>cron(0 8 * * 3#1)</code>
+   *          </p>
+   *          <p>Use rate expressions for task schedules that run on a regular interval. For example, the
+   *       following rate expression creates a task schedule that runs every 12 hours:</p>
+   *          <p>
+   *             <code>rate(12 hours)</code>
+   *          </p>
+   *          <p>For information about cron and rate expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html">
+   *                <i>Amazon EventBridge User Guide</i>
    *             </a>.</p>
    * @public
    */
@@ -2454,6 +2479,20 @@ export interface TaskSchedule {
    */
   Status?: ScheduleStatus;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskMode = {
+  BASIC: "BASIC",
+  ENHANCED: "ENHANCED",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskMode = (typeof TaskMode)[keyof typeof TaskMode];
 
 /**
  * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a>.</p>
@@ -2666,6 +2705,8 @@ export interface CreateTaskRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
    *       monitoring your task.</p>
+   *          <p>For Enhanced mode tasks, you don't need to specify anything. DataSync
+   *       automatically sends logs to a CloudWatch log group named <code>/aws/datasync</code>.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;
@@ -2707,8 +2748,10 @@ export interface CreateTaskRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies include filters define the files, objects, and folders in your source location
-   *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
+   * <p>Specifies include filters that define the files, objects, and folders in your source
+   *       location that you want DataSync to transfer. For more information and examples, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what
+   *           DataSync transfers by using filters</a>.</p>
    * @public
    */
   Includes?: FilterRule[];
@@ -2728,6 +2771,30 @@ export interface CreateTaskRequest {
    * @public
    */
   TaskReportConfig?: TaskReportConfig;
+
+  /**
+   * <p>Specifies one of the following task modes for your data transfer:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.</p>
+   *                <note>
+   *                   <p>To create an Enhanced mode task, the IAM role that you use to call
+   *             the <code>CreateTask</code> operation must have the
+   *               <code>iam:CreateServiceLinkedRole</code> permission.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC</code> (default) - Transfer files or objects between Amazon Web Services
+   *           storage and on-premises, edge, or other cloud storage. DataSync
+   *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a> apply.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode;
 }
 
 /**
@@ -2835,7 +2902,7 @@ export interface PrivateLinkConfig {
   VpcEndpointId?: string;
 
   /**
-   * <p>Specifies the VPC endpoint provided by <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">Amazon Web Services PrivateLink</a> that
+   * <p>Specifies the VPC endpoint provided by <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html">Amazon Web Services PrivateLink</a> that
    *       your agent connects to.</p>
    * @public
    */
@@ -3086,7 +3153,8 @@ export interface DescribeLocationEfsResponse {
   LocationUri?: string;
 
   /**
-   * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
+   * <p>The subnet and security groups that DataSync uses to connect to one of your
+   *         Amazon EFS file system's <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">mount targets</a>.</p>
    * @public
    */
   Ec2Config?: Ec2Config;
@@ -3100,20 +3168,22 @@ export interface DescribeLocationEfsResponse {
   /**
    * <p>The ARN of the access point that DataSync uses to access the Amazon EFS
    *       file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted file systems</a>.</p>
    * @public
    */
   AccessPointArn?: string;
 
   /**
-   * <p>The Identity and Access Management (IAM) role that DataSync assumes when
-   *       mounting the Amazon EFS file system.</p>
+   * <p>The Identity and Access Management (IAM) role that allows DataSync to
+   *       access your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for file system access</a>.</p>
    * @public
    */
   FileSystemAccessRoleArn?: string;
 
   /**
-   * <p>Describes whether DataSync uses Transport Layer Security (TLS) encryption when
-   *       copying data to or from the Amazon EFS file system.</p>
+   * <p>Indicates whether DataSync uses Transport Layer Security (TLS) encryption when
+   *       transferring data to or from the Amazon EFS file system.</p>
    * @public
    */
   InTransitEncryption?: EfsInTransitEncryption;
@@ -3303,8 +3373,11 @@ export interface DescribeLocationFsxWindowsResponse {
   LocationUri?: string;
 
   /**
-   * <p>The ARNs of the security groups that are configured for the FSx for Windows File Server file
-   *       system.</p>
+   * <p>The ARNs of the Amazon EC2 security groups that provide access to your file
+   *       system's preferred subnet.</p>
+   *          <p>For information about configuring security groups for file system access, see the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Windows File Server User Guide</i>
+   *             </a>.</p>
    * @public
    */
   SecurityGroupArns?: string[];
@@ -3453,8 +3526,8 @@ export interface DescribeLocationNfsResponse {
   LocationUri?: string;
 
   /**
-   * <p>The DataSync agents that are connecting to a Network File System (NFS)
-   *       location.</p>
+   * <p>The DataSync agents that can connect to your Network File System (NFS)
+   *       file server.</p>
    * @public
    */
   OnPremConfig?: OnPremConfig;
@@ -4654,8 +4727,8 @@ export interface DescribeTaskResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your
    *       task.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html">Monitoring DataSync with
-   *       Amazon CloudWatch</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html">Monitoring data transfers with
+   *           CloudWatch Logs</a>.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;
@@ -4741,6 +4814,12 @@ export interface DescribeTaskResponse {
    * @public
    */
   ScheduleDetails?: TaskScheduleDetails;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode;
 }
 
 /**
@@ -4754,6 +4833,81 @@ export interface DescribeTaskExecutionRequest {
    * @public
    */
   TaskExecutionArn: string | undefined;
+}
+
+/**
+ * <p>The number of objects that DataSync fails to prepare, transfer, verify, and
+ *       delete during your task execution.</p>
+ *          <note>
+ *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+ *         tasks</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface TaskExecutionFilesFailedDetail {
+  /**
+   * <p>The number of objects that DataSync fails to prepare during your task
+   *       execution.</p>
+   * @public
+   */
+  Prepare?: number;
+
+  /**
+   * <p>The number of objects that DataSync fails to transfer during your task
+   *       execution.</p>
+   * @public
+   */
+  Transfer?: number;
+
+  /**
+   * <p>The number of objects that DataSync fails to verify during your task
+   *       execution.</p>
+   * @public
+   */
+  Verify?: number;
+
+  /**
+   * <p>The number of objects that DataSync fails to delete during your task
+   *       execution.</p>
+   * @public
+   */
+  Delete?: number;
+}
+
+/**
+ * <p>The number of objects that DataSync finds at your locations.</p>
+ *          <note>
+ *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+ *         tasks</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface TaskExecutionFilesListedDetail {
+  /**
+   * <p>The number of objects that DataSync finds at your source location.</p>
+   *          <ul>
+   *             <li>
+   *                <p>With a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">manifest</a>, DataSync
+   *           lists only what's in your manifest (and not everything at your source location).</p>
+   *             </li>
+   *             <li>
+   *                <p>With an include <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">filter</a>, DataSync lists only what
+   *           matches the filter at your source location.</p>
+   *             </li>
+   *             <li>
+   *                <p>With an exclude filter, DataSync lists everything at your source location before applying
+   *           the filter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AtSource?: number;
+
+  /**
+   * <p>The number of objects that DataSync finds at your destination location. This metric is only applicable if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-file-object-handling">configure your task</a> to delete data in the destination that isn't in the source.</p>
+   * @public
+   */
+  AtDestinationForDelete?: number;
 }
 
 /**
@@ -4799,68 +4953,83 @@ export interface ReportResult {
 }
 
 /**
- * <p>Describes the detailed result of a <code>TaskExecution</code> operation. This result
- *       includes the time in milliseconds spent in each phase, the status of the task execution, and
- *       the errors encountered.</p>
+ * <p>Provides detailed information about the result of your DataSync task
+ *       execution.</p>
  * @public
  */
 export interface TaskExecutionResultDetail {
   /**
-   * <p>The total time in milliseconds that DataSync spent in the PREPARING
-   *       phase. </p>
+   * <p>The time in milliseconds that your task execution was in the <code>PREPARING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-datasync-prepares">How DataSync prepares your data transfer</a>.</p>
    * @public
    */
   PrepareDuration?: number;
 
   /**
-   * <p>The status of the PREPARING phase.</p>
+   * <p>The status of the <code>PREPARING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
   PrepareStatus?: PhaseStatus;
 
   /**
-   * <p>The total time in milliseconds that DataSync took to transfer the file from
-   *       the source to the destination location.</p>
+   * <p>The time in milliseconds that your task execution ran.</p>
    * @public
    */
   TotalDuration?: number;
 
   /**
-   * <p>The total time in milliseconds that DataSync spent in the TRANSFERRING
-   *       phase.</p>
+   * <p>The time in milliseconds that your task execution was in the <code>TRANSFERRING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-datasync-transfers">How DataSync transfers your data</a>.</p>
    * @public
    */
   TransferDuration?: number;
 
   /**
-   * <p>The status of the TRANSFERRING phase.</p>
+   * <p>The status of the <code>TRANSFERRING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
   TransferStatus?: PhaseStatus;
 
   /**
-   * <p>The total time in milliseconds that DataSync spent in the VERIFYING
-   *       phase.</p>
+   * <p>The time in milliseconds that your task execution was in the <code>VERIFYING</code>
+   *       step. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
+   *          <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-verifying-works">How DataSync verifies your data's integrity</a>.</p>
    * @public
    */
   VerifyDuration?: number;
 
   /**
-   * <p>The status of the VERIFYING phase.</p>
+   * <p>The status of the <code>VERIFYING</code> step for your task execution. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task
+   *         execution statuses</a>.</p>
    * @public
    */
   VerifyStatus?: PhaseStatus;
 
   /**
-   * <p>Errors that DataSync encountered during execution of the task. You can
-   *       use this error code to help troubleshoot issues.</p>
+   * <p>An error that DataSync encountered during your task execution. You can use
+   *       this information to help <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">troubleshoot
+   *         issues</a>.</p>
    * @public
    */
   ErrorCode?: string;
 
   /**
-   * <p>Detailed description of an error that was encountered during the task execution. You
-   *       can use this information to help troubleshoot issues. </p>
+   * <p>The detailed description of an error that DataSync encountered during your
+   *       task execution. You can use this information to help <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">troubleshoot
+   *         issues</a>. </p>
    * @public
    */
   ErrorDetail?: string;
@@ -4947,51 +5116,84 @@ export interface DescribeTaskExecutionResponse {
   StartTime?: Date;
 
   /**
-   * <p>The expected number of files, objects, and directories that DataSync will
+   * <p>The number of files, objects, and directories that DataSync expects to
    *       transfer over the network. This value is calculated during the task execution's
-   *         <code>PREPARING</code> phase before the <code>TRANSFERRING</code> phase. The calculation is
-   *       based on comparing the content of the source and destination locations and finding the
-   *       difference that needs to be transferred. </p>
+   *         <code>PREPARING</code>
+   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">step</a> before the <code>TRANSFERRING</code> step.</p>
+   *          <p>How this gets calculated depends primarily on your task’s <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-TransferMode">transfer
+   *         mode</a> configuration:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>TranserMode</code> is set to <code>CHANGED</code> - The calculation is based
+   *           on comparing the content of the source and destination locations and determining the
+   *           difference that needs to be transferred. The difference can include:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Anything that's added or modified at the source location.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Anything that's in both locations and modified at the destination after an initial
+   *               transfer (unless <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-OverwriteMode">OverwriteMode</a> is set to <code>NEVER</code>).</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>(Basic task mode only)</b> The number of items that
+   *                 DataSync expects to delete (if <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-PreserveDeletedFiles">PreserveDeletedFiles</a> is set to
+   *               <code>REMOVE</code>).</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>If <code>TranserMode</code> is set to <code>ALL</code> - The calculation is based only
+   *           on the items that DataSync finds at the source location.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   EstimatedFilesToTransfer?: number;
 
   /**
-   * <p>The estimated physical number of bytes that will transfer over the network.</p>
+   * <p>The number of logical bytes that DataSync expects to write to the destination
+   *       location.</p>
    * @public
    */
   EstimatedBytesToTransfer?: number;
 
   /**
-   * <p>The actual number of files, objects, and directories that DataSync
-   *       transferred over the network. This value is updated periodically during the task execution's
-   *         <code>TRANSFERRING</code> phase when something is read from the source and sent over the
-   *       network.</p>
+   * <p>The number of files, objects, and directories that DataSync actually
+   *       transfers over the network. This value is updated periodically during the task execution's
+   *         <code>TRANSFERRING</code>
+   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">step</a> when something is read from the source and sent over the network.</p>
    *          <p>If DataSync fails to transfer something, this value can be less than
    *         <code>EstimatedFilesToTransfer</code>. In some cases, this value can also be greater than
    *         <code>EstimatedFilesToTransfer</code>. This element is implementation-specific for some
-   *       location types, so don't use it as an exact indication of what transferred or to monitor your task execution.</p>
+   *       location types, so don't use it as an exact indication of what's transferring or to monitor
+   *       your task execution.</p>
    * @public
    */
   FilesTransferred?: number;
 
   /**
-   * <p>The number of logical bytes written to the destination location.</p>
+   * <p>The number of logical bytes that DataSync actually writes to the destination
+   *       location.</p>
    * @public
    */
   BytesWritten?: number;
 
   /**
-   * <p>The total number of bytes that are involved in the transfer. For the number of bytes
-   *       sent over the network, see <code>BytesCompressed</code>. </p>
+   * <p>The number of bytes that DataSync sends to the network before compression (if
+   *       compression is possible). For the number of bytes transferred over the network, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html#DataSync-DescribeTaskExecution-response-BytesCompressed">BytesCompressed</a>. </p>
    * @public
    */
   BytesTransferred?: number;
 
   /**
-   * <p>The physical number of bytes transferred over the network after compression was applied.
-   *       In most cases, this number is less than <code>BytesTransferred</code> unless the data isn't
-   *       compressible.</p>
+   * <p>The number of physical bytes that DataSync transfers over the network after
+   *       compression (if compression is possible). This number is typically less than <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html#DataSync-DescribeTaskExecution-response-BytesTransferred">BytesTransferred</a> unless the data isn't compressible.</p>
+   *          <note>
+   *             <p>Not currently supported with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
    * @public
    */
   BytesCompressed?: number;
@@ -5010,8 +5212,8 @@ export interface DescribeTaskExecutionResponse {
   TaskReportConfig?: TaskReportConfig;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync deleted in your
-   *       destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
+   * <p>The number of files, objects, and directories that DataSync actually deletes in
+   *       your destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
    *       delete data in the destination that isn't in the source, the value is always
    *       <code>0</code>.</p>
    * @public
@@ -5019,14 +5221,14 @@ export interface DescribeTaskExecutionResponse {
   FilesDeleted?: number;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync skipped during your
+   * <p>The number of files, objects, and directories that DataSync skips during your
    *       transfer.</p>
    * @public
    */
   FilesSkipped?: number;
 
   /**
-   * <p>The number of files, objects, and directories that DataSync verified during your
+   * <p>The number of files, objects, and directories that DataSync verifies during your
    *       transfer.</p>
    *          <note>
    *             <p>When you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-data-verification-options.html">verify only the
@@ -5045,13 +5247,56 @@ export interface DescribeTaskExecutionResponse {
   ReportResult?: ReportResult;
 
   /**
-   * <p>The expected number of files, objects, and directories that DataSync will delete
-   *       in your destination location.  If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
+   * <p>The number of files, objects, and directories that DataSync expects to delete in
+   *       your destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
    *       delete data in the destination that isn't in the source, the value is always
    *       <code>0</code>.</p>
    * @public
    */
   EstimatedFilesToDelete?: number;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode;
+
+  /**
+   * <p>The number of objects that DataSync will attempt to transfer after comparing
+   *       your source and destination locations.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   *          <p>This metric isn't applicable if you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-transfer-mode">transfer all data</a>. In that scenario, DataSync copies everything from the source to the destination without comparing differences between the locations.</p>
+   * @public
+   */
+  FilesPrepared?: number;
+
+  /**
+   * <p>The number of
+   *       objects
+   *       that DataSync
+   *       finds
+   *       at your locations.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   * @public
+   */
+  FilesListed?: TaskExecutionFilesListedDetail;
+
+  /**
+   * <p>The number of objects that DataSync fails to prepare, transfer, verify, and
+   *       delete during your task execution.</p>
+   *          <note>
+   *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
+   *         tasks</a>.</p>
+   *          </note>
+   * @public
+   */
+  FilesFailed?: TaskExecutionFilesFailedDetail;
 }
 
 /**
@@ -5485,6 +5730,12 @@ export interface TaskExecutionListEntry {
    * @public
    */
   Status?: TaskExecutionStatus;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode;
 }
 
 /**
@@ -5605,6 +5856,12 @@ export interface TaskListEntry {
    * @public
    */
   Name?: string;
+
+  /**
+   * <p>The task mode that you're using. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Choosing a task mode for your data transfer</a>.</p>
+   * @public
+   */
+  TaskMode?: TaskMode;
 }
 
 /**
@@ -6026,7 +6283,7 @@ export interface UpdateLocationHdfsRequest {
   KerberosKrb5Conf?: Uint8Array;
 
   /**
-   * <p>The ARNs of the agents that are used to connect to the HDFS cluster. </p>
+   * <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.</p>
    * @public
    */
   AgentArns?: string[];
@@ -6058,8 +6315,8 @@ export interface UpdateLocationNfsRequest {
   Subdirectory?: string;
 
   /**
-   * <p>The DataSync agents that are connecting to a Network File System (NFS)
-   *       location.</p>
+   * <p>The DataSync agents that can connect to your Network File System (NFS)
+   *       file server.</p>
    * @public
    */
   OnPremConfig?: OnPremConfig;
@@ -6123,7 +6380,7 @@ export interface UpdateLocationObjectStorageRequest {
 
   /**
    * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can
-   *       securely connect with your location.</p>
+   *       connect with your object storage system.</p>
    * @public
    */
   AgentArns?: string[];
@@ -6211,7 +6468,8 @@ export interface UpdateLocationSmbRequest {
   Password?: string;
 
   /**
-   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
+   * <p>Specifies the DataSync agent (or agents) that can connect to your SMB file
+   *       server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    * @public
    */
   AgentArns?: string[];
@@ -6322,6 +6580,13 @@ export interface UpdateTaskRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
    *       monitoring your task.</p>
+   *          <p>For Enhanced mode tasks, you must use <code>/aws/datasync</code> as your log group
+   *       name. For example:</p>
+   *          <p>
+   *             <code>arn:aws:logs:us-east-1:111222333444:log-group:/aws/datasync:*</code>
+   *          </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html">Monitoring data transfers with
+   *           CloudWatch Logs</a>.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;

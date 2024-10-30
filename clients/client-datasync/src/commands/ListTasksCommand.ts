@@ -56,6 +56,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * //       TaskArn: "STRING_VALUE",
  * //       Status: "AVAILABLE" || "CREATING" || "QUEUED" || "RUNNING" || "UNAVAILABLE",
  * //       Name: "STRING_VALUE",
+ * //       TaskMode: "BASIC" || "ENHANCED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

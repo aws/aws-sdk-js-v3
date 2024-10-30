@@ -28,25 +28,10 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Activates an DataSync agent that you've deployed in your storage
- *       environment. The activation process associates the agent with your Amazon Web Services account.</p>
- *          <p>If you haven't deployed an agent yet, see the following topics to learn more:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/agent-requirements.html">Agent requirements</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-agent.html">Create an agent</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>If you're transferring between Amazon Web Services storage services, you don't need a
- *           DataSync agent. </p>
- *          </note>
+ * <p>Activates an DataSync agent that you deploy in your storage environment.
+ *       The activation process associates the agent with your Amazon Web Services account.</p>
+ *          <p>If you haven't deployed an agent yet, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html">Do I need a DataSync agent?</a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

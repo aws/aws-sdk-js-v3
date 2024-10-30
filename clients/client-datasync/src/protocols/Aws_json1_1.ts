@@ -3053,6 +3053,9 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     EstimatedFilesToTransfer: __expectLong,
     Excludes: _json,
     FilesDeleted: __expectLong,
+    FilesFailed: _json,
+    FilesListed: _json,
+    FilesPrepared: __expectLong,
     FilesSkipped: __expectLong,
     FilesTransferred: __expectLong,
     FilesVerified: __expectLong,
@@ -3064,6 +3067,7 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     TaskExecutionArn: __expectString,
+    TaskMode: __expectString,
     TaskReportConfig: _json,
   }) as any;
 };
@@ -3091,6 +3095,7 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
     SourceNetworkInterfaceArns: _json,
     Status: __expectString,
     TaskArn: __expectString,
+    TaskMode: __expectString,
     TaskReportConfig: _json,
   }) as any;
 };
@@ -3400,6 +3405,10 @@ const de_ResourceMetrics = (output: any, context: __SerdeContext): ResourceMetri
 // de_TagListEntry omitted.
 
 // de_TagResourceResponse omitted.
+
+// de_TaskExecutionFilesFailedDetail omitted.
+
+// de_TaskExecutionFilesListedDetail omitted.
 
 // de_TaskExecutionList omitted.
 

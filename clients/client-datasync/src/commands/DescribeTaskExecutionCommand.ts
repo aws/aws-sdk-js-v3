@@ -29,8 +29,13 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
 
 /**
  * <p>Provides information about an execution of your DataSync task. You can
- *       use this operation to help monitor the progress of an ongoing transfer or check the results of
- *       the transfer.</p>
+ *       use this operation to help monitor the progress of an ongoing data transfer or check the
+ *       results of the transfer.</p>
+ *          <note>
+ *             <p>Some <code>DescribeTaskExecution</code> response elements are only relevant to a
+ *         specific task mode. For information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-metrics.html">Understanding data
+ *           transfer performance metrics</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,6 +144,18 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * //     ErrorDetail: "STRING_VALUE",
  * //   },
  * //   EstimatedFilesToDelete: Number("long"),
+ * //   TaskMode: "BASIC" || "ENHANCED",
+ * //   FilesPrepared: Number("long"),
+ * //   FilesListed: { // TaskExecutionFilesListedDetail
+ * //     AtSource: Number("long"),
+ * //     AtDestinationForDelete: Number("long"),
+ * //   },
+ * //   FilesFailed: { // TaskExecutionFilesFailedDetail
+ * //     Prepare: Number("long"),
+ * //     Transfer: Number("long"),
+ * //     Verify: Number("long"),
+ * //     Delete: Number("long"),
+ * //   },
  * // };
  *
  * ```

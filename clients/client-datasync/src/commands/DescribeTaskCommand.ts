@@ -133,6 +133,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //     DisabledReason: "STRING_VALUE",
  * //     DisabledBy: "USER" || "SERVICE",
  * //   },
+ * //   TaskMode: "BASIC" || "ENHANCED",
  * // };
  *
  * ```
