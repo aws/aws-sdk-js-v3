@@ -120,6 +120,7 @@ import {
   CreateAccessPolicyRequest,
   CreateAccessPolicyResponse,
   CreateCollectionRequest,
+  CreateIamIdentityCenterConfigOptions,
   CreateLifecyclePolicyRequest,
   CreateLifecyclePolicyResponse,
   CreateSecurityConfigRequest,
@@ -162,6 +163,7 @@ import {
   UpdateAccessPolicyResponse,
   UpdateAccountSettingsRequest,
   UpdateCollectionRequest,
+  UpdateIamIdentityCenterConfigOptions,
   UpdateLifecyclePolicyRequest,
   UpdateLifecyclePolicyResponse,
   UpdateSecurityConfigRequest,
@@ -1565,6 +1567,8 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
   });
 };
 
+// se_CreateIamIdentityCenterConfigOptions omitted.
+
 /**
  * serializeAws_json1_0CreateLifecyclePolicyRequest
  */
@@ -1585,6 +1589,7 @@ const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, cont
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
+    iamIdentityCenterOptions: _json,
     name: [],
     samlOptions: _json,
     type: [],
@@ -1759,6 +1764,8 @@ const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __S
   });
 };
 
+// se_UpdateIamIdentityCenterConfigOptions omitted.
+
 /**
  * serializeAws_json1_0UpdateLifecyclePolicyRequest
  */
@@ -1781,6 +1788,7 @@ const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, cont
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     configVersion: [],
     description: [],
+    iamIdentityCenterOptionsUpdates: _json,
     id: [],
     samlOptions: _json,
   });
@@ -1957,6 +1965,8 @@ const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): Get
     securityPolicyDetail: (_: any) => de_SecurityPolicyDetail(_, context),
   }) as any;
 };
+
+// de_IamIdentityCenterConfigOptions omitted.
 
 // de_InternalServerException omitted.
 

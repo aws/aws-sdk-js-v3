@@ -1540,6 +1540,76 @@ export interface UpdateCollectionResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const IamIdentityCenterGroupAttribute = {
+  /**
+   * Group ID
+   */
+  GroupId: "GroupId",
+  /**
+   * Group Name
+   */
+  GroupName: "GroupName",
+} as const;
+
+/**
+ * @public
+ */
+export type IamIdentityCenterGroupAttribute =
+  (typeof IamIdentityCenterGroupAttribute)[keyof typeof IamIdentityCenterGroupAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const IamIdentityCenterUserAttribute = {
+  /**
+   * Email
+   */
+  Email: "Email",
+  /**
+   * User ID
+   */
+  UserId: "UserId",
+  /**
+   * User Name
+   */
+  UserName: "UserName",
+} as const;
+
+/**
+ * @public
+ */
+export type IamIdentityCenterUserAttribute =
+  (typeof IamIdentityCenterUserAttribute)[keyof typeof IamIdentityCenterUserAttribute];
+
+/**
+ * <p>Describes IAM Identity Center options for creating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface CreateIamIdentityCenterConfigOptions {
+  /**
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  instanceArn: string | undefined;
+
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute;
+}
+
+/**
+ * @public
  */
 export interface CreateLifecyclePolicyRequest {
   /**
@@ -1621,6 +1691,10 @@ export interface SamlConfigOptions {
  */
 export const SecurityConfigType = {
   /**
+   * iam identity center
+   */
+  iamidentitycenter: "iamidentitycenter",
+  /**
    * saml provider
    */
   saml: "saml",
@@ -1661,10 +1735,59 @@ export interface CreateSecurityConfigRequest {
   samlOptions?: SamlConfigOptions;
 
   /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify iamidentitycenter for the type parameter.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: CreateIamIdentityCenterConfigOptions;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
   clientToken?: string;
+}
+
+/**
+ * <p>Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface IamIdentityCenterConfigOptions {
+  /**
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  instanceArn?: string;
+
+  /**
+   * <p>The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationArn?: string;
+
+  /**
+   * <p>The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationName?: string;
+
+  /**
+   * <p>The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * @public
+   */
+  applicationDescription?: string;
+
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>
+   *          </p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute;
 }
 
 /**
@@ -1701,6 +1824,12 @@ export interface SecurityConfigDetail {
    * @public
    */
   samlOptions?: SamlConfigOptions;
+
+  /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: IamIdentityCenterConfigOptions;
 
   /**
    * <p>The date the configuration was created.</p>
@@ -2625,6 +2754,24 @@ export interface ListVpcEndpointsResponse {
 }
 
 /**
+ * <p>Describes IAM Identity Center options for updating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * @public
+ */
+export interface UpdateIamIdentityCenterConfigOptions {
+  /**
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * @public
+   */
+  userAttribute?: IamIdentityCenterUserAttribute;
+
+  /**
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * @public
+   */
+  groupAttribute?: IamIdentityCenterGroupAttribute;
+}
+
+/**
  * @public
  */
 export interface UpdateSecurityConfigRequest {
@@ -2655,6 +2802,12 @@ export interface UpdateSecurityConfigRequest {
    * @public
    */
   samlOptions?: SamlConfigOptions;
+
+  /**
+   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * @public
+   */
+  iamIdentityCenterOptionsUpdates?: UpdateIamIdentityCenterConfigOptions;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>

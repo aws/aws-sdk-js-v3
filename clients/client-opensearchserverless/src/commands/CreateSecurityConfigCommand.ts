@@ -51,6 +51,11 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *     groupAttribute: "STRING_VALUE",
  *     sessionTimeout: Number("int"),
  *   },
+ *   iamIdentityCenterOptions: { // CreateIamIdentityCenterConfigOptions
+ *     instanceArn: "STRING_VALUE", // required
+ *     userAttribute: "STRING_VALUE",
+ *     groupAttribute: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateSecurityConfigCommand(input);
@@ -66,6 +71,14 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
  * //       sessionTimeout: Number("int"),
+ * //     },
+ * //     iamIdentityCenterOptions: { // IamIdentityCenterConfigOptions
+ * //       instanceArn: "STRING_VALUE",
+ * //       applicationArn: "STRING_VALUE",
+ * //       applicationName: "STRING_VALUE",
+ * //       applicationDescription: "STRING_VALUE",
+ * //       userAttribute: "STRING_VALUE",
+ * //       groupAttribute: "STRING_VALUE",
  * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
