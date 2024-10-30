@@ -10,6 +10,17 @@ exports.getIntegTestResources = async () => {
   const region = "us-west-2";
   const cloudformation = new CloudFormationClient({
     region,
+    logger: {
+      ...console,
+      trace() {},
+      debug(...args) {
+        if (String(args[0]).startsWith("endpoints")) {
+          return;
+        }
+        console.debug(...args);
+      },
+      info() {},
+    },
   });
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 
