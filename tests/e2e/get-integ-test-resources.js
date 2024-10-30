@@ -1,27 +1,28 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const { STSClient, GetCallerIdentityCommand } = require("../../clients/client-sts");
-const { CloudFormationClient, DescribeStackResourcesCommand } = require("../../clients/client-cloudformation");
-const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("../../clients/client-s3-control");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
+const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation");
+const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control");
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 const { loadSharedConfigFiles } = require("@smithy/shared-ini-file-loader");
-const { fromIni } = require("@aws-sdk/credential-providers");
+const { createCredentialChain, fromIni, fromHttp } = require("@aws-sdk/credential-providers");
 
 exports.getIntegTestResources = async () => {
   const ini = await loadSharedConfigFiles();
-  if (ini.configFile["sdk-integ-test"] || ini.credentialsFile["sdk-integ-test"]) {
-    process.env.AWS_PROFILE = "sdk-integ-test";
+  const profileData = ini.configFile["sdk-integ-test"] ?? ini.credentialsFile["sdk-integ-test"];
+  if (profileData) {
     console.log("Setting AWS_PROFILE=sdk-integ-test");
+    process.env.AWS_PROFILE = "sdk-integ-test";
+    if (profileData.role_arn) {
+      console.log(
+        `Setting AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=${process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}`
+      );
+      process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = `/role-arn/${profileData.role_arn}`;
+    }
   } else {
     console.log("AWS_PROFILE is", process.env.AWS_PROFILE);
   }
-
-  // TODO(debug)
-  console.log({
-    config: ini.configFile,
-    credentials: ini.credentialsFile,
-  });
 
   const region = "us-west-2";
   const cloudformation = new CloudFormationClient({

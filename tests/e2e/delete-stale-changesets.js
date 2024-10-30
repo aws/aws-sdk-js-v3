@@ -1,4 +1,4 @@
-const { ListChangeSetsCommand, DeleteChangeSetCommand } = require("../../clients/client-cloudformation");
+const { ListChangeSetsCommand, DeleteChangeSetCommand } = require("@aws-sdk/client-cloudformation");
 
 exports.deleteStaleChangesets = async (client, stackName) => {
   const changesets = await client.send(

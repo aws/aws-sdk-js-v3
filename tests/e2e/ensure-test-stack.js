@@ -8,7 +8,7 @@ const {
   waitUntilStackCreateComplete,
   DescribeChangeSetCommand,
   DeleteChangeSetCommand,
-} = require("../../clients/client-cloudformation");
+} = require("@aws-sdk/client-cloudformation");
 
 /**
  * Deploy the integration test stack if it does not exist. Update the
