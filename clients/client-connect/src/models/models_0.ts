@@ -5576,6 +5576,12 @@ export interface CreateUseCaseResponse {
  *     cannot be updated from within Amazon Connect because they are managed by the
  *     directory.</p>
  *          </note>
+ *          <important>
+ *             <p>The <code>FirstName</code> and <code>LastName</code> length constraints below apply only to
+ *     instances using SAML for identity management. If you are using Amazon Connect for identity
+ *     management, the length constraints are 1-255 for <code>FirstName</code>, and 1-256 for
+ *     <code>LastName</code>. </p>
+ *          </important>
  * @public
  */
 export interface UserIdentityInfo {
