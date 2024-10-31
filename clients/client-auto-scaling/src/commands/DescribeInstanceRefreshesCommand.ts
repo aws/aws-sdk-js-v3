@@ -60,7 +60,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //     { // InstanceRefresh
  * //       InstanceRefreshId: "STRING_VALUE",
  * //       AutoScalingGroupName: "STRING_VALUE",
- * //       Status: "Pending" || "InProgress" || "Successful" || "Failed" || "Cancelling" || "Cancelled" || "RollbackInProgress" || "RollbackFailed" || "RollbackSuccessful",
+ * //       Status: "Pending" || "InProgress" || "Successful" || "Failed" || "Cancelling" || "Cancelled" || "RollbackInProgress" || "RollbackFailed" || "RollbackSuccessful" || "Baking",
  * //       StatusReason: "STRING_VALUE",
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
@@ -93,6 +93,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //           ],
  * //         },
  * //         MaxHealthyPercentage: Number("int"),
+ * //         BakeTime: Number("int"),
  * //       },
  * //       DesiredConfiguration: { // DesiredConfiguration
  * //         LaunchTemplate: { // LaunchTemplateSpecification

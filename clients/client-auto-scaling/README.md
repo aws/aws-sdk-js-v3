@@ -14,7 +14,7 @@ based on user-defined scaling policies, scheduled actions, and health checks.</p
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-auto-scaling
+To install this package, simply type add or install @aws-sdk/client-auto-scaling
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-auto-scaling`

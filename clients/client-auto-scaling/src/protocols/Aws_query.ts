@@ -5780,6 +5780,9 @@ const se_RefreshPreferences = (input: RefreshPreferences, context: __SerdeContex
   if (input[_MHPa] != null) {
     entries[_MHPa] = input[_MHPa];
   }
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
+  }
   return entries;
 };
 
@@ -8796,6 +8799,9 @@ const de_RefreshPreferences = (output: any, context: __SerdeContext): RefreshPre
   if (output[_MHPa] != null) {
     contents[_MHPa] = __strictParseInt32(output[_MHPa]) as number;
   }
+  if (output[_BTa] != null) {
+    contents[_BTa] = __strictParseInt32(output[_BTa]) as number;
+  }
   return contents;
 };
 
@@ -9430,6 +9436,7 @@ const _BM = "BareMetal";
 const _BP = "BurstablePerformance";
 const _BPSUGA = "BatchPutScheduledUpdateGroupAction";
 const _BT = "BreachThreshold";
+const _BTa = "BakeTime";
 const _C = "Context";
 const _CASG = "CreateAutoScalingGroup";
 const _CCMS = "CustomizedCapacityMetricSpecification";

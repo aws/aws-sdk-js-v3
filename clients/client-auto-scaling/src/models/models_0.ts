@@ -3880,6 +3880,14 @@ export interface RefreshPreferences {
    * @public
    */
   MaxHealthyPercentage?: number;
+
+  /**
+   * <p>
+   *             The amount of time, in seconds, to wait at the end of an instance refresh before the instance refresh is considered complete.
+   *         </p>
+   * @public
+   */
+  BakeTime?: number;
 }
 
 /**
@@ -3992,6 +4000,7 @@ export interface RollbackDetails {
  * @enum
  */
 export const InstanceRefreshStatus = {
+  Baking: "Baking",
   Cancelled: "Cancelled",
   Cancelling: "Cancelling",
   Failed: "Failed",
@@ -4068,6 +4077,10 @@ export interface InstanceRefresh {
    *             <li>
    *                <p>
    *                   <code>RollbackSuccessful</code> - The rollback completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Baking</code> - Waiting the specified bake time after an instance refresh has finished updating instances.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7976,6 +7989,9 @@ export interface StartInstanceRefreshType {
    *             </li>
    *             <li>
    *                <p>Skip matching</p>
+   *             </li>
+   *             <li>
+   *                <p>Bake time</p>
    *             </li>
    *          </ul>
    * @public

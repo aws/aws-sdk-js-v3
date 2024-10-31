@@ -177,6 +177,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *       ],
  *     },
  *     MaxHealthyPercentage: Number("int"),
+ *     BakeTime: Number("int"),
  *   },
  * };
  * const command = new StartInstanceRefreshCommand(input);
