@@ -7,6 +7,7 @@ import {
 
 import {
   AdditionalInferenceSpecificationDefinition,
+  AlgorithmValidationSpecification,
   AmazonQSettings,
   AnnotationConsolidationConfig,
   AppInstanceType,
@@ -85,11 +86,188 @@ import {
   TargetPlatformOs,
   TrainingInputMode,
   TrainingInstanceType,
+  TrainingSpecification,
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * @public
+ */
+export interface CreateAlgorithmInput {
+  /**
+   * <p>The name of the algorithm.</p>
+   * @public
+   */
+  AlgorithmName: string | undefined;
+
+  /**
+   * <p>A description of the algorithm.</p>
+   * @public
+   */
+  AlgorithmDescription?: string;
+
+  /**
+   * <p>Specifies details about training jobs run by this algorithm, including the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon ECR path of the container and the version digest of the
+   *                     algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>The hyperparameters that the algorithm supports.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance types that the algorithm supports for training.</p>
+   *             </li>
+   *             <li>
+   *                <p>Whether the algorithm supports distributed training.</p>
+   *             </li>
+   *             <li>
+   *                <p>The metrics that the algorithm emits to Amazon CloudWatch.</p>
+   *             </li>
+   *             <li>
+   *                <p>Which metrics that the algorithm emits can be used as the objective metric for
+   *                     hyperparameter tuning jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>The input channels that the algorithm supports for training data. For example,
+   *                     an algorithm might support <code>train</code>, <code>validation</code>, and
+   *                         <code>test</code> channels.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TrainingSpecification: TrainingSpecification | undefined;
+
+  /**
+   * <p>Specifies details about inference jobs that the algorithm runs, including the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon ECR paths of containers that contain the inference code and model
+   *                     artifacts.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance types that the algorithm supports for transform jobs and
+   *                     real-time endpoints used for inference.</p>
+   *             </li>
+   *             <li>
+   *                <p>The input and output content formats that the algorithm supports for
+   *                     inference.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * <p>Specifies configurations for one or more training jobs and that SageMaker runs to test the
+   *             algorithm's training code and, optionally, one or more batch transform jobs that SageMaker
+   *             runs to test the algorithm's inference code.</p>
+   * @public
+   */
+  ValidationSpecification?: AlgorithmValidationSpecification;
+
+  /**
+   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services
+   *             Marketplace.</p>
+   * @public
+   */
+  CertifyForMarketplace?: boolean;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAlgorithmOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
+   * @public
+   */
+  AlgorithmArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppRequest {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be
+   *       set.</p>
+   * @public
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be
+   *       set.</p>
+   * @public
+   */
+  SpaceName?: string;
+
+  /**
+   * <p>The type of app.</p>
+   * @public
+   */
+  AppType: AppType | undefined;
+
+  /**
+   * <p>The name of the app.</p>
+   * @public
+   */
+  AppName: string | undefined;
+
+  /**
+   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   *       resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
+   *       created on the instance.</p>
+   *          <note>
+   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code>
+   *         in the <code>CreateApp</code> call overrides the value passed as part of the
+   *           <code>ResourceSpec</code> configured for the user profile or the domain. If
+   *           <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code>
+   *         values for a <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a
+   *         request validation error.</p>
+   *          </note>
+   * @public
+   */
+  ResourceSpec?: ResourceSpec;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   * @public
+   */
+  AppArn?: string;
+}
 
 /**
  * <p>Resource being accessed is in use.</p>
@@ -12842,120 +13020,6 @@ export interface CreateOptimizationJobRequest {
    * @public
    */
   VpcConfig?: OptimizationVpcConfig;
-}
-
-/**
- * @public
- */
-export interface CreateOptimizationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the optimization job.</p>
-   * @public
-   */
-  OptimizationJobArn: string | undefined;
-}
-
-/**
- * <p>Configuration that controls the parallelism of the pipeline.
- *             By default, the parallelism configuration specified applies to all
- *             executions of the pipeline unless overridden.</p>
- * @public
- */
-export interface ParallelismConfiguration {
-  /**
-   * <p>The max number of steps that can be executed in parallel. </p>
-   * @public
-   */
-  MaxParallelExecutionSteps: number | undefined;
-}
-
-/**
- * <p>The location of the pipeline definition stored in Amazon S3.</p>
- * @public
- */
-export interface PipelineDefinitionS3Location {
-  /**
-   * <p>Name of the S3 bucket.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The object key (or key name) uniquely identifies the
-   *             object in an S3 bucket. </p>
-   * @public
-   */
-  ObjectKey: string | undefined;
-
-  /**
-   * <p>Version Id of the pipeline definition file. If not specified, Amazon SageMaker
-   *             will retrieve the latest version.</p>
-   * @public
-   */
-  VersionId?: string;
-}
-
-/**
- * @public
- */
-export interface CreatePipelineRequest {
-  /**
-   * <p>The name of the pipeline.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   * @public
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The <a href="https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/">JSON
-   *          pipeline definition</a> of the pipeline.</p>
-   * @public
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
-   *             SageMaker will retrieve the pipeline definition from this location.</p>
-   * @public
-   */
-  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
-
-  /**
-   * <p>A description of the pipeline.</p>
-   * @public
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   * @public
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role used by the pipeline to access and create resources.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the created pipeline.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>This is the configuration that controls the parallelism of the pipeline.
-   *             If specified, it applies to all runs of this pipeline by default.</p>
-   * @public
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 /**

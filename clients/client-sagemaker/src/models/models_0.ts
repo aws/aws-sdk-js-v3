@@ -1891,6 +1891,22 @@ export const TrainingInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -7654,6 +7670,87 @@ export interface BatchDataCaptureConfig {
 /**
  * @public
  */
+export interface BatchDeleteClusterNodesRequest {
+  /**
+   * <p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of node IDs to be deleted from the specified cluster.</p>
+   *          <note>
+   *             <p>For SageMaker HyperPod clusters using the Slurm workload manager,
+   *          you cannot remove instances that are configured as Slurm controller nodes.</p>
+   *          </note>
+   * @public
+   */
+  NodeIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchDeleteClusterNodesErrorCode = {
+  INVALID_NODE_STATUS: "InvalidNodeStatus",
+  NODE_ID_IN_USE: "NodeIdInUse",
+  NODE_ID_NOT_FOUND: "NodeIdNotFound",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchDeleteClusterNodesErrorCode =
+  (typeof BatchDeleteClusterNodesErrorCode)[keyof typeof BatchDeleteClusterNodesErrorCode];
+
+/**
+ * <p>Represents an error encountered when deleting a node from a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchDeleteClusterNodesError {
+  /**
+   * <p>The error code associated with the error encountered when deleting a node.</p>
+   *          <p>The code provides information about the specific issue encountered, such as the node not
+   *          being found, the node's status being invalid for deletion, or the node ID being in use by
+   *          another process.</p>
+   * @public
+   */
+  Code: BatchDeleteClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A message describing the error encountered when deleting a node.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The ID of the node that encountered an error during the deletion process.</p>
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteClusterNodesResponse {
+  /**
+   * <p>A list of errors encountered when deleting the specified nodes.</p>
+   * @public
+   */
+  Failed?: BatchDeleteClusterNodesError[];
+
+  /**
+   * <p>A list of node IDs that were successfully deleted from the specified cluster.</p>
+   * @public
+   */
+  Successful?: string[];
+}
+
+/**
+ * @public
+ */
 export interface BatchDescribeModelPackageInput {
   /**
    * <p>The list of Amazon Resource Name (ARN) of the model package groups.</p>
@@ -9245,6 +9342,24 @@ export const ClusterInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_GR6_4XLARGE: "ml.gr6.4xlarge",
+  ML_GR6_8XLARGE: "ml.gr6.8xlarge",
   ML_M5_12XLARGE: "ml.m5.12xlarge",
   ML_M5_16XLARGE: "ml.m5.16xlarge",
   ML_M5_24XLARGE: "ml.m5.24xlarge",
@@ -9255,6 +9370,7 @@ export const ClusterInstanceType = {
   ML_M5_XLARGE: "ml.m5.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",
@@ -9371,7 +9487,8 @@ export interface ClusterInstanceGroupDetails {
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
 
   /**
-   * <p>A flag indicating whether deep health checks should be performed when the cluster instance group is created or updated.</p>
+   * <p>A flag indicating whether deep health checks should be performed when the cluster
+   *          instance group is created or updated.</p>
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[];
@@ -9433,7 +9550,8 @@ export interface ClusterInstanceGroupSpecification {
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
 
   /**
-   * <p>A flag indicating whether deep health checks should be performed when the cluster instance group is created or updated.</p>
+   * <p>A flag indicating whether deep health checks should be performed when the cluster
+   *          instance group is created or updated.</p>
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[];
@@ -9622,12 +9740,14 @@ export interface ClusterNodeSummary {
 }
 
 /**
- * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+ * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the
+ *          SageMaker HyperPod cluster.</p>
  * @public
  */
 export interface ClusterOrchestratorEksConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod
+   *          cluster.</p>
    * @public
    */
   ClusterArn: string | undefined;
@@ -11032,180 +11152,4 @@ export interface TrainingSpecification {
    * @public
    */
   AdditionalS3DataSource?: AdditionalS3DataSource;
-}
-
-/**
- * @public
- */
-export interface CreateAlgorithmInput {
-  /**
-   * <p>The name of the algorithm.</p>
-   * @public
-   */
-  AlgorithmName: string | undefined;
-
-  /**
-   * <p>A description of the algorithm.</p>
-   * @public
-   */
-  AlgorithmDescription?: string;
-
-  /**
-   * <p>Specifies details about training jobs run by this algorithm, including the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The Amazon ECR path of the container and the version digest of the
-   *                     algorithm.</p>
-   *             </li>
-   *             <li>
-   *                <p>The hyperparameters that the algorithm supports.</p>
-   *             </li>
-   *             <li>
-   *                <p>The instance types that the algorithm supports for training.</p>
-   *             </li>
-   *             <li>
-   *                <p>Whether the algorithm supports distributed training.</p>
-   *             </li>
-   *             <li>
-   *                <p>The metrics that the algorithm emits to Amazon CloudWatch.</p>
-   *             </li>
-   *             <li>
-   *                <p>Which metrics that the algorithm emits can be used as the objective metric for
-   *                     hyperparameter tuning jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>The input channels that the algorithm supports for training data. For example,
-   *                     an algorithm might support <code>train</code>, <code>validation</code>, and
-   *                         <code>test</code> channels.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TrainingSpecification: TrainingSpecification | undefined;
-
-  /**
-   * <p>Specifies details about inference jobs that the algorithm runs, including the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The Amazon ECR paths of containers that contain the inference code and model
-   *                     artifacts.</p>
-   *             </li>
-   *             <li>
-   *                <p>The instance types that the algorithm supports for transform jobs and
-   *                     real-time endpoints used for inference.</p>
-   *             </li>
-   *             <li>
-   *                <p>The input and output content formats that the algorithm supports for
-   *                     inference.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Specifies configurations for one or more training jobs and that SageMaker runs to test the
-   *             algorithm's training code and, optionally, one or more batch transform jobs that SageMaker
-   *             runs to test the algorithm's inference code.</p>
-   * @public
-   */
-  ValidationSpecification?: AlgorithmValidationSpecification;
-
-  /**
-   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services
-   *             Marketplace.</p>
-   * @public
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateAlgorithmOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
-   * @public
-   */
-  AlgorithmArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAppRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be
-   *       set.</p>
-   * @public
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be
-   *       set.</p>
-   * @public
-   */
-  SpaceName?: string;
-
-  /**
-   * <p>The type of app.</p>
-   * @public
-   */
-  AppType: AppType | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   * @public
-   */
-  AppName: string | undefined;
-
-  /**
-   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
-   *       resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
-   *       created on the instance.</p>
-   *          <note>
-   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code>
-   *         in the <code>CreateApp</code> call overrides the value passed as part of the
-   *           <code>ResourceSpec</code> configured for the user profile or the domain. If
-   *           <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code>
-   *         values for a <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a
-   *         request validation error.</p>
-   *          </note>
-   * @public
-   */
-  ResourceSpec?: ResourceSpec;
-}
-
-/**
- * @public
- */
-export interface CreateAppResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the app.</p>
-   * @public
-   */
-  AppArn?: string;
 }

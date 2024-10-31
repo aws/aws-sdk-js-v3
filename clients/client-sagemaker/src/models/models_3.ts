@@ -112,7 +112,8 @@ import {
   OptimizationJobModelSource,
   OptimizationJobOutputConfig,
   OptimizationVpcConfig,
-  ParallelismConfiguration,
+  RecommendationJobInputConfig,
+  RecommendationJobStoppingConditions,
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
@@ -134,6 +135,7 @@ import {
   DomainStatus,
   EdgePackagingJobStatus,
   EndpointOutputConfiguration,
+  EndpointPerformance,
   EndpointStatus,
   ExperimentConfig,
   ExperimentSource,
@@ -153,9 +155,8 @@ import {
   InferenceComponentStatus,
   InferenceExperimentStatus,
   InferenceMetrics,
+  InferenceRecommendation,
   InfraCheckConfig,
-  LabelCounters,
-  LabelingJobOutput,
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
@@ -166,6 +167,7 @@ import {
   OfflineStoreStatus,
   OfflineStoreStatusValue,
   OwnershipSettings,
+  ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -190,6 +192,164 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeInferenceRecommendationsJobResponse {
+  /**
+   * <p>The name of the job. The name must be unique within an
+   *            Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The job description that you provided when you initiated the job.</p>
+   * @public
+   */
+  JobDescription?: string;
+
+  /**
+   * <p>The job type that you provided when you initiated the job.</p>
+   * @public
+   */
+  JobType: RecommendationJobType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
+   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   * @public
+   */
+  Status: RecommendationJobStatus | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job completed.</p>
+   * @public
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If the job fails, provides information why the job failed.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
+   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
+   * @public
+   */
+  InputConfig: RecommendationJobInputConfig | undefined;
+
+  /**
+   * <p>The stopping conditions that you provided when you initiated the job.</p>
+   * @public
+   */
+  StoppingConditions?: RecommendationJobStoppingConditions;
+
+  /**
+   * <p>The recommendations made by Inference Recommender.</p>
+   * @public
+   */
+  InferenceRecommendations?: InferenceRecommendation[];
+
+  /**
+   * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
+   * @public
+   */
+  EndpointPerformances?: EndpointPerformance[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to return information for.</p>
+   * @public
+   */
+  LabelingJobName: string | undefined;
+}
+
+/**
+ * <p>Provides a breakdown of the number of objects labeled.</p>
+ * @public
+ */
+export interface LabelCounters {
+  /**
+   * <p>The total number of objects labeled.</p>
+   * @public
+   */
+  TotalLabeled?: number;
+
+  /**
+   * <p>The total number of objects labeled by a human worker.</p>
+   * @public
+   */
+  HumanLabeled?: number;
+
+  /**
+   * <p>The total number of objects labeled by automated data labeling.</p>
+   * @public
+   */
+  MachineLabeled?: number;
+
+  /**
+   * <p>The total number of objects that could not be labeled due to an error.</p>
+   * @public
+   */
+  FailedNonRetryableError?: number;
+
+  /**
+   * <p>The total number of objects not yet labeled.</p>
+   * @public
+   */
+  Unlabeled?: number;
+}
+
+/**
+ * <p>Specifies the location of the output produced by the labeling job. </p>
+ * @public
+ */
+export interface LabelingJobOutput {
+  /**
+   * <p>The Amazon S3 bucket location of the manifest file for labeled data. </p>
+   * @public
+   */
+  OutputDatasetS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the most recent SageMaker model trained as part of
+   *             automated data labeling. </p>
+   * @public
+   */
+  FinalActiveLearningModelArn?: string;
+}
 
 /**
  * @public
@@ -11612,146 +11772,6 @@ export interface ListLineageGroupsResponse {
   /**
    * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
    *          algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortTrackingServerBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type SortTrackingServerBy = (typeof SortTrackingServerBy)[keyof typeof SortTrackingServerBy];
-
-/**
- * @public
- */
-export interface ListMlflowTrackingServersRequest {
-  /**
-   * <p>Use the <code>CreatedAfter</code> filter to only list tracking servers created after a
-   *       specific date and time. Listed tracking servers are shown with a date and time such as
-   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a
-   *       Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>Use the <code>CreatedBefore</code> filter to only list tracking servers created before a
-   *       specific date and time. Listed tracking servers are shown with a date and time such as
-   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedBefore</code> parameter takes in
-   *       a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>Filter for tracking servers with a specified creation status.</p>
-   * @public
-   */
-  TrackingServerStatus?: TrackingServerStatus;
-
-  /**
-   * <p>Filter for tracking servers using the specified MLflow version.</p>
-   * @public
-   */
-  MlflowVersion?: string;
-
-  /**
-   * <p>Filter for trackings servers sorting by name, creation time, or creation status.</p>
-   * @public
-   */
-  SortBy?: SortTrackingServerBy;
-
-  /**
-   * <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time.
-   *       To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of tracking servers to list.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>The summary of the tracking server to list.</p>
- * @public
- */
-export interface TrackingServerSummary {
-  /**
-   * <p>The ARN of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string;
-
-  /**
-   * <p>The name of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerName?: string;
-
-  /**
-   * <p>The creation time of a listed tracking server.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last modified time of a listed tracking server.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The creation status of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerStatus?: TrackingServerStatus;
-
-  /**
-   * <p>The activity status of a listed tracking server.</p>
-   * @public
-   */
-  IsActive?: IsTrackingServerActive;
-
-  /**
-   * <p>The MLflow version used for a listed tracking server.</p>
-   * @public
-   */
-  MlflowVersion?: string;
-}
-
-/**
- * @public
- */
-export interface ListMlflowTrackingServersResponse {
-  /**
-   * <p>A list of tracking servers according to chosen filters.</p>
-   * @public
-   */
-  TrackingServerSummaries?: TrackingServerSummary[];
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
    * @public
    */
   NextToken?: string;

@@ -5,10 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeInferenceRecommendationsJobRequest,
-  DescribeInferenceRecommendationsJobResponse,
-} from "../models/models_2";
+import { DescribeInferenceRecommendationsJobRequest } from "../models/models_2";
+import { DescribeInferenceRecommendationsJobResponse } from "../models/models_3";
 import {
   de_DescribeInferenceRecommendationsJobCommand,
   se_DescribeInferenceRecommendationsJobCommand,

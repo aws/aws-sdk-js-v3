@@ -14,6 +14,11 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  BatchDeleteClusterNodesCommand,
+  BatchDeleteClusterNodesCommandInput,
+  BatchDeleteClusterNodesCommandOutput,
+} from "./commands/BatchDeleteClusterNodesCommand";
+import {
   BatchDescribeModelPackageCommand,
   BatchDescribeModelPackageCommandInput,
   BatchDescribeModelPackageCommandOutput,
@@ -1555,6 +1560,7 @@ const commands = {
   AddAssociationCommand,
   AddTagsCommand,
   AssociateTrialComponentCommand,
+  BatchDeleteClusterNodesCommand,
   BatchDescribeModelPackageCommand,
   CreateActionCommand,
   CreateAlgorithmCommand,
@@ -1930,6 +1936,23 @@ export interface SageMaker {
     args: AssociateTrialComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateTrialComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteClusterNodesCommand}
+   */
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteClusterNodesCommandOutput>;
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    cb: (err: any, data?: BatchDeleteClusterNodesCommandOutput) => void
+  ): void;
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteClusterNodesCommandOutput) => void
   ): void;
 
   /**

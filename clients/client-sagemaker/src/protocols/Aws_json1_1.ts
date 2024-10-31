@@ -39,6 +39,10 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "../commands/AssociateTrialComponentCommand";
 import {
+  BatchDeleteClusterNodesCommandInput,
+  BatchDeleteClusterNodesCommandOutput,
+} from "../commands/BatchDeleteClusterNodesCommand";
+import {
   BatchDescribeModelPackageCommandInput,
   BatchDescribeModelPackageCommandOutput,
 } from "../commands/BatchDescribeModelPackageCommand";
@@ -972,6 +976,9 @@ import {
   AutoRollbackConfig,
   Autotune,
   BatchDataCaptureConfig,
+  BatchDeleteClusterNodesError,
+  BatchDeleteClusterNodesRequest,
+  BatchDeleteClusterNodesResponse,
   BatchDescribeModelPackageError,
   BatchDescribeModelPackageInput,
   BatchDescribeModelPackageOutput,
@@ -1036,10 +1043,6 @@ import {
   ConvergenceDetected,
   CreateActionRequest,
   CreateActionResponse,
-  CreateAlgorithmInput,
-  CreateAlgorithmOutput,
-  CreateAppRequest,
-  CreateAppResponse,
   CustomImage,
   DataSource,
   DeepHealthCheckType,
@@ -1125,8 +1128,12 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateAlgorithmInput,
+  CreateAlgorithmOutput,
   CreateAppImageConfigRequest,
   CreateAppImageConfigResponse,
+  CreateAppRequest,
+  CreateAppResponse,
   CreateArtifactRequest,
   CreateArtifactResponse,
   CreateAutoMLJobRequest,
@@ -1205,8 +1212,6 @@ import {
   CreateNotebookInstanceLifecycleConfigOutput,
   CreateNotebookInstanceOutput,
   CreateOptimizationJobRequest,
-  CreateOptimizationJobResponse,
-  CreatePipelineRequest,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1334,11 +1339,9 @@ import {
   OptimizationModelAccessConfig,
   OptimizationVpcConfig,
   OutputConfig,
-  ParallelismConfiguration,
   ParameterRanges,
   ParentHyperParameterTuningJob,
   Phase,
-  PipelineDefinitionS3Location,
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantManagedInstanceScaling,
@@ -1382,6 +1385,8 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateOptimizationJobResponse,
+  CreatePipelineRequest,
   CreatePipelineResponse,
   CreatePresignedDomainUrlRequest,
   CreatePresignedDomainUrlResponse,
@@ -1559,8 +1564,6 @@ import {
   DescribeInferenceExperimentRequest,
   DescribeInferenceExperimentResponse,
   DescribeInferenceRecommendationsJobRequest,
-  DescribeInferenceRecommendationsJobResponse,
-  DescribeLabelingJobRequest,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1585,8 +1588,6 @@ import {
   InferenceMetrics,
   InferenceRecommendation,
   InfraCheckConfig,
-  LabelCounters,
-  LabelingJobOutput,
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
@@ -1601,8 +1602,10 @@ import {
   OidcConfig,
   OidcMemberDefinition,
   OwnershipSettings,
+  ParallelismConfiguration,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
+  PipelineDefinitionS3Location,
   ProcessingClusterConfig,
   ProcessingFeatureStoreOutput,
   ProcessingInput,
@@ -1645,6 +1648,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeInferenceRecommendationsJobResponse,
+  DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
@@ -1764,8 +1769,10 @@ import {
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  LabelCounters,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
+  LabelingJobOutput,
   LabelingJobSummary,
   LambdaStepMetadata,
   LineageGroupSummary,
@@ -1848,8 +1855,6 @@ import {
   ListLabelingJobsResponse,
   ListLineageGroupsRequest,
   ListLineageGroupsResponse,
-  ListMlflowTrackingServersRequest,
-  ListMlflowTrackingServersResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1878,7 +1883,6 @@ import {
   SubscribedWorkteam,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
-  TrackingServerSummary,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -1888,6 +1892,8 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListMlflowTrackingServersRequest,
+  ListMlflowTrackingServersResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
   ListModelCardExportJobsRequest,
@@ -2064,6 +2070,7 @@ import {
   StopTransformJobRequest,
   StudioLifecycleConfigDetails,
   ThroughputConfigUpdate,
+  TrackingServerSummary,
   TrainingJob,
   TrainingJobStepMetadata,
   TrainingJobSummary,
@@ -2144,16 +2151,21 @@ import {
   UpdateTrialComponentResponse,
   UpdateTrialRequest,
   UpdateTrialResponse,
-  UpdateUserProfileRequest,
-  UpdateUserProfileResponse,
-  UpdateWorkforceRequest,
-  UpdateWorkforceResponse,
   UserProfileDetails,
   VariantProperty,
   Vertex,
   VisibilityConditions,
 } from "../models/models_4";
-import { SearchExpression, SearchRequest, UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_5";
+import {
+  SearchExpression,
+  SearchRequest,
+  UpdateUserProfileRequest,
+  UpdateUserProfileResponse,
+  UpdateWorkforceRequest,
+  UpdateWorkforceResponse,
+  UpdateWorkteamRequest,
+  UpdateWorkteamResponse,
+} from "../models/models_5";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 /**
@@ -2190,6 +2202,19 @@ export const se_AssociateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateTrialComponent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1BatchDeleteClusterNodesCommand
+ */
+export const se_BatchDeleteClusterNodesCommand = async (
+  input: BatchDeleteClusterNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteClusterNodes");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6562,6 +6587,26 @@ export const de_AssociateTrialComponentCommand = async (
   let contents: any = {};
   contents = de_AssociateTrialComponentResponse(data, context);
   const response: AssociateTrialComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchDeleteClusterNodesCommand
+ */
+export const de_BatchDeleteClusterNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteClusterNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchDeleteClusterNodesResponse(data, context);
+  const response: BatchDeleteClusterNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -13253,6 +13298,8 @@ const se_AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): an
 
 // se_BatchDataCaptureConfig omitted.
 
+// se_BatchDeleteClusterNodesRequest omitted.
+
 // se_BatchDescribeModelPackageInput omitted.
 
 /**
@@ -13342,6 +13389,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 // se_ClusterInstanceStorageConfigs omitted.
 
 // se_ClusterLifeCycleConfig omitted.
+
+// se_ClusterNodeIds omitted.
 
 // se_ClusterOrchestrator omitted.
 
@@ -17621,6 +17670,39 @@ const de_BatchDataCaptureConfig = (output: any, context: __SerdeContext): BatchD
 };
 
 /**
+ * deserializeAws_json1_1BatchDeleteClusterNodesError
+ */
+const de_BatchDeleteClusterNodesError = (output: any, context: __SerdeContext): BatchDeleteClusterNodesError => {
+  return take(output, {
+    Code: __expectString,
+    Message: __expectString,
+    NodeId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BatchDeleteClusterNodesErrorList
+ */
+const de_BatchDeleteClusterNodesErrorList = (output: any, context: __SerdeContext): BatchDeleteClusterNodesError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchDeleteClusterNodesError(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1BatchDeleteClusterNodesResponse
+ */
+const de_BatchDeleteClusterNodesResponse = (output: any, context: __SerdeContext): BatchDeleteClusterNodesResponse => {
+  return take(output, {
+    Failed: (_: any) => de_BatchDeleteClusterNodesErrorList(_, context),
+    Successful: (_: any) => de_ClusterNodeIds(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1BatchDescribeModelPackageError
  */
 const de_BatchDescribeModelPackageError = (output: any, context: __SerdeContext): BatchDescribeModelPackageError => {
@@ -18204,6 +18286,18 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     PrivatePrimaryIp: __expectString,
     ThreadsPerCore: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterNodeIds
+ */
+const de_ClusterNodeIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**
@@ -29241,6 +29335,7 @@ const de_TrainingJobSummary = (output: any, context: __SerdeContext): TrainingJo
   return take(output, {
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecondaryStatus: __expectString,
     TrainingEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     TrainingJobArn: __expectString,
     TrainingJobName: __expectString,

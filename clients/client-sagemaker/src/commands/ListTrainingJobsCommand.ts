@@ -80,6 +80,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * //       TrainingEndTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //       WarmPoolStatus: { // WarmPoolStatus
  * //         Status: "Available" || "Terminated" || "Reused" || "InUse", // required
  * //         ResourceRetainedBillableTimeInSeconds: Number("int"),

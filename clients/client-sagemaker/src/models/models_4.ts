@@ -70,8 +70,6 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   OptimizationJobDeploymentInstanceType,
-  ParallelismConfiguration,
-  PipelineDefinitionS3Location,
   Processor,
   RetryStrategy,
   RootAccess,
@@ -100,8 +98,8 @@ import {
   HyperParameterTrainingJobSummary,
   ModelArtifacts,
   ModelClientConfig,
-  OidcConfig,
-  OidcConfigFilterSensitiveLog,
+  ParallelismConfiguration,
+  PipelineDefinitionS3Location,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -111,7 +109,6 @@ import {
   ProvisioningParameter,
   ServiceCatalogProvisioningDetails,
   SharingType,
-  SourceIpConfig,
   SpaceSettings,
   SpaceStorageSettings,
   StudioLifecycleConfigAppType,
@@ -120,7 +117,6 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  WorkforceVpcConfigRequest,
 } from "./models_2";
 
 import {
@@ -143,6 +139,7 @@ import {
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
+  IsTrackingServerActive,
   LambdaStepMetadata,
   LineageType,
   MetricData,
@@ -169,6 +166,7 @@ import {
   SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
+  TrackingServerStatus,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -179,6 +177,146 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const SortTrackingServerBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortTrackingServerBy = (typeof SortTrackingServerBy)[keyof typeof SortTrackingServerBy];
+
+/**
+ * @public
+ */
+export interface ListMlflowTrackingServersRequest {
+  /**
+   * <p>Use the <code>CreatedAfter</code> filter to only list tracking servers created after a
+   *       specific date and time. Listed tracking servers are shown with a date and time such as
+   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a
+   *       Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>Use the <code>CreatedBefore</code> filter to only list tracking servers created before a
+   *       specific date and time. Listed tracking servers are shown with a date and time such as
+   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedBefore</code> parameter takes in
+   *       a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>Filter for tracking servers with a specified creation status.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>Filter for tracking servers using the specified MLflow version.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+
+  /**
+   * <p>Filter for trackings servers sorting by name, creation time, or creation status.</p>
+   * @public
+   */
+  SortBy?: SortTrackingServerBy;
+
+  /**
+   * <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time.
+   *       To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of tracking servers to list.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>The summary of the tracking server to list.</p>
+ * @public
+ */
+export interface TrackingServerSummary {
+  /**
+   * <p>The ARN of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+
+  /**
+   * <p>The name of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerName?: string;
+
+  /**
+   * <p>The creation time of a listed tracking server.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time of a listed tracking server.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The creation status of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>The activity status of a listed tracking server.</p>
+   * @public
+   */
+  IsActive?: IsTrackingServerActive;
+
+  /**
+   * <p>The MLflow version used for a listed tracking server.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMlflowTrackingServersResponse {
+  /**
+   * <p>A list of tracking servers according to chosen filters.</p>
+   * @public
+   */
+  TrackingServerSummaries?: TrackingServerSummary[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -4358,6 +4496,12 @@ export interface TrainingJobSummary {
    * @public
    */
   TrainingJobStatus: TrainingJobStatus | undefined;
+
+  /**
+   * <p>The secondary status of the training job.</p>
+   * @public
+   */
+  SecondaryStatus?: SecondaryStatus;
 
   /**
    * <p>The status of the warm pool associated with the training job.</p>
@@ -10281,86 +10425,6 @@ export interface UpdateTrialComponentResponse {
 }
 
 /**
- * @public
- */
-export interface UpdateUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   * @public
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  UserSettings?: UserSettings;
-}
-
-/**
- * @public
- */
-export interface UpdateUserProfileResponse {
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  UserProfileArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkforceRequest {
-  /**
-   * <p>The name of the private workforce that you want to update. You can find your workforce
-   *             name by using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html">ListWorkforces</a> operation.</p>
-   * @public
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to
-   *             access tasks assigned to this workforce.</p>
-   *          <p>Maximum: Ten CIDR values</p>
-   * @public
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * <p>Use this parameter to update your OIDC Identity Provider (IdP)
-   *       configuration for a workforce made using your own IdP.</p>
-   * @public
-   */
-  OidcConfig?: OidcConfig;
-
-  /**
-   * <p>Use this parameter to update your VPC configuration for a workforce.</p>
-   * @public
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkforceResponse {
-  /**
-   * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
-   *             any workforce-related API operation used in a specific region will apply to the
-   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   * @public
-   */
-  Workforce: Workforce | undefined;
-}
-
-/**
  * @internal
  */
 export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
@@ -10409,12 +10473,4 @@ export const UpdateModelCardRequestFilterSensitiveLog = (obj: UpdateModelCardReq
 export const UpdateModelPackageInputFilterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
   ...obj,
   ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkforceRequestFilterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
-  ...obj,
-  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
 });

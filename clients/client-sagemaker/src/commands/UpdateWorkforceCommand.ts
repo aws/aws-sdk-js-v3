@@ -9,7 +9,7 @@ import {
   UpdateWorkforceRequest,
   UpdateWorkforceRequestFilterSensitiveLog,
   UpdateWorkforceResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateWorkforceCommand, se_UpdateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

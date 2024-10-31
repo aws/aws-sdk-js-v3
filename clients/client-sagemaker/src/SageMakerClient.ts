@@ -60,6 +60,10 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  BatchDeleteClusterNodesCommandInput,
+  BatchDeleteClusterNodesCommandOutput,
+} from "./commands/BatchDeleteClusterNodesCommand";
+import {
   BatchDescribeModelPackageCommandInput,
   BatchDescribeModelPackageCommandOutput,
 } from "./commands/BatchDescribeModelPackageCommand";
@@ -943,6 +947,7 @@ export type ServiceInputTypes =
   | AddAssociationCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
+  | BatchDeleteClusterNodesCommandInput
   | BatchDescribeModelPackageCommandInput
   | CreateActionCommandInput
   | CreateAlgorithmCommandInput
@@ -1283,6 +1288,7 @@ export type ServiceOutputTypes =
   | AddAssociationCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
+  | BatchDeleteClusterNodesCommandOutput
   | BatchDescribeModelPackageCommandOutput
   | CreateActionCommandOutput
   | CreateAlgorithmCommandOutput

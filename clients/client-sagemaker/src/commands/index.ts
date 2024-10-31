@@ -2,6 +2,7 @@
 export * from "./AddAssociationCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociateTrialComponentCommand";
+export * from "./BatchDeleteClusterNodesCommand";
 export * from "./BatchDescribeModelPackageCommand";
 export * from "./CreateActionCommand";
 export * from "./CreateAlgorithmCommand";

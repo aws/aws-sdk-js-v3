@@ -129,9 +129,6 @@ import {
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
-  RecommendationJobInputConfig,
-  RecommendationJobStoppingConditions,
-  RecommendationJobType,
   RetryStrategy,
   ShadowModeConfig,
   TagPropagation,
@@ -139,6 +136,120 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateOptimizationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the optimization job.</p>
+   * @public
+   */
+  OptimizationJobArn: string | undefined;
+}
+
+/**
+ * <p>Configuration that controls the parallelism of the pipeline.
+ *             By default, the parallelism configuration specified applies to all
+ *             executions of the pipeline unless overridden.</p>
+ * @public
+ */
+export interface ParallelismConfiguration {
+  /**
+   * <p>The max number of steps that can be executed in parallel. </p>
+   * @public
+   */
+  MaxParallelExecutionSteps: number | undefined;
+}
+
+/**
+ * <p>The location of the pipeline definition stored in Amazon S3.</p>
+ * @public
+ */
+export interface PipelineDefinitionS3Location {
+  /**
+   * <p>Name of the S3 bucket.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key (or key name) uniquely identifies the
+   *             object in an S3 bucket. </p>
+   * @public
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>Version Id of the pipeline definition file. If not specified, Amazon SageMaker
+   *             will retrieve the latest version.</p>
+   * @public
+   */
+  VersionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreatePipelineRequest {
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * <p>The <a href="https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/">JSON
+   *          pipeline definition</a> of the pipeline.</p>
+   * @public
+   */
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
+   *             SageMaker will retrieve the pipeline definition from this location.</p>
+   * @public
+   */
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
+
+  /**
+   * <p>A description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   * @public
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role used by the pipeline to access and create resources.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the created pipeline.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>This is the configuration that controls the parallelism of the pipeline.
+   *             If specified, it applies to all runs of this pipeline by default.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
 
 /**
  * @public
@@ -9008,164 +9119,6 @@ export const RecommendationJobStatus = {
  * @public
  */
 export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
-
-/**
- * @public
- */
-export interface DescribeInferenceRecommendationsJobResponse {
-  /**
-   * <p>The name of the job. The name must be unique within an
-   *            Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The job description that you provided when you initiated the job.</p>
-   * @public
-   */
-  JobDescription?: string;
-
-  /**
-   * <p>The job type that you provided when you initiated the job.</p>
-   * @public
-   */
-  JobType: RecommendationJobType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   * @public
-   */
-  JobArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
-   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   * @public
-   */
-  Status: RecommendationJobStatus | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job completed.</p>
-   * @public
-   */
-  CompletionTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If the job fails, provides information why the job failed.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
-   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
-   * @public
-   */
-  InputConfig: RecommendationJobInputConfig | undefined;
-
-  /**
-   * <p>The stopping conditions that you provided when you initiated the job.</p>
-   * @public
-   */
-  StoppingConditions?: RecommendationJobStoppingConditions;
-
-  /**
-   * <p>The recommendations made by Inference Recommender.</p>
-   * @public
-   */
-  InferenceRecommendations?: InferenceRecommendation[];
-
-  /**
-   * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
-   * @public
-   */
-  EndpointPerformances?: EndpointPerformance[];
-}
-
-/**
- * @public
- */
-export interface DescribeLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to return information for.</p>
-   * @public
-   */
-  LabelingJobName: string | undefined;
-}
-
-/**
- * <p>Provides a breakdown of the number of objects labeled.</p>
- * @public
- */
-export interface LabelCounters {
-  /**
-   * <p>The total number of objects labeled.</p>
-   * @public
-   */
-  TotalLabeled?: number;
-
-  /**
-   * <p>The total number of objects labeled by a human worker.</p>
-   * @public
-   */
-  HumanLabeled?: number;
-
-  /**
-   * <p>The total number of objects labeled by automated data labeling.</p>
-   * @public
-   */
-  MachineLabeled?: number;
-
-  /**
-   * <p>The total number of objects that could not be labeled due to an error.</p>
-   * @public
-   */
-  FailedNonRetryableError?: number;
-
-  /**
-   * <p>The total number of objects not yet labeled.</p>
-   * @public
-   */
-  Unlabeled?: number;
-}
-
-/**
- * <p>Specifies the location of the output produced by the labeling job. </p>
- * @public
- */
-export interface LabelingJobOutput {
-  /**
-   * <p>The Amazon S3 bucket location of the manifest file for labeled data. </p>
-   * @public
-   */
-  OutputDatasetS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the most recent SageMaker model trained as part of
-   *             automated data labeling. </p>
-   * @public
-   */
-  FinalActiveLearningModelArn?: string;
-}
 
 /**
  * @internal

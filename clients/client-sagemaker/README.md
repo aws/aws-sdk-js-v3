@@ -244,6 +244,14 @@ AssociateTrialComponent
 </details>
 <details>
 <summary>
+BatchDeleteClusterNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/BatchDeleteClusterNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchDeleteClusterNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchDeleteClusterNodesCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchDescribeModelPackage
 </summary>
 

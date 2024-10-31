@@ -1,16 +1,102 @@
 // smithy-typescript generated code
 import { BooleanOperator } from "./models_0";
 
+import { UserSettings } from "./models_1";
+
 import {
   CrossAccountFilterOption,
   MemberDefinition,
   NotificationConfiguration,
+  OidcConfig,
+  OidcConfigFilterSensitiveLog,
+  SourceIpConfig,
   WorkerAccessConfiguration,
+  WorkforceVpcConfigRequest,
 } from "./models_2";
 
-import { Filter, ResourceType, Workteam } from "./models_3";
+import { Filter, ResourceType, Workforce, Workteam } from "./models_3";
 
 import { NestedFilters, SearchSortOrder, VisibilityConditions } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   * @public
+   */
+  UserProfileName: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  UserSettings?: UserSettings;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserProfileResponse {
+  /**
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  UserProfileArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkforceRequest {
+  /**
+   * <p>The name of the private workforce that you want to update. You can find your workforce
+   *             name by using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html">ListWorkforces</a> operation.</p>
+   * @public
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to
+   *             access tasks assigned to this workforce.</p>
+   *          <p>Maximum: Ten CIDR values</p>
+   * @public
+   */
+  SourceIpConfig?: SourceIpConfig;
+
+  /**
+   * <p>Use this parameter to update your OIDC Identity Provider (IdP)
+   *       configuration for a workforce made using your own IdP.</p>
+   * @public
+   */
+  OidcConfig?: OidcConfig;
+
+  /**
+   * <p>Use this parameter to update your VPC configuration for a workforce.</p>
+   * @public
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkforceResponse {
+  /**
+   * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
+   *             any workforce-related API operation used in a specific region will apply to the
+   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
+   * @public
+   */
+  Workforce: Workforce | undefined;
+}
 
 /**
  * @public
@@ -207,3 +293,11 @@ export interface SearchRequest {
    */
   VisibilityConditions?: VisibilityConditions[];
 }
+
+/**
+ * @internal
+ */
+export const UpdateWorkforceRequestFilterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
+  ...obj,
+  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
+});
