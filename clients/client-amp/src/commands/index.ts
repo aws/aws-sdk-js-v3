@@ -24,4 +24,5 @@ export * from "./PutRuleGroupsNamespaceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateLoggingConfigurationCommand";
+export * from "./UpdateScraperCommand";
 export * from "./UpdateWorkspaceAliasCommand";

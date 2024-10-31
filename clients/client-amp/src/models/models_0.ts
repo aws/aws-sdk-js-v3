@@ -404,7 +404,8 @@ export interface DescribeAlertManagerDefinitionRequest {
 }
 
 /**
- * <p>The details of an alert manager definition. </p>
+ * <p>The details of an alert manager definition. It is the configuration for the
+ *             alert manager, including information about receivers for routing alerts.</p>
  * @public
  */
 export interface AlertManagerDefinitionDescription {
@@ -510,7 +511,7 @@ export interface GetDefaultScraperConfigurationResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to list tages for. Must be a workspace or rule groups
+   * <p>The ARN of the resource to list tages for. Must be a workspace, scraper, or rule groups
    *             namespace resource.</p>
    * @public
    */
@@ -552,7 +553,7 @@ export type Destination = Destination.AmpConfigurationMember | Destination.$Unkn
  */
 export namespace Destination {
   /**
-   * <p>The Amazon Managed Service for Prometheusworkspace to send metrics to.</p>
+   * <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
    * @public
    */
   export interface AmpConfigurationMember {
@@ -580,7 +581,7 @@ export namespace Destination {
 }
 
 /**
- * <p>A scrape configuration for a scraper, base 64 encoded. For more information, see <a href="prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
+ * <p>A scrape configuration for a scraper, base 64 encoded. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
  *                 Guide</i>.</p>
  * @public
  */
@@ -687,14 +688,14 @@ export namespace Source {
  */
 export interface CreateScraperRequest {
   /**
-   * <p>(optional) a name to associate with the scraper. This is for your use, and does not
+   * <p>(optional) An alias to associate with the scraper. This is for your use, and does not
    *             need to be unique.</p>
    * @public
    */
   alias?: string;
 
   /**
-   * <p>The configuration file to use in the new scraper. For more information, see <a href="prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
+   * <p>The configuration file to use in the new scraper. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
    *                 Guide</i>.</p>
    * @public
    */
@@ -751,6 +752,14 @@ export const ScraperStatusCode = {
    * Scraper deletion failed.
    */
   DELETION_FAILED: "DELETION_FAILED",
+  /**
+   * Scraper update failed.
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Scraper is being updated. Deletion is disallowed until status is ACTIVE.
+   */
+  UPDATING: "UPDATING",
 } as const;
 
 /**
@@ -863,13 +872,14 @@ export interface ScraperDescription {
   alias?: string;
 
   /**
-   * <p>The ID of the scraper.</p>
+   * <p>The ID of the scraper. For example, <code>s-example1-1234-abcd-5678-ef9012abcd34</code>.</p>
    * @public
    */
   scraperId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scraper.</p>
+   * <p>The Amazon Resource Name (ARN) of the scraper. For example,
+   *             <code>arn:aws:aps:&lt;region&gt;:123456798012:scraper/s-example1-1234-abcd-5678-ef9012abcd34</code>.</p>
    * @public
    */
   arn: string | undefined;
@@ -877,6 +887,7 @@ export interface ScraperDescription {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that provides
    *             permissions for the scraper to discover and collect metrics on your behalf.</p>
+   *          <p>For example, <code>arn:aws:iam::123456789012:role/service-role/AmazonGrafanaServiceRole-12example</code>.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -912,7 +923,7 @@ export interface ScraperDescription {
   statusReason?: string;
 
   /**
-   * <p>The configuration file in use by the scraper.</p>
+   * <p>The configuration in use by the scraper.</p>
    * @public
    */
   scrapeConfiguration: ScrapeConfiguration | undefined;
@@ -1081,16 +1092,86 @@ export interface ListScrapersResponse {
 /**
  * @public
  */
+export interface UpdateScraperRequest {
+  /**
+   * <p>The ID of the scraper to update.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+
+  /**
+   * <p>The new alias of the scraper.</p>
+   * @public
+   */
+  alias?: string;
+
+  /**
+   * <p>Contains the base-64 encoded YAML configuration for the scraper.</p>
+   *          <note>
+   *             <p>For more information about configuring a scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using an
+   *                     Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for Prometheus
+   *                         User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  scrapeConfiguration?: ScrapeConfiguration;
+
+  /**
+   * <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+   * @public
+   */
+  destination?: Destination;
+
+  /**
+   * <p>A unique identifier that you can provide to ensure the idempotency of the request.
+   *             Case-sensitive.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScraperResponse {
+  /**
+   * <p>The ID of the updated scraper.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated scraper.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A structure that displays the current status of the scraper.</p>
+   * @public
+   */
+  status: ScraperStatus | undefined;
+
+  /**
+   * <p>The list of tag keys and values that are associated with the scraper.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the workspace or rule groups namespace to apply tags to.</p>
+   * <p>The ARN of the resource to apply tags to.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
    * <p>The list of tag keys and values to associate with the resource.</p>
-   *          <p>Keys may not begin with <code>aws:</code>.</p>
+   *          <p>Keys must not begin with <code>aws:</code>.</p>
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1106,7 +1187,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the workspace or rule groups namespace.</p>
+   * <p>The ARN of the resource from which to remove a tag.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -1279,20 +1360,22 @@ export interface DescribeWorkspaceRequest {
  */
 export interface WorkspaceDescription {
   /**
-   * <p>The unique ID for the workspace.</p>
+   * <p>The unique ID for the workspace. For example,
+   *             <code>ws-example1-1234-abcd-5678-ef90abcd1234</code>.</p>
    * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * <p>The alias that is assigned to this workspace to help identify it. It may not be
-   *             unique.</p>
+   * <p>The alias that is assigned to this workspace to help identify it. It does not need
+   *             to be unique.</p>
    * @public
    */
   alias?: string;
 
   /**
-   * <p>The ARN of the workspace.</p>
+   * <p>The ARN of the workspace. For example,
+   *             <code>arn:aws:aps:&lt;region&gt;:123456789012:workspace/ws-example1-1234-abcd-5678-ef90abcd1234</code>.</p>
    * @public
    */
   arn: string | undefined;
@@ -1304,7 +1387,8 @@ export interface WorkspaceDescription {
   status: WorkspaceStatus | undefined;
 
   /**
-   * <p>The Prometheus endpoint available for this workspace. </p>
+   * <p>The Prometheus endpoint available for this workspace. For example,
+   *             <code>https://aps-workspaces.&lt;region&gt;.amazonaws.com/workspaces/ws-example1-1234-abcd-5678-ef90abcd1234/api/v1/</code>.</p>
    * @public
    */
   prometheusEndpoint?: string;
@@ -1386,8 +1470,8 @@ export interface WorkspaceSummary {
   workspaceId: string | undefined;
 
   /**
-   * <p>The alias that is assigned to this workspace to help identify it. It may not be
-   *             unique.</p>
+   * <p>The alias that is assigned to this workspace to help identify it. It does not
+   *             need to be unique.</p>
    * @public
    */
   alias?: string;
@@ -1457,7 +1541,7 @@ export interface CreateLoggingConfigurationRequest {
 
   /**
    * <p>The ARN of the CloudWatch log group to which the vended log data will be
-   *             published. This log group must exist prior to calling this API.</p>
+   *             published. This log group must exist prior to calling this operation.</p>
    * @public
    */
   logGroupArn: string | undefined;
@@ -1569,7 +1653,7 @@ export interface DescribeLoggingConfigurationRequest {
 }
 
 /**
- * <p>Contains information about the logging configuration. </p>
+ * <p>Contains information about the logging configuration for the workspace.</p>
  * @public
  */
 export interface LoggingConfigurationMetadata {
@@ -1829,7 +1913,8 @@ export interface DescribeRuleGroupsNamespaceRequest {
  */
 export interface RuleGroupsNamespaceDescription {
   /**
-   * <p>The ARN of the rule groups namespace.</p>
+   * <p>The ARN of the rule groups namespace. For example,
+   *             <code>arn:aws:aps:&lt;region&gt;:123456789012:rulegroupsnamespace/ws-example1-1234-abcd-5678-ef90abcd1234/rulesfile1</code>.</p>
    * @public
    */
   arn: string | undefined;

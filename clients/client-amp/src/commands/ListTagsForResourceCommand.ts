@@ -30,7 +30,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>The <code>ListTagsForResource</code> operation returns the tags that are associated
  *             with an Amazon Managed Service for Prometheus resource. Currently, the only resources that can be
- *             tagged are workspaces and rule groups namespaces. </p>
+ *             tagged are scrapers, workspaces, and rule groups namespaces. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

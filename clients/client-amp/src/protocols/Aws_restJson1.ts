@@ -101,6 +101,7 @@ import {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "../commands/UpdateLoggingConfigurationCommand";
+import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "../commands/UpdateScraperCommand";
 import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -633,6 +634,32 @@ export const se_UpdateLoggingConfigurationCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logGroupArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateScraperCommand
+ */
+export const se_UpdateScraperCommand = async (
+  input: UpdateScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destination: (_) => _json(_),
+      scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1176,6 +1203,30 @@ export const de_UpdateLoggingConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateScraperCommand
+ */
+export const de_UpdateScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScraperCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    scraperId: __expectString,
+    status: _json,
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;

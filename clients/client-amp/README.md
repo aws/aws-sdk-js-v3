@@ -27,7 +27,7 @@ workspace.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-amp
+To install this package, simply type add or install @aws-sdk/client-amp
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-amp`
@@ -418,6 +418,14 @@ UpdateLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateScraper
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperCommandOutput/)
 
 </details>
 <details>

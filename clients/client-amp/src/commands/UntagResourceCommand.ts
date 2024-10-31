@@ -29,7 +29,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes the specified tags from an Amazon Managed Service for Prometheus resource. The only resources
- *             that can be tagged are workspaces and rule groups namespaces. </p>
+ *             that can be tagged are rule groups namespaces, scrapers, and workspaces. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

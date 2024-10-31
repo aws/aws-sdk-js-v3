@@ -30,20 +30,20 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
 /**
  * <p>The <code>CreateScraper</code> operation creates a scraper to collect metrics. A
  *             scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
- *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. You can configure the
- *             scraper to control what metrics are collected, and what transformations are applied
- *             prior to sending them to your workspace.</p>
- *          <p>If needed, an IAM role will be created for you that gives Amazon Managed Service for Prometheus access to the metrics in your cluster. For more information, see
- *             <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper">Using roles for scraping metrics from EKS</a> in the <i>Amazon Managed Service for Prometheus User
- *                     Guide</i>.</p>
- *          <p>You cannot update a scraper. If you want to change the configuration of the scraper,
- *             create a new scraper and delete the old one.</p>
- *          <p>The <code>scrapeConfiguration</code> parameter contains the base64-encoded version of
- *             the YAML configuration file.</p>
+ *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are
+ *             flexible, and can be configured to control what metrics are collected, the
+ *             frequency of collection, what transformations are applied to the metrics, and more.</p>
+ *          <p>An IAM role will be created for you that Amazon Managed Service for Prometheus uses
+ *             to access the metrics in your cluster. You must configure this role with a policy that
+ *             allows it to scrape metrics from your cluster. For more information, see
+ *             <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
+ *          <p>The <code>scrapeConfiguration</code> parameter contains the base-64 encoded YAML
+ *             configuration for the scraper.</p>
  *          <note>
  *             <p>For more information about collectors, including what metrics are collected, and
- *                 how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html">Amazon Web Services managed
- *                     collectors</a> in the <i>Amazon Managed Service for Prometheus User
+ *                 how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using an
+ *                     Amazon Web Services managed
+ *                     collector</a> in the <i>Amazon Managed Service for Prometheus User
  *                         Guide</i>.</p>
  *          </note>
  * @example

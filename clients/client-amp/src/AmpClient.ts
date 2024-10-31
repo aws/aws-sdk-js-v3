@@ -123,6 +123,7 @@ import {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
+import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "./commands/UpdateScraperCommand";
 import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -167,6 +168,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLoggingConfigurationCommandInput
+  | UpdateScraperCommandInput
   | UpdateWorkspaceAliasCommandInput;
 
 /**
@@ -198,6 +200,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLoggingConfigurationCommandOutput
+  | UpdateScraperCommandOutput
   | UpdateWorkspaceAliasCommandOutput;
 
 /**

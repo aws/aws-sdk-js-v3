@@ -125,6 +125,11 @@ import {
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import {
+  UpdateScraperCommand,
+  UpdateScraperCommandInput,
+  UpdateScraperCommandOutput,
+} from "./commands/UpdateScraperCommand";
+import {
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -156,6 +161,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateLoggingConfigurationCommand,
+  UpdateScraperCommand,
   UpdateWorkspaceAliasCommand,
 };
 
@@ -545,6 +551,17 @@ export interface Amp {
     args: UpdateLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateScraperCommand}
+   */
+  updateScraper(args: UpdateScraperCommandInput, options?: __HttpHandlerOptions): Promise<UpdateScraperCommandOutput>;
+  updateScraper(args: UpdateScraperCommandInput, cb: (err: any, data?: UpdateScraperCommandOutput) => void): void;
+  updateScraper(
+    args: UpdateScraperCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScraperCommandOutput) => void
   ): void;
 
   /**
