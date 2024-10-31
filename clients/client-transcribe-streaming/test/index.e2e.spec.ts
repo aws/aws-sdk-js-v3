@@ -1,6 +1,7 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { createReadStream } from "fs";
 import { join } from "path";
-import { afterAll, describe, expect, test as it } from "vitest";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 import { TranscribeStreaming } from "../src/index";
 const audio = createReadStream(join(__dirname, "numbers.wav"));
@@ -12,6 +13,10 @@ describe("TranscribeStream client", () => {
       accessKeyId: "CLIENT_TEST",
       secretAccessKey: "CLIENT_TEST",
     },
+  });
+
+  beforeAll(async () => {
+    await setTestCredentials();
   });
   afterAll(() => {
     client.destroy();

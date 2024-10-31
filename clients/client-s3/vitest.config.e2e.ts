@@ -5,5 +5,6 @@ export default defineConfig({
     exclude: ["**/*.browser.e2e.spec.ts"],
     include: ["**/*.e2e.spec.ts"],
     environment: "node",
+    env: process.env as Record<string, string>,
   },
 });

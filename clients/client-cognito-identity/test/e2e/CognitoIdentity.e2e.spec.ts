@@ -1,3 +1,4 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -9,6 +10,7 @@ describe("@aws-sdk/client-cognito-identity", () => {
   let IdentityPoolId: string;
 
   beforeAll(async () => {
+    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 

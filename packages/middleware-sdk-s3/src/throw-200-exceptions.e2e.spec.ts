@@ -1,3 +1,4 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, test as it } from "vitest";
@@ -15,6 +16,7 @@ describe("S3 throw 200 exceptions", () => {
   let callerID: GetCallerIdentityCommandOutput;
 
   beforeAll(async () => {
+    await setTestCredentials();
     callerID = await stsClient.getCallerIdentity({});
     Bucket = `${callerID.Account}-${randId}-s3-200s-e2e-test-empty-${config.region}-${(Date.now() / 1000) | 0}`;
 

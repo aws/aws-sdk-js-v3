@@ -1,3 +1,4 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { fromInstanceMetadata } from "@aws-sdk/credential-providers";
 import { beforeAll, describe, expect, test as it, vi } from "vitest";
 
@@ -9,6 +10,7 @@ describe("MetadataService E2E Tests", () => {
   let metadataServiceAvailable: any;
 
   beforeAll(async () => {
+    await setTestCredentials();
     try {
       await provider();
       metadataServiceAvailable = true;

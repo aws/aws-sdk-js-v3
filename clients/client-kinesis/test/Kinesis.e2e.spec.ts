@@ -1,14 +1,15 @@
-import { describe, expect, test as it } from "vitest";
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
+import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { KinesisClient, ListStreamsCommand } from "../src/index";
 
 describe("@aws-sdk/client-kinesis", () => {
+  beforeAll(async () => {
+    await setTestCredentials();
+  });
+
   const client = new KinesisClient({
     region: "us-west-2",
-    credentials: {
-      accessKeyId: "CLIENT_TEST",
-      secretAccessKey: "CLIENT_TEST",
-    },
   });
   const ONE_SECOND = 1 * 1000;
 

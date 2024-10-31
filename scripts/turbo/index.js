@@ -1,11 +1,20 @@
 // Build script to handle Turborepo build execution
 const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
+const { loadSharedConfigFiles } = require("@smithy/shared-ini-file-loader");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
   const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=hash-only"];
   command.push(...args);
   const turboRoot = path.join(__dirname, "..", "..");
+
+  const ini = await loadSharedConfigFiles();
+  const profileData = ini.configFile["sdk-integ-test"];
+  if (profileData) {
+    console.log("Setting AWS_PROFILE=sdk-integ-test");
+    process.env.AWS_PROFILE = "sdk-integ-test";
+  }
+
   try {
     return await spawnProcess("yarn", command, {
       stdio: "inherit",

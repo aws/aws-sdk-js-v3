@@ -1,7 +1,7 @@
 import "@aws-sdk/signature-v4-crt";
 
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -13,15 +13,14 @@ describe("@aws-sdk/client-s3", () => {
   let client: S3;
   let Bucket: string;
   let region: string;
-  let credentials: AwsCredentialIdentity;
   let mrapArn: string;
 
   beforeAll(async () => {
+    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    credentials = (globalThis as any).credentials || undefined;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
@@ -29,7 +28,6 @@ describe("@aws-sdk/client-s3", () => {
 
     client = new S3({
       region,
-      credentials,
     });
   });
 

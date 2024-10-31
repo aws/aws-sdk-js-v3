@@ -1,3 +1,4 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import type { AwsCredentialIdentity } from "@smithy/types";
@@ -14,14 +15,13 @@ describe("@aws-sdk/lib-storage", () => {
   let dataString: string;
   let Bucket: string;
   let region: string;
-  let credentials: AwsCredentialIdentity;
 
   beforeAll(async () => {
+    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    credentials = (globalThis as any).credentials || undefined;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
     Key = ``;
@@ -30,7 +30,6 @@ describe("@aws-sdk/lib-storage", () => {
 
     client = new S3({
       region,
-      credentials,
     });
   });
 

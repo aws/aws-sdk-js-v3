@@ -6,27 +6,15 @@ const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sd
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 const { loadSharedConfigFiles } = require("@smithy/shared-ini-file-loader");
-const { createCredentialChain, fromIni, fromHttp } = require("@aws-sdk/credential-providers");
 
 exports.getIntegTestResources = async () => {
-  const ini = await loadSharedConfigFiles();
-  const profileData = ini.configFile["sdk-integ-test"] ?? ini.credentialsFile["sdk-integ-test"];
-  if (profileData) {
-    console.log("Setting AWS_PROFILE=sdk-integ-test");
-    process.env.AWS_PROFILE = "sdk-integ-test";
-    if (profileData.role_arn) {
-      console.log(
-        `Setting AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=${process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}`
-      );
-      process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = `/role-arn/${profileData.role_arn}`;
-    }
-  } else {
-    console.log("AWS_PROFILE is", process.env.AWS_PROFILE);
-  }
-
   const region = "us-west-2";
+
+  console.log({ files: JSON.stringify(await loadSharedConfigFiles(), null, 2), ENV: process.env });
+
   const cloudformation = new CloudFormationClient({
     region,
+    logger: console,
   });
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 

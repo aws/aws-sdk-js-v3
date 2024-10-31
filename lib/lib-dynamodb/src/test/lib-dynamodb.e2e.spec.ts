@@ -1,3 +1,4 @@
+import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import {
   BillingMode,
   CreateTableCommandOutput,
@@ -196,6 +197,7 @@ describe(
     const passError = (e: any) => e;
 
     beforeAll(async () => {
+      await setTestCredentials();
       log.describe = await dynamodb
         .describeTable({
           TableName,
