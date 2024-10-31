@@ -276,8 +276,9 @@ export interface CancelJobRequest {
 
   /**
    * <p>A message to attach to the job that explains the reason for canceling it. This message is
-   *       returned by future <a>DescribeJobs</a> operations on the job. This message is also
+   *       returned by future <a>DescribeJobs</a> operations on the job. It is also
    *       recorded in the Batch activity logs.</p>
+   *          <p>This parameter has as limit of 1024 characters.</p>
    * @public
    */
   reason: string | undefined;
@@ -1062,8 +1063,7 @@ export type JobStateTimeLimitActionsState =
   (typeof JobStateTimeLimitActionsState)[keyof typeof JobStateTimeLimitActionsState];
 
 /**
- * <p>Specifies an action that Batch will take after the job has remained at the head of the queue in the specified
- *    state for longer than the specified time.</p>
+ * <p>Specifies an action that Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.</p>
  * @public
  */
 export interface JobStateTimeLimitAction {
@@ -1129,14 +1129,13 @@ export interface CreateJobQueueRequest {
   state?: JQState;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter is specified, the job
-   *       queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue
-   *       uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can
-   *       replace but can't remove the fair share scheduling policy. The format is
+   * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. Job queues that don't have a scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a scheduling policy, it can be replaced but can't be removed.</p>
+   *          <p>The format is
    *           <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
-   *             </code>.
-   *       An example is
+   *             </code>.</p>
+   *          <p>An example is
    *         <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
+   *          <p>A job queue without a scheduling policy is scheduled as a FIFO job queue and can't have a scheduling policy added. Jobs queues with a scheduling policy can have a maximum of 500 active fair share identifiers. When the limit has been reached, submissions of any jobs that add a new fair share identifier fail.</p>
    * @public
    */
   schedulingPolicyArn?: string;
@@ -1179,8 +1178,7 @@ export interface CreateJobQueueRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state
-   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   * <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
    * @public
    */
   jobStateTimeLimitActions?: JobStateTimeLimitAction[];
@@ -3285,7 +3283,7 @@ export interface EcsProperties {
   /**
    * <p>An object that contains the properties for the Amazon ECS task definition of a job.</p>
    *          <note>
-   *             <p>This object is currently limited to one element.</p>
+   *             <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
    *          </note>
    * @public
    */
@@ -3782,6 +3780,9 @@ export interface EksPodProperties {
 
   /**
    * <p>The properties of the container that's used on the Amazon EKS pod.</p>
+   *          <note>
+   *             <p>This object is limited to 10 elements.</p>
+   *          </note>
    * @public
    */
   containers?: EksContainer[];
@@ -3793,7 +3794,7 @@ export interface EksPodProperties {
    *    For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
    *          <note>
-   *             <p>This object is limited to 10 elements</p>
+   *             <p>This object is limited to 10 elements.</p>
    *          </note>
    * @public
    */
@@ -4298,13 +4299,7 @@ export interface JobQueueDetail {
   statusReason?: string;
 
   /**
-   * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value
-   *    for the <code>priority</code> parameter) are evaluated first when associated with the same
-   *    compute environment. Priority is determined in descending order. For example, a job queue with a
-   *    priority value of <code>10</code> is given scheduling preference over a job queue with a priority
-   *    value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code>
-   *    or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and
-   *    Fargate compute environments can't be mixed.</p>
+   * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of <code>10</code> is given scheduling preference over a job queue with a priority value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and Fargate compute environments can't be mixed.</p>
    * @public
    */
   priority: number | undefined;
@@ -4324,8 +4319,7 @@ export interface JobQueueDetail {
   tags?: Record<string, string>;
 
   /**
-   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state
-   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
    * @public
    */
   jobStateTimeLimitActions?: JobStateTimeLimitAction[];
@@ -5033,6 +5027,12 @@ export interface EksAttemptContainerDetail {
   name?: string;
 
   /**
+   * <p>The ID for the container.</p>
+   * @public
+   */
+  containerID?: string;
+
+  /**
    * <p>The exit code returned for the job attempt. A non-zero exit code is considered
    *    failed.</p>
    * @public
@@ -5076,6 +5076,12 @@ export interface EksAttemptDetail {
    * @public
    */
   podName?: string;
+
+  /**
+   * <p>The namespace of the Amazon EKS cluster that the pod exists in.</p>
+   * @public
+   */
+  podNamespace?: string;
 
   /**
    * <p>The name of the node for this job attempt.</p>
@@ -6501,14 +6507,11 @@ export interface EksPodPropertiesOverride {
   containers?: EksContainerOverride[];
 
   /**
-   * <p>The overrides for the conatainers defined in the Amazon EKS pod. These containers run before
+   * <p>The overrides for the <code>initContainers</code> defined in the Amazon EKS pod. These containers run before
    *    application containers, always runs to completion, and must complete successfully before the next
    *    container starts. These containers are registered with the Amazon EKS Connector agent and persists the
    *    registration information in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
-   *          <note>
-   *             <p>This object is limited to 10 elements</p>
-   *          </note>
    * @public
    */
   initContainers?: EksContainerOverride[];
@@ -6835,8 +6838,9 @@ export interface TerminateJobRequest {
 
   /**
    * <p>A message to attach to the job that explains the reason for canceling it. This message is
-   *       returned by future <a>DescribeJobs</a> operations on the job. This message is also
+   *       returned by future <a>DescribeJobs</a> operations on the job. It is also
    *       recorded in the Batch activity logs.</p>
+   *          <p>This parameter has as limit of 1024 characters.</p>
    * @public
    */
   reason: string | undefined;
@@ -7396,8 +7400,7 @@ export interface UpdateJobQueueRequest {
   computeEnvironmentOrder?: ComputeEnvironmentOrder[];
 
   /**
-   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state
-   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
    * @public
    */
   jobStateTimeLimitActions?: JobStateTimeLimitAction[];

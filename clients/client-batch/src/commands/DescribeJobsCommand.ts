@@ -647,6 +647,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //           containers: [ // EksAttemptContainerDetails
  * //             { // EksAttemptContainerDetail
  * //               name: "STRING_VALUE",
+ * //               containerID: "STRING_VALUE",
  * //               exitCode: Number("int"),
  * //               reason: "STRING_VALUE",
  * //             },
@@ -654,12 +655,14 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //           initContainers: [
  * //             {
  * //               name: "STRING_VALUE",
+ * //               containerID: "STRING_VALUE",
  * //               exitCode: Number("int"),
  * //               reason: "STRING_VALUE",
  * //             },
  * //           ],
  * //           eksClusterArn: "STRING_VALUE",
  * //           podName: "STRING_VALUE",
+ * //           podNamespace: "STRING_VALUE",
  * //           nodeName: "STRING_VALUE",
  * //           startedAt: Number("long"),
  * //           stoppedAt: Number("long"),
