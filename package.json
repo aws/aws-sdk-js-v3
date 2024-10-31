@@ -34,7 +34,7 @@
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "test:all": "yarn build:all && jest --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
     "test:ci": "lerna run test --since origin/main",
-    "test:e2e": "node -e \"console.log(process.env)\" && node ./scripts/turbo test:e2e && node ./tests/canary/canary",
+    "test:e2e": "node -e \"console.log(process.env)\" && node ./scripts/turbo test:e2e --env-mode=loose && node ./tests/canary/canary",
     "test:e2e:legacy": "cucumber-js --fail-fast",
     "test:e2e:legacy:preview": "./tests/e2e-legacy/preview.mjs",
     "test:e2e:legacy:since:release": "./tests/e2e-legacy/since-release.mjs",
