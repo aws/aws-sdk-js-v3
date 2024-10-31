@@ -694,10 +694,38 @@ export interface MessageHeader {
 }
 
 /**
+ * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
+ *             part.</p>
+ * @public
+ */
+export interface EmailTemplateContent {
+  /**
+   * <p>The subject line of the email.</p>
+   * @public
+   */
+  Subject?: string;
+
+  /**
+   * <p>The email body that will be visible to recipients whose email clients do not display
+   *             HTML.</p>
+   * @public
+   */
+  Text?: string;
+
+  /**
+   * <p>The HTML body of the email.</p>
+   * @public
+   */
+  Html?: string;
+}
+
+/**
  * <p>An object that defines the email template to use for an email message, and the values
  *             to use for any message variables in that template. An <i>email
  *                 template</i> is a type of message template that contains content that you
- *             want to define, save, and reuse in email messages that you send.</p>
+ *             want to reuse in email messages that you send. You can specifiy the email template by providing
+ *             the name or ARN of an <i>email template</i>
+ *             previously saved in your Amazon SES account or by providing the full template content.</p>
  * @public
  */
 export interface Template {
@@ -714,6 +742,17 @@ export interface Template {
    * @public
    */
   TemplateArn?: string;
+
+  /**
+   * <p>The content of the template.</p>
+   *          <note>
+   *             <p>Amazon SES supports only simple substitions when you send email using the
+   *                 <code>SendEmail</code> or <code>SendBulkEmail</code> operations and
+   *                 you provide the full template content in the request.</p>
+   *          </note>
+   * @public
+   */
+  TemplateContent?: EmailTemplateContent;
 
   /**
    * <p>An object that defines the values to use for message variables in the template. This
@@ -2669,32 +2708,6 @@ export interface CreateEmailIdentityPolicyRequest {
  * @public
  */
 export interface CreateEmailIdentityPolicyResponse {}
-
-/**
- * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
- *             part.</p>
- * @public
- */
-export interface EmailTemplateContent {
-  /**
-   * <p>The subject line of the email.</p>
-   * @public
-   */
-  Subject?: string;
-
-  /**
-   * <p>The email body that will be visible to recipients whose email clients do not display
-   *             HTML.</p>
-   * @public
-   */
-  Text?: string;
-
-  /**
-   * <p>The HTML body of the email.</p>
-   * @public
-   */
-  Html?: string;
-}
 
 /**
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES

@@ -17,7 +17,7 @@ and code samples that demonstrate how to use Amazon SES API v2 features programm
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sesv2
+To install this package, simply type add or install @aws-sdk/client-sesv2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sesv2`

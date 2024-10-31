@@ -53,6 +53,11 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *     Template: { // Template
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
+ *       TemplateContent: { // EmailTemplateContent
+ *         Subject: "STRING_VALUE",
+ *         Text: "STRING_VALUE",
+ *         Html: "STRING_VALUE",
+ *       },
  *       TemplateData: "STRING_VALUE",
  *       Headers: [ // MessageHeaderList
  *         { // MessageHeader
