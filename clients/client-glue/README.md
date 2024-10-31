@@ -12,7 +12,7 @@ AWS SDK for JavaScript Glue Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-glue
+To install this package, simply type add or install @aws-sdk/client-glue
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-glue`
@@ -407,6 +407,14 @@ CreateClassifier
 </details>
 <details>
 <summary>
+CreateColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateColumnStatisticsTaskSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateConnection
 </summary>
 
@@ -603,6 +611,14 @@ DeleteColumnStatisticsForTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteColumnStatisticsForTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsForTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsForTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -867,6 +883,14 @@ GetColumnStatisticsTaskRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetColumnStatisticsTaskRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskRunsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -1663,6 +1687,14 @@ StartColumnStatisticsTaskRun
 </details>
 <details>
 <summary>
+StartColumnStatisticsTaskRunSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartColumnStatisticsTaskRunScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartColumnStatisticsTaskRunScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartColumnStatisticsTaskRunScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartCrawler
 </summary>
 
@@ -1759,6 +1791,14 @@ StopColumnStatisticsTaskRun
 </details>
 <details>
 <summary>
+StopColumnStatisticsTaskRunSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopColumnStatisticsTaskRunScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopColumnStatisticsTaskRunScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopColumnStatisticsTaskRunScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopCrawler
 </summary>
 
@@ -1851,6 +1891,14 @@ UpdateColumnStatisticsForTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateColumnStatisticsForTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsForTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsForTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>

@@ -31,6 +31,7 @@ import {
   PartitionInput,
   Predicate,
   RecrawlPolicy,
+  Schedule,
   SchemaChangePolicy,
   SchemaId,
   StorageDescriptor,
@@ -470,6 +471,96 @@ export interface CreateClassifierRequest {
  * @public
  */
 export interface CreateClassifierResponse {}
+
+/**
+ * <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+ * @public
+ */
+export class ColumnStatisticsTaskRunningException extends __BaseException {
+  readonly name: "ColumnStatisticsTaskRunningException" = "ColumnStatisticsTaskRunningException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ColumnStatisticsTaskRunningException, __BaseException>) {
+    super({
+      name: "ColumnStatisticsTaskRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ColumnStatisticsTaskRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateColumnStatisticsTaskSettingsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to generate column statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The role used for running the column statistics.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>A schedule for running the column statistics, specified in CRON syntax.</p>
+   * @public
+   */
+  Schedule?: string;
+
+  /**
+   * <p>A list of column names for which to run statistics.</p>
+   * @public
+   */
+  ColumnNameList?: string[];
+
+  /**
+   * <p>The percentage of data to sample.</p>
+   * @public
+   */
+  SampleSize?: number;
+
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   * @public
+   */
+  CatalogID?: string;
+
+  /**
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
+   * @public
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * <p>A map of tags.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateColumnStatisticsTaskSettingsResponse {}
 
 /**
  * @public
@@ -3677,6 +3768,28 @@ export interface DeleteColumnStatisticsForTableResponse {}
 /**
  * @public
  */
+export interface DeleteColumnStatisticsTaskSettingsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to delete column statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteColumnStatisticsTaskSettingsResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
@@ -5442,6 +5555,20 @@ export interface GetColumnStatisticsTaskRunRequest {
  * @public
  * @enum
  */
+export const ComputationType = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputationType = (typeof ComputationType)[keyof typeof ComputationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ColumnStatisticsState = {
   FAILED: "FAILED",
   RUNNING: "RUNNING",
@@ -5525,6 +5652,12 @@ export interface ColumnStatisticsTaskRun {
    * @public
    */
   WorkerType?: string;
+
+  /**
+   * <p>The type of column statistics computation.</p>
+   * @public
+   */
+  ComputationType?: ComputationType;
 
   /**
    * <p>The status of the task run.</p>
@@ -5624,6 +5757,88 @@ export interface GetColumnStatisticsTaskRunsResponse {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskSettingsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to retrieve column statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * <p>The settings for a column statistics task.</p>
+ * @public
+ */
+export interface ColumnStatisticsTaskSettings {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The name of the table for which to generate column statistics.</p>
+   * @public
+   */
+  TableName?: string;
+
+  /**
+   * <p>A schedule for running the column statistics, specified in CRON syntax.</p>
+   * @public
+   */
+  Schedule?: Schedule;
+
+  /**
+   * <p>A list of column names for which to run statistics.</p>
+   * @public
+   */
+  ColumnNameList?: string[];
+
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   * @public
+   */
+  CatalogID?: string;
+
+  /**
+   * <p>The role used for running the column statistics.</p>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>The percentage of data to sample.</p>
+   * @public
+   */
+  SampleSize?: number;
+
+  /**
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
+   * @public
+   */
+  SecurityConfiguration?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskSettingsResponse {
+  /**
+   * <p>A <code>ColumnStatisticsTaskSettings</code> object representing the settings for the column statistics task.</p>
+   * @public
+   */
+  ColumnStatisticsTaskSettings?: ColumnStatisticsTaskSettings;
 }
 
 /**
@@ -7549,306 +7764,6 @@ export const TaskType = {
  * @public
  */
 export type TaskType = (typeof TaskType)[keyof typeof TaskType];
-
-/**
- * <p>The configuration properties for the task run.</p>
- * @public
- */
-export interface TaskRunProperties {
-  /**
-   * <p>The type of task run.</p>
-   * @public
-   */
-  TaskType?: TaskType;
-
-  /**
-   * <p>The configuration properties for an importing labels task run.</p>
-   * @public
-   */
-  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties;
-
-  /**
-   * <p>The configuration properties for an exporting labels task run.</p>
-   * @public
-   */
-  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties;
-
-  /**
-   * <p>The configuration properties for a labeling set generation task run.</p>
-   * @public
-   */
-  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties;
-
-  /**
-   * <p>The configuration properties for a find matches task run.</p>
-   * @public
-   */
-  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunResponse {
-  /**
-   * <p>The unique identifier of the task run.</p>
-   * @public
-   */
-  TransformId?: string;
-
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  TaskRunId?: string;
-
-  /**
-   * <p>The status for this task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType;
-
-  /**
-   * <p>The names of the log groups that are associated with the task run.</p>
-   * @public
-   */
-  LogGroupName?: string;
-
-  /**
-   * <p>The list of properties that are associated with the task run.</p>
-   * @public
-   */
-  Properties?: TaskRunProperties;
-
-  /**
-   * <p>The error strings that are associated with the task run.</p>
-   * @public
-   */
-  ErrorString?: string;
-
-  /**
-   * <p>The date and time when this task run started.</p>
-   * @public
-   */
-  StartedOn?: Date;
-
-  /**
-   * <p>The date and time when this task run was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   * <p>The date and time when this task run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date;
-
-  /**
-   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number;
-}
-
-/**
- * <p>The criteria that are used to filter the task runs for the machine learning
- *       transform.</p>
- * @public
- */
-export interface TaskRunFilterCriteria {
-  /**
-   * <p>The type of task run.</p>
-   * @public
-   */
-  TaskRunType?: TaskType;
-
-  /**
-   * <p>The current status of the task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType;
-
-  /**
-   * <p>Filter on task runs started before this date.</p>
-   * @public
-   */
-  StartedBefore?: Date;
-
-  /**
-   * <p>Filter on task runs started after this date.</p>
-   * @public
-   */
-  StartedAfter?: Date;
-}
-
-/**
- * @public
- * @enum
- */
-export const TaskRunSortColumnType = {
-  STARTED: "STARTED",
-  STATUS: "STATUS",
-  TASK_RUN_TYPE: "TASK_RUN_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type TaskRunSortColumnType = (typeof TaskRunSortColumnType)[keyof typeof TaskRunSortColumnType];
-
-/**
- * @public
- * @enum
- */
-export const SortDirectionType = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortDirectionType = (typeof SortDirectionType)[keyof typeof SortDirectionType];
-
-/**
- * <p>The sorting criteria that are used to sort the list of task runs for the machine learning
- *       transform.</p>
- * @public
- */
-export interface TaskRunSortCriteria {
-  /**
-   * <p>The column to be used to sort the list of task runs for the machine learning
-   *       transform.</p>
-   * @public
-   */
-  Column: TaskRunSortColumnType | undefined;
-
-  /**
-   * <p>The sort direction to be used to sort the list of task runs for the machine learning
-   *       transform.</p>
-   * @public
-   */
-  SortDirection: SortDirectionType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunsRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>A token for pagination of the results. The default is empty.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return. </p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
-   * @public
-   */
-  Filter?: TaskRunFilterCriteria;
-
-  /**
-   * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
-   * @public
-   */
-  Sort?: TaskRunSortCriteria;
-}
-
-/**
- * <p>The sampling parameters that are associated with the machine learning transform.</p>
- * @public
- */
-export interface TaskRun {
-  /**
-   * <p>The unique identifier for the transform.</p>
-   * @public
-   */
-  TransformId?: string;
-
-  /**
-   * <p>The unique identifier for this task run.</p>
-   * @public
-   */
-  TaskRunId?: string;
-
-  /**
-   * <p>The current status of the requested task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType;
-
-  /**
-   * <p>The names of the log group for secure logging, associated with this task run.</p>
-   * @public
-   */
-  LogGroupName?: string;
-
-  /**
-   * <p>Specifies configuration properties associated with this task run.</p>
-   * @public
-   */
-  Properties?: TaskRunProperties;
-
-  /**
-   * <p>The list of error strings associated with this task run.</p>
-   * @public
-   */
-  ErrorString?: string;
-
-  /**
-   * <p>The date and time that this task run started.</p>
-   * @public
-   */
-  StartedOn?: Date;
-
-  /**
-   * <p>The last point in time that the requested task run was updated.</p>
-   * @public
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   * <p>The last point in time that the requested task run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date;
-
-  /**
-   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunsResponse {
-  /**
-   * <p>A list of task runs that are associated with the transform.</p>
-   * @public
-   */
-  TaskRuns?: TaskRun[];
-
-  /**
-   * <p>A pagination token, if more results are available.</p>
-   * @public
-   */
-  NextToken?: string;
-}
 
 /**
  * @internal

@@ -117,6 +117,10 @@ import {
 } from "./commands/CheckSchemaVersionValidityCommand";
 import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
+import {
+  CreateColumnStatisticsTaskSettingsCommandInput,
+  CreateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/CreateColumnStatisticsTaskSettingsCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
 import {
@@ -166,6 +170,10 @@ import {
   DeleteColumnStatisticsForTableCommandInput,
   DeleteColumnStatisticsForTableCommandOutput,
 } from "./commands/DeleteColumnStatisticsForTableCommand";
+import {
+  DeleteColumnStatisticsTaskSettingsCommandInput,
+  DeleteColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/DeleteColumnStatisticsTaskSettingsCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
 import {
@@ -238,6 +246,10 @@ import {
   GetColumnStatisticsTaskRunsCommandInput,
   GetColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/GetColumnStatisticsTaskRunsCommand";
+import {
+  GetColumnStatisticsTaskSettingsCommandInput,
+  GetColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskSettingsCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
@@ -451,6 +463,10 @@ import {
   StartColumnStatisticsTaskRunCommandInput,
   StartColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StartColumnStatisticsTaskRunCommand";
+import {
+  StartColumnStatisticsTaskRunScheduleCommandInput,
+  StartColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunScheduleCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommandInput,
@@ -487,6 +503,10 @@ import {
   StopColumnStatisticsTaskRunCommandInput,
   StopColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StopColumnStatisticsTaskRunCommand";
+import {
+  StopColumnStatisticsTaskRunScheduleCommandInput,
+  StopColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunScheduleCommand";
 import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
@@ -508,6 +528,10 @@ import {
   UpdateColumnStatisticsForTableCommandInput,
   UpdateColumnStatisticsForTableCommandOutput,
 } from "./commands/UpdateColumnStatisticsForTableCommand";
+import {
+  UpdateColumnStatisticsTaskSettingsCommandInput,
+  UpdateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/UpdateColumnStatisticsTaskSettingsCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import { UpdateCrawlerCommandInput, UpdateCrawlerCommandOutput } from "./commands/UpdateCrawlerCommand";
 import {
@@ -585,6 +609,7 @@ export type ServiceInputTypes =
   | CheckSchemaVersionValidityCommandInput
   | CreateBlueprintCommandInput
   | CreateClassifierCommandInput
+  | CreateColumnStatisticsTaskSettingsCommandInput
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
   | CreateCustomEntityTypeCommandInput
@@ -610,6 +635,7 @@ export type ServiceInputTypes =
   | DeleteClassifierCommandInput
   | DeleteColumnStatisticsForPartitionCommandInput
   | DeleteColumnStatisticsForTableCommandInput
+  | DeleteColumnStatisticsTaskSettingsCommandInput
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
   | DeleteCustomEntityTypeCommandInput
@@ -643,6 +669,7 @@ export type ServiceInputTypes =
   | GetColumnStatisticsForTableCommandInput
   | GetColumnStatisticsTaskRunCommandInput
   | GetColumnStatisticsTaskRunsCommandInput
+  | GetColumnStatisticsTaskSettingsCommandInput
   | GetConnectionCommandInput
   | GetConnectionsCommandInput
   | GetCrawlerCommandInput
@@ -742,6 +769,7 @@ export type ServiceInputTypes =
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
   | StartColumnStatisticsTaskRunCommandInput
+  | StartColumnStatisticsTaskRunScheduleCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
   | StartDataQualityRuleRecommendationRunCommandInput
@@ -754,6 +782,7 @@ export type ServiceInputTypes =
   | StartTriggerCommandInput
   | StartWorkflowRunCommandInput
   | StopColumnStatisticsTaskRunCommandInput
+  | StopColumnStatisticsTaskRunScheduleCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
   | StopSessionCommandInput
@@ -766,6 +795,7 @@ export type ServiceInputTypes =
   | UpdateClassifierCommandInput
   | UpdateColumnStatisticsForPartitionCommandInput
   | UpdateColumnStatisticsForTableCommandInput
+  | UpdateColumnStatisticsTaskSettingsCommandInput
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
@@ -815,6 +845,7 @@ export type ServiceOutputTypes =
   | CheckSchemaVersionValidityCommandOutput
   | CreateBlueprintCommandOutput
   | CreateClassifierCommandOutput
+  | CreateColumnStatisticsTaskSettingsCommandOutput
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
   | CreateCustomEntityTypeCommandOutput
@@ -840,6 +871,7 @@ export type ServiceOutputTypes =
   | DeleteClassifierCommandOutput
   | DeleteColumnStatisticsForPartitionCommandOutput
   | DeleteColumnStatisticsForTableCommandOutput
+  | DeleteColumnStatisticsTaskSettingsCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteCustomEntityTypeCommandOutput
@@ -873,6 +905,7 @@ export type ServiceOutputTypes =
   | GetColumnStatisticsForTableCommandOutput
   | GetColumnStatisticsTaskRunCommandOutput
   | GetColumnStatisticsTaskRunsCommandOutput
+  | GetColumnStatisticsTaskSettingsCommandOutput
   | GetConnectionCommandOutput
   | GetConnectionsCommandOutput
   | GetCrawlerCommandOutput
@@ -972,6 +1005,7 @@ export type ServiceOutputTypes =
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
   | StartColumnStatisticsTaskRunCommandOutput
+  | StartColumnStatisticsTaskRunScheduleCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
   | StartDataQualityRuleRecommendationRunCommandOutput
@@ -984,6 +1018,7 @@ export type ServiceOutputTypes =
   | StartTriggerCommandOutput
   | StartWorkflowRunCommandOutput
   | StopColumnStatisticsTaskRunCommandOutput
+  | StopColumnStatisticsTaskRunScheduleCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
   | StopSessionCommandOutput
@@ -996,6 +1031,7 @@ export type ServiceOutputTypes =
   | UpdateClassifierCommandOutput
   | UpdateColumnStatisticsForPartitionCommandOutput
   | UpdateColumnStatisticsForTableCommandOutput
+  | UpdateColumnStatisticsTaskSettingsCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput

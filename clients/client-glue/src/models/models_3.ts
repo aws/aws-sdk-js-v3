@@ -49,6 +49,7 @@ import {
   NotificationProperty,
   OracleSQLCatalogSource,
   OracleSQLCatalogTarget,
+  PartitionInput,
   PIIDetection,
   PostgreSQLCatalogSource,
   PostgreSQLCatalogTarget,
@@ -73,11 +74,14 @@ import {
   S3HudiSource,
   S3JsonSource,
   S3ParquetSource,
+  SchemaId,
   SelectFields,
   SelectFromCollection,
   SnowflakeSource,
   SnowflakeTarget,
+  SourceControlAuthStrategy,
   SourceControlDetails,
+  SourceControlProvider,
   SparkConnectorSource,
   SparkConnectorTarget,
   SparkSQL,
@@ -91,16 +95,484 @@ import {
   WorkerType,
 } from "./models_0";
 
-import { Permission, ProfileConfiguration, TableIdentifier, TableInput, UserDefinedFunctionInput } from "./models_1";
+import {
+  Compatibility,
+  Permission,
+  ProfileConfiguration,
+  RegistryId,
+  TableIdentifier,
+  TableInput,
+  TransformParameters,
+  UserDefinedFunctionInput,
+} from "./models_1";
 
 import {
   ColumnRowFilter,
+  DevEndpointCustomLibraries,
   FederatedTable,
   ResourceAction,
   ResourceState,
+  SchemaVersionNumber,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateDevEndpointRequest {
+  /**
+   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
+   * @public
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
+   * @public
+   */
+  AddPublicKeys?: string[];
+
+  /**
+   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  DeletePublicKeys?: string[];
+
+  /**
+   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  CustomLibraries?: DevEndpointCustomLibraries;
+
+  /**
+   * <p>
+   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
+   *       needs to be updated, or <code>False</code> if otherwise.</p>
+   * @public
+   */
+  UpdateEtlLibraries?: boolean;
+
+  /**
+   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  DeleteArguments?: string[];
+
+  /**
+   * <p>The map of arguments to add the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   * @public
+   */
+  AddArguments?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateJobResponse {
+  /**
+   * <p>Returns the name of the updated job definition.</p>
+   * @public
+   */
+  JobName?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobFromSourceControlRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   * @public
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
+   * @public
+   */
+  Provider?: SourceControlProvider;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
+   * @public
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   * @public
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   * @public
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   * @public
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   * @public
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   * @public
+   */
+  AuthStrategy?: SourceControlAuthStrategy;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   * @public
+   */
+  AuthToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobFromSourceControlResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   * @public
+   */
+  JobName?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMLTransformRequest {
+  /**
+   * <p>A unique identifier that was generated when the transform was created.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>The unique name that you gave the transform when you created it.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the transform. The default is an empty string.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
+   *       Conditionally dependent on the transform type.</p>
+   * @public
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string;
+
+  /**
+   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
+   *         page</a>. </p>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   * @public
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   * @public
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   * @public
+   */
+  MaxRetries?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMLTransformResponse {
+  /**
+   * <p>The unique identifier for the transform that was updated.</p>
+   * @public
+   */
+  TransformId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
+   *       the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database in which the table in question
+   *       resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table in which the partition to be updated is located.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>List of partition key values that define the partition to update.</p>
+   * @public
+   */
+  PartitionValueList: string[] | undefined;
+
+  /**
+   * <p>The new partition object to update the partition to.</p>
+   *          <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+   * @public
+   */
+  PartitionInput: PartitionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePartitionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  RegistryId: RegistryId | undefined;
+
+  /**
+   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
+   * @public
+   */
+  Description: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryResponse {
+  /**
+   * <p>The name of the updated registry.</p>
+   * @public
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
+   * @public
+   */
+  RegistryArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSchemaInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The new compatibility setting for the schema.</p>
+   * @public
+   */
+  Compatibility?: Compatibility;
+
+  /**
+   * <p>The new description for the schema.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSchemaResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   * @public
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name of the registry that contains the schema.</p>
+   * @public
+   */
+  RegistryName?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSourceControlFromJobRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   * @public
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
+   * @public
+   */
+  Provider?: SourceControlProvider;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
+   * @public
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   * @public
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   * @public
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   * @public
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   * @public
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   * @public
+   */
+  AuthStrategy?: SourceControlAuthStrategy;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   * @public
+   */
+  AuthToken?: string;
+}
 
 /**
  * @public

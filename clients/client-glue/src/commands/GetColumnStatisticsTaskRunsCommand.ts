@@ -61,6 +61,7 @@ export interface GetColumnStatisticsTaskRunsCommandOutput
  * //       SecurityConfiguration: "STRING_VALUE",
  * //       NumberOfWorkers: Number("int"),
  * //       WorkerType: "STRING_VALUE",
+ * //       ComputationType: "FULL" || "INCREMENTAL",
  * //       Status: "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "STOPPED",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastUpdated: new Date("TIMESTAMP"),

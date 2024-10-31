@@ -128,6 +128,11 @@ import {
   CreateClassifierCommandOutput,
 } from "./commands/CreateClassifierCommand";
 import {
+  CreateColumnStatisticsTaskSettingsCommand,
+  CreateColumnStatisticsTaskSettingsCommandInput,
+  CreateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/CreateColumnStatisticsTaskSettingsCommand";
+import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
@@ -244,6 +249,11 @@ import {
   DeleteColumnStatisticsForTableCommandInput,
   DeleteColumnStatisticsForTableCommandOutput,
 } from "./commands/DeleteColumnStatisticsForTableCommand";
+import {
+  DeleteColumnStatisticsTaskSettingsCommand,
+  DeleteColumnStatisticsTaskSettingsCommandInput,
+  DeleteColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/DeleteColumnStatisticsTaskSettingsCommand";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
@@ -401,6 +411,11 @@ import {
   GetColumnStatisticsTaskRunsCommandInput,
   GetColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/GetColumnStatisticsTaskRunsCommand";
+import {
+  GetColumnStatisticsTaskSettingsCommand,
+  GetColumnStatisticsTaskSettingsCommandInput,
+  GetColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskSettingsCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
@@ -813,6 +828,11 @@ import {
   StartColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StartColumnStatisticsTaskRunCommand";
 import {
+  StartColumnStatisticsTaskRunScheduleCommand,
+  StartColumnStatisticsTaskRunScheduleCommandInput,
+  StartColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunScheduleCommand";
+import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -868,6 +888,11 @@ import {
   StopColumnStatisticsTaskRunCommandInput,
   StopColumnStatisticsTaskRunCommandOutput,
 } from "./commands/StopColumnStatisticsTaskRunCommand";
+import {
+  StopColumnStatisticsTaskRunScheduleCommand,
+  StopColumnStatisticsTaskRunScheduleCommandInput,
+  StopColumnStatisticsTaskRunScheduleCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunScheduleCommand";
 import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommand,
@@ -912,6 +937,11 @@ import {
   UpdateColumnStatisticsForTableCommandInput,
   UpdateColumnStatisticsForTableCommandOutput,
 } from "./commands/UpdateColumnStatisticsForTableCommand";
+import {
+  UpdateColumnStatisticsTaskSettingsCommand,
+  UpdateColumnStatisticsTaskSettingsCommandInput,
+  UpdateColumnStatisticsTaskSettingsCommandOutput,
+} from "./commands/UpdateColumnStatisticsTaskSettingsCommand";
 import {
   UpdateConnectionCommand,
   UpdateConnectionCommandInput,
@@ -1027,6 +1057,7 @@ const commands = {
   CheckSchemaVersionValidityCommand,
   CreateBlueprintCommand,
   CreateClassifierCommand,
+  CreateColumnStatisticsTaskSettingsCommand,
   CreateConnectionCommand,
   CreateCrawlerCommand,
   CreateCustomEntityTypeCommand,
@@ -1052,6 +1083,7 @@ const commands = {
   DeleteClassifierCommand,
   DeleteColumnStatisticsForPartitionCommand,
   DeleteColumnStatisticsForTableCommand,
+  DeleteColumnStatisticsTaskSettingsCommand,
   DeleteConnectionCommand,
   DeleteCrawlerCommand,
   DeleteCustomEntityTypeCommand,
@@ -1085,6 +1117,7 @@ const commands = {
   GetColumnStatisticsForTableCommand,
   GetColumnStatisticsTaskRunCommand,
   GetColumnStatisticsTaskRunsCommand,
+  GetColumnStatisticsTaskSettingsCommand,
   GetConnectionCommand,
   GetConnectionsCommand,
   GetCrawlerCommand,
@@ -1184,6 +1217,7 @@ const commands = {
   SearchTablesCommand,
   StartBlueprintRunCommand,
   StartColumnStatisticsTaskRunCommand,
+  StartColumnStatisticsTaskRunScheduleCommand,
   StartCrawlerCommand,
   StartCrawlerScheduleCommand,
   StartDataQualityRuleRecommendationRunCommand,
@@ -1196,6 +1230,7 @@ const commands = {
   StartTriggerCommand,
   StartWorkflowRunCommand,
   StopColumnStatisticsTaskRunCommand,
+  StopColumnStatisticsTaskRunScheduleCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
   StopSessionCommand,
@@ -1208,6 +1243,7 @@ const commands = {
   UpdateClassifierCommand,
   UpdateColumnStatisticsForPartitionCommand,
   UpdateColumnStatisticsForTableCommand,
+  UpdateColumnStatisticsTaskSettingsCommand,
   UpdateConnectionCommand,
   UpdateCrawlerCommand,
   UpdateCrawlerScheduleCommand,
@@ -1639,6 +1675,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateColumnStatisticsTaskSettingsCommand}
+   */
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateColumnStatisticsTaskSettingsCommandOutput>;
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: CreateColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  createColumnStatisticsTaskSettings(
+    args: CreateColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateConnectionCommand}
    */
   createConnection(
@@ -2005,6 +2058,23 @@ export interface Glue {
     args: DeleteColumnStatisticsForTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteColumnStatisticsTaskSettingsCommand}
+   */
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteColumnStatisticsTaskSettingsCommandOutput>;
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: DeleteColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  deleteColumnStatisticsTaskSettings(
+    args: DeleteColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -2503,6 +2573,23 @@ export interface Glue {
     args: GetColumnStatisticsTaskRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskSettingsCommand}
+   */
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskSettingsCommandOutput>;
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskSettings(
+    args: GetColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -3982,6 +4069,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartColumnStatisticsTaskRunScheduleCommand}
+   */
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartColumnStatisticsTaskRunScheduleCommandOutput>;
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+  startColumnStatisticsTaskRunSchedule(
+    args: StartColumnStatisticsTaskRunScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartCrawlerCommand}
    */
   startCrawler(args: StartCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StartCrawlerCommandOutput>;
@@ -4168,6 +4272,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StopColumnStatisticsTaskRunScheduleCommand}
+   */
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopColumnStatisticsTaskRunScheduleCommandOutput>;
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+  stopColumnStatisticsTaskRunSchedule(
+    args: StopColumnStatisticsTaskRunScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopCrawlerCommand}
    */
   stopCrawler(args: StopCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StopCrawlerCommandOutput>;
@@ -4332,6 +4453,23 @@ export interface Glue {
     args: UpdateColumnStatisticsForTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateColumnStatisticsTaskSettingsCommand}
+   */
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateColumnStatisticsTaskSettingsCommandOutput>;
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    cb: (err: any, data?: UpdateColumnStatisticsTaskSettingsCommandOutput) => void
+  ): void;
+  updateColumnStatisticsTaskSettings(
+    args: UpdateColumnStatisticsTaskSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateColumnStatisticsTaskSettingsCommandOutput) => void
   ): void;
 
   /**
