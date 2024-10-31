@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.684.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.683.0...v3.684.0) (2024-10-31)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Add UDP support for AWS PrivateLink and dual-stack Network Load Balancers ([41fe911](https://github.com/aws/aws-sdk-js-v3/commit/41fe911f3d7e094f5ece16388417e08997e5e3b0))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

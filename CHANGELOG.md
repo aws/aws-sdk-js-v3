@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.684.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.683.0...v3.684.0) (2024-10-31)
+
+
+### Features
+
+* **client-amp:** Added support for UpdateScraper API, to enable updating collector configuration in-place ([87ff3b9](https://github.com/aws/aws-sdk-js-v3/commit/87ff3b96655000292e7922d15b2af1e70786a0d5))
+* **client-auto-scaling:** Adds bake time for Auto Scaling group Instance Refresh ([2392739](https://github.com/aws/aws-sdk-js-v3/commit/239273971f46dbf453c2fe8d7e0f2172115dab13))
+* **client-batch:** Add `podNamespace` to `EksAttemptDetail` and `containerID` to `EksAttemptContainerDetail`. ([0260ae8](https://github.com/aws/aws-sdk-js-v3/commit/0260ae8c4b30d573164d706b8191cd81ed36cdf9))
+* **client-elastic-load-balancing-v2:** Add UDP support for AWS PrivateLink and dual-stack Network Load Balancers ([41fe911](https://github.com/aws/aws-sdk-js-v3/commit/41fe911f3d7e094f5ece16388417e08997e5e3b0))
+* **client-glue:** Add schedule support for AWS Glue column statistics ([8a12fe4](https://github.com/aws/aws-sdk-js-v3/commit/8a12fe47ec0c04f891b1aa7899de8827f093d193))
+* **client-sagemaker:** SageMaker HyperPod adds scale-down at instance level via BatchDeleteClusterNodes API and group level via UpdateCluster API. SageMaker Training exposes secondary job status in TrainingJobSummary from ListTrainingJobs API. SageMaker now supports G6, G6e, P5e instances for HyperPod and Training. ([6908bf2](https://github.com/aws/aws-sdk-js-v3/commit/6908bf2045ff48927046bd0a0fbaab61761640eb))
+* **client-sesv2:** This release enables customers to provide the email template content in the SESv2 SendEmail and SendBulkEmail APIs instead of the name or the ARN of a stored email template. ([2f50238](https://github.com/aws/aws-sdk-js-v3/commit/2f50238c6317d7f4acbaa9b3502edcdf46c52a89))
+* **clients:** update client endpoints as of 2024-10-31 ([fe227f1](https://github.com/aws/aws-sdk-js-v3/commit/fe227f1bebf3f5e0c8ab4319d153d98930f6e983))
+
+
+
+
+
 # [3.683.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.682.0...v3.683.0) (2024-10-30)
 
 

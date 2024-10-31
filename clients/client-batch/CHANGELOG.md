@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.684.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.683.0...v3.684.0) (2024-10-31)
+
+
+### Features
+
+* **client-batch:** Add `podNamespace` to `EksAttemptDetail` and `containerID` to `EksAttemptContainerDetail`. ([0260ae8](https://github.com/aws/aws-sdk-js-v3/commit/0260ae8c4b30d573164d706b8191cd81ed36cdf9))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-batch
