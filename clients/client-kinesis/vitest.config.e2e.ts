@@ -4,6 +4,5 @@ export default defineConfig({
   test: {
     include: ["**/*.e2e.spec.ts"],
     environment: "node",
-    env: process.env as Record<string, string>,
   },
 });

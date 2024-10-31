@@ -1,39 +1,35 @@
 // Build script to handle Turborepo build execution
 const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
-const { loadSharedConfigFiles } = require("@smithy/shared-ini-file-loader");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
   const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=hash-only"];
   command.push(...args);
   const turboRoot = path.join(__dirname, "..", "..");
 
-  const ini = await loadSharedConfigFiles();
-  const profileData = ini.configFile["sdk-integ-test"];
-  if (profileData) {
-    console.log("Setting AWS_PROFILE=sdk-integ-test");
-    process.env.AWS_PROFILE = "sdk-integ-test";
-  }
+  const turboEnv = {
+    ...process.env,
+    TURBO_TELEMETRY_DISABLED: "1",
+    ...(apiSecret &&
+      apiEndpoint &&
+      apiSignatureKey && {
+        TURBO_API: apiEndpoint,
+        TURBO_REMOTE_CACHE_SIGNATURE_KEY: apiSignatureKey,
+        TURBO_TOKEN: apiSecret,
+        TURBO_TEAM: "aws-sdk-js",
+      }),
+    ...(!process.env.CODEBUILD_BUILD_ARN && {
+      TURBO_REMOTE_CACHE_READ_ONLY: "1",
+    }),
+  };
+
+  console.log("TURBO ENV", turboEnv);
 
   try {
     return await spawnProcess("yarn", command, {
       stdio: "inherit",
       cwd: turboRoot,
-      env: {
-        ...process.env,
-        TURBO_TELEMETRY_DISABLED: "1",
-        ...(apiSecret &&
-          apiEndpoint &&
-          apiSignatureKey && {
-            TURBO_API: apiEndpoint,
-            TURBO_REMOTE_CACHE_SIGNATURE_KEY: apiSignatureKey,
-            TURBO_TOKEN: apiSecret,
-            TURBO_TEAM: "aws-sdk-js",
-          }),
-        ...(!process.env.CODEBUILD_BUILD_ARN && {
-          TURBO_REMOTE_CACHE_READ_ONLY: "1",
-        }),
-      },
+      env: turboEnv,
     });
   } catch (error) {
     console.error("Error running turbo:", error);

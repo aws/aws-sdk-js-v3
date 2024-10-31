@@ -14,7 +14,6 @@ exports.getIntegTestResources = async () => {
 
   const cloudformation = new CloudFormationClient({
     region,
-    logger: console,
   });
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 

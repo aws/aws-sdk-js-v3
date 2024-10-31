@@ -1,7 +1,6 @@
 import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import type { AwsCredentialIdentity } from "@smithy/types";
 import { randomBytes } from "crypto";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
@@ -111,7 +110,6 @@ describe("@aws-sdk/lib-storage", () => {
 
       const client = new MockFailureS3({
         region,
-        credentials,
       });
 
       const requestLog = [] as string[];
