@@ -79,6 +79,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * //               IPv6Address: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           SourceNatIpv6Prefixes: [ // SourceNatIpv6Prefixes
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       SecurityGroups: [ // SecurityGroups
@@ -87,6 +90,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * //       IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
+ * //       EnablePrefixForIpv6SourceNat: "on" || "off",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

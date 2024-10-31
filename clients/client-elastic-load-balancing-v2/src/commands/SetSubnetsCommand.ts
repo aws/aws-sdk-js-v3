@@ -55,9 +55,11 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *       AllocationId: "STRING_VALUE",
  *       PrivateIPv4Address: "STRING_VALUE",
  *       IPv6Address: "STRING_VALUE",
+ *       SourceNatIpv6Prefix: "STRING_VALUE",
  *     },
  *   ],
  *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
+ *   EnablePrefixForIpv6SourceNat: "on" || "off",
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
@@ -75,9 +77,13 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * //           IPv6Address: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SourceNatIpv6Prefixes: [ // SourceNatIpv6Prefixes
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
+ * //   EnablePrefixForIpv6SourceNat: "on" || "off",
  * // };
  *
  * ```

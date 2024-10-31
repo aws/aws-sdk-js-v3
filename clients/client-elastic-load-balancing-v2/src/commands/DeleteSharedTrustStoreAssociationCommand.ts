@@ -61,7 +61,7 @@ export interface DeleteSharedTrustStoreAssociationCommandOutput
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link DeleteAssociationSameAccountException} (client fault)
- *  <p>The specified association cannot be within the same account.</p>
+ *  <p>The specified association can't be within the same account.</p>
  *
  * @throws {@link TrustStoreAssociationNotFoundException} (client fault)
  *  <p>The specified association does not exist.</p>

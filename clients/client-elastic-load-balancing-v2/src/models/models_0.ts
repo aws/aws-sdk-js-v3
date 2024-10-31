@@ -340,7 +340,7 @@ export type RedirectActionStatusCodeEnum =
 export interface RedirectActionConfig {
   /**
    * <p>The protocol. You can specify HTTP, HTTPS, or #\{protocol\}. You can redirect HTTP to HTTP,
-   *       HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.</p>
+   *       HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.</p>
    * @public
    */
   Protocol?: string;
@@ -1132,6 +1132,15 @@ export interface AvailabilityZone {
    * @public
    */
   LoadBalancerAddresses?: LoadBalancerAddress[];
+
+  /**
+   * <p>[Network Load Balancers with UDP listeners] The IPv6 prefixes to use for source NAT.
+   *       For each subnet, specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or
+   *      <code>auto_assigned</code> to use an IPv6 prefix selected at random from the subnet CIDR
+   *       block.</p>
+   * @public
+   */
+  SourceNatIpv6Prefixes?: string[];
 }
 
 /**
@@ -1276,14 +1285,14 @@ export interface CreateListenerInput {
    * <p>The protocol for connections from clients to the load balancer. For Application Load
    *       Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the
    *       supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP
-   *       protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load
+   *       protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load
    *       Balancer.</p>
    * @public
    */
   Protocol?: ProtocolEnum;
 
   /**
-   * <p>The port on which the load balancer is listening. You cannot specify a port for a Gateway
+   * <p>The port on which the load balancer is listening. You can't specify a port for a Gateway
    *       Load Balancer.</p>
    * @public
    */
@@ -1728,6 +1737,21 @@ export class UnsupportedProtocolException extends __BaseException {
  * @public
  * @enum
  */
+export const EnablePrefixForIpv6SourceNatEnum = {
+  OFF: "off",
+  ON: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type EnablePrefixForIpv6SourceNatEnum =
+  (typeof EnablePrefixForIpv6SourceNatEnum)[keyof typeof EnablePrefixForIpv6SourceNatEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpAddressType = {
   DUALSTACK: "dualstack",
   DUALSTACK_WITHOUT_PUBLIC_IPV4: "dualstack-without-public-ipv4",
@@ -1782,6 +1806,14 @@ export interface SubnetMapping {
    * @public
    */
   IPv6Address?: string;
+
+  /**
+   * <p>[Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT.
+   *       Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or <code>auto_assigned</code>
+   *       to use an IPv6 prefix selected at random from the subnet CIDR block.</p>
+   * @public
+   */
+  SourceNatIpv6Prefix?: string;
 }
 
 /**
@@ -1821,10 +1853,8 @@ export interface CreateLoadBalancerInput {
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
-   *       Zones.</p>
-   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
-   *       Zones.</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more
+   *       Availability Zones.</p>
    * @public
    */
   Subnets?: string[];
@@ -1833,7 +1863,7 @@ export interface CreateLoadBalancerInput {
    * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings, but not both.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
+   *       Zones. You can't specify Elastic IP addresses for your subnets.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
@@ -1843,7 +1873,7 @@ export interface CreateLoadBalancerInput {
    *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
    *       can specify one IPv6 address per subnet.</p>
    *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You
-   *       cannot specify Elastic IP addresses for your subnets.</p>
+   *       can't specify Elastic IP addresses for your subnets.</p>
    * @public
    */
   SubnetMappings?: SubnetMapping[];
@@ -1865,7 +1895,7 @@ export interface CreateLoadBalancerInput {
    *       Therefore, internal load balancers can route requests only from clients with access to the VPC
    *       for the load balancer.</p>
    *          <p>The default is an Internet-facing load balancer.</p>
-   *          <p>You cannot specify a scheme for a Gateway Load Balancer.</p>
+   *          <p>You can't specify a scheme for a Gateway Load Balancer.</p>
    * @public
    */
   Scheme?: LoadBalancerSchemeEnum;
@@ -1883,18 +1913,12 @@ export interface CreateLoadBalancerInput {
   Type?: LoadBalancerTypeEnum;
 
   /**
-   * <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>
-   *          <p>[Application Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
-   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
-   *       addresses, with private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
-   *       (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>
-   *       for a load balancer with a UDP or TCP_UDP listener.</p>
-   *          <p>[Gateway Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
-   *       (for IPv4 and IPv6 addresses).</p>
+   * <p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>
+   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
+   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
+   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
+   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType?: IpAddressType;
@@ -1905,6 +1929,14 @@ export interface CreateLoadBalancerInput {
    * @public
    */
   CustomerOwnedIpv4Pool?: string;
+
+  /**
+   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
+   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
+   *       The default value is <code>off</code>.</p>
+   * @public
+   */
+  EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum;
 }
 
 /**
@@ -2024,15 +2056,13 @@ export interface LoadBalancer {
   SecurityGroups?: string[];
 
   /**
-   * <p>[Application Load Balancers] The type of IP addresses used for public or private
-   *       connections by the subnets attached to your load balancer. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
-   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
-   *       addresses, with private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] The type of IP addresses
-   *       used for public or private connections by the subnets attached to your load
-   *       balancer. The possible values are <code>ipv4</code> (for only IPv4 addresses)
-   *       and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
+   * <p>The type of IP addresses used for public or private connections by the subnets
+   *       attached to your load balancer.</p>
+   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
+   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
+   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
+   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType?: IpAddressType;
@@ -2049,6 +2079,14 @@ export interface LoadBalancer {
    * @public
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
+
+  /**
+   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
+   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
+   *       The default value is <code>off</code>.</p>
+   * @public
+   */
+  EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum;
 }
 
 /**
@@ -2390,7 +2428,7 @@ export interface SourceIpConditionConfig {
  *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
  *         <code>source-ip</code>. Each rule can also optionally include one or more of each of the
  *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
- *       value for a condition cannot be empty.</p>
+ *       value for a condition can't be empty.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
  *       Application Load Balancers</a>.</p>
  * @public
@@ -2804,7 +2842,7 @@ export interface CreateTargetGroupInput {
    * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
    *       health checks are disabled by default but can be enabled. If the target type is
    *         <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
-   *       enabled and cannot be disabled.</p>
+   *       enabled and can't be disabled.</p>
    * @public
    */
   HealthCheckEnabled?: boolean;
@@ -2900,9 +2938,7 @@ export interface CreateTargetGroupInput {
   Tags?: Tag[];
 
   /**
-   * <p>The type of IP address used for this target group. The possible values are
-   *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
-   *       the IP address type defaults to <code>ipv4</code>.</p>
+   * <p>The IP address type. The default value is <code>ipv4</code>.</p>
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum;
@@ -3029,9 +3065,7 @@ export interface TargetGroup {
   ProtocolVersion?: string;
 
   /**
-   * <p>The type of IP address used for this target group. The possible values are
-   *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
-   *       the IP address type defaults to <code>ipv4</code>.</p>
+   * <p>The IP address type. The default value is <code>ipv4</code>.</p>
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum;
@@ -3076,7 +3110,7 @@ export class DuplicateTargetGroupNameException extends __BaseException {
 export interface CreateTrustStoreInput {
   /**
    * <p>The name of the trust store.</p>
-   *          <p>This name must be unique per region and cannot be changed after creation.</p>
+   *          <p>This name must be unique per region and can't be changed after creation.</p>
    * @public
    */
   Name: string | undefined;
@@ -3234,7 +3268,7 @@ export class TooManyTrustStoresException extends __BaseException {
 }
 
 /**
- * <p>The specified association cannot be within the same account.</p>
+ * <p>The specified association can't be within the same account.</p>
  * @public
  */
 export class DeleteAssociationSameAccountException extends __BaseException {
@@ -3793,7 +3827,7 @@ export interface LoadBalancerAttribute {
    *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
    *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
    *           The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>.
-   *           The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>
+   *           The default for Application Load Balancers is <code>true</code>, and can't be changed.</p>
    *             </li>
    *          </ul>
    *          <p>The following attributes are supported by both Application Load Balancers and Network Load
@@ -4356,7 +4390,7 @@ export interface TargetGroupAttribute {
    *                   <code>preserve_client_ip.enabled</code> - Indicates whether client IP preservation is
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is disabled if
    *           the target group type is IP address and the target group protocol is TCP or TLS.
-   *           Otherwise, the default is enabled. Client IP preservation cannot be disabled for UDP and
+   *           Otherwise, the default is enabled. Client IP preservation can't be disabled for UDP and
    *           TCP_UDP target groups.</p>
    *             </li>
    *             <li>
@@ -4400,7 +4434,7 @@ export interface TargetGroupAttribute {
    *             <code>rebalance</code> and <code>no_rebalance</code>. The default is
    *             <code>no_rebalance</code>. The two attributes
    *             (<code>target_failover.on_deregistration</code> and
-   *             <code>target_failover.on_unhealthy</code>) cannot be set independently. The value you
+   *             <code>target_failover.on_unhealthy</code>) can't be set independently. The value you
    *           set for both attributes must be the same.  </p>
    *             </li>
    *          </ul>
@@ -5049,7 +5083,7 @@ export interface ModifyListenerInput {
   ListenerArn: string | undefined;
 
   /**
-   * <p>The port for connections from clients to the load balancer. You cannot specify a port for
+   * <p>The port for connections from clients to the load balancer. You can't specify a port for
    *       a Gateway Load Balancer.</p>
    * @public
    */
@@ -5059,7 +5093,7 @@ export interface ModifyListenerInput {
    * <p>The protocol for connections from clients to the load balancer. Application Load Balancers
    *       support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and
    *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
-   *       enabled. You cannot specify a protocol for a Gateway Load Balancer.</p>
+   *       enabled. You can't specify a protocol for a Gateway Load Balancer.</p>
    * @public
    */
   Protocol?: ProtocolEnum;
@@ -5490,22 +5524,16 @@ export interface SetIpAddressTypeInput {
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>
-   *          <p>[Application Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
-   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
-   *       addresses, with private IPv4 and IPv6 addresses).</p>
-   *          <p>Note: Application Load Balancer authentication only supports IPv4 addresses when
+   * <p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>
+   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
+   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
+   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
+   *          <p>Application Load Balancer authentication supports IPv4 addresses only when
    *       connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public
-   *       IPv4 address the load balancer cannot complete the authentication process, resulting
+   *       IPv4 address the load balancer can't complete the authentication process, resulting
    *       in HTTP 500 errors.</p>
-   *          <p>[Network Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
-   *       (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>
-   *       for a load balancer with a UDP or TCP_UDP listener.</p>
-   *          <p>[Gateway Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
-   *       (for IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
+   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType: IpAddressType | undefined;
@@ -5637,10 +5665,8 @@ export interface SetSubnetsInput {
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
-   *       Zones.</p>
-   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
-   *       Zones.</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more
+   *       Availability Zones.</p>
    * @public
    */
   Subnets?: string[];
@@ -5649,7 +5675,7 @@ export interface SetSubnetsInput {
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
+   *       Zones. You can't specify Elastic IP addresses for your subnets.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
@@ -5665,20 +5691,23 @@ export interface SetSubnetsInput {
   SubnetMappings?: SubnetMapping[];
 
   /**
-   * <p>[Application Load Balancers] The IP address type. The possible values are
-   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
-   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
-   *       addresses, with private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
-   *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
-   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
-   *          <p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load
-   *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *       <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
+   * <p>The IP address type.</p>
+   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
+   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
+   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
+   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType?: IpAddressType;
+
+  /**
+   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
+   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
+   *       The default value is <code>off</code>.</p>
+   * @public
+   */
+  EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum;
 }
 
 /**
@@ -5692,10 +5721,14 @@ export interface SetSubnetsOutput {
   AvailabilityZones?: AvailabilityZone[];
 
   /**
-   * <p>[Application Load Balancers] The IP address type.</p>
-   *          <p>[Network Load Balancers] The IP address type.</p>
-   *          <p>[Gateway Load Balancers] The IP address type.</p>
+   * <p>The IP address type.</p>
    * @public
    */
   IpAddressType?: IpAddressType;
+
+  /**
+   * <p>[Network Load Balancers] Indicates whether to use an IPv6 prefix from each subnet for source NAT.</p>
+   * @public
+   */
+  EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum;
 }

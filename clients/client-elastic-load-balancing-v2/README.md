@@ -39,7 +39,7 @@ most one time. If you repeat an operation, it succeeds.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elastic-load-balancing-v2
+To install this package, simply type add or install @aws-sdk/client-elastic-load-balancing-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elastic-load-balancing-v2`

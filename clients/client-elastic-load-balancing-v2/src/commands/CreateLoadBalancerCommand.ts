@@ -73,6 +73,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *       AllocationId: "STRING_VALUE",
  *       PrivateIPv4Address: "STRING_VALUE",
  *       IPv6Address: "STRING_VALUE",
+ *       SourceNatIpv6Prefix: "STRING_VALUE",
  *     },
  *   ],
  *   SecurityGroups: [ // SecurityGroups
@@ -88,6 +89,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *   Type: "application" || "network" || "gateway",
  *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ *   EnablePrefixForIpv6SourceNat: "on" || "off",
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
@@ -119,6 +121,9 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * //               IPv6Address: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           SourceNatIpv6Prefixes: [ // SourceNatIpv6Prefixes
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       SecurityGroups: [ // SecurityGroups
@@ -127,6 +132,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * //       IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
+ * //       EnablePrefixForIpv6SourceNat: "on" || "off",
  * //     },
  * //   ],
  * // };

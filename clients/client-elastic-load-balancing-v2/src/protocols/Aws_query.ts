@@ -3537,6 +3537,9 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
   if (input[_COIP] != null) {
     entries[_COIP] = input[_COIP];
   }
+  if (input[_EPFISN] != null) {
+    entries[_EPFISN] = input[_EPFISN];
+  }
   return entries;
 };
 
@@ -5166,6 +5169,9 @@ const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): an
   if (input[_IAT] != null) {
     entries[_IAT] = input[_IAT];
   }
+  if (input[_EPFISN] != null) {
+    entries[_EPFISN] = input[_EPFISN];
+  }
   return entries;
 };
 
@@ -5219,6 +5225,9 @@ const se_SubnetMapping = (input: SubnetMapping, context: __SerdeContext): any =>
   }
   if (input[_IPA] != null) {
     entries[_IPA] = input[_IPA];
+  }
+  if (input[_SNIP] != null) {
+    entries[_SNIP] = input[_SNIP];
   }
   return entries;
 };
@@ -5764,6 +5773,11 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
     contents[_LBAoa] = [];
   } else if (output[_LBAoa] != null && output[_LBAoa][_m] != null) {
     contents[_LBAoa] = de_LoadBalancerAddresses(__getArrayIfSingleItem(output[_LBAoa][_m]), context);
+  }
+  if (output.SourceNatIpv6Prefixes === "") {
+    contents[_SNIPo] = [];
+  } else if (output[_SNIPo] != null && output[_SNIPo][_m] != null) {
+    contents[_SNIPo] = de_SourceNatIpv6Prefixes(__getArrayIfSingleItem(output[_SNIPo][_m]), context);
   }
   return contents;
 };
@@ -6761,6 +6775,9 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
   if (output[_ESGIROPLT] != null) {
     contents[_ESGIROPLT] = __expectString(output[_ESGIROPLT]);
   }
+  if (output[_EPFISN] != null) {
+    contents[_EPFISN] = __expectString(output[_EPFISN]);
+  }
   return contents;
 };
 
@@ -7340,6 +7357,9 @@ const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOu
   if (output[_IAT] != null) {
     contents[_IAT] = __expectString(output[_IAT]);
   }
+  if (output[_EPFISN] != null) {
+    contents[_EPFISN] = __expectString(output[_EPFISN]);
+  }
   return contents;
 };
 
@@ -7354,6 +7374,17 @@ const de_SourceIpConditionConfig = (output: any, context: __SerdeContext): Sourc
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_querySourceNatIpv6Prefixes
+ */
+const de_SourceNatIpv6Prefixes = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -8100,6 +8131,7 @@ const _DTSR = "DescribeTrustStoreRevocations";
 const _DTSe = "DescribeTrustStores";
 const _DTe = "DescribeTags";
 const _E = "Enabled";
+const _EPFISN = "EnablePrefixForIpv6SourceNat";
 const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
 const _F = "Field";
 const _FC = "ForwardConfig";
@@ -8204,6 +8236,8 @@ const _SIC = "SourceIpConfig";
 const _SK = "S3Key";
 const _SLBT = "SupportedLoadBalancerTypes";
 const _SM = "SubnetMappings";
+const _SNIP = "SourceNatIpv6Prefix";
+const _SNIPo = "SourceNatIpv6Prefixes";
 const _SOV = "S3ObjectVersion";
 const _SP = "SslPolicy";
 const _SPs = "SslPolicies";
