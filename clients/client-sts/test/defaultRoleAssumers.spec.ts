@@ -124,7 +124,13 @@ describe("getDefaultRoleAssumer", () => {
   });
 
   it("should use the STS client config", async () => {
-    const logger = console;
+    const logger = {
+      trace() {},
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    };
     const region = "some-region";
     const handler = new NodeHttpHandler();
     const roleAssumer = getDefaultRoleAssumer({
@@ -152,7 +158,13 @@ describe("getDefaultRoleAssumer", () => {
   });
 
   it("should use the parent client config", async () => {
-    const logger = console;
+    const logger = {
+      trace() {},
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    };
     const region = "some-region";
     const handler = new NodeHttpHandler();
     const roleAssumer = getDefaultRoleAssumer({
@@ -177,7 +189,13 @@ describe("getDefaultRoleAssumer", () => {
   });
 
   it("should not pass through an Http2 requestHandler", async () => {
-    const logger = console;
+    const logger = {
+      trace() {},
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    };
     const region = "some-region";
     const handler = new NodeHttp2Handler();
     const roleAssumer = getDefaultRoleAssumer({
@@ -250,7 +268,13 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
   });
 
   it("should use the STS client config", async () => {
-    const logger = console;
+    const logger = {
+      trace() {},
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    };
     const region = "some-region";
     const handler = new NodeHttpHandler();
     const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
