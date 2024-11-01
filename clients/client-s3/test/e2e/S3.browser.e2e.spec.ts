@@ -1,4 +1,3 @@
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import type { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
@@ -17,7 +16,6 @@ describe("@aws-sdk/client-s3", () => {
   let Key = `${Date.now()}`;
 
   beforeAll(async () => {
-    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 

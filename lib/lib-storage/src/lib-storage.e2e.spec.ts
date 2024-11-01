@@ -1,4 +1,3 @@
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { randomBytes } from "crypto";
@@ -16,7 +15,6 @@ describe("@aws-sdk/lib-storage", () => {
   let region: string;
 
   beforeAll(async () => {
-    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 

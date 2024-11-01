@@ -1,4 +1,3 @@
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
@@ -25,7 +24,6 @@ describe("S3 Expires e2e test", () => {
   const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
 
   beforeAll(async () => {
-    await setTestCredentials();
     callerID = await stsClient.getCallerIdentity({});
     Bucket = `${callerID.Account}-${randId}-s3-expires`;
     await s3.createBucket({

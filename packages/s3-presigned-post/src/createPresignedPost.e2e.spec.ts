@@ -1,4 +1,3 @@
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
 
@@ -15,7 +14,6 @@ describe(createPresignedPost.name, () => {
   let region: string;
 
   beforeAll(async () => {
-    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 

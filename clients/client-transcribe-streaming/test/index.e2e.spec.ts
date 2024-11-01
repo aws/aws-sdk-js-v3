@@ -1,4 +1,3 @@
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { createReadStream } from "fs";
 import { join } from "path";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
@@ -15,9 +14,7 @@ describe("TranscribeStream client", () => {
     },
   });
 
-  beforeAll(async () => {
-    await setTestCredentials();
-  });
+  beforeAll(async () => {});
   afterAll(() => {
     client.destroy();
   });

@@ -1,6 +1,5 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { setTestCredentials } from "@aws-sdk/aws-util-test";
 import { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -16,7 +15,6 @@ describe("@aws-sdk/client-s3", () => {
   let mrapArn: string;
 
   beforeAll(async () => {
-    await setTestCredentials();
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
