@@ -5,12 +5,9 @@ const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sd
 const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control");
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
-const { loadSharedConfigFiles } = require("@smithy/shared-ini-file-loader");
 
 exports.getIntegTestResources = async () => {
   const region = "us-west-2";
-
-  console.log({ files: JSON.stringify(await loadSharedConfigFiles(), null, 2), ENV: process.env });
 
   const cloudformation = new CloudFormationClient({
     region,

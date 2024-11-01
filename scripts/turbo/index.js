@@ -23,8 +23,6 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
     }),
   };
 
-  console.log("TURBO ENV", turboEnv);
-
   try {
     return await spawnProcess("yarn", command, {
       stdio: "inherit",
