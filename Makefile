@@ -12,6 +12,24 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
+test-unit:
+	npx vitest run -c vitest.config.ts
+	npx vitest run -c vitest.config.browser.ts
+	npx vitest run -c vitest.config.clients.unit.ts
+	npx jest -c jest.config.js
+
+test-protocols:
+	npx vitest run -c vitest.config.protocols.integ.ts
+
+test-integration:
+	npx vitest run -c vitest.config.integ.ts
+	npx jest -c jest.config.integ.js
+	make test-protocols;
+
+test-e2e:
+	npx vitest run -c vitest.config.e2e.ts
+	npx vitest run -c vitest.config.browser.e2e.ts
+
 # removes nested node_modules folders
 clean-nested:
 	rm -rf ./lib/*/node_modules
@@ -55,9 +73,9 @@ tpk:
 	npx turbo run build --filter='./packages/*'
 
 # Clears the Turborepo local build cache
-turbo-clean: 
+turbo-clean:
 	@read -p "Are you sure you want to delete your local cache? [y/N]: " ans && [ $${ans:-N} = y ]
-	@echo "\nDeleted cache folders: \n--------" 
+	@echo "\nDeleted cache folders: \n--------"
 	@find . -name '.turbo' -type d -prune -print -exec rm -rf '{}' + && echo '\n'
 
 server-protocols:

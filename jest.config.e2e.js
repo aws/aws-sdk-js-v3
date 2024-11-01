@@ -6,9 +6,9 @@
  */
 module.exports = {
   projects: [
-    "<rootDir>/clients/*/jest.config.e2e.js",
+    // "<rootDir>/clients/*/jest.config.e2e.js",
     // "<rootDir>/lib/*/jest.config.integ.js",
-    "<rootDir>/packages/*/jest.config.e2e.js",
+    // "<rootDir>/packages/*/jest.config.e2e.js",
     // "<rootDir>/private/*/jest.config.e2e.js",
   ],
 };
