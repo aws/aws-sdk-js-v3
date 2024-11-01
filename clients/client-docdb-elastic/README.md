@@ -25,7 +25,7 @@ Amazon DocumentDB elastic clusters also simplify how developers interact with Am
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-docdb-elastic
+To install this package, simply type add or install @aws-sdk/client-docdb-elastic
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-docdb-elastic`
@@ -220,6 +220,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+ApplyPendingMaintenanceAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ApplyPendingMaintenanceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ApplyPendingMaintenanceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ApplyPendingMaintenanceActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CopyClusterSnapshot
 </summary>
 
@@ -276,6 +284,14 @@ GetClusterSnapshot
 </details>
 <details>
 <summary>
+GetPendingMaintenanceAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/GetPendingMaintenanceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetPendingMaintenanceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetPendingMaintenanceActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListClusters
 </summary>
 
@@ -288,6 +304,14 @@ ListClusterSnapshots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListClusterSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClusterSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClusterSnapshotsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPendingMaintenanceActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListPendingMaintenanceActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListPendingMaintenanceActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListPendingMaintenanceActionsCommandOutput/)
 
 </details>
 <details>

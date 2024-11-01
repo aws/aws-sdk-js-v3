@@ -27,15 +27,153 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
-export const Auth = {
-  PLAIN_TEXT: "PLAIN_TEXT",
-  SECRET_ARN: "SECRET_ARN",
+export const OptInType = {
+  APPLY_ON: "APPLY_ON",
+  IMMEDIATE: "IMMEDIATE",
+  NEXT_MAINTENANCE: "NEXT_MAINTENANCE",
+  UNDO_OPT_IN: "UNDO_OPT_IN",
 } as const;
 
 /**
  * @public
  */
-export type Auth = (typeof Auth)[keyof typeof Auth];
+export type OptInType = (typeof OptInType)[keyof typeof OptInType];
+
+/**
+ * @public
+ */
+export interface ApplyPendingMaintenanceActionInput {
+  /**
+   * <p>The Amazon DocumentDB Amazon Resource Name (ARN) of the resource to which the pending maintenance action applies.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The pending maintenance action to apply to the resource.</p>
+   *          <p>Valid actions are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENGINE_UPDATE<i/>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENGINE_UPGRADE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SECURITY_UPDATE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OS_UPDATE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MASTER_USER_PASSWORD_UPDATE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  applyAction: string | undefined;
+
+  /**
+   * <p>A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type <code>IMMEDIATE</code> can't be undone.</p>
+   * @public
+   */
+  optInType: OptInType | undefined;
+
+  /**
+   * <p>A specific date to apply the pending maintenance action. Required if opt-in-type is <code>APPLY_ON</code>. Format: <code>yyyy/MM/dd HH:mm-yyyy/MM/dd HH:mm</code>
+   *          </p>
+   * @public
+   */
+  applyOn?: string;
+}
+
+/**
+ * <p>Retrieves the details of maintenance actions that are pending.</p>
+ * @public
+ */
+export interface PendingMaintenanceActionDetails {
+  /**
+   * <p>Displays the specific action of a pending maintenance action.</p>
+   * @public
+   */
+  action: string | undefined;
+
+  /**
+   * <p>Displays the date of the maintenance window when the action is applied.
+   *       The maintenance action is applied to the resource during its first maintenance window after this date.
+   *       If this date is specified, any <code>NEXT_MAINTENANCE</code>
+   *             <code>optInType</code> requests are ignored.</p>
+   * @public
+   */
+  autoAppliedAfterDate?: string;
+
+  /**
+   * <p>Displays the date when the maintenance action is automatically applied.
+   *       The maintenance action is applied to the resource on this date regardless of the maintenance window for the resource.
+   *       If this date is specified, any <code>IMMEDIATE</code>
+   *             <code>optInType</code> requests are ignored.</p>
+   * @public
+   */
+  forcedApplyDate?: string;
+
+  /**
+   * <p>Displays the type of <code>optInType</code> request that has been received for the resource.</p>
+   * @public
+   */
+  optInStatus?: string;
+
+  /**
+   * <p>Displays the effective date when the pending maintenance action is applied to the resource.</p>
+   * @public
+   */
+  currentApplyDate?: string;
+
+  /**
+   * <p>Displays a description providing more detail about the maintenance action.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * <p>Provides information about a pending maintenance action for a resource.</p>
+ * @public
+ */
+export interface ResourcePendingMaintenanceAction {
+  /**
+   * <p>The Amazon DocumentDB Amazon Resource Name (ARN) of the resource to which the pending maintenance action applies.</p>
+   * @public
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>Provides information about a pending maintenance action for a resource.</p>
+   * @public
+   */
+  pendingMaintenanceActionDetails?: PendingMaintenanceActionDetails[];
+}
+
+/**
+ * @public
+ */
+export interface ApplyPendingMaintenanceActionOutput {
+  /**
+   * <p>The output of the pending maintenance action being applied.</p>
+   * @public
+   */
+  resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction | undefined;
+}
 
 /**
  * <p>There was an access conflict.</p>
@@ -70,6 +208,172 @@ export class ConflictException extends __BaseException {
     this.resourceType = opts.resourceType;
   }
 }
+
+/**
+ * <p>There was an internal server error.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The specified resource could not be located.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that could not be located.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that could not be found.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * <p>The number of seconds to wait before retrying the operation.</p>
+   * @public
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>A specific field in which a given validation exception occurred.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field where the validation exception occurred.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An error message describing the validation exception in this field.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * <p>A structure defining a validation exception.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
+   *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>A list of the fields in which the validation exception occurred.</p>
+   * @public
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Auth = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+  SECRET_ARN: "SECRET_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type Auth = (typeof Auth)[keyof typeof Auth];
 
 /**
  * @public
@@ -151,6 +455,7 @@ export const Status = {
   COPYING: "COPYING",
   CREATING: "CREATING",
   DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE: "INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE",
   INACCESSIBLE_ENCRYPTION_CREDS: "INACCESSIBLE_ENCRYPTION_CREDS",
   INACCESSIBLE_SECRET_ARN: "INACCESSIBLE_SECRET_ARN",
   INACCESSIBLE_VPC_ENDPOINT: "INACCESSIBLE_VPC_ENDPOINT",
@@ -158,6 +463,7 @@ export const Status = {
   INVALID_SECURITY_GROUP_ID: "INVALID_SECURITY_GROUP_ID",
   INVALID_SUBNET_ID: "INVALID_SUBNET_ID",
   IP_ADDRESS_LIMIT_EXCEEDED: "IP_ADDRESS_LIMIT_EXCEEDED",
+  MAINTENANCE: "MAINTENANCE",
   MERGING: "MERGING",
   MODIFYING: "MODIFYING",
   SPLITTING: "SPLITTING",
@@ -272,61 +578,6 @@ export interface CopyClusterSnapshotOutput {
 }
 
 /**
- * <p>There was an internal server error.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource could not be located.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that could not be located.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that could not be found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p>The service quota for the action was exceeded.</p>
  * @public
  */
@@ -343,103 +594,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>A specific field in which a given validation exception occurred.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field where the validation exception occurred.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>An error message describing the validation exception in this field.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>A structure defining a validation exception.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
-   *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of the fields in which the validation exception occurred.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
   }
 }
 
@@ -871,6 +1025,28 @@ export interface GetClusterSnapshotOutput {
 /**
  * @public
  */
+export interface GetPendingMaintenanceActionInput {
+  /**
+   * <p>Retrieves pending maintenance actions for a specific Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPendingMaintenanceActionOutput {
+  /**
+   * <p>Provides information about a pending maintenance action for a resource.</p>
+   * @public
+   */
+  resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListClustersInput {
   /**
    * <p>A pagination token provided by a previous request.
@@ -1021,6 +1197,41 @@ export interface ListClusterSnapshotsOutput {
    * <p>A pagination token provided by a previous request.
    *       If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.</p>
    *          <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPendingMaintenanceActionsInput {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>maxResults</code>.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to include in the response.
+   *       If more records exist than the specified <code>maxResults</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListPendingMaintenanceActionsOutput {
+  /**
+   * <p>Provides information about a pending maintenance action for a resource.</p>
+   * @public
+   */
+  resourcePendingMaintenanceActions: ResourcePendingMaintenanceAction[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is displayed, the responses will include only records beyond the marker, up to the value specified by <code>maxResults</code>.</p>
    * @public
    */
   nextToken?: string;

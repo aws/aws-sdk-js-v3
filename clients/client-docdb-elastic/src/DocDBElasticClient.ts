@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  ApplyPendingMaintenanceActionCommandInput,
+  ApplyPendingMaintenanceActionCommandOutput,
+} from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
@@ -69,11 +73,19 @@ import {
 } from "./commands/DeleteClusterSnapshotCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import { GetClusterSnapshotCommandInput, GetClusterSnapshotCommandOutput } from "./commands/GetClusterSnapshotCommand";
+import {
+  GetPendingMaintenanceActionCommandInput,
+  GetPendingMaintenanceActionCommandOutput,
+} from "./commands/GetPendingMaintenanceActionCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListClusterSnapshotsCommandInput,
   ListClusterSnapshotsCommandOutput,
 } from "./commands/ListClusterSnapshotsCommand";
+import {
+  ListPendingMaintenanceActionsCommandInput,
+  ListPendingMaintenanceActionsCommandOutput,
+} from "./commands/ListPendingMaintenanceActionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -102,6 +114,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ApplyPendingMaintenanceActionCommandInput
   | CopyClusterSnapshotCommandInput
   | CreateClusterCommandInput
   | CreateClusterSnapshotCommandInput
@@ -109,8 +122,10 @@ export type ServiceInputTypes =
   | DeleteClusterSnapshotCommandInput
   | GetClusterCommandInput
   | GetClusterSnapshotCommandInput
+  | GetPendingMaintenanceActionCommandInput
   | ListClusterSnapshotsCommandInput
   | ListClustersCommandInput
+  | ListPendingMaintenanceActionsCommandInput
   | ListTagsForResourceCommandInput
   | RestoreClusterFromSnapshotCommandInput
   | StartClusterCommandInput
@@ -123,6 +138,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ApplyPendingMaintenanceActionCommandOutput
   | CopyClusterSnapshotCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterSnapshotCommandOutput
@@ -130,8 +146,10 @@ export type ServiceOutputTypes =
   | DeleteClusterSnapshotCommandOutput
   | GetClusterCommandOutput
   | GetClusterSnapshotCommandOutput
+  | GetPendingMaintenanceActionCommandOutput
   | ListClusterSnapshotsCommandOutput
   | ListClustersCommandOutput
+  | ListPendingMaintenanceActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | RestoreClusterFromSnapshotCommandOutput
   | StartClusterCommandOutput
