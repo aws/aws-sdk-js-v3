@@ -1,7 +1,3 @@
-/**
- * This is the integration test that make sure the client can make request cross-platform-ly
- * in NodeJS and browsers.
- */
 import type { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
@@ -33,7 +29,7 @@ describe("@aws-sdk/client-s3", () => {
         credentials: fromNodeProviderChain(),
         requestHandler: new FetchHttpHandler(),
       })
-    ) as S3;
+    ) as unknown as S3;
   });
 
   describe("PutObject", () => {

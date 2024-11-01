@@ -11,7 +11,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "vitest run",
     "test:integration": "vitest run -c vitest.config.integ.ts",
-    "test:e2e": "vitest run -c vitest.config.e2e.ts",
+    "test:e2e": "vitest run -c vitest.config.e2e.ts --mode development",
     "extract:docs": "api-extractor run --local",
     "test:watch": "vitest watch",
     "test:integration:watch": "vitest watch -c vitest.config.integ.ts",

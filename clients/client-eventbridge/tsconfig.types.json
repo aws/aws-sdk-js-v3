@@ -6,5 +6,5 @@
     "declarationDir": "dist-types",
     "emitDeclarationOnly": true
   },
-  "exclude": ["test/**/*", "dist-types/**/*"]
+  "exclude": ["test/**/*", "dist-types/**/*", "vitest.*.ts"]
 }

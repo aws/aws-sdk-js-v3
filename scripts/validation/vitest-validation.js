@@ -3,9 +3,14 @@ const path = require("path");
 const walk = require("../utils/walk");
 
 const paths = [
-  ...[...fs.readdirSync(path.join(__dirname, "..", "..", "..", "smithy-typescript", "packages"))].map((pkg) => {
-    return path.join(__dirname, "..", "..", "..", "smithy-typescript", "packages", pkg);
-  }),
+  // ...[...fs.readdirSync(path.join(__dirname, "..", "..", "..", "smithy-typescript", "packages"))].map((pkg) => {
+  //   return path.join(__dirname, "..", "..", "..", "smithy-typescript", "packages", pkg);
+  // }),
+
+  path.join(__dirname, "..", "..", "clients", "client-eventbridge"),
+  path.join(__dirname, "..", "..", "clients", "client-lex-runtime-service"),
+  path.join(__dirname, "..", "..", "clients", "client-mediastore-data"),
+  path.join(__dirname, "..", "..", "clients", "client-s3-control"),
 
   // path.join(__dirname, "..", "..", "clients", "client-kinesis"),
   // path.join(__dirname, "..", "..", "clients", "client-s3"),
@@ -113,7 +118,11 @@ const paths = [
         fs.rmSync(path.join(folder, "jest.config.js"));
       }
 
-      if (pkgJson.scripts.test.includes("jest") || pkgJson.scripts.test.includes("vitest")) {
+      if (
+        pkgJson.scripts["test:unit"].includes("ts-mocha") ||
+        pkgJson.scripts.test.includes("jest") ||
+        pkgJson.scripts.test.includes("vitest")
+      ) {
         console.log("setting unit test to vitest");
 
         pkgJson.scripts.test = "vitest run";

@@ -1,5 +1,3 @@
-// Run using AWS_SMOKE_TEST_REGION=[Region] AWS_SMOKE_TEST_BUCKET=[Bucket] yarn test:e2e
-// These params are established in /tests/e2e.
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
 

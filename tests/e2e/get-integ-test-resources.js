@@ -1,14 +1,17 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const { STSClient, GetCallerIdentityCommand } = require("../../clients/client-sts");
-const { CloudFormationClient, DescribeStackResourcesCommand } = require("../../clients/client-cloudformation");
-const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("../../clients/client-s3-control");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
+const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation");
+const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control");
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 
 exports.getIntegTestResources = async () => {
-  const cloudformation = new CloudFormationClient({});
-  const region = await cloudformation.config.region();
+  const region = "us-west-2";
+
+  const cloudformation = new CloudFormationClient({
+    region,
+  });
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 
   await deleteStaleChangesets(cloudformation, stackName);
@@ -32,9 +35,9 @@ exports.getIntegTestResources = async () => {
     (resource) => resource.ResourceType === "AWS::S3::MultiRegionAccessPoint"
   )[0].PhysicalResourceId;
 
-  const sts = new STSClient({});
+  const sts = new STSClient({ region });
   const { Account: AccountId } = await sts.send(new GetCallerIdentityCommand({}));
-  const s3Control = new S3ControlClient({ region: "us-west-2" });
+  const s3Control = new S3ControlClient({ region });
   const { AccessPoints } = await s3Control.send(new ListMultiRegionAccessPointsCommand({ AccountId }));
   const { Alias } = AccessPoints.find((accesspoint) => accesspoint.Name === multiRegionAccessPointName);
   const mrapArn = `arn:aws:s3::${AccountId}:accesspoint/${Alias}`;

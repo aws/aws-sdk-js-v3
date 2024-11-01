@@ -1,11 +1,10 @@
-import { test as it, describe, expect } from "vitest";
-
 import { ChecksumAlgorithm } from "@aws-sdk/middleware-flexible-checksums";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildMiddleware } from "@smithy/types";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
-import { S3, ChecksumAlgorithm as Algo } from "../../src/index";
+import { ChecksumAlgorithm as Algo, S3 } from "../../src/index";
 
 describe("Flexible Checksums", () => {
   const testCases = [
@@ -55,7 +54,13 @@ describe("Flexible Checksums", () => {
             return { output: {} as any, response: {} as any };
           };
 
-          const client = new S3({});
+          const client = new S3({
+            region: "us-west-2",
+            credentials: {
+              accessKeyId: "CLIENT_TEST",
+              secretAccessKey: "CLIENT_TEST",
+            },
+          });
           client.middlewareStack.addRelativeTo(requestChecksumValidator, {
             relation: "after",
             toMiddleware: "flexibleChecksumsMiddleware",
@@ -89,7 +94,13 @@ describe("Flexible Checksums", () => {
             return { output: {} as any, response: {} as any };
           };
 
-          const client = new S3({});
+          const client = new S3({
+            region: "us-west-2",
+            credentials: {
+              accessKeyId: "CLIENT_TEST",
+              secretAccessKey: "CLIENT_TEST",
+            },
+          });
           client.middlewareStack.addRelativeTo(requestChecksumValidator, {
             relation: "after",
             toMiddleware: "flexibleChecksumsMiddleware",
@@ -133,7 +144,13 @@ describe("Flexible Checksums", () => {
           };
         };
 
-        const client = new S3({});
+        const client = new S3({
+          region: "us-west-2",
+          credentials: {
+            accessKeyId: "CLIENT_TEST",
+            secretAccessKey: "CLIENT_TEST",
+          },
+        });
         client.middlewareStack.addRelativeTo(responseChecksumValidator, {
           relation: "after",
           toMiddleware: "flexibleChecksumsMiddleware",

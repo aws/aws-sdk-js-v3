@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { describe, expect, test as it } from "vitest";
 

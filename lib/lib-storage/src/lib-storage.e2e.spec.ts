@@ -1,6 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import type { AwsCredentialIdentity } from "@smithy/types";
 import { randomBytes } from "crypto";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
@@ -14,14 +13,12 @@ describe("@aws-sdk/lib-storage", () => {
   let dataString: string;
   let Bucket: string;
   let region: string;
-  let credentials: AwsCredentialIdentity;
 
   beforeAll(async () => {
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    credentials = (globalThis as any).credentials || undefined;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
     Key = ``;
@@ -30,7 +27,6 @@ describe("@aws-sdk/lib-storage", () => {
 
     client = new S3({
       region,
-      credentials,
     });
   });
 
@@ -112,7 +108,6 @@ describe("@aws-sdk/lib-storage", () => {
 
       const client = new MockFailureS3({
         region,
-        credentials,
       });
 
       const requestLog = [] as string[];
