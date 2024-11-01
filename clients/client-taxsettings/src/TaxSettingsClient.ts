@@ -62,6 +62,10 @@ import {
   BatchPutTaxRegistrationCommandOutput,
 } from "./commands/BatchPutTaxRegistrationCommand";
 import {
+  DeleteSupplementalTaxRegistrationCommandInput,
+  DeleteSupplementalTaxRegistrationCommandOutput,
+} from "./commands/DeleteSupplementalTaxRegistrationCommand";
+import {
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
 } from "./commands/DeleteTaxRegistrationCommand";
@@ -71,9 +75,17 @@ import {
   GetTaxRegistrationDocumentCommandOutput,
 } from "./commands/GetTaxRegistrationDocumentCommand";
 import {
+  ListSupplementalTaxRegistrationsCommandInput,
+  ListSupplementalTaxRegistrationsCommandOutput,
+} from "./commands/ListSupplementalTaxRegistrationsCommand";
+import {
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
 } from "./commands/ListTaxRegistrationsCommand";
+import {
+  PutSupplementalTaxRegistrationCommandInput,
+  PutSupplementalTaxRegistrationCommandOutput,
+} from "./commands/PutSupplementalTaxRegistrationCommand";
 import { PutTaxRegistrationCommandInput, PutTaxRegistrationCommandOutput } from "./commands/PutTaxRegistrationCommand";
 import {
   ClientInputEndpointParameters,
@@ -92,10 +104,13 @@ export { __Client };
 export type ServiceInputTypes =
   | BatchDeleteTaxRegistrationCommandInput
   | BatchPutTaxRegistrationCommandInput
+  | DeleteSupplementalTaxRegistrationCommandInput
   | DeleteTaxRegistrationCommandInput
   | GetTaxRegistrationCommandInput
   | GetTaxRegistrationDocumentCommandInput
+  | ListSupplementalTaxRegistrationsCommandInput
   | ListTaxRegistrationsCommandInput
+  | PutSupplementalTaxRegistrationCommandInput
   | PutTaxRegistrationCommandInput;
 
 /**
@@ -104,10 +119,13 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchDeleteTaxRegistrationCommandOutput
   | BatchPutTaxRegistrationCommandOutput
+  | DeleteSupplementalTaxRegistrationCommandOutput
   | DeleteTaxRegistrationCommandOutput
   | GetTaxRegistrationCommandOutput
   | GetTaxRegistrationDocumentCommandOutput
+  | ListSupplementalTaxRegistrationsCommandOutput
   | ListTaxRegistrationsCommandOutput
+  | PutSupplementalTaxRegistrationCommandOutput
   | PutTaxRegistrationCommandOutput;
 
 /**

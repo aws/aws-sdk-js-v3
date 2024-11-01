@@ -53,7 +53,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //       accountId: "STRING_VALUE",
  * //       taxRegistration: { // TaxRegistrationWithJurisdiction
  * //         registrationId: "STRING_VALUE", // required
- * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST", // required
+ * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
  * //         legalName: "STRING_VALUE", // required
  * //         status: "Verified" || "Pending" || "Deleted" || "Rejected", // required
  * //         sector: "Business" || "Individual" || "Government",
@@ -66,9 +66,11 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //         certifiedEmailId: "STRING_VALUE",
  * //         additionalTaxInformation: { // AdditionalInfoResponse
  * //           malaysiaAdditionalInfo: { // MalaysiaAdditionalInfo
- * //             serviceTaxCodes: [ // MalaysiaServiceTaxCodesList // required
+ * //             serviceTaxCodes: [ // MalaysiaServiceTaxCodesList
  * //               "Consultancy" || "Digital Service And Electronic Medium" || "IT Services" || "Training Or Coaching",
  * //             ],
+ * //             taxInformationNumber: "STRING_VALUE",
+ * //             businessRegistrationNumber: "STRING_VALUE",
  * //           },
  * //           israelAdditionalInfo: { // IsraelAdditionalInfo
  * //             dealerType: "Authorized" || "Non-authorized", // required

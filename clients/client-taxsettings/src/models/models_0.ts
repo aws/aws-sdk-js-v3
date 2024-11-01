@@ -46,7 +46,7 @@ export interface Address {
   city: string | undefined;
 
   /**
-   * <p>The state, region, or province that the address is located.</p>
+   * <p>The state, region, or province that the address is located. This field is only required for Canada, India, United Arab Emirates, Romania, and Brazil (CPF). It is optional for all other countries.</p>
    *          <p>If this is required for tax settings, use the same name as shown on the <b>Tax Settings</b> page.</p>
    * @public
    */
@@ -224,7 +224,7 @@ export interface CanadaAdditionalInfo {
 
   /**
    * <p>
-   *       Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services for resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba. Leave this blank if you do not have a Retail Sales Tax ID number in Manitoba or are not purchasing Amazon Web Services for resale.
+   *       Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services services for resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba. Leave this blank if you do not have a Retail Sales Tax ID number in Manitoba or are not purchasing Amazon Web Services services for resale.
    *     </p>
    * @public
    */
@@ -428,7 +428,26 @@ export interface MalaysiaAdditionalInfo {
    * <p>List of service tax codes for your TRN in Malaysia.</p>
    * @public
    */
-  serviceTaxCodes: MalaysiaServiceTaxCode[] | undefined;
+  serviceTaxCodes?: MalaysiaServiceTaxCode[];
+
+  /**
+   * <p>The tax information number in Malaysia.
+   *     </p>
+   *          <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid MyKad or NRIC number. For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.
+   *     </p>
+   *          <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
+   * @public
+   */
+  taxInformationNumber?: string;
+
+  /**
+   * <p>The tax registration number (TRN) in Malaysia. </p>
+   *          <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid MyKad or NRIC number. For business, you must specify a <code>businessRegistrationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a TIN type and tax identification number. For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.
+   *     </p>
+   *          <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
+   * @public
+   */
+  businessRegistrationNumber?: string;
 }
 
 /**
@@ -774,7 +793,9 @@ export const TaxRegistrationType = {
   CNPJ: "CNPJ",
   CPF: "CPF",
   GST: "GST",
+  NRIC: "NRIC",
   SST: "SST",
+  TIN: "TIN",
   VAT: "VAT",
 } as const;
 
@@ -1400,20 +1421,20 @@ export interface BatchPutTaxRegistrationResponse {
 /**
  * @public
  */
-export interface DeleteTaxRegistrationRequest {
+export interface DeleteSupplementalTaxRegistrationRequest {
   /**
-   * <p>Unique account identifier for the TRN information that needs to be deleted. If this isn't
-   *       passed, the account ID corresponding to the credentials of the API caller will be used for
-   *       this parameter.</p>
+   * <p>
+   *       The unique authority Id for the supplemental TRN information that needs to be deleted.
+   *     </p>
    * @public
    */
-  accountId?: string;
+  authorityId: string | undefined;
 }
 
 /**
  * @public
  */
-export interface DeleteTaxRegistrationResponse {}
+export interface DeleteSupplementalTaxRegistrationResponse {}
 
 /**
  * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
@@ -1441,6 +1462,24 @@ export class ResourceNotFoundException extends __BaseException {
     this.errorCode = opts.errorCode;
   }
 }
+
+/**
+ * @public
+ */
+export interface DeleteTaxRegistrationRequest {
+  /**
+   * <p>Unique account identifier for the TRN information that needs to be deleted. If this isn't
+   *       passed, the account ID corresponding to the credentials of the API caller will be used for
+   *       this parameter.</p>
+   * @public
+   */
+  accountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaxRegistrationResponse {}
 
 /**
  * <p>The location of the Amazon S3 bucket that you specify to download your tax documents to.</p>
@@ -1576,6 +1615,116 @@ export interface GetTaxRegistrationDocumentResponse {
 /**
  * @public
  */
+export interface ListSupplementalTaxRegistrationsRequest {
+  /**
+   * <p>
+   *       The number of <code>taxRegistrations</code> results you want in one response.
+   *     </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SupplementalTaxRegistrationType = {
+  VAT: "VAT",
+} as const;
+
+/**
+ * @public
+ */
+export type SupplementalTaxRegistrationType =
+  (typeof SupplementalTaxRegistrationType)[keyof typeof SupplementalTaxRegistrationType];
+
+/**
+ * <p>
+ *       Supplemental TRN details.
+ *     </p>
+ * @public
+ */
+export interface SupplementalTaxRegistration {
+  /**
+   * <p>
+   *       The supplemental TRN unique identifier.
+   *     </p>
+   * @public
+   */
+  registrationId: string | undefined;
+
+  /**
+   * <p>
+   *       Type of supplemental TRN. Currently, this can only be VAT.
+   *     </p>
+   * @public
+   */
+  registrationType: SupplementalTaxRegistrationType | undefined;
+
+  /**
+   * <p>
+   *       The legal name associated with your TRN registration.
+   *     </p>
+   * @public
+   */
+  legalName: string | undefined;
+
+  /**
+   * <p> The details of the address associated with the TRN information. </p>
+   * @public
+   */
+  address: Address | undefined;
+
+  /**
+   * <p>
+   *       Unique authority ID for the supplemental TRN.
+   *     </p>
+   * @public
+   */
+  authorityId: string | undefined;
+
+  /**
+   * <p>
+   *       The status of your TRN.
+   *     </p>
+   * @public
+   */
+  status: TaxRegistrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSupplementalTaxRegistrationsResponse {
+  /**
+   * <p>
+   *       The list of supplemental tax registrations.
+   *     </p>
+   * @public
+   */
+  taxRegistrations: SupplementalTaxRegistration[] | undefined;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTaxRegistrationsRequest {
   /**
    * <p>Number of <code>accountDetails</code> results you want in one response. </p>
@@ -1606,6 +1755,78 @@ export interface ListTaxRegistrationsResponse {
    * @public
    */
   nextToken?: string;
+}
+
+/**
+ * <p>
+ *       The supplemental TRN information to provide when adding or updating a supplemental TRN.
+ *     </p>
+ * @public
+ */
+export interface SupplementalTaxRegistrationEntry {
+  /**
+   * <p>
+   *       The supplemental TRN unique identifier.
+   *     </p>
+   * @public
+   */
+  registrationId: string | undefined;
+
+  /**
+   * <p>
+   *       Type of supplemental TRN. Currently, this can only be VAT.
+   *     </p>
+   * @public
+   */
+  registrationType: SupplementalTaxRegistrationType | undefined;
+
+  /**
+   * <p>
+   *       The legal name associated with your TRN registration.
+   *     </p>
+   * @public
+   */
+  legalName: string | undefined;
+
+  /**
+   * <p> The details of the address associated with the TRN information. </p>
+   * @public
+   */
+  address: Address | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSupplementalTaxRegistrationRequest {
+  /**
+   * <p>
+   *       The supplemental TRN information that will be stored for the caller account ID.
+   *     </p>
+   * @public
+   */
+  taxRegistrationEntry: SupplementalTaxRegistrationEntry | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSupplementalTaxRegistrationResponse {
+  /**
+   * <p>
+   *       Unique authority ID for the supplemental TRN information that was stored.
+   *     </p>
+   * @public
+   */
+  authorityId: string | undefined;
+
+  /**
+   * <p>
+   *       The status of the supplemental TRN stored in the system after processing. Based on the validation occurring on the TRN, the status can be <code>Verified</code>, <code>Pending</code>, <code>Rejected</code>, or <code>Deleted</code>.
+   *     </p>
+   * @public
+   */
+  status: TaxRegistrationStatus | undefined;
 }
 
 /**
@@ -1727,9 +1948,43 @@ export const GetTaxRegistrationResponseFilterSensitiveLog = (obj: GetTaxRegistra
 /**
  * @internal
  */
+export const SupplementalTaxRegistrationFilterSensitiveLog = (obj: SupplementalTaxRegistration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSupplementalTaxRegistrationsResponseFilterSensitiveLog = (
+  obj: ListSupplementalTaxRegistrationsResponse
+): any => ({
+  ...obj,
+  ...(obj.taxRegistrations && { taxRegistrations: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ListTaxRegistrationsResponseFilterSensitiveLog = (obj: ListTaxRegistrationsResponse): any => ({
   ...obj,
   ...(obj.accountDetails && { accountDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SupplementalTaxRegistrationEntryFilterSensitiveLog = (obj: SupplementalTaxRegistrationEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSupplementalTaxRegistrationRequestFilterSensitiveLog = (
+  obj: PutSupplementalTaxRegistrationRequest
+): any => ({
+  ...obj,
+  ...(obj.taxRegistrationEntry && { taxRegistrationEntry: SENSITIVE_STRING }),
 });
 
 /**

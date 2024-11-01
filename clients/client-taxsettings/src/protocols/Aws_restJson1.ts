@@ -28,6 +28,10 @@ import {
   BatchPutTaxRegistrationCommandOutput,
 } from "../commands/BatchPutTaxRegistrationCommand";
 import {
+  DeleteSupplementalTaxRegistrationCommandInput,
+  DeleteSupplementalTaxRegistrationCommandOutput,
+} from "../commands/DeleteSupplementalTaxRegistrationCommand";
+import {
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
 } from "../commands/DeleteTaxRegistrationCommand";
@@ -37,9 +41,17 @@ import {
   GetTaxRegistrationDocumentCommandOutput,
 } from "../commands/GetTaxRegistrationDocumentCommand";
 import {
+  ListSupplementalTaxRegistrationsCommandInput,
+  ListSupplementalTaxRegistrationsCommandOutput,
+} from "../commands/ListSupplementalTaxRegistrationsCommand";
+import {
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
 } from "../commands/ListTaxRegistrationsCommand";
+import {
+  PutSupplementalTaxRegistrationCommandInput,
+  PutSupplementalTaxRegistrationCommandOutput,
+} from "../commands/PutSupplementalTaxRegistrationCommand";
 import { PutTaxRegistrationCommandInput, PutTaxRegistrationCommandOutput } from "../commands/PutTaxRegistrationCommand";
 import {
   AdditionalInfoRequest,
@@ -62,6 +74,7 @@ import {
   SourceS3Location,
   SouthKoreaAdditionalInfo,
   SpainAdditionalInfo,
+  SupplementalTaxRegistrationEntry,
   TaxDocumentMetadata,
   TaxRegistrationDocument,
   TaxRegistrationEntry,
@@ -111,6 +124,28 @@ export const se_BatchPutTaxRegistrationCommand = async (
     take(input, {
       accountIds: (_) => _json(_),
       taxRegistrationEntry: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteSupplementalTaxRegistrationCommand
+ */
+export const se_DeleteSupplementalTaxRegistrationCommand = async (
+  input: DeleteSupplementalTaxRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteSupplementalTaxRegistration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      authorityId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -185,6 +220,29 @@ export const se_GetTaxRegistrationDocumentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSupplementalTaxRegistrationsCommand
+ */
+export const se_ListSupplementalTaxRegistrationsCommand = async (
+  input: ListSupplementalTaxRegistrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListSupplementalTaxRegistrations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTaxRegistrationsCommand
  */
 export const se_ListTaxRegistrationsCommand = async (
@@ -201,6 +259,28 @@ export const se_ListTaxRegistrationsCommand = async (
     take(input, {
       maxResults: [],
       nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutSupplementalTaxRegistrationCommand
+ */
+export const se_PutSupplementalTaxRegistrationCommand = async (
+  input: PutSupplementalTaxRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/PutSupplementalTaxRegistration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      taxRegistrationEntry: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -274,6 +354,23 @@ export const de_BatchPutTaxRegistrationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteSupplementalTaxRegistrationCommand
+ */
+export const de_DeleteSupplementalTaxRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSupplementalTaxRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteTaxRegistrationCommand
  */
 export const de_DeleteTaxRegistrationCommand = async (
@@ -333,6 +430,28 @@ export const de_GetTaxRegistrationDocumentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSupplementalTaxRegistrationsCommand
+ */
+export const de_ListSupplementalTaxRegistrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSupplementalTaxRegistrationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    taxRegistrations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTaxRegistrationsCommand
  */
 export const de_ListTaxRegistrationsCommand = async (
@@ -349,6 +468,28 @@ export const de_ListTaxRegistrationsCommand = async (
   const doc = take(data, {
     accountDetails: _json,
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutSupplementalTaxRegistrationCommand
+ */
+export const de_PutSupplementalTaxRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutSupplementalTaxRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    authorityId: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -523,6 +664,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_SpainAdditionalInfo omitted.
 
+// se_SupplementalTaxRegistrationEntry omitted.
+
 // se_TaxDocumentMetadata omitted.
 
 // se_TaxRegistrationDocument omitted.
@@ -588,6 +731,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_SouthKoreaAdditionalInfo omitted.
 
 // de_SpainAdditionalInfo omitted.
+
+// de_SupplementalTaxRegistration omitted.
+
+// de_SupplementalTaxRegistrationList omitted.
 
 // de_TaxDocumentMetadata omitted.
 

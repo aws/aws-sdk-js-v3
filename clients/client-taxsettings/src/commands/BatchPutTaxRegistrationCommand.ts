@@ -85,26 +85,27 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *          </p>
  *          <ul>
  *             <li>
- *                <p>If you use this operation to set a tax registration number (TRN) in Malaysia, only
- *           resellers with a valid sales and service tax (SST) number are required to provide tax
- *           registration information.</p>
+ *                <p>The sector valid values are <code>Business</code> and <code>Individual</code>.</p>
  *             </li>
  *             <li>
- *                <p>By using this API operation to set a TRN in Malaysia, Amazon Web Services will regard you as
- *           self-declaring that you're an authorized business reseller registered with the Royal
- *           Malaysia Customs Department (RMCD) and have a valid SST number.</p>
+ *                <p>
+ *                   <code>RegistrationType</code> valid values are <code>NRIC</code> for individual, and TIN and sales and service tax (SST) for Business.</p>
+ *             </li>
+ *             <li>
+ *                <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid <code>MyKad</code> or NRIC number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business, you must specify a <code>businessRegistrationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a TIN type and tax identification number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
  *             </li>
  *             <li>
  *                <p>Amazon Web Services reserves the right to seek additional information and/or take other actions to
  *           support your self-declaration as appropriate.</p>
- *             </li>
- *             <li>
- *                <p>If you're not a reseller of Amazon Web Services, we don't recommend that you use
- *           this operation to set the TRN in Malaysia.</p>
- *             </li>
- *             <li>
- *                <p>Only use this API operation to upload the TRNs for accounts through which you're
- *           reselling Amazon Web Services.</p>
  *             </li>
  *             <li>
  *                <p>Amazon Web Services is currently registered under the following service tax codes. You must include
@@ -227,7 +228,7 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *   ],
  *   taxRegistrationEntry: { // TaxRegistrationEntry
  *     registrationId: "STRING_VALUE", // required
- *     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST", // required
+ *     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
  *     legalName: "STRING_VALUE",
  *     legalAddress: { // Address
  *       addressLine1: "STRING_VALUE", // required
@@ -242,9 +243,11 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *     sector: "Business" || "Individual" || "Government",
  *     additionalTaxInformation: { // AdditionalInfoRequest
  *       malaysiaAdditionalInfo: { // MalaysiaAdditionalInfo
- *         serviceTaxCodes: [ // MalaysiaServiceTaxCodesList // required
+ *         serviceTaxCodes: [ // MalaysiaServiceTaxCodesList
  *           "Consultancy" || "Digital Service And Electronic Medium" || "IT Services" || "Training Or Coaching",
  *         ],
+ *         taxInformationNumber: "STRING_VALUE",
+ *         businessRegistrationNumber: "STRING_VALUE",
  *       },
  *       israelAdditionalInfo: { // IsraelAdditionalInfo
  *         dealerType: "Authorized" || "Non-authorized", // required

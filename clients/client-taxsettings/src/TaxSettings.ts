@@ -13,6 +13,11 @@ import {
   BatchPutTaxRegistrationCommandOutput,
 } from "./commands/BatchPutTaxRegistrationCommand";
 import {
+  DeleteSupplementalTaxRegistrationCommand,
+  DeleteSupplementalTaxRegistrationCommandInput,
+  DeleteSupplementalTaxRegistrationCommandOutput,
+} from "./commands/DeleteSupplementalTaxRegistrationCommand";
+import {
   DeleteTaxRegistrationCommand,
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
@@ -28,10 +33,20 @@ import {
   GetTaxRegistrationDocumentCommandOutput,
 } from "./commands/GetTaxRegistrationDocumentCommand";
 import {
+  ListSupplementalTaxRegistrationsCommand,
+  ListSupplementalTaxRegistrationsCommandInput,
+  ListSupplementalTaxRegistrationsCommandOutput,
+} from "./commands/ListSupplementalTaxRegistrationsCommand";
+import {
   ListTaxRegistrationsCommand,
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
 } from "./commands/ListTaxRegistrationsCommand";
+import {
+  PutSupplementalTaxRegistrationCommand,
+  PutSupplementalTaxRegistrationCommandInput,
+  PutSupplementalTaxRegistrationCommandOutput,
+} from "./commands/PutSupplementalTaxRegistrationCommand";
 import {
   PutTaxRegistrationCommand,
   PutTaxRegistrationCommandInput,
@@ -42,10 +57,13 @@ import { TaxSettingsClient, TaxSettingsClientConfig } from "./TaxSettingsClient"
 const commands = {
   BatchDeleteTaxRegistrationCommand,
   BatchPutTaxRegistrationCommand,
+  DeleteSupplementalTaxRegistrationCommand,
   DeleteTaxRegistrationCommand,
   GetTaxRegistrationCommand,
   GetTaxRegistrationDocumentCommand,
+  ListSupplementalTaxRegistrationsCommand,
   ListTaxRegistrationsCommand,
+  PutSupplementalTaxRegistrationCommand,
   PutTaxRegistrationCommand,
 };
 
@@ -82,6 +100,23 @@ export interface TaxSettings {
     args: BatchPutTaxRegistrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchPutTaxRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSupplementalTaxRegistrationCommand}
+   */
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSupplementalTaxRegistrationCommandOutput>;
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    cb: (err: any, data?: DeleteSupplementalTaxRegistrationCommandOutput) => void
+  ): void;
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSupplementalTaxRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -138,6 +173,24 @@ export interface TaxSettings {
   ): void;
 
   /**
+   * @see {@link ListSupplementalTaxRegistrationsCommand}
+   */
+  listSupplementalTaxRegistrations(): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    cb: (err: any, data?: ListSupplementalTaxRegistrationsCommandOutput) => void
+  ): void;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSupplementalTaxRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTaxRegistrationsCommand}
    */
   listTaxRegistrations(): Promise<ListTaxRegistrationsCommandOutput>;
@@ -153,6 +206,23 @@ export interface TaxSettings {
     args: ListTaxRegistrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTaxRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSupplementalTaxRegistrationCommand}
+   */
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSupplementalTaxRegistrationCommandOutput>;
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    cb: (err: any, data?: PutSupplementalTaxRegistrationCommandOutput) => void
+  ): void;
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSupplementalTaxRegistrationCommandOutput) => void
   ): void;
 
   /**

@@ -21,7 +21,7 @@ the console.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-taxsettings
+To install this package, simply type add or install @aws-sdk/client-taxsettings
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-taxsettings`
@@ -232,6 +232,14 @@ BatchPutTaxRegistration
 </details>
 <details>
 <summary>
+DeleteSupplementalTaxRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/DeleteSupplementalTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteSupplementalTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteSupplementalTaxRegistrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteTaxRegistration
 </summary>
 
@@ -256,10 +264,26 @@ GetTaxRegistrationDocument
 </details>
 <details>
 <summary>
+ListSupplementalTaxRegistrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/ListSupplementalTaxRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListSupplementalTaxRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListSupplementalTaxRegistrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTaxRegistrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/ListTaxRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxRegistrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutSupplementalTaxRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/PutSupplementalTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutSupplementalTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutSupplementalTaxRegistrationCommandOutput/)
 
 </details>
 <details>
