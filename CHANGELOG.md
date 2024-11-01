@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.685.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.684.0...v3.685.0) (2024-11-01)
+
+
+### Features
+
+* **client-bedrock-agent:** Amazon Bedrock Knowledge Bases now supports using application inference profiles to increase throughput and improve resilience. ([2601df4](https://github.com/aws/aws-sdk-js-v3/commit/2601df455c60e39b2634e51913cc2ed1e53d3762))
+* **client-cloudwatch-logs:** This release introduces an improvement in PutLogEvents ([3fc175f](https://github.com/aws/aws-sdk-js-v3/commit/3fc175fd2010aec6a5c4a8c6dfe52d73a30358e9))
+* **client-docdb-elastic:** Amazon DocumentDB Elastic Clusters adds support for pending maintenance actions feature with APIs GetPendingMaintenanceAction, ListPendingMaintenanceActions and ApplyPendingMaintenanceAction ([3bbb1c5](https://github.com/aws/aws-sdk-js-v3/commit/3bbb1c529ecd6ad46e2a6b804cb7dba80dc45f7c))
+* **client-taxsettings:** Add support for supplemental tax registrations via these new APIs: PutSupplementalTaxRegistration, ListSupplementalTaxRegistrations, and DeleteSupplementalTaxRegistration. ([23a1507](https://github.com/aws/aws-sdk-js-v3/commit/23a1507e28c7ce04b2e3184f244b2ca190759544))
+* **clients:** update client endpoints as of 2024-11-01 ([daef7c1](https://github.com/aws/aws-sdk-js-v3/commit/daef7c12f28309d353960266a18494c51190f865))
+
+
+
+
+
 # [3.684.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.683.0...v3.684.0) (2024-10-31)
 
 
