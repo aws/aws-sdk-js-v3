@@ -22,6 +22,7 @@ test-protocols: build-s3-browser-bundle
 	npx vitest run -c vitest.config.protocols.integ.ts
 
 test-integration: build-s3-browser-bundle
+	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	npx vitest run -c vitest.config.integ.ts
 	npx jest -c jest.config.integ.js
 	make test-protocols;
