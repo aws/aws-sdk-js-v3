@@ -3,7 +3,7 @@ import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
-import { Readable } from "stream";
+import { PassThrough } from "stream";
 
 import { defaultProvider } from "./defaultProvider";
 
@@ -48,69 +48,7 @@ jest.mock("@smithy/shared-ini-file-loader", () => {
   };
 });
 
-jest.mock("@aws-sdk/client-sso", () => {
-  const actual = jest.requireActual("@aws-sdk/client-sso");
-  return {
-    ...actual,
-    SSOClient: class {
-      public constructor(public config: any) {}
-      async send() {
-        return {
-          roleCredentials: {
-            accessKeyId: "SSO_ACCESS_KEY_ID",
-            secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-            sessionToken: "SSO_SESSION_TOKEN",
-            expiration: new Date("3000-01-01T00:00:00.000Z"),
-            credentialScope: "us-sso-1-" + this.config.region,
-          },
-        };
-      }
-    },
-  };
-});
-
-// This var must be hoisted.
-// eslint-disable-next-line no-var
-var stsSpy: jest.Spied<any> | any | undefined = undefined;
 const assumeRoleArns: string[] = [];
-
-jest.mock("@aws-sdk/client-sts", () => {
-  const actual = jest.requireActual("@aws-sdk/client-sts");
-
-  const originalSend = actual.STSClient.prototype.send;
-
-  stsSpy = jest.spyOn(actual.STSClient.prototype, "send").mockImplementation(async function (this: any, command: any) {
-    if (command.constructor.name === "AssumeRoleCommand") {
-      assumeRoleArns.push(command.input.RoleArn);
-      return {
-        Credentials: {
-          AccessKeyId: "STS_AR_ACCESS_KEY_ID",
-          SecretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-          SessionToken: "STS_AR_SESSION_TOKEN",
-          Expiration: new Date("3000-01-01T00:00:00.000Z"),
-          CredentialScope: "us-stsar-1__" + (await this.config.region()),
-        },
-      };
-    }
-    if (command.constructor.name === "AssumeRoleWithWebIdentityCommand") {
-      assumeRoleArns.push(command.input.RoleArn);
-      return {
-        Credentials: {
-          AccessKeyId: "STS_ARWI_ACCESS_KEY_ID",
-          SecretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-          SessionToken: "STS_ARWI_SESSION_TOKEN",
-          Expiration: new Date("3000-01-01T00:00:00.000Z"),
-          CredentialScope: "us-stsarwi-1__" + (await this.config.region()),
-        },
-      };
-    }
-    return originalSend.bind(this)(command);
-  });
-
-  return {
-    ...actual,
-  };
-});
 
 jest.mock("@smithy/node-http-handler", () => {
   const actual = jest.requireActual("@smithy/node-http-handler");
@@ -122,10 +60,15 @@ jest.mock("@smithy/node-http-handler", () => {
       }
       return new MockNodeHttpHandler();
     }
-    async handle(request: any, ...args: any[]) {
+    async handle(request: HttpRequest) {
+      const body = new PassThrough({});
+
+      if (request.body?.includes("RoleArn=")) {
+        assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
+      }
+
       if (request.headers.Authorization === "container-authorization") {
-        const body = new Readable();
-        body.push(
+        body.write(
           JSON.stringify({
             AccessKeyId: "CONTAINER_ACCESS_KEY",
             SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
@@ -133,19 +76,74 @@ jest.mock("@smithy/node-http-handler", () => {
             Expiration: "3000-01-01T00:00:00.000Z",
           })
         );
-        body.push(null);
-        return {
-          response: new HttpResponse({
-            statusCode: 200,
-            body,
-            headers: {
-              "content-type": "application/json",
+      } else if (request.path?.includes("/federation/credentials")) {
+        body.write(
+          JSON.stringify({
+            roleCredentials: {
+              accessKeyId: "SSO_ACCESS_KEY_ID",
+              secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+              sessionToken: "SSO_SESSION_TOKEN",
+              expiration: "3000-01-01T00:00:00.000Z",
             },
-          }),
-        };
+          })
+        );
+      } else if (request.body?.includes("Action=AssumeRoleWithWebIdentity")) {
+        body.write(`
+<AssumeRoleWithWebIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+<AssumeRoleWithWebIdentityResult>
+  <Credentials>
+    <AccessKeyId>STS_ARWI_ACCESS_KEY_ID</AccessKeyId>
+    <SecretAccessKey>STS_ARWI_SECRET_ACCESS_KEY</SecretAccessKey>
+    <SessionToken>STS_ARWI_SESSION_TOKEN</SessionToken>
+    <Expiration>3000-01-01T00:00:00.000Z</Expiration>
+  </Credentials>
+</AssumeRoleWithWebIdentityResult>
+<ResponseMetadata>
+  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
+</ResponseMetadata>
+</AssumeRoleWithWebIdentityResponse>`);
+      } else if (request.body?.includes("Action=AssumeRole")) {
+        body.write(`
+<AssumeRoleResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+<AssumeRoleResult>
+  <Credentials>
+    <AccessKeyId>STS_AR_ACCESS_KEY_ID</AccessKeyId>
+    <SecretAccessKey>STS_AR_SECRET_ACCESS_KEY</SecretAccessKey>
+    <SessionToken>STS_AR_SESSION_TOKEN</SessionToken>
+    <Expiration>3000-01-01T00:00:00.000Z</Expiration>
+  </Credentials>
+</AssumeRoleResult>
+<ResponseMetadata>
+  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
+</ResponseMetadata>
+</AssumeRoleResponse>`);
+      } else if (request.body.includes("Action=GetCallerIdentity")) {
+        body.write(`
+<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+<GetCallerIdentityResult>
+  <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
+  <UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
+  <Account>123456789012</Account>
+</GetCallerIdentityResult>
+<ResponseMetadata>
+  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
+</ResponseMetadata>
+</GetCallerIdentityResponse>`);
       } else {
         throw new Error("request not supported.");
       }
+      body.end();
+      return {
+        response: new HttpResponse({
+          statusCode: 200,
+          body,
+          headers: {},
+        }),
+      };
+    }
+    updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
+    httpHandlerConfigs(): NodeHttpHandlerOptions {
+      return null as any;
     }
   }
 
@@ -167,7 +165,6 @@ jest.mock("child_process", () => {
             AccessKeyId: "PROCESS_ACCESS_KEY_ID",
             SecretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
             SessionToken: "PROCESS_SESSION_TOKEN",
-            CredentialScope: "us-process-1",
           }),
         });
       }
@@ -204,7 +201,6 @@ describe("credential-provider-node integration test", () => {
     AWS_SECRET_ACCESS_KEY: 1,
     AWS_SESSION_TOKEN: 1,
     AWS_CREDENTIAL_EXPIRATION: 1,
-    AWS_CREDENTIAL_SCOPE: 1,
     AWS_EC2_METADATA_DISABLED: 1,
     AWS_WEB_IDENTITY_TOKEN_FILE: 1,
     AWS_ROLE_ARN: 1,
@@ -217,36 +213,6 @@ describe("credential-provider-node integration test", () => {
   function copy<T>(data: T): T {
     return JSON.parse(JSON.stringify(data));
   }
-
-  const mockRequestHandler = new (class {
-    async handle(request: HttpRequest, ignored?: any) {
-      const body = new Readable();
-      body.push(`
-<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-  <GetCallerIdentityResult>
-    <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
-    <UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
-    <Account>123456789012</Account>
-  </GetCallerIdentityResult>
-  <ResponseMetadata>
-    <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-  </ResponseMetadata>
-</GetCallerIdentityResponse>
-`);
-      body.push(null);
-      return {
-        response: new HttpResponse({
-          statusCode: 200,
-          headers: {},
-          body,
-        }),
-      };
-    }
-    updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
-    httpHandlerConfigs(): NodeHttpHandlerOptions {
-      return null as any;
-    }
-  })();
 
   beforeAll(async () => {
     processSnapshot = copy(process.env);
@@ -264,7 +230,6 @@ describe("credential-provider-node integration test", () => {
     };
     sts = new STS({
       region: "us-west-2",
-      requestHandler: mockRequestHandler,
     });
   });
 
@@ -283,7 +248,6 @@ describe("credential-provider-node integration test", () => {
   afterAll(async () => {
     jest.clearAllMocks();
     jest.clearAllTimers();
-    stsSpy?.mockRestore();
   });
 
   describe("fromEnv", () => {
@@ -301,12 +265,11 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("should optionally use session token, expiration, and credential scope", async () => {
+    it("should optionally use session token and/or expiration", async () => {
       process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
       process.env.AWS_SESSION_TOKEN = "ENV_SESSION_TOKEN";
       process.env.AWS_CREDENTIAL_EXPIRATION = "2000-01-01T00:00:00.000Z";
-      process.env.AWS_CREDENTIAL_SCOPE = "us-env-1";
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -314,7 +277,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "ENV_SECRET_KEY",
         expiration: new Date("2000-01-01T00:00:00.000Z"),
         sessionToken: "ENV_SESSION_TOKEN",
-        credentialScope: "us-env-1",
         $source: {
           CREDENTIALS_ENV_VARS: "g",
         },
@@ -355,7 +317,6 @@ describe("credential-provider-node integration test", () => {
           ssoRegion: "us-sso-region-1",
           ssoRoleName: "sso-role",
         }),
-        requestHandler: mockRequestHandler,
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -364,7 +325,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-sso-1-us-sso-region-1",
         $source: {
           CREDENTIALS_CODE: "e",
           CREDENTIALS_SSO_LEGACY: "u",
@@ -410,7 +370,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-west-2",
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
@@ -421,7 +380,6 @@ describe("credential-provider-node integration test", () => {
     it("should use the outer client's region for STS when the partition is AWS", async () => {
       sts = new STS({
         region: "eu-west-1",
-        requestHandler: mockRequestHandler,
       });
       iniProfileData.assume = {
         region: "eu-west-1",
@@ -442,7 +400,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__eu-west-1",
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
@@ -453,7 +410,6 @@ describe("credential-provider-node integration test", () => {
     it("should use the outer client's region for STS when the partition is not AWS", async () => {
       sts = new STS({
         region: "us-gov-stsar-1",
-        requestHandler: mockRequestHandler,
       });
       iniProfileData.assume = {
         region: "us-gov-stsar-1",
@@ -474,16 +430,11 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-gov-stsar-1",
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
       });
-    });
-
-    xit("should prefer static credentials over role assumption metadata only if the profile is not the first one visited", async () => {
-      // TODO
     });
 
     it("should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is configured for web identity", async () => {
@@ -498,7 +449,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsarwi-1__us-west-2",
         $source: {
           CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
@@ -512,7 +462,6 @@ describe("credential-provider-node integration test", () => {
       async () => {
         sts = new STS({
           region: "us-gov-sts-1",
-          requestHandler: mockRequestHandler,
         });
         Object.assign(iniProfileData.default, {
           region: "us-gov-sts-1",
@@ -526,7 +475,6 @@ describe("credential-provider-node integration test", () => {
           secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
           sessionToken: "STS_ARWI_SESSION_TOKEN",
           expiration: new Date("3000-01-01T00:00:00.000Z"),
-          credentialScope: "us-stsarwi-1__us-gov-sts-1",
           $source: {
             CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
             CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
@@ -545,7 +493,6 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
         secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
         sessionToken: "PROCESS_SESSION_TOKEN",
-        credentialScope: "us-process-1",
         $source: {
           CREDENTIALS_PROCESS: "w",
           CREDENTIALS_PROFILE_PROCESS: "v",
@@ -572,7 +519,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-sso-1-us-sso-region-1",
         $source: {
           CREDENTIALS_PROFILE_SSO: "r",
           CREDENTIALS_SSO: "s",
@@ -591,7 +537,6 @@ describe("credential-provider-node integration test", () => {
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
-        requestHandler: mockRequestHandler,
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
           awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
@@ -608,7 +553,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-west-2",
         $source: {
           CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -636,7 +580,6 @@ describe("credential-provider-node integration test", () => {
 
       sts = new STS({
         region: "us-west-2",
-        requestHandler: mockRequestHandler,
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
           awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
@@ -653,7 +596,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-west-2",
         $source: {
           CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -683,7 +625,6 @@ describe("credential-provider-node integration test", () => {
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
-        requestHandler: mockRequestHandler,
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
           awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
@@ -700,7 +641,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-west-2",
         $source: {
           CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -737,7 +677,6 @@ describe("credential-provider-node integration test", () => {
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
-        requestHandler: mockRequestHandler,
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
           awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
@@ -754,7 +693,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-west-2",
         $source: {
           CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -787,7 +725,6 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
         secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
         sessionToken: "PROCESS_SESSION_TOKEN",
-        credentialScope: "us-process-1",
         $source: {
           CREDENTIALS_PROCESS: "w",
           CREDENTIALS_PROFILE_PROCESS: "v",
@@ -807,7 +744,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsarwi-1__us-west-2",
         $source: {
           CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
