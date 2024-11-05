@@ -439,7 +439,7 @@ function normalizeByteArrayType(data: any) {
  * Serializes query string parameters with all supported types
  */
 it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -543,7 +543,7 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
  * Handles query string maps
  */
 it("RestJsonQueryStringMap:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -591,7 +591,7 @@ it("RestJsonQueryStringMap:ServerRequest", async () => {
  * Handles escaping all required characters in the query string.
  */
 it("RestJsonQueryStringEscaping:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -638,7 +638,7 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
  * Supports handling NaN float query values.
  */
 it("RestJsonSupportsNaNFloatQueryValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -688,7 +688,7 @@ it("RestJsonSupportsNaNFloatQueryValues:ServerRequest", async () => {
  * Supports handling Infinity float query values.
  */
 it("RestJsonSupportsInfinityFloatQueryValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -738,7 +738,7 @@ it("RestJsonSupportsInfinityFloatQueryValues:ServerRequest", async () => {
  * Supports handling -Infinity float query values.
  */
 it("RestJsonSupportsNegativeInfinityFloatQueryValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -788,7 +788,7 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:ServerRequest", async () =>
  * Query values of 0 and false are serialized
  */
 it("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     AllQueryStringTypes: testFunction as AllQueryStringTypes<{}>,
@@ -838,7 +838,7 @@ it("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
  * Mixes constant and variable query string parameters
  */
 it("RestJsonConstantAndVariableQueryStringMissingOneValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     ConstantAndVariableQueryString: testFunction as ConstantAndVariableQueryString<{}>,
@@ -883,7 +883,7 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:ServerRequest", async 
  * Mixes constant and variable query string parameters
  */
 it("RestJsonConstantAndVariableQueryStringAllValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     ConstantAndVariableQueryString: testFunction as ConstantAndVariableQueryString<{}>,
@@ -930,7 +930,7 @@ it("RestJsonConstantAndVariableQueryStringAllValues:ServerRequest", async () => 
  * Includes constant query string parameters
  */
 it("RestJsonConstantQueryString:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     ConstantQueryString: testFunction as ConstantQueryString<{}>,
@@ -975,7 +975,7 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
  * A server should ignore parameters added to the content type
  */
 it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     ContentTypeParameters: testFunction as ContentTypeParameters<{}>,
@@ -1019,7 +1019,7 @@ it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => 
  * Serializes document types as part of the JSON request payload with no escaping.
  */
 it("DocumentTypeInputWithObject:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentType: testFunction as DocumentType<{}>,
@@ -1066,7 +1066,7 @@ it("DocumentTypeInputWithObject:ServerRequest", async () => {
  * Serializes document types using a string.
  */
 it("DocumentInputWithString:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentType: testFunction as DocumentType<{}>,
@@ -1111,7 +1111,7 @@ it("DocumentInputWithString:ServerRequest", async () => {
  * Serializes document types using a number.
  */
 it("DocumentInputWithNumber:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentType: testFunction as DocumentType<{}>,
@@ -1156,7 +1156,7 @@ it("DocumentInputWithNumber:ServerRequest", async () => {
  * Serializes document types using a boolean.
  */
 it("DocumentInputWithBoolean:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentType: testFunction as DocumentType<{}>,
@@ -1201,7 +1201,7 @@ it("DocumentInputWithBoolean:ServerRequest", async () => {
  * Serializes document types using a list.
  */
 it("DocumentInputWithList:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentType: testFunction as DocumentType<{}>,
@@ -1564,7 +1564,7 @@ it("DocumentOutputArray:ServerResponse", async () => {
  * Serializes a map that uses documents as the value.
  */
 it("DocumentTypeAsMapValueInput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentTypeAsMapValue: testFunction as DocumentTypeAsMapValue<{}>,
@@ -1686,7 +1686,7 @@ it("DocumentTypeAsMapValueOutput:ServerResponse", async () => {
  * Serializes a document as the target of the httpPayload trait.
  */
 it("DocumentTypeAsPayloadInput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentTypeAsPayload: testFunction as DocumentTypeAsPayload<{}>,
@@ -1732,7 +1732,7 @@ it("DocumentTypeAsPayloadInput:ServerRequest", async () => {
  * Serializes a document as the target of the httpPayload trait using a string.
  */
 it("DocumentTypeAsPayloadInputString:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     DocumentTypeAsPayload: testFunction as DocumentTypeAsPayload<{}>,
@@ -1894,7 +1894,7 @@ it("DocumentTypeAsPayloadOutputString:ServerResponse", async () => {
  * clients that omit a payload or that send a JSON object.
  */
 it("RestJsonEmptyInputAndEmptyOutput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     EmptyInputAndEmptyOutput: testFunction as EmptyInputAndEmptyOutput<{}>,
@@ -1927,7 +1927,7 @@ it("RestJsonEmptyInputAndEmptyOutput:ServerRequest", async () => {
  * services gracefully handles receiving a JSON object.
  */
 it("RestJsonEmptyInputAndEmptyOutputWithJson:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     EmptyInputAndEmptyOutput: testFunction as EmptyInputAndEmptyOutput<{}>,
@@ -2018,7 +2018,7 @@ it("RestJsonEmptyInputAndEmptyOutput:ServerResponse", async () => {
  * endpoint trait.
  */
 it("RestJsonEndpointTrait:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     EndpointOperation: testFunction as EndpointOperation<{}>,
@@ -2052,7 +2052,7 @@ it("RestJsonEndpointTrait:ServerRequest", async () => {
  * further customization based on user input.
  */
 it("RestJsonEndpointTraitWithHostLabel:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     EndpointWithHostLabelOperation: testFunction as EndpointWithHostLabelOperation<{}>,
@@ -2354,7 +2354,7 @@ it("RestJsonInvalidGreetingError:ServerErrorResponse", async () => {
  * Adds Content-MD5 header
  */
 it("RestJsonHttpChecksumRequired:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpChecksumRequired: testFunction as HttpChecksumRequired<{}>,
@@ -2396,7 +2396,7 @@ it("RestJsonHttpChecksumRequired:ServerRequest", async () => {
 });
 
 it("RestJsonEnumPayloadRequest:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpEnumPayload: testFunction as HttpEnumPayload<{}>,
@@ -2493,7 +2493,7 @@ it("RestJsonEnumPayloadResponse:ServerResponse", async () => {
  * Serializes a blob in the HTTP payload
  */
 it("RestJsonHttpPayloadTraitsWithBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
@@ -2539,7 +2539,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:ServerRequest", async () => {
  * Serializes an empty blob in the HTTP payload
  */
 it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
@@ -2584,7 +2584,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerRequest", async () => {
  * without the media type trait.
  */
 it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllContentTypes:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
@@ -2631,7 +2631,7 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllContentTypes:ServerRequest", asyn
  * without the media type trait.
  */
 it("RestJsonHttpPayloadTraitsWithBlobAcceptsNoContentType:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
@@ -2677,7 +2677,7 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsNoContentType:ServerRequest", async 
  * without the media type trait.
  */
 it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllAccepts:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
@@ -2832,7 +2832,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerResponse", async () => {
  * Serializes a blob in the HTTP payload with a content-type
  */
 it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadTraitsWithMediaType: testFunction as HttpPayloadTraitsWithMediaType<{}>,
@@ -2937,7 +2937,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerResponse", async () => 
  * Serializes a structure in the payload
  */
 it("RestJsonHttpPayloadWithStructure:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadWithStructure: testFunction as HttpPayloadWithStructure<{}>,
@@ -3046,7 +3046,7 @@ it("RestJsonHttpPayloadWithStructure:ServerResponse", async () => {
  * Serializes a union in the payload.
  */
 it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadWithUnion: testFunction as HttpPayloadWithUnion<{}>,
@@ -3092,7 +3092,7 @@ it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
  * No payload is sent if the union has no value.
  */
 it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPayloadWithUnion: testFunction as HttpPayloadWithUnion<{}>,
@@ -3234,7 +3234,7 @@ it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
  * Adds headers by prefix
  */
 it("RestJsonHttpPrefixHeadersArePresent:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpPrefixHeaders: testFunction as HttpPrefixHeaders<{}>,
@@ -3397,7 +3397,7 @@ it("HttpPrefixHeadersResponse:ServerResponse", async () => {
  * Supports handling NaN float label values.
  */
 it("RestJsonSupportsNaNFloatLabels:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithFloatLabels: testFunction as HttpRequestWithFloatLabels<{}>,
@@ -3440,7 +3440,7 @@ it("RestJsonSupportsNaNFloatLabels:ServerRequest", async () => {
  * Supports handling Infinity float label values.
  */
 it("RestJsonSupportsInfinityFloatLabels:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithFloatLabels: testFunction as HttpRequestWithFloatLabels<{}>,
@@ -3483,7 +3483,7 @@ it("RestJsonSupportsInfinityFloatLabels:ServerRequest", async () => {
  * Supports handling -Infinity float label values.
  */
 it("RestJsonSupportsNegativeInfinityFloatLabels:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithFloatLabels: testFunction as HttpRequestWithFloatLabels<{}>,
@@ -3526,7 +3526,7 @@ it("RestJsonSupportsNegativeInfinityFloatLabels:ServerRequest", async () => {
  * Serializes greedy labels and normal labels
  */
 it("RestJsonHttpRequestWithGreedyLabelInPath:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithGreedyLabelInPath: testFunction as HttpRequestWithGreedyLabelInPath<{}>,
@@ -3569,7 +3569,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:ServerRequest", async () => {
  * Sends a GET request that uses URI label bindings
  */
 it("RestJsonInputWithHeadersAndAllParams:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithLabels: testFunction as HttpRequestWithLabels<{}>,
@@ -3618,7 +3618,7 @@ it("RestJsonInputWithHeadersAndAllParams:ServerRequest", async () => {
  * Sends a GET request that uses URI label bindings
  */
 it("RestJsonHttpRequestLabelEscaping:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithLabels: testFunction as HttpRequestWithLabels<{}>,
@@ -3667,7 +3667,7 @@ it("RestJsonHttpRequestLabelEscaping:ServerRequest", async () => {
  * Serializes different timestamp formats in URI labels
  */
 it("RestJsonHttpRequestWithLabelsAndTimestampFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithLabelsAndTimestampFormat: testFunction as HttpRequestWithLabelsAndTimestampFormat<{}>,
@@ -3715,7 +3715,7 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:ServerRequest", async () => 
  * Path matching is not broken by regex expressions in literal segments
  */
 it("RestJsonToleratesRegexCharsInSegments:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpRequestWithRegexLiteral: testFunction as HttpRequestWithRegexLiteral<{}>,
@@ -3871,7 +3871,7 @@ it("RestJsonHttpResponseCodeDefaultsToModeledCode:ServerResponse", async () => {
 });
 
 it("RestJsonStringPayloadRequest:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     HttpStringPayload: testFunction as HttpStringPayload<{}>,
@@ -3968,7 +3968,7 @@ it("RestJsonStringPayloadResponse:ServerResponse", async () => {
  * Serializes a string in the HTTP payload without a content-type header
  */
 it.skip("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4004,7 +4004,7 @@ it.skip("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
  * Serializes a string in the HTTP payload without the expected content-type header
  */
 it("RestJsonStringPayloadWrongContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4042,7 +4042,7 @@ it("RestJsonStringPayloadWrongContentType:MalformedRequest", async () => {
  * Serializes a string in the HTTP payload with an unstatisfiable accept header
  */
 it("RestJsonStringPayloadUnsatisfiableAccept:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -4138,7 +4138,7 @@ it("RestJsonIgnoreQueryParamsInResponse:ServerResponse", async () => {
  * Tests requests with string header bindings
  */
 it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4186,7 +4186,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
  * Tests requests with string list header bindings that require quoting
  */
 it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4230,7 +4230,7 @@ it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
  * Tests requests with numeric header bindings
  */
 it("RestJsonInputAndOutputWithNumericHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4286,7 +4286,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:ServerRequest", async () => {
  * Tests requests with boolean header bindings
  */
 it("RestJsonInputAndOutputWithBooleanHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4334,7 +4334,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:ServerRequest", async () => {
  * Tests requests with timestamp header bindings
  */
 it("RestJsonInputAndOutputWithTimestampHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4378,7 +4378,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:ServerRequest", async () => {
  * Tests requests with enum header bindings
  */
 it("RestJsonInputAndOutputWithEnumHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4424,7 +4424,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerRequest", async () => {
  * Tests requests with intEnum header bindings
  */
 it("RestJsonInputAndOutputWithIntEnumHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4470,7 +4470,7 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:ServerRequest", async () => {
  * Supports handling NaN float header values.
  */
 it("RestJsonSupportsNaNFloatHeaderInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4516,7 +4516,7 @@ it("RestJsonSupportsNaNFloatHeaderInputs:ServerRequest", async () => {
  * Supports handling Infinity float header values.
  */
 it("RestJsonSupportsInfinityFloatHeaderInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -4562,7 +4562,7 @@ it("RestJsonSupportsInfinityFloatHeaderInputs:ServerRequest", async () => {
  * Supports handling -Infinity float header values.
  */
 it("RestJsonSupportsNegativeInfinityFloatHeaderInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
@@ -5153,7 +5153,7 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderOutputs:ServerResponse", async ()
  * Blobs are base64 encoded
  */
 it("RestJsonJsonBlobs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonBlobs: testFunction as JsonBlobs<{}>,
@@ -5255,7 +5255,7 @@ it("RestJsonJsonBlobs:ServerResponse", async () => {
  * Serializes simple scalar properties
  */
 it("RestJsonJsonEnums:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonEnums: testFunction as JsonEnums<{}>,
@@ -5389,7 +5389,7 @@ it("RestJsonJsonEnums:ServerResponse", async () => {
  * Serializes intEnums as integers
  */
 it("RestJsonJsonIntEnums:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonIntEnums: testFunction as JsonIntEnums<{}>,
@@ -5524,7 +5524,7 @@ it("RestJsonJsonIntEnums:ServerResponse", async () => {
  * Serializes JSON lists
  */
 it("RestJsonLists:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonLists: testFunction as JsonLists<{}>,
@@ -5590,7 +5590,7 @@ it("RestJsonLists:ServerRequest", async () => {
  * Serializes empty JSON lists
  */
 it("RestJsonListsEmpty:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonLists: testFunction as JsonLists<{}>,
@@ -5817,7 +5817,7 @@ it("RestJsonListsEmpty:ServerResponse", async () => {
  * Serializes JSON maps
  */
 it("RestJsonJsonMaps:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonMaps: testFunction as JsonMaps<{}>,
@@ -5870,7 +5870,7 @@ it("RestJsonJsonMaps:ServerRequest", async () => {
  * Ensure that 0 and false are sent over the wire in all maps and lists
  */
 it("RestJsonSerializesZeroValuesInMaps:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonMaps: testFunction as JsonMaps<{}>,
@@ -5921,7 +5921,7 @@ it("RestJsonSerializesZeroValuesInMaps:ServerRequest", async () => {
  * A request that contains a dense map of sets.
  */
 it("RestJsonSerializesDenseSetMap:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonMaps: testFunction as JsonMaps<{}>,
@@ -6172,7 +6172,7 @@ it("RestJsonDeserializesDenseSetMap:ServerResponse", async () => {
  * Tests how normal timestamps are serialized
  */
 it("RestJsonJsonTimestamps:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6216,7 +6216,7 @@ it("RestJsonJsonTimestamps:ServerRequest", async () => {
  * Ensures that the timestampFormat of date-time works like normal timestamps
  */
 it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6260,7 +6260,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
  * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
  */
 it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6304,7 +6304,7 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () =>
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6348,7 +6348,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
  * Ensures that the timestampFormat of epoch-seconds on the target shape works
  */
 it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6392,7 +6392,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async (
  * Ensures that the timestampFormat of http-date works
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6436,7 +6436,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
  * Ensures that the timestampFormat of http-date on the target shape works
  */
 it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonTimestamps: testFunction as JsonTimestamps<{}>,
@@ -6886,7 +6886,7 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerResponse", async () =
  * Serializes a string union value
  */
 it("RestJsonSerializeStringUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -6932,7 +6932,7 @@ it("RestJsonSerializeStringUnionValue:ServerRequest", async () => {
  * Serializes a boolean union value
  */
 it("RestJsonSerializeBooleanUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -6978,7 +6978,7 @@ it("RestJsonSerializeBooleanUnionValue:ServerRequest", async () => {
  * Serializes a number union value
  */
 it("RestJsonSerializeNumberUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7024,7 +7024,7 @@ it("RestJsonSerializeNumberUnionValue:ServerRequest", async () => {
  * Serializes a blob union value
  */
 it("RestJsonSerializeBlobUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7070,7 +7070,7 @@ it("RestJsonSerializeBlobUnionValue:ServerRequest", async () => {
  * Serializes a timestamp union value
  */
 it("RestJsonSerializeTimestampUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7116,7 +7116,7 @@ it("RestJsonSerializeTimestampUnionValue:ServerRequest", async () => {
  * Serializes an enum union value
  */
 it("RestJsonSerializeEnumUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7162,7 +7162,7 @@ it("RestJsonSerializeEnumUnionValue:ServerRequest", async () => {
  * Serializes a list union value
  */
 it("RestJsonSerializeListUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7208,7 +7208,7 @@ it("RestJsonSerializeListUnionValue:ServerRequest", async () => {
  * Serializes a map union value
  */
 it("RestJsonSerializeMapUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7259,7 +7259,7 @@ it("RestJsonSerializeMapUnionValue:ServerRequest", async () => {
  * Serializes a structure union value
  */
 it("RestJsonSerializeStructureUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7309,7 +7309,7 @@ it("RestJsonSerializeStructureUnionValue:ServerRequest", async () => {
  * Serializes a renamed structure union value
  */
 it("RestJsonSerializeRenamedStructureUnionValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     JsonUnions: testFunction as JsonUnions<{}>,
@@ -7927,7 +7927,7 @@ it("RestJsonDeserializeStructureUnionValue:ServerResponse", async () => {
  * When there is modeled output, the accept must be application/json
  */
 it("RestJsonWithBodyExpectsApplicationJsonAccept:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -7965,7 +7965,7 @@ it("RestJsonWithBodyExpectsApplicationJsonAccept:MalformedRequest", async () => 
  * implied content type of the shape.
  */
 it("RestJsonWithPayloadExpectsImpliedAccept:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8002,7 +8002,7 @@ it("RestJsonWithPayloadExpectsImpliedAccept:MalformedRequest", async () => {
  * When there is a payload with a mediaType trait, the accept must match.
  */
 it("RestJsonWithPayloadExpectsModeledAccept:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8040,7 +8040,7 @@ it("RestJsonWithPayloadExpectsModeledAccept:MalformedRequest", async () => {
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8079,7 +8079,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case0:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8118,7 +8118,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case1:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8157,7 +8157,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case2:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8196,7 +8196,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case3:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8235,7 +8235,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case4:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8274,7 +8274,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case5:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8313,7 +8313,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case6:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8352,7 +8352,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case7:MalformedRequest", async () => 
  * all, the response should be a 400 SerializationException.
  */
 it("RestJsonBodyMalformedBlobInvalidBase64_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8390,7 +8390,7 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case8:MalformedRequest", async () => 
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8428,7 +8428,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case0:MalformedRequest", async () => 
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8466,7 +8466,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case1:MalformedRequest", async () => 
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8504,7 +8504,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case2:MalformedRequest", async () => 
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8542,7 +8542,7 @@ it("RestJsonBodyBooleanStringCoercion_case3:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8580,7 +8580,7 @@ it("RestJsonBodyBooleanStringCoercion_case4:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8618,7 +8618,7 @@ it("RestJsonBodyBooleanStringCoercion_case5:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8656,7 +8656,7 @@ it("RestJsonBodyBooleanStringCoercion_case6:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8694,7 +8694,7 @@ it("RestJsonBodyBooleanStringCoercion_case7:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8732,7 +8732,7 @@ it("RestJsonBodyBooleanStringCoercion_case8:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8770,7 +8770,7 @@ it("RestJsonBodyBooleanStringCoercion_case9:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8808,7 +8808,7 @@ it("RestJsonBodyBooleanStringCoercion_case10:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8846,7 +8846,7 @@ it("RestJsonBodyBooleanStringCoercion_case11:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8884,7 +8884,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case12:MalformedRequest", async () =>
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8922,7 +8922,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case13:MalformedRequest", async () =>
  * Attempted string coercion should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanStringCoercion_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8960,7 +8960,7 @@ it.skip("RestJsonBodyBooleanStringCoercion_case14:MalformedRequest", async () =>
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case15:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -8998,7 +8998,7 @@ it("RestJsonBodyBooleanStringCoercion_case15:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case16:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9036,7 +9036,7 @@ it("RestJsonBodyBooleanStringCoercion_case16:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case17:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9074,7 +9074,7 @@ it("RestJsonBodyBooleanStringCoercion_case17:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case18:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9112,7 +9112,7 @@ it("RestJsonBodyBooleanStringCoercion_case18:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case19:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9150,7 +9150,7 @@ it("RestJsonBodyBooleanStringCoercion_case19:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case20:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9188,7 +9188,7 @@ it("RestJsonBodyBooleanStringCoercion_case20:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case21:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9226,7 +9226,7 @@ it("RestJsonBodyBooleanStringCoercion_case21:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case22:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9264,7 +9264,7 @@ it("RestJsonBodyBooleanStringCoercion_case22:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonBodyBooleanStringCoercion_case23:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9302,7 +9302,7 @@ it("RestJsonBodyBooleanStringCoercion_case23:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9340,7 +9340,7 @@ it("RestJsonBodyBooleanBadLiteral_case0:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9378,7 +9378,7 @@ it("RestJsonBodyBooleanBadLiteral_case1:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9416,7 +9416,7 @@ it("RestJsonBodyBooleanBadLiteral_case2:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9454,7 +9454,7 @@ it("RestJsonBodyBooleanBadLiteral_case3:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9492,7 +9492,7 @@ it("RestJsonBodyBooleanBadLiteral_case4:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9530,7 +9530,7 @@ it("RestJsonBodyBooleanBadLiteral_case5:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9568,7 +9568,7 @@ it("RestJsonBodyBooleanBadLiteral_case6:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanBadLiteral_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9606,7 +9606,7 @@ it.skip("RestJsonBodyBooleanBadLiteral_case7:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9644,7 +9644,7 @@ it("RestJsonBodyBooleanBadLiteral_case8:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9682,7 +9682,7 @@ it("RestJsonBodyBooleanBadLiteral_case9:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9720,7 +9720,7 @@ it("RestJsonBodyBooleanBadLiteral_case10:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9758,7 +9758,7 @@ it("RestJsonBodyBooleanBadLiteral_case11:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9796,7 +9796,7 @@ it("RestJsonBodyBooleanBadLiteral_case12:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9834,7 +9834,7 @@ it("RestJsonBodyBooleanBadLiteral_case13:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9872,7 +9872,7 @@ it("RestJsonBodyBooleanBadLiteral_case14:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case15:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9910,7 +9910,7 @@ it("RestJsonBodyBooleanBadLiteral_case15:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case16:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9948,7 +9948,7 @@ it("RestJsonBodyBooleanBadLiteral_case16:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case17:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -9986,7 +9986,7 @@ it("RestJsonBodyBooleanBadLiteral_case17:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it.skip("RestJsonBodyBooleanBadLiteral_case18:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10024,7 +10024,7 @@ it.skip("RestJsonBodyBooleanBadLiteral_case18:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case19:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10062,7 +10062,7 @@ it("RestJsonBodyBooleanBadLiteral_case19:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case20:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10100,7 +10100,7 @@ it("RestJsonBodyBooleanBadLiteral_case20:MalformedRequest", async () => {
  * YAML-style alternate boolean literals should result in SerializationException
  */
 it("RestJsonBodyBooleanBadLiteral_case21:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10138,7 +10138,7 @@ it("RestJsonBodyBooleanBadLiteral_case21:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10173,7 +10173,7 @@ it("RestJsonPathBooleanStringCoercion_case0:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10208,7 +10208,7 @@ it("RestJsonPathBooleanStringCoercion_case1:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10243,7 +10243,7 @@ it("RestJsonPathBooleanStringCoercion_case2:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10278,7 +10278,7 @@ it("RestJsonPathBooleanStringCoercion_case3:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10313,7 +10313,7 @@ it("RestJsonPathBooleanStringCoercion_case4:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10348,7 +10348,7 @@ it("RestJsonPathBooleanStringCoercion_case5:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10383,7 +10383,7 @@ it("RestJsonPathBooleanStringCoercion_case6:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10418,7 +10418,7 @@ it("RestJsonPathBooleanStringCoercion_case7:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10453,7 +10453,7 @@ it("RestJsonPathBooleanStringCoercion_case8:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10488,7 +10488,7 @@ it("RestJsonPathBooleanStringCoercion_case9:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10523,7 +10523,7 @@ it("RestJsonPathBooleanStringCoercion_case10:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10558,7 +10558,7 @@ it("RestJsonPathBooleanStringCoercion_case11:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10593,7 +10593,7 @@ it("RestJsonPathBooleanStringCoercion_case12:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10628,7 +10628,7 @@ it("RestJsonPathBooleanStringCoercion_case13:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10663,7 +10663,7 @@ it("RestJsonPathBooleanStringCoercion_case14:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case15:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10698,7 +10698,7 @@ it("RestJsonPathBooleanStringCoercion_case15:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case16:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10733,7 +10733,7 @@ it("RestJsonPathBooleanStringCoercion_case16:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case17:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10768,7 +10768,7 @@ it("RestJsonPathBooleanStringCoercion_case17:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case18:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10803,7 +10803,7 @@ it("RestJsonPathBooleanStringCoercion_case18:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case19:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10838,7 +10838,7 @@ it("RestJsonPathBooleanStringCoercion_case19:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case20:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10873,7 +10873,7 @@ it("RestJsonPathBooleanStringCoercion_case20:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonPathBooleanStringCoercion_case21:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10908,7 +10908,7 @@ it("RestJsonPathBooleanStringCoercion_case21:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10945,7 +10945,7 @@ it("RestJsonQueryBooleanStringCoercion_case0:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -10982,7 +10982,7 @@ it("RestJsonQueryBooleanStringCoercion_case1:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11019,7 +11019,7 @@ it("RestJsonQueryBooleanStringCoercion_case2:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11056,7 +11056,7 @@ it("RestJsonQueryBooleanStringCoercion_case3:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11093,7 +11093,7 @@ it("RestJsonQueryBooleanStringCoercion_case4:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11130,7 +11130,7 @@ it("RestJsonQueryBooleanStringCoercion_case5:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11167,7 +11167,7 @@ it("RestJsonQueryBooleanStringCoercion_case6:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11204,7 +11204,7 @@ it("RestJsonQueryBooleanStringCoercion_case7:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11241,7 +11241,7 @@ it("RestJsonQueryBooleanStringCoercion_case8:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11278,7 +11278,7 @@ it("RestJsonQueryBooleanStringCoercion_case9:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11315,7 +11315,7 @@ it("RestJsonQueryBooleanStringCoercion_case10:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11352,7 +11352,7 @@ it("RestJsonQueryBooleanStringCoercion_case11:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11389,7 +11389,7 @@ it("RestJsonQueryBooleanStringCoercion_case12:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11426,7 +11426,7 @@ it("RestJsonQueryBooleanStringCoercion_case13:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11463,7 +11463,7 @@ it("RestJsonQueryBooleanStringCoercion_case14:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case15:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11500,7 +11500,7 @@ it("RestJsonQueryBooleanStringCoercion_case15:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case16:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11537,7 +11537,7 @@ it("RestJsonQueryBooleanStringCoercion_case16:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case17:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11574,7 +11574,7 @@ it("RestJsonQueryBooleanStringCoercion_case17:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case18:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11611,7 +11611,7 @@ it("RestJsonQueryBooleanStringCoercion_case18:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case19:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11648,7 +11648,7 @@ it("RestJsonQueryBooleanStringCoercion_case19:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case20:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11685,7 +11685,7 @@ it("RestJsonQueryBooleanStringCoercion_case20:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonQueryBooleanStringCoercion_case21:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11722,7 +11722,7 @@ it("RestJsonQueryBooleanStringCoercion_case21:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11759,7 +11759,7 @@ it("RestJsonHeaderBooleanStringCoercion_case0:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11796,7 +11796,7 @@ it("RestJsonHeaderBooleanStringCoercion_case1:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11833,7 +11833,7 @@ it("RestJsonHeaderBooleanStringCoercion_case2:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11870,7 +11870,7 @@ it("RestJsonHeaderBooleanStringCoercion_case3:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11907,7 +11907,7 @@ it("RestJsonHeaderBooleanStringCoercion_case4:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11944,7 +11944,7 @@ it("RestJsonHeaderBooleanStringCoercion_case5:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -11981,7 +11981,7 @@ it("RestJsonHeaderBooleanStringCoercion_case6:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12018,7 +12018,7 @@ it("RestJsonHeaderBooleanStringCoercion_case7:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12055,7 +12055,7 @@ it("RestJsonHeaderBooleanStringCoercion_case8:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12092,7 +12092,7 @@ it("RestJsonHeaderBooleanStringCoercion_case9:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12129,7 +12129,7 @@ it("RestJsonHeaderBooleanStringCoercion_case10:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12166,7 +12166,7 @@ it("RestJsonHeaderBooleanStringCoercion_case11:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12203,7 +12203,7 @@ it("RestJsonHeaderBooleanStringCoercion_case12:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12240,7 +12240,7 @@ it("RestJsonHeaderBooleanStringCoercion_case13:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12277,7 +12277,7 @@ it("RestJsonHeaderBooleanStringCoercion_case14:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case15:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12314,7 +12314,7 @@ it("RestJsonHeaderBooleanStringCoercion_case15:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case16:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12351,7 +12351,7 @@ it("RestJsonHeaderBooleanStringCoercion_case16:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case17:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12388,7 +12388,7 @@ it("RestJsonHeaderBooleanStringCoercion_case17:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case18:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12425,7 +12425,7 @@ it("RestJsonHeaderBooleanStringCoercion_case18:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case19:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12462,7 +12462,7 @@ it("RestJsonHeaderBooleanStringCoercion_case19:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case20:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12499,7 +12499,7 @@ it("RestJsonHeaderBooleanStringCoercion_case20:MalformedRequest", async () => {
  * Attempted string coercion should result in SerializationException
  */
 it("RestJsonHeaderBooleanStringCoercion_case21:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12536,7 +12536,7 @@ it("RestJsonHeaderBooleanStringCoercion_case21:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyByteUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12574,7 +12574,7 @@ it("RestJsonBodyByteUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyByteUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12612,7 +12612,7 @@ it("RestJsonBodyByteUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyByteUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12650,7 +12650,7 @@ it("RestJsonBodyByteUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyByteUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12688,7 +12688,7 @@ it("RestJsonBodyByteUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyByteUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12726,7 +12726,7 @@ it("RestJsonBodyByteUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathByteUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12761,7 +12761,7 @@ it("RestJsonPathByteUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathByteUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12796,7 +12796,7 @@ it("RestJsonPathByteUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathByteUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12831,7 +12831,7 @@ it("RestJsonPathByteUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathByteUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12866,7 +12866,7 @@ it("RestJsonPathByteUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathByteUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12901,7 +12901,7 @@ it("RestJsonPathByteUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryByteUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12938,7 +12938,7 @@ it("RestJsonQueryByteUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryByteUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -12975,7 +12975,7 @@ it("RestJsonQueryByteUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryByteUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13012,7 +13012,7 @@ it("RestJsonQueryByteUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryByteUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13049,7 +13049,7 @@ it("RestJsonQueryByteUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryByteUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13086,7 +13086,7 @@ it("RestJsonQueryByteUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderByteUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13123,7 +13123,7 @@ it("RestJsonHeaderByteUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderByteUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13160,7 +13160,7 @@ it("RestJsonHeaderByteUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderByteUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13197,7 +13197,7 @@ it("RestJsonHeaderByteUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderByteUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13234,7 +13234,7 @@ it("RestJsonHeaderByteUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderByteUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13271,7 +13271,7 @@ it("RestJsonHeaderByteUnderflowOverflow_case4:MalformedRequest", async () => {
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13309,7 +13309,7 @@ it("RestJsonBodyByteMalformedValueRejected_case0:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13347,7 +13347,7 @@ it("RestJsonBodyByteMalformedValueRejected_case1:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13385,7 +13385,7 @@ it("RestJsonBodyByteMalformedValueRejected_case2:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13423,7 +13423,7 @@ it("RestJsonBodyByteMalformedValueRejected_case3:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13461,7 +13461,7 @@ it("RestJsonBodyByteMalformedValueRejected_case4:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13499,7 +13499,7 @@ it("RestJsonBodyByteMalformedValueRejected_case5:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13537,7 +13537,7 @@ it("RestJsonBodyByteMalformedValueRejected_case6:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13575,7 +13575,7 @@ it("RestJsonBodyByteMalformedValueRejected_case7:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13613,7 +13613,7 @@ it("RestJsonBodyByteMalformedValueRejected_case8:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13651,7 +13651,7 @@ it("RestJsonBodyByteMalformedValueRejected_case9:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyByteMalformedValueRejected_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13689,7 +13689,7 @@ it("RestJsonBodyByteMalformedValueRejected_case10:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13724,7 +13724,7 @@ it("RestJsonPathByteMalformedValueRejected_case0:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13759,7 +13759,7 @@ it("RestJsonPathByteMalformedValueRejected_case1:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13794,7 +13794,7 @@ it("RestJsonPathByteMalformedValueRejected_case2:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13829,7 +13829,7 @@ it("RestJsonPathByteMalformedValueRejected_case3:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13864,7 +13864,7 @@ it("RestJsonPathByteMalformedValueRejected_case4:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13899,7 +13899,7 @@ it("RestJsonPathByteMalformedValueRejected_case5:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathByteMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13934,7 +13934,7 @@ it("RestJsonPathByteMalformedValueRejected_case6:MalformedRequest", async () => 
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -13971,7 +13971,7 @@ it("RestJsonQueryByteMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14008,7 +14008,7 @@ it("RestJsonQueryByteMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14045,7 +14045,7 @@ it("RestJsonQueryByteMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14082,7 +14082,7 @@ it("RestJsonQueryByteMalformedValueRejected_case3:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14119,7 +14119,7 @@ it("RestJsonQueryByteMalformedValueRejected_case4:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14156,7 +14156,7 @@ it("RestJsonQueryByteMalformedValueRejected_case5:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryByteMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14193,7 +14193,7 @@ it("RestJsonQueryByteMalformedValueRejected_case6:MalformedRequest", async () =>
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14230,7 +14230,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14267,7 +14267,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14304,7 +14304,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14341,7 +14341,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case3:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14378,7 +14378,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case4:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14415,7 +14415,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case5:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderByteMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14452,7 +14452,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case6:MalformedRequest", async () =
  * When there is modeled input, the content type must be application/json
  */
 it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14490,7 +14490,7 @@ it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async (
  * When there is modeled input, the content type must be application/json
  */
 it.skip("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14526,7 +14526,7 @@ it.skip("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedReq
  * When there is no modeled input, content type must not be set and the body must be empty.
  */
 it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14564,7 +14564,7 @@ it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
  * When there is a payload with a mediaType trait, the content type must match.
  */
 it("RestJsonWithPayloadExpectsModeledContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14603,7 +14603,7 @@ it("RestJsonWithPayloadExpectsModeledContentType:MalformedRequest", async () => 
  * implied content type of the shape.
  */
 it("RestJsonWithPayloadExpectsImpliedContentType:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14641,7 +14641,7 @@ it("RestJsonWithPayloadExpectsImpliedContentType:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14679,7 +14679,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14717,7 +14717,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14755,7 +14755,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14793,7 +14793,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case3:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14831,7 +14831,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case4:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14869,7 +14869,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case5:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyDoubleMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14907,7 +14907,7 @@ it("RestJsonBodyDoubleMalformedValueRejected_case6:MalformedRequest", async () =
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathDoubleMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14942,7 +14942,7 @@ it("RestJsonPathDoubleMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathDoubleMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -14977,7 +14977,7 @@ it("RestJsonPathDoubleMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathDoubleMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15012,7 +15012,7 @@ it("RestJsonPathDoubleMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryDoubleMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15049,7 +15049,7 @@ it("RestJsonQueryDoubleMalformedValueRejected_case0:MalformedRequest", async () 
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryDoubleMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15086,7 +15086,7 @@ it("RestJsonQueryDoubleMalformedValueRejected_case1:MalformedRequest", async () 
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryDoubleMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15123,7 +15123,7 @@ it("RestJsonQueryDoubleMalformedValueRejected_case2:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderDoubleMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15160,7 +15160,7 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case0:MalformedRequest", async ()
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderDoubleMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15197,7 +15197,7 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case1:MalformedRequest", async ()
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderDoubleMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15234,7 +15234,7 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case2:MalformedRequest", async ()
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15272,7 +15272,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15310,7 +15310,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15348,7 +15348,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15386,7 +15386,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case3:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15424,7 +15424,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case4:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15462,7 +15462,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case5:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyFloatMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15500,7 +15500,7 @@ it("RestJsonBodyFloatMalformedValueRejected_case6:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathFloatMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15535,7 +15535,7 @@ it("RestJsonPathFloatMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathFloatMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15570,7 +15570,7 @@ it("RestJsonPathFloatMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathFloatMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15605,7 +15605,7 @@ it("RestJsonPathFloatMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryFloatMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15642,7 +15642,7 @@ it("RestJsonQueryFloatMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryFloatMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15679,7 +15679,7 @@ it("RestJsonQueryFloatMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryFloatMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15716,7 +15716,7 @@ it("RestJsonQueryFloatMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderFloatMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15753,7 +15753,7 @@ it("RestJsonHeaderFloatMalformedValueRejected_case0:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderFloatMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15790,7 +15790,7 @@ it("RestJsonHeaderFloatMalformedValueRejected_case1:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderFloatMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15827,7 +15827,7 @@ it("RestJsonHeaderFloatMalformedValueRejected_case2:MalformedRequest", async () 
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15865,7 +15865,7 @@ it("RestJsonBodyIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15903,7 +15903,7 @@ it("RestJsonBodyIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15941,7 +15941,7 @@ it("RestJsonBodyIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -15976,7 +15976,7 @@ it("RestJsonPathIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16011,7 +16011,7 @@ it("RestJsonPathIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16046,7 +16046,7 @@ it("RestJsonPathIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16083,7 +16083,7 @@ it("RestJsonQueryIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16120,7 +16120,7 @@ it("RestJsonQueryIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16157,7 +16157,7 @@ it("RestJsonQueryIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16194,7 +16194,7 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case0:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16231,7 +16231,7 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case1:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16268,7 +16268,7 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case2:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16306,7 +16306,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case0:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16344,7 +16344,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case1:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16382,7 +16382,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case2:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16420,7 +16420,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case3:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16458,7 +16458,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case4:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16496,7 +16496,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case5:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16534,7 +16534,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case6:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16572,7 +16572,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case7:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16610,7 +16610,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case8:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16648,7 +16648,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case9:MalformedRequest", async () 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyIntegerMalformedValueRejected_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16686,7 +16686,7 @@ it("RestJsonBodyIntegerMalformedValueRejected_case10:MalformedRequest", async ()
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16721,7 +16721,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case0:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16756,7 +16756,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case1:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16791,7 +16791,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case2:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16826,7 +16826,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case3:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16861,7 +16861,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case4:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16896,7 +16896,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case5:MalformedRequest", async () 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathIntegerMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16931,7 +16931,7 @@ it("RestJsonPathIntegerMalformedValueRejected_case6:MalformedRequest", async () 
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -16968,7 +16968,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case0:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17005,7 +17005,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case1:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17042,7 +17042,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case2:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17079,7 +17079,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case3:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17116,7 +17116,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case4:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17153,7 +17153,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case5:MalformedRequest", async ()
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryIntegerMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17190,7 +17190,7 @@ it("RestJsonQueryIntegerMalformedValueRejected_case6:MalformedRequest", async ()
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17227,7 +17227,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case0:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17264,7 +17264,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case1:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17301,7 +17301,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case2:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17338,7 +17338,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case3:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17375,7 +17375,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case4:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17412,7 +17412,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case5:MalformedRequest", async (
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderIntegerMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17450,7 +17450,7 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case6:MalformedRequest", async (
  * SerializationException.
  */
 it("RestJsonBodyMalformedListNullItem:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17489,7 +17489,7 @@ it("RestJsonBodyMalformedListNullItem:MalformedRequest", async () => {
  * a 400 SerializationException.
  */
 it("RestJsonBodyMalformedListUnclosed:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17527,7 +17527,7 @@ it("RestJsonBodyMalformedListUnclosed:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonBodyLongUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17565,7 +17565,7 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case0:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonBodyLongUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17603,7 +17603,7 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case1:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonBodyLongUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17641,7 +17641,7 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case2:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonPathLongUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17676,7 +17676,7 @@ it.skip("RestJsonPathLongUnderflowOverflow_case0:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonPathLongUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17711,7 +17711,7 @@ it.skip("RestJsonPathLongUnderflowOverflow_case1:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonPathLongUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17746,7 +17746,7 @@ it.skip("RestJsonPathLongUnderflowOverflow_case2:MalformedRequest", async () => 
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonQueryLongUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17783,7 +17783,7 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case0:MalformedRequest", async () =>
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonQueryLongUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17820,7 +17820,7 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case1:MalformedRequest", async () =>
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonQueryLongUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17857,7 +17857,7 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case2:MalformedRequest", async () =>
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonHeaderLongUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17894,7 +17894,7 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case0:MalformedRequest", async () =
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonHeaderLongUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17931,7 +17931,7 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case1:MalformedRequest", async () =
  * Underflow or overflow should result in SerializationException
  */
 it.skip("RestJsonHeaderLongUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -17968,7 +17968,7 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case2:MalformedRequest", async () =
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18006,7 +18006,7 @@ it("RestJsonBodyLongMalformedValueRejected_case0:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18044,7 +18044,7 @@ it("RestJsonBodyLongMalformedValueRejected_case1:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18082,7 +18082,7 @@ it("RestJsonBodyLongMalformedValueRejected_case2:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18120,7 +18120,7 @@ it("RestJsonBodyLongMalformedValueRejected_case3:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18158,7 +18158,7 @@ it("RestJsonBodyLongMalformedValueRejected_case4:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18196,7 +18196,7 @@ it("RestJsonBodyLongMalformedValueRejected_case5:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18234,7 +18234,7 @@ it("RestJsonBodyLongMalformedValueRejected_case6:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18272,7 +18272,7 @@ it("RestJsonBodyLongMalformedValueRejected_case7:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18310,7 +18310,7 @@ it("RestJsonBodyLongMalformedValueRejected_case8:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18348,7 +18348,7 @@ it("RestJsonBodyLongMalformedValueRejected_case9:MalformedRequest", async () => 
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyLongMalformedValueRejected_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18386,7 +18386,7 @@ it("RestJsonBodyLongMalformedValueRejected_case10:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18421,7 +18421,7 @@ it("RestJsonPathLongMalformedValueRejected_case0:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18456,7 +18456,7 @@ it("RestJsonPathLongMalformedValueRejected_case1:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18491,7 +18491,7 @@ it("RestJsonPathLongMalformedValueRejected_case2:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18526,7 +18526,7 @@ it("RestJsonPathLongMalformedValueRejected_case3:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18561,7 +18561,7 @@ it("RestJsonPathLongMalformedValueRejected_case4:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18596,7 +18596,7 @@ it("RestJsonPathLongMalformedValueRejected_case5:MalformedRequest", async () => 
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathLongMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18631,7 +18631,7 @@ it("RestJsonPathLongMalformedValueRejected_case6:MalformedRequest", async () => 
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18668,7 +18668,7 @@ it("RestJsonQueryLongMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18705,7 +18705,7 @@ it("RestJsonQueryLongMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18742,7 +18742,7 @@ it("RestJsonQueryLongMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18779,7 +18779,7 @@ it("RestJsonQueryLongMalformedValueRejected_case3:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18816,7 +18816,7 @@ it("RestJsonQueryLongMalformedValueRejected_case4:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18853,7 +18853,7 @@ it("RestJsonQueryLongMalformedValueRejected_case5:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryLongMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18890,7 +18890,7 @@ it("RestJsonQueryLongMalformedValueRejected_case6:MalformedRequest", async () =>
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18927,7 +18927,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -18964,7 +18964,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19001,7 +19001,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19038,7 +19038,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case3:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19075,7 +19075,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case4:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19112,7 +19112,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case5:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderLongMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19150,7 +19150,7 @@ it("RestJsonHeaderLongMalformedValueRejected_case6:MalformedRequest", async () =
  * SerializationException.
  */
 it("RestJsonBodyMalformedMapNullKey:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19189,7 +19189,7 @@ it("RestJsonBodyMalformedMapNullKey:MalformedRequest", async () => {
  * SerializationException.
  */
 it.skip("RestJsonBodyMalformedMapNullValue:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19228,7 +19228,7 @@ it.skip("RestJsonBodyMalformedMapNullValue:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19267,7 +19267,7 @@ it("RestJsonInvalidJsonBody_case0:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19306,7 +19306,7 @@ it("RestJsonInvalidJsonBody_case1:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19345,7 +19345,7 @@ it("RestJsonInvalidJsonBody_case2:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19384,7 +19384,7 @@ it("RestJsonInvalidJsonBody_case3:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19423,7 +19423,7 @@ it("RestJsonInvalidJsonBody_case4:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19462,7 +19462,7 @@ it("RestJsonInvalidJsonBody_case5:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19501,7 +19501,7 @@ it("RestJsonInvalidJsonBody_case6:MalformedRequest", async () => {
  * SerializationException.
  */
 it("RestJsonInvalidJsonBody_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19540,7 +19540,7 @@ it("RestJsonInvalidJsonBody_case7:MalformedRequest", async () => {
  * the response should be a 400 SerializationException.
  */
 it("RestJsonTechnicallyValidJsonBody_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19579,7 +19579,7 @@ it("RestJsonTechnicallyValidJsonBody_case0:MalformedRequest", async () => {
  * the response should be a 400 SerializationException.
  */
 it("RestJsonTechnicallyValidJsonBody_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19618,7 +19618,7 @@ it("RestJsonTechnicallyValidJsonBody_case1:MalformedRequest", async () => {
  * the response should be a 400 SerializationException.
  */
 it("RestJsonTechnicallyValidJsonBody_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19656,7 +19656,7 @@ it("RestJsonTechnicallyValidJsonBody_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyShortUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19694,7 +19694,7 @@ it("RestJsonBodyShortUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyShortUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19732,7 +19732,7 @@ it("RestJsonBodyShortUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyShortUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19770,7 +19770,7 @@ it("RestJsonBodyShortUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyShortUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19808,7 +19808,7 @@ it("RestJsonBodyShortUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonBodyShortUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19846,7 +19846,7 @@ it("RestJsonBodyShortUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathShortUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19881,7 +19881,7 @@ it("RestJsonPathShortUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathShortUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19916,7 +19916,7 @@ it("RestJsonPathShortUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathShortUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19951,7 +19951,7 @@ it("RestJsonPathShortUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathShortUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -19986,7 +19986,7 @@ it("RestJsonPathShortUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonPathShortUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20021,7 +20021,7 @@ it("RestJsonPathShortUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryShortUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20058,7 +20058,7 @@ it("RestJsonQueryShortUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryShortUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20095,7 +20095,7 @@ it("RestJsonQueryShortUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryShortUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20132,7 +20132,7 @@ it("RestJsonQueryShortUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryShortUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20169,7 +20169,7 @@ it("RestJsonQueryShortUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonQueryShortUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20206,7 +20206,7 @@ it("RestJsonQueryShortUnderflowOverflow_case4:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderShortUnderflowOverflow_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20243,7 +20243,7 @@ it("RestJsonHeaderShortUnderflowOverflow_case0:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderShortUnderflowOverflow_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20280,7 +20280,7 @@ it("RestJsonHeaderShortUnderflowOverflow_case1:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderShortUnderflowOverflow_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20317,7 +20317,7 @@ it("RestJsonHeaderShortUnderflowOverflow_case2:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderShortUnderflowOverflow_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20354,7 +20354,7 @@ it("RestJsonHeaderShortUnderflowOverflow_case3:MalformedRequest", async () => {
  * Underflow or overflow should result in SerializationException
  */
 it("RestJsonHeaderShortUnderflowOverflow_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20391,7 +20391,7 @@ it("RestJsonHeaderShortUnderflowOverflow_case4:MalformedRequest", async () => {
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20429,7 +20429,7 @@ it("RestJsonBodyShortMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20467,7 +20467,7 @@ it("RestJsonBodyShortMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20505,7 +20505,7 @@ it("RestJsonBodyShortMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20543,7 +20543,7 @@ it("RestJsonBodyShortMalformedValueRejected_case3:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20581,7 +20581,7 @@ it("RestJsonBodyShortMalformedValueRejected_case4:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20619,7 +20619,7 @@ it("RestJsonBodyShortMalformedValueRejected_case5:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20657,7 +20657,7 @@ it("RestJsonBodyShortMalformedValueRejected_case6:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20695,7 +20695,7 @@ it("RestJsonBodyShortMalformedValueRejected_case7:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20733,7 +20733,7 @@ it("RestJsonBodyShortMalformedValueRejected_case8:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20771,7 +20771,7 @@ it("RestJsonBodyShortMalformedValueRejected_case9:MalformedRequest", async () =>
  * Malformed values in the body should be rejected
  */
 it("RestJsonBodyShortMalformedValueRejected_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20809,7 +20809,7 @@ it("RestJsonBodyShortMalformedValueRejected_case10:MalformedRequest", async () =
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20844,7 +20844,7 @@ it("RestJsonPathShortMalformedValueRejected_case0:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20879,7 +20879,7 @@ it("RestJsonPathShortMalformedValueRejected_case1:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20914,7 +20914,7 @@ it("RestJsonPathShortMalformedValueRejected_case2:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20949,7 +20949,7 @@ it("RestJsonPathShortMalformedValueRejected_case3:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -20984,7 +20984,7 @@ it("RestJsonPathShortMalformedValueRejected_case4:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21019,7 +21019,7 @@ it("RestJsonPathShortMalformedValueRejected_case5:MalformedRequest", async () =>
  * Malformed values in the path should be rejected
  */
 it("RestJsonPathShortMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21054,7 +21054,7 @@ it("RestJsonPathShortMalformedValueRejected_case6:MalformedRequest", async () =>
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21091,7 +21091,7 @@ it("RestJsonQueryShortMalformedValueRejected_case0:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21128,7 +21128,7 @@ it("RestJsonQueryShortMalformedValueRejected_case1:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21165,7 +21165,7 @@ it("RestJsonQueryShortMalformedValueRejected_case2:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21202,7 +21202,7 @@ it("RestJsonQueryShortMalformedValueRejected_case3:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21239,7 +21239,7 @@ it("RestJsonQueryShortMalformedValueRejected_case4:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21276,7 +21276,7 @@ it("RestJsonQueryShortMalformedValueRejected_case5:MalformedRequest", async () =
  * Malformed values in query parameters should be rejected
  */
 it("RestJsonQueryShortMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21313,7 +21313,7 @@ it("RestJsonQueryShortMalformedValueRejected_case6:MalformedRequest", async () =
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21350,7 +21350,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case0:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21387,7 +21387,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case1:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21424,7 +21424,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case2:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21461,7 +21461,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case3:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21498,7 +21498,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case4:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21535,7 +21535,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case5:MalformedRequest", async () 
  * Malformed values in headers should be rejected
  */
 it("RestJsonHeaderShortMalformedValueRejected_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21574,7 +21574,7 @@ it("RestJsonHeaderShortMalformedValueRejected_case6:MalformedRequest", async () 
  * valid base64 out of hand.
  */
 it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21614,7 +21614,7 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case0:MalformedRequest",
  * valid base64 out of hand.
  */
 it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21654,7 +21654,7 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case1:MalformedRequest",
  * valid base64 out of hand.
  */
 it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21694,7 +21694,7 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case2:MalformedRequest",
  * valid base64 out of hand.
  */
 it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21733,7 +21733,7 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case3:MalformedRequest",
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21772,7 +21772,7 @@ it("RestJsonBodyTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21811,7 +21811,7 @@ it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21850,7 +21850,7 @@ it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsUTCOffsets_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21889,7 +21889,7 @@ it("RestJsonBodyTimestampDateTimeRejectsUTCOffsets_case0:MalformedRequest", asyn
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21928,7 +21928,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -21967,7 +21967,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22006,7 +22006,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22045,7 +22045,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22084,7 +22084,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22123,7 +22123,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22162,7 +22162,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22201,7 +22201,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22240,7 +22240,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22279,7 +22279,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22318,7 +22318,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22357,7 +22357,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22396,7 +22396,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22435,7 +22435,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22474,7 +22474,7 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedReq
  * 400 SerializationException
  */
 it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22513,7 +22513,7 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case0:MalformedRequest", as
  * 400 SerializationException
  */
 it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22552,7 +22552,7 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case1:MalformedRequest", as
  * 400 SerializationException
  */
 it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22591,7 +22591,7 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case2:MalformedRequest", as
  * 400 SerializationException
  */
 it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22630,7 +22630,7 @@ it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case0:Malfor
  * 400 SerializationException
  */
 it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22668,7 +22668,7 @@ it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case1:Malfor
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22706,7 +22706,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case0:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22744,7 +22744,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case1:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22782,7 +22782,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case2:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22820,7 +22820,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case3:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22858,7 +22858,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case4:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22896,7 +22896,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case5:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22934,7 +22934,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case6:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -22972,7 +22972,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case7:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23010,7 +23010,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case8:MalformedRequ
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23049,7 +23049,7 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case9:MalformedRequ
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23088,7 +23088,7 @@ it("RestJsonBodyTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23127,7 +23127,7 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23166,7 +23166,7 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23205,7 +23205,7 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampHttpDateRejectsEpoch_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23244,7 +23244,7 @@ it("RestJsonBodyTimestampHttpDateRejectsEpoch_case0:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonBodyTimestampHttpDateRejectsEpoch_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23283,7 +23283,7 @@ it("RestJsonBodyTimestampHttpDateRejectsEpoch_case1:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23321,7 +23321,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", asyn
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23359,7 +23359,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", 
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23397,7 +23397,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", 
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23435,7 +23435,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23473,7 +23473,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23511,7 +23511,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23549,7 +23549,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23587,7 +23587,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23625,7 +23625,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23663,7 +23663,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23701,7 +23701,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23739,7 +23739,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23777,7 +23777,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRe
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23815,7 +23815,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedR
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23853,7 +23853,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedR
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23891,7 +23891,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedR
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23929,7 +23929,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedR
  * are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -23967,7 +23967,7 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedR
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDefaultRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24005,7 +24005,7 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case0:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDefaultRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24043,7 +24043,7 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case1:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDefaultRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24081,7 +24081,7 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case2:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24119,7 +24119,7 @@ it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", a
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24157,7 +24157,7 @@ it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", a
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24195,7 +24195,7 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case0:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24233,7 +24233,7 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case1:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24271,7 +24271,7 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case2:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24308,7 +24308,7 @@ it("RestJsonHeaderTimestampEpochRejectsHttpDate_case0:MalformedRequest", async (
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24345,7 +24345,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case0:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24382,7 +24382,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case1:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24419,7 +24419,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case2:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24456,7 +24456,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case3:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24493,7 +24493,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case4:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24530,7 +24530,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case5:MalformedRequest", 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24568,7 +24568,7 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case6:MalformedRequest", 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24604,7 +24604,7 @@ it("RestJsonPathTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24640,7 +24640,7 @@ it("RestJsonPathTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async (
  * 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24676,7 +24676,7 @@ it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", asy
  * 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24712,7 +24712,7 @@ it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", asy
  * 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24748,7 +24748,7 @@ it("RestJsonPathTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () =>
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24784,7 +24784,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case0:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24820,7 +24820,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case1:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24856,7 +24856,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case2:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24892,7 +24892,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case3:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24928,7 +24928,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case4:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -24964,7 +24964,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case5:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25000,7 +25000,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case6:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25036,7 +25036,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case7:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25072,7 +25072,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case8:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25108,7 +25108,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case9:MalformedReque
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25144,7 +25144,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case10:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25180,7 +25180,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case11:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25216,7 +25216,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case12:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25252,7 +25252,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case13:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25288,7 +25288,7 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case14:MalformedRequ
  * 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25324,7 +25324,7 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case0:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25360,7 +25360,7 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case1:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25396,7 +25396,7 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case2:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25432,7 +25432,7 @@ it("RestJsonPathTimestampEpochRejectsHttpDate_case0:MalformedRequest", async () 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25467,7 +25467,7 @@ it("RestJsonPathTimestampEpochRejectsHttpDate_case1:MalformedRequest", async () 
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25502,7 +25502,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case0:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25537,7 +25537,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case1:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25572,7 +25572,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case2:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25607,7 +25607,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case3:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25642,7 +25642,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case4:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25677,7 +25677,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case5:MalformedRequest", as
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonPathTimestampEpochRejectsMalformedValues_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25713,7 +25713,7 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case6:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonPathTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25749,7 +25749,7 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25785,7 +25785,7 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25821,7 +25821,7 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25857,7 +25857,7 @@ it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25893,7 +25893,7 @@ it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25931,7 +25931,7 @@ it("RestJsonQueryTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -25969,7 +25969,7 @@ it("RestJsonQueryTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async 
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26007,7 +26007,7 @@ it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26045,7 +26045,7 @@ it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", as
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26083,7 +26083,7 @@ it("RestJsonQueryTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () =
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26121,7 +26121,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case0:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26159,7 +26159,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case1:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26197,7 +26197,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case2:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26235,7 +26235,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case3:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26273,7 +26273,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case4:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26311,7 +26311,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case5:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26349,7 +26349,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case6:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case7:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26387,7 +26387,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case7:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case8:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26425,7 +26425,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case8:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case9:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26463,7 +26463,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case9:MalformedRequ
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case10:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26501,7 +26501,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case10:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case11:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26539,7 +26539,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case11:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case12:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26577,7 +26577,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case12:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case13:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26615,7 +26615,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case13:MalformedReq
  * are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case14:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26653,7 +26653,7 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case14:MalformedReq
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26691,7 +26691,7 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case0:MalformedRequest", async ()
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26729,7 +26729,7 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case1:MalformedRequest", async ()
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26767,7 +26767,7 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case2:MalformedRequest", async ()
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsHttpDate_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26805,7 +26805,7 @@ it("RestJsonQueryTimestampEpochRejectsHttpDate_case0:MalformedRequest", async ()
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26842,7 +26842,7 @@ it("RestJsonQueryTimestampEpochRejectsHttpDate_case1:MalformedRequest", async ()
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26879,7 +26879,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case0:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26916,7 +26916,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case1:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26953,7 +26953,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case2:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case3:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -26990,7 +26990,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case3:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case4:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27027,7 +27027,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case4:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case5:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27064,7 +27064,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case5:MalformedRequest", a
  * Invalid values for epoch seconds are rejected with a 400 SerializationException
  */
 it("RestJsonQueryTimestampEpochRejectsMalformedValues_case6:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27102,7 +27102,7 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case6:MalformedRequest", a
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27140,7 +27140,7 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27178,7 +27178,7 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27216,7 +27216,7 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27254,7 +27254,7 @@ it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", a
  * 400 SerializationException
  */
 it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27292,7 +27292,7 @@ it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", a
  * SerializationException.
  */
 it("RestJsonMalformedUnionMultipleFieldsSet:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27331,7 +27331,7 @@ it("RestJsonMalformedUnionMultipleFieldsSet:MalformedRequest", async () => {
  * the response should be a 400 SerializationException.
  */
 it("RestJsonMalformedUnionKnownAndUnknownFieldsSet:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27370,7 +27370,7 @@ it("RestJsonMalformedUnionKnownAndUnknownFieldsSet:MalformedRequest", async () =
  * SerializationException.
  */
 it("RestJsonMalformedUnionNoFieldsSet:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27409,7 +27409,7 @@ it("RestJsonMalformedUnionNoFieldsSet:MalformedRequest", async () => {
  * response should be a 400 SerializationException.
  */
 it("RestJsonMalformedUnionEmptyObjectNoFieldsSet:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27448,7 +27448,7 @@ it("RestJsonMalformedUnionEmptyObjectNoFieldsSet:MalformedRequest", async () => 
  * SerializationException.
  */
 it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27487,7 +27487,7 @@ it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
  * SerializationException.
  */
 it.skip("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
   });
@@ -27525,7 +27525,7 @@ it.skip("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
  * Headers that target strings with a mediaType are base64 encoded
  */
 it("MediaTypeHeaderInputBase64:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     MediaTypeHeader: testFunction as MediaTypeHeader<{}>,
@@ -27621,7 +27621,7 @@ it("MediaTypeHeaderOutputBase64:ServerResponse", async () => {
  * altogether.
  */
 it("RestJsonNoInputAndNoOutput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     NoInputAndNoOutput: testFunction as NoInputAndNoOutput<{}>,
@@ -27654,7 +27654,7 @@ it("RestJsonNoInputAndNoOutput:ServerRequest", async () => {
  * default content-type.
  */
 it("RestJsonNoInputAllowsAccept:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     NoInputAndNoOutput: testFunction as NoInputAndNoOutput<{}>,
@@ -27738,7 +27738,7 @@ it("RestJsonNoInputAndNoOutput:ServerResponse", async () => {
  * altogether.
  */
 it("RestJsonNoInputAndOutput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     NoInputAndOutput: testFunction as NoInputAndOutput<{}>,
@@ -27771,7 +27771,7 @@ it("RestJsonNoInputAndOutput:ServerRequest", async () => {
  * default content-type.
  */
 it("RestJsonNoInputAndOutputAllowsAccept:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     NoInputAndOutput: testFunction as NoInputAndOutput<{}>,
@@ -27913,7 +27913,7 @@ it.skip("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
  * Serializes empty query strings
  */
 it("RestJsonSerializesEmptyQueryValue:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     OmitsNullSerializesEmptyString: testFunction as OmitsNullSerializesEmptyString<{}>,
@@ -27957,7 +27957,7 @@ it("RestJsonSerializesEmptyQueryValue:ServerRequest", async () => {
  * Servers accept static query params as empty strings.
  */
 it("RestJsonServersAcceptStaticQueryParamAsEmptyString:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     OmitsNullSerializesEmptyString: testFunction as OmitsNullSerializesEmptyString<{}>,
@@ -28001,7 +28001,7 @@ it("RestJsonServersAcceptStaticQueryParamAsEmptyString:ServerRequest", async () 
  * Server populates default values when missing in request body.
  */
 it.skip("RestJsonServerPopulatesDefaultsWhenMissingInRequestBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     OperationWithDefaults: testFunction as OperationWithDefaults<{}>,
@@ -28157,7 +28157,7 @@ it.skip("RestJsonServerPopulatesDefaultsInResponseWhenMissingInParams:ServerResp
  * Server populates nested default values when missing in request body.
  */
 it.skip("RestJsonServerPopulatesNestedDefaultsWhenMissingInRequestBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     OperationWithNestedStructure: testFunction as OperationWithNestedStructure<{}>,
@@ -28369,7 +28369,7 @@ it.skip("RestJsonServerPopulatesNestedDefaultValuesWhenMissingInInResponseParams
  * Unit types in unions are serialized like normal structures in requests.
  */
 it("RestJsonInputUnionWithUnitMember:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PostPlayerAction: testFunction as PostPlayerAction<{}>,
@@ -28477,7 +28477,7 @@ it("RestJsonOutputUnionWithUnitMember:ServerResponse", async () => {
  * Tests that jsonName works with union members.
  */
 it("PostUnionWithJsonNameRequest1:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PostUnionWithJsonName: testFunction as PostUnionWithJsonName<{}>,
@@ -28523,7 +28523,7 @@ it("PostUnionWithJsonNameRequest1:ServerRequest", async () => {
  * Tests that jsonName works with union members.
  */
 it("PostUnionWithJsonNameRequest2:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PostUnionWithJsonName: testFunction as PostUnionWithJsonName<{}>,
@@ -28569,7 +28569,7 @@ it("PostUnionWithJsonNameRequest2:ServerRequest", async () => {
  * Tests that jsonName works with union members.
  */
 it("PostUnionWithJsonNameRequest3:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PostUnionWithJsonName: testFunction as PostUnionWithJsonName<{}>,
@@ -28801,7 +28801,7 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
 it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PutWithContentEncoding: testFunction as PutWithContentEncoding<{}>,
@@ -28847,7 +28847,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
  *
  */
 it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     PutWithContentEncoding: testFunction as PutWithContentEncoding<{}>,
@@ -28891,7 +28891,7 @@ it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async ()
  * Servers put all query params in map
  */
 it("RestJsonServersQueryParamsStringListMap:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     QueryParamsAsStringListMap: testFunction as QueryParamsAsStringListMap<{}>,
@@ -28940,7 +28940,7 @@ it("RestJsonServersQueryParamsStringListMap:ServerRequest", async () => {
  * Servers put all query params in map
  */
 it("RestJsonServersPutAllQueryParamsInMap:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     QueryPrecedence: testFunction as QueryPrecedence<{}>,
@@ -28989,7 +28989,7 @@ it("RestJsonServersPutAllQueryParamsInMap:ServerRequest", async () => {
  * Serializes recursive structures
  */
 it("RestJsonRecursiveShapes:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     RecursiveShapes: testFunction as RecursiveShapes<{}>,
@@ -29126,7 +29126,7 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
  * Serializes simple scalar properties
  */
 it("RestJsonSimpleScalarProperties:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SimpleScalarProperties: testFunction as SimpleScalarProperties<{}>,
@@ -29182,7 +29182,7 @@ it("RestJsonSimpleScalarProperties:ServerRequest", async () => {
  * Rest Json should not deserialize null structure values
  */
 it("RestJsonServersDontSerializeNullStructureValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SimpleScalarProperties: testFunction as SimpleScalarProperties<{}>,
@@ -29216,7 +29216,7 @@ it("RestJsonServersDontSerializeNullStructureValues:ServerRequest", async () => 
  * Supports handling NaN float values.
  */
 it("RestJsonSupportsNaNFloatInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SimpleScalarProperties: testFunction as SimpleScalarProperties<{}>,
@@ -29261,7 +29261,7 @@ it("RestJsonSupportsNaNFloatInputs:ServerRequest", async () => {
  * Supports handling Infinity float values.
  */
 it("RestJsonSupportsInfinityFloatInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SimpleScalarProperties: testFunction as SimpleScalarProperties<{}>,
@@ -29306,7 +29306,7 @@ it("RestJsonSupportsInfinityFloatInputs:ServerRequest", async () => {
  * Supports handling -Infinity float values.
  */
 it("RestJsonSupportsNegativeInfinityFloatInputs:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SimpleScalarProperties: testFunction as SimpleScalarProperties<{}>,
@@ -29664,7 +29664,7 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
  * Serializes null values in sparse lists
  */
 it("RestJsonSparseListsSerializeNull:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonLists: testFunction as SparseJsonLists<{}>,
@@ -29777,7 +29777,7 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
  * Serializes JSON maps
  */
 it("RestJsonSparseJsonMaps:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonMaps: testFunction as SparseJsonMaps<{}>,
@@ -29830,7 +29830,7 @@ it("RestJsonSparseJsonMaps:ServerRequest", async () => {
  * Serializes JSON map values in sparse maps
  */
 it("RestJsonSerializesSparseNullMapValues:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonMaps: testFunction as SparseJsonMaps<{}>,
@@ -29887,7 +29887,7 @@ it("RestJsonSerializesSparseNullMapValues:ServerRequest", async () => {
  * Ensure that 0 and false are sent over the wire in all maps and lists
  */
 it("RestJsonSerializesZeroValuesInSparseMaps:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonMaps: testFunction as SparseJsonMaps<{}>,
@@ -29938,7 +29938,7 @@ it("RestJsonSerializesZeroValuesInSparseMaps:ServerRequest", async () => {
  * A request that contains a sparse map of sets
  */
 it("RestJsonSerializesSparseSetMap:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonMaps: testFunction as SparseJsonMaps<{}>,
@@ -29985,7 +29985,7 @@ it("RestJsonSerializesSparseSetMap:ServerRequest", async () => {
  * A request that contains a sparse map of sets.
  */
 it("RestJsonSerializesSparseSetMapAndRetainsNull:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     SparseJsonMaps: testFunction as SparseJsonMaps<{}>,
@@ -30385,7 +30385,7 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
  * Serializes a blob in the HTTP payload
  */
 it("RestJsonStreamingTraitsWithBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     StreamingTraits: testFunction as StreamingTraits<{}>,
@@ -30436,7 +30436,7 @@ it("RestJsonStreamingTraitsWithBlob:ServerRequest", async () => {
  * Serializes an empty blob in the HTTP payload
  */
 it("RestJsonStreamingTraitsWithNoBlobBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     StreamingTraits: testFunction as StreamingTraits<{}>,
@@ -30596,7 +30596,7 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerResponse", async () => {
  * Serializes a blob in the HTTP payload with a required length
  */
 it("RestJsonStreamingTraitsRequireLengthWithBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     StreamingTraitsRequireLength: testFunction as StreamingTraitsRequireLength<{}>,
@@ -30647,7 +30647,7 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:ServerRequest", async () => {
  * Serializes an empty blob in the HTTP payload
  */
 it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     StreamingTraitsRequireLength: testFunction as StreamingTraitsRequireLength<{}>,
@@ -30696,7 +30696,7 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:ServerRequest", async () 
  * Serializes a blob in the HTTP payload with a content-type
  */
 it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     StreamingTraitsWithMediaType: testFunction as StreamingTraitsWithMediaType<{}>,
@@ -30806,7 +30806,7 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerResponse", async () => {
  * Serializes a structure
  */
 it("RestJsonTestBodyStructure:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestBodyStructure: testFunction as TestBodyStructure<{}>,
@@ -30852,7 +30852,7 @@ it("RestJsonTestBodyStructure:ServerRequest", async () => {
  * Serializes an empty structure in the body
  */
 it("RestJsonHttpWithEmptyBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestBodyStructure: testFunction as TestBodyStructure<{}>,
@@ -30886,7 +30886,7 @@ it("RestJsonHttpWithEmptyBody:ServerRequest", async () => {
  * Serializes a GET request for an operation with no input, and therefore no modeled body
  */
 it("RestJsonHttpGetWithNoInput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestGetNoInputNoPayload: testFunction as TestGetNoInputNoPayload<{}>,
@@ -30918,7 +30918,7 @@ it("RestJsonHttpGetWithNoInput:ServerRequest", async () => {
  * Serializes a GET request with no modeled body
  */
 it("RestJsonHttpGetWithNoModeledBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestGetNoPayload: testFunction as TestGetNoPayload<{}>,
@@ -30950,7 +30950,7 @@ it("RestJsonHttpGetWithNoModeledBody:ServerRequest", async () => {
  * Serializes a GET request with header member but no modeled body
  */
 it("RestJsonHttpGetWithHeaderMemberNoModeledBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestGetNoPayload: testFunction as TestGetNoPayload<{}>,
@@ -30994,7 +30994,7 @@ it("RestJsonHttpGetWithHeaderMemberNoModeledBody:ServerRequest", async () => {
  * Serializes a payload targeting an empty blob
  */
 it("RestJsonHttpWithEmptyBlobPayload:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPayloadBlob: testFunction as TestPayloadBlob<{}>,
@@ -31026,7 +31026,7 @@ it("RestJsonHttpWithEmptyBlobPayload:ServerRequest", async () => {
  * Serializes a payload targeting a blob
  */
 it("RestJsonTestPayloadBlob:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPayloadBlob: testFunction as TestPayloadBlob<{}>,
@@ -31071,7 +31071,7 @@ it("RestJsonTestPayloadBlob:ServerRequest", async () => {
  * Serializes a payload targeting an empty structure
  */
 it("RestJsonHttpWithEmptyStructurePayload:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPayloadStructure: testFunction as TestPayloadStructure<{}>,
@@ -31105,7 +31105,7 @@ it("RestJsonHttpWithEmptyStructurePayload:ServerRequest", async () => {
  * Serializes a payload targeting a structure
  */
 it("RestJsonTestPayloadStructure:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPayloadStructure: testFunction as TestPayloadStructure<{}>,
@@ -31151,7 +31151,7 @@ it("RestJsonTestPayloadStructure:ServerRequest", async () => {
  * Serializes an request with header members but no payload
  */
 it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPayloadStructure: testFunction as TestPayloadStructure<{}>,
@@ -31196,7 +31196,7 @@ it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
  * Serializes a POST request for an operation with no input, and therefore no modeled body
  */
 it("RestJsonHttpPostWithNoInput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPostNoInputNoPayload: testFunction as TestPostNoInputNoPayload<{}>,
@@ -31228,7 +31228,7 @@ it("RestJsonHttpPostWithNoInput:ServerRequest", async () => {
  * Serializes a POST request with no modeled body
  */
 it("RestJsonHttpPostWithNoModeledBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPostNoPayload: testFunction as TestPostNoPayload<{}>,
@@ -31260,7 +31260,7 @@ it("RestJsonHttpPostWithNoModeledBody:ServerRequest", async () => {
  * Serializes a POST request with header member but no modeled body
  */
 it("RestJsonHttpWithPostHeaderMemberNoModeledBody:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TestPostNoPayload: testFunction as TestPostNoPayload<{}>,
@@ -31304,7 +31304,7 @@ it("RestJsonHttpWithPostHeaderMemberNoModeledBody:ServerRequest", async () => {
  * Tests how timestamp request headers are serialized
  */
 it("RestJsonTimestampFormatHeaders:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     TimestampFormatHeaders: testFunction as TimestampFormatHeaders<{}>,
@@ -31430,7 +31430,7 @@ it("RestJsonTimestampFormatHeaders:ServerResponse", async () => {
  * a payload altogether.
  */
 it("RestJsonUnitInputAndOutput:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     UnitInputAndOutput: testFunction as UnitInputAndOutput<{}>,
@@ -31463,7 +31463,7 @@ it("RestJsonUnitInputAndOutput:ServerRequest", async () => {
  * default content-type.
  */
 it("RestJsonUnitInputAllowsAccept:ServerRequest", async () => {
-  const testFunction = vi.fn();
+  const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
     UnitInputAndOutput: testFunction as UnitInputAndOutput<{}>,
