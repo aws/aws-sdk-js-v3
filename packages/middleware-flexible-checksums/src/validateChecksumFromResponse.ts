@@ -1,10 +1,13 @@
 import { HttpResponse } from "@smithy/protocol-http";
+import { Checksum } from "@smithy/types";
+import { createChecksumStream } from "@smithy/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
@@ -29,9 +32,20 @@ export const validateChecksumFromResponse = async (
     const checksumFromResponse = responseHeaders[responseHeader];
     if (checksumFromResponse) {
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
-      const { streamHasher, base64Encoder } = config;
-      const checksum = await getChecksum(responseBody, { streamHasher, checksumAlgorithmFn, base64Encoder });
+      const { base64Encoder } = config;
 
+      if (isStreaming(responseBody)) {
+        createChecksumStream({
+          expectedChecksum: checksumFromResponse,
+          checksumSourceLocation: responseHeader,
+          checksum: new checksumAlgorithmFn() as Checksum,
+          source: responseBody,
+          base64Encoder,
+        });
+        return;
+      }
+
+      const checksum = await getChecksum(responseBody, { checksumAlgorithmFn, base64Encoder });
       if (checksum === checksumFromResponse) {
         // The checksum for response payload is valid.
         break;
