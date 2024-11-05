@@ -1,11 +1,11 @@
 import type { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, onTestFailed, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { getRuntimeConfig } from "../../src/runtimeConfig.browser";
-import { S3 as S3Impl } from "../browser-build/browser-s3-bundle";
+import { S3 as S3Impl, waitUntilObjectExists } from "../browser-build/browser-s3-bundle";
 import { createBuffer } from "./helpers";
 
 describe("@aws-sdk/client-s3", () => {
@@ -14,6 +14,11 @@ describe("@aws-sdk/client-s3", () => {
   let region: string;
   let mrapArn: string;
   let Key = `${Date.now()}`;
+  const errors = [] as any[];
+  let testFailed = false;
+  const setTestFailed = () => {
+    testFailed = true;
+  };
 
   beforeAll(async () => {
     const integTestResourcesEnv = await getIntegTestResources();
@@ -28,8 +33,26 @@ describe("@aws-sdk/client-s3", () => {
         region,
         credentials: fromNodeProviderChain(),
         requestHandler: new FetchHttpHandler(),
+        logger: {
+          trace() {},
+          debug() {},
+          info() {},
+          warn() {},
+          error(entry: any) {
+            errors.push(entry);
+          },
+        },
       })
     ) as unknown as S3;
+  });
+
+  afterAll(() => {
+    if (testFailed) {
+      console.info("Test failed, logging errors collecting during test.");
+      for (const error of errors) {
+        console.error(error);
+      }
+    }
   });
 
   describe("PutObject", () => {
@@ -47,6 +70,7 @@ describe("@aws-sdk/client-s3", () => {
     // Caused by: RequestContentLengthMismatchError: Request body length does not match content-length header
     // only in vitest + happy-dom.
     it.skip("should succeed with blob body", async () => {
+      onTestFailed(setTestFailed);
       const blob = new Blob([buf]);
       const result = await client.putObject({
         Bucket,
@@ -58,6 +82,7 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     it("should succeed with TypedArray body", async () => {
+      onTestFailed(setTestFailed);
       const result = await client.putObject({
         Bucket,
         Key,
@@ -67,6 +92,7 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     it("should succeed with ReadableStream body", async () => {
+      onTestFailed(setTestFailed);
       const length = 10 * 1000; // 10KB
       const chunkSize = 10;
       const readableStream = new ReadableStream({
@@ -102,6 +128,7 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     it("should succeed with valid body payload", async () => {
+      onTestFailed(setTestFailed);
       // prepare the object.
       const body = createBuffer("1MB");
 
@@ -133,7 +160,9 @@ describe("@aws-sdk/client-s3", () => {
     afterEach(async () => {
       await client.deleteObject({ Bucket, Key });
     });
+
     it("should succeed with valid bucket", async () => {
+      onTestFailed(setTestFailed);
       const result = await client.listObjects({
         Bucket,
       });
@@ -142,6 +171,7 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     it("should throw with invalid bucket", () => {
+      onTestFailed(setTestFailed);
       expect(() => client.listObjects({ Bucket: "invalid-bucket" })).rejects.toThrow();
     });
   });
@@ -150,9 +180,11 @@ describe("@aws-sdk/client-s3", () => {
     let UploadId: string;
     let Etag: string;
     const multipartObjectKey = `${Key}-multipart`;
+
     beforeEach(() => {
       Key = `${Date.now()}`;
     });
+
     afterEach(async () => {
       if (UploadId) {
         await client.abortMultipartUpload({
@@ -168,7 +200,9 @@ describe("@aws-sdk/client-s3", () => {
     });
 
     it("should successfully create, upload list and complete", async () => {
-      //create multipart upload
+      onTestFailed(setTestFailed);
+
+      // create multipart upload
       const createResult = await client.createMultipartUpload({
         Bucket,
         Key: multipartObjectKey,
@@ -209,15 +243,23 @@ describe("@aws-sdk/client-s3", () => {
       expect(completeResult.$metadata.httpStatusCode).toEqual(200);
 
       //validate the object is uploaded
-      const headResult = await client.headObject({
-        Bucket,
-        Key: multipartObjectKey,
-      });
-      expect(headResult.$metadata.httpStatusCode).toEqual(200);
+      const waiterState = await waitUntilObjectExists(
+        {
+          client,
+          maxWaitTime: 60,
+        },
+        {
+          Bucket,
+          Key: multipartObjectKey,
+        }
+      );
+      expect(waiterState.state).toEqual("SUCCESS");
     });
 
     it("should successfully create, abort, and list upload", async () => {
-      //create multipart upload
+      onTestFailed(setTestFailed);
+
+      // create multipart upload
       const createResult = await client.createMultipartUpload({
         Bucket,
         Key: multipartObjectKey,
@@ -248,14 +290,18 @@ describe("@aws-sdk/client-s3", () => {
 jsrocks,13
 node4life,22
 esfuture,29`;
+
     beforeEach(async () => {
       Key = `${Date.now()}`;
       await client.putObject({ Bucket, Key, Body: csvFile });
     });
+
     afterEach(async () => {
       await client.deleteObject({ Bucket, Key });
     });
+
     it("should succeed", async () => {
+      onTestFailed(setTestFailed);
       const { Payload } = await client.selectObjectContent({
         Bucket,
         Key,
@@ -287,8 +333,9 @@ esfuture,29`;
     beforeEach(async () => {
       Key = `${Date.now()}`;
     });
-    afterEach(async () => {});
+
     it("should throw for aws-crt no available in browser", async () => {
+      onTestFailed(setTestFailed);
       try {
         await client.listObjects({
           Bucket: mrapArn,
@@ -299,4 +346,4 @@ esfuture,29`;
       }
     });
   });
-});
+}, 60_000);
