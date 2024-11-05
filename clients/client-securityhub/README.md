@@ -81,7 +81,7 @@ second. <code>BurstLimit</code> of 5 requests per second.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-securityhub
+To install this package, simply type add or install @aws-sdk/client-securityhub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-securityhub`

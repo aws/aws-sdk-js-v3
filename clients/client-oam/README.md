@@ -20,7 +20,7 @@ observability data can include metrics in Amazon CloudWatch, logs in Amazon Clou
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-oam
+To install this package, simply type add or install @aws-sdk/client-oam
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-oam`

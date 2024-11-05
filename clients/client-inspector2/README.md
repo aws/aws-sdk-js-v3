@@ -11,7 +11,7 @@ security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Serv
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-inspector2
+To install this package, simply type add or install @aws-sdk/client-inspector2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-inspector2`

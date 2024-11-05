@@ -13,7 +13,7 @@ and applications. For more information about using ACM, see the <a href="https:/
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-acm
+To install this package, simply type add or install @aws-sdk/client-acm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-acm`

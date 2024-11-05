@@ -10,7 +10,7 @@ AWS SDK for JavaScript IoT1ClickProjects Client for Node.js, Browser and React N
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iot-1click-projects
+To install this package, simply type add or install @aws-sdk/client-iot-1click-projects
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iot-1click-projects`

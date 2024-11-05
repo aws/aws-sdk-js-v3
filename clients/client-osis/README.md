@@ -12,7 +12,7 @@ fully managed data collector that delivers real-time log and trace data to OpenS
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-osis
+To install this package, simply type add or install @aws-sdk/client-osis
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-osis`

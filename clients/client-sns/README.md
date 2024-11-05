@@ -23,7 +23,7 @@ responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/to
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sns
+To install this package, simply type add or install @aws-sdk/client-sns
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sns`

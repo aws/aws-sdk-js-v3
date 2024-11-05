@@ -29,7 +29,7 @@ For more information about Step Functions, see the <i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sfn
+To install this package, simply type add or install @aws-sdk/client-sfn
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sfn`

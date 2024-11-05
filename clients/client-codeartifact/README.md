@@ -353,7 +353,7 @@ that specifies permissions to access it. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codeartifact
+To install this package, simply type add or install @aws-sdk/client-codeartifact
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codeartifact`

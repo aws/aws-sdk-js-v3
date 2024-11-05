@@ -10,7 +10,7 @@ AWS SDK for JavaScript ComprehendMedical Client for Node.js, Browser and React N
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-comprehendmedical
+To install this package, simply type add or install @aws-sdk/client-comprehendmedical
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-comprehendmedical`

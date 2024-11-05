@@ -30,7 +30,7 @@ example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-emr-serverless
+To install this package, simply type add or install @aws-sdk/client-emr-serverless
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-emr-serverless`

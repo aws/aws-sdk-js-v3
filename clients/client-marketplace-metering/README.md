@@ -74,7 +74,7 @@ You can also use CloudTrail to audit records over time. For more information, se
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-metering
+To install this package, simply type add or install @aws-sdk/client-marketplace-metering
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-metering`

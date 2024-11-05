@@ -10,7 +10,7 @@ AWS SDK for JavaScript LexRuntimeV2 Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lex-runtime-v2
+To install this package, simply type add or install @aws-sdk/client-lex-runtime-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lex-runtime-v2`

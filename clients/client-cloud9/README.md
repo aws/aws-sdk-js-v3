@@ -77,7 +77,7 @@ environment member for an environment.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloud9
+To install this package, simply type add or install @aws-sdk/client-cloud9
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloud9`

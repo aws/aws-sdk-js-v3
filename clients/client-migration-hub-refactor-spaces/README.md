@@ -18,7 +18,7 @@ and their OUs, use Resource Access Manager's <code>CreateResourceShare</code> AP
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-migration-hub-refactor-spaces
+To install this package, simply type add or install @aws-sdk/client-migration-hub-refactor-spaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-migration-hub-refactor-spaces`

@@ -13,7 +13,7 @@ AWS SDK for JavaScript KinesisVideoWebRTCStorage Client for Node.js, Browser and
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-video-webrtc-storage
+To install this package, simply type add or install @aws-sdk/client-kinesis-video-webrtc-storage
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-video-webrtc-storage`

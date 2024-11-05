@@ -20,7 +20,7 @@ about CodeGuru Security, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codeguru-security
+To install this package, simply type add or install @aws-sdk/client-codeguru-security
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codeguru-security`

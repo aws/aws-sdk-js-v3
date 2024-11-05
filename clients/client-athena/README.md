@@ -20,7 +20,7 @@ Amazon Athena with JDBC</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-athena
+To install this package, simply type add or install @aws-sdk/client-athena
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-athena`

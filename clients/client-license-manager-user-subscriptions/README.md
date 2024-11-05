@@ -11,7 +11,7 @@ a per user subscription fee on Amazon EC2 instances.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-license-manager-user-subscriptions
+To install this package, simply type add or install @aws-sdk/client-license-manager-user-subscriptions
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-license-manager-user-subscriptions`

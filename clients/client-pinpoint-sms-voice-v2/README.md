@@ -42,7 +42,7 @@ Global Infrastructure.</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice-v2
+To install this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pinpoint-sms-voice-v2`

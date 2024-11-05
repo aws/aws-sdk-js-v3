@@ -12,7 +12,7 @@ protocols.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iot-1click-devices-service
+To install this package, simply type add or install @aws-sdk/client-iot-1click-devices-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iot-1click-devices-service`

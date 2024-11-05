@@ -11,7 +11,7 @@ AWS SDK for JavaScript MediaTailor Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediatailor
+To install this package, simply type add or install @aws-sdk/client-mediatailor
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediatailor`

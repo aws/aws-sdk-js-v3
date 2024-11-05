@@ -12,7 +12,7 @@ Systems Manager, by automating common or recommended tasks.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm-quicksetup
+To install this package, simply type add or install @aws-sdk/client-ssm-quicksetup
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm-quicksetup`

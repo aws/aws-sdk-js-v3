@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/url-parser": "^3.0.7",
+    "@smithy/url-parser": "^3.0.8",
     "tslib": "^2.6.2"
   },
   "files": [

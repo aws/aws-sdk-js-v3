@@ -26,7 +26,7 @@ User Guide</a> for information about the data that is included with each Amazon 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudtrail
+To install this package, simply type add or install @aws-sdk/client-cloudtrail
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudtrail`

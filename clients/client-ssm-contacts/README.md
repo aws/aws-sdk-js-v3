@@ -17,7 +17,7 @@ and enables responder team escalation.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm-contacts
+To install this package, simply type add or install @aws-sdk/client-ssm-contacts
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm-contacts`

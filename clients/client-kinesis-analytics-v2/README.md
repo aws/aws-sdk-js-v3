@@ -15,7 +15,7 @@ series analytics, feed real-time dashboards, and create real-time metrics.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-analytics-v2
+To install this package, simply type add or install @aws-sdk/client-kinesis-analytics-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-analytics-v2`

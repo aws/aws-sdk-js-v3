@@ -27,7 +27,7 @@ see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/ind
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces
+To install this package, simply type add or install @aws-sdk/client-workspaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces`

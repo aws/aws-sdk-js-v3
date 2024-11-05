@@ -17,7 +17,7 @@ Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mailmanager
+To install this package, simply type add or install @aws-sdk/client-mailmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mailmanager`

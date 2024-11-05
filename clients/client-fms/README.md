@@ -16,7 +16,7 @@ types, and errors. For detailed information about Firewall Manager features, see
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-fms
+To install this package, simply type add or install @aws-sdk/client-fms
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-fms`

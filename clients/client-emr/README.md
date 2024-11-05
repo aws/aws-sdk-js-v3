@@ -12,7 +12,7 @@ machine learning, scientific simulation, and data warehouse management.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-emr
+To install this package, simply type add or install @aws-sdk/client-emr
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-emr`

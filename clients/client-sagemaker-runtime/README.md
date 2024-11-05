@@ -10,7 +10,7 @@ AWS SDK for JavaScript SageMakerRuntime Client for Node.js, Browser and React Na
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker-runtime
+To install this package, simply type add or install @aws-sdk/client-sagemaker-runtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker-runtime`

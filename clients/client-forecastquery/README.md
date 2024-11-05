@@ -10,7 +10,7 @@ AWS SDK for JavaScript Forecastquery Client for Node.js, Browser and React Nativ
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-forecastquery
+To install this package, simply type add or install @aws-sdk/client-forecastquery
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-forecastquery`

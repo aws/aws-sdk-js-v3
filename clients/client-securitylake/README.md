@@ -35,7 +35,7 @@ incident response and security data analytics.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-securitylake
+To install this package, simply type add or install @aws-sdk/client-securitylake
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-securitylake`

@@ -23,7 +23,7 @@ programming model, see the <i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-swf
+To install this package, simply type add or install @aws-sdk/client-swf
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-swf`

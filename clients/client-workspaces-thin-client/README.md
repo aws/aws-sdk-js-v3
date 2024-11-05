@@ -21,7 +21,7 @@ CLI Reference</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces-thin-client
+To install this package, simply type add or install @aws-sdk/client-workspaces-thin-client
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces-thin-client`

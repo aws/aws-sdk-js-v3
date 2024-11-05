@@ -11,7 +11,7 @@ used by the EKS Pod Identity Agent.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-eks-auth
+To install this package, simply type add or install @aws-sdk/client-eks-auth
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-eks-auth`

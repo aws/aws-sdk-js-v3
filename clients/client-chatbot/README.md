@@ -33,7 +33,7 @@ AWS SDK for JavaScript Chatbot Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chatbot
+To install this package, simply type add or install @aws-sdk/client-chatbot
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chatbot`

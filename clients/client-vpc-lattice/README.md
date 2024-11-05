@@ -14,7 +14,7 @@ you can discover and manage them more efficiently. For more information, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-vpc-lattice
+To install this package, simply type add or install @aws-sdk/client-vpc-lattice
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-vpc-lattice`

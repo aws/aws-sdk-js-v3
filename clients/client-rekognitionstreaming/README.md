@@ -31,7 +31,7 @@ operations for Rekognition Face Liveness.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rekognitionstreaming
+To install this package, simply type add or install @aws-sdk/client-rekognitionstreaming
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rekognitionstreaming`

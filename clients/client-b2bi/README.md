@@ -20,7 +20,7 @@ on a later command. For details, see <a href="https://docs.aws.amazon.com/cli/la
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-b2bi
+To install this package, simply type add or install @aws-sdk/client-b2bi
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-b2bi`

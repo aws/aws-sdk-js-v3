@@ -35,7 +35,7 @@ Amazon A2I</a> in the Amazon SageMaker Developer Guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker-a2i-runtime
+To install this package, simply type add or install @aws-sdk/client-sagemaker-a2i-runtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker-a2i-runtime`

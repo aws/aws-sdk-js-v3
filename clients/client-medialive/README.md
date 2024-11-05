@@ -10,7 +10,7 @@ API for AWS Elemental MediaLive
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-medialive
+To install this package, simply type add or install @aws-sdk/client-medialive
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-medialive`

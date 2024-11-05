@@ -36,7 +36,7 @@ network to your VPCs (inbound queries), or both.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53resolver
+To install this package, simply type add or install @aws-sdk/client-route53resolver
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53resolver`

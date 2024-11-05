@@ -16,7 +16,7 @@ receive an answer that contains up to eight healthy records. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-servicediscovery
+To install this package, simply type add or install @aws-sdk/client-servicediscovery
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-servicediscovery`

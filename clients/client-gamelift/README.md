@@ -67,7 +67,7 @@ and resources</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-gamelift
+To install this package, simply type add or install @aws-sdk/client-gamelift
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-gamelift`

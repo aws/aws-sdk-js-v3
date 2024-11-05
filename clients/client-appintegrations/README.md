@@ -43,7 +43,7 @@ real-time</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appintegrations
+To install this package, simply type add or install @aws-sdk/client-appintegrations
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appintegrations`

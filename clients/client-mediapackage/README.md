@@ -10,7 +10,7 @@ AWS Elemental MediaPackage
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediapackage
+To install this package, simply type add or install @aws-sdk/client-mediapackage
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediapackage`

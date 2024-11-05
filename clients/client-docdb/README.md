@@ -12,7 +12,7 @@ With Amazon DocumentDB, you can run the same application code and use the same d
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-docdb
+To install this package, simply type add or install @aws-sdk/client-docdb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-docdb`

@@ -12,7 +12,7 @@ MediaStore.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediastore-data
+To install this package, simply type add or install @aws-sdk/client-mediastore-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediastore-data`

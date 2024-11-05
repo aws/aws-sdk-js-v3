@@ -29,7 +29,7 @@ GuardDuty User Guide</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-guardduty
+To install this package, simply type add or install @aws-sdk/client-guardduty
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-guardduty`

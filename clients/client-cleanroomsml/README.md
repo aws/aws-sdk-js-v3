@@ -15,7 +15,7 @@ AWS SDK for JavaScript CleanRoomsML Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cleanroomsml
+To install this package, simply type add or install @aws-sdk/client-cleanroomsml
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cleanroomsml`

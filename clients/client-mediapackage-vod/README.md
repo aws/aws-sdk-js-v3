@@ -10,7 +10,7 @@ AWS Elemental MediaPackage VOD
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediapackage-vod
+To install this package, simply type add or install @aws-sdk/client-mediapackage-vod
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediapackage-vod`

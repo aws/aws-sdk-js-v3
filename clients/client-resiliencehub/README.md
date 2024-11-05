@@ -14,7 +14,7 @@ applications are met, and resolve issues before they are released into productio
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resiliencehub
+To install this package, simply type add or install @aws-sdk/client-resiliencehub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resiliencehub`

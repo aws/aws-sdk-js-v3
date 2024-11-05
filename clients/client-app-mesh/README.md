@@ -24,7 +24,7 @@ for Services and Pods</a> in the Kubernetes documentation.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-app-mesh
+To install this package, simply type add or install @aws-sdk/client-app-mesh
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-app-mesh`

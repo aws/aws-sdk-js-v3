@@ -17,7 +17,7 @@ and quantify savings for your cost optimization recommendations across multiple 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cost-optimization-hub
+To install this package, simply type add or install @aws-sdk/client-cost-optimization-hub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cost-optimization-hub`

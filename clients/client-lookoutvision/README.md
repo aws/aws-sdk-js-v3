@@ -16,7 +16,7 @@ on printed circuit boards.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lookoutvision
+To install this package, simply type add or install @aws-sdk/client-lookoutvision
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lookoutvision`

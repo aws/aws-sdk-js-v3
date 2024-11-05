@@ -54,7 +54,7 @@ Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User G
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-support
+To install this package, simply type add or install @aws-sdk/client-support
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-support`

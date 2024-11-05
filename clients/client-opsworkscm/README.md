@@ -98,7 +98,7 @@ can only be accessed or managed within the endpoint in which they are created.</
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opsworkscm
+To install this package, simply type add or install @aws-sdk/client-opsworkscm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opsworkscm`

@@ -32,7 +32,7 @@ the <i>Amazon CodeGuru Profiler User Guide</i>.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codeguruprofiler
+To install this package, simply type add or install @aws-sdk/client-codeguruprofiler
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codeguruprofiler`

@@ -43,7 +43,7 @@ permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amaz
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-auto-scaling-plans
+To install this package, simply type add or install @aws-sdk/client-auto-scaling-plans
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-auto-scaling-plans`

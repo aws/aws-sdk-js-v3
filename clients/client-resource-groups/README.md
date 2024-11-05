@@ -43,7 +43,7 @@ results</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resource-groups
+To install this package, simply type add or install @aws-sdk/client-resource-groups
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resource-groups`

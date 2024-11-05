@@ -25,7 +25,7 @@ Management Pricing</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cost-explorer
+To install this package, simply type add or install @aws-sdk/client-cost-explorer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cost-explorer`

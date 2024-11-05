@@ -12,7 +12,7 @@ With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs an
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53profiles
+To install this package, simply type add or install @aws-sdk/client-route53profiles
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53profiles`

@@ -68,7 +68,7 @@ using the IAM model.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workdocs
+To install this package, simply type add or install @aws-sdk/client-workdocs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workdocs`

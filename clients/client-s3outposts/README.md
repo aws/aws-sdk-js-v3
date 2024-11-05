@@ -10,7 +10,7 @@ AWS SDK for JavaScript S3Outposts Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-s3outposts
+To install this package, simply type add or install @aws-sdk/client-s3outposts
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-s3outposts`

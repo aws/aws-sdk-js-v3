@@ -28,7 +28,7 @@ AWS SDK for JavaScript AppStream Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appstream
+To install this package, simply type add or install @aws-sdk/client-appstream
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appstream`

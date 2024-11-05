@@ -13,7 +13,7 @@ scales capacity on demand to support additional devices as needed.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-privatenetworks
+To install this package, simply type add or install @aws-sdk/client-privatenetworks
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-privatenetworks`

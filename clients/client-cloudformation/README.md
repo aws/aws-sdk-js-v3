@@ -23,7 +23,7 @@ specific Amazon Web Services product, you can find the product's technical docum
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudformation
+To install this package, simply type add or install @aws-sdk/client-cloudformation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudformation`

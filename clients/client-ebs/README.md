@@ -26,7 +26,7 @@ the <i>Amazon Web Services General Reference</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ebs
+To install this package, simply type add or install @aws-sdk/client-ebs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ebs`

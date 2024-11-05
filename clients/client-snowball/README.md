@@ -15,7 +15,7 @@ you'll need to use the Snowball Edge client or the Amazon S3 API Interface for S
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-snowball
+To install this package, simply type add or install @aws-sdk/client-snowball
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-snowball`

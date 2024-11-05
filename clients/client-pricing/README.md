@@ -38,7 +38,7 @@ Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pricing
+To install this package, simply type add or install @aws-sdk/client-pricing
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pricing`

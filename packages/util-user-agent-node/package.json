@@ -23,8 +23,8 @@
   "dependencies": {
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.8",
-    "@smithy/types": "^3.5.0",
+    "@smithy/node-config-provider": "^3.1.9",
+    "@smithy/types": "^3.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

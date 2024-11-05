@@ -140,7 +140,7 @@ Resource Names</a> in the <i>AWS General Reference</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ivs
+To install this package, simply type add or install @aws-sdk/client-ivs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ivs`

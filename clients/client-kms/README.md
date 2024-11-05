@@ -105,7 +105,7 @@ keys and assigning policies, by using the console.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kms
+To install this package, simply type add or install @aws-sdk/client-kms
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kms`

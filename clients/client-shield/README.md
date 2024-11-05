@@ -14,7 +14,7 @@ data types, and errors. For detailed information about WAF and Shield Advanced f
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-shield
+To install this package, simply type add or install @aws-sdk/client-shield
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-shield`

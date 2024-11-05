@@ -12,7 +12,7 @@ receive meeting notifications. For more information about the meeting APIs, see
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-meetings
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-meetings
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-meetings`

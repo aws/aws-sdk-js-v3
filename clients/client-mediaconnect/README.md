@@ -10,7 +10,7 @@ API for AWS Elemental MediaConnect
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediaconnect
+To install this package, simply type add or install @aws-sdk/client-mediaconnect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediaconnect`

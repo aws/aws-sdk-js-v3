@@ -68,7 +68,7 @@ configuration</a> in the <i>AppConfig User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appconfigdata
+To install this package, simply type add or install @aws-sdk/client-appconfigdata
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appconfigdata`

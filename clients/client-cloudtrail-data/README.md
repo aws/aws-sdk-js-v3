@@ -15,7 +15,7 @@ from your applications.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudtrail-data
+To install this package, simply type add or install @aws-sdk/client-cloudtrail-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudtrail-data`

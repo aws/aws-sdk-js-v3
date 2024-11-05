@@ -10,7 +10,7 @@ AWS SDK for JavaScript Route53RecoveryControlConfig Client for Node.js, Browser 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53-recovery-control-config
+To install this package, simply type add or install @aws-sdk/client-route53-recovery-control-config
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53-recovery-control-config`

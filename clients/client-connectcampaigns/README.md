@@ -10,7 +10,7 @@ Provide APIs to create and manage Amazon Connect Campaigns.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connectcampaigns
+To install this package, simply type add or install @aws-sdk/client-connectcampaigns
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connectcampaigns`

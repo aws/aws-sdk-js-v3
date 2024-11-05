@@ -11,7 +11,7 @@ application administrators to launch and use shared file storage.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-fsx
+To install this package, simply type add or install @aws-sdk/client-fsx
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-fsx`

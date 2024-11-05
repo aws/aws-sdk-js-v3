@@ -11,7 +11,7 @@ Amazon EC2 instances.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-license-manager-linux-subscriptions
+To install this package, simply type add or install @aws-sdk/client-license-manager-linux-subscriptions
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-license-manager-linux-subscriptions`

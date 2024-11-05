@@ -19,7 +19,7 @@ like any resource supported by Backup.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-backup-gateway
+To install this package, simply type add or install @aws-sdk/client-backup-gateway
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-backup-gateway`

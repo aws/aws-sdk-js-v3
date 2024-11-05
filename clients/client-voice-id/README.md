@@ -11,7 +11,7 @@ make voice interactions in contact centers more secure and efficient.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-voice-id
+To install this package, simply type add or install @aws-sdk/client-voice-id
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-voice-id`

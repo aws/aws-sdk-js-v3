@@ -20,7 +20,7 @@ in the <i>Database Migration Service User Guide.</i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-database-migration-service
+To install this package, simply type add or install @aws-sdk/client-database-migration-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-database-migration-service`

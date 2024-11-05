@@ -11,7 +11,7 @@ also order and manage phone numbers, create and manage Voice Connectors and SIP 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-voice
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-voice
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-voice`
