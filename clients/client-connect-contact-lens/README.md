@@ -29,7 +29,7 @@ Guide</i>. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connect-contact-lens
+To install this package, simply type add or install @aws-sdk/client-connect-contact-lens
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connect-contact-lens`

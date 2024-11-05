@@ -22,7 +22,7 @@ Billing Conductor</a> user interface, see the <a href="https://docs.aws.amazon.c
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-billingconductor
+To install this package, simply type add or install @aws-sdk/client-billingconductor
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-billingconductor`

@@ -20,7 +20,7 @@ for all the targets of the job</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iot-jobs-data-plane
+To install this package, simply type add or install @aws-sdk/client-iot-jobs-data-plane
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iot-jobs-data-plane`

@@ -11,7 +11,7 @@ AWS SDK for JavaScript Omics Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-omics
+To install this package, simply type add or install @aws-sdk/client-omics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-omics`

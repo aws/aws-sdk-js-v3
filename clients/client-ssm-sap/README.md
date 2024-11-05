@@ -12,7 +12,7 @@ the API request parameters and responses. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm-sap
+To install this package, simply type add or install @aws-sdk/client-ssm-sap
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm-sap`

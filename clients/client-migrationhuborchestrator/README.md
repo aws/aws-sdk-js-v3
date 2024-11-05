@@ -14,7 +14,7 @@ using.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-migrationhuborchestrator
+To install this package, simply type add or install @aws-sdk/client-migrationhuborchestrator
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-migrationhuborchestrator`

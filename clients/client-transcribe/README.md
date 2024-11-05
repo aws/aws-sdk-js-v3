@@ -31,7 +31,7 @@ insight into customer service calls, use this option. Refer to  for details.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-transcribe
+To install this package, simply type add or install @aws-sdk/client-transcribe
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-transcribe`

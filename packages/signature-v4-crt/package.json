@@ -27,14 +27,14 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/querystring-parser": "^3.0.7",
     "@smithy/signature-v4": "^4.2.0",
-    "@smithy/types": "^3.5.0",
-    "@smithy/util-middleware": "^3.0.7",
+    "@smithy/types": "^3.6.0",
+    "@smithy/util-middleware": "^3.0.8",
     "aws-crt": "^1.18.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "5.2.0",
-    "@smithy/protocol-http": "^4.1.4",
+    "@smithy/protocol-http": "^4.1.5",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

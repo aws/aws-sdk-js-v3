@@ -17,7 +17,7 @@ understand the range of end-user impact including the number of users, geolocati
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rum
+To install this package, simply type add or install @aws-sdk/client-rum
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rum`

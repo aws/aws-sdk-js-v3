@@ -15,7 +15,7 @@ the event data. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pipes
+To install this package, simply type add or install @aws-sdk/client-pipes
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pipes`

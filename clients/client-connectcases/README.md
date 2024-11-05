@@ -14,7 +14,7 @@ and the outcome. For more information, see <a href="https://docs.aws.amazon.com/
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connectcases
+To install this package, simply type add or install @aws-sdk/client-connectcases
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connectcases`

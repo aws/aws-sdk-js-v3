@@ -15,7 +15,7 @@ significant improvements in read performance.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dax
+To install this package, simply type add or install @aws-sdk/client-dax
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dax`

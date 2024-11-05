@@ -47,7 +47,7 @@ IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sso-oidc
+To install this package, simply type add or install @aws-sdk/client-sso-oidc
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sso-oidc`

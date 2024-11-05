@@ -13,7 +13,7 @@ AWS SDK for JavaScript CloudSearchDomain Client for Node.js, Browser and React N
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudsearch-domain
+To install this package, simply type add or install @aws-sdk/client-cloudsearch-domain
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudsearch-domain`

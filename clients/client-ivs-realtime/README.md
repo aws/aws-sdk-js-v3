@@ -64,7 +64,7 @@ manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/acc
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ivs-realtime
+To install this package, simply type add or install @aws-sdk/client-ivs-realtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ivs-realtime`

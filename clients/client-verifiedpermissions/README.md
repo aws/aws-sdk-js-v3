@@ -74,7 +74,7 @@ naming convention is used for the structures:</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-verifiedpermissions
+To install this package, simply type add or install @aws-sdk/client-verifiedpermissions
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-verifiedpermissions`

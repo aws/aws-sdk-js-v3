@@ -12,7 +12,7 @@ MemoryDB stores the entire database in-memory, enabling low latency and high thr
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-memorydb
+To install this package, simply type add or install @aws-sdk/client-memorydb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-memorydb`

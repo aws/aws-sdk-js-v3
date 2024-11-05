@@ -26,7 +26,7 @@ are at risk of abandoning their wearable devices.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotanalytics
+To install this package, simply type add or install @aws-sdk/client-iotanalytics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotanalytics`

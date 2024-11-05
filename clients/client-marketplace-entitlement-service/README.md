@@ -27,7 +27,7 @@ product.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-entitlement-service
+To install this package, simply type add or install @aws-sdk/client-marketplace-entitlement-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-entitlement-service`

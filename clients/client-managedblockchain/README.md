@@ -13,7 +13,7 @@ AWS SDK for JavaScript ManagedBlockchain Client for Node.js, Browser and React N
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-managedblockchain
+To install this package, simply type add or install @aws-sdk/client-managedblockchain
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-managedblockchain`

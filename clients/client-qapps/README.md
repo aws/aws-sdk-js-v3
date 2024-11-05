@@ -23,7 +23,7 @@ IAM role for the Amazon Q Business web experience including Amazon Q Apps</a> in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-qapps
+To install this package, simply type add or install @aws-sdk/client-qapps
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-qapps`

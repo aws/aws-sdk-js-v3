@@ -11,7 +11,7 @@ anomalies in machines from sensor data for use in predictive maintenance. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lookoutequipment
+To install this package, simply type add or install @aws-sdk/client-lookoutequipment
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lookoutequipment`

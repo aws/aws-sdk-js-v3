@@ -26,7 +26,7 @@ When the task is done, the task runner reports the final success or failure of t
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-data-pipeline
+To install this package, simply type add or install @aws-sdk/client-data-pipeline
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-data-pipeline`

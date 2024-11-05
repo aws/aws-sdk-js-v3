@@ -14,7 +14,7 @@ Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-datazone
+To install this package, simply type add or install @aws-sdk/client-datazone
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-datazone`

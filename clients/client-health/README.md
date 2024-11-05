@@ -53,7 +53,7 @@ organization, you might receive several page results. Specify the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-health
+To install this package, simply type add or install @aws-sdk/client-health
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-health`

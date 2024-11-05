@@ -12,7 +12,7 @@ information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pca-connector-ad
+To install this package, simply type add or install @aws-sdk/client-pca-connector-ad
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pca-connector-ad`

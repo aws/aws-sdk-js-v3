@@ -28,7 +28,7 @@ and application names within dashboards and maps.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-application-signals
+To install this package, simply type add or install @aws-sdk/client-application-signals
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-application-signals`

@@ -65,7 +65,7 @@ Organizations</a> in the <i>Amazon Web Services Marketplace Buyer Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-reporting
+To install this package, simply type add or install @aws-sdk/client-marketplace-reporting
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-reporting`

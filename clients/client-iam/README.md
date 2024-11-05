@@ -15,7 +15,7 @@ applications can access. For more information about IAM, see <a href="http://aws
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iam
+To install this package, simply type add or install @aws-sdk/client-iam
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iam`

@@ -11,7 +11,7 @@ exposed by Amazon Machine Learning
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-machine-learning
+To install this package, simply type add or install @aws-sdk/client-machine-learning
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-machine-learning`

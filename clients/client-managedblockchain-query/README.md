@@ -16,7 +16,7 @@ logic for your applications.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-managedblockchain-query
+To install this package, simply type add or install @aws-sdk/client-managedblockchain-query
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-managedblockchain-query`

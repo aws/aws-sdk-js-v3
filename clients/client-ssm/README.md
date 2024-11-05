@@ -45,7 +45,7 @@ Reference</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm
+To install this package, simply type add or install @aws-sdk/client-ssm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm`

@@ -14,7 +14,7 @@ detectors, list detectors, and view or update a detector's status.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iot-events-data
+To install this package, simply type add or install @aws-sdk/client-iot-events-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iot-events-data`

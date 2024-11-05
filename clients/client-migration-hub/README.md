@@ -15,7 +15,7 @@ must make the API calls while in your home region.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-migration-hub
+To install this package, simply type add or install @aws-sdk/client-migration-hub
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-migration-hub`

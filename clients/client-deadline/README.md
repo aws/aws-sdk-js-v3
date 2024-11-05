@@ -17,7 +17,7 @@ services.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-deadline
+To install this package, simply type add or install @aws-sdk/client-deadline
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-deadline`

@@ -123,7 +123,7 @@ to Chef 12 as soon as possible.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opsworks
+To install this package, simply type add or install @aws-sdk/client-opsworks
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opsworks`

@@ -16,7 +16,7 @@ integrating Neptune into your applications.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-neptunedata
+To install this package, simply type add or install @aws-sdk/client-neptunedata
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-neptunedata`

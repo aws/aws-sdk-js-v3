@@ -90,7 +90,7 @@ Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codestar-connections
+To install this package, simply type add or install @aws-sdk/client-codestar-connections
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codestar-connections`

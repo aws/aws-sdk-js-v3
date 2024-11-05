@@ -25,7 +25,7 @@ in the <i>Amazon Aurora User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rds-data
+To install this package, simply type add or install @aws-sdk/client-rds-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rds-data`

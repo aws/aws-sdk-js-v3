@@ -15,7 +15,7 @@ errors.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iottwinmaker
+To install this package, simply type add or install @aws-sdk/client-iottwinmaker
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iottwinmaker`

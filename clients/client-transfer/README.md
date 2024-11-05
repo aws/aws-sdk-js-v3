@@ -19,7 +19,7 @@ set up.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-transfer
+To install this package, simply type add or install @aws-sdk/client-transfer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-transfer`

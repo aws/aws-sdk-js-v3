@@ -20,7 +20,7 @@ receive alarms if a part of their cache runs hot.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elasticache
+To install this package, simply type add or install @aws-sdk/client-elasticache
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elasticache`

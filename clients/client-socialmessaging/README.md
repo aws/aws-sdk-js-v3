@@ -35,7 +35,7 @@ in each Region, see <a href="https://aws.amazon.com/about-aws/global-infrastruct
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-socialmessaging
+To install this package, simply type add or install @aws-sdk/client-socialmessaging
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-socialmessaging`

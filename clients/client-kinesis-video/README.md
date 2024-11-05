@@ -10,7 +10,7 @@ AWS SDK for JavaScript KinesisVideo Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-video
+To install this package, simply type add or install @aws-sdk/client-kinesis-video
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-video`

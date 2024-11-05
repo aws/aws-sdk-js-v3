@@ -17,7 +17,7 @@ Concepts</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-service-catalog
+To install this package, simply type add or install @aws-sdk/client-service-catalog
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-service-catalog`

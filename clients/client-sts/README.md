@@ -14,7 +14,7 @@ more information about using this service, see <a href="https://docs.aws.amazon.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sts
+To install this package, simply type add or install @aws-sdk/client-sts
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sts`

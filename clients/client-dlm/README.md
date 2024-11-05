@@ -17,7 +17,7 @@ Amazon Data Lifecycle Manager</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dlm
+To install this package, simply type add or install @aws-sdk/client-dlm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dlm`

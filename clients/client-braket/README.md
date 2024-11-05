@@ -19,7 +19,7 @@ supported in Amazon Braket.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-braket
+To install this package, simply type add or install @aws-sdk/client-braket
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-braket`

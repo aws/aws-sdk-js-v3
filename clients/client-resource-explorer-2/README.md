@@ -30,7 +30,7 @@ service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/u
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resource-explorer-2
+To install this package, simply type add or install @aws-sdk/client-resource-explorer-2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resource-explorer-2`

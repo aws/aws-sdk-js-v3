@@ -24,7 +24,7 @@ see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentic
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cognito-identity
+To install this package, simply type add or install @aws-sdk/client-cognito-identity
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cognito-identity`

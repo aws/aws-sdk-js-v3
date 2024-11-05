@@ -102,7 +102,7 @@ details about Amazon ECS service deployments.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codedeploy
+To install this package, simply type add or install @aws-sdk/client-codedeploy
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codedeploy`

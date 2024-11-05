@@ -15,7 +15,7 @@ Amazon Web Services resources in the China Regions can only be accessed through 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-direct-connect
+To install this package, simply type add or install @aws-sdk/client-direct-connect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-direct-connect`

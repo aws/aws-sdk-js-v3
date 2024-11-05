@@ -21,7 +21,7 @@ Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rbin
+To install this package, simply type add or install @aws-sdk/client-rbin
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rbin`

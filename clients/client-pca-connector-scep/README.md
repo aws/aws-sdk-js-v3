@@ -10,7 +10,7 @@ AWS SDK for JavaScript PcaConnectorScep Client for Node.js, Browser and React Na
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pca-connector-scep
+To install this package, simply type add or install @aws-sdk/client-pca-connector-scep
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pca-connector-scep`

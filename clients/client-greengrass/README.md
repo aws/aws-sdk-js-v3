@@ -10,7 +10,7 @@ AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-greengrass
+To install this package, simply type add or install @aws-sdk/client-greengrass
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-greengrass`

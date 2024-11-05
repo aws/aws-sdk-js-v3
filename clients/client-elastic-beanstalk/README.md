@@ -23,7 +23,7 @@ Glossary</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elastic-beanstalk
+To install this package, simply type add or install @aws-sdk/client-elastic-beanstalk
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elastic-beanstalk`

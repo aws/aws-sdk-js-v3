@@ -17,7 +17,7 @@ see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsear
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elasticsearch-service
+To install this package, simply type add or install @aws-sdk/client-elasticsearch-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elasticsearch-service`

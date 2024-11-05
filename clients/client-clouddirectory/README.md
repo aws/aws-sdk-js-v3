@@ -16,7 +16,7 @@ Service</a> and the <a href="https://docs.aws.amazon.com/clouddirectory/latest/d
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-clouddirectory
+To install this package, simply type add or install @aws-sdk/client-clouddirectory
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-clouddirectory`

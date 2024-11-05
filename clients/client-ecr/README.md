@@ -19,7 +19,7 @@ repositories and images.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ecr
+To install this package, simply type add or install @aws-sdk/client-ecr
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ecr`

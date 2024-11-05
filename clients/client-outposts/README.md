@@ -14,7 +14,7 @@ data processing needs.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-outposts
+To install this package, simply type add or install @aws-sdk/client-outposts
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-outposts`

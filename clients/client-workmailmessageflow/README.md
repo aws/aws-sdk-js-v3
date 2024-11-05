@@ -14,7 +14,7 @@ WorkMail organization.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workmailmessageflow
+To install this package, simply type add or install @aws-sdk/client-workmailmessageflow
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workmailmessageflow`

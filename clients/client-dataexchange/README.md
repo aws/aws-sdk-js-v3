@@ -27,7 +27,7 @@ operations used to create or copy assets.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dataexchange
+To install this package, simply type add or install @aws-sdk/client-dataexchange
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dataexchange`

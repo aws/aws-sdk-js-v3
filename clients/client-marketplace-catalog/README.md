@@ -15,7 +15,7 @@ Marketplace.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-catalog
+To install this package, simply type add or install @aws-sdk/client-marketplace-catalog
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-catalog`

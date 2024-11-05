@@ -87,7 +87,7 @@ your account. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codestar-notifications
+To install this package, simply type add or install @aws-sdk/client-codestar-notifications
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codestar-notifications`

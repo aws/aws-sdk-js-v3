@@ -24,7 +24,7 @@ Services</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-directory-service
+To install this package, simply type add or install @aws-sdk/client-directory-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-directory-service`

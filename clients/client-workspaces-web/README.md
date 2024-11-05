@@ -16,7 +16,7 @@ maintaining browser images.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces-web
+To install this package, simply type add or install @aws-sdk/client-workspaces-web
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces-web`

@@ -10,7 +10,7 @@ AWS SDK for JavaScript ResourceGroupsTaggingAPI Client for Node.js, Browser and 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resource-groups-tagging-api
+To install this package, simply type add or install @aws-sdk/client-resource-groups-tagging-api
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resource-groups-tagging-api`

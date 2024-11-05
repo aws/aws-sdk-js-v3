@@ -23,7 +23,7 @@ provide fast analysis while reducing costs.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-timestream-write
+To install this package, simply type add or install @aws-sdk/client-timestream-write
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-timestream-write`

@@ -153,7 +153,7 @@ provided to actions within this Reference, along with links back to correspondin
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-medical-imaging
+To install this package, simply type add or install @aws-sdk/client-medical-imaging
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-medical-imaging`

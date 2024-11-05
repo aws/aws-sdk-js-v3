@@ -21,7 +21,7 @@ service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/u
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-compute-optimizer
+To install this package, simply type add or install @aws-sdk/client-compute-optimizer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-compute-optimizer`

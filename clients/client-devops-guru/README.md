@@ -21,7 +21,7 @@ learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devop
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-devops-guru
+To install this package, simply type add or install @aws-sdk/client-devops-guru
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-devops-guru`

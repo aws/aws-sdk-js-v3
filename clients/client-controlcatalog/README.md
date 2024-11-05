@@ -37,7 +37,7 @@ Client and server errors that all operations can return.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-controlcatalog
+To install this package, simply type add or install @aws-sdk/client-controlcatalog
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-controlcatalog`

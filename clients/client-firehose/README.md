@@ -17,7 +17,7 @@ Service, Amazon Redshift, Splunk, and various other supported destinations.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-firehose
+To install this package, simply type add or install @aws-sdk/client-firehose
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-firehose`

@@ -10,7 +10,7 @@ AWS SDK for JavaScript NetworkManager Client for Node.js, Browser and React Nati
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-networkmanager
+To install this package, simply type add or install @aws-sdk/client-networkmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-networkmanager`

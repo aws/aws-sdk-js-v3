@@ -43,7 +43,7 @@ Developer Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-arc-zonal-shift
+To install this package, simply type add or install @aws-sdk/client-arc-zonal-shift
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-arc-zonal-shift`

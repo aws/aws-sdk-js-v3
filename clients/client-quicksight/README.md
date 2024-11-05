@@ -15,7 +15,7 @@ you can use to manage Amazon QuickSight. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-quicksight
+To install this package, simply type add or install @aws-sdk/client-quicksight
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-quicksight`

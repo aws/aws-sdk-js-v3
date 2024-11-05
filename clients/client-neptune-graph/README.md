@@ -12,7 +12,7 @@ algorithms in low-latency queries, and getting analytics results in seconds.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-neptune-graph
+To install this package, simply type add or install @aws-sdk/client-neptune-graph
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-neptune-graph`

@@ -12,7 +12,7 @@ AWS SDK for JavaScript LakeFormation Client for Node.js, Browser and React Nativ
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lakeformation
+To install this package, simply type add or install @aws-sdk/client-lakeformation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lakeformation`

@@ -46,7 +46,7 @@ programming language or platform that you're using. For more information, see <a
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-wafv2
+To install this package, simply type add or install @aws-sdk/client-wafv2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-wafv2`

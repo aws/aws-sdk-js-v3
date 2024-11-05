@@ -12,7 +12,7 @@ establish peer-to-peer connection in webRTC technology.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-video-signaling
+To install this package, simply type add or install @aws-sdk/client-kinesis-video-signaling
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-video-signaling`

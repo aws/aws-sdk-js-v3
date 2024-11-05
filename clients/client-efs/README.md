@@ -15,7 +15,7 @@ more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-efs
+To install this package, simply type add or install @aws-sdk/client-efs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-efs`

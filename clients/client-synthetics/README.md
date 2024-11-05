@@ -25,7 +25,7 @@ Considerations for Synthetics Canaries</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-synthetics
+To install this package, simply type add or install @aws-sdk/client-synthetics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-synthetics`

@@ -34,7 +34,7 @@ product page</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sms
+To install this package, simply type add or install @aws-sdk/client-sms
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sms`

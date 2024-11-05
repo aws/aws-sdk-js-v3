@@ -18,7 +18,7 @@ Use these APIs to put and retrieve (get) features related to your training run.<
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker-metrics
+To install this package, simply type add or install @aws-sdk/client-sagemaker-metrics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker-metrics`

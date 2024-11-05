@@ -15,7 +15,7 @@ detailed information about CloudFront features, see the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudfront
+To install this package, simply type add or install @aws-sdk/client-cloudfront
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudfront`

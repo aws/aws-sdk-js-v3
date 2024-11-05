@@ -10,7 +10,7 @@ AWS SDK for JavaScript TimestreamInfluxDB Client for Node.js, Browser and React 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-timestream-influxdb
+To install this package, simply type add or install @aws-sdk/client-timestream-influxdb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-timestream-influxdb`

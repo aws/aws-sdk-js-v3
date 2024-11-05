@@ -23,7 +23,7 @@ make API calls via the AWS Mobile SDK. To learn more, see the <a href="http://do
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cognito-sync
+To install this package, simply type add or install @aws-sdk/client-cognito-sync
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cognito-sync`

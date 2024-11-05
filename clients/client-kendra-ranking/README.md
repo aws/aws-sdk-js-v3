@@ -12,7 +12,7 @@ service's results.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kendra-ranking
+To install this package, simply type add or install @aws-sdk/client-kendra-ranking
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kendra-ranking`

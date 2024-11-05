@@ -47,7 +47,7 @@ retrieving the job output, and deleting archives.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-glacier
+To install this package, simply type add or install @aws-sdk/client-glacier
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-glacier`
