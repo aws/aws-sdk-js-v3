@@ -6,6 +6,7 @@ export * from "./GetWorkUnitsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListDataCellsFilterPaginator";
+export * from "./ListLFTagExpressionsPaginator";
 export * from "./ListLFTagsPaginator";
 export * from "./ListLakeFormationOptInsPaginator";
 export * from "./ListPermissionsPaginator";

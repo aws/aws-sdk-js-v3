@@ -84,7 +84,7 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -92,6 +92,11 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  * };

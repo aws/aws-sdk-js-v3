@@ -84,7 +84,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -92,6 +92,11 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   MaxResults: Number("int"),
@@ -147,7 +152,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //         LFTagPolicy: { // LFTagPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           ResourceType: "DATABASE" || "TABLE", // required
- * //           Expression: [ // Expression // required
+ * //           Expression: [ // Expression
  * //             { // LFTag
  * //               TagKey: "STRING_VALUE", // required
  * //               TagValues: [ // required
@@ -155,6 +160,11 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //               ],
  * //             },
  * //           ],
+ * //           ExpressionName: "STRING_VALUE",
+ * //         },
+ * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       Principal: { // DataLakePrincipal

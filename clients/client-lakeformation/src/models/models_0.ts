@@ -152,6 +152,24 @@ export interface LFTagKeyResource {
 }
 
 /**
+ * <p>A structure containing a LF-Tag expression (keys and values).</p>
+ * @public
+ */
+export interface LFTagExpressionResource {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the LF-Tag expression to grant permissions on.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
  * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.</p>
  * @public
  */
@@ -186,7 +204,7 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * <p>A structure containing a list of LF-tag conditions that apply to a resource's LF-tag policy.</p>
+ * <p>A structure containing a list of LF-tag conditions or saved LF-Tag expressions that apply to a resource's LF-tag policy.</p>
  * @public
  */
 export interface LFTagPolicyResource {
@@ -203,10 +221,18 @@ export interface LFTagPolicyResource {
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>A list of LF-tag conditions that apply to the resource's LF-tag policy.</p>
+   * <p>A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag policy.</p>
    * @public
    */
-  Expression: LFTag[] | undefined;
+  Expression?: LFTag[];
+
+  /**
+   * <p>If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags
+   *       match the expression body of the saved expression under the provided
+   *         <code>ExpressionName</code>.</p>
+   * @public
+   */
+  ExpressionName?: string;
 }
 
 /**
@@ -343,10 +369,16 @@ export interface Resource {
   LFTag?: LFTagKeyResource;
 
   /**
-   * <p>A list of LF-tag conditions that define a resource's LF-tag policy.</p>
+   * <p>A list of LF-tag conditions or saved LF-Tag expressions that define a resource's LF-tag policy.</p>
    * @public
    */
   LFTagPolicy?: LFTagPolicyResource;
+
+  /**
+   * <p>LF-Tag expression resource. A logical expression composed of one or more LF-Tag key:value pairs.</p>
+   * @public
+   */
+  LFTagExpression?: LFTagExpressionResource;
 }
 
 /**
@@ -706,6 +738,7 @@ export const Permission = {
   ASSOCIATE: "ASSOCIATE",
   CREATE_DATABASE: "CREATE_DATABASE",
   CREATE_LF_TAG: "CREATE_LF_TAG",
+  CREATE_LF_TAG_EXPRESSION: "CREATE_LF_TAG_EXPRESSION",
   CREATE_TABLE: "CREATE_TABLE",
   DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
   DELETE: "DELETE",
@@ -1229,6 +1262,40 @@ export interface CreateLFTagResponse {}
 /**
  * @public
  */
+export interface CreateLFTagExpressionRequest {
+  /**
+   * <p>A name for the expression.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description with information about the LF-Tag expression.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A list of LF-Tag conditions (key-value pairs).</p>
+   * @public
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLFTagExpressionResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteDataCellsFilterRequest {
   /**
    * <p>The ID of the catalog to which the table belongs.</p>
@@ -1322,6 +1389,28 @@ export interface DeleteLFTagRequest {
  * @public
  */
 export interface DeleteLFTagResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLFTagExpressionRequest {
+  /**
+   * <p>The name for the LF-Tag expression.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved. </p>
+   * @public
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLFTagExpressionResponse {}
 
 /**
  * <p>An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that
@@ -1924,6 +2013,52 @@ export interface GetLFTagResponse {
    * @public
    */
   TagValues?: string[];
+}
+
+/**
+ * @public
+ */
+export interface GetLFTagExpressionRequest {
+  /**
+   * <p>The name for the LF-Tag expression</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID.</p>
+   * @public
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetLFTagExpressionResponse {
+  /**
+   * <p>The name for the LF-Tag expression. </p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The description with information about the LF-Tag expression.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The body of the LF-Tag expression. It is composed of one or more LF-Tag key-value pairs.</p>
+   * @public
+   */
+  Expression?: LFTag[];
 }
 
 /**
@@ -2903,6 +3038,76 @@ export interface ListLakeFormationOptInsResponse {
 
 /**
  * @public
+ */
+export interface ListLFTagExpressionsRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure consists LF-Tag expression name and catalog ID.</p>
+ * @public
+ */
+export interface LFTagExpression {
+  /**
+   * <p>The name for saved the LF-Tag expression.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A structure that contains information about the LF-Tag expression.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A logical expression composed of one or more LF-Tags.</p>
+   * @public
+   */
+  Expression?: LFTag[];
+}
+
+/**
+ * @public
+ */
+export interface ListLFTagExpressionsResponse {
+  /**
+   * <p>Logical expressions composed of one more LF-Tag key-value pairs.</p>
+   * @public
+   */
+  LFTagExpressions?: LFTagExpression[];
+
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ResourceShareType = {
@@ -2969,6 +3174,7 @@ export const DataLakeResourceType = {
   CATALOG: "CATALOG",
   DATABASE: "DATABASE",
   DATA_LOCATION: "DATA_LOCATION",
+  LF_NAMED_TAG_EXPRESSION: "LF_NAMED_TAG_EXPRESSION",
   LF_TAG: "LF_TAG",
   LF_TAG_POLICY: "LF_TAG_POLICY",
   LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
@@ -3800,6 +4006,40 @@ export interface UpdateLFTagResponse {}
 /**
  * @public
  */
+export interface UpdateLFTagExpressionRequest {
+  /**
+   * <p>The name for the LF-Tag expression.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description with information about the saved LF-Tag expression.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The LF-Tag expression body composed of one more LF-Tag key-value pairs.</p>
+   * @public
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLFTagExpressionResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateResourceRequest {
   /**
    * <p>The new role to use for the given resource registered in Lake Formation.</p>
@@ -3938,7 +4178,7 @@ export interface UpdateTableStorageOptimizerRequest {
   TableName: string | undefined;
 
   /**
-   * <p>Name of the table for which to enable the storage optimizer.</p>
+   * <p>Name of the configuration for the storage optimizer.</p>
    * @public
    */
   StorageOptimizerConfig: Partial<Record<OptimizerType, Record<string, string>>> | undefined;

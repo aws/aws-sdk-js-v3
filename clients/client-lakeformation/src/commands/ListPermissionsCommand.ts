@@ -42,7 +42,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *   Principal: { // DataLakePrincipal
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
- *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE",
+ *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE" || "LF_NAMED_TAG_EXPRESSION",
  *   Resource: { // Resource
  *     Catalog: {},
  *     Database: { // DatabaseResource
@@ -88,7 +88,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -96,6 +96,11 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   NextToken: "STRING_VALUE",
@@ -155,7 +160,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //         LFTagPolicy: { // LFTagPolicyResource
  * //           CatalogId: "STRING_VALUE",
  * //           ResourceType: "DATABASE" || "TABLE", // required
- * //           Expression: [ // Expression // required
+ * //           Expression: [ // Expression
  * //             { // LFTag
  * //               TagKey: "STRING_VALUE", // required
  * //               TagValues: [ // required
@@ -163,13 +168,18 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //               ],
  * //             },
  * //           ],
+ * //           ExpressionName: "STRING_VALUE",
+ * //         },
+ * //         LFTagExpression: { // LFTagExpressionResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
  * //       ],
  * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
  * //       ],
  * //       AdditionalDetails: { // DetailsMap
  * //         ResourceShare: [ // ResourceShareList

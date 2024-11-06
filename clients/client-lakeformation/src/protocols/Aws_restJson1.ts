@@ -60,6 +60,10 @@ import {
 } from "../commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "../commands/CreateLFTagCommand";
 import {
+  CreateLFTagExpressionCommandInput,
+  CreateLFTagExpressionCommandOutput,
+} from "../commands/CreateLFTagExpressionCommand";
+import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "../commands/DeleteDataCellsFilterCommand";
@@ -72,6 +76,10 @@ import {
   DeleteLakeFormationOptInCommandOutput,
 } from "../commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "../commands/DeleteLFTagCommand";
+import {
+  DeleteLFTagExpressionCommandInput,
+  DeleteLFTagExpressionCommandOutput,
+} from "../commands/DeleteLFTagExpressionCommand";
 import {
   DeleteObjectsOnCancelCommandInput,
   DeleteObjectsOnCancelCommandOutput,
@@ -101,6 +109,7 @@ import {
   GetEffectivePermissionsForPathCommandOutput,
 } from "../commands/GetEffectivePermissionsForPathCommand";
 import { GetLFTagCommandInput, GetLFTagCommandOutput } from "../commands/GetLFTagCommand";
+import { GetLFTagExpressionCommandInput, GetLFTagExpressionCommandOutput } from "../commands/GetLFTagExpressionCommand";
 import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "../commands/GetQueryStateCommand";
 import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "../commands/GetQueryStatisticsCommand";
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "../commands/GetResourceLFTagsCommand";
@@ -124,6 +133,10 @@ import {
   ListLakeFormationOptInsCommandInput,
   ListLakeFormationOptInsCommandOutput,
 } from "../commands/ListLakeFormationOptInsCommand";
+import {
+  ListLFTagExpressionsCommandInput,
+  ListLFTagExpressionsCommandOutput,
+} from "../commands/ListLFTagExpressionsCommand";
 import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
@@ -161,6 +174,10 @@ import {
   UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
 } from "../commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "../commands/UpdateLFTagCommand";
+import {
+  UpdateLFTagExpressionCommandInput,
+  UpdateLFTagExpressionCommandOutput,
+} from "../commands/UpdateLFTagExpressionCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "../commands/UpdateTableObjectsCommand";
 import {
@@ -194,6 +211,7 @@ import {
   InvalidInputException,
   LakeFormationOptInsInfo,
   LFTag,
+  LFTagExpressionResource,
   LFTagKeyResource,
   LFTagPair,
   LFTagPolicyResource,
@@ -460,6 +478,31 @@ export const se_CreateLFTagCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateLFTagExpressionCommand
+ */
+export const se_CreateLFTagExpressionCommand = async (
+  input: CreateLFTagExpressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateLFTagExpression");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Description: [],
+      Expression: (_) => _json(_),
+      Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDataCellsFilterCommand
  */
 export const se_DeleteDataCellsFilterCommand = async (
@@ -546,6 +589,29 @@ export const se_DeleteLFTagCommand = async (
     take(input, {
       CatalogId: [],
       TagKey: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteLFTagExpressionCommand
+ */
+export const se_DeleteLFTagExpressionCommand = async (
+  input: DeleteLFTagExpressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteLFTagExpression");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -792,6 +858,29 @@ export const se_GetLFTagCommand = async (
     take(input, {
       CatalogId: [],
       TagKey: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetLFTagExpressionCommand
+ */
+export const se_GetLFTagExpressionCommand = async (
+  input: GetLFTagExpressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetLFTagExpression");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1099,6 +1188,30 @@ export const se_ListLakeFormationOptInsCommand = async (
       NextToken: [],
       Principal: (_) => _json(_),
       Resource: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLFTagExpressionsCommand
+ */
+export const se_ListLFTagExpressionsCommand = async (
+  input: ListLFTagExpressionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListLFTagExpressions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      MaxResults: [],
+      NextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1509,6 +1622,31 @@ export const se_UpdateLFTagCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateLFTagExpressionCommand
+ */
+export const se_UpdateLFTagExpressionCommand = async (
+  input: UpdateLFTagExpressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateLFTagExpression");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Description: [],
+      Expression: (_) => _json(_),
+      Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateResourceCommand
  */
 export const se_UpdateResourceCommand = async (
@@ -1782,6 +1920,23 @@ export const de_CreateLFTagCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLFTagExpressionCommand
+ */
+export const de_CreateLFTagExpressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLFTagExpressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataCellsFilterCommand
  */
 export const de_DeleteDataCellsFilterCommand = async (
@@ -1839,6 +1994,23 @@ export const de_DeleteLFTagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLFTagCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLFTagExpressionCommand
+ */
+export const de_DeleteLFTagExpressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLFTagExpressionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2071,6 +2243,30 @@ export const de_GetLFTagCommand = async (
     CatalogId: __expectString,
     TagKey: __expectString,
     TagValues: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLFTagExpressionCommand
+ */
+export const de_GetLFTagExpressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLFTagExpressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CatalogId: __expectString,
+    Description: __expectString,
+    Expression: _json,
+    Name: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2312,6 +2508,28 @@ export const de_ListLakeFormationOptInsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     LakeFormationOptInsInfoList: (_) => de_LakeFormationOptInsInfoList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLFTagExpressionsCommand
+ */
+export const de_ListLFTagExpressionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLFTagExpressionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LFTagExpressions: _json,
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2627,6 +2845,23 @@ export const de_UpdateLFTagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLFTagCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLFTagExpressionCommand
+ */
+export const de_UpdateLFTagExpressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLFTagExpressionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3167,6 +3402,8 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
 
 // se_LFTag omitted.
 
+// se_LFTagExpressionResource omitted.
+
 // se_LFTagKeyResource omitted.
 
 // se_LFTagPair omitted.
@@ -3326,6 +3563,12 @@ const de_LakeFormationOptInsInfoList = (output: any, context: __SerdeContext): L
 // de_LFTagError omitted.
 
 // de_LFTagErrors omitted.
+
+// de_LFTagExpression omitted.
+
+// de_LFTagExpressionResource omitted.
+
+// de_LFTagExpressionsList omitted.
 
 // de_LFTagKeyResource omitted.
 
