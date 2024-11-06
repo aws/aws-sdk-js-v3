@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now adds additional compute types for reserved capacity fleet. ([73be619](https://github.com/aws/aws-sdk-js-v3/commit/73be61960f5cc83ae5788a928c72b9092d3914fb))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

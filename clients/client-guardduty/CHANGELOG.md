@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-guardduty:** GuardDuty RDS Protection expands support for Amazon Aurora PostgreSQL Limitless Databases. ([4c78745](https://github.com/aws/aws-sdk-js-v3/commit/4c78745a04680048c62664beb067a1be8aaebda6))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

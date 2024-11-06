@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-s3-control:** Fix ListStorageLensConfigurations and ListStorageLensGroups deserialization for Smithy SDKs. ([14cff2e](https://github.com/aws/aws-sdk-js-v3/commit/14cff2e0839430514f3b241013d8f1697e6d3dff))
+
+
+
+
+
 # [3.685.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.684.0...v3.685.0) (2024-11-01)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-qapps:** Introduces category apis in AmazonQApps. Web experience users use Categories to tag and filter library items. ([9e3e6fb](https://github.com/aws/aws-sdk-js-v3/commit/9e3e6fb6168dad3322655edb74ce3147216bd4ac))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-qapps

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-verifiedpermissions:** Adding BatchGetPolicy API which supports the retrieval of multiple policies across multiple policy stores within a single request. ([6860b35](https://github.com/aws/aws-sdk-js-v3/commit/6860b3555676be91f0f372936701e03bba3b6812))
+
+
+
+
+
 # [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

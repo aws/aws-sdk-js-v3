@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now adds additional compute types for reserved capacity fleet. ([73be619](https://github.com/aws/aws-sdk-js-v3/commit/73be61960f5cc83ae5788a928c72b9092d3914fb))
+* **client-guardduty:** GuardDuty RDS Protection expands support for Amazon Aurora PostgreSQL Limitless Databases. ([4c78745](https://github.com/aws/aws-sdk-js-v3/commit/4c78745a04680048c62664beb067a1be8aaebda6))
+* **client-lakeformation:** API changes for new named tag expressions feature. ([85aa63f](https://github.com/aws/aws-sdk-js-v3/commit/85aa63fdf17f5b7f08389c70552af16ab65ca6ae))
+* **client-qapps:** Introduces category apis in AmazonQApps. Web experience users use Categories to tag and filter library items. ([9e3e6fb](https://github.com/aws/aws-sdk-js-v3/commit/9e3e6fb6168dad3322655edb74ce3147216bd4ac))
+* **client-s3-control:** Fix ListStorageLensConfigurations and ListStorageLensGroups deserialization for Smithy SDKs. ([14cff2e](https://github.com/aws/aws-sdk-js-v3/commit/14cff2e0839430514f3b241013d8f1697e6d3dff))
+* **client-verifiedpermissions:** Adding BatchGetPolicy API which supports the retrieval of multiple policies across multiple policy stores within a single request. ([6860b35](https://github.com/aws/aws-sdk-js-v3/commit/6860b3555676be91f0f372936701e03bba3b6812))
+
+
+
+
+
 # [3.685.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.684.0...v3.685.0) (2024-11-01)
 
 
