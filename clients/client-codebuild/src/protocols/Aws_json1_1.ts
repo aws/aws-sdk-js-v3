@@ -148,6 +148,7 @@ import {
   CloudWatchLogsConfig,
   CodeCoverage,
   CodeCoverageReportSummary,
+  ComputeConfiguration,
   CreateFleetInput,
   CreateFleetOutput,
   CreateProjectInput,
@@ -2037,6 +2038,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_CloudWatchLogsConfig omitted.
 
+// se_ComputeConfiguration omitted.
+
 // se_ComputeTypesAllowed omitted.
 
 /**
@@ -2045,6 +2048,7 @@ const de_ResourceNotFoundExceptionRes = async (
 const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): any => {
   return take(input, {
     baseCapacity: [],
+    computeConfiguration: _json,
     computeType: [],
     environmentType: [],
     fleetServiceRole: [],
@@ -2268,6 +2272,7 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
   return take(input, {
     arn: [],
     baseCapacity: [],
+    computeConfiguration: _json,
     computeType: [],
     environmentType: [],
     fleetServiceRole: [],
@@ -2627,6 +2632,8 @@ const de_CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] 
   return retVal;
 };
 
+// de_ComputeConfiguration omitted.
+
 // de_ComputeTypesAllowed omitted.
 
 /**
@@ -2734,6 +2741,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
   return take(output, {
     arn: __expectString,
     baseCapacity: __expectInt32,
+    computeConfiguration: _json,
     computeType: __expectString,
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     environmentType: __expectString,
