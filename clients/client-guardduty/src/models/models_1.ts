@@ -20,7 +20,7 @@ import {
   MalwareProtectionPlanActions,
   Member,
   MemberFilterSensitiveLog,
-  OrganizationDetails,
+  OrganizationStatistics,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
@@ -29,6 +29,28 @@ import {
   ThreatIntelSetFormat,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * <p>Information about GuardDuty coverage statistics for members
+ *       in your Amazon Web Services organization.</p>
+ * @public
+ */
+export interface OrganizationDetails {
+  /**
+   * <p>The timestamp at which the organization statistics
+   *       was last updated. This is in
+   *       UTC format.</p>
+   * @public
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>Information about the GuardDuty coverage statistics
+   *       for members in your Amazon Web Services organization.</p>
+   * @public
+   */
+  OrganizationStatistics?: OrganizationStatistics;
+}
 
 /**
  * @public
@@ -47,6 +69,8 @@ export interface GetOrganizationStatisticsResponse {
 export interface GetRemainingFreeTrialDaysRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -83,6 +107,8 @@ export interface GetRemainingFreeTrialDaysResponse {
 export interface GetThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -232,6 +258,8 @@ export interface GetUsageStatisticsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
    *       want to retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -473,6 +501,8 @@ export interface GetUsageStatisticsResponse {
 export interface InviteMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account with which you want to invite members.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -517,6 +547,8 @@ export interface InviteMembersResponse {
 export interface ListCoverageRequest {
   /**
    * <p>The unique ID of the detector whose coverage details you want to retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -612,6 +644,8 @@ export interface ListDetectorsResponse {
 export interface ListFiltersRequest {
   /**
    * <p>The unique ID of the detector that is associated with the filter.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -658,6 +692,8 @@ export interface ListFindingsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
    *       list.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -941,6 +977,8 @@ export interface ListInvitationsResponse {
 export interface ListIPSetsRequest {
   /**
    * <p>The unique ID of the detector that is associated with IPSet.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1034,6 +1072,8 @@ export interface ListMalwareProtectionPlansResponse {
 export interface ListMembersRequest {
   /**
    * <p>The unique ID of the detector that is associated with the member.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1132,6 +1172,8 @@ export interface ListOrganizationAdminAccountsResponse {
 export interface ListPublishingDestinationsRequest {
   /**
    * <p>The detector ID for which you want to retrieve the publishing destination.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1201,6 +1243,8 @@ export interface ListTagsForResourceResponse {
 export interface ListThreatIntelSetsRequest {
   /**
    * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1270,6 +1314,8 @@ export interface StartMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty administrator account associated with the
    *       member accounts to monitor.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1300,6 +1346,8 @@ export interface StopMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
    *       monitoring member accounts.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1351,6 +1399,8 @@ export interface TagResourceResponse {}
 export interface UnarchiveFindingsRequest {
   /**
    * <p>The ID of the detector associated with the findings to unarchive.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1395,6 +1445,8 @@ export interface UntagResourceResponse {}
 export interface UpdateDetectorRequest {
   /**
    * <p>The unique ID of the detector to update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1442,6 +1494,8 @@ export interface UpdateFilterRequest {
   /**
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
    *       update a filter.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1499,6 +1553,8 @@ export interface UpdateFindingsFeedbackRequest {
   /**
    * <p>The ID of the detector that is associated with the findings for which you want to update
    *       the feedback.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1533,6 +1589,8 @@ export interface UpdateFindingsFeedbackResponse {}
 export interface UpdateIPSetRequest {
   /**
    * <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1633,6 +1691,8 @@ export interface UpdateMalwareScanSettingsRequest {
   /**
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
    *       update scan settings.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1703,6 +1763,8 @@ export interface MemberFeaturesConfiguration {
 export interface UpdateMemberDetectorsRequest {
   /**
    * <p>The detector ID of the administrator account.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -1945,6 +2007,8 @@ export interface OrganizationFeatureConfiguration {
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>The ID of the detector that configures the delegated administrator.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -2019,6 +2083,8 @@ export interface UpdateOrganizationConfigurationResponse {}
 export interface UpdatePublishingDestinationRequest {
   /**
    * <p>The ID of the detector associated with the publishing destinations to update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -2049,6 +2115,8 @@ export interface UpdateThreatIntelSetRequest {
   /**
    * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
    *       update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
    */
   DetectorId: string | undefined;

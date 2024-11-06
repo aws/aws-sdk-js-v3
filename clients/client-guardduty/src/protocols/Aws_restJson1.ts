@@ -336,7 +336,6 @@ import {
   Organization,
   OrganizationAdditionalConfigurationResult,
   OrganizationDataSourceConfigurationsResult,
-  OrganizationDetails,
   OrganizationEbsVolumesResult,
   OrganizationFeatureConfigurationResult,
   OrganizationFeatureStatistics,
@@ -357,6 +356,7 @@ import {
   PublicAccess,
   RdsDbInstanceDetails,
   RdsDbUserDetails,
+  RdsLimitlessDbDetails,
   RdsLoginAttemptAction,
   RemoteAccountDetails,
   RemoteIpDetails,
@@ -409,6 +409,7 @@ import {
   MemberFeaturesConfiguration,
   OrganizationAdditionalConfiguration,
   OrganizationDataSourceConfigurations,
+  OrganizationDetails,
   OrganizationEbsVolumes,
   OrganizationFeatureConfiguration,
   OrganizationKubernetesAuditLogsConfiguration,
@@ -6324,6 +6325,21 @@ const de_RdsDbUserDetails = (output: any, context: __SerdeContext): RdsDbUserDet
 };
 
 /**
+ * deserializeAws_restJson1RdsLimitlessDbDetails
+ */
+const de_RdsLimitlessDbDetails = (output: any, context: __SerdeContext): RdsLimitlessDbDetails => {
+  return take(output, {
+    DbClusterIdentifier: [, __expectString, `dbClusterIdentifier`],
+    DbShardGroupArn: [, __expectString, `dbShardGroupArn`],
+    DbShardGroupIdentifier: [, __expectString, `dbShardGroupIdentifier`],
+    DbShardGroupResourceId: [, __expectString, `dbShardGroupResourceId`],
+    Engine: [, __expectString, `engine`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RdsLoginAttemptAction
  */
 const de_RdsLoginAttemptAction = (output: any, context: __SerdeContext): RdsLoginAttemptAction => {
@@ -6382,6 +6398,7 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
     LambdaDetails: [, (_: any) => de_LambdaDetails(_, context), `lambdaDetails`],
     RdsDbInstanceDetails: [, (_: any) => de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
     RdsDbUserDetails: [, (_: any) => de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
+    RdsLimitlessDbDetails: [, (_: any) => de_RdsLimitlessDbDetails(_, context), `rdsLimitlessDbDetails`],
     ResourceType: [, __expectString, `resourceType`],
     S3BucketDetails: [, (_: any) => de_S3BucketDetails(_, context), `s3BucketDetails`],
   }) as any;

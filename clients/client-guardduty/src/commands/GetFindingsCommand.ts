@@ -352,6 +352,15 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           DbInstanceArn: "STRING_VALUE",
  * //           Tags: "<Tags>",
  * //         },
+ * //         RdsLimitlessDbDetails: { // RdsLimitlessDbDetails
+ * //           DbShardGroupIdentifier: "STRING_VALUE",
+ * //           DbShardGroupResourceId: "STRING_VALUE",
+ * //           DbShardGroupArn: "STRING_VALUE",
+ * //           Engine: "STRING_VALUE",
+ * //           EngineVersion: "STRING_VALUE",
+ * //           DbClusterIdentifier: "STRING_VALUE",
+ * //           Tags: "<Tags>",
+ * //         },
  * //         RdsDbUserDetails: { // RdsDbUserDetails
  * //           User: "STRING_VALUE",
  * //           Application: "STRING_VALUE",
