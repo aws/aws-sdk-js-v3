@@ -35,7 +35,7 @@ export const validateChecksumFromResponse = async (
       const { base64Encoder } = config;
 
       if (isStreaming(responseBody)) {
-        createChecksumStream({
+        response.body = createChecksumStream({
           expectedChecksum: checksumFromResponse,
           checksumSourceLocation: responseHeader,
           checksum: new checksumAlgorithmFn() as Checksum,

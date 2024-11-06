@@ -24,6 +24,7 @@ describe(validateChecksumFromResponse.name, () => {
   } as unknown as PreviouslyResolved;
 
   const mockBody = {};
+  const mockBodyStream = { isStream: true };
   const mockHeaders = {};
   const mockResponse = {
     body: mockBody,
@@ -53,6 +54,7 @@ describe(validateChecksumFromResponse.name, () => {
     vi.mocked(getChecksumAlgorithmListForResponse).mockImplementation((responseAlgorithms) => responseAlgorithms);
     vi.mocked(selectChecksumAlgorithmFunction).mockReturnValue(mockChecksumAlgorithmFn);
     vi.mocked(getChecksum).mockResolvedValue(mockChecksum);
+    vi.mocked(createChecksumStream).mockReturnValue(mockBodyStream);
   });
 
   afterEach(() => {
@@ -88,15 +90,26 @@ describe(validateChecksumFromResponse.name, () => {
   });
 
   describe("successful validation", () => {
-    const validateCalls = (isStream: boolean) => {
+    const validateCalls = (isStream: boolean, checksumAlgoFn: ChecksumAlgorithm) => {
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
 
       if (isStream) {
         expect(getChecksum).not.toHaveBeenCalled();
         expect(createChecksumStream).toHaveBeenCalledTimes(1);
+        expect(createChecksumStream).toHaveBeenCalledWith({
+          expectedChecksum: mockChecksum,
+          checksumSourceLocation: checksumAlgoFn,
+          checksum: new mockChecksumAlgorithmFn(),
+          source: mockBody,
+          base64Encoder: mockConfig.base64Encoder,
+        });
       } else {
         expect(getChecksum).toHaveBeenCalledTimes(1);
+        expect(getChecksum).toHaveBeenCalledWith(mockBody, {
+          checksumAlgorithmFn: mockChecksumAlgorithmFn,
+          base64Encoder: mockConfig.base64Encoder,
+        });
         expect(createChecksumStream).not.toHaveBeenCalled();
       }
     };
@@ -107,7 +120,7 @@ describe(validateChecksumFromResponse.name, () => {
       await validateChecksumFromResponse(responseWithChecksum, mockOptions);
       expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
       expect(getChecksumLocationName).toHaveBeenCalledWith(mockResponseAlgorithms[0]);
-      validateCalls(isStream);
+      validateCalls(isStream, mockResponseAlgorithms[0]);
     });
 
     it.each([false, true])("when checksum is populated for second algorithm when streaming: %s", async (isStream) => {
@@ -117,14 +130,16 @@ describe(validateChecksumFromResponse.name, () => {
       expect(getChecksumLocationName).toHaveBeenCalledTimes(2);
       expect(getChecksumLocationName).toHaveBeenNthCalledWith(1, mockResponseAlgorithms[0]);
       expect(getChecksumLocationName).toHaveBeenNthCalledWith(2, mockResponseAlgorithms[1]);
-      validateCalls(isStream);
+      validateCalls(isStream, mockResponseAlgorithms[1]);
     });
   });
 
   it("throw error if checksum value is not accurate when not streaming", async () => {
     vi.mocked(isStreaming).mockReturnValue(false);
+
     const incorrectChecksum = "incorrectChecksum";
     const responseWithChecksum = getMockResponseWithHeader(mockResponseAlgorithms[0], incorrectChecksum);
+
     try {
       await validateChecksumFromResponse(responseWithChecksum, mockOptions);
       fail("should throw checksum mismatch error");
@@ -134,6 +149,7 @@ describe(validateChecksumFromResponse.name, () => {
           ` in response header "${mockResponseAlgorithms[0]}".`
       );
     }
+
     expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
     expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
     expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
@@ -143,13 +159,18 @@ describe(validateChecksumFromResponse.name, () => {
 
   it("return if checksum value is not accurate when streaming, as error will be thrown when stream is consumed", async () => {
     vi.mocked(isStreaming).mockReturnValue(true);
+
+    // This override does not matter for the purpose of unit test, but is kept for completeness.
     const incorrectChecksum = "incorrectChecksum";
     const responseWithChecksum = getMockResponseWithHeader(mockResponseAlgorithms[0], incorrectChecksum);
+
     await validateChecksumFromResponse(responseWithChecksum, mockOptions);
+
     expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
     expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
     expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
     expect(getChecksum).not.toHaveBeenCalled();
     expect(createChecksumStream).toHaveBeenCalledTimes(1);
+    expect(responseWithChecksum.body).toBe(mockBodyStream);
   });
 });
