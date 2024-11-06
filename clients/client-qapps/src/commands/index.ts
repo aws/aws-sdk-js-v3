@@ -1,6 +1,9 @@
 // smithy-typescript generated code
 export * from "./AssociateLibraryItemReviewCommand";
 export * from "./AssociateQAppWithUserCommand";
+export * from "./BatchCreateCategoryCommand";
+export * from "./BatchDeleteCategoryCommand";
+export * from "./BatchUpdateCategoryCommand";
 export * from "./CreateLibraryItemCommand";
 export * from "./CreateQAppCommand";
 export * from "./DeleteLibraryItemCommand";
@@ -11,6 +14,7 @@ export * from "./GetLibraryItemCommand";
 export * from "./GetQAppCommand";
 export * from "./GetQAppSessionCommand";
 export * from "./ImportDocumentCommand";
+export * from "./ListCategoriesCommand";
 export * from "./ListLibraryItemsCommand";
 export * from "./ListQAppsCommand";
 export * from "./ListTagsForResourceCommand";

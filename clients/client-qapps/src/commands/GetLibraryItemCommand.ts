@@ -51,6 +51,8 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * //     { // Category
  * //       id: "STRING_VALUE", // required
  * //       title: "STRING_VALUE", // required
+ * //       color: "STRING_VALUE",
+ * //       appCount: Number("int"),
  * //     },
  * //   ],
  * //   status: "STRING_VALUE", // required

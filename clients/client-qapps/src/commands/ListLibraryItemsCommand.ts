@@ -53,6 +53,8 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  * //         { // Category
  * //           id: "STRING_VALUE", // required
  * //           title: "STRING_VALUE", // required
+ * //           color: "STRING_VALUE",
+ * //           appCount: Number("int"),
  * //         },
  * //       ],
  * //       status: "STRING_VALUE", // required

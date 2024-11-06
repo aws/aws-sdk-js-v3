@@ -42,6 +42,18 @@ import {
   AssociateQAppWithUserCommandInput,
   AssociateQAppWithUserCommandOutput,
 } from "../commands/AssociateQAppWithUserCommand";
+import {
+  BatchCreateCategoryCommandInput,
+  BatchCreateCategoryCommandOutput,
+} from "../commands/BatchCreateCategoryCommand";
+import {
+  BatchDeleteCategoryCommandInput,
+  BatchDeleteCategoryCommandOutput,
+} from "../commands/BatchDeleteCategoryCommand";
+import {
+  BatchUpdateCategoryCommandInput,
+  BatchUpdateCategoryCommandOutput,
+} from "../commands/BatchUpdateCategoryCommand";
 import { CreateLibraryItemCommandInput, CreateLibraryItemCommandOutput } from "../commands/CreateLibraryItemCommand";
 import { CreateQAppCommandInput, CreateQAppCommandOutput } from "../commands/CreateQAppCommand";
 import { DeleteLibraryItemCommandInput, DeleteLibraryItemCommandOutput } from "../commands/DeleteLibraryItemCommand";
@@ -58,6 +70,7 @@ import { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "../comm
 import { GetQAppCommandInput, GetQAppCommandOutput } from "../commands/GetQAppCommand";
 import { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "../commands/GetQAppSessionCommand";
 import { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "../commands/ImportDocumentCommand";
+import { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "../commands/ListCategoriesCommand";
 import { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "../commands/ListLibraryItemsCommand";
 import { ListQAppsCommandInput, ListQAppsCommandOutput } from "../commands/ListQAppsCommand";
 import {
@@ -81,9 +94,11 @@ import {
   AppDefinition,
   AppDefinitionInput,
   AttributeFilter,
+  BatchCreateCategoryInputCategory,
   Card,
   CardInput,
   CardValue,
+  CategoryInput,
   ConflictException,
   ContentTooLargeException,
   ConversationMessage,
@@ -147,6 +162,75 @@ export const se_AssociateQAppWithUserCommand = async (
   body = JSON.stringify(
     take(input, {
       appId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchCreateCategoryCommand
+ */
+export const se_BatchCreateCategoryCommand = async (
+  input: BatchCreateCategoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/catalog.createCategories");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      categories: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDeleteCategoryCommand
+ */
+export const se_BatchDeleteCategoryCommand = async (
+  input: BatchDeleteCategoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/catalog.deleteCategories");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      categories: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateCategoryCommand
+ */
+export const se_BatchUpdateCategoryCommand = async (
+  input: BatchUpdateCategoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/catalog.updateCategories");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      categories: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -382,6 +466,23 @@ export const se_ImportDocumentCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCategoriesCommand
+ */
+export const se_ListCategoriesCommand = async (
+  input: ListCategoriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/catalog.listCategories");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -692,6 +793,57 @@ export const de_AssociateQAppWithUserCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchCreateCategoryCommand
+ */
+export const de_BatchCreateCategoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateCategoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDeleteCategoryCommand
+ */
+export const de_BatchDeleteCategoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteCategoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateCategoryCommand
+ */
+export const de_BatchUpdateCategoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateCategoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateLibraryItemCommand
  */
 export const de_CreateLibraryItemCommand = async (
@@ -925,6 +1077,27 @@ export const de_ImportDocumentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     fileId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCategoriesCommand
+ */
+export const de_ListCategoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCategoriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    categories: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1468,6 +1641,10 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
     });
 };
 
+// se_BatchCreateCategoryInputCategory omitted.
+
+// se_BatchCreateCategoryInputCategoryList omitted.
+
 /**
  * serializeAws_restJson1CardInput
  */
@@ -1498,7 +1675,13 @@ const se_CardList = (input: CardInput[], context: __SerdeContext): any => {
 
 // se_CategoryIdList omitted.
 
+// se_CategoryInput omitted.
+
+// se_CategoryListInput omitted.
+
 // se_ConversationMessage omitted.
+
+// se_DeleteCategoryInputList omitted.
 
 /**
  * serializeAws_restJson1DocumentAttribute
@@ -1687,6 +1870,8 @@ const de_CardModelList = (output: any, context: __SerdeContext): Card[] => {
 // de_CardStatus omitted.
 
 // de_CardStatusMap omitted.
+
+// de_CategoriesList omitted.
 
 // de_Category omitted.
 

@@ -13,6 +13,21 @@ import {
   AssociateQAppWithUserCommandOutput,
 } from "./commands/AssociateQAppWithUserCommand";
 import {
+  BatchCreateCategoryCommand,
+  BatchCreateCategoryCommandInput,
+  BatchCreateCategoryCommandOutput,
+} from "./commands/BatchCreateCategoryCommand";
+import {
+  BatchDeleteCategoryCommand,
+  BatchDeleteCategoryCommandInput,
+  BatchDeleteCategoryCommandOutput,
+} from "./commands/BatchDeleteCategoryCommand";
+import {
+  BatchUpdateCategoryCommand,
+  BatchUpdateCategoryCommandInput,
+  BatchUpdateCategoryCommandOutput,
+} from "./commands/BatchUpdateCategoryCommand";
+import {
   CreateLibraryItemCommand,
   CreateLibraryItemCommandInput,
   CreateLibraryItemCommandOutput,
@@ -50,6 +65,11 @@ import {
   ImportDocumentCommandInput,
   ImportDocumentCommandOutput,
 } from "./commands/ImportDocumentCommand";
+import {
+  ListCategoriesCommand,
+  ListCategoriesCommandInput,
+  ListCategoriesCommandOutput,
+} from "./commands/ListCategoriesCommand";
 import {
   ListLibraryItemsCommand,
   ListLibraryItemsCommandInput,
@@ -99,6 +119,9 @@ import { QAppsClient, QAppsClientConfig } from "./QAppsClient";
 const commands = {
   AssociateLibraryItemReviewCommand,
   AssociateQAppWithUserCommand,
+  BatchCreateCategoryCommand,
+  BatchDeleteCategoryCommand,
+  BatchUpdateCategoryCommand,
   CreateLibraryItemCommand,
   CreateQAppCommand,
   DeleteLibraryItemCommand,
@@ -109,6 +132,7 @@ const commands = {
   GetQAppCommand,
   GetQAppSessionCommand,
   ImportDocumentCommand,
+  ListCategoriesCommand,
   ListLibraryItemsCommand,
   ListQAppsCommand,
   ListTagsForResourceCommand,
@@ -156,6 +180,57 @@ export interface QApps {
     args: AssociateQAppWithUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateQAppWithUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateCategoryCommand}
+   */
+  batchCreateCategory(
+    args: BatchCreateCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateCategoryCommandOutput>;
+  batchCreateCategory(
+    args: BatchCreateCategoryCommandInput,
+    cb: (err: any, data?: BatchCreateCategoryCommandOutput) => void
+  ): void;
+  batchCreateCategory(
+    args: BatchCreateCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateCategoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteCategoryCommand}
+   */
+  batchDeleteCategory(
+    args: BatchDeleteCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteCategoryCommandOutput>;
+  batchDeleteCategory(
+    args: BatchDeleteCategoryCommandInput,
+    cb: (err: any, data?: BatchDeleteCategoryCommandOutput) => void
+  ): void;
+  batchDeleteCategory(
+    args: BatchDeleteCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteCategoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateCategoryCommand}
+   */
+  batchUpdateCategory(
+    args: BatchUpdateCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateCategoryCommandOutput>;
+  batchUpdateCategory(
+    args: BatchUpdateCategoryCommandInput,
+    cb: (err: any, data?: BatchUpdateCategoryCommandOutput) => void
+  ): void;
+  batchUpdateCategory(
+    args: BatchUpdateCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateCategoryCommandOutput) => void
   ): void;
 
   /**
@@ -299,6 +374,20 @@ export interface QApps {
     args: ImportDocumentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCategoriesCommand}
+   */
+  listCategories(
+    args: ListCategoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCategoriesCommandOutput>;
+  listCategories(args: ListCategoriesCommandInput, cb: (err: any, data?: ListCategoriesCommandOutput) => void): void;
+  listCategories(
+    args: ListCategoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCategoriesCommandOutput) => void
   ): void;
 
   /**

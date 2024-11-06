@@ -61,6 +61,18 @@ import {
   AssociateQAppWithUserCommandInput,
   AssociateQAppWithUserCommandOutput,
 } from "./commands/AssociateQAppWithUserCommand";
+import {
+  BatchCreateCategoryCommandInput,
+  BatchCreateCategoryCommandOutput,
+} from "./commands/BatchCreateCategoryCommand";
+import {
+  BatchDeleteCategoryCommandInput,
+  BatchDeleteCategoryCommandOutput,
+} from "./commands/BatchDeleteCategoryCommand";
+import {
+  BatchUpdateCategoryCommandInput,
+  BatchUpdateCategoryCommandOutput,
+} from "./commands/BatchUpdateCategoryCommand";
 import { CreateLibraryItemCommandInput, CreateLibraryItemCommandOutput } from "./commands/CreateLibraryItemCommand";
 import { CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
 import { DeleteLibraryItemCommandInput, DeleteLibraryItemCommandOutput } from "./commands/DeleteLibraryItemCommand";
@@ -77,6 +89,7 @@ import { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "./comma
 import { GetQAppCommandInput, GetQAppCommandOutput } from "./commands/GetQAppCommand";
 import { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "./commands/GetQAppSessionCommand";
 import { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "./commands/ImportDocumentCommand";
+import { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "./commands/ListCategoriesCommand";
 import { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "./commands/ListLibraryItemsCommand";
 import { ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
 import {
@@ -112,6 +125,9 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateLibraryItemReviewCommandInput
   | AssociateQAppWithUserCommandInput
+  | BatchCreateCategoryCommandInput
+  | BatchDeleteCategoryCommandInput
+  | BatchUpdateCategoryCommandInput
   | CreateLibraryItemCommandInput
   | CreateQAppCommandInput
   | DeleteLibraryItemCommandInput
@@ -122,6 +138,7 @@ export type ServiceInputTypes =
   | GetQAppCommandInput
   | GetQAppSessionCommandInput
   | ImportDocumentCommandInput
+  | ListCategoriesCommandInput
   | ListLibraryItemsCommandInput
   | ListQAppsCommandInput
   | ListTagsForResourceCommandInput
@@ -141,6 +158,9 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateLibraryItemReviewCommandOutput
   | AssociateQAppWithUserCommandOutput
+  | BatchCreateCategoryCommandOutput
+  | BatchDeleteCategoryCommandOutput
+  | BatchUpdateCategoryCommandOutput
   | CreateLibraryItemCommandOutput
   | CreateQAppCommandOutput
   | DeleteLibraryItemCommandOutput
@@ -151,6 +171,7 @@ export type ServiceOutputTypes =
   | GetQAppCommandOutput
   | GetQAppSessionCommandOutput
   | ImportDocumentCommandOutput
+  | ListCategoriesCommandOutput
   | ListLibraryItemsCommandOutput
   | ListQAppsCommandOutput
   | ListTagsForResourceCommandOutput

@@ -234,6 +234,30 @@ AssociateQAppWithUser
 </details>
 <details>
 <summary>
+BatchCreateCategory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/BatchCreateCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchCreateCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchCreateCategoryCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchDeleteCategory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/BatchDeleteCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchDeleteCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchDeleteCategoryCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchUpdateCategory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/BatchUpdateCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchUpdateCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/BatchUpdateCategoryCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateLibraryItem
 </summary>
 
@@ -310,6 +334,14 @@ ImportDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/ImportDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ImportDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ImportDocumentCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCategories
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/ListCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListCategoriesCommandOutput/)
 
 </details>
 <details>

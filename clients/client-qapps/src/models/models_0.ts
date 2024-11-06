@@ -735,6 +735,105 @@ export interface AssociateQAppWithUserInput {
 }
 
 /**
+ * <p>The category object to be created.</p>
+ * @public
+ */
+export interface BatchCreateCategoryInputCategory {
+  /**
+   * <p>The unique identifier to be associated with a category. If you don't include a value, the category is automatically assigned a unique identifier.</p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the category.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The color to be associated with a category. The color must be a hexadecimal value of either 3 or 6 digits.</p>
+   * @public
+   */
+  color?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateCategoryInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The list of category objects to be created</p>
+   * @public
+   */
+  categories: BatchCreateCategoryInputCategory[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteCategoryInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The list of IDs of the categories to be deleted.</p>
+   * @public
+   */
+  categories: string[] | undefined;
+}
+
+/**
+ * <p>A label that web experience users associate with a library item. Web experience users use Categories to tag and filter library items.</p>
+ * @public
+ */
+export interface CategoryInput {
+  /**
+   * <p>The unique identifier of the category.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the category.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The color of the category, represented as a hexadecimal value of either 3 or 6 digits.</p>
+   * @public
+   */
+  color?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateCategoryInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The list of categories to be updated with their new values.</p>
+   * @public
+   */
+  categories: CategoryInput[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -801,6 +900,18 @@ export interface Category {
    * @public
    */
   title: string | undefined;
+
+  /**
+   * <p>The color of the category</p>
+   * @public
+   */
+  color?: string;
+
+  /**
+   * <p>The number of published Amazon Q Apps associated with a category</p>
+   * @public
+   */
+  appCount?: number;
 }
 
 /**
@@ -1437,6 +1548,28 @@ export const LibraryItemStatus = {
  * @public
  */
 export type LibraryItemStatus = (typeof LibraryItemStatus)[keyof typeof LibraryItemStatus];
+
+/**
+ * @public
+ */
+export interface ListCategoriesInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCategoriesOutput {
+  /**
+   * <p>The categories of a Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  categories?: Category[];
+}
 
 /**
  * @public
