@@ -1,6 +1,6 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -24,9 +24,7 @@ describe("@aws-sdk/client-s3", () => {
 
     Key = ``;
 
-    client = new S3({
-      region,
-    });
+    client = new S3({ region });
   });
 
   describe("PutObject", () => {
@@ -74,26 +72,43 @@ describe("@aws-sdk/client-s3", () => {
       await client.deleteObject({ Bucket, Key });
     });
 
-    it("should succeed with valid body payload", async () => {
+    it("should succeed with valid body payload with checksums", async () => {
       // prepare the object.
       const body = createBuffer("1MB");
+      let bodyChecksum = "";
+
+      const bodyChecksumReader = (next) => async (args) => {
+        const checksumValue = args.request.headers["x-amz-checksum-crc32"];
+        if (checksumValue) {
+          bodyChecksum = checksumValue;
+        }
+        return next(args);
+      };
+      client.middlewareStack.addRelativeTo(bodyChecksumReader, {
+        name: "bodyChecksumReader",
+        relation: "before",
+        toMiddleware: "deserializerMiddleware",
+      });
 
       try {
-        await client.putObject({ Bucket, Key, Body: body });
+        await client.putObject({ Bucket, Key, Body: body, ChecksumAlgorithm: ChecksumAlgorithm.CRC32 });
       } catch (e) {
         console.error("failed to put");
         throw e;
       }
 
+      expect(bodyChecksum).not.toEqual("");
+
       try {
         // eslint-disable-next-line no-var
-        var result = await client.getObject({ Bucket, Key });
+        var result = await client.getObject({ Bucket, Key, ChecksumMode: "ENABLED" });
       } catch (e) {
         console.error("failed to get");
         throw e;
       }
 
       expect(result.$metadata.httpStatusCode).toEqual(200);
+      expect(result.ChecksumCRC32).toEqual(bodyChecksum);
       const { Readable } = require("stream");
       expect(result.Body).toBeInstanceOf(Readable);
     });
