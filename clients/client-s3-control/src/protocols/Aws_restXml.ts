@@ -5145,10 +5145,10 @@ export const de_ListStorageLensConfigurationsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.StorageLensConfigurationList === "") {
+  if (data.StorageLensConfiguration === "") {
     contents[_SLCL] = [];
-  } else if (data[_SLCL] != null) {
-    contents[_SLCL] = de_StorageLensConfigurationList(__getArrayIfSingleItem(data[_SLCL]), context);
+  } else if (data[_SLC] != null) {
+    contents[_SLCL] = de_StorageLensConfigurationList(__getArrayIfSingleItem(data[_SLC]), context);
   }
   return contents;
 };
@@ -5170,10 +5170,10 @@ export const de_ListStorageLensGroupsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.StorageLensGroupList === "") {
+  if (data.StorageLensGroup === "") {
     contents[_SLGL] = [];
-  } else if (data[_SLGL] != null) {
-    contents[_SLGL] = de_StorageLensGroupList(__getArrayIfSingleItem(data[_SLGL]), context);
+  } else if (data[_SLG] != null) {
+    contents[_SLGL] = de_StorageLensGroupList(__getArrayIfSingleItem(data[_SLG]), context);
   }
   return contents;
 };

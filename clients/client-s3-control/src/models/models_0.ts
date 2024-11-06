@@ -326,7 +326,7 @@ export interface AccessPoint {
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
    *          <note>
    *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
-   *                Amazon Web Servicesservices.</p>
+   *                Amazon Web Services services.</p>
    *          </note>
    * @public
    */
@@ -712,7 +712,7 @@ export interface PublicAccessBlockConfiguration {
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this
    *          account. Setting this element to <code>TRUE</code> restricts access to buckets with public
-   *          policies to only Amazon Web Servicesservice principals and authorized users within this
+   *          policies to only Amazon Web Services service principals and authorized users within this
    *          account.</p>
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
    *          public and cross-account access within any public bucket policy, including non-public
@@ -4560,7 +4560,7 @@ export interface GetAccessPointResult {
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
    *          <note>
    *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
-   *                Amazon Web Servicesservices.</p>
+   *                Amazon Web Services services.</p>
    *          </note>
    * @public
    */
