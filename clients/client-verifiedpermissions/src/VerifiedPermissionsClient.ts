@@ -53,6 +53,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput } from "./commands/BatchGetPolicyCommand";
 import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "./commands/BatchIsAuthorizedCommand";
 import {
   BatchIsAuthorizedWithTokenCommandInput,
@@ -124,6 +125,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchGetPolicyCommandInput
   | BatchIsAuthorizedCommandInput
   | BatchIsAuthorizedWithTokenCommandInput
   | CreateIdentitySourceCommandInput
@@ -155,6 +157,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchGetPolicyCommandOutput
   | BatchIsAuthorizedCommandOutput
   | BatchIsAuthorizedWithTokenCommandOutput
   | CreateIdentitySourceCommandOutput

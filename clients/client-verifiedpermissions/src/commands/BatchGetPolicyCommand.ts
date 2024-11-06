@@ -5,13 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  IsAuthorizedInput,
-  IsAuthorizedInputFilterSensitiveLog,
-  IsAuthorizedOutput,
-  IsAuthorizedOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_IsAuthorizedCommand, se_IsAuthorizedCommand } from "../protocols/Aws_json1_0";
+import { BatchGetPolicyInput, BatchGetPolicyOutput, BatchGetPolicyOutputFilterSensitiveLog } from "../models/models_0";
+import { de_BatchGetPolicyCommand, se_BatchGetPolicyCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -26,117 +21,83 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link IsAuthorizedCommand}.
+ * The input for {@link BatchGetPolicyCommand}.
  */
-export interface IsAuthorizedCommandInput extends IsAuthorizedInput {}
+export interface BatchGetPolicyCommandInput extends BatchGetPolicyInput {}
 /**
  * @public
  *
- * The output of {@link IsAuthorizedCommand}.
+ * The output of {@link BatchGetPolicyCommand}.
  */
-export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __MetadataBearer {}
+export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Makes an authorization decision about a service request described in the parameters.
- *             The information in the parameters can also define additional context that Verified Permissions can
- *             include in the evaluation. The request is evaluated against all matching policies in the
- *             specified policy store. The result of the decision is either <code>Allow</code> or
- *                 <code>Deny</code>, along with a list of the policies that resulted in the
- *             decision.</p>
+ * <p>Retrieves information about a group (batch) of policies.</p>
+ *          <note>
+ *             <p>The <code>BatchGetPolicy</code> operation doesn't have its own IAM
+ *                 permission. To authorize this operation for Amazon Web Services principals, include the permission
+ *                 <code>verifiedpermissions:GetPolicy</code> in their IAM policies.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VerifiedPermissionsClient, IsAuthorizedCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
- * // const { VerifiedPermissionsClient, IsAuthorizedCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * import { VerifiedPermissionsClient, BatchGetPolicyCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
+ * // const { VerifiedPermissionsClient, BatchGetPolicyCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
  * const client = new VerifiedPermissionsClient(config);
- * const input = { // IsAuthorizedInput
- *   policyStoreId: "STRING_VALUE", // required
- *   principal: { // EntityIdentifier
- *     entityType: "STRING_VALUE", // required
- *     entityId: "STRING_VALUE", // required
- *   },
- *   action: { // ActionIdentifier
- *     actionType: "STRING_VALUE", // required
- *     actionId: "STRING_VALUE", // required
- *   },
- *   resource: {
- *     entityType: "STRING_VALUE", // required
- *     entityId: "STRING_VALUE", // required
- *   },
- *   context: { // ContextDefinition Union: only one key present
- *     contextMap: { // ContextMap
- *       "<keys>": { // AttributeValue Union: only one key present
- *         boolean: true || false,
- *         entityIdentifier: {
- *           entityType: "STRING_VALUE", // required
- *           entityId: "STRING_VALUE", // required
- *         },
- *         long: Number("long"),
- *         string: "STRING_VALUE",
- *         set: [ // SetAttribute
- *           {//  Union: only one key present
- *             boolean: true || false,
- *             entityIdentifier: "<EntityIdentifier>",
- *             long: Number("long"),
- *             string: "STRING_VALUE",
- *             set: [
- *               "<AttributeValue>",
- *             ],
- *             record: { // RecordAttribute
- *               "<keys>": "<AttributeValue>",
- *             },
- *             ipaddr: "STRING_VALUE",
- *             decimal: "STRING_VALUE",
- *           },
- *         ],
- *         record: {
- *           "<keys>": "<AttributeValue>",
- *         },
- *         ipaddr: "STRING_VALUE",
- *         decimal: "STRING_VALUE",
- *       },
+ * const input = { // BatchGetPolicyInput
+ *   requests: [ // BatchGetPolicyInputList // required
+ *     { // BatchGetPolicyInputItem
+ *       policyStoreId: "STRING_VALUE", // required
+ *       policyId: "STRING_VALUE", // required
  *     },
- *   },
- *   entities: { // EntitiesDefinition Union: only one key present
- *     entityList: [ // EntityList
- *       { // EntityItem
- *         identifier: "<EntityIdentifier>", // required
- *         attributes: { // EntityAttributes
- *           "<keys>": "<AttributeValue>",
- *         },
- *         parents: [ // ParentList
- *           "<EntityIdentifier>",
- *         ],
- *       },
- *     ],
- *   },
+ *   ],
  * };
- * const command = new IsAuthorizedCommand(input);
+ * const command = new BatchGetPolicyCommand(input);
  * const response = await client.send(command);
- * // { // IsAuthorizedOutput
- * //   decision: "ALLOW" || "DENY", // required
- * //   determiningPolicies: [ // DeterminingPolicyList // required
- * //     { // DeterminingPolicyItem
+ * // { // BatchGetPolicyOutput
+ * //   results: [ // BatchGetPolicyOutputList // required
+ * //     { // BatchGetPolicyOutputItem
+ * //       policyStoreId: "STRING_VALUE", // required
  * //       policyId: "STRING_VALUE", // required
+ * //       policyType: "STATIC" || "TEMPLATE_LINKED", // required
+ * //       definition: { // PolicyDefinitionDetail Union: only one key present
+ * //         static: { // StaticPolicyDefinitionDetail
+ * //           description: "STRING_VALUE",
+ * //           statement: "STRING_VALUE", // required
+ * //         },
+ * //         templateLinked: { // TemplateLinkedPolicyDefinitionDetail
+ * //           policyTemplateId: "STRING_VALUE", // required
+ * //           principal: { // EntityIdentifier
+ * //             entityType: "STRING_VALUE", // required
+ * //             entityId: "STRING_VALUE", // required
+ * //           },
+ * //           resource: {
+ * //             entityType: "STRING_VALUE", // required
+ * //             entityId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       createdDate: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
- * //   errors: [ // EvaluationErrorList // required
- * //     { // EvaluationErrorItem
- * //       errorDescription: "STRING_VALUE", // required
+ * //   errors: [ // BatchGetPolicyErrorList // required
+ * //     { // BatchGetPolicyErrorItem
+ * //       code: "POLICY_STORE_NOT_FOUND" || "POLICY_NOT_FOUND", // required
+ * //       policyStoreId: "STRING_VALUE", // required
+ * //       policyId: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param IsAuthorizedCommandInput - {@link IsAuthorizedCommandInput}
- * @returns {@link IsAuthorizedCommandOutput}
- * @see {@link IsAuthorizedCommandInput} for command's `input` shape.
- * @see {@link IsAuthorizedCommandOutput} for command's `response` shape.
+ * @param BatchGetPolicyCommandInput - {@link BatchGetPolicyCommandInput}
+ * @returns {@link BatchGetPolicyCommandOutput}
+ * @see {@link BatchGetPolicyCommandInput} for command's `input` shape.
+ * @see {@link BatchGetPolicyCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
@@ -235,35 +196,69 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
- * @example IsAuthorized - Example 1
+ * @example To retrieve details about a policy
  * ```javascript
- * // The following example requests an authorization decision for a principal of type User named Alice, who wants to perform the updatePhoto operation, on a resource of type Photo named VacationPhoto94.jpg.
- * //
- * // The response shows that the request was allowed by one policy.
+ * // The following example retrieves information about the specified policy contained in the specified policy store. In this example, the requested policy is a template-linked policy, so it returns the ID of the policy template, and the specific principal and resource used by this policy.
  * const input = {
- *   "action": {
- *     "actionId": "view",
- *     "actionType": "Action"
- *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "principal": {
- *     "entityId": "alice",
- *     "entityType": "User"
- *   },
- *   "resource": {
- *     "entityId": "VacationPhoto94.jpg",
- *     "entityType": "Photo"
- *   }
+ *   "requests": [
+ *     {
+ *       "policyId": "PWv5M6d5HePx3gVVLKY1nK",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *     },
+ *     {
+ *       "policyId": "LzFn6KgLWvv4Mbegus35jn",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *     },
+ *     {
+ *       "policyId": "77gLjer8H5o3mvrnMGrSL5",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *     }
+ *   ]
  * };
- * const command = new IsAuthorizedCommand(input);
+ * const command = new BatchGetPolicyCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "errors": [],
- *   "decision": "ALLOW",
- *   "determiningPolicies": [
+ *   "results": [
  *     {
- *       "policyId": "9wYxMpljbbZQb5fcZHyJhY"
+ *       "createdDate": "2024-10-18T18:53:39.258153Z",
+ *       "definition": {
+ *         "static": {
+ *           "description": "Users can manage account resources in any account they own",
+ *           "statement": "permit (principal, action in PhotoFlash::Action::\"ManageAccount\",resource) when { resource in principal.Account };"
+ *         }
+ *       },
+ *       "lastUpdatedDate": "2024-10-18T18:53:39.258153Z",
+ *       "policyId": "PWv5M6d5HePx3gVVLKY1nK",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
+ *       "policyType": "STATIC"
+ *     },
+ *     {
+ *       "createdDate": "2024-10-18T18:57:03.305027Z",
+ *       "definition": {
+ *         "static": {
+ *           "description": "User alice can't delete any photos.",
+ *           "statement": "forbid (principal == PhotoFlash::User::\"alice\", action in [PhotoFlash::Action::\"DeletePhoto\"], resource);"
+ *         }
+ *       },
+ *       "lastUpdatedDate": "2024-10-18T18:57:03.305027Z",
+ *       "policyId": "LzFn6KgLWvv4Mbegus35jn",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
+ *       "policyType": "STATIC"
+ *     },
+ *     {
+ *       "createdDate": "2024-10-18T18:57:48.005343Z",
+ *       "definition": {
+ *         "static": {
+ *           "description": "User alice can view and delete photos.",
+ *           "statement": "permit (principal == PhotoFlash::User::\"alice\", action in [PhotoFlash::Action::\"DeletePhoto\", PhotoFlash::Action::\"ViewPhoto\"], resource);"
+ *         }
+ *       },
+ *       "lastUpdatedDate": "2024-10-18T18:57:48.005343Z",
+ *       "policyId": "77gLjer8H5o3mvrnMGrSL5",
+ *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
+ *       "policyType": "STATIC"
  *     }
  *   ]
  * }
@@ -271,41 +266,11 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * // example id: example-1
  * ```
  *
- * @example IsAuthorized - Example 2
- * ```javascript
- * // The following example is the same as the previous example, except that the principal is User::"bob", and the policy store doesn't contain any policy that allows that user access to Album::"alice_folder". The output infers that the Deny was implicit because the list of DeterminingPolicies is empty.
- * const input = {
- *   "action": {
- *     "actionId": "view",
- *     "actionType": "Action"
- *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "principal": {
- *     "entityId": "bob",
- *     "entityType": "User"
- *   },
- *   "resource": {
- *     "entityId": "VacationPhoto94.jpg",
- *     "entityType": "Photo"
- *   }
- * };
- * const command = new IsAuthorizedCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "errors": [],
- *   "decision": "DENY",
- *   "determiningPolicies": []
- * }
- * *\/
- * // example id: example-2
- * ```
- *
  */
-export class IsAuthorizedCommand extends $Command
+export class BatchGetPolicyCommand extends $Command
   .classBuilder<
-    IsAuthorizedCommandInput,
-    IsAuthorizedCommandOutput,
+    BatchGetPolicyCommandInput,
+    BatchGetPolicyCommandOutput,
     VerifiedPermissionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -317,21 +282,21 @@ export class IsAuthorizedCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("VerifiedPermissions", "IsAuthorized", {})
-  .n("VerifiedPermissionsClient", "IsAuthorizedCommand")
-  .f(IsAuthorizedInputFilterSensitiveLog, IsAuthorizedOutputFilterSensitiveLog)
-  .ser(se_IsAuthorizedCommand)
-  .de(de_IsAuthorizedCommand)
+  .s("VerifiedPermissions", "BatchGetPolicy", {})
+  .n("VerifiedPermissionsClient", "BatchGetPolicyCommand")
+  .f(void 0, BatchGetPolicyOutputFilterSensitiveLog)
+  .ser(se_BatchGetPolicyCommand)
+  .de(de_BatchGetPolicyCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: IsAuthorizedInput;
-      output: IsAuthorizedOutput;
+      input: BatchGetPolicyInput;
+      output: BatchGetPolicyOutput;
     };
     sdk: {
-      input: IsAuthorizedCommandInput;
-      output: IsAuthorizedCommandOutput;
+      input: BatchGetPolicyCommandInput;
+      output: BatchGetPolicyCommandOutput;
     };
   };
 }

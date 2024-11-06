@@ -26,6 +26,7 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput } from "../commands/BatchGetPolicyCommand";
 import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "../commands/BatchIsAuthorizedCommand";
 import {
   BatchIsAuthorizedWithTokenCommandInput,
@@ -86,6 +87,10 @@ import {
   AccessDeniedException,
   ActionIdentifier,
   AttributeValue,
+  BatchGetPolicyInput,
+  BatchGetPolicyInputItem,
+  BatchGetPolicyOutput,
+  BatchGetPolicyOutputItem,
   BatchIsAuthorizedInput,
   BatchIsAuthorizedInputItem,
   BatchIsAuthorizedOutput,
@@ -178,6 +183,19 @@ import {
   ValidationSettings,
 } from "../models/models_0";
 import { VerifiedPermissionsServiceException as __BaseException } from "../models/VerifiedPermissionsServiceException";
+
+/**
+ * serializeAws_json1_0BatchGetPolicyCommand
+ */
+export const se_BatchGetPolicyCommand = async (
+  input: BatchGetPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0BatchIsAuthorizedCommand
@@ -515,6 +533,26 @@ export const se_UpdatePolicyTemplateCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyCommand
+ */
+export const de_BatchGetPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetPolicyOutput(data, context);
+  const response: BatchGetPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -1053,15 +1091,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.verifiedpermissions#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.verifiedpermissions#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.verifiedpermissions#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.verifiedpermissions#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.verifiedpermissions#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1189,7 +1227,9 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return AttributeValue.visit(input, {
     boolean: (value) => ({ boolean: value }),
+    decimal: (value) => ({ decimal: value }),
     entityIdentifier: (value) => ({ entityIdentifier: _json(value) }),
+    ipaddr: (value) => ({ ipaddr: value }),
     long: (value) => ({ long: value }),
     record: (value) => ({ record: se_RecordAttribute(value, context) }),
     set: (value) => ({ set: se_SetAttribute(value, context) }),
@@ -1199,6 +1239,12 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
 };
 
 // se_Audiences omitted.
+
+// se_BatchGetPolicyInput omitted.
+
+// se_BatchGetPolicyInputItem omitted.
+
+// se_BatchGetPolicyInputList omitted.
 
 /**
  * serializeAws_json1_0BatchIsAuthorizedInput
@@ -1551,10 +1597,16 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
   if (__expectBoolean(output.boolean) !== undefined) {
     return { boolean: __expectBoolean(output.boolean) as any };
   }
+  if (__expectString(output.decimal) !== undefined) {
+    return { decimal: __expectString(output.decimal) as any };
+  }
   if (output.entityIdentifier != null) {
     return {
       entityIdentifier: _json(output.entityIdentifier),
     };
+  }
+  if (__expectString(output.ipaddr) !== undefined) {
+    return { ipaddr: __expectString(output.ipaddr) as any };
   }
   if (__expectLong(output.long) !== undefined) {
     return { long: __expectLong(output.long) as any };
@@ -1576,6 +1628,46 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
 };
 
 // de_Audiences omitted.
+
+// de_BatchGetPolicyErrorItem omitted.
+
+// de_BatchGetPolicyErrorList omitted.
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutput
+ */
+const de_BatchGetPolicyOutput = (output: any, context: __SerdeContext): BatchGetPolicyOutput => {
+  return take(output, {
+    errors: _json,
+    results: (_: any) => de_BatchGetPolicyOutputList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutputItem
+ */
+const de_BatchGetPolicyOutputItem = (output: any, context: __SerdeContext): BatchGetPolicyOutputItem => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: (_: any) => _json(__expectUnion(_)),
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    policyId: __expectString,
+    policyStoreId: __expectString,
+    policyType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutputList
+ */
+const de_BatchGetPolicyOutputList = (output: any, context: __SerdeContext): BatchGetPolicyOutputItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchGetPolicyOutputItem(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_0BatchIsAuthorizedInputItem

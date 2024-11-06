@@ -91,11 +91,15 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             record: { // RecordAttribute
  *               "<keys>": "<AttributeValue>",
  *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
  *           },
  *         ],
  *         record: {
  *           "<keys>": "<AttributeValue>",
  *         },
+ *         ipaddr: "STRING_VALUE",
+ *         decimal: "STRING_VALUE",
  *       },
  *     },
  *   },

@@ -94,11 +94,15 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *                 record: { // RecordAttribute
  *                   "<keys>": "<AttributeValue>",
  *                 },
+ *                 ipaddr: "STRING_VALUE",
+ *                 decimal: "STRING_VALUE",
  *               },
  *             ],
  *             record: {
  *               "<keys>": "<AttributeValue>",
  *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
  *           },
  *         },
  *         parents: [ // ParentList
@@ -159,11 +163,15 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * //                   record: { // RecordAttribute
  * //                     "<keys>": "<AttributeValue>",
  * //                   },
+ * //                   ipaddr: "STRING_VALUE",
+ * //                   decimal: "STRING_VALUE",
  * //                 },
  * //               ],
  * //               record: {
  * //                 "<keys>": "<AttributeValue>",
  * //               },
+ * //               ipaddr: "STRING_VALUE",
+ * //               decimal: "STRING_VALUE",
  * //             },
  * //           },
  * //         },

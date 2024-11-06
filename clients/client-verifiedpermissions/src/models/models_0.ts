@@ -77,49 +77,267 @@ export interface EntityIdentifier {
 }
 
 /**
- * @public
- * @enum
- */
-export const Decision = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
+ * <p>Information about a policy that you include in a <code>BatchGetPolicy</code> API request.</p>
  * @public
  */
-export type Decision = (typeof Decision)[keyof typeof Decision];
-
-/**
- * <p>Contains information about one of the policies that determined an authorization
- *             decision.</p>
- *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
- *             operations.</p>
- *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
- *          </p>
- * @public
- */
-export interface DeterminingPolicyItem {
+export interface BatchGetPolicyInputItem {
   /**
-   * <p>The Id of a policy that determined to an authorization decision.</p>
-   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
-   *          </p>
+   * <p>The identifier of the policy store where the policy you want information about is stored.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>The identifier of the policy you want information about.</p>
    * @public
    */
   policyId: string | undefined;
 }
 
 /**
- * <p>Contains a description of an evaluation error.</p>
- *          <p>This data type is a response parameter of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
  * @public
  */
-export interface EvaluationErrorItem {
+export interface BatchGetPolicyInput {
   /**
-   * <p>The error description.</p>
+   * <p>An array of up to 100 policies you want information about.</p>
    * @public
    */
-  errorDescription: string | undefined;
+  requests: BatchGetPolicyInputItem[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchGetPolicyErrorCode = {
+  POLICY_NOT_FOUND: "POLICY_NOT_FOUND",
+  POLICY_STORE_NOT_FOUND: "POLICY_STORE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchGetPolicyErrorCode = (typeof BatchGetPolicyErrorCode)[keyof typeof BatchGetPolicyErrorCode];
+
+/**
+ * <p>Contains the information about an error resulting from a <code>BatchGetPolicy</code> API call.</p>
+ * @public
+ */
+export interface BatchGetPolicyErrorItem {
+  /**
+   * <p>The error code that was returned.</p>
+   * @public
+   */
+  code: BatchGetPolicyErrorCode | undefined;
+
+  /**
+   * <p>The identifier of the policy store associated with the failed request.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>The identifier of the policy associated with the failed request.</p>
+   * @public
+   */
+  policyId: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>A structure that contains details about a static policy. It includes the description and
+ *             policy body.</p>
+ *          <p>This data type is used within a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinition.html">PolicyDefinition</a> structure as
+ *             part of a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> operation.</p>
+ * @public
+ */
+export interface StaticPolicyDefinitionDetail {
+  /**
+   * <p>A description of the static policy.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The content of the static policy written in the Cedar policy language.</p>
+   * @public
+   */
+  statement: string | undefined;
+}
+
+/**
+ * <p>Contains information about a policy that was created by instantiating a policy template. </p>
+ * @public
+ */
+export interface TemplateLinkedPolicyDefinitionDetail {
+  /**
+   * <p>The unique identifier of the policy template used to create this policy.</p>
+   * @public
+   */
+  policyTemplateId: string | undefined;
+
+  /**
+   * <p>The principal associated with this template-linked policy. Verified Permissions substitutes this principal for the
+   *                 <code>?principal</code> placeholder in the policy template when it evaluates an authorization
+   *             request.</p>
+   * @public
+   */
+  principal?: EntityIdentifier;
+
+  /**
+   * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
+   *                 <code>?resource</code> placeholder in the policy template when it evaluates an authorization
+   *             request.</p>
+   * @public
+   */
+  resource?: EntityIdentifier;
+}
+
+/**
+ * <p>A structure that describes a policy definition. It must always have either an
+ *                 <code>static</code> or a <code>templateLinked</code> element.</p>
+ *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicy.html">GetPolicy</a> operation.</p>
+ * @public
+ */
+export type PolicyDefinitionDetail =
+  | PolicyDefinitionDetail.StaticMember
+  | PolicyDefinitionDetail.TemplateLinkedMember
+  | PolicyDefinitionDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PolicyDefinitionDetail {
+  /**
+   * <p>Information about a static policy that wasn't created with a policy template.</p>
+   * @public
+   */
+  export interface StaticMember {
+    static: StaticPolicyDefinitionDetail;
+    templateLinked?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a template-linked policy that was created by instantiating a policy template.</p>
+   * @public
+   */
+  export interface TemplateLinkedMember {
+    static?: never;
+    templateLinked: TemplateLinkedPolicyDefinitionDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    static?: never;
+    templateLinked?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    static: (value: StaticPolicyDefinitionDetail) => T;
+    templateLinked: (value: TemplateLinkedPolicyDefinitionDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PolicyDefinitionDetail, visitor: Visitor<T>): T => {
+    if (value.static !== undefined) return visitor.static(value.static);
+    if (value.templateLinked !== undefined) return visitor.templateLinked(value.templateLinked);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  STATIC: "STATIC",
+  TEMPLATE_LINKED: "TEMPLATE_LINKED",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * <p>Contains information about a policy returned from a <code>BatchGetPolicy</code> API request.</p>
+ * @public
+ */
+export interface BatchGetPolicyOutputItem {
+  /**
+   * <p>The identifier of the policy store where the policy you want information about is stored.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>The identifier of the policy you want information about.</p>
+   * @public
+   */
+  policyId: string | undefined;
+
+  /**
+   * <p>The type of the policy. This is one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STATIC</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEMPLATE_LINKED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  policyType: PolicyType | undefined;
+
+  /**
+   * <p>The policy definition of an item in the list of policies returned.</p>
+   * @public
+   */
+  definition: PolicyDefinitionDetail | undefined;
+
+  /**
+   * <p>The date and time the policy was created.</p>
+   * @public
+   */
+  createdDate: Date | undefined;
+
+  /**
+   * <p>The date and time the policy was most recently updated.</p>
+   * @public
+   */
+  lastUpdatedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetPolicyOutput {
+  /**
+   * <p>Information about the policies listed in the request that were successfully returned. These results are returned in the order they were requested.</p>
+   * @public
+   */
+  results: BatchGetPolicyOutputItem[] | undefined;
+
+  /**
+   * <p>Information about the policies from the request that resulted in an error. These results are returned in the order they were requested.</p>
+   * @public
+   */
+  errors: BatchGetPolicyErrorItem[] | undefined;
 }
 
 /**
@@ -140,57 +358,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  IDENTITY_SOURCE: "IDENTITY_SOURCE",
-  POLICY: "POLICY",
-  POLICY_STORE: "POLICY_STORE",
-  POLICY_TEMPLATE: "POLICY_TEMPLATE",
-  SCHEMA: "SCHEMA",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>The request failed because it references a resource that doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
   }
 }
 
@@ -354,6 +521,103 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Decision = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type Decision = (typeof Decision)[keyof typeof Decision];
+
+/**
+ * <p>Contains information about one of the policies that determined an authorization
+ *             decision.</p>
+ *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
+ *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
+ *          </p>
+ * @public
+ */
+export interface DeterminingPolicyItem {
+  /**
+   * <p>The Id of a policy that determined to an authorization decision.</p>
+   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
+   *          </p>
+   * @public
+   */
+  policyId: string | undefined;
+}
+
+/**
+ * <p>Contains a description of an evaluation error.</p>
+ *          <p>This data type is a response parameter of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ * @public
+ */
+export interface EvaluationErrorItem {
+  /**
+   * <p>The error description.</p>
+   * @public
+   */
+  errorDescription: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  IDENTITY_SOURCE: "IDENTITY_SOURCE",
+  POLICY: "POLICY",
+  POLICY_STORE: "POLICY_STORE",
+  POLICY_TEMPLATE: "POLICY_TEMPLATE",
+  SCHEMA: "SCHEMA",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * <p>The request failed because it references a resource that doesn't exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The resource type of the resource referenced in the failed request.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }
 
@@ -1620,20 +1884,6 @@ export type PolicyEffect = (typeof PolicyEffect)[keyof typeof PolicyEffect];
 
 /**
  * @public
- * @enum
- */
-export const PolicyType = {
-  STATIC: "STATIC",
-  TEMPLATE_LINKED: "TEMPLATE_LINKED",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-/**
- * @public
  */
 export interface CreatePolicyOutput {
   /**
@@ -2180,112 +2430,6 @@ export interface GetPolicyInput {
    * @public
    */
   policyId: string | undefined;
-}
-
-/**
- * <p>A structure that contains details about a static policy. It includes the description and
- *             policy body.</p>
- *          <p>This data type is used within a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinition.html">PolicyDefinition</a> structure as
- *             part of a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> operation.</p>
- * @public
- */
-export interface StaticPolicyDefinitionDetail {
-  /**
-   * <p>A description of the static policy.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The content of the static policy written in the Cedar policy language.</p>
-   * @public
-   */
-  statement: string | undefined;
-}
-
-/**
- * <p>Contains information about a policy that was created by instantiating a policy template. </p>
- * @public
- */
-export interface TemplateLinkedPolicyDefinitionDetail {
-  /**
-   * <p>The unique identifier of the policy template used to create this policy.</p>
-   * @public
-   */
-  policyTemplateId: string | undefined;
-
-  /**
-   * <p>The principal associated with this template-linked policy. Verified Permissions substitutes this principal for the
-   *                 <code>?principal</code> placeholder in the policy template when it evaluates an authorization
-   *             request.</p>
-   * @public
-   */
-  principal?: EntityIdentifier;
-
-  /**
-   * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
-   *                 <code>?resource</code> placeholder in the policy template when it evaluates an authorization
-   *             request.</p>
-   * @public
-   */
-  resource?: EntityIdentifier;
-}
-
-/**
- * <p>A structure that describes a policy definition. It must always have either an
- *                 <code>static</code> or a <code>templateLinked</code> element.</p>
- *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicy.html">GetPolicy</a> operation.</p>
- * @public
- */
-export type PolicyDefinitionDetail =
-  | PolicyDefinitionDetail.StaticMember
-  | PolicyDefinitionDetail.TemplateLinkedMember
-  | PolicyDefinitionDetail.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PolicyDefinitionDetail {
-  /**
-   * <p>Information about a static policy that wasn't created with a policy template.</p>
-   * @public
-   */
-  export interface StaticMember {
-    static: StaticPolicyDefinitionDetail;
-    templateLinked?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Information about a template-linked policy that was created by instantiating a policy template.</p>
-   * @public
-   */
-  export interface TemplateLinkedMember {
-    static?: never;
-    templateLinked: TemplateLinkedPolicyDefinitionDetail;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    static?: never;
-    templateLinked?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    static: (value: StaticPolicyDefinitionDetail) => T;
-    templateLinked: (value: TemplateLinkedPolicyDefinitionDetail) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PolicyDefinitionDetail, visitor: Visitor<T>): T => {
-    if (value.static !== undefined) return visitor.static(value.static);
-    if (value.templateLinked !== undefined) return visitor.templateLinked(value.templateLinked);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3291,7 +3435,7 @@ export namespace PolicyDefinitionItem {
  */
 export interface PolicyItem {
   /**
-   * <p>The identifier of the PolicyStore where the policy you want information about is
+   * <p>The identifier of the policy store where the policy you want information about is
    *             stored.</p>
    * @public
    */
@@ -4011,7 +4155,9 @@ export interface UpdatePolicyStoreOutput {
  */
 export type AttributeValue =
   | AttributeValue.BooleanMember
+  | AttributeValue.DecimalMember
   | AttributeValue.EntityIdentifierMember
+  | AttributeValue.IpaddrMember
   | AttributeValue.LongMember
   | AttributeValue.RecordMember
   | AttributeValue.SetMember
@@ -4036,6 +4182,8 @@ export namespace AttributeValue {
     string?: never;
     set?: never;
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown?: never;
   }
 
@@ -4053,6 +4201,8 @@ export namespace AttributeValue {
     string?: never;
     set?: never;
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown?: never;
   }
 
@@ -4069,6 +4219,8 @@ export namespace AttributeValue {
     string?: never;
     set?: never;
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown?: never;
   }
 
@@ -4086,6 +4238,8 @@ export namespace AttributeValue {
     string: string;
     set?: never;
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown?: never;
   }
 
@@ -4102,6 +4256,8 @@ export namespace AttributeValue {
     string?: never;
     set: AttributeValue[];
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown?: never;
   }
 
@@ -4119,6 +4275,44 @@ export namespace AttributeValue {
     string?: never;
     set?: never;
     record: Record<string, AttributeValue>;
+    ipaddr?: never;
+    decimal?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-ipaddr">ipaddr</a> type.</p>
+   *          <p>Example: <code>\{"ip": "192.168.1.100"\}</code>
+   *          </p>
+   * @public
+   */
+  export interface IpaddrMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr: string;
+    decimal?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-decimal">decimal</a> type.</p>
+   *          <p>Example: <code>\{"decimal": "1.1"\}</code>
+   *          </p>
+   * @public
+   */
+  export interface DecimalMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal: string;
     $unknown?: never;
   }
 
@@ -4132,6 +4326,8 @@ export namespace AttributeValue {
     string?: never;
     set?: never;
     record?: never;
+    ipaddr?: never;
+    decimal?: never;
     $unknown: [string, any];
   }
 
@@ -4142,6 +4338,8 @@ export namespace AttributeValue {
     string: (value: string) => T;
     set: (value: AttributeValue[]) => T;
     record: (value: Record<string, AttributeValue>) => T;
+    ipaddr: (value: string) => T;
+    decimal: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -4152,6 +4350,8 @@ export namespace AttributeValue {
     if (value.string !== undefined) return visitor.string(value.string);
     if (value.set !== undefined) return visitor.set(value.set);
     if (value.record !== undefined) return visitor.record(value.record);
+    if (value.ipaddr !== undefined) return visitor.ipaddr(value.ipaddr);
+    if (value.decimal !== undefined) return visitor.decimal(value.decimal);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4431,7 +4631,7 @@ export namespace EntitiesDefinition {
 export interface BatchIsAuthorizedOutput {
   /**
    * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
-   *             the policies that produced them.</p>
+   *             the policies that produced them. These results are returned in the order they were requested.</p>
    * @public
    */
   results: BatchIsAuthorizedOutputItem[] | undefined;
@@ -4449,7 +4649,7 @@ export interface BatchIsAuthorizedWithTokenOutput {
 
   /**
    * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
-   *             the policies that produced them.</p>
+   *             the policies that produced them.  These results are returned in the order they were requested.</p>
    * @public
    */
   results: BatchIsAuthorizedWithTokenOutputItem[] | undefined;
@@ -4696,6 +4896,52 @@ export const EntityIdentifierFilterSensitiveLog = (obj: EntityIdentifier): any =
   ...obj,
   ...(obj.entityType && { entityType: SENSITIVE_STRING }),
   ...(obj.entityId && { entityId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionDetailFilterSensitiveLog = (obj: StaticPolicyDefinitionDetail): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog = (
+  obj: TemplateLinkedPolicyDefinitionDetail
+): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionDetailFilterSensitiveLog = (obj: PolicyDefinitionDetail): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionDetailFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const BatchGetPolicyOutputItemFilterSensitiveLog = (obj: BatchGetPolicyOutputItem): any => ({
+  ...obj,
+  ...(obj.definition && { definition: PolicyDefinitionDetailFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetPolicyOutputFilterSensitiveLog = (obj: BatchGetPolicyOutput): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => BatchGetPolicyOutputItemFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -5074,36 +5320,6 @@ export const GetIdentitySourceOutputFilterSensitiveLog = (obj: GetIdentitySource
   ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
   ...(obj.configuration && { configuration: ConfigurationDetailFilterSensitiveLog(obj.configuration) }),
 });
-
-/**
- * @internal
- */
-export const StaticPolicyDefinitionDetailFilterSensitiveLog = (obj: StaticPolicyDefinitionDetail): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.statement && { statement: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog = (
-  obj: TemplateLinkedPolicyDefinitionDetail
-): any => ({
-  ...obj,
-  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
-  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
-});
-
-/**
- * @internal
- */
-export const PolicyDefinitionDetailFilterSensitiveLog = (obj: PolicyDefinitionDetail): any => {
-  if (obj.static !== undefined) return { static: StaticPolicyDefinitionDetailFilterSensitiveLog(obj.static) };
-  if (obj.templateLinked !== undefined)
-    return { templateLinked: TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog(obj.templateLinked) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal
@@ -5501,6 +5717,8 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
         {}
       ),
     };
+  if (obj.ipaddr !== undefined) return { ipaddr: SENSITIVE_STRING };
+  if (obj.decimal !== undefined) return { decimal: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
