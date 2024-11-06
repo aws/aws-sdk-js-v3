@@ -7072,19 +7072,10 @@ handlebars@4.7.7, handlebars@^4.7.7:
   optionalDependencies:
     uglify-js "^3.1.4"
 
-happy-dom@14.12.3:
-  version "14.12.3"
-  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-14.12.3.tgz#1b5892c670461fd1db041bee690981c22d3d521f"
-  integrity sha512-vsYlEs3E9gLwA1Hp+w3qzu+RUDFf4VTT8cyKqVICoZ2k7WM++Qyd2LwzyTi5bqMJFiIC/vNpTDYuxdreENRK/g==
-  dependencies:
-    entities "^4.5.0"
-    webidl-conversions "^7.0.0"
-    whatwg-mimetype "^3.0.0"
-
-happy-dom@^15.7.4:
-  version "15.7.4"
-  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-15.7.4.tgz#05aade59c1d307336001b7004c76dfc6a829f220"
-  integrity sha512-r1vadDYGMtsHAAsqhDuk4IpPvr6N8MGKy5ntBo7tSdim+pWDxus2PNqOcOt8LuDZ4t3KJHE+gCuzupcx/GKnyQ==
+happy-dom@15.10.1, happy-dom@^15.7.4:
+  version "15.10.1"
+  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-15.10.1.tgz#db49321a7af97d8c18c45622de2817b382ac7595"
+  integrity sha512-FuGnj/qIB4QnBL6fWmD7Wnh6STxevLgOVWB6+nopDGgWG1+t9CXkNB2ldZ+iqwD2UKxD2D0SU8el8A6AX6Q1+g==
   dependencies:
     entities "^4.5.0"
     webidl-conversions "^7.0.0"
