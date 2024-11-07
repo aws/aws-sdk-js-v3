@@ -42,7 +42,7 @@ describe("middleware-user-agent", () => {
           ["user-agent"](ua) {
             const metadata = ua.match(/(.*?) m\/(.*?)$/)[2];
             expect(metadata).toContain("d" as AwsSdkFeatures["DDB_MAPPER"]);
-            expect(metadata).toContain("E") as AwsSdkFeatures["RETRY_MODE_STANDARD"];
+            expect(metadata).toContain("E" as AwsSdkFeatures["RETRY_MODE_STANDARD"]);
             expect(metadata).toContain("O" as AwsSdkFeatures["ACCOUNT_ID_ENDPOINT"]);
             expect(metadata).toContain("R" as AwsSdkFeatures["ACCOUNT_ID_MODE_REQUIRED"]);
           },
