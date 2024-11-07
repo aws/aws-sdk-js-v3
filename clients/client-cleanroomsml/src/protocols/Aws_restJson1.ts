@@ -8,6 +8,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -17,6 +18,7 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -26,6 +28,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CancelTrainedModelCommandInput, CancelTrainedModelCommandOutput } from "../commands/CancelTrainedModelCommand";
+import {
+  CancelTrainedModelInferenceJobCommandInput,
+  CancelTrainedModelInferenceJobCommandOutput,
+} from "../commands/CancelTrainedModelInferenceJobCommand";
 import {
   CreateAudienceModelCommandInput,
   CreateAudienceModelCommandOutput,
@@ -34,6 +41,19 @@ import {
   CreateConfiguredAudienceModelCommandInput,
   CreateConfiguredAudienceModelCommandOutput,
 } from "../commands/CreateConfiguredAudienceModelCommand";
+import {
+  CreateConfiguredModelAlgorithmAssociationCommandInput,
+  CreateConfiguredModelAlgorithmAssociationCommandOutput,
+} from "../commands/CreateConfiguredModelAlgorithmAssociationCommand";
+import {
+  CreateConfiguredModelAlgorithmCommandInput,
+  CreateConfiguredModelAlgorithmCommandOutput,
+} from "../commands/CreateConfiguredModelAlgorithmCommand";
+import {
+  CreateMLInputChannelCommandInput,
+  CreateMLInputChannelCommandOutput,
+} from "../commands/CreateMLInputChannelCommand";
+import { CreateTrainedModelCommandInput, CreateTrainedModelCommandOutput } from "../commands/CreateTrainedModelCommand";
 import {
   CreateTrainingDatasetCommandInput,
   CreateTrainingDatasetCommandOutput,
@@ -55,6 +75,26 @@ import {
   DeleteConfiguredAudienceModelPolicyCommandOutput,
 } from "../commands/DeleteConfiguredAudienceModelPolicyCommand";
 import {
+  DeleteConfiguredModelAlgorithmAssociationCommandInput,
+  DeleteConfiguredModelAlgorithmAssociationCommandOutput,
+} from "../commands/DeleteConfiguredModelAlgorithmAssociationCommand";
+import {
+  DeleteConfiguredModelAlgorithmCommandInput,
+  DeleteConfiguredModelAlgorithmCommandOutput,
+} from "../commands/DeleteConfiguredModelAlgorithmCommand";
+import {
+  DeleteMLConfigurationCommandInput,
+  DeleteMLConfigurationCommandOutput,
+} from "../commands/DeleteMLConfigurationCommand";
+import {
+  DeleteMLInputChannelDataCommandInput,
+  DeleteMLInputChannelDataCommandOutput,
+} from "../commands/DeleteMLInputChannelDataCommand";
+import {
+  DeleteTrainedModelOutputCommandInput,
+  DeleteTrainedModelOutputCommandOutput,
+} from "../commands/DeleteTrainedModelOutputCommand";
+import {
   DeleteTrainingDatasetCommandInput,
   DeleteTrainingDatasetCommandOutput,
 } from "../commands/DeleteTrainingDatasetCommand";
@@ -64,6 +104,18 @@ import {
 } from "../commands/GetAudienceGenerationJobCommand";
 import { GetAudienceModelCommandInput, GetAudienceModelCommandOutput } from "../commands/GetAudienceModelCommand";
 import {
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
+} from "../commands/GetCollaborationConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetCollaborationMLInputChannelCommandInput,
+  GetCollaborationMLInputChannelCommandOutput,
+} from "../commands/GetCollaborationMLInputChannelCommand";
+import {
+  GetCollaborationTrainedModelCommandInput,
+  GetCollaborationTrainedModelCommandOutput,
+} from "../commands/GetCollaborationTrainedModelCommand";
+import {
   GetConfiguredAudienceModelCommandInput,
   GetConfiguredAudienceModelCommandOutput,
 } from "../commands/GetConfiguredAudienceModelCommand";
@@ -71,6 +123,21 @@ import {
   GetConfiguredAudienceModelPolicyCommandInput,
   GetConfiguredAudienceModelPolicyCommandOutput,
 } from "../commands/GetConfiguredAudienceModelPolicyCommand";
+import {
+  GetConfiguredModelAlgorithmAssociationCommandInput,
+  GetConfiguredModelAlgorithmAssociationCommandOutput,
+} from "../commands/GetConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetConfiguredModelAlgorithmCommandInput,
+  GetConfiguredModelAlgorithmCommandOutput,
+} from "../commands/GetConfiguredModelAlgorithmCommand";
+import { GetMLConfigurationCommandInput, GetMLConfigurationCommandOutput } from "../commands/GetMLConfigurationCommand";
+import { GetMLInputChannelCommandInput, GetMLInputChannelCommandOutput } from "../commands/GetMLInputChannelCommand";
+import { GetTrainedModelCommandInput, GetTrainedModelCommandOutput } from "../commands/GetTrainedModelCommand";
+import {
+  GetTrainedModelInferenceJobCommandInput,
+  GetTrainedModelInferenceJobCommandOutput,
+} from "../commands/GetTrainedModelInferenceJobCommand";
 import { GetTrainingDatasetCommandInput, GetTrainingDatasetCommandOutput } from "../commands/GetTrainingDatasetCommand";
 import {
   ListAudienceExportJobsCommandInput,
@@ -82,13 +149,50 @@ import {
 } from "../commands/ListAudienceGenerationJobsCommand";
 import { ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput } from "../commands/ListAudienceModelsCommand";
 import {
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "../commands/ListCollaborationConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListCollaborationMLInputChannelsCommandInput,
+  ListCollaborationMLInputChannelsCommandOutput,
+} from "../commands/ListCollaborationMLInputChannelsCommand";
+import {
+  ListCollaborationTrainedModelExportJobsCommandInput,
+  ListCollaborationTrainedModelExportJobsCommandOutput,
+} from "../commands/ListCollaborationTrainedModelExportJobsCommand";
+import {
+  ListCollaborationTrainedModelInferenceJobsCommandInput,
+  ListCollaborationTrainedModelInferenceJobsCommandOutput,
+} from "../commands/ListCollaborationTrainedModelInferenceJobsCommand";
+import {
+  ListCollaborationTrainedModelsCommandInput,
+  ListCollaborationTrainedModelsCommandOutput,
+} from "../commands/ListCollaborationTrainedModelsCommand";
+import {
   ListConfiguredAudienceModelsCommandInput,
   ListConfiguredAudienceModelsCommandOutput,
 } from "../commands/ListConfiguredAudienceModelsCommand";
 import {
+  ListConfiguredModelAlgorithmAssociationsCommandInput,
+  ListConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "../commands/ListConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListConfiguredModelAlgorithmsCommandInput,
+  ListConfiguredModelAlgorithmsCommandOutput,
+} from "../commands/ListConfiguredModelAlgorithmsCommand";
+import {
+  ListMLInputChannelsCommandInput,
+  ListMLInputChannelsCommandOutput,
+} from "../commands/ListMLInputChannelsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTrainedModelInferenceJobsCommandInput,
+  ListTrainedModelInferenceJobsCommandOutput,
+} from "../commands/ListTrainedModelInferenceJobsCommand";
+import { ListTrainedModelsCommandInput, ListTrainedModelsCommandOutput } from "../commands/ListTrainedModelsCommand";
 import {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
@@ -97,6 +201,7 @@ import {
   PutConfiguredAudienceModelPolicyCommandInput,
   PutConfiguredAudienceModelPolicyCommandOutput,
 } from "../commands/PutConfiguredAudienceModelPolicyCommand";
+import { PutMLConfigurationCommandInput, PutMLConfigurationCommandOutput } from "../commands/PutMLConfigurationCommand";
 import {
   StartAudienceExportJobCommandInput,
   StartAudienceExportJobCommandOutput,
@@ -105,6 +210,14 @@ import {
   StartAudienceGenerationJobCommandInput,
   StartAudienceGenerationJobCommandOutput,
 } from "../commands/StartAudienceGenerationJobCommand";
+import {
+  StartTrainedModelExportJobCommandInput,
+  StartTrainedModelExportJobCommandOutput,
+} from "../commands/StartTrainedModelExportJobCommand";
+import {
+  StartTrainedModelInferenceJobCommandInput,
+  StartTrainedModelInferenceJobCommandOutput,
+} from "../commands/StartTrainedModelInferenceJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -122,24 +235,98 @@ import {
   AudienceQualityMetrics,
   AudienceSize,
   AudienceSizeConfig,
+  CollaborationConfiguredModelAlgorithmAssociationSummary,
+  CollaborationMLInputChannelSummary,
+  CollaborationTrainedModelExportJobSummary,
+  CollaborationTrainedModelInferenceJobSummary,
+  CollaborationTrainedModelSummary,
   ColumnSchema,
   ColumnType,
+  ComputeConfiguration,
   ConfiguredAudienceModelOutputConfig,
   ConfiguredAudienceModelSummary,
+  ConfiguredModelAlgorithmAssociationSummary,
+  ConfiguredModelAlgorithmSummary,
   ConflictException,
+  ContainerConfig,
   Dataset,
   DatasetInputConfig,
   DataSource,
+  Destination,
   GlueDataSource,
+  InferenceContainerConfig,
+  InferenceContainerExecutionParameters,
+  InferenceOutputConfiguration,
+  InferenceReceiverMember,
+  InferenceResourceConfig,
+  InputChannel,
+  InputChannelDataSource,
+  LogsConfigurationPolicy,
+  MetricDefinition,
+  MetricsConfigurationPolicy,
+  MLInputChannelSummary,
+  MLOutputConfiguration,
+  ModelInferenceDataSource,
+  ModelTrainingDataChannel,
+  PrivacyConfiguration,
+  PrivacyConfigurationPolicies,
+  ProtectedQueryInputParameters,
   ProtectedQuerySQLParameters,
   RelevanceMetric,
+  ResourceConfig,
   ResourceNotFoundException,
   S3ConfigMap,
   ServiceQuotaExceededException,
   SharedAudienceMetrics,
+  StoppingCondition,
+  TrainedModelExportFileType,
+  TrainedModelExportOutputConfiguration,
+  TrainedModelExportReceiverMember,
+  TrainedModelExportsConfigurationPolicy,
+  TrainedModelExportsMaxSize,
+  TrainedModelInferenceJobsConfigurationPolicy,
+  TrainedModelInferenceJobSummary,
+  TrainedModelInferenceMaxOutputSize,
+  TrainedModelsConfigurationPolicy,
+  TrainedModelSummary,
   TrainingDatasetSummary,
   ValidationException,
+  WorkerComputeConfiguration,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CancelTrainedModelCommand
+ */
+export const se_CancelTrainedModelCommand = async (
+  input: CancelTrainedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  let body: any;
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelTrainedModelInferenceJobCommand
+ */
+export const se_CancelTrainedModelInferenceJobCommand = async (
+  input: CancelTrainedModelInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-model-inference-jobs/{trainedModelInferenceJobArn}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("trainedModelInferenceJobArn", () => input.trainedModelInferenceJobArn!, "{trainedModelInferenceJobArn}", false);
+  let body: any;
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateAudienceModelCommand
@@ -192,6 +379,122 @@ export const se_CreateConfiguredAudienceModelCommand = async (
       name: [],
       outputConfig: (_) => _json(_),
       sharedAudienceMetrics: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConfiguredModelAlgorithmCommand
+ */
+export const se_CreateConfiguredModelAlgorithmCommand = async (
+  input: CreateConfiguredModelAlgorithmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configured-model-algorithms");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      inferenceContainerConfig: (_) => _json(_),
+      kmsKeyArn: [],
+      name: [],
+      roleArn: [],
+      tags: (_) => _json(_),
+      trainingContainerConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConfiguredModelAlgorithmAssociationCommand
+ */
+export const se_CreateConfiguredModelAlgorithmAssociationCommand = async (
+  input: CreateConfiguredModelAlgorithmAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/configured-model-algorithm-associations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredModelAlgorithmArn: [],
+      description: [],
+      name: [],
+      privacyConfiguration: (_) => se_PrivacyConfiguration(_, context),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMLInputChannelCommand
+ */
+export const se_CreateMLInputChannelCommand = async (
+  input: CreateMLInputChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/ml-input-channels");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredModelAlgorithmAssociations: (_) => _json(_),
+      description: [],
+      inputChannel: (_) => _json(_),
+      kmsKeyArn: [],
+      name: [],
+      retentionInDays: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateTrainedModelCommand
+ */
+export const se_CreateTrainedModelCommand = async (
+  input: CreateTrainedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/trained-models");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredModelAlgorithmAssociationArn: [],
+      dataChannels: (_) => _json(_),
+      description: [],
+      environment: (_) => _json(_),
+      hyperparameters: (_) => _json(_),
+      kmsKeyArn: [],
+      name: [],
+      resourceConfig: (_) => _json(_),
+      stoppingCondition: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -290,6 +593,96 @@ export const se_DeleteConfiguredAudienceModelPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteConfiguredModelAlgorithmCommand
+ */
+export const se_DeleteConfiguredModelAlgorithmCommand = async (
+  input: DeleteConfiguredModelAlgorithmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configured-model-algorithms/{configuredModelAlgorithmArn}");
+  b.p("configuredModelAlgorithmArn", () => input.configuredModelAlgorithmArn!, "{configuredModelAlgorithmArn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConfiguredModelAlgorithmAssociationCommand
+ */
+export const se_DeleteConfiguredModelAlgorithmAssociationCommand = async (
+  input: DeleteConfiguredModelAlgorithmAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configured-model-algorithm-associations/{configuredModelAlgorithmAssociationArn}"
+  );
+  b.p(
+    "configuredModelAlgorithmAssociationArn",
+    () => input.configuredModelAlgorithmAssociationArn!,
+    "{configuredModelAlgorithmAssociationArn}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteMLConfigurationCommand
+ */
+export const se_DeleteMLConfigurationCommand = async (
+  input: DeleteMLConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/ml-configurations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteMLInputChannelDataCommand
+ */
+export const se_DeleteMLInputChannelDataCommand = async (
+  input: DeleteMLInputChannelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}");
+  b.p("mlInputChannelArn", () => input.mlInputChannelArn!, "{mlInputChannelArn}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTrainedModelOutputCommand
+ */
+export const se_DeleteTrainedModelOutputCommand = async (
+  input: DeleteTrainedModelOutputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteTrainingDatasetCommand
  */
 export const se_DeleteTrainingDatasetCommand = async (
@@ -338,6 +731,64 @@ export const se_GetAudienceModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetCollaborationConfiguredModelAlgorithmAssociationCommand
+ */
+export const se_GetCollaborationConfiguredModelAlgorithmAssociationCommand = async (
+  input: GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/collaborations/{collaborationIdentifier}/configured-model-algorithm-associations/{configuredModelAlgorithmAssociationArn}"
+  );
+  b.p(
+    "configuredModelAlgorithmAssociationArn",
+    () => input.configuredModelAlgorithmAssociationArn!,
+    "{configuredModelAlgorithmAssociationArn}",
+    false
+  );
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationMLInputChannelCommand
+ */
+export const se_GetCollaborationMLInputChannelCommand = async (
+  input: GetCollaborationMLInputChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/ml-input-channels/{mlInputChannelArn}");
+  b.p("mlInputChannelArn", () => input.mlInputChannelArn!, "{mlInputChannelArn}", false);
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationTrainedModelCommand
+ */
+export const se_GetCollaborationTrainedModelCommand = async (
+  input: GetCollaborationTrainedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}");
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetConfiguredAudienceModelCommand
  */
 export const se_GetConfiguredAudienceModelCommand = async (
@@ -364,6 +815,113 @@ export const se_GetConfiguredAudienceModelPolicyCommand = async (
   const headers: any = {};
   b.bp("/configured-audience-model/{configuredAudienceModelArn}/policy");
   b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfiguredModelAlgorithmCommand
+ */
+export const se_GetConfiguredModelAlgorithmCommand = async (
+  input: GetConfiguredModelAlgorithmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configured-model-algorithms/{configuredModelAlgorithmArn}");
+  b.p("configuredModelAlgorithmArn", () => input.configuredModelAlgorithmArn!, "{configuredModelAlgorithmArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfiguredModelAlgorithmAssociationCommand
+ */
+export const se_GetConfiguredModelAlgorithmAssociationCommand = async (
+  input: GetConfiguredModelAlgorithmAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configured-model-algorithm-associations/{configuredModelAlgorithmAssociationArn}"
+  );
+  b.p(
+    "configuredModelAlgorithmAssociationArn",
+    () => input.configuredModelAlgorithmAssociationArn!,
+    "{configuredModelAlgorithmAssociationArn}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMLConfigurationCommand
+ */
+export const se_GetMLConfigurationCommand = async (
+  input: GetMLConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/ml-configurations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMLInputChannelCommand
+ */
+export const se_GetMLInputChannelCommand = async (
+  input: GetMLInputChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}");
+  b.p("mlInputChannelArn", () => input.mlInputChannelArn!, "{mlInputChannelArn}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTrainedModelCommand
+ */
+export const se_GetTrainedModelCommand = async (
+  input: GetTrainedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTrainedModelInferenceJobCommand
+ */
+export const se_GetTrainedModelInferenceJobCommand = async (
+  input: GetTrainedModelInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-model-inference-jobs/{trainedModelInferenceJobArn}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("trainedModelInferenceJobArn", () => input.trainedModelInferenceJobArn!, "{trainedModelInferenceJobArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -446,6 +1004,108 @@ export const se_ListAudienceModelsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListCollaborationConfiguredModelAlgorithmAssociationsCommand
+ */
+export const se_ListCollaborationConfiguredModelAlgorithmAssociationsCommand = async (
+  input: ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/configured-model-algorithm-associations");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationMLInputChannelsCommand
+ */
+export const se_ListCollaborationMLInputChannelsCommand = async (
+  input: ListCollaborationMLInputChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/ml-input-channels");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationTrainedModelExportJobsCommand
+ */
+export const se_ListCollaborationTrainedModelExportJobsCommand = async (
+  input: ListCollaborationTrainedModelExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}/export-jobs");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationTrainedModelInferenceJobsCommand
+ */
+export const se_ListCollaborationTrainedModelInferenceJobsCommand = async (
+  input: ListCollaborationTrainedModelInferenceJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/trained-model-inference-jobs");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tMA]: [, input[_tMA]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationTrainedModelsCommand
+ */
+export const se_ListCollaborationTrainedModelsCommand = async (
+  input: ListCollaborationTrainedModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/trained-models");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListConfiguredAudienceModelsCommand
  */
 export const se_ListConfiguredAudienceModelsCommand = async (
@@ -455,6 +1115,65 @@ export const se_ListConfiguredAudienceModelsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/configured-audience-model");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfiguredModelAlgorithmAssociationsCommand
+ */
+export const se_ListConfiguredModelAlgorithmAssociationsCommand = async (
+  input: ListConfiguredModelAlgorithmAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/configured-model-algorithm-associations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfiguredModelAlgorithmsCommand
+ */
+export const se_ListConfiguredModelAlgorithmsCommand = async (
+  input: ListConfiguredModelAlgorithmsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configured-model-algorithms");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMLInputChannelsCommand
+ */
+export const se_ListMLInputChannelsCommand = async (
+  input: ListMLInputChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/ml-input-channels");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -477,6 +1196,47 @@ export const se_ListTagsForResourceCommand = async (
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTrainedModelInferenceJobsCommand
+ */
+export const se_ListTrainedModelInferenceJobsCommand = async (
+  input: ListTrainedModelInferenceJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-model-inference-jobs");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tMA]: [, input[_tMA]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTrainedModelsCommand
+ */
+export const se_ListTrainedModelsCommand = async (
+  input: ListTrainedModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-models");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -518,6 +1278,29 @@ export const se_PutConfiguredAudienceModelPolicyCommand = async (
       configuredAudienceModelPolicy: [],
       policyExistenceCondition: [],
       previousPolicyHash: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutMLConfigurationCommand
+ */
+export const se_PutMLConfigurationCommand = async (
+  input: PutMLConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/ml-configurations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      defaultOutputLocation: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -571,6 +1354,65 @@ export const se_StartAudienceGenerationJobCommand = async (
       name: [],
       seedAudience: (_) => _json(_),
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartTrainedModelExportJobCommand
+ */
+export const se_StartTrainedModelExportJobCommand = async (
+  input: StartTrainedModelExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/export-jobs");
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      outputConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartTrainedModelInferenceJobCommand
+ */
+export const se_StartTrainedModelInferenceJobCommand = async (
+  input: StartTrainedModelInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/trained-model-inference-jobs");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredModelAlgorithmAssociationArn: [],
+      containerExecutionParameters: (_) => _json(_),
+      dataSource: (_) => _json(_),
+      description: [],
+      environment: (_) => _json(_),
+      kmsKeyArn: [],
+      name: [],
+      outputConfiguration: (_) => _json(_),
+      resourceConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+      trainedModelArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -648,6 +1490,40 @@ export const se_UpdateConfiguredAudienceModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelTrainedModelCommand
+ */
+export const de_CancelTrainedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelTrainedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelTrainedModelInferenceJobCommand
+ */
+export const de_CancelTrainedModelInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelTrainedModelInferenceJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateAudienceModelCommand
  */
 export const de_CreateAudienceModelCommand = async (
@@ -684,6 +1560,90 @@ export const de_CreateConfiguredAudienceModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuredAudienceModelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConfiguredModelAlgorithmCommand
+ */
+export const de_CreateConfiguredModelAlgorithmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredModelAlgorithmCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithmArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConfiguredModelAlgorithmAssociationCommand
+ */
+export const de_CreateConfiguredModelAlgorithmAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredModelAlgorithmAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithmAssociationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMLInputChannelCommand
+ */
+export const de_CreateMLInputChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMLInputChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    mlInputChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTrainedModelCommand
+ */
+export const de_CreateTrainedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrainedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    trainedModelArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -779,6 +1739,91 @@ export const de_DeleteConfiguredAudienceModelPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteConfiguredModelAlgorithmCommand
+ */
+export const de_DeleteConfiguredModelAlgorithmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredModelAlgorithmCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredModelAlgorithmAssociationCommand
+ */
+export const de_DeleteConfiguredModelAlgorithmAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredModelAlgorithmAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMLConfigurationCommand
+ */
+export const de_DeleteMLConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMLConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMLInputChannelDataCommand
+ */
+export const de_DeleteMLInputChannelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMLInputChannelDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTrainedModelOutputCommand
+ */
+export const de_DeleteTrainedModelOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrainedModelOutputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteTrainingDatasetCommand
  */
 export const de_DeleteTrainingDatasetCommand = async (
@@ -863,6 +1908,107 @@ export const de_GetAudienceModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetCollaborationConfiguredModelAlgorithmAssociationCommand
+ */
+export const de_GetCollaborationConfiguredModelAlgorithmAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmArn: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    privacyConfiguration: (_) => de_PrivacyConfiguration(_, context),
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationMLInputChannelCommand
+ */
+export const de_GetCollaborationMLInputChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationMLInputChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociations: _json,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    mlInputChannelArn: __expectString,
+    name: __expectString,
+    numberOfRecords: __expectLong,
+    retentionInDays: __expectInt32,
+    status: __expectString,
+    statusDetails: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationTrainedModelCommand
+ */
+export const de_GetCollaborationTrainedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationTrainedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    logsStatus: __expectString,
+    logsStatusDetails: __expectString,
+    membershipIdentifier: __expectString,
+    metricsStatus: __expectString,
+    metricsStatusDetails: __expectString,
+    name: __expectString,
+    resourceConfig: _json,
+    status: __expectString,
+    statusDetails: _json,
+    stoppingCondition: _json,
+    trainedModelArn: __expectString,
+    trainingContainerImageDigest: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetConfiguredAudienceModelCommand
  */
 export const de_GetConfiguredAudienceModelCommand = async (
@@ -913,6 +2059,212 @@ export const de_GetConfiguredAudienceModelPolicyCommand = async (
     configuredAudienceModelArn: __expectString,
     configuredAudienceModelPolicy: __expectString,
     policyHash: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredModelAlgorithmCommand
+ */
+export const de_GetConfiguredModelAlgorithmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredModelAlgorithmCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithmArn: __expectString,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    inferenceContainerConfig: _json,
+    kmsKeyArn: __expectString,
+    name: __expectString,
+    roleArn: __expectString,
+    tags: _json,
+    trainingContainerConfig: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredModelAlgorithmAssociationCommand
+ */
+export const de_GetConfiguredModelAlgorithmAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredModelAlgorithmAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmArn: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    privacyConfiguration: (_) => de_PrivacyConfiguration(_, context),
+    tags: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMLConfigurationCommand
+ */
+export const de_GetMLConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMLConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    defaultOutputLocation: _json,
+    membershipIdentifier: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMLInputChannelCommand
+ */
+export const de_GetMLInputChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMLInputChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociations: _json,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    inputChannel: _json,
+    kmsKeyArn: __expectString,
+    membershipIdentifier: __expectString,
+    mlInputChannelArn: __expectString,
+    name: __expectString,
+    numberOfFiles: __limitedParseDouble,
+    numberOfRecords: __expectLong,
+    protectedQueryIdentifier: __expectString,
+    retentionInDays: __expectInt32,
+    sizeInGb: __limitedParseDouble,
+    status: __expectString,
+    statusDetails: _json,
+    tags: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTrainedModelCommand
+ */
+export const de_GetTrainedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrainedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dataChannels: _json,
+    description: __expectString,
+    environment: _json,
+    hyperparameters: _json,
+    kmsKeyArn: __expectString,
+    logsStatus: __expectString,
+    logsStatusDetails: __expectString,
+    membershipIdentifier: __expectString,
+    metricsStatus: __expectString,
+    metricsStatusDetails: __expectString,
+    name: __expectString,
+    resourceConfig: _json,
+    status: __expectString,
+    statusDetails: _json,
+    stoppingCondition: _json,
+    tags: _json,
+    trainedModelArn: __expectString,
+    trainingContainerImageDigest: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTrainedModelInferenceJobCommand
+ */
+export const de_GetTrainedModelInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrainedModelInferenceJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithmAssociationArn: __expectString,
+    containerExecutionParameters: _json,
+    createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dataSource: _json,
+    description: __expectString,
+    environment: _json,
+    inferenceContainerImageDigest: __expectString,
+    kmsKeyArn: __expectString,
+    logsStatus: __expectString,
+    logsStatusDetails: __expectString,
+    membershipIdentifier: __expectString,
+    metricsStatus: __expectString,
+    metricsStatusDetails: __expectString,
+    name: __expectString,
+    outputConfiguration: _json,
+    resourceConfig: _json,
+    status: __expectString,
+    statusDetails: _json,
+    tags: _json,
+    trainedModelArn: __expectString,
+    trainedModelInferenceJobArn: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1014,6 +2366,117 @@ export const de_ListAudienceModelsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListCollaborationConfiguredModelAlgorithmAssociationsCommand
+ */
+export const de_ListCollaborationConfiguredModelAlgorithmAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationConfiguredModelAlgorithmAssociations: (_) =>
+      de_CollaborationConfiguredModelAlgorithmAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationMLInputChannelsCommand
+ */
+export const de_ListCollaborationMLInputChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationMLInputChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationMLInputChannelsList: (_) => de_CollaborationMLInputChannelsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationTrainedModelExportJobsCommand
+ */
+export const de_ListCollaborationTrainedModelExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationTrainedModelExportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationTrainedModelExportJobs: (_) => de_CollaborationTrainedModelExportJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationTrainedModelInferenceJobsCommand
+ */
+export const de_ListCollaborationTrainedModelInferenceJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationTrainedModelInferenceJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationTrainedModelInferenceJobs: (_) => de_CollaborationTrainedModelInferenceJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationTrainedModelsCommand
+ */
+export const de_ListCollaborationTrainedModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationTrainedModelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationTrainedModels: (_) => de_CollaborationTrainedModelList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListConfiguredAudienceModelsCommand
  */
 export const de_ListConfiguredAudienceModelsCommand = async (
@@ -1036,6 +2499,72 @@ export const de_ListConfiguredAudienceModelsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListConfiguredModelAlgorithmAssociationsCommand
+ */
+export const de_ListConfiguredModelAlgorithmAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredModelAlgorithmAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithmAssociations: (_) => de_ConfiguredModelAlgorithmAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfiguredModelAlgorithmsCommand
+ */
+export const de_ListConfiguredModelAlgorithmsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredModelAlgorithmsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredModelAlgorithms: (_) => de_ConfiguredModelAlgorithmList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMLInputChannelsCommand
+ */
+export const de_ListMLInputChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMLInputChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    mlInputChannelsList: (_) => de_MLInputChannelsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1051,6 +2580,50 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTrainedModelInferenceJobsCommand
+ */
+export const de_ListTrainedModelInferenceJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrainedModelInferenceJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    trainedModelInferenceJobs: (_) => de_TrainedModelInferenceJobList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTrainedModelsCommand
+ */
+export const de_ListTrainedModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrainedModelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    trainedModels: (_) => de_TrainedModelList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1101,6 +2674,23 @@ export const de_PutConfiguredAudienceModelPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutMLConfigurationCommand
+ */
+export const de_PutMLConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMLConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartAudienceExportJobCommand
  */
 export const de_StartAudienceExportJobCommand = async (
@@ -1133,6 +2723,44 @@ export const de_StartAudienceGenerationJobCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     audienceGenerationJobArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartTrainedModelExportJobCommand
+ */
+export const de_StartTrainedModelExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTrainedModelExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartTrainedModelInferenceJobCommand
+ */
+export const de_StartTrainedModelInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTrainedModelInferenceJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    trainedModelInferenceJobArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1212,12 +2840,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.cleanroomsml#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cleanroomsml#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cleanroomsml#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cleanroomsml#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1323,6 +2951,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccountIdList omitted.
+
 // se_AudienceDestination omitted.
 
 // se_AudienceGenerationJobDataSource omitted.
@@ -1337,7 +2967,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ColumnTypeList omitted.
 
+// se_ComputeConfiguration omitted.
+
 // se_ConfiguredAudienceModelOutputConfig omitted.
+
+// se_ConfiguredModelAlgorithmAssociationArnList omitted.
+
+// se_ContainerArguments omitted.
+
+// se_ContainerConfig omitted.
+
+// se_ContainerEntrypoint omitted.
 
 // se_Dataset omitted.
 
@@ -1349,17 +2989,148 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DataSource omitted.
 
+// se_Destination omitted.
+
+// se_Environment omitted.
+
 // se_GlueDataSource omitted.
+
+// se_HyperParameters omitted.
+
+// se_InferenceContainerConfig omitted.
+
+// se_InferenceContainerExecutionParameters omitted.
+
+// se_InferenceEnvironmentMap omitted.
+
+// se_InferenceOutputConfiguration omitted.
+
+// se_InferenceReceiverMember omitted.
+
+// se_InferenceReceiverMembers omitted.
+
+// se_InferenceResourceConfig omitted.
+
+// se_InputChannel omitted.
+
+// se_InputChannelDataSource omitted.
+
+// se_LogsConfigurationPolicy omitted.
+
+// se_LogsConfigurationPolicyList omitted.
+
+// se_MetricDefinition omitted.
+
+// se_MetricDefinitionList omitted.
+
+// se_MetricsConfigurationPolicy omitted.
 
 // se_MetricsList omitted.
 
+// se_MLOutputConfiguration omitted.
+
+// se_ModelInferenceDataSource omitted.
+
+// se_ModelTrainingDataChannel omitted.
+
+// se_ModelTrainingDataChannels omitted.
+
 // se_ParameterMap omitted.
+
+/**
+ * serializeAws_restJson1PrivacyConfiguration
+ */
+const se_PrivacyConfiguration = (input: PrivacyConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    policies: (_) => se_PrivacyConfigurationPolicies(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1PrivacyConfigurationPolicies
+ */
+const se_PrivacyConfigurationPolicies = (input: PrivacyConfigurationPolicies, context: __SerdeContext): any => {
+  return take(input, {
+    trainedModelExports: (_) => se_TrainedModelExportsConfigurationPolicy(_, context),
+    trainedModelInferenceJobs: (_) => se_TrainedModelInferenceJobsConfigurationPolicy(_, context),
+    trainedModels: _json,
+  });
+};
+
+// se_ProtectedQueryInputParameters omitted.
 
 // se_ProtectedQuerySQLParameters omitted.
 
+// se_ResourceConfig omitted.
+
 // se_S3ConfigMap omitted.
 
+// se_StoppingCondition omitted.
+
 // se_TagMap omitted.
+
+// se_TrainedModelExportFileTypeList omitted.
+
+// se_TrainedModelExportOutputConfiguration omitted.
+
+// se_TrainedModelExportReceiverMember omitted.
+
+// se_TrainedModelExportReceiverMembers omitted.
+
+/**
+ * serializeAws_restJson1TrainedModelExportsConfigurationPolicy
+ */
+const se_TrainedModelExportsConfigurationPolicy = (
+  input: TrainedModelExportsConfigurationPolicy,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    filesToExport: _json,
+    maxSize: (_) => se_TrainedModelExportsMaxSize(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1TrainedModelExportsMaxSize
+ */
+const se_TrainedModelExportsMaxSize = (input: TrainedModelExportsMaxSize, context: __SerdeContext): any => {
+  return take(input, {
+    unit: [],
+    value: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1TrainedModelInferenceJobsConfigurationPolicy
+ */
+const se_TrainedModelInferenceJobsConfigurationPolicy = (
+  input: TrainedModelInferenceJobsConfigurationPolicy,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    containerLogs: _json,
+    maxOutputSize: (_) => se_TrainedModelInferenceMaxOutputSize(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1TrainedModelInferenceMaxOutputSize
+ */
+const se_TrainedModelInferenceMaxOutputSize = (
+  input: TrainedModelInferenceMaxOutputSize,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    unit: [],
+    value: __serializeFloat,
+  });
+};
+
+// se_TrainedModelsConfigurationPolicy omitted.
+
+// se_WorkerComputeConfiguration omitted.
+
+// de_AccountIdList omitted.
 
 // de_AudienceDestination omitted.
 
@@ -1466,9 +3237,194 @@ const de_AudienceQualityMetrics = (output: any, context: __SerdeContext): Audien
 
 // de_AudienceSizeConfig omitted.
 
+/**
+ * deserializeAws_restJson1CollaborationConfiguredModelAlgorithmAssociationList
+ */
+const de_CollaborationConfiguredModelAlgorithmAssociationList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredModelAlgorithmAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationConfiguredModelAlgorithmAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationConfiguredModelAlgorithmAssociationSummary
+ */
+const de_CollaborationConfiguredModelAlgorithmAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredModelAlgorithmAssociationSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmArn: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationMLInputChannelsList
+ */
+const de_CollaborationMLInputChannelsList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationMLInputChannelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationMLInputChannelSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationMLInputChannelSummary
+ */
+const de_CollaborationMLInputChannelSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationMLInputChannelSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociations: _json,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    mlInputChannelArn: __expectString,
+    name: __expectString,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelExportJobList
+ */
+const de_CollaborationTrainedModelExportJobList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationTrainedModelExportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationTrainedModelExportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelExportJobSummary
+ */
+const de_CollaborationTrainedModelExportJobSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationTrainedModelExportJobSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    outputConfiguration: _json,
+    status: __expectString,
+    statusDetails: _json,
+    trainedModelArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelInferenceJobList
+ */
+const de_CollaborationTrainedModelInferenceJobList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationTrainedModelInferenceJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationTrainedModelInferenceJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelInferenceJobSummary
+ */
+const de_CollaborationTrainedModelInferenceJobSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationTrainedModelInferenceJobSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    logsStatus: __expectString,
+    logsStatusDetails: __expectString,
+    membershipIdentifier: __expectString,
+    metricsStatus: __expectString,
+    metricsStatusDetails: __expectString,
+    name: __expectString,
+    outputConfiguration: _json,
+    status: __expectString,
+    trainedModelArn: __expectString,
+    trainedModelInferenceJobArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelList
+ */
+const de_CollaborationTrainedModelList = (output: any, context: __SerdeContext): CollaborationTrainedModelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationTrainedModelSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationTrainedModelSummary
+ */
+const de_CollaborationTrainedModelSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationTrainedModelSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    status: __expectString,
+    trainedModelArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
 // de_ColumnSchema omitted.
 
 // de_ColumnTypeList omitted.
+
+// de_ComputeConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ConfiguredAudienceModelList
@@ -1500,6 +3456,73 @@ const de_ConfiguredAudienceModelSummary = (output: any, context: __SerdeContext)
   }) as any;
 };
 
+// de_ConfiguredModelAlgorithmAssociationArnList omitted.
+
+/**
+ * deserializeAws_restJson1ConfiguredModelAlgorithmAssociationList
+ */
+const de_ConfiguredModelAlgorithmAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredModelAlgorithmAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfiguredModelAlgorithmAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredModelAlgorithmAssociationSummary
+ */
+const de_ConfiguredModelAlgorithmAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredModelAlgorithmAssociationSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmArn: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredModelAlgorithmList
+ */
+const de_ConfiguredModelAlgorithmList = (output: any, context: __SerdeContext): ConfiguredModelAlgorithmSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfiguredModelAlgorithmSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredModelAlgorithmSummary
+ */
+const de_ConfiguredModelAlgorithmSummary = (output: any, context: __SerdeContext): ConfiguredModelAlgorithmSummary => {
+  return take(output, {
+    configuredModelAlgorithmArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_ContainerArguments omitted.
+
+// de_ContainerConfig omitted.
+
+// de_ContainerEntrypoint omitted.
+
 // de_Dataset omitted.
 
 // de_DatasetInputConfig omitted.
@@ -1510,11 +3533,105 @@ const de_ConfiguredAudienceModelSummary = (output: any, context: __SerdeContext)
 
 // de_DataSource omitted.
 
+// de_Destination omitted.
+
+// de_Environment omitted.
+
 // de_GlueDataSource omitted.
+
+// de_HyperParameters omitted.
+
+// de_InferenceContainerConfig omitted.
+
+// de_InferenceContainerExecutionParameters omitted.
+
+// de_InferenceEnvironmentMap omitted.
+
+// de_InferenceOutputConfiguration omitted.
+
+// de_InferenceReceiverMember omitted.
+
+// de_InferenceReceiverMembers omitted.
+
+// de_InferenceResourceConfig omitted.
+
+// de_InputChannel omitted.
+
+// de_InputChannelDataSource omitted.
+
+// de_LogsConfigurationPolicy omitted.
+
+// de_LogsConfigurationPolicyList omitted.
+
+// de_MetricDefinition omitted.
+
+// de_MetricDefinitionList omitted.
+
+// de_MetricsConfigurationPolicy omitted.
 
 // de_MetricsList omitted.
 
+/**
+ * deserializeAws_restJson1MLInputChannelsList
+ */
+const de_MLInputChannelsList = (output: any, context: __SerdeContext): MLInputChannelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MLInputChannelSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MLInputChannelSummary
+ */
+const de_MLInputChannelSummary = (output: any, context: __SerdeContext): MLInputChannelSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociations: _json,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    mlInputChannelArn: __expectString,
+    name: __expectString,
+    protectedQueryIdentifier: __expectString,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_MLOutputConfiguration omitted.
+
+// de_ModelInferenceDataSource omitted.
+
+// de_ModelTrainingDataChannel omitted.
+
+// de_ModelTrainingDataChannels omitted.
+
 // de_ParameterMap omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyConfiguration
+ */
+const de_PrivacyConfiguration = (output: any, context: __SerdeContext): PrivacyConfiguration => {
+  return take(output, {
+    policies: (_: any) => de_PrivacyConfigurationPolicies(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyConfigurationPolicies
+ */
+const de_PrivacyConfigurationPolicies = (output: any, context: __SerdeContext): PrivacyConfigurationPolicies => {
+  return take(output, {
+    trainedModelExports: (_: any) => de_TrainedModelExportsConfigurationPolicy(_, context),
+    trainedModelInferenceJobs: (_: any) => de_TrainedModelInferenceJobsConfigurationPolicy(_, context),
+    trainedModels: _json,
+  }) as any;
+};
+
+// de_ProtectedQueryInputParameters omitted.
 
 // de_ProtectedQuerySQLParameters omitted.
 
@@ -1540,11 +3657,138 @@ const de_RelevanceMetrics = (output: any, context: __SerdeContext): RelevanceMet
   return retVal;
 };
 
+// de_ResourceConfig omitted.
+
 // de_S3ConfigMap omitted.
 
 // de_StatusDetails omitted.
 
+// de_StoppingCondition omitted.
+
 // de_TagMap omitted.
+
+// de_TrainedModelExportFileTypeList omitted.
+
+// de_TrainedModelExportOutputConfiguration omitted.
+
+// de_TrainedModelExportReceiverMember omitted.
+
+// de_TrainedModelExportReceiverMembers omitted.
+
+/**
+ * deserializeAws_restJson1TrainedModelExportsConfigurationPolicy
+ */
+const de_TrainedModelExportsConfigurationPolicy = (
+  output: any,
+  context: __SerdeContext
+): TrainedModelExportsConfigurationPolicy => {
+  return take(output, {
+    filesToExport: _json,
+    maxSize: (_: any) => de_TrainedModelExportsMaxSize(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelExportsMaxSize
+ */
+const de_TrainedModelExportsMaxSize = (output: any, context: __SerdeContext): TrainedModelExportsMaxSize => {
+  return take(output, {
+    unit: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelInferenceJobList
+ */
+const de_TrainedModelInferenceJobList = (output: any, context: __SerdeContext): TrainedModelInferenceJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrainedModelInferenceJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelInferenceJobsConfigurationPolicy
+ */
+const de_TrainedModelInferenceJobsConfigurationPolicy = (
+  output: any,
+  context: __SerdeContext
+): TrainedModelInferenceJobsConfigurationPolicy => {
+  return take(output, {
+    containerLogs: _json,
+    maxOutputSize: (_: any) => de_TrainedModelInferenceMaxOutputSize(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelInferenceJobSummary
+ */
+const de_TrainedModelInferenceJobSummary = (output: any, context: __SerdeContext): TrainedModelInferenceJobSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    logsStatus: __expectString,
+    logsStatusDetails: __expectString,
+    membershipIdentifier: __expectString,
+    metricsStatus: __expectString,
+    metricsStatusDetails: __expectString,
+    name: __expectString,
+    outputConfiguration: _json,
+    status: __expectString,
+    trainedModelArn: __expectString,
+    trainedModelInferenceJobArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelInferenceMaxOutputSize
+ */
+const de_TrainedModelInferenceMaxOutputSize = (
+  output: any,
+  context: __SerdeContext
+): TrainedModelInferenceMaxOutputSize => {
+  return take(output, {
+    unit: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrainedModelList
+ */
+const de_TrainedModelList = (output: any, context: __SerdeContext): TrainedModelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrainedModelSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_TrainedModelsConfigurationPolicy omitted.
+
+/**
+ * deserializeAws_restJson1TrainedModelSummary
+ */
+const de_TrainedModelSummary = (output: any, context: __SerdeContext): TrainedModelSummary => {
+  return take(output, {
+    collaborationIdentifier: __expectString,
+    configuredModelAlgorithmAssociationArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    membershipIdentifier: __expectString,
+    name: __expectString,
+    status: __expectString,
+    trainedModelArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1TrainingDatasetList
@@ -1572,6 +3816,8 @@ const de_TrainingDatasetSummary = (output: any, context: __SerdeContext): Traini
   }) as any;
 };
 
+// de_WorkerComputeConfiguration omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -1590,3 +3836,4 @@ const _cI = "collaborationId";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _tK = "tagKeys";
+const _tMA = "trainedModelArn";

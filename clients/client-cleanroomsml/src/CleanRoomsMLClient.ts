@@ -53,6 +53,11 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelTrainedModelCommandInput, CancelTrainedModelCommandOutput } from "./commands/CancelTrainedModelCommand";
+import {
+  CancelTrainedModelInferenceJobCommandInput,
+  CancelTrainedModelInferenceJobCommandOutput,
+} from "./commands/CancelTrainedModelInferenceJobCommand";
 import {
   CreateAudienceModelCommandInput,
   CreateAudienceModelCommandOutput,
@@ -61,6 +66,19 @@ import {
   CreateConfiguredAudienceModelCommandInput,
   CreateConfiguredAudienceModelCommandOutput,
 } from "./commands/CreateConfiguredAudienceModelCommand";
+import {
+  CreateConfiguredModelAlgorithmAssociationCommandInput,
+  CreateConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/CreateConfiguredModelAlgorithmAssociationCommand";
+import {
+  CreateConfiguredModelAlgorithmCommandInput,
+  CreateConfiguredModelAlgorithmCommandOutput,
+} from "./commands/CreateConfiguredModelAlgorithmCommand";
+import {
+  CreateMLInputChannelCommandInput,
+  CreateMLInputChannelCommandOutput,
+} from "./commands/CreateMLInputChannelCommand";
+import { CreateTrainedModelCommandInput, CreateTrainedModelCommandOutput } from "./commands/CreateTrainedModelCommand";
 import {
   CreateTrainingDatasetCommandInput,
   CreateTrainingDatasetCommandOutput,
@@ -82,6 +100,26 @@ import {
   DeleteConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/DeleteConfiguredAudienceModelPolicyCommand";
 import {
+  DeleteConfiguredModelAlgorithmAssociationCommandInput,
+  DeleteConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/DeleteConfiguredModelAlgorithmAssociationCommand";
+import {
+  DeleteConfiguredModelAlgorithmCommandInput,
+  DeleteConfiguredModelAlgorithmCommandOutput,
+} from "./commands/DeleteConfiguredModelAlgorithmCommand";
+import {
+  DeleteMLConfigurationCommandInput,
+  DeleteMLConfigurationCommandOutput,
+} from "./commands/DeleteMLConfigurationCommand";
+import {
+  DeleteMLInputChannelDataCommandInput,
+  DeleteMLInputChannelDataCommandOutput,
+} from "./commands/DeleteMLInputChannelDataCommand";
+import {
+  DeleteTrainedModelOutputCommandInput,
+  DeleteTrainedModelOutputCommandOutput,
+} from "./commands/DeleteTrainedModelOutputCommand";
+import {
   DeleteTrainingDatasetCommandInput,
   DeleteTrainingDatasetCommandOutput,
 } from "./commands/DeleteTrainingDatasetCommand";
@@ -91,6 +129,18 @@ import {
 } from "./commands/GetAudienceGenerationJobCommand";
 import { GetAudienceModelCommandInput, GetAudienceModelCommandOutput } from "./commands/GetAudienceModelCommand";
 import {
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
+  GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/GetCollaborationConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetCollaborationMLInputChannelCommandInput,
+  GetCollaborationMLInputChannelCommandOutput,
+} from "./commands/GetCollaborationMLInputChannelCommand";
+import {
+  GetCollaborationTrainedModelCommandInput,
+  GetCollaborationTrainedModelCommandOutput,
+} from "./commands/GetCollaborationTrainedModelCommand";
+import {
   GetConfiguredAudienceModelCommandInput,
   GetConfiguredAudienceModelCommandOutput,
 } from "./commands/GetConfiguredAudienceModelCommand";
@@ -98,6 +148,21 @@ import {
   GetConfiguredAudienceModelPolicyCommandInput,
   GetConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/GetConfiguredAudienceModelPolicyCommand";
+import {
+  GetConfiguredModelAlgorithmAssociationCommandInput,
+  GetConfiguredModelAlgorithmAssociationCommandOutput,
+} from "./commands/GetConfiguredModelAlgorithmAssociationCommand";
+import {
+  GetConfiguredModelAlgorithmCommandInput,
+  GetConfiguredModelAlgorithmCommandOutput,
+} from "./commands/GetConfiguredModelAlgorithmCommand";
+import { GetMLConfigurationCommandInput, GetMLConfigurationCommandOutput } from "./commands/GetMLConfigurationCommand";
+import { GetMLInputChannelCommandInput, GetMLInputChannelCommandOutput } from "./commands/GetMLInputChannelCommand";
+import { GetTrainedModelCommandInput, GetTrainedModelCommandOutput } from "./commands/GetTrainedModelCommand";
+import {
+  GetTrainedModelInferenceJobCommandInput,
+  GetTrainedModelInferenceJobCommandOutput,
+} from "./commands/GetTrainedModelInferenceJobCommand";
 import { GetTrainingDatasetCommandInput, GetTrainingDatasetCommandOutput } from "./commands/GetTrainingDatasetCommand";
 import {
   ListAudienceExportJobsCommandInput,
@@ -109,13 +174,50 @@ import {
 } from "./commands/ListAudienceGenerationJobsCommand";
 import { ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput } from "./commands/ListAudienceModelsCommand";
 import {
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+  ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "./commands/ListCollaborationConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListCollaborationMLInputChannelsCommandInput,
+  ListCollaborationMLInputChannelsCommandOutput,
+} from "./commands/ListCollaborationMLInputChannelsCommand";
+import {
+  ListCollaborationTrainedModelExportJobsCommandInput,
+  ListCollaborationTrainedModelExportJobsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelExportJobsCommand";
+import {
+  ListCollaborationTrainedModelInferenceJobsCommandInput,
+  ListCollaborationTrainedModelInferenceJobsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelInferenceJobsCommand";
+import {
+  ListCollaborationTrainedModelsCommandInput,
+  ListCollaborationTrainedModelsCommandOutput,
+} from "./commands/ListCollaborationTrainedModelsCommand";
+import {
   ListConfiguredAudienceModelsCommandInput,
   ListConfiguredAudienceModelsCommandOutput,
 } from "./commands/ListConfiguredAudienceModelsCommand";
 import {
+  ListConfiguredModelAlgorithmAssociationsCommandInput,
+  ListConfiguredModelAlgorithmAssociationsCommandOutput,
+} from "./commands/ListConfiguredModelAlgorithmAssociationsCommand";
+import {
+  ListConfiguredModelAlgorithmsCommandInput,
+  ListConfiguredModelAlgorithmsCommandOutput,
+} from "./commands/ListConfiguredModelAlgorithmsCommand";
+import {
+  ListMLInputChannelsCommandInput,
+  ListMLInputChannelsCommandOutput,
+} from "./commands/ListMLInputChannelsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTrainedModelInferenceJobsCommandInput,
+  ListTrainedModelInferenceJobsCommandOutput,
+} from "./commands/ListTrainedModelInferenceJobsCommand";
+import { ListTrainedModelsCommandInput, ListTrainedModelsCommandOutput } from "./commands/ListTrainedModelsCommand";
 import {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
@@ -124,6 +226,7 @@ import {
   PutConfiguredAudienceModelPolicyCommandInput,
   PutConfiguredAudienceModelPolicyCommandOutput,
 } from "./commands/PutConfiguredAudienceModelPolicyCommand";
+import { PutMLConfigurationCommandInput, PutMLConfigurationCommandOutput } from "./commands/PutMLConfigurationCommand";
 import {
   StartAudienceExportJobCommandInput,
   StartAudienceExportJobCommandOutput,
@@ -132,6 +235,14 @@ import {
   StartAudienceGenerationJobCommandInput,
   StartAudienceGenerationJobCommandOutput,
 } from "./commands/StartAudienceGenerationJobCommand";
+import {
+  StartTrainedModelExportJobCommandInput,
+  StartTrainedModelExportJobCommandOutput,
+} from "./commands/StartTrainedModelExportJobCommand";
+import {
+  StartTrainedModelInferenceJobCommandInput,
+  StartTrainedModelInferenceJobCommandOutput,
+} from "./commands/StartTrainedModelInferenceJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -153,28 +264,61 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelTrainedModelCommandInput
+  | CancelTrainedModelInferenceJobCommandInput
   | CreateAudienceModelCommandInput
   | CreateConfiguredAudienceModelCommandInput
+  | CreateConfiguredModelAlgorithmAssociationCommandInput
+  | CreateConfiguredModelAlgorithmCommandInput
+  | CreateMLInputChannelCommandInput
+  | CreateTrainedModelCommandInput
   | CreateTrainingDatasetCommandInput
   | DeleteAudienceGenerationJobCommandInput
   | DeleteAudienceModelCommandInput
   | DeleteConfiguredAudienceModelCommandInput
   | DeleteConfiguredAudienceModelPolicyCommandInput
+  | DeleteConfiguredModelAlgorithmAssociationCommandInput
+  | DeleteConfiguredModelAlgorithmCommandInput
+  | DeleteMLConfigurationCommandInput
+  | DeleteMLInputChannelDataCommandInput
+  | DeleteTrainedModelOutputCommandInput
   | DeleteTrainingDatasetCommandInput
   | GetAudienceGenerationJobCommandInput
   | GetAudienceModelCommandInput
+  | GetCollaborationConfiguredModelAlgorithmAssociationCommandInput
+  | GetCollaborationMLInputChannelCommandInput
+  | GetCollaborationTrainedModelCommandInput
   | GetConfiguredAudienceModelCommandInput
   | GetConfiguredAudienceModelPolicyCommandInput
+  | GetConfiguredModelAlgorithmAssociationCommandInput
+  | GetConfiguredModelAlgorithmCommandInput
+  | GetMLConfigurationCommandInput
+  | GetMLInputChannelCommandInput
+  | GetTrainedModelCommandInput
+  | GetTrainedModelInferenceJobCommandInput
   | GetTrainingDatasetCommandInput
   | ListAudienceExportJobsCommandInput
   | ListAudienceGenerationJobsCommandInput
   | ListAudienceModelsCommandInput
+  | ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput
+  | ListCollaborationMLInputChannelsCommandInput
+  | ListCollaborationTrainedModelExportJobsCommandInput
+  | ListCollaborationTrainedModelInferenceJobsCommandInput
+  | ListCollaborationTrainedModelsCommandInput
   | ListConfiguredAudienceModelsCommandInput
+  | ListConfiguredModelAlgorithmAssociationsCommandInput
+  | ListConfiguredModelAlgorithmsCommandInput
+  | ListMLInputChannelsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTrainedModelInferenceJobsCommandInput
+  | ListTrainedModelsCommandInput
   | ListTrainingDatasetsCommandInput
   | PutConfiguredAudienceModelPolicyCommandInput
+  | PutMLConfigurationCommandInput
   | StartAudienceExportJobCommandInput
   | StartAudienceGenerationJobCommandInput
+  | StartTrainedModelExportJobCommandInput
+  | StartTrainedModelInferenceJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfiguredAudienceModelCommandInput;
@@ -183,28 +327,61 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelTrainedModelCommandOutput
+  | CancelTrainedModelInferenceJobCommandOutput
   | CreateAudienceModelCommandOutput
   | CreateConfiguredAudienceModelCommandOutput
+  | CreateConfiguredModelAlgorithmAssociationCommandOutput
+  | CreateConfiguredModelAlgorithmCommandOutput
+  | CreateMLInputChannelCommandOutput
+  | CreateTrainedModelCommandOutput
   | CreateTrainingDatasetCommandOutput
   | DeleteAudienceGenerationJobCommandOutput
   | DeleteAudienceModelCommandOutput
   | DeleteConfiguredAudienceModelCommandOutput
   | DeleteConfiguredAudienceModelPolicyCommandOutput
+  | DeleteConfiguredModelAlgorithmAssociationCommandOutput
+  | DeleteConfiguredModelAlgorithmCommandOutput
+  | DeleteMLConfigurationCommandOutput
+  | DeleteMLInputChannelDataCommandOutput
+  | DeleteTrainedModelOutputCommandOutput
   | DeleteTrainingDatasetCommandOutput
   | GetAudienceGenerationJobCommandOutput
   | GetAudienceModelCommandOutput
+  | GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput
+  | GetCollaborationMLInputChannelCommandOutput
+  | GetCollaborationTrainedModelCommandOutput
   | GetConfiguredAudienceModelCommandOutput
   | GetConfiguredAudienceModelPolicyCommandOutput
+  | GetConfiguredModelAlgorithmAssociationCommandOutput
+  | GetConfiguredModelAlgorithmCommandOutput
+  | GetMLConfigurationCommandOutput
+  | GetMLInputChannelCommandOutput
+  | GetTrainedModelCommandOutput
+  | GetTrainedModelInferenceJobCommandOutput
   | GetTrainingDatasetCommandOutput
   | ListAudienceExportJobsCommandOutput
   | ListAudienceGenerationJobsCommandOutput
   | ListAudienceModelsCommandOutput
+  | ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput
+  | ListCollaborationMLInputChannelsCommandOutput
+  | ListCollaborationTrainedModelExportJobsCommandOutput
+  | ListCollaborationTrainedModelInferenceJobsCommandOutput
+  | ListCollaborationTrainedModelsCommandOutput
   | ListConfiguredAudienceModelsCommandOutput
+  | ListConfiguredModelAlgorithmAssociationsCommandOutput
+  | ListConfiguredModelAlgorithmsCommandOutput
+  | ListMLInputChannelsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTrainedModelInferenceJobsCommandOutput
+  | ListTrainedModelsCommandOutput
   | ListTrainingDatasetsCommandOutput
   | PutConfiguredAudienceModelPolicyCommandOutput
+  | PutMLConfigurationCommandOutput
   | StartAudienceExportJobCommandOutput
   | StartAudienceGenerationJobCommandOutput
+  | StartTrainedModelExportJobCommandOutput
+  | StartTrainedModelInferenceJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfiguredAudienceModelCommandOutput;
