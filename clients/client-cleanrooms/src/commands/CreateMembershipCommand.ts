@@ -57,6 +57,14 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *     queryCompute: { // MembershipQueryComputePaymentConfig
  *       isResponsible: true || false, // required
  *     },
+ *     machineLearning: { // MembershipMLPaymentConfig
+ *       modelTraining: { // MembershipModelTrainingPaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
+ *       modelInference: { // MembershipModelInferencePaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateMembershipCommand(input);
@@ -76,6 +84,11 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //     memberAbilities: [ // MemberAbilities // required
  * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //     ],
+ * //     mlMemberAbilities: { // MLMemberAbilities
+ * //       customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //         "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //       ],
+ * //     },
  * //     queryLogStatus: "STRING_VALUE", // required
  * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
  * //       outputConfiguration: { // MembershipProtectedQueryOutputConfiguration Union: only one key present
@@ -91,6 +104,14 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //     paymentConfiguration: { // MembershipPaymentConfiguration
  * //       queryCompute: { // MembershipQueryComputePaymentConfig
  * //         isResponsible: true || false, // required
+ * //       },
+ * //       machineLearning: { // MembershipMLPaymentConfig
+ * //         modelTraining: { // MembershipModelTrainingPaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         modelInference: { // MembershipModelInferencePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
  * //       },
  * //     },
  * //   },

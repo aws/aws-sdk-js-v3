@@ -42,10 +42,23 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *       memberAbilities: [ // MemberAbilities // required
  *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  *       ],
+ *       mlMemberAbilities: { // MLMemberAbilities
+ *         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ *           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ *         ],
+ *       },
  *       displayName: "STRING_VALUE", // required
  *       paymentConfiguration: { // PaymentConfiguration
  *         queryCompute: { // QueryComputePaymentConfig
  *           isResponsible: true || false, // required
+ *         },
+ *         machineLearning: { // MLPaymentConfig
+ *           modelTraining: { // ModelTrainingPaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
+ *           modelInference: { // ModelInferencePaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
  *         },
  *       },
  *     },
@@ -55,6 +68,11 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   creatorMemberAbilities: [ // required
  *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  *   ],
+ *   creatorMLMemberAbilities: {
+ *     customMLMemberAbilities: [ // required
+ *       "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ *     ],
+ *   },
  *   creatorDisplayName: "STRING_VALUE", // required
  *   dataEncryptionMetadata: { // DataEncryptionMetadata
  *     allowCleartext: true || false, // required
@@ -69,6 +87,14 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   creatorPaymentConfiguration: {
  *     queryCompute: {
  *       isResponsible: true || false, // required
+ *     },
+ *     machineLearning: {
+ *       modelTraining: {
+ *         isResponsible: true || false, // required
+ *       },
+ *       modelInference: {
+ *         isResponsible: true || false, // required
+ *       },
  *     },
  *   },
  *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",

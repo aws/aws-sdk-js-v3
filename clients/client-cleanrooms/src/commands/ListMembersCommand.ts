@@ -52,6 +52,11 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       abilities: [ // MemberAbilities // required
  * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //       ],
+ * //       mlAbilities: { // MLMemberAbilities
+ * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //         ],
+ * //       },
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       membershipId: "STRING_VALUE",
@@ -59,6 +64,14 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       paymentConfiguration: { // PaymentConfiguration
  * //         queryCompute: { // QueryComputePaymentConfig
  * //           isResponsible: true || false, // required
+ * //         },
+ * //         machineLearning: { // MLPaymentConfig
+ * //           modelTraining: { // ModelTrainingPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //           modelInference: { // ModelInferencePaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
  * //         },
  * //       },
  * //     },

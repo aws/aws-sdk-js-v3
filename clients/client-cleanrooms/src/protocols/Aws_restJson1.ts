@@ -342,6 +342,7 @@ import {
   ConfiguredTableAssociationSummary,
   ConfiguredTableSummary,
   ConflictException,
+  CustomMLMemberAbility,
   DataEncryptionMetadata,
   DifferentialPrivacyColumn,
   DifferentialPrivacyConfiguration,
@@ -361,6 +362,9 @@ import {
   JoinOperator,
   MemberAbility,
   Membership,
+  MembershipMLPaymentConfig,
+  MembershipModelInferencePaymentConfig,
+  MembershipModelTrainingPaymentConfig,
   MembershipPaymentConfiguration,
   MembershipProtectedQueryOutputConfiguration,
   MembershipProtectedQueryResultConfiguration,
@@ -368,8 +372,11 @@ import {
   MembershipSummary,
   MemberSpecification,
   MemberSummary,
+  MLMemberAbilities,
+  MLPaymentConfig,
+  ModelInferencePaymentConfig,
+  ModelTrainingPaymentConfig,
   PaymentConfiguration,
-  PreviewPrivacyImpactParametersInput,
   PrivacyBudgetSummary,
   ProtectedQuery,
   ProtectedQueryMemberOutputConfiguration,
@@ -394,6 +401,7 @@ import {
 import {
   DifferentialPrivacyTemplateParametersInput,
   DifferentialPrivacyTemplateUpdateParameters,
+  PreviewPrivacyImpactParametersInput,
   PrivacyBudgetTemplate,
   PrivacyBudgetTemplateParametersInput,
   PrivacyBudgetTemplateSummary,
@@ -514,6 +522,7 @@ export const se_CreateCollaborationCommand = async (
     take(input, {
       analyticsEngine: [],
       creatorDisplayName: [],
+      creatorMLMemberAbilities: (_) => _json(_),
       creatorMemberAbilities: (_) => _json(_),
       creatorPaymentConfiguration: (_) => _json(_),
       dataEncryptionMetadata: (_) => _json(_),
@@ -4046,6 +4055,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ConfiguredTableAssociationAnalysisRulePolicyV1 omitted.
 
+// se_CustomMLMemberAbilities omitted.
+
 // se_DataEncryptionMetadata omitted.
 
 // se_DifferentialPrivacyColumn omitted.
@@ -4074,6 +4085,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MemberList omitted.
 
+// se_MembershipMLPaymentConfig omitted.
+
+// se_MembershipModelInferencePaymentConfig omitted.
+
+// se_MembershipModelTrainingPaymentConfig omitted.
+
 // se_MembershipPaymentConfiguration omitted.
 
 // se_MembershipProtectedQueryOutputConfiguration omitted.
@@ -4083,6 +4100,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_MembershipQueryComputePaymentConfig omitted.
 
 // se_MemberSpecification omitted.
+
+// se_MLMemberAbilities omitted.
+
+// se_MLPaymentConfig omitted.
+
+// se_ModelInferencePaymentConfig omitted.
+
+// se_ModelTrainingPaymentConfig omitted.
 
 // se_ParameterMap omitted.
 
@@ -4809,6 +4834,8 @@ const de_ConfiguredTableSummaryList = (output: any, context: __SerdeContext): Co
   return retVal;
 };
 
+// de_CustomMLMemberAbilities omitted.
+
 // de_DataEncryptionMetadata omitted.
 
 // de_DifferentialPrivacyColumn omitted.
@@ -5043,12 +5070,19 @@ const de_Membership = (output: any, context: __SerdeContext): Membership => {
     defaultResultConfiguration: _json,
     id: __expectString,
     memberAbilities: _json,
+    mlMemberAbilities: _json,
     paymentConfiguration: _json,
     queryLogStatus: __expectString,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_MembershipMLPaymentConfig omitted.
+
+// de_MembershipModelInferencePaymentConfig omitted.
+
+// de_MembershipModelTrainingPaymentConfig omitted.
 
 // de_MembershipPaymentConfiguration omitted.
 
@@ -5072,6 +5106,7 @@ const de_MembershipSummary = (output: any, context: __SerdeContext): MembershipS
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     id: __expectString,
     memberAbilities: _json,
+    mlMemberAbilities: _json,
     paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5101,6 +5136,7 @@ const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary =
     displayName: __expectString,
     membershipArn: __expectString,
     membershipId: __expectString,
+    mlAbilities: _json,
     paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5118,6 +5154,14 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
     });
   return retVal;
 };
+
+// de_MLMemberAbilities omitted.
+
+// de_MLPaymentConfig omitted.
+
+// de_ModelInferencePaymentConfig omitted.
+
+// de_ModelTrainingPaymentConfig omitted.
 
 // de_ParameterMap omitted.
 

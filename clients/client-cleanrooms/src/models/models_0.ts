@@ -2081,6 +2081,95 @@ export const MemberAbility = {
 export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
 
 /**
+ * @public
+ * @enum
+ */
+export const CustomMLMemberAbility = {
+  CAN_RECEIVE_INFERENCE_OUTPUT: "CAN_RECEIVE_INFERENCE_OUTPUT",
+  CAN_RECEIVE_MODEL_OUTPUT: "CAN_RECEIVE_MODEL_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomMLMemberAbility = (typeof CustomMLMemberAbility)[keyof typeof CustomMLMemberAbility];
+
+/**
+ * <p>The ML member abilities for a collaboration member.</p>
+ *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+ * @public
+ */
+export interface MLMemberAbilities {
+  /**
+   * <p>The custom ML member abilities for a collaboration member. The inference feature is not available in the custom ML modeling beta.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  customMLMemberAbilities: CustomMLMemberAbility[] | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model inference payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface ModelInferencePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to
+   *          pay for model inference costs (<code>TRUE</code>) or has not configured the collaboration
+   *          member to pay for model inference costs (<code>FALSE</code>).</p>
+   *          <p>Exactly one member can be configured to pay for model inference costs. An error is
+   *          returned if the collaboration creator sets a <code>TRUE</code> value for more than one
+   *          member in the collaboration. </p>
+   *          <p>If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if
+   *          the collaboration creator sets a <code>FALSE</code> value for the member who can
+   *          query.</p>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model training payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface ModelTrainingPaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to
+   *          pay for model training costs (<code>TRUE</code>) or has not configured the collaboration
+   *          member to pay for model training costs (<code>FALSE</code>).</p>
+   *          <p>Exactly one member can be configured to pay for model training costs. An error is
+   *          returned if the collaboration creator sets a <code>TRUE</code> value for more than one
+   *          member in the collaboration. </p>
+   *          <p>If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if
+   *          the collaboration creator sets a <code>FALSE</code> value for the member who can
+   *          query.</p>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's machine learning payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface MLPaymentConfig {
+  /**
+   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * @public
+   */
+  modelTraining?: ModelTrainingPaymentConfig;
+
+  /**
+   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * @public
+   */
+  modelInference?: ModelInferencePaymentConfig;
+}
+
+/**
  * <p>An object representing the collaboration member's payment responsibilities set by the
  *          collaboration creator for query compute costs.</p>
  * @public
@@ -2114,6 +2203,13 @@ export interface PaymentConfiguration {
    * @public
    */
   queryCompute: QueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>An object representing the collaboration member's machine learning payment responsibilities set by the
+   *          collaboration creator.</p>
+   * @public
+   */
+  machineLearning?: MLPaymentConfig;
 }
 
 /**
@@ -2168,6 +2264,13 @@ export interface MemberSpecification {
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>The ML abilities granted to the collaboration member.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities;
 
   /**
    * <p>The member's display name.</p>
@@ -2226,6 +2329,13 @@ export interface CreateCollaborationInput {
    * @public
    */
   creatorMemberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>The ML abilities granted to the collaboration creator.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  creatorMLMemberAbilities?: MLMemberAbilities;
 
   /**
    * <p>The display name of the collaboration creator.</p>
@@ -3801,6 +3911,13 @@ export interface MemberSummary {
    * @public
    */
   abilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Provides a summary of the ML abilities for the collaboration member.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  mlAbilities?: MLMemberAbilities;
 
   /**
    * <p>The time when the member was created.</p>
@@ -6583,6 +6700,81 @@ export interface MembershipProtectedQueryResultConfiguration {
 }
 
 /**
+ * <p>An object representing the collaboration member's model inference payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelInferencePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs
+   *          (<code>TRUE</code>) or has not accepted to pay for model inference costs
+   *          (<code>FALSE</code>).</p>
+   *          <p>If the collaboration creator has not specified anyone to pay for model inference costs,
+   *          then the member who can query is the default payer. </p>
+   *          <p>An error message is returned for the following reasons: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you set the value to <code>FALSE</code> but you are responsible to pay for
+   *                model inference costs. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for
+   *                model inference costs. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model training payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelTrainingPaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model training costs
+   *          (<code>TRUE</code>) or has not accepted to pay for model training costs
+   *          (<code>FALSE</code>).</p>
+   *          <p>If the collaboration creator has not specified anyone to pay for model training costs,
+   *          then the member who can query is the default payer. </p>
+   *          <p>An error message is returned for the following reasons: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you set the value to <code>FALSE</code> but you are responsible to pay for
+   *                model training costs. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for
+   *                model training costs. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's machine learning payment responsibilities set by the
+ *          collaboration creator.</p>
+ * @public
+ */
+export interface MembershipMLPaymentConfig {
+  /**
+   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * @public
+   */
+  modelTraining?: MembershipModelTrainingPaymentConfig;
+
+  /**
+   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * @public
+   */
+  modelInference?: MembershipModelInferencePaymentConfig;
+}
+
+/**
  * <p>An object representing the payment responsibilities accepted by the collaboration member
  *          for query compute costs.</p>
  * @public
@@ -6622,6 +6814,13 @@ export interface MembershipPaymentConfiguration {
    * @public
    */
   queryCompute: MembershipQueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for machine learning
+   *          costs.</p>
+   * @public
+   */
+  machineLearning?: MembershipMLPaymentConfig;
 }
 
 /**
@@ -6767,6 +6966,13 @@ export interface Membership {
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities;
 
   /**
    * <p>An indicator as to whether query logging has been enabled or disabled for the
@@ -7423,6 +7629,13 @@ export interface MembershipSummary {
   memberAbilities: MemberAbility[] | undefined;
 
   /**
+   * <p>Provides a summary of the ML abilities for the collaboration member.</p>
+   *          <p>Custom ML modeling is in beta release and is subject to change. For beta terms and conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities;
+
+  /**
    * <p>The payment responsibilities accepted by the collaboration member.</p>
    * @public
    */
@@ -7744,191 +7957,6 @@ export interface DifferentialPrivacyPreviewParametersInput {
 }
 
 /**
- * <p>Specifies the updated epsilon and noise parameters to preview. The preview allows you to see how the maximum number of each type of aggregation function would change with the new parameters.</p>
- * @public
- */
-export type PreviewPrivacyImpactParametersInput =
-  | PreviewPrivacyImpactParametersInput.DifferentialPrivacyMember
-  | PreviewPrivacyImpactParametersInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PreviewPrivacyImpactParametersInput {
-  /**
-   * <p>An array that specifies the epsilon and noise parameters.</p>
-   * @public
-   */
-  export interface DifferentialPrivacyMember {
-    differentialPrivacy: DifferentialPrivacyPreviewParametersInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    differentialPrivacy?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    differentialPrivacy: (value: DifferentialPrivacyPreviewParametersInput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PreviewPrivacyImpactParametersInput, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface PreviewPrivacyImpactInput {
-  /**
-   * <p>A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies the desired epsilon and noise parameters to preview.</p>
-   * @public
-   */
-  parameters: PreviewPrivacyImpactParametersInput | undefined;
-}
-
-/**
- * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
- * @public
- */
-export interface DifferentialPrivacyPreviewAggregation {
-  /**
-   * <p>The type of aggregation function.</p>
-   * @public
-   */
-  type: DifferentialPrivacyAggregationType | undefined;
-
-  /**
-   * <p>The maximum number of aggregations that the member who can query can run given the epsilon and noise parameters.</p>
-   * @public
-   */
-  maxCount: number | undefined;
-}
-
-/**
- * <p>Information about the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
- * @public
- */
-export interface DifferentialPrivacyPrivacyImpact {
-  /**
-   * <p>The number of aggregation functions that you can perform.</p>
-   * @public
-   */
-  aggregations: DifferentialPrivacyPreviewAggregation[] | undefined;
-}
-
-/**
- * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
- * @public
- */
-export type PrivacyImpact = PrivacyImpact.DifferentialPrivacyMember | PrivacyImpact.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PrivacyImpact {
-  /**
-   * <p>An object that lists the number and type of aggregation functions you can perform.</p>
-   * @public
-   */
-  export interface DifferentialPrivacyMember {
-    differentialPrivacy: DifferentialPrivacyPrivacyImpact;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    differentialPrivacy?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    differentialPrivacy: (value: DifferentialPrivacyPrivacyImpact) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PrivacyImpact, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface PreviewPrivacyImpactOutput {
-  /**
-   * <p>An estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters. This does not change the privacy budget.</p>
-   * @public
-   */
-  privacyImpact: PrivacyImpact | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProtectedQueryType = {
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof ProtectedQueryType];
-
-/**
- * @public
- */
-export interface StartProtectedQueryInput {
-  /**
-   * <p>The type of the protected query to be started.</p>
-   * @public
-   */
-  type: ProtectedQueryType | undefined;
-
-  /**
-   * <p>A unique identifier for the membership to run this query against. Currently accepts a
-   *          membership ID.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>The protected SQL query parameters.</p>
-   * @public
-   */
-  sqlParameters: ProtectedQuerySQLParameters | undefined;
-
-  /**
-   * <p>The details needed to write the query results.</p>
-   * @public
-   */
-  resultConfiguration?: ProtectedQueryResultConfiguration;
-
-  /**
-   * <p> The compute configuration for the protected query.</p>
-   * @public
-   */
-  computeConfiguration?: ComputeConfiguration;
-}
-
-/**
  * @internal
  */
 export const AnalysisParameterFilterSensitiveLog = (obj: AnalysisParameter): any => ({
@@ -8044,14 +8072,4 @@ export const ProtectedQueryFilterSensitiveLog = (obj: ProtectedQuery): any => ({
 export const GetProtectedQueryOutputFilterSensitiveLog = (obj: GetProtectedQueryOutput): any => ({
   ...obj,
   ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
-});
-
-/**
- * @internal
- */
-export const StartProtectedQueryInputFilterSensitiveLog = (obj: StartProtectedQueryInput): any => ({
-  ...obj,
-  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
-  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
 });

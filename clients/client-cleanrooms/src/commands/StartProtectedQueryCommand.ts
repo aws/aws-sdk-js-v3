@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartProtectedQueryInput, StartProtectedQueryInputFilterSensitiveLog } from "../models/models_0";
-import { StartProtectedQueryOutput, StartProtectedQueryOutputFilterSensitiveLog } from "../models/models_1";
+import {
+  StartProtectedQueryInput,
+  StartProtectedQueryInputFilterSensitiveLog,
+  StartProtectedQueryOutput,
+  StartProtectedQueryOutputFilterSensitiveLog,
+} from "../models/models_1";
 import { de_StartProtectedQueryCommand, se_StartProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**

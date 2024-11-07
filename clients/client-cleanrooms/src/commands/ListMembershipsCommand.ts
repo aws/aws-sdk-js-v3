@@ -59,9 +59,22 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //       memberAbilities: [ // MemberAbilities // required
  * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
  * //       ],
+ * //       mlMemberAbilities: { // MLMemberAbilities
+ * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //         ],
+ * //       },
  * //       paymentConfiguration: { // MembershipPaymentConfiguration
  * //         queryCompute: { // MembershipQueryComputePaymentConfig
  * //           isResponsible: true || false, // required
+ * //         },
+ * //         machineLearning: { // MembershipMLPaymentConfig
+ * //           modelTraining: { // MembershipModelTrainingPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //           modelInference: { // MembershipModelInferencePaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
  * //         },
  * //       },
  * //     },

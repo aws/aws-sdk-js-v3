@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_0";
+import { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_1";
 import { de_PreviewPrivacyImpactCommand, se_PreviewPrivacyImpactCommand } from "../protocols/Aws_restJson1";
 
 /**

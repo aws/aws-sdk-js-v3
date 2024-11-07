@@ -1,5 +1,10 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
+  ComputeConfiguration,
+  DifferentialPrivacyAggregationType,
+  DifferentialPrivacyPreviewParametersInput,
   Membership,
   MembershipProtectedQueryResultConfiguration,
   MembershipQueryLogStatus,
@@ -8,7 +13,194 @@ import {
   PrivacyBudgetType,
   ProtectedQuery,
   ProtectedQueryFilterSensitiveLog,
+  ProtectedQueryResultConfiguration,
+  ProtectedQuerySQLParameters,
 } from "./models_0";
+
+/**
+ * <p>Specifies the updated epsilon and noise parameters to preview. The preview allows you to see how the maximum number of each type of aggregation function would change with the new parameters.</p>
+ * @public
+ */
+export type PreviewPrivacyImpactParametersInput =
+  | PreviewPrivacyImpactParametersInput.DifferentialPrivacyMember
+  | PreviewPrivacyImpactParametersInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PreviewPrivacyImpactParametersInput {
+  /**
+   * <p>An array that specifies the epsilon and noise parameters.</p>
+   * @public
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyPreviewParametersInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyPreviewParametersInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PreviewPrivacyImpactParametersInput, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface PreviewPrivacyImpactInput {
+  /**
+   * <p>A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the desired epsilon and noise parameters to preview.</p>
+   * @public
+   */
+  parameters: PreviewPrivacyImpactParametersInput | undefined;
+}
+
+/**
+ * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacyPreviewAggregation {
+  /**
+   * <p>The type of aggregation function.</p>
+   * @public
+   */
+  type: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * <p>The maximum number of aggregations that the member who can query can run given the epsilon and noise parameters.</p>
+   * @public
+   */
+  maxCount: number | undefined;
+}
+
+/**
+ * <p>Information about the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacyPrivacyImpact {
+  /**
+   * <p>The number of aggregation functions that you can perform.</p>
+   * @public
+   */
+  aggregations: DifferentialPrivacyPreviewAggregation[] | undefined;
+}
+
+/**
+ * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
+ * @public
+ */
+export type PrivacyImpact = PrivacyImpact.DifferentialPrivacyMember | PrivacyImpact.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyImpact {
+  /**
+   * <p>An object that lists the number and type of aggregation functions you can perform.</p>
+   * @public
+   */
+  export interface DifferentialPrivacyMember {
+    differentialPrivacy: DifferentialPrivacyPrivacyImpact;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    differentialPrivacy?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    differentialPrivacy: (value: DifferentialPrivacyPrivacyImpact) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyImpact, visitor: Visitor<T>): T => {
+    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface PreviewPrivacyImpactOutput {
+  /**
+   * <p>An estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters. This does not change the privacy budget.</p>
+   * @public
+   */
+  privacyImpact: PrivacyImpact | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedQueryType = {
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof ProtectedQueryType];
+
+/**
+ * @public
+ */
+export interface StartProtectedQueryInput {
+  /**
+   * <p>The type of the protected query to be started.</p>
+   * @public
+   */
+  type: ProtectedQueryType | undefined;
+
+  /**
+   * <p>A unique identifier for the membership to run this query against. Currently accepts a
+   *          membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The protected SQL query parameters.</p>
+   * @public
+   */
+  sqlParameters: ProtectedQuerySQLParameters | undefined;
+
+  /**
+   * <p>The details needed to write the query results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedQueryResultConfiguration;
+
+  /**
+   * <p> The compute configuration for the protected query.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration;
+}
 
 /**
  * @public
@@ -583,6 +775,16 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @internal
+ */
+export const StartProtectedQueryInputFilterSensitiveLog = (obj: StartProtectedQueryInput): any => ({
+  ...obj,
+  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
+  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
+  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
+});
 
 /**
  * @internal
