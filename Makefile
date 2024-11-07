@@ -28,8 +28,8 @@ test-integration: build-s3-browser-bundle
 	make test-protocols;
 
 test-e2e: build-s3-browser-bundle
-	npx vitest run -c vitest.config.e2e.ts
-	npx vitest run -c vitest.config.browser.e2e.ts
+	npx vitest run -c vitest.config.e2e.ts --retry=4
+	npx vitest run -c vitest.config.browser.e2e.ts --retry=4
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
