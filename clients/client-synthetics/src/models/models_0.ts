@@ -276,6 +276,21 @@ export interface CanaryCodeOutput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProvisionedResourceCleanupSetting = {
+  AUTOMATIC: "AUTOMATIC",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedResourceCleanupSetting =
+  (typeof ProvisionedResourceCleanupSetting)[keyof typeof ProvisionedResourceCleanupSetting];
+
+/**
  * <p>A structure that contains information about a canary run.</p>
  * @public
  */
@@ -587,6 +602,17 @@ export interface Canary {
    * @public
    */
   VisualReference?: VisualReferenceOutput;
+
+  /**
+   * <p>Specifies whether to also delete the Lambda functions and layers used by this canary
+   *          when the canary is deleted. If it is <code>AUTOMATIC</code>, the Lambda functions and layers will be deleted
+   *          when the canary is deleted.</p>
+   *          <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter
+   *          of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a> operation
+   *          determines whether the Lambda functions and layers will be deleted.</p>
+   * @public
+   */
+  ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
 
   /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
@@ -1054,10 +1080,21 @@ export interface CreateCanaryRequest {
    * <p>To have the tags that you apply to this canary also be applied to the Lambda function that
    *          the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>
    *          <p>If you specify this parameter and don't specify any tags in the <code>Tags</code>
-   *       parameter, the canary creation fails.</p>
+   *          parameter, the canary creation fails.</p>
    * @public
    */
   ResourcesToReplicateTags?: ResourceToTag[];
+
+  /**
+   * <p>Specifies whether to also delete the Lambda functions and layers used by this canary
+   *       when the canary is deleted. If you omit this parameter, the default of <code>AUTOMATIC</code> is used, which means
+   *          that the Lambda functions and layers will be deleted when the canary is deleted.</p>
+   *          <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter
+   *          of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a> operation
+   *          determines whether the Lambda functions and layers will be deleted.</p>
+   * @public
+   */
+  ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
 
   /**
    * <p>A list of key-value pairs to associate with the canary.
@@ -1201,7 +1238,10 @@ export interface DeleteCanaryRequest {
 
   /**
    * <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default
-   *       is false.</p>
+   *       is <code>false</code>.</p>
+   *          <p>Your setting for this parameter is used only if the canary doesn't have <code>AUTOMATIC</code> for its
+   *        <code>ProvisionedResourceCleanup</code> field. If that field is set to <code>AUTOMATIC</code>, then the
+   *        Lambda functions and layers will be deleted when this canary is deleted. </p>
    *          <p>Type: Boolean</p>
    * @public
    */
@@ -2037,6 +2077,16 @@ export interface UpdateCanaryRequest {
    * @public
    */
   ArtifactConfig?: ArtifactConfigInput;
+
+  /**
+   * <p>Specifies whether to also delete the Lambda functions and layers used by this canary
+   *          when the canary is deleted.</p>
+   *          <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter
+   *          of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a> operation
+   *          determines whether the Lambda functions and layers will be deleted.</p>
+   * @public
+   */
+  ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
 }
 
 /**

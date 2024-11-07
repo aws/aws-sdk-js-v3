@@ -29,11 +29,11 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
 
 /**
  * <p>Permanently deletes the specified canary.</p>
- *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
+ *          <p>If the canary's <code>ProvisionedResourceCleanup</code> field is set to <code>AUTOMATIC</code>
+ *          or you specify <code>DeleteLambda</code> in this operation as <code>true</code>, CloudWatch Synthetics also deletes
  *          the Lambda functions and layers that are used by the canary.</p>
  *          <p>Other resources used and created by the canary are not automatically deleted.
- *          After you delete a canary that you do not intend to
- *          use again, you
+ *          After you delete a canary, you
  *       should also delete the following:</p>
  *          <ul>
  *             <li>

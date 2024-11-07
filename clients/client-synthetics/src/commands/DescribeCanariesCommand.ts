@@ -108,6 +108,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         ],
  * //         BaseCanaryRunId: "STRING_VALUE",
  * //       },
+ * //       ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

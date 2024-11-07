@@ -85,6 +85,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *   ResourcesToReplicateTags: [ // ResourceList
  *     "lambda-function",
  *   ],
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -151,6 +152,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
  * //     },
+ * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

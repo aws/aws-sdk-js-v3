@@ -90,6 +90,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);

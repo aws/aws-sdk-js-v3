@@ -96,6 +96,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
  * //     },
+ * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
