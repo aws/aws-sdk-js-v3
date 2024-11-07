@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListIndexesForMembersPaginator";
 export * from "./ListIndexesPaginator";
+export * from "./ListManagedViewsPaginator";
 export * from "./ListResourcesPaginator";
 export * from "./ListSupportedResourceTypesPaginator";
 export * from "./ListViewsPaginator";

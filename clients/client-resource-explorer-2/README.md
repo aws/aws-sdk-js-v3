@@ -305,6 +305,14 @@ GetIndex
 </details>
 <details>
 <summary>
+GetManagedView
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetManagedViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetManagedViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetManagedViewCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetView
 </summary>
 
@@ -325,6 +333,14 @@ ListIndexesForMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListIndexesForMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedViews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListManagedViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListManagedViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListManagedViewsCommandOutput/)
 
 </details>
 <details>

@@ -1044,6 +1044,99 @@ export interface GetIndexOutput {
 /**
  * @public
  */
+export interface GetManagedViewInput {
+  /**
+   * <p>The Amazon resource name (ARN) of the managed view.</p>
+   * @public
+   */
+  ManagedViewArn: string | undefined;
+}
+
+/**
+ * <p>An Amazon Web Services-managed view is how other Amazon Web Services services can access
+ *             resource information indexed by Resource Explorer for your Amazon Web Services account or organization
+ *             with your consent. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Managed views</a>. </p>
+ * @public
+ */
+export interface ManagedView {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the managed view.</p>
+   * @public
+   */
+  ManagedViewArn?: string;
+
+  /**
+   * <p>The name of the managed view. </p>
+   * @public
+   */
+  ManagedViewName?: string;
+
+  /**
+   * <p>The service principal of the Amazon Web Services service that created and manages the managed view. </p>
+   * @public
+   */
+  TrustedService?: string;
+
+  /**
+   * <p>The date and time when this managed view was last modified.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The Amazon Web Services account that owns this managed view.</p>
+   * @public
+   */
+  Owner?: string;
+
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of an Amazon Web Services account or organization that specifies whether this managed view
+   *     includes resources from only the specified Amazon Web Services account or all accounts in the specified organization. </p>
+   * @public
+   */
+  Scope?: string;
+
+  /**
+   * <p>A structure that contains additional information about the managed view.</p>
+   * @public
+   */
+  IncludedProperties?: IncludedProperty[];
+
+  /**
+   * <p>A search filter defines which resources can be part of a search query result
+   *             set.</p>
+   * @public
+   */
+  Filters?: SearchFilter;
+
+  /**
+   * <p>The resource policy that defines access to the managed view. To learn more about this policy, review
+   *             <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Managed views</a>.</p>
+   * @public
+   */
+  ResourcePolicy?: string;
+
+  /**
+   * <p>The version of the managed view. </p>
+   * @public
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetManagedViewOutput {
+  /**
+   * <p>Details about the specified managed view. </p>
+   * @public
+   */
+  ManagedView?: ManagedView;
+}
+
+/**
+ * @public
+ */
 export interface ListIndexesForMembersInput {
   /**
    * <p>The account IDs will limit the output to only indexes from these
@@ -1145,6 +1238,65 @@ export interface ListIndexesForMembersOutput {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedViewsInput {
+  /**
+   * <p>The maximum number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value appropriate to the
+   *     operation. If additional items exist beyond those included in the current response, the
+   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
+   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
+   *     the next part of the results.</p>
+   *          <note>
+   *             <p>An API operation can return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
+   *          </note>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from. The pagination tokens expire after 24 hours.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies a service principal name. If specified, then the
+   *             operation only returns the managed views that are managed by the input service. </p>
+   * @public
+   */
+  ServicePrincipal?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedViewsOutput {
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of managed views available in the Amazon Web Services Region in which you called this operation. </p>
+   * @public
+   */
+  ManagedViews?: string[];
 }
 
 /**
@@ -1252,7 +1404,7 @@ export interface Resource {
   ResourceType?: string;
 
   /**
-   * <p>The Amazon Web Servicesservice that owns the resource and is responsible for creating and updating
+   * <p>The Amazon Web Services service that owns the resource and is responsible for creating and updating
    *             it.</p>
    * @public
    */
@@ -1337,7 +1489,7 @@ export interface ListSupportedResourceTypesInput {
  */
 export interface SupportedResourceType {
   /**
-   * <p>The Amazon Web Servicesservice that is associated with the resource type. This is the primary
+   * <p>The Amazon Web Services service that is associated with the resource type. This is the primary
    *             service that lets you create and interact with resources of this type.</p>
    * @public
    */
@@ -1647,6 +1799,22 @@ export const UpdateViewOutputFilterSensitiveLog = (obj: UpdateViewOutput): any =
 export const GetIndexOutputFilterSensitiveLog = (obj: GetIndexOutput): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ManagedViewFilterSensitiveLog = (obj: ManagedView): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetManagedViewOutputFilterSensitiveLog = (obj: GetManagedViewOutput): any => ({
+  ...obj,
+  ...(obj.ManagedView && { ManagedView: ManagedViewFilterSensitiveLog(obj.ManagedView) }),
 });
 
 /**
