@@ -1,11 +1,11 @@
-import type { S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import type { S3, SelectObjectContentEventStream, waitUntilObjectExists } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, onTestFailed, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { getRuntimeConfig } from "../../src/runtimeConfig.browser";
-import { S3 as S3Impl, waitUntilObjectExists } from "../browser-build/browser-s3-bundle";
+import { S3 as S3Impl, waitUntilObjectExists as waitUntilObjectExistsImpl } from "../browser-build/browser-s3-bundle";
 import { createBuffer } from "./helpers";
 
 describe("@aws-sdk/client-s3", () => {
@@ -242,8 +242,8 @@ describe("@aws-sdk/client-s3", () => {
       });
       expect(completeResult.$metadata.httpStatusCode).toEqual(200);
 
-      //validate the object is uploaded
-      const waiterState = await waitUntilObjectExists(
+      // validate the object is uploaded
+      const waiterState = await (waitUntilObjectExistsImpl as typeof waitUntilObjectExists)(
         {
           client,
           maxWaitTime: 60,

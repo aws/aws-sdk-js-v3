@@ -1,6 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
-import { describe, expect, expect, test as it } from "vitest";
+import { AwsCredentialIdentity, AwsSdkFeatures } from "@aws-sdk/types";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
 import { S3ExpressIdentity, S3ExpressIdentityProvider } from "./index";
@@ -94,7 +94,10 @@ describe("middleware-s3-express", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "user-agent": /(.*?) m\/(.*?)J(.*?)$/,
+          ["user-agent"](ua) {
+            const metadata = ua.match(/(.*?) m\/(.*?)$/)[2];
+            expect(metadata).toContain("J" as AwsSdkFeatures["S3_EXPRESS_BUCKET"]);
+          },
         },
       });
 
