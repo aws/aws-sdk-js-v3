@@ -3,7 +3,6 @@ const { normalize, join } = require("path");
 const { generateClient } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients } = require("./copy-to-clients");
-const { spawnProcess } = require("../utils/spawn-process");
 
 const SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "clients"));
 
@@ -34,28 +33,15 @@ const { solo } = yargs(process.argv.slice(2))
     require("../api-examples/get-examples");
     require("../api-examples/merge-examples").merge(void 0, solo);
 
-    console.log("================ starting eslint ================", "\n", new Date().toString(), solo);
-    try {
-      await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${clientFolder}/src/**/*`]);
-    } catch (ignored) {}
+    console.log("================ starting wasm-fmt biome ================", "\n", new Date().toString(), solo);
+
+    const target = `${clientFolder}/src`;
+    const { runWasmFmtBiome } = await import("./run-wasm-fmt-biome.mjs");
+    runWasmFmtBiome(target);
 
     if (solo === "dynamodb") {
-      try {
-        await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${libFolder}/src/**/*`]);
-      } catch (ignored) {}
-    }
-
-    console.log("================ starting prettier ================", "\n", new Date().toString(), solo);
-    await spawnProcess("npx", [
-      "prettier",
-      "--write",
-      "--loglevel",
-      "warn",
-      `${clientFolder}/src/**/*.{md,js,ts,json}`,
-    ]);
-    await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${clientFolder}/README.md`]);
-    if (solo === "dynamodb") {
-      await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${libFolder}/src/**/*.{md,js,ts,json}`]);
+      const target = `${libFolder}/src`;
+      runWasmFmtBiome(target);
     }
 
     const compress = require("../endpoints-ruleset/compress");

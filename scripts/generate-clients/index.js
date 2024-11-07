@@ -12,7 +12,6 @@ const {
   DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
-const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
@@ -75,6 +74,7 @@ const {
   .help().argv;
 
 (async () => {
+  const { prettifyCode } = await import("./code-prettify.mjs");
   try {
     if (!noSmithyCheckout) {
       await buildSmithyTypeScript(repo, commit);

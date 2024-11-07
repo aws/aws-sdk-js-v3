@@ -4016,6 +4016,11 @@
     loupe "^2.3.6"
     pretty-format "^29.5.0"
 
+"@wasm-fmt/biome_fmt@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@wasm-fmt/biome_fmt/-/biome_fmt-0.1.12.tgz#11f239b03b19be9a755006c77183722246c8dfbc"
+  integrity sha512-2t7UdDh9sQ4JCXLXHfJeeqmeRcijbbgmLQ69sREWuYU7nMp8R/4F9g4bIEvJVvWmA4sNmPRvPJW/i3s5lDS11A==
+
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
   resolved "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.1.tgz"
