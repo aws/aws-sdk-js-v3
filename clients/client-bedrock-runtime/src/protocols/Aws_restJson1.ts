@@ -79,6 +79,7 @@ import {
   ModelStreamErrorException,
   ModelTimeoutException,
   PayloadPart,
+  PromptVariableValues,
   ResourceNotFoundException,
   ResponseStream,
   ServiceQuotaExceededException,
@@ -143,6 +144,7 @@ export const se_ConverseCommand = async (
       guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
+      promptVariables: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
@@ -172,6 +174,7 @@ export const se_ConverseStreamCommand = async (
       guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
+      promptVariables: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
@@ -957,6 +960,10 @@ const se_Messages = (input: Message[], context: __SerdeContext): any => {
 };
 
 // se_NonEmptyStringList omitted.
+
+// se_PromptVariableMap omitted.
+
+// se_PromptVariableValues omitted.
 
 // se_SpecificToolChoice omitted.
 

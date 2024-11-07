@@ -1584,6 +1584,44 @@ export interface Message {
 }
 
 /**
+ * <p>Contains a map of variables in a prompt from Prompt management to an object containing the values to fill in for them when running model invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-how.html">How Prompt management works</a>.</p>
+ * @public
+ */
+export type PromptVariableValues = PromptVariableValues.TextMember | PromptVariableValues.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PromptVariableValues {
+  /**
+   * <p>The text value that the variable maps to.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PromptVariableValues, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>A system content block.</p>
  * @public
  */
@@ -1868,8 +1906,7 @@ export interface ToolConfiguration {
  */
 export interface ConverseRequest {
   /**
-   * <p>The identifier for the model that you want to call.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
+   * <p>Specifies the model or throughput with which to run inference, or the prompt resource to use in inference. The value depends on the resource that you use:</p>
    *          <ul>
    *             <li>
    *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
@@ -1883,6 +1920,9 @@ export interface ConverseRequest {
    *             <li>
    *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
+   *             <li>
+   *                <p>To include a prompt that was defined in Prompt management, specify the ARN of the prompt version to use.</p>
+   *             </li>
    *          </ul>
    *          <p>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported models</a>.</p>
    * @public
@@ -1893,16 +1933,16 @@ export interface ConverseRequest {
    * <p>The messages that you want to send to the model.</p>
    * @public
    */
-  messages: Message[] | undefined;
+  messages?: Message[];
 
   /**
-   * <p>A system prompt to pass to the model.</p>
+   * <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
    * @public
    */
   system?: SystemContentBlock[];
 
   /**
-   * <p>Inference parameters to pass to the model. <code>Converse</code> supports a base
+   * <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base
    *          set of inference parameters. If you need to pass additional parameters that the model
    *          supports, use the <code>additionalModelRequestFields</code> request field.</p>
    * @public
@@ -1919,22 +1959,28 @@ export interface ConverseRequest {
   toolConfig?: ToolConfiguration;
 
   /**
-   * <p>Configuration information for a guardrail that you want to use in the request. </p>
+   * <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
    * @public
    */
   guardrailConfig?: GuardrailConfiguration;
 
   /**
    * <p>Additional inference parameters that the model supports, beyond the
-   *          base set of inference parameters that <code>Converse</code> supports in the <code>inferenceConfig</code>
+   *          base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code>
    *          field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
    * @public
    */
   additionalModelRequestFields?: __DocumentType;
 
   /**
+   * <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+   * @public
+   */
+  promptVariables?: Record<string, PromptVariableValues>;
+
+  /**
    * <p>Additional model parameters field paths to return in the
-   *          response. <code>Converse</code> returns the requested fields as a JSON Pointer object in the
+   *          response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the
    *          <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
    *          <p>
    *             <code>[
@@ -1942,9 +1988,9 @@ export interface ConverseRequest {
    *          ]</code>
    *          </p>
    *          <p>For information about the JSON Pointer syntax, see the
-   *          <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
+   *         <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
    *          <p>
-   *             <code>Converse</code> rejects an empty JSON Pointer or incorrectly structured
+   *             <code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured
    *          JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested
    *          field is not in the model response, it is ignored by <code>Converse</code>.</p>
    * @public
@@ -2274,8 +2320,7 @@ export interface GuardrailStreamConfiguration {
  */
 export interface ConverseStreamRequest {
   /**
-   * <p>The ID for the model.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
+   * <p>Specifies the model or throughput with which to run inference, or the prompt resource to use in inference. The value depends on the resource that you use:</p>
    *          <ul>
    *             <li>
    *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
@@ -2289,6 +2334,9 @@ export interface ConverseStreamRequest {
    *             <li>
    *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
+   *             <li>
+   *                <p>To include a prompt that was defined in Prompt management, specify the ARN of the prompt version to use.</p>
+   *             </li>
    *          </ul>
    *          <p>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported models</a>.</p>
    * @public
@@ -2299,16 +2347,16 @@ export interface ConverseStreamRequest {
    * <p>The messages that you want to send to the model.</p>
    * @public
    */
-  messages: Message[] | undefined;
+  messages?: Message[];
 
   /**
-   * <p>A system prompt to send to the model.</p>
+   * <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
    * @public
    */
   system?: SystemContentBlock[];
 
   /**
-   * <p>Inference parameters to pass to the model. <code>ConverseStream</code> supports a base
+   * <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base
    *          set of inference parameters. If you need to pass additional parameters that the model
    *          supports, use the <code>additionalModelRequestFields</code> request field.</p>
    * @public
@@ -2325,22 +2373,28 @@ export interface ConverseStreamRequest {
   toolConfig?: ToolConfiguration;
 
   /**
-   * <p>Configuration information for a guardrail that you want to use in the request. </p>
+   * <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
    * @public
    */
   guardrailConfig?: GuardrailStreamConfiguration;
 
   /**
    * <p>Additional inference parameters that the model supports, beyond the
-   *          base set of inference parameters that <code>ConverseStream</code> supports in the <code>inferenceConfig</code>
-   *          field.</p>
+   *          base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code>
+   *          field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
    * @public
    */
   additionalModelRequestFields?: __DocumentType;
 
   /**
+   * <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+   * @public
+   */
+  promptVariables?: Record<string, PromptVariableValues>;
+
+  /**
    * <p>Additional model parameters field paths to return in the
-   *          response. <code>ConverseStream</code> returns the requested fields as a JSON Pointer object in the
+   *          response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the
    *          <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
    *          <p>
    *             <code>[
@@ -2348,11 +2402,11 @@ export interface ConverseStreamRequest {
    *          ]</code>
    *          </p>
    *          <p>For information about the JSON Pointer syntax, see the
-   *          <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
+   *         <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
    *          <p>
-   *             <code>ConverseStream</code> rejects an empty JSON Pointer or incorrectly structured
+   *             <code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured
    *          JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested
-   *          field is not in the model response, it is ignored by <code>ConverseStream</code>.</p>
+   *          field is not in the model response, it is ignored by <code>Converse</code>.</p>
    * @public
    */
   additionalModelResponseFieldPaths?: string[];
@@ -2957,7 +3011,7 @@ export interface InvokeModelRequest {
    * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
-  body: Uint8Array | undefined;
+  body?: Uint8Array;
 
   /**
    * <p>The MIME type of the input data in the request. You must specify
@@ -3050,7 +3104,7 @@ export interface InvokeModelWithResponseStreamRequest {
    * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
-  body: Uint8Array | undefined;
+  body?: Uint8Array;
 
   /**
    * <p>The MIME type of the input data in the request. You must specify
@@ -3310,6 +3364,28 @@ export interface InvokeModelWithResponseStreamResponse {
    */
   contentType: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ConverseRequestFilterSensitiveLog = (obj: ConverseRequest): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => item) }),
+  ...(obj.system && { system: obj.system.map((item) => item) }),
+  ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
+  ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConverseStreamRequestFilterSensitiveLog = (obj: ConverseStreamRequest): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => item) }),
+  ...(obj.system && { system: obj.system.map((item) => item) }),
+  ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
+  ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

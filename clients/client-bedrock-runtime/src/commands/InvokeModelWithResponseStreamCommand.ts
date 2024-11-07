@@ -26,7 +26,7 @@ export { $Command };
  * @public
  */
 export type InvokeModelWithResponseStreamCommandInputType = Omit<InvokeModelWithResponseStreamRequest, "body"> & {
-  body: BlobPayloadInputTypes;
+  body?: BlobPayloadInputTypes;
 };
 
 /**
@@ -62,7 +62,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * // const { BedrockRuntimeClient, InvokeModelWithResponseStreamCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelWithResponseStreamRequest
- *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required

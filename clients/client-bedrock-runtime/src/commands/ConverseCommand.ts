@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ConverseRequest, ConverseResponse } from "../models/models_0";
+import { ConverseRequest, ConverseRequestFilterSensitiveLog, ConverseResponse } from "../models/models_0";
 import { de_ConverseCommand, se_ConverseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -34,6 +34,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *          If a model has unique inference parameters, you can also pass those unique parameters
  *          to the model.</p>
  *          <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p>
+ *          <p>You can submit a prompt by including it in the <code>messages</code> field, specifying the <code>modelId</code> of a foundation model or inference profile to run inference on it, and including any other fields that are relevant to your use case.</p>
+ *          <p>You can also submit a prompt from Prompt management by specifying the ARN of the prompt version and including a map of variables to values in the <code>promptVariables</code> field. You can append more messages to the prompt by using the <code>messages</code> field. If you use a prompt from Prompt management, you can't include the following fields in the request: <code>additionalModelRequestFields</code>, <code>inferenceConfig</code>, <code>system</code>, or <code>toolConfig</code>. Instead, these fields must be defined through Prompt management. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html">Use a prompt from Prompt management</a>.</p>
  *          <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *             To use a guardrail, see  <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *             To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i>
@@ -49,7 +51,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ConverseRequest
  *   modelId: "STRING_VALUE", // required
- *   messages: [ // Messages // required
+ *   messages: [ // Messages
  *     { // Message
  *       role: "user" || "assistant", // required
  *       content: [ // ContentBlocks // required
@@ -155,6 +157,11 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *     trace: "enabled" || "disabled",
  *   },
  *   additionalModelRequestFields: "DOCUMENT_VALUE",
+ *   promptVariables: { // PromptVariableMap
+ *     "<keys>": { // PromptVariableValues Union: only one key present
+ *       text: "STRING_VALUE",
+ *     },
+ *   },
  *   additionalModelResponseFieldPaths: [ // AdditionalModelResponseFieldPaths
  *     "STRING_VALUE",
  *   ],
@@ -466,7 +473,7 @@ export class ConverseCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "Converse", {})
   .n("BedrockRuntimeClient", "ConverseCommand")
-  .f(void 0, void 0)
+  .f(ConverseRequestFilterSensitiveLog, void 0)
   .ser(se_ConverseCommand)
   .de(de_ConverseCommand)
   .build() {
