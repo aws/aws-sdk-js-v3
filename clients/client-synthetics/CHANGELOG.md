@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-synthetics:** Add support to toggle if a canary will automatically delete provisioned canary resources such as Lambda functions and layers when a canary is deleted.  This behavior can be controlled via the new ProvisionedResourceCleanup property exposed in the CreateCanary and UpdateCanary APIs. ([b06511c](https://github.com/aws/aws-sdk-js-v3/commit/b06511c0f30787436272aa4b7b3edf9606028d06))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-synthetics

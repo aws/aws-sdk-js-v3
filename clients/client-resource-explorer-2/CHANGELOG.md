@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-resource-explorer-2:** Add GetManagedView, ListManagedViews APIs. ([362a7bd](https://github.com/aws/aws-sdk-js-v3/commit/362a7bd2f68708f59a31a7af8c5db2cb968cba8b))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2

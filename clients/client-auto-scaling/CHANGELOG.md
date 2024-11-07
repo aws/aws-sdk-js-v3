@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-auto-scaling:** Auto Scaling groups now support the ability to strictly balance instances across Availability Zones by configuring the AvailabilityZoneDistribution parameter. If balanced-only is configured for a group, launches will always be attempted in the under scaled Availability Zone even if it is unhealthy. ([3589a0f](https://github.com/aws/aws-sdk-js-v3/commit/3589a0fe81e6b77807bee3b88d9bbc7596168dd2))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

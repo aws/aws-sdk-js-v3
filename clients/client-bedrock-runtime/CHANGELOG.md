@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add Prompt management support to Bedrock runtime APIs: Converse, ConverseStream, InvokeModel, InvokeModelWithStreamingResponse ([6607253](https://github.com/aws/aws-sdk-js-v3/commit/660725305eff4e4329727a1246b85cf56b2b1da0))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

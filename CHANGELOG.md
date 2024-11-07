@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-auto-scaling:** Auto Scaling groups now support the ability to strictly balance instances across Availability Zones by configuring the AvailabilityZoneDistribution parameter. If balanced-only is configured for a group, launches will always be attempted in the under scaled Availability Zone even if it is unhealthy. ([3589a0f](https://github.com/aws/aws-sdk-js-v3/commit/3589a0fe81e6b77807bee3b88d9bbc7596168dd2))
+* **client-bedrock-agent:** Add prompt support for chat template configuration and agent generative AI resource. Add support for configuring an optional guardrail in Prompt and Knowledge Base nodes in Prompt Flows. Add API to validate flow definition ([7f72a17](https://github.com/aws/aws-sdk-js-v3/commit/7f72a17ea457645f7f13f6a78f475bfedabc4cd9))
+* **client-bedrock-runtime:** Add Prompt management support to Bedrock runtime APIs: Converse, ConverseStream, InvokeModel, InvokeModelWithStreamingResponse ([6607253](https://github.com/aws/aws-sdk-js-v3/commit/660725305eff4e4329727a1246b85cf56b2b1da0))
+* **client-cleanroomsml:** This release introduces support for Custom Models in AWS Clean Rooms ML. ([188d601](https://github.com/aws/aws-sdk-js-v3/commit/188d6019d94f61c0f0f9d942b9918cf79b1f218c))
+* **client-cleanrooms:** This release introduces support for Custom Models in AWS Clean Rooms ML. ([ef8b258](https://github.com/aws/aws-sdk-js-v3/commit/ef8b25885554b1d7eeec6c0d26a3f0bfe089c77b))
+* **client-quicksight:** Add Client Credentials based OAuth support for Snowflake and Starburst ([3d8d0bb](https://github.com/aws/aws-sdk-js-v3/commit/3d8d0bb1bbcef83fc103cc9d3035f71931dd433e))
+* **client-resource-explorer-2:** Add GetManagedView, ListManagedViews APIs. ([362a7bd](https://github.com/aws/aws-sdk-js-v3/commit/362a7bd2f68708f59a31a7af8c5db2cb968cba8b))
+* **client-synthetics:** Add support to toggle if a canary will automatically delete provisioned canary resources such as Lambda functions and layers when a canary is deleted.  This behavior can be controlled via the new ProvisionedResourceCleanup property exposed in the CreateCanary and UpdateCanary APIs. ([b06511c](https://github.com/aws/aws-sdk-js-v3/commit/b06511c0f30787436272aa4b7b3edf9606028d06))
+* **clients:** update client endpoints as of 2024-11-07 ([dbf853a](https://github.com/aws/aws-sdk-js-v3/commit/dbf853a16e10f62621c3499875d6ff6d2d8b5421))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 

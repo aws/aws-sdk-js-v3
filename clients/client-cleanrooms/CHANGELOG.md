@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+
+### Features
+
+* **client-cleanrooms:** This release introduces support for Custom Models in AWS Clean Rooms ML. ([ef8b258](https://github.com/aws/aws-sdk-js-v3/commit/ef8b25885554b1d7eeec6c0d26a3f0bfe089c77b))
+
+
+
+
+
 # [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms
