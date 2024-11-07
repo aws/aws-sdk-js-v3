@@ -1153,6 +1153,7 @@ import {
   NamedEntityRef,
   NegativeFormat,
   NewDefaultValues,
+  OAuthParameters,
   OracleParameters,
   OverrideDatasetParameterOperation,
   PhysicalTable,
@@ -1169,7 +1170,6 @@ import {
   ResourceNotFoundException,
   ResourcePermission,
   ResourceUnavailableException,
-  RowLevelPermissionDataSet,
   S3BucketConfiguration,
   S3Parameters,
   S3Source,
@@ -1268,6 +1268,7 @@ import {
   RefreshFrequency,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
+  RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
   ScheduleRefreshOnEntity,
@@ -13697,6 +13698,8 @@ const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __S
 
 // se_NumericSeparatorConfiguration omitted.
 
+// se_OAuthParameters omitted.
+
 // se_OperandList omitted.
 
 // se_OracleParameters omitted.
@@ -19277,6 +19280,8 @@ const de_NumericRangeFilterValue = (output: any, context: __SerdeContext): Numer
 };
 
 // de_NumericSeparatorConfiguration omitted.
+
+// de_OAuthParameters omitted.
 
 // de_OperandList omitted.
 

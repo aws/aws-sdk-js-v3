@@ -43,7 +43,6 @@ import {
   LogicalTableFilterSensitiveLog,
   PhysicalTable,
   ResourcePermission,
-  RowLevelPermissionDataSet,
   ServiceType,
   SharedViewConfigurations,
   SslProperties,
@@ -77,6 +76,7 @@ import {
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   Role,
+  RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SharingModel,
@@ -95,6 +95,65 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeTopicPermissionsResponse {
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>A list of resource permissions that are configured to the topic.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want
+   *          to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh, which is performed when the topic is created or updated.</p>
+   * @public
+   */
+  RefreshId: string | undefined;
+}
 
 /**
  * @public

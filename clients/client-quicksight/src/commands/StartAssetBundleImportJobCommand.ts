@@ -163,6 +163,16 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             OAuthParameters: { // OAuthParameters
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           SparkParameters: { // SparkParameters
  *             Host: "STRING_VALUE", // required
@@ -199,6 +209,16 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           TrinoParameters: { // TrinoParameters
  *             Host: "STRING_VALUE", // required
@@ -210,7 +230,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             DataSetRegion: "STRING_VALUE",
  *           },
  *         },
- *         VpcConnectionProperties: { // VpcConnectionProperties
+ *         VpcConnectionProperties: {
  *           VpcConnectionArn: "STRING_VALUE", // required
  *         },
  *         SslProperties: { // SslProperties

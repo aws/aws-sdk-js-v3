@@ -127,6 +127,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *       Warehouse: "STRING_VALUE", // required
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       OAuthParameters: { // OAuthParameters
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     SparkParameters: { // SparkParameters
  *       Host: "STRING_VALUE", // required
@@ -163,6 +173,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
  *       ProductType: "GALAXY" || "ENTERPRISE",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       OAuthParameters: {
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: {
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     TrinoParameters: { // TrinoParameters
  *       Host: "STRING_VALUE", // required
@@ -263,6 +283,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           SparkParameters: {
  *             Host: "STRING_VALUE", // required
@@ -299,6 +329,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           TrinoParameters: {
  *             Host: "STRING_VALUE", // required
@@ -315,9 +355,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     CopySourceArn: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
  *   },
- *   VpcConnectionProperties: { // VpcConnectionProperties
- *     VpcConnectionArn: "STRING_VALUE", // required
- *   },
+ *   VpcConnectionProperties: "<VpcConnectionProperties>",
  *   SslProperties: { // SslProperties
  *     DisableSsl: true || false,
  *   },

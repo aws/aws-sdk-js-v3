@@ -2762,6 +2762,63 @@ export interface ServiceNowParameters {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  PASSWORD: "PASSWORD",
+  TOKEN: "TOKEN",
+  X509: "X509",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * <p>VPC connection properties.</p>
+ * @public
+ */
+export interface VpcConnectionProperties {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
+   * @public
+   */
+  VpcConnectionArn: string | undefined;
+}
+
+/**
+ * <p>An object that contains information needed to create a data source connection that uses OAuth client credentials. This option is available for data source connections that are made with Snowflake and Starburst.</p>
+ * @public
+ */
+export interface OAuthParameters {
+  /**
+   * <p>The token endpoint URL of the identity provider.</p>
+   * @public
+   */
+  TokenProviderUrl: string | undefined;
+
+  /**
+   * <p>The OAuth scope.</p>
+   * @public
+   */
+  OAuthScope?: string;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties;
+
+  /**
+   * <p>The resource uri of the identity provider.</p>
+   * @public
+   */
+  IdentityProviderResourceUri?: string;
+}
+
+/**
  * <p>The parameters for Snowflake.</p>
  * @public
  */
@@ -2783,6 +2840,24 @@ export interface SnowflakeParameters {
    * @public
    */
   Warehouse: string | undefined;
+
+  /**
+   * <p>The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.</p>
+   * @public
+   */
+  AuthenticationType?: AuthenticationType;
+
+  /**
+   * <p>The database access control role.</p>
+   * @public
+   */
+  DatabaseAccessControlRole?: string;
+
+  /**
+   * <p>An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.</p>
+   * @public
+   */
+  OAuthParameters?: OAuthParameters;
 }
 
 /**
@@ -2869,6 +2944,24 @@ export interface StarburstParameters {
    * @public
    */
   ProductType?: StarburstProductType;
+
+  /**
+   * <p>The database access control role.</p>
+   * @public
+   */
+  DatabaseAccessControlRole?: string;
+
+  /**
+   * <p>The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.</p>
+   * @public
+   */
+  AuthenticationType?: AuthenticationType;
+
+  /**
+   * <p>An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.</p>
+   * @public
+   */
+  OAuthParameters?: OAuthParameters;
 }
 
 /**
@@ -3969,18 +4062,6 @@ export interface SslProperties {
    * @public
    */
   DisableSsl?: boolean;
-}
-
-/**
- * <p>VPC connection properties.</p>
- * @public
- */
-export interface VpcConnectionProperties {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
-   * @public
-   */
-  VpcConnectionArn: string | undefined;
 }
 
 /**
@@ -8592,63 +8673,6 @@ export const RowLevelPermissionPolicy = {
  * @public
  */
 export type RowLevelPermissionPolicy = (typeof RowLevelPermissionPolicy)[keyof typeof RowLevelPermissionPolicy];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * <p>Information about a dataset that contains permissions for row-level security (RLS).
- *             The permissions dataset maps fields to users or groups. For more information, see
- *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
- *                 Guide</i>.</p>
- *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
- *             not supported for new RLS datasets.</p>
- * @public
- */
-export interface RowLevelPermissionDataSet {
-  /**
-   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
-   * @public
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
-   *         is included for backward compatibility only.</p>
-   * @public
-   */
-  PermissionPolicy: RowLevelPermissionPolicy | undefined;
-
-  /**
-   * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
-   *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
-   * @public
-   */
-  FormatVersion?: RowLevelPermissionFormatVersion;
-
-  /**
-   * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
-   * @public
-   */
-  Status?: Status;
-}
 
 /**
  * @internal

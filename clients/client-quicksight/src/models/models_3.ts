@@ -77,19 +77,76 @@ import {
   LogicalTableFilterSensitiveLog,
   PhysicalTable,
   ResourcePermission,
-  RowLevelPermissionDataSet,
+  RowLevelPermissionFormatVersion,
+  RowLevelPermissionPolicy,
   ServiceType,
   SheetDefinition,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
   SslProperties,
-  Status,
   Tag,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * <p>Information about a dataset that contains permissions for row-level security (RLS).
+ *             The permissions dataset maps fields to users or groups. For more information, see
+ *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+ *                 Guide</i>.</p>
+ *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+ *             not supported for new RLS datasets.</p>
+ * @public
+ */
+export interface RowLevelPermissionDataSet {
+  /**
+   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
+   * @public
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
+   *         is included for backward compatibility only.</p>
+   * @public
+   */
+  PermissionPolicy: RowLevelPermissionPolicy | undefined;
+
+  /**
+   * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
+   *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
+   * @public
+   */
+  FormatVersion?: RowLevelPermissionFormatVersion;
+
+  /**
+   * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status?: Status;
+}
 
 /**
  * <p>A set of rules associated with a tag.</p>
@@ -9240,65 +9297,6 @@ export interface DescribeTopicPermissionsRequest {
    * @public
    */
   TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicPermissionsResponse {
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string;
-
-  /**
-   * <p>A list of resource permissions that are configured to the topic.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRefreshRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want
-   *          to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh, which is performed when the topic is created or updated.</p>
-   * @public
-   */
-  RefreshId: string | undefined;
 }
 
 /**
