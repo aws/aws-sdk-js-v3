@@ -1,4 +1,4 @@
-import { test as it, describe, expect } from "vitest";
+import { describe, expect, test as it } from "vitest";
 
 // import { JsonProtocol } from "@aws-sdk/aws-protocoltests-json";
 // CI has difficult importing a named private client from the workspace.

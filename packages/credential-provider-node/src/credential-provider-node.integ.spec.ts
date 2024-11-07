@@ -293,6 +293,17 @@ describe("credential-provider-node integration test", () => {
         aws_secret_access_key: "INI_STATIC_SECRET_KEY",
       });
 
+      sts = new STS({
+        region: "us-west-2",
+        logger: {
+          trace() {},
+          debug() {},
+          info() {},
+          warn() {},
+          error() {},
+        },
+      });
+
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
 

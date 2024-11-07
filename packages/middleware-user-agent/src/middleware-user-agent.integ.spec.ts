@@ -1,7 +1,8 @@
 import { CodeCatalyst } from "@aws-sdk/client-codecatalyst";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
-import { describe, test as it } from "vitest";
+import { AwsSdkFeatures } from "@aws-sdk/types";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -38,7 +39,13 @@ describe("middleware-user-agent", () => {
 
       requireRequestsFrom(doc).toMatch({
         headers: {
-          "user-agent": /(.*?) m\/d,E,O,R$/,
+          ["user-agent"](ua) {
+            const metadata = ua.match(/(.*?) m\/(.*?)$/)[2];
+            expect(metadata).toContain("d" as AwsSdkFeatures["DDB_MAPPER"]);
+            expect(metadata).toContain("E" as AwsSdkFeatures["RETRY_MODE_STANDARD"]);
+            expect(metadata).toContain("O" as AwsSdkFeatures["ACCOUNT_ID_ENDPOINT"]);
+            expect(metadata).toContain("R" as AwsSdkFeatures["ACCOUNT_ID_MODE_REQUIRED"]);
+          },
         },
       });
 
