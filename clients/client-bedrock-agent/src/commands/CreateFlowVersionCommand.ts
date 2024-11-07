@@ -67,6 +67,10 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //           knowledgeBase: { // KnowledgeBaseFlowNodeConfiguration
  * //             knowledgeBaseId: "STRING_VALUE", // required
  * //             modelId: "STRING_VALUE",
+ * //             guardrailConfiguration: { // GuardrailConfiguration
+ * //               guardrailIdentifier: "STRING_VALUE",
+ * //               guardrailVersion: "STRING_VALUE",
+ * //             },
  * //           },
  * //           condition: { // ConditionFlowNodeConfiguration
  * //             conditions: [ // FlowConditions // required
@@ -86,7 +90,7 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                 promptArn: "STRING_VALUE", // required
  * //               },
  * //               inline: { // PromptFlowNodeInlineConfiguration
- * //                 templateType: "TEXT", // required
+ * //                 templateType: "TEXT" || "CHAT", // required
  * //                 templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  * //                   text: { // TextPromptTemplateConfiguration
  * //                     text: "STRING_VALUE", // required
@@ -95,6 +99,48 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                         name: "STRING_VALUE",
  * //                       },
  * //                     ],
+ * //                   },
+ * //                   chat: { // ChatPromptTemplateConfiguration
+ * //                     messages: [ // Messages // required
+ * //                       { // Message
+ * //                         role: "user" || "assistant", // required
+ * //                         content: [ // ContentBlocks // required
+ * //                           { // ContentBlock Union: only one key present
+ * //                             text: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                       },
+ * //                     ],
+ * //                     system: [ // SystemContentBlocks
+ * //                       { // SystemContentBlock Union: only one key present
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     inputVariables: [
+ * //                       {
+ * //                         name: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     toolConfiguration: { // ToolConfiguration
+ * //                       tools: [ // Tools // required
+ * //                         { // Tool Union: only one key present
+ * //                           toolSpec: { // ToolSpecification
+ * //                             name: "STRING_VALUE", // required
+ * //                             description: "STRING_VALUE",
+ * //                             inputSchema: { // ToolInputSchema Union: only one key present
+ * //                               json: "DOCUMENT_VALUE",
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       ],
+ * //                       toolChoice: { // ToolChoice Union: only one key present
+ * //                         auto: {},
+ * //                         any: {},
+ * //                         tool: { // SpecificToolChoice
+ * //                           name: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                     },
  * //                   },
  * //                 },
  * //                 modelId: "STRING_VALUE", // required
@@ -110,6 +156,10 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                 },
  * //                 additionalModelRequestFields: "DOCUMENT_VALUE",
  * //               },
+ * //             },
+ * //             guardrailConfiguration: {
+ * //               guardrailIdentifier: "STRING_VALUE",
+ * //               guardrailVersion: "STRING_VALUE",
  * //             },
  * //           },
  * //           lambdaFunction: { // LambdaFunctionFlowNodeConfiguration

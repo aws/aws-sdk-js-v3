@@ -10,7 +10,7 @@ import {
   GetAgentVersionRequest,
   GetAgentVersionResponse,
   GetAgentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetAgentVersionCommand, se_GetAgentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**

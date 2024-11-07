@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAgentVersionRequest, DeleteAgentVersionResponse } from "../models/models_0";
+import { DeleteAgentVersionRequest, DeleteAgentVersionResponse } from "../models/models_1";
 import { de_DeleteAgentVersionCommand, se_DeleteAgentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**

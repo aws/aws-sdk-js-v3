@@ -257,6 +257,11 @@ import {
   UpdatePromptCommandInput,
   UpdatePromptCommandOutput,
 } from "./commands/UpdatePromptCommand";
+import {
+  ValidateFlowDefinitionCommand,
+  ValidateFlowDefinitionCommandInput,
+  ValidateFlowDefinitionCommandOutput,
+} from "./commands/ValidateFlowDefinitionCommand";
 
 const commands = {
   AssociateAgentKnowledgeBaseCommand,
@@ -321,6 +326,7 @@ const commands = {
   UpdateFlowAliasCommand,
   UpdateKnowledgeBaseCommand,
   UpdatePromptCommand,
+  ValidateFlowDefinitionCommand,
 };
 
 export interface BedrockAgent {
@@ -1224,6 +1230,23 @@ export interface BedrockAgent {
     args: UpdatePromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateFlowDefinitionCommand}
+   */
+  validateFlowDefinition(
+    args: ValidateFlowDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateFlowDefinitionCommandOutput>;
+  validateFlowDefinition(
+    args: ValidateFlowDefinitionCommandInput,
+    cb: (err: any, data?: ValidateFlowDefinitionCommandOutput) => void
+  ): void;
+  validateFlowDefinition(
+    args: ValidateFlowDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateFlowDefinitionCommandOutput) => void
   ): void;
 }
 

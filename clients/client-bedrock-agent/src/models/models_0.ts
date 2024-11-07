@@ -958,7 +958,7 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * <p>Details about the guardrail associated with an agent.</p>
+ * <p>Details about a guardrail associated with a resource.</p>
  * @public
  */
 export interface GuardrailConfiguration {
@@ -3955,6 +3955,12 @@ export interface KnowledgeBaseFlowNodeConfiguration {
    * @public
    */
   modelId?: string;
+
+  /**
+   * <p>Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -4076,6 +4082,358 @@ export interface PromptInputVariable {
 }
 
 /**
+ * <p>Contains the content for the message you pass to, or receive from a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * @public
+ */
+export type ContentBlock = ContentBlock.TextMember | ContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentBlock {
+  /**
+   * <p>The text in the message.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ContentBlock, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationRole = {
+  ASSISTANT: "assistant",
+  USER: "user",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
+
+/**
+ * <p>A message input or response from a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * @public
+ */
+export interface Message {
+  /**
+   * <p>The role that the message belongs to.</p>
+   * @public
+   */
+  role: ConversationRole | undefined;
+
+  /**
+   * <p>The content in the message.</p>
+   * @public
+   */
+  content: ContentBlock[] | undefined;
+}
+
+/**
+ * <p>Contains a system prompt to provide context to the model or to describe how it should behave. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * @public
+ */
+export type SystemContentBlock = SystemContentBlock.TextMember | SystemContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SystemContentBlock {
+  /**
+   * <p>The text in the system prompt.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SystemContentBlock, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export interface AnyToolChoice {}
+
+/**
+ * <p>Defines tools. The model automatically decides whether to call a tool or to generate text instead. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export interface AutoToolChoice {}
+
+/**
+ * <p>Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export interface SpecificToolChoice {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>Defines which tools the model should request when invoked. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export type ToolChoice =
+  | ToolChoice.AnyMember
+  | ToolChoice.AutoMember
+  | ToolChoice.ToolMember
+  | ToolChoice.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolChoice {
+  /**
+   * <p>Defines tools. The model automatically decides whether to call a tool or to generate text instead.</p>
+   * @public
+   */
+  export interface AutoMember {
+    auto: AutoToolChoice;
+    any?: never;
+    tool?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response.</p>
+   * @public
+   */
+  export interface AnyMember {
+    auto?: never;
+    any: AnyToolChoice;
+    tool?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response.</p>
+   * @public
+   */
+  export interface ToolMember {
+    auto?: never;
+    any?: never;
+    tool: SpecificToolChoice;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    auto?: never;
+    any?: never;
+    tool?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    auto: (value: AutoToolChoice) => T;
+    any: (value: AnyToolChoice) => T;
+    tool: (value: SpecificToolChoice) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ToolChoice, visitor: Visitor<T>): T => {
+    if (value.auto !== undefined) return visitor.auto(value.auto);
+    if (value.any !== undefined) return visitor.any(value.any);
+    if (value.tool !== undefined) return visitor.tool(value.tool);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The input schema for the tool. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export type ToolInputSchema = ToolInputSchema.JsonMember | ToolInputSchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolInputSchema {
+  /**
+   * <p>A JSON object defining the input schema for the tool.</p>
+   * @public
+   */
+  export interface JsonMember {
+    json: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    json?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    json: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ToolInputSchema, visitor: Visitor<T>): T => {
+    if (value.json !== undefined) return visitor.json(value.json);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains a specification for a tool. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export interface ToolSpecification {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the tool.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The input schema for the tool.</p>
+   * @public
+   */
+  inputSchema: ToolInputSchema | undefined;
+}
+
+/**
+ * <p>Contains configurations for a tool that a model can use when generating a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export type Tool = Tool.ToolSpecMember | Tool.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Tool {
+  /**
+   * <p>The specification for the tool.</p>
+   * @public
+   */
+  export interface ToolSpecMember {
+    toolSpec: ToolSpecification;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    toolSpec?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    toolSpec: (value: ToolSpecification) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Tool, visitor: Visitor<T>): T => {
+    if (value.toolSpec !== undefined) return visitor.toolSpec(value.toolSpec);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration information for the tools that the model can use when generating a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
+ * @public
+ */
+export interface ToolConfiguration {
+  /**
+   * <p>An array of tools to pass to a model.</p>
+   * @public
+   */
+  tools: Tool[] | undefined;
+
+  /**
+   * <p>Defines which tools the model should request when invoked.</p>
+   * @public
+   */
+  toolChoice?: ToolChoice;
+}
+
+/**
+ * <p>Contains configurations to use a prompt in a conversational format. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * @public
+ */
+export interface ChatPromptTemplateConfiguration {
+  /**
+   * <p>Contains messages in the chat for the prompt.</p>
+   * @public
+   */
+  messages: Message[] | undefined;
+
+  /**
+   * <p>Contains system prompts to provide context to the model or to describe how it should behave.</p>
+   * @public
+   */
+  system?: SystemContentBlock[];
+
+  /**
+   * <p>An array of the variables in the prompt template.</p>
+   * @public
+   */
+  inputVariables?: PromptInputVariable[];
+
+  /**
+   * <p>Configuration information for the tools that the model can use when generating a response.</p>
+   * @public
+   */
+  toolConfiguration?: ToolConfiguration;
+}
+
+/**
  * <p>Contains configurations for a text prompt template. To include a variable, enclose a word in double curly braces as in <code>\{\{variable\}\}</code>.</p>
  * @public
  */
@@ -4094,10 +4452,11 @@ export interface TextPromptTemplateConfiguration {
 }
 
 /**
- * <p>Contains the message for a prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html">Prompt management in Amazon Bedrock</a>.</p>
+ * <p>Contains the message for a prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html">Construct and store reusable prompts with Prompt management in Amazon Bedrock</a>.</p>
  * @public
  */
 export type PromptTemplateConfiguration =
+  | PromptTemplateConfiguration.ChatMember
   | PromptTemplateConfiguration.TextMember
   | PromptTemplateConfiguration.$UnknownMember;
 
@@ -4111,6 +4470,17 @@ export namespace PromptTemplateConfiguration {
    */
   export interface TextMember {
     text: TextPromptTemplateConfiguration;
+    chat?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configurations to use the prompt in a conversational format.</p>
+   * @public
+   */
+  export interface ChatMember {
+    text?: never;
+    chat: ChatPromptTemplateConfiguration;
     $unknown?: never;
   }
 
@@ -4119,16 +4489,19 @@ export namespace PromptTemplateConfiguration {
    */
   export interface $UnknownMember {
     text?: never;
+    chat?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: TextPromptTemplateConfiguration) => T;
+    chat: (value: ChatPromptTemplateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: PromptTemplateConfiguration, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.chat !== undefined) return visitor.chat(value.chat);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4138,6 +4511,7 @@ export namespace PromptTemplateConfiguration {
  * @enum
  */
 export const PromptTemplateType = {
+  CHAT: "CHAT",
   TEXT: "TEXT",
 } as const;
 
@@ -4176,7 +4550,7 @@ export interface PromptFlowNodeInlineConfiguration {
   inferenceConfiguration?: PromptInferenceConfiguration;
 
   /**
-   * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
+   * <p>Additional fields to be included in the model request for the Prompt node.</p>
    * @public
    */
   additionalModelRequestFields?: __DocumentType;
@@ -4259,6 +4633,12 @@ export interface PromptFlowNodeConfiguration {
    * @public
    */
   sourceConfiguration: PromptFlowNodeSourceConfiguration | undefined;
+
+  /**
+   * <p>Contains configurations for a guardrail to apply to the prompt in this node and the response generated from it.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -5713,6 +6093,1340 @@ export interface GetFlowRequest {
 }
 
 /**
+ * <p>Details about a cyclic connection detected in the flow.</p>
+ * @public
+ */
+export interface CyclicConnectionFlowValidationDetails {
+  /**
+   * <p>The name of the connection that causes the cycle in the flow.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about duplicate condition expressions found in a condition node.</p>
+ * @public
+ */
+export interface DuplicateConditionExpressionFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the duplicate condition expressions.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The duplicated condition expression.</p>
+   * @public
+   */
+  expression: string | undefined;
+}
+
+/**
+ * <p>Details about duplicate connections found between two nodes in the flow.</p>
+ * @public
+ */
+export interface DuplicateConnectionsFlowValidationDetails {
+  /**
+   * <p>The name of the source node where the duplicate connection starts.</p>
+   * @public
+   */
+  source: string | undefined;
+
+  /**
+   * <p>The name of the target node where the duplicate connection ends.</p>
+   * @public
+   */
+  target: string | undefined;
+}
+
+/**
+ * <p>Details about incompatible data types in a connection between nodes.</p>
+ * @public
+ */
+export interface IncompatibleConnectionDataTypeFlowValidationDetails {
+  /**
+   * <p>The name of the connection with incompatible data types.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about a malformed condition expression in a node.</p>
+ * @public
+ */
+export interface MalformedConditionExpressionFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the malformed condition expression.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the malformed condition.</p>
+   * @public
+   */
+  condition: string | undefined;
+
+  /**
+   * <p>The error message describing why the condition expression is malformed.</p>
+   * @public
+   */
+  cause: string | undefined;
+}
+
+/**
+ * <p>Details about a malformed input expression in a node.</p>
+ * @public
+ */
+export interface MalformedNodeInputExpressionFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the malformed input expression.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the input with the malformed expression.</p>
+   * @public
+   */
+  input: string | undefined;
+
+  /**
+   * <p>The error message describing why the input expression is malformed.</p>
+   * @public
+   */
+  cause: string | undefined;
+}
+
+/**
+ * <p>Details about mismatched input data types in a node.</p>
+ * @public
+ */
+export interface MismatchedNodeInputTypeFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the input with the mismatched data type.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the input with the mismatched data type.</p>
+   * @public
+   */
+  input: string | undefined;
+
+  /**
+   * <p>The expected data type for the node input.</p>
+   * @public
+   */
+  expectedType: FlowNodeIODataType | undefined;
+}
+
+/**
+ * <p>Details about mismatched output data types in a node.</p>
+ * @public
+ */
+export interface MismatchedNodeOutputTypeFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the output with the mismatched data type.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the output with the mismatched data type.</p>
+   * @public
+   */
+  output: string | undefined;
+
+  /**
+   * <p>The expected data type for the node output.</p>
+   * @public
+   */
+  expectedType: FlowNodeIODataType | undefined;
+}
+
+/**
+ * <p>Details about a connection missing required configuration.</p>
+ * @public
+ */
+export interface MissingConnectionConfigurationFlowValidationDetails {
+  /**
+   * <p>The name of the connection missing configuration.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about a missing default condition in a conditional node.</p>
+ * @public
+ */
+export interface MissingDefaultConditionFlowValidationDetails {
+  /**
+   * <p>The name of the node missing the default condition.</p>
+   * @public
+   */
+  node: string | undefined;
+}
+
+/**
+ * <p>Details about missing ending nodes (such as FlowOutputNode) in the flow.</p>
+ * @public
+ */
+export interface MissingEndingNodesFlowValidationDetails {}
+
+/**
+ * <p>Details about a node missing required configuration.</p>
+ * @public
+ */
+export interface MissingNodeConfigurationFlowValidationDetails {
+  /**
+   * <p>The name of the node missing configuration.</p>
+   * @public
+   */
+  node: string | undefined;
+}
+
+/**
+ * <p>Details about a missing required input in a node.</p>
+ * @public
+ */
+export interface MissingNodeInputFlowValidationDetails {
+  /**
+   * <p>The name of the node missing the required input.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the missing input.</p>
+   * @public
+   */
+  input: string | undefined;
+}
+
+/**
+ * <p>Details about a missing required output in a node.</p>
+ * @public
+ */
+export interface MissingNodeOutputFlowValidationDetails {
+  /**
+   * <p>The name of the node missing the required output.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the missing output.</p>
+   * @public
+   */
+  output: string | undefined;
+}
+
+/**
+ * <p>Details about missing starting nodes (such as FlowInputNode) in the flow.</p>
+ * @public
+ */
+export interface MissingStartingNodesFlowValidationDetails {}
+
+/**
+ * <p>Details about multiple connections to a single node input.</p>
+ * @public
+ */
+export interface MultipleNodeInputConnectionsFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the input with multiple connections.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the input with multiple connections to it.</p>
+   * @public
+   */
+  input: string | undefined;
+}
+
+/**
+ * <p>Details about an unfulfilled node input with no valid connections.</p>
+ * @public
+ */
+export interface UnfulfilledNodeInputFlowValidationDetails {
+  /**
+   * <p>The name of the node containing the unfulfilled input.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the unfulfilled input. An input is unfulfilled if there are no data connections to it.</p>
+   * @public
+   */
+  input: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown condition for a connection.</p>
+ * @public
+ */
+export interface UnknownConnectionConditionFlowValidationDetails {
+  /**
+   * <p>The name of the connection with the unknown condition.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown source node for a connection.</p>
+ * @public
+ */
+export interface UnknownConnectionSourceFlowValidationDetails {
+  /**
+   * <p>The name of the connection with the unknown source.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown source output for a connection.</p>
+ * @public
+ */
+export interface UnknownConnectionSourceOutputFlowValidationDetails {
+  /**
+   * <p>The name of the connection with the unknown source output.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown target node for a connection.</p>
+ * @public
+ */
+export interface UnknownConnectionTargetFlowValidationDetails {
+  /**
+   * <p>The name of the connection with the unknown target.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown target input for a connection.</p>
+ * @public
+ */
+export interface UnknownConnectionTargetInputFlowValidationDetails {
+  /**
+   * <p>The name of the connection with the unknown target input.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unreachable node in the flow. A node is unreachable when there are no paths to it from any starting node.</p>
+ * @public
+ */
+export interface UnreachableNodeFlowValidationDetails {
+  /**
+   * <p>The name of the unreachable node.</p>
+   * @public
+   */
+  node: string | undefined;
+}
+
+/**
+ * <p>Details about unsatisfied conditions for a connection. A condition is unsatisfied if it can never be true, for example two branches of condition node cannot be simultaneously true.</p>
+ * @public
+ */
+export interface UnsatisfiedConnectionConditionsFlowValidationDetails {
+  /**
+   * <p>The name of the connection with unsatisfied conditions.</p>
+   * @public
+   */
+  connection: string | undefined;
+}
+
+/**
+ * <p>Details about an unspecified validation that doesn't fit other categories.</p>
+ * @public
+ */
+export interface UnspecifiedFlowValidationDetails {}
+
+/**
+ * <p>A union type containing various possible validation issues in the flow.</p>
+ * @public
+ */
+export type FlowValidationDetails =
+  | FlowValidationDetails.CyclicConnectionMember
+  | FlowValidationDetails.DuplicateConditionExpressionMember
+  | FlowValidationDetails.DuplicateConnectionsMember
+  | FlowValidationDetails.IncompatibleConnectionDataTypeMember
+  | FlowValidationDetails.MalformedConditionExpressionMember
+  | FlowValidationDetails.MalformedNodeInputExpressionMember
+  | FlowValidationDetails.MismatchedNodeInputTypeMember
+  | FlowValidationDetails.MismatchedNodeOutputTypeMember
+  | FlowValidationDetails.MissingConnectionConfigurationMember
+  | FlowValidationDetails.MissingDefaultConditionMember
+  | FlowValidationDetails.MissingEndingNodesMember
+  | FlowValidationDetails.MissingNodeConfigurationMember
+  | FlowValidationDetails.MissingNodeInputMember
+  | FlowValidationDetails.MissingNodeOutputMember
+  | FlowValidationDetails.MissingStartingNodesMember
+  | FlowValidationDetails.MultipleNodeInputConnectionsMember
+  | FlowValidationDetails.UnfulfilledNodeInputMember
+  | FlowValidationDetails.UnknownConnectionConditionMember
+  | FlowValidationDetails.UnknownConnectionSourceMember
+  | FlowValidationDetails.UnknownConnectionSourceOutputMember
+  | FlowValidationDetails.UnknownConnectionTargetMember
+  | FlowValidationDetails.UnknownConnectionTargetInputMember
+  | FlowValidationDetails.UnreachableNodeMember
+  | FlowValidationDetails.UnsatisfiedConnectionConditionsMember
+  | FlowValidationDetails.UnspecifiedMember
+  | FlowValidationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowValidationDetails {
+  /**
+   * <p>Details about a cyclic connection in the flow.</p>
+   * @public
+   */
+  export interface CyclicConnectionMember {
+    cyclicConnection: CyclicConnectionFlowValidationDetails;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about duplicate connections between nodes.</p>
+   * @public
+   */
+  export interface DuplicateConnectionsMember {
+    cyclicConnection?: never;
+    duplicateConnections: DuplicateConnectionsFlowValidationDetails;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about duplicate condition expressions in a node.</p>
+   * @public
+   */
+  export interface DuplicateConditionExpressionMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression: DuplicateConditionExpressionFlowValidationDetails;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unreachable node in the flow.</p>
+   * @public
+   */
+  export interface UnreachableNodeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode: UnreachableNodeFlowValidationDetails;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown source node for a connection.</p>
+   * @public
+   */
+  export interface UnknownConnectionSourceMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource: UnknownConnectionSourceFlowValidationDetails;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown source output for a connection.</p>
+   * @public
+   */
+  export interface UnknownConnectionSourceOutputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput: UnknownConnectionSourceOutputFlowValidationDetails;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown target node for a connection.</p>
+   * @public
+   */
+  export interface UnknownConnectionTargetMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget: UnknownConnectionTargetFlowValidationDetails;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown target input for a connection.</p>
+   * @public
+   */
+  export interface UnknownConnectionTargetInputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput: UnknownConnectionTargetInputFlowValidationDetails;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown condition for a connection.</p>
+   * @public
+   */
+  export interface UnknownConnectionConditionMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition: UnknownConnectionConditionFlowValidationDetails;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a malformed condition expression in a node.</p>
+   * @public
+   */
+  export interface MalformedConditionExpressionMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression: MalformedConditionExpressionFlowValidationDetails;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a malformed input expression in a node.</p>
+   * @public
+   */
+  export interface MalformedNodeInputExpressionMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression: MalformedNodeInputExpressionFlowValidationDetails;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about mismatched input data types in a node.</p>
+   * @public
+   */
+  export interface MismatchedNodeInputTypeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType: MismatchedNodeInputTypeFlowValidationDetails;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about mismatched output data types in a node.</p>
+   * @public
+   */
+  export interface MismatchedNodeOutputTypeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType: MismatchedNodeOutputTypeFlowValidationDetails;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about incompatible data types in a connection.</p>
+   * @public
+   */
+  export interface IncompatibleConnectionDataTypeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType: IncompatibleConnectionDataTypeFlowValidationDetails;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about missing configuration for a connection.</p>
+   * @public
+   */
+  export interface MissingConnectionConfigurationMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration: MissingConnectionConfigurationFlowValidationDetails;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a missing default condition in a conditional node.</p>
+   * @public
+   */
+  export interface MissingDefaultConditionMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition: MissingDefaultConditionFlowValidationDetails;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about missing ending nodes in the flow.</p>
+   * @public
+   */
+  export interface MissingEndingNodesMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes: MissingEndingNodesFlowValidationDetails;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about missing configuration for a node.</p>
+   * @public
+   */
+  export interface MissingNodeConfigurationMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration: MissingNodeConfigurationFlowValidationDetails;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a missing required input in a node.</p>
+   * @public
+   */
+  export interface MissingNodeInputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput: MissingNodeInputFlowValidationDetails;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a missing required output in a node.</p>
+   * @public
+   */
+  export interface MissingNodeOutputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput: MissingNodeOutputFlowValidationDetails;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about missing starting nodes in the flow.</p>
+   * @public
+   */
+  export interface MissingStartingNodesMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes: MissingStartingNodesFlowValidationDetails;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about multiple connections to a single node input.</p>
+   * @public
+   */
+  export interface MultipleNodeInputConnectionsMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections: MultipleNodeInputConnectionsFlowValidationDetails;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unfulfilled node input with no valid connections.</p>
+   * @public
+   */
+  export interface UnfulfilledNodeInputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput: UnfulfilledNodeInputFlowValidationDetails;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about unsatisfied conditions for a connection.</p>
+   * @public
+   */
+  export interface UnsatisfiedConnectionConditionsMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions: UnsatisfiedConnectionConditionsFlowValidationDetails;
+    unspecified?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unspecified validation.</p>
+   * @public
+   */
+  export interface UnspecifiedMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified: UnspecifiedFlowValidationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    cyclicConnection: (value: CyclicConnectionFlowValidationDetails) => T;
+    duplicateConnections: (value: DuplicateConnectionsFlowValidationDetails) => T;
+    duplicateConditionExpression: (value: DuplicateConditionExpressionFlowValidationDetails) => T;
+    unreachableNode: (value: UnreachableNodeFlowValidationDetails) => T;
+    unknownConnectionSource: (value: UnknownConnectionSourceFlowValidationDetails) => T;
+    unknownConnectionSourceOutput: (value: UnknownConnectionSourceOutputFlowValidationDetails) => T;
+    unknownConnectionTarget: (value: UnknownConnectionTargetFlowValidationDetails) => T;
+    unknownConnectionTargetInput: (value: UnknownConnectionTargetInputFlowValidationDetails) => T;
+    unknownConnectionCondition: (value: UnknownConnectionConditionFlowValidationDetails) => T;
+    malformedConditionExpression: (value: MalformedConditionExpressionFlowValidationDetails) => T;
+    malformedNodeInputExpression: (value: MalformedNodeInputExpressionFlowValidationDetails) => T;
+    mismatchedNodeInputType: (value: MismatchedNodeInputTypeFlowValidationDetails) => T;
+    mismatchedNodeOutputType: (value: MismatchedNodeOutputTypeFlowValidationDetails) => T;
+    incompatibleConnectionDataType: (value: IncompatibleConnectionDataTypeFlowValidationDetails) => T;
+    missingConnectionConfiguration: (value: MissingConnectionConfigurationFlowValidationDetails) => T;
+    missingDefaultCondition: (value: MissingDefaultConditionFlowValidationDetails) => T;
+    missingEndingNodes: (value: MissingEndingNodesFlowValidationDetails) => T;
+    missingNodeConfiguration: (value: MissingNodeConfigurationFlowValidationDetails) => T;
+    missingNodeInput: (value: MissingNodeInputFlowValidationDetails) => T;
+    missingNodeOutput: (value: MissingNodeOutputFlowValidationDetails) => T;
+    missingStartingNodes: (value: MissingStartingNodesFlowValidationDetails) => T;
+    multipleNodeInputConnections: (value: MultipleNodeInputConnectionsFlowValidationDetails) => T;
+    unfulfilledNodeInput: (value: UnfulfilledNodeInputFlowValidationDetails) => T;
+    unsatisfiedConnectionConditions: (value: UnsatisfiedConnectionConditionsFlowValidationDetails) => T;
+    unspecified: (value: UnspecifiedFlowValidationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowValidationDetails, visitor: Visitor<T>): T => {
+    if (value.cyclicConnection !== undefined) return visitor.cyclicConnection(value.cyclicConnection);
+    if (value.duplicateConnections !== undefined) return visitor.duplicateConnections(value.duplicateConnections);
+    if (value.duplicateConditionExpression !== undefined)
+      return visitor.duplicateConditionExpression(value.duplicateConditionExpression);
+    if (value.unreachableNode !== undefined) return visitor.unreachableNode(value.unreachableNode);
+    if (value.unknownConnectionSource !== undefined)
+      return visitor.unknownConnectionSource(value.unknownConnectionSource);
+    if (value.unknownConnectionSourceOutput !== undefined)
+      return visitor.unknownConnectionSourceOutput(value.unknownConnectionSourceOutput);
+    if (value.unknownConnectionTarget !== undefined)
+      return visitor.unknownConnectionTarget(value.unknownConnectionTarget);
+    if (value.unknownConnectionTargetInput !== undefined)
+      return visitor.unknownConnectionTargetInput(value.unknownConnectionTargetInput);
+    if (value.unknownConnectionCondition !== undefined)
+      return visitor.unknownConnectionCondition(value.unknownConnectionCondition);
+    if (value.malformedConditionExpression !== undefined)
+      return visitor.malformedConditionExpression(value.malformedConditionExpression);
+    if (value.malformedNodeInputExpression !== undefined)
+      return visitor.malformedNodeInputExpression(value.malformedNodeInputExpression);
+    if (value.mismatchedNodeInputType !== undefined)
+      return visitor.mismatchedNodeInputType(value.mismatchedNodeInputType);
+    if (value.mismatchedNodeOutputType !== undefined)
+      return visitor.mismatchedNodeOutputType(value.mismatchedNodeOutputType);
+    if (value.incompatibleConnectionDataType !== undefined)
+      return visitor.incompatibleConnectionDataType(value.incompatibleConnectionDataType);
+    if (value.missingConnectionConfiguration !== undefined)
+      return visitor.missingConnectionConfiguration(value.missingConnectionConfiguration);
+    if (value.missingDefaultCondition !== undefined)
+      return visitor.missingDefaultCondition(value.missingDefaultCondition);
+    if (value.missingEndingNodes !== undefined) return visitor.missingEndingNodes(value.missingEndingNodes);
+    if (value.missingNodeConfiguration !== undefined)
+      return visitor.missingNodeConfiguration(value.missingNodeConfiguration);
+    if (value.missingNodeInput !== undefined) return visitor.missingNodeInput(value.missingNodeInput);
+    if (value.missingNodeOutput !== undefined) return visitor.missingNodeOutput(value.missingNodeOutput);
+    if (value.missingStartingNodes !== undefined) return visitor.missingStartingNodes(value.missingStartingNodes);
+    if (value.multipleNodeInputConnections !== undefined)
+      return visitor.multipleNodeInputConnections(value.multipleNodeInputConnections);
+    if (value.unfulfilledNodeInput !== undefined) return visitor.unfulfilledNodeInput(value.unfulfilledNodeInput);
+    if (value.unsatisfiedConnectionConditions !== undefined)
+      return visitor.unsatisfiedConnectionConditions(value.unsatisfiedConnectionConditions);
+    if (value.unspecified !== undefined) return visitor.unspecified(value.unspecified);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
@@ -5725,6 +7439,43 @@ export const FlowValidationSeverity = {
  * @public
  */
 export type FlowValidationSeverity = (typeof FlowValidationSeverity)[keyof typeof FlowValidationSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowValidationType = {
+  CYCLIC_CONNECTION: "CyclicConnection",
+  DUPLICATE_CONDITION_EXPRESSION: "DuplicateConditionExpression",
+  DUPLICATE_CONNECTIONS: "DuplicateConnections",
+  INCOMPATIBLE_CONNECTION_DATA_TYPE: "IncompatibleConnectionDataType",
+  MALFORMED_CONDITION_EXPRESSION: "MalformedConditionExpression",
+  MALFORMED_NODE_INPUT_EXPRESSION: "MalformedNodeInputExpression",
+  MISMATCHED_NODE_INPUT_TYPE: "MismatchedNodeInputType",
+  MISMATCHED_NODE_OUTPUT_TYPE: "MismatchedNodeOutputType",
+  MISSING_CONNECTION_CONFIGURATION: "MissingConnectionConfiguration",
+  MISSING_DEFAULT_CONDITION: "MissingDefaultCondition",
+  MISSING_ENDING_NODES: "MissingEndingNodes",
+  MISSING_NODE_CONFIGURATION: "MissingNodeConfiguration",
+  MISSING_NODE_INPUT: "MissingNodeInput",
+  MISSING_NODE_OUTPUT: "MissingNodeOutput",
+  MISSING_STARTING_NODES: "MissingStartingNodes",
+  MULTIPLE_NODE_INPUT_CONNECTIONS: "MultipleNodeInputConnections",
+  UNFULFILLED_NODE_INPUT: "UnfulfilledNodeInput",
+  UNKNOWN_CONNECTION_CONDITION: "UnknownConnectionCondition",
+  UNKNOWN_CONNECTION_SOURCE: "UnknownConnectionSource",
+  UNKNOWN_CONNECTION_SOURCE_OUTPUT: "UnknownConnectionSourceOutput",
+  UNKNOWN_CONNECTION_TARGET: "UnknownConnectionTarget",
+  UNKNOWN_CONNECTION_TARGET_INPUT: "UnknownConnectionTargetInput",
+  UNREACHABLE_NODE: "UnreachableNode",
+  UNSATISFIED_CONNECTION_CONDITIONS: "UnsatisfiedConnectionConditions",
+  UNSPECIFIED: "Unspecified",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowValidationType = (typeof FlowValidationType)[keyof typeof FlowValidationType];
 
 /**
  * <p>Contains information about validation of the flow.</p>
@@ -5755,6 +7506,18 @@ export interface FlowValidation {
    * @public
    */
   severity: FlowValidationSeverity | undefined;
+
+  /**
+   * <p>Specific details about the validation issue encountered in the flow.</p>
+   * @public
+   */
+  details?: FlowValidationDetails;
+
+  /**
+   * <p>The type of validation issue encountered in the flow.</p>
+   * @public
+   */
+  type?: FlowValidationType;
 }
 
 /**
@@ -7300,992 +9063,6 @@ export interface GetKnowledgeBaseResponse {
 }
 
 /**
- * @public
- */
-export interface ListAgentKnowledgeBasesRequest {
-  /**
-   * <p>The unique identifier of the agent for which to return information about knowledge bases associated with it.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent for which to return information about knowledge bases associated with it.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListAgentKnowledgeBasesResponse {
-  /**
-   * <p>A list of objects, each of which contains information about a knowledge base associated with the agent.</p>
-   * @public
-   */
-  agentKnowledgeBaseSummaries: AgentKnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesRequest {
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>Contains details about a knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseSummary {
-  /**
-   * <p>The unique identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the knowledge base.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the knowledge base.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The status of the knowledge base.</p>
-   * @public
-   */
-  status: KnowledgeBaseStatus | undefined;
-
-  /**
-   * <p>The time the knowledge base was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesResponse {
-  /**
-   * <p>A list of knowledge bases with information about each knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateAgentKnowledgeBaseRequest {
-  /**
-   * <p>The unique identifier of the agent associated with the knowledge base that you want to update.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent associated with the knowledge base that you want to update.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>The unique identifier of the knowledge base that has been associated with an agent.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>Specifies a new description for the knowledge base associated with an agent.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
-   * @public
-   */
-  knowledgeBaseState?: KnowledgeBaseState;
-}
-
-/**
- * @public
- */
-export interface UpdateAgentKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about the knowledge base that has been associated with an agent.</p>
-   * @public
-   */
-  agentKnowledgeBase: AgentKnowledgeBase | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateKnowledgeBaseRequest {
-  /**
-   * <p>The unique identifier of the knowledge base to update.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>Specifies a new name for the knowledge base.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Specifies a new description for the knowledge base.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Specifies the configuration for the embeddings model used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
-   * @public
-   */
-  knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
-
-  /**
-   * <p>Specifies the configuration for the vector store used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
-   * @public
-   */
-  storageConfiguration: StorageConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about the knowledge base.</p>
-   * @public
-   */
-  knowledgeBase: KnowledgeBase | undefined;
-}
-
-/**
- * <p>Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
- * @public
- */
-export interface PromptMetadataEntry {
-  /**
-   * <p>The key of a metadata tag for a prompt variant.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of a metadata tag for a prompt variant.</p>
-   * @public
-   */
-  value: string | undefined;
-}
-
-/**
- * <p>Contains details about a variant of the prompt.</p>
- * @public
- */
-export interface PromptVariant {
-  /**
-   * <p>The name of the prompt variant.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of prompt template to use.</p>
-   * @public
-   */
-  templateType: PromptTemplateType | undefined;
-
-  /**
-   * <p>Contains configurations for the prompt template.</p>
-   * @public
-   */
-  templateConfiguration: PromptTemplateConfiguration | undefined;
-
-  /**
-   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> with which to run inference on the prompt.</p>
-   * @public
-   */
-  modelId?: string;
-
-  /**
-   * <p>Contains inference configurations for the prompt variant.</p>
-   * @public
-   */
-  inferenceConfiguration?: PromptInferenceConfiguration;
-
-  /**
-   * <p>An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
-   * @public
-   */
-  metadata?: PromptMetadataEntry[];
-
-  /**
-   * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
-   * @public
-   */
-  additionalModelRequestFields?: __DocumentType;
-}
-
-/**
- * @public
- */
-export interface CreatePromptRequest {
-  /**
-   * <p>A name for the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description for the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string;
-
-  /**
-   * <p>Any tags that you want to attach to the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreatePromptResponse {
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for your prompt.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version of the prompt. When you create a prompt, the version created is the <code>DRAFT</code> version.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The time at which the prompt was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the prompt was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePromptVersionRequest {
-  /**
-   * <p>The unique identifier of the prompt that you want to create a version of.</p>
-   * @public
-   */
-  promptIdentifier: string | undefined;
-
-  /**
-   * <p>A description for the version of the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string;
-
-  /**
-   * <p>Any tags that you want to attach to the version of the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreatePromptVersionResponse {
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description for the version.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the version of the prompt.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the version of the prompt.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version of the prompt that was created. Versions are numbered incrementally, starting from 1.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The time at which the prompt was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the prompt was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePromptRequest {
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  promptIdentifier: string | undefined;
-
-  /**
-   * <p>The version of the prompt to delete. To delete the prompt, omit this field.</p>
-   * @public
-   */
-  promptVersion?: string;
-}
-
-/**
- * @public
- */
-export interface DeletePromptResponse {
-  /**
-   * <p>The unique identifier of the prompt that was deleted.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The version of the prompt that was deleted.</p>
-   * @public
-   */
-  version?: string;
-}
-
-/**
- * @public
- */
-export interface GetPromptRequest {
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  promptIdentifier: string | undefined;
-
-  /**
-   * <p>The version of the prompt about which you want to retrieve information. Omit this field to return information about the working draft of the prompt.</p>
-   * @public
-   */
-  promptVersion?: string;
-}
-
-/**
- * @public
- */
-export interface GetPromptResponse {
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The descriptino of the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the prompt is encrypted with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version of the prompt.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The time at which the prompt was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the prompt was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPromptsRequest {
-  /**
-   * <p>The unique identifier of the prompt for whose versions you want to return information. Omit this field to list information about all prompts in an account.</p>
-   * @public
-   */
-  promptIdentifier?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>Contains information about a prompt in your Prompt management tool.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html#API_agent_ListPrompts_ResponseSyntax">ListPrompts response</a>
- *                </p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface PromptSummary {
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version of the prompt that this summary applies to.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The time at which the prompt was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the prompt was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPromptsResponse {
-  /**
-   * <p>A list, each member of which contains information about a prompt using Prompt management.</p>
-   * @public
-   */
-  promptSummaries: PromptSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdatePromptRequest {
-  /**
-   * <p>A name for the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description for the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  promptIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePromptResponse {
-  /**
-   * <p>The name of the prompt.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the prompt.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string;
-
-  /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
-   * @public
-   */
-  defaultVariant?: string;
-
-  /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
-   * @public
-   */
-  variants?: PromptVariant[];
-
-  /**
-   * <p>The unique identifier of the prompt.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version of the prompt. When you update a prompt, the version updated is the <code>DRAFT</code> version.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The time at which the prompt was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the prompt was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The key-value pairs for the tags associated with the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A list of keys of the tags to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface DeleteAgentVersionRequest {
-  /**
-   * <p>The unique identifier of the agent that the version belongs to.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent to delete.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
-   * @public
-   */
-  skipResourceInUseCheck?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteAgentVersionResponse {
-  /**
-   * <p>The unique identifier of the agent that the version belongs to.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version that was deleted.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>The status of the agent version.</p>
-   * @public
-   */
-  agentStatus: AgentStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAgentVersionRequest {
-  /**
-   * <p>The unique identifier of the agent.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAgentVersionResponse {
-  /**
-   * <p>Contains details about the version of the agent.</p>
-   * @public
-   */
-  agentVersion: AgentVersion | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAgentVersionsRequest {
-  /**
-   * <p>The unique identifier of the agent.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListAgentVersionsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about a version of the agent.</p>
-   * @public
-   */
-  agentVersionSummaries: AgentVersionSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -8632,6 +9409,60 @@ export const ConditionFlowNodeConfigurationFilterSensitiveLog = (obj: ConditionF
 /**
  * @internal
  */
+export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SystemContentBlockFilterSensitiveLog = (obj: SystemContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ToolChoiceFilterSensitiveLog = (obj: ToolChoice): any => {
+  if (obj.auto !== undefined) return { auto: obj.auto };
+  if (obj.any !== undefined) return { any: obj.any };
+  if (obj.tool !== undefined) return { tool: obj.tool };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ToolConfigurationFilterSensitiveLog = (obj: ToolConfiguration): any => ({
+  ...obj,
+  ...(obj.tools && { tools: SENSITIVE_STRING }),
+  ...(obj.toolChoice && { toolChoice: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChatPromptTemplateConfigurationFilterSensitiveLog = (obj: ChatPromptTemplateConfiguration): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+  ...(obj.system && { system: SENSITIVE_STRING }),
+  ...(obj.inputVariables && { inputVariables: SENSITIVE_STRING }),
+  ...(obj.toolConfiguration && { toolConfiguration: ToolConfigurationFilterSensitiveLog(obj.toolConfiguration) }),
+});
+
+/**
+ * @internal
+ */
 export const TextPromptTemplateConfigurationFilterSensitiveLog = (obj: TextPromptTemplateConfiguration): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
@@ -8643,6 +9474,7 @@ export const TextPromptTemplateConfigurationFilterSensitiveLog = (obj: TextPromp
  */
 export const PromptTemplateConfigurationFilterSensitiveLog = (obj: PromptTemplateConfiguration): any => {
   if (obj.text !== undefined) return { text: SENSITIVE_STRING };
+  if (obj.chat !== undefined) return { chat: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -8757,9 +9589,74 @@ export const GetFlowVersionResponseFilterSensitiveLog = (obj: GetFlowVersionResp
 /**
  * @internal
  */
+export const DuplicateConditionExpressionFlowValidationDetailsFilterSensitiveLog = (
+  obj: DuplicateConditionExpressionFlowValidationDetails
+): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowValidationDetailsFilterSensitiveLog = (obj: FlowValidationDetails): any => {
+  if (obj.cyclicConnection !== undefined) return { cyclicConnection: obj.cyclicConnection };
+  if (obj.duplicateConnections !== undefined) return { duplicateConnections: obj.duplicateConnections };
+  if (obj.duplicateConditionExpression !== undefined)
+    return {
+      duplicateConditionExpression: DuplicateConditionExpressionFlowValidationDetailsFilterSensitiveLog(
+        obj.duplicateConditionExpression
+      ),
+    };
+  if (obj.unreachableNode !== undefined) return { unreachableNode: obj.unreachableNode };
+  if (obj.unknownConnectionSource !== undefined) return { unknownConnectionSource: obj.unknownConnectionSource };
+  if (obj.unknownConnectionSourceOutput !== undefined)
+    return { unknownConnectionSourceOutput: obj.unknownConnectionSourceOutput };
+  if (obj.unknownConnectionTarget !== undefined) return { unknownConnectionTarget: obj.unknownConnectionTarget };
+  if (obj.unknownConnectionTargetInput !== undefined)
+    return { unknownConnectionTargetInput: obj.unknownConnectionTargetInput };
+  if (obj.unknownConnectionCondition !== undefined)
+    return { unknownConnectionCondition: obj.unknownConnectionCondition };
+  if (obj.malformedConditionExpression !== undefined)
+    return { malformedConditionExpression: obj.malformedConditionExpression };
+  if (obj.malformedNodeInputExpression !== undefined)
+    return { malformedNodeInputExpression: obj.malformedNodeInputExpression };
+  if (obj.mismatchedNodeInputType !== undefined) return { mismatchedNodeInputType: obj.mismatchedNodeInputType };
+  if (obj.mismatchedNodeOutputType !== undefined) return { mismatchedNodeOutputType: obj.mismatchedNodeOutputType };
+  if (obj.incompatibleConnectionDataType !== undefined)
+    return { incompatibleConnectionDataType: obj.incompatibleConnectionDataType };
+  if (obj.missingConnectionConfiguration !== undefined)
+    return { missingConnectionConfiguration: obj.missingConnectionConfiguration };
+  if (obj.missingDefaultCondition !== undefined) return { missingDefaultCondition: obj.missingDefaultCondition };
+  if (obj.missingEndingNodes !== undefined) return { missingEndingNodes: obj.missingEndingNodes };
+  if (obj.missingNodeConfiguration !== undefined) return { missingNodeConfiguration: obj.missingNodeConfiguration };
+  if (obj.missingNodeInput !== undefined) return { missingNodeInput: obj.missingNodeInput };
+  if (obj.missingNodeOutput !== undefined) return { missingNodeOutput: obj.missingNodeOutput };
+  if (obj.missingStartingNodes !== undefined) return { missingStartingNodes: obj.missingStartingNodes };
+  if (obj.multipleNodeInputConnections !== undefined)
+    return { multipleNodeInputConnections: obj.multipleNodeInputConnections };
+  if (obj.unfulfilledNodeInput !== undefined) return { unfulfilledNodeInput: obj.unfulfilledNodeInput };
+  if (obj.unsatisfiedConnectionConditions !== undefined)
+    return { unsatisfiedConnectionConditions: obj.unsatisfiedConnectionConditions };
+  if (obj.unspecified !== undefined) return { unspecified: obj.unspecified };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowValidationFilterSensitiveLog = (obj: FlowValidation): any => ({
+  ...obj,
+  ...(obj.details && { details: FlowValidationDetailsFilterSensitiveLog(obj.details) }),
+});
+
+/**
+ * @internal
+ */
 export const GetFlowResponseFilterSensitiveLog = (obj: GetFlowResponse): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.validations && { validations: obj.validations.map((item) => FlowValidationFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -8776,81 +9673,4 @@ export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any
 export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PromptMetadataEntryFilterSensitiveLog = (obj: PromptMetadataEntry): any => ({
-  ...obj,
-  ...(obj.key && { key: SENSITIVE_STRING }),
-  ...(obj.value && { value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PromptVariantFilterSensitiveLog = (obj: PromptVariant): any => ({
-  ...obj,
-  ...(obj.templateConfiguration && {
-    templateConfiguration: PromptTemplateConfigurationFilterSensitiveLog(obj.templateConfiguration),
-  }),
-  ...(obj.inferenceConfiguration && { inferenceConfiguration: obj.inferenceConfiguration }),
-  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePromptRequestFilterSensitiveLog = (obj: CreatePromptRequest): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePromptResponseFilterSensitiveLog = (obj: CreatePromptResponse): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePromptVersionResponseFilterSensitiveLog = (obj: CreatePromptVersionResponse): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPromptResponseFilterSensitiveLog = (obj: GetPromptResponse): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdatePromptRequestFilterSensitiveLog = (obj: UpdatePromptRequest): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdatePromptResponseFilterSensitiveLog = (obj: UpdatePromptResponse): any => ({
-  ...obj,
-  ...(obj.variants && { variants: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetAgentVersionResponseFilterSensitiveLog = (obj: GetAgentVersionResponse): any => ({
-  ...obj,
-  ...(obj.agentVersion && { agentVersion: AgentVersionFilterSensitiveLog(obj.agentVersion) }),
 });

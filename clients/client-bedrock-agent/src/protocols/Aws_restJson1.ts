@@ -139,6 +139,10 @@ import {
   UpdateKnowledgeBaseCommandOutput,
 } from "../commands/UpdateKnowledgeBaseCommand";
 import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "../commands/UpdatePromptCommand";
+import {
+  ValidateFlowDefinitionCommandInput,
+  ValidateFlowDefinitionCommandOutput,
+} from "../commands/ValidateFlowDefinitionCommand";
 import { BedrockAgentServiceException as __BaseException } from "../models/BedrockAgentServiceException";
 import {
   AccessDeniedException,
@@ -156,9 +160,12 @@ import {
   AgentSummary,
   AgentVersion,
   AgentVersionSummary,
+  AnyToolChoice,
   APISchema,
+  AutoToolChoice,
   BedrockEmbeddingModelConfiguration,
   BedrockFoundationModelConfiguration,
+  ChatPromptTemplateConfiguration,
   ChunkingConfiguration,
   CollectorFlowNodeConfiguration,
   ConditionFlowNodeConfiguration,
@@ -166,6 +173,7 @@ import {
   ConfluenceCrawlerConfiguration,
   ConfluenceDataSourceConfiguration,
   ConfluenceSourceConfiguration,
+  ContentBlock,
   CrawlFilterConfiguration,
   CustomTransformationConfiguration,
   DataSource,
@@ -204,11 +212,11 @@ import {
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseFlowNodeConfiguration,
-  KnowledgeBaseSummary,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
   MemoryConfiguration,
   MemoryType,
+  Message,
   MongoDbAtlasConfiguration,
   MongoDbAtlasFieldMapping,
   OpenSearchServerlessConfiguration,
@@ -228,12 +236,9 @@ import {
   PromptFlowNodeSourceConfiguration,
   PromptInferenceConfiguration,
   PromptInputVariable,
-  PromptMetadataEntry,
   PromptModelInferenceConfiguration,
   PromptOverrideConfiguration,
-  PromptSummary,
   PromptTemplateConfiguration,
-  PromptVariant,
   RdsConfiguration,
   RdsFieldMapping,
   RedisEnterpriseCloudConfiguration,
@@ -255,12 +260,19 @@ import {
   SharePointCrawlerConfiguration,
   SharePointDataSourceConfiguration,
   SharePointSourceConfiguration,
+  SpecificToolChoice,
   StorageConfiguration,
   StorageFlowNodeConfiguration,
   StorageFlowNodeS3Configuration,
   StorageFlowNodeServiceConfiguration,
+  SystemContentBlock,
   TextPromptTemplateConfiguration,
   ThrottlingException,
+  Tool,
+  ToolChoice,
+  ToolConfiguration,
+  ToolInputSchema,
+  ToolSpecification,
   Transformation,
   TransformationFunction,
   TransformationLambdaConfiguration,
@@ -273,6 +285,14 @@ import {
   WebDataSourceConfiguration,
   WebSourceConfiguration,
 } from "../models/models_0";
+import {
+  KnowledgeBaseSummary,
+  PromptAgentResource,
+  PromptGenAiResource,
+  PromptMetadataEntry,
+  PromptSummary,
+  PromptVariant,
+} from "../models/models_1";
 
 /**
  * serializeAws_restJson1AssociateAgentKnowledgeBaseCommand
@@ -1644,6 +1664,28 @@ export const se_UpdatePromptCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ValidateFlowDefinitionCommand
+ */
+export const se_ValidateFlowDefinitionCommand = async (
+  input: ValidateFlowDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/flows/validate-definition");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      definition: (_) => se_FlowDefinition(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -3067,6 +3109,27 @@ export const de_UpdatePromptCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ValidateFlowDefinitionCommand
+ */
+export const de_ValidateFlowDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateFlowDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    validations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -3248,11 +3311,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AgentFlowNodeConfiguration omitted.
 
+// se_AnyToolChoice omitted.
+
 // se_APISchema omitted.
+
+// se_AutoToolChoice omitted.
 
 // se_BedrockEmbeddingModelConfiguration omitted.
 
 // se_BedrockFoundationModelConfiguration omitted.
+
+/**
+ * serializeAws_restJson1ChatPromptTemplateConfiguration
+ */
+const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    inputVariables: _json,
+    messages: _json,
+    system: _json,
+    toolConfiguration: (_) => se_ToolConfiguration(_, context),
+  });
+};
 
 // se_ChunkingConfiguration omitted.
 
@@ -3265,6 +3344,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ConfluenceDataSourceConfiguration omitted.
 
 // se_ConfluenceSourceConfiguration omitted.
+
+// se_ContentBlock omitted.
+
+// se_ContentBlocks omitted.
 
 // se_CrawlFilterConfiguration omitted.
 
@@ -3412,6 +3495,10 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 
 // se_MemoryConfiguration omitted.
 
+// se_Message omitted.
+
+// se_Messages omitted.
+
 // se_MongoDbAtlasConfiguration omitted.
 
 // se_MongoDbAtlasFieldMapping omitted.
@@ -3439,6 +3526,8 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_PineconeConfiguration omitted.
 
 // se_PineconeFieldMapping omitted.
+
+// se_PromptAgentResource omitted.
 
 /**
  * serializeAws_restJson1PromptConfiguration
@@ -3470,6 +3559,7 @@ const se_PromptConfigurations = (input: PromptConfiguration[], context: __SerdeC
  */
 const se_PromptFlowNodeConfiguration = (input: PromptFlowNodeConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    guardrailConfiguration: _json,
     sourceConfiguration: (_) => se_PromptFlowNodeSourceConfiguration(_, context),
   });
 };
@@ -3485,7 +3575,7 @@ const se_PromptFlowNodeInlineConfiguration = (
     additionalModelRequestFields: (_) => se_Document(_, context),
     inferenceConfiguration: (_) => se_PromptInferenceConfiguration(_, context),
     modelId: [],
-    templateConfiguration: _json,
+    templateConfiguration: (_) => se_PromptTemplateConfiguration(_, context),
     templateType: [],
   });
 };
@@ -3505,6 +3595,8 @@ const se_PromptFlowNodeSourceConfiguration = (
     _: (name, value) => ({ name: value } as any),
   });
 };
+
+// se_PromptGenAiResource omitted.
 
 /**
  * serializeAws_restJson1PromptInferenceConfiguration
@@ -3549,7 +3641,16 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
   });
 };
 
-// se_PromptTemplateConfiguration omitted.
+/**
+ * serializeAws_restJson1PromptTemplateConfiguration
+ */
+const se_PromptTemplateConfiguration = (input: PromptTemplateConfiguration, context: __SerdeContext): any => {
+  return PromptTemplateConfiguration.visit(input, {
+    chat: (value) => ({ chat: se_ChatPromptTemplateConfiguration(value, context) }),
+    text: (value) => ({ text: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 /**
  * serializeAws_restJson1PromptVariant
@@ -3557,11 +3658,12 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
 const se_PromptVariant = (input: PromptVariant, context: __SerdeContext): any => {
   return take(input, {
     additionalModelRequestFields: (_) => se_Document(_, context),
+    genAiResource: _json,
     inferenceConfiguration: (_) => se_PromptInferenceConfiguration(_, context),
     metadata: _json,
     modelId: [],
     name: [],
-    templateConfiguration: _json,
+    templateConfiguration: (_) => se_PromptTemplateConfiguration(_, context),
     templateType: [],
   });
 };
@@ -3621,6 +3723,8 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_SharePointSourceConfiguration omitted.
 
+// se_SpecificToolChoice omitted.
+
 // se_StopSequences omitted.
 
 // se_StorageConfiguration omitted.
@@ -3631,9 +3735,67 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_StorageFlowNodeServiceConfiguration omitted.
 
+// se_SystemContentBlock omitted.
+
+// se_SystemContentBlocks omitted.
+
 // se_TagsMap omitted.
 
 // se_TextPromptTemplateConfiguration omitted.
+
+/**
+ * serializeAws_restJson1Tool
+ */
+const se_Tool = (input: Tool, context: __SerdeContext): any => {
+  return Tool.visit(input, {
+    toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_ToolChoice omitted.
+
+/**
+ * serializeAws_restJson1ToolConfiguration
+ */
+const se_ToolConfiguration = (input: ToolConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    toolChoice: _json,
+    tools: (_) => se_Tools(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolInputSchema
+ */
+const se_ToolInputSchema = (input: ToolInputSchema, context: __SerdeContext): any => {
+  return ToolInputSchema.visit(input, {
+    json: (value) => ({ json: se_Document(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1Tools
+ */
+const se_Tools = (input: Tool[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Tool(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ToolSpecification
+ */
+const se_ToolSpecification = (input: ToolSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    inputSchema: (_) => se_ToolInputSchema(_, context),
+    name: [],
+  });
+};
 
 // se_Transformation omitted.
 
@@ -3935,11 +4097,27 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
   }) as any;
 };
 
+// de_AnyToolChoice omitted.
+
 // de_APISchema omitted.
+
+// de_AutoToolChoice omitted.
 
 // de_BedrockEmbeddingModelConfiguration omitted.
 
 // de_BedrockFoundationModelConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ChatPromptTemplateConfiguration
+ */
+const de_ChatPromptTemplateConfiguration = (output: any, context: __SerdeContext): ChatPromptTemplateConfiguration => {
+  return take(output, {
+    inputVariables: _json,
+    messages: _json,
+    system: _json,
+    toolConfiguration: (_: any) => de_ToolConfiguration(_, context),
+  }) as any;
+};
 
 // de_ChunkingConfiguration omitted.
 
@@ -3953,9 +4131,15 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 
 // de_ConfluenceSourceConfiguration omitted.
 
+// de_ContentBlock omitted.
+
+// de_ContentBlocks omitted.
+
 // de_CrawlFilterConfiguration omitted.
 
 // de_CustomTransformationConfiguration omitted.
+
+// de_CyclicConnectionFlowValidationDetails omitted.
 
 /**
  * deserializeAws_restJson1DataSource
@@ -4004,6 +4188,10 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_DuplicateConditionExpressionFlowValidationDetails omitted.
+
+// de_DuplicateConnectionsFlowValidationDetails omitted.
 
 // de_EmbeddingModelConfiguration omitted.
 
@@ -4201,6 +4389,8 @@ const de_FlowSummary = (output: any, context: __SerdeContext): FlowSummary => {
 
 // de_FlowValidation omitted.
 
+// de_FlowValidationDetails omitted.
+
 // de_FlowValidations omitted.
 
 /**
@@ -4241,6 +4431,8 @@ const de_FlowVersionSummary = (output: any, context: __SerdeContext): FlowVersio
 // de_HierarchicalChunkingLevelConfiguration omitted.
 
 // de_HierarchicalChunkingLevelConfigurations omitted.
+
+// de_IncompatibleConnectionDataTypeFlowValidationDetails omitted.
 
 /**
  * deserializeAws_restJson1InferenceConfiguration
@@ -4360,11 +4552,39 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 
 // de_LexFlowNodeConfiguration omitted.
 
+// de_MalformedConditionExpressionFlowValidationDetails omitted.
+
+// de_MalformedNodeInputExpressionFlowValidationDetails omitted.
+
 // de_MemoryConfiguration omitted.
+
+// de_Message omitted.
+
+// de_Messages omitted.
+
+// de_MismatchedNodeInputTypeFlowValidationDetails omitted.
+
+// de_MismatchedNodeOutputTypeFlowValidationDetails omitted.
+
+// de_MissingConnectionConfigurationFlowValidationDetails omitted.
+
+// de_MissingDefaultConditionFlowValidationDetails omitted.
+
+// de_MissingEndingNodesFlowValidationDetails omitted.
+
+// de_MissingNodeConfigurationFlowValidationDetails omitted.
+
+// de_MissingNodeInputFlowValidationDetails omitted.
+
+// de_MissingNodeOutputFlowValidationDetails omitted.
+
+// de_MissingStartingNodesFlowValidationDetails omitted.
 
 // de_MongoDbAtlasConfiguration omitted.
 
 // de_MongoDbAtlasFieldMapping omitted.
+
+// de_MultipleNodeInputConnectionsFlowValidationDetails omitted.
 
 // de_OpenSearchServerlessConfiguration omitted.
 
@@ -4389,6 +4609,8 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 // de_PineconeConfiguration omitted.
 
 // de_PineconeFieldMapping omitted.
+
+// de_PromptAgentResource omitted.
 
 /**
  * deserializeAws_restJson1PromptConfiguration
@@ -4421,6 +4643,7 @@ const de_PromptConfigurations = (output: any, context: __SerdeContext): PromptCo
  */
 const de_PromptFlowNodeConfiguration = (output: any, context: __SerdeContext): PromptFlowNodeConfiguration => {
   return take(output, {
+    guardrailConfiguration: _json,
     sourceConfiguration: (_: any) => de_PromptFlowNodeSourceConfiguration(__expectUnion(_), context),
   }) as any;
 };
@@ -4436,7 +4659,7 @@ const de_PromptFlowNodeInlineConfiguration = (
     additionalModelRequestFields: (_: any) => de_Document(_, context),
     inferenceConfiguration: (_: any) => de_PromptInferenceConfiguration(__expectUnion(_), context),
     modelId: __expectString,
-    templateConfiguration: (_: any) => _json(__expectUnion(_)),
+    templateConfiguration: (_: any) => de_PromptTemplateConfiguration(__expectUnion(_), context),
     templateType: __expectString,
   }) as any;
 };
@@ -4462,6 +4685,8 @@ const de_PromptFlowNodeSourceConfiguration = (
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_PromptGenAiResource omitted.
 
 /**
  * deserializeAws_restJson1PromptInferenceConfiguration
@@ -4535,7 +4760,22 @@ const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary =
   }) as any;
 };
 
-// de_PromptTemplateConfiguration omitted.
+/**
+ * deserializeAws_restJson1PromptTemplateConfiguration
+ */
+const de_PromptTemplateConfiguration = (output: any, context: __SerdeContext): PromptTemplateConfiguration => {
+  if (output.chat != null) {
+    return {
+      chat: de_ChatPromptTemplateConfiguration(output.chat, context),
+    };
+  }
+  if (output.text != null) {
+    return {
+      text: _json(output.text),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1PromptVariant
@@ -4543,11 +4783,12 @@ const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary =
 const de_PromptVariant = (output: any, context: __SerdeContext): PromptVariant => {
   return take(output, {
     additionalModelRequestFields: (_: any) => de_Document(_, context),
+    genAiResource: (_: any) => _json(__expectUnion(_)),
     inferenceConfiguration: (_: any) => de_PromptInferenceConfiguration(__expectUnion(_), context),
     metadata: _json,
     modelId: __expectString,
     name: __expectString,
-    templateConfiguration: (_: any) => _json(__expectUnion(_)),
+    templateConfiguration: (_: any) => de_PromptTemplateConfiguration(__expectUnion(_), context),
     templateType: __expectString,
   }) as any;
 };
@@ -4610,6 +4851,8 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 
 // de_SharePointSourceConfiguration omitted.
 
+// de_SpecificToolChoice omitted.
+
 // de_StopSequences omitted.
 
 // de_StorageConfiguration omitted.
@@ -4620,9 +4863,72 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 
 // de_StorageFlowNodeServiceConfiguration omitted.
 
+// de_SystemContentBlock omitted.
+
+// de_SystemContentBlocks omitted.
+
 // de_TagsMap omitted.
 
 // de_TextPromptTemplateConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1Tool
+ */
+const de_Tool = (output: any, context: __SerdeContext): Tool => {
+  if (output.toolSpec != null) {
+    return {
+      toolSpec: de_ToolSpecification(output.toolSpec, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ToolChoice omitted.
+
+/**
+ * deserializeAws_restJson1ToolConfiguration
+ */
+const de_ToolConfiguration = (output: any, context: __SerdeContext): ToolConfiguration => {
+  return take(output, {
+    toolChoice: (_: any) => _json(__expectUnion(_)),
+    tools: (_: any) => de_Tools(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ToolInputSchema
+ */
+const de_ToolInputSchema = (output: any, context: __SerdeContext): ToolInputSchema => {
+  if (output.json != null) {
+    return {
+      json: de_Document(output.json, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1Tools
+ */
+const de_Tools = (output: any, context: __SerdeContext): Tool[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Tool(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ToolSpecification
+ */
+const de_ToolSpecification = (output: any, context: __SerdeContext): ToolSpecification => {
+  return take(output, {
+    description: __expectString,
+    inputSchema: (_: any) => de_ToolInputSchema(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
 
 // de_Transformation omitted.
 
@@ -4631,6 +4937,24 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_TransformationLambdaConfiguration omitted.
 
 // de_Transformations omitted.
+
+// de_UnfulfilledNodeInputFlowValidationDetails omitted.
+
+// de_UnknownConnectionConditionFlowValidationDetails omitted.
+
+// de_UnknownConnectionSourceFlowValidationDetails omitted.
+
+// de_UnknownConnectionSourceOutputFlowValidationDetails omitted.
+
+// de_UnknownConnectionTargetFlowValidationDetails omitted.
+
+// de_UnknownConnectionTargetInputFlowValidationDetails omitted.
+
+// de_UnreachableNodeFlowValidationDetails omitted.
+
+// de_UnsatisfiedConnectionConditionsFlowValidationDetails omitted.
+
+// de_UnspecifiedFlowValidationDetails omitted.
 
 // de_UrlConfiguration omitted.
 

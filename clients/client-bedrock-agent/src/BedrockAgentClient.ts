@@ -161,6 +161,10 @@ import {
 } from "./commands/UpdateKnowledgeBaseCommand";
 import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "./commands/UpdatePromptCommand";
 import {
+  ValidateFlowDefinitionCommandInput,
+  ValidateFlowDefinitionCommandOutput,
+} from "./commands/ValidateFlowDefinitionCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -236,7 +240,8 @@ export type ServiceInputTypes =
   | UpdateFlowAliasCommandInput
   | UpdateFlowCommandInput
   | UpdateKnowledgeBaseCommandInput
-  | UpdatePromptCommandInput;
+  | UpdatePromptCommandInput
+  | ValidateFlowDefinitionCommandInput;
 
 /**
  * @public
@@ -303,7 +308,8 @@ export type ServiceOutputTypes =
   | UpdateFlowAliasCommandOutput
   | UpdateFlowCommandOutput
   | UpdateKnowledgeBaseCommandOutput
-  | UpdatePromptCommandOutput;
+  | UpdatePromptCommandOutput
+  | ValidateFlowDefinitionCommandOutput;
 
 /**
  * @public

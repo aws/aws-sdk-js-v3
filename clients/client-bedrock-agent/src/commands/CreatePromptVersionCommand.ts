@@ -10,7 +10,7 @@ import {
   CreatePromptVersionRequest,
   CreatePromptVersionResponse,
   CreatePromptVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreatePromptVersionCommand, se_CreatePromptVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -57,7 +57,7 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //   variants: [ // PromptVariantList
  * //     { // PromptVariant
  * //       name: "STRING_VALUE", // required
- * //       templateType: "TEXT", // required
+ * //       templateType: "TEXT" || "CHAT", // required
  * //       templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  * //         text: { // TextPromptTemplateConfiguration
  * //           text: "STRING_VALUE", // required
@@ -66,6 +66,48 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //               name: "STRING_VALUE",
  * //             },
  * //           ],
+ * //         },
+ * //         chat: { // ChatPromptTemplateConfiguration
+ * //           messages: [ // Messages // required
+ * //             { // Message
+ * //               role: "user" || "assistant", // required
+ * //               content: [ // ContentBlocks // required
+ * //                 { // ContentBlock Union: only one key present
+ * //                   text: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           system: [ // SystemContentBlocks
+ * //             { // SystemContentBlock Union: only one key present
+ * //               text: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           inputVariables: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           toolConfiguration: { // ToolConfiguration
+ * //             tools: [ // Tools // required
+ * //               { // Tool Union: only one key present
+ * //                 toolSpec: { // ToolSpecification
+ * //                   name: "STRING_VALUE", // required
+ * //                   description: "STRING_VALUE",
+ * //                   inputSchema: { // ToolInputSchema Union: only one key present
+ * //                     json: "DOCUMENT_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //             toolChoice: { // ToolChoice Union: only one key present
+ * //               auto: {},
+ * //               any: {},
+ * //               tool: { // SpecificToolChoice
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       modelId: "STRING_VALUE",
@@ -86,6 +128,11 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //         },
  * //       ],
  * //       additionalModelRequestFields: "DOCUMENT_VALUE",
+ * //       genAiResource: { // PromptGenAiResource Union: only one key present
+ * //         agent: { // PromptAgentResource
+ * //           agentIdentifier: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

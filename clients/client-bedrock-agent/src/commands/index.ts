@@ -61,3 +61,4 @@ export * from "./UpdateFlowAliasCommand";
 export * from "./UpdateFlowCommand";
 export * from "./UpdateKnowledgeBaseCommand";
 export * from "./UpdatePromptCommand";
+export * from "./ValidateFlowDefinitionCommand";

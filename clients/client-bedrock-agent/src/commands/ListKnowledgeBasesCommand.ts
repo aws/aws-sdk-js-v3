@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_0";
+import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_1";
 import { de_ListKnowledgeBasesCommand, se_ListKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
 
 /**

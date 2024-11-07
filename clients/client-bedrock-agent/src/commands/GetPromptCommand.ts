@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPromptRequest, GetPromptResponse, GetPromptResponseFilterSensitiveLog } from "../models/models_0";
+import { GetPromptRequest, GetPromptResponse, GetPromptResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetPromptCommand, se_GetPromptCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -49,7 +49,7 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //   variants: [ // PromptVariantList
  * //     { // PromptVariant
  * //       name: "STRING_VALUE", // required
- * //       templateType: "TEXT", // required
+ * //       templateType: "TEXT" || "CHAT", // required
  * //       templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  * //         text: { // TextPromptTemplateConfiguration
  * //           text: "STRING_VALUE", // required
@@ -58,6 +58,48 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //               name: "STRING_VALUE",
  * //             },
  * //           ],
+ * //         },
+ * //         chat: { // ChatPromptTemplateConfiguration
+ * //           messages: [ // Messages // required
+ * //             { // Message
+ * //               role: "user" || "assistant", // required
+ * //               content: [ // ContentBlocks // required
+ * //                 { // ContentBlock Union: only one key present
+ * //                   text: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           system: [ // SystemContentBlocks
+ * //             { // SystemContentBlock Union: only one key present
+ * //               text: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           inputVariables: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           toolConfiguration: { // ToolConfiguration
+ * //             tools: [ // Tools // required
+ * //               { // Tool Union: only one key present
+ * //                 toolSpec: { // ToolSpecification
+ * //                   name: "STRING_VALUE", // required
+ * //                   description: "STRING_VALUE",
+ * //                   inputSchema: { // ToolInputSchema Union: only one key present
+ * //                     json: "DOCUMENT_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //             toolChoice: { // ToolChoice Union: only one key present
+ * //               auto: {},
+ * //               any: {},
+ * //               tool: { // SpecificToolChoice
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       modelId: "STRING_VALUE",
@@ -78,6 +120,11 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //         },
  * //       ],
  * //       additionalModelRequestFields: "DOCUMENT_VALUE",
+ * //       genAiResource: { // PromptGenAiResource Union: only one key present
+ * //         agent: { // PromptAgentResource
+ * //           agentIdentifier: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

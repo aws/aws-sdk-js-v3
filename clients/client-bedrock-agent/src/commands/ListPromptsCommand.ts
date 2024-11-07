@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPromptsRequest, ListPromptsResponse } from "../models/models_0";
+import { ListPromptsRequest, ListPromptsResponse } from "../models/models_1";
 import { de_ListPromptsCommand, se_ListPromptsCommand } from "../protocols/Aws_restJson1";
 
 /**
