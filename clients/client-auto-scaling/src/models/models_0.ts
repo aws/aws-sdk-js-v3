@@ -745,6 +745,46 @@ export interface CompleteLifecycleActionType {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CapacityDistributionStrategy = {
+  BALANCED_BEST_EFFORT: "balanced-best-effort",
+  BALANCED_ONLY: "balanced-only",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityDistributionStrategy =
+  (typeof CapacityDistributionStrategy)[keyof typeof CapacityDistributionStrategy];
+
+/**
+ * <p>
+ *             Describes an Availability Zone distribution.
+ *         </p>
+ * @public
+ */
+export interface AvailabilityZoneDistribution {
+  /**
+   * <p>
+   *             If launches fail in an Availability Zone, the following strategies are available. The default is <code>balanced-best-effort</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>balanced-only</code> - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>balanced-best-effort</code> - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityDistributionStrategy?: CapacityDistributionStrategy;
+}
+
+/**
  * <p>Describes an instance maintenance policy.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2103,6 +2143,12 @@ export interface CreateAutoScalingGroupType {
    * @public
    */
   InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
+
+  /**
+   * <p>The instance capacity distribution across Availability Zones.</p>
+   * @public
+   */
+  AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
 }
 
 /**
@@ -3481,6 +3527,14 @@ export interface AutoScalingGroup {
    * @public
    */
   InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
+
+  /**
+   * <p>
+   *             The instance capacity distribution across Availability Zones.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
 }
 
 /**
@@ -8241,4 +8295,12 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
+
+  /**
+   * <p>
+   *             The instance capacity distribution across Availability Zones.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
 }

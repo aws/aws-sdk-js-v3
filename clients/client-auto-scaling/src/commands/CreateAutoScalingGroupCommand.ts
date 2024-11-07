@@ -208,6 +208,9 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     MinHealthyPercentage: Number("int"),
  *     MaxHealthyPercentage: Number("int"),
  *   },
+ *   AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
+ *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
+ *   },
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

@@ -253,6 +253,7 @@ import {
   AutoScalingGroupsType,
   AutoScalingInstanceDetails,
   AutoScalingInstancesType,
+  AvailabilityZoneDistribution,
   BaselineEbsBandwidthMbpsRequest,
   BatchDeleteScheduledActionAnswer,
   BatchDeleteScheduledActionType,
@@ -3249,6 +3250,17 @@ const se_AutoScalingNotificationTypes = (input: string[], context: __SerdeContex
 };
 
 /**
+ * serializeAws_queryAvailabilityZoneDistribution
+ */
+const se_AvailabilityZoneDistribution = (input: AvailabilityZoneDistribution, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CDS] != null) {
+    entries[_CDS] = input[_CDS];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryAvailabilityZones
  */
 const se_AvailabilityZones = (input: string[], context: __SerdeContext): any => {
@@ -3595,6 +3607,13 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
     const memberEntries = se_InstanceMaintenancePolicy(input[_IMP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceMaintenancePolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZD] != null) {
+    const memberEntries = se_AvailabilityZoneDistribution(input[_AZD], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneDistribution.${key}`;
       entries[loc] = value;
     });
   }
@@ -6359,6 +6378,13 @@ const se_UpdateAutoScalingGroupType = (input: UpdateAutoScalingGroupType, contex
       entries[loc] = value;
     });
   }
+  if (input[_AZD] != null) {
+    const memberEntries = se_AvailabilityZoneDistribution(input[_AZD], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneDistribution.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -6800,6 +6826,9 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_IMP] != null) {
     contents[_IMP] = de_InstanceMaintenancePolicy(output[_IMP], context);
   }
+  if (output[_AZD] != null) {
+    contents[_AZD] = de_AvailabilityZoneDistribution(output[_AZD], context);
+  }
   return contents;
 };
 
@@ -6904,6 +6933,17 @@ const de_AutoScalingNotificationTypes = (output: any, context: __SerdeContext): 
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_queryAvailabilityZoneDistribution
+ */
+const de_AvailabilityZoneDistribution = (output: any, context: __SerdeContext): AvailabilityZoneDistribution => {
+  const contents: any = {};
+  if (output[_CDS] != null) {
+    contents[_CDS] = __expectString(output[_CDS]);
+  }
+  return contents;
 };
 
 /**
@@ -9425,6 +9465,7 @@ const _ATS = "AttachTrafficSources";
 const _ATd = "AdjustmentType";
 const _ATdj = "AdjustmentTypes";
 const _AZ = "AvailabilityZones";
+const _AZD = "AvailabilityZoneDistribution";
 const _AZv = "AvailabilityZone";
 const _Ac = "Activities";
 const _Act = "Activity";
@@ -9441,6 +9482,7 @@ const _C = "Context";
 const _CASG = "CreateAutoScalingGroup";
 const _CCMS = "CustomizedCapacityMetricSpecification";
 const _CD = "CheckpointDelay";
+const _CDS = "CapacityDistributionStrategy";
 const _CF = "CapacityForecast";
 const _CIR = "CancelInstanceRefresh";
 const _CLA = "CompleteLifecycleAction";

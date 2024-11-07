@@ -247,6 +247,9 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //         MinHealthyPercentage: Number("int"),
  * //         MaxHealthyPercentage: Number("int"),
  * //       },
+ * //       AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
+ * //         CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
