@@ -60,7 +60,12 @@ export interface PutGroupCommandOutput extends PutGroupResponse, __MetadataBeare
  *         type: "INDEX" || "DATASOURCE",
  *       },
  *     ],
+ *     s3PathForGroupMembers: { // S3
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *     },
  *   },
+ *   roleArn: "STRING_VALUE",
  * };
  * const command = new PutGroupCommand(input);
  * const response = await client.send(command);

@@ -6949,6 +6949,13 @@ export interface GroupMembers {
    * @public
    */
   memberUsers?: MemberUser[];
+
+  /**
+   * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
+   *             bucket.</p>
+   * @public
+   */
+  s3PathForGroupMembers?: S3;
 }
 
 /**
@@ -6998,6 +7005,14 @@ export interface PutGroupRequest {
    * @public
    */
   groupMembers: GroupMembers | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains
+   *             your list of users that belong to a group.The Amazon Resource Name (ARN) of an IAM role that
+   *             has access to the S3 file that contains your list of users that belong to a group.</p>
+   * @public
+   */
+  roleArn?: string;
 }
 
 /**

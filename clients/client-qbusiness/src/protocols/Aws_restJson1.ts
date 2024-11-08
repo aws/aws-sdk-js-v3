@@ -1191,6 +1191,7 @@ export const se_PutGroupCommand = async (
       dataSourceId: [],
       groupMembers: (_) => _json(_),
       groupName: [],
+      roleArn: [],
       type: [],
     })
   );
