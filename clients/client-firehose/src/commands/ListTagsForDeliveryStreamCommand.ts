@@ -28,7 +28,7 @@ export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDelive
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
+ * <p>Lists the tags for the specified Firehose stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

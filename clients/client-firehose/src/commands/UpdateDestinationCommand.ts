@@ -32,12 +32,12 @@ export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
 export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified destination of the specified delivery stream.</p>
+ * <p>Updates the specified destination of the specified Firehose stream.</p>
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
  *          S3 destination with Amazon Redshift) or change the parameters associated with a destination
  *          (for example, to change the bucket name of the Amazon S3 destination). The update might not
- *          occur immediately. The target delivery stream remains active while the configurations are
- *          updated, so data writes to the delivery stream can continue during this process. The
+ *          occur immediately. The target Firehose stream remains active while the configurations are
+ *          updated, so data writes to the Firehose stream can continue during this process. The
  *          updated configurations are usually effective within a few minutes.</p>
  *          <p>Switching between Amazon OpenSearch Service and other services is not supported. For
  *          an Amazon OpenSearch Service destination, you can only update to another Amazon OpenSearch
@@ -487,9 +487,22 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *         UniqueKeys: [
  *           "STRING_VALUE",
  *         ],
+ *         PartitionSpec: { // PartitionSpec
+ *           Identity: [ // PartitionFields
+ *             { // PartitionField
+ *               SourceName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
  *         S3ErrorOutputPrefix: "STRING_VALUE",
  *       },
  *     ],
+ *     SchemaEvolutionConfiguration: { // SchemaEvolutionConfiguration
+ *       Enabled: true || false, // required
+ *     },
+ *     TableCreationConfiguration: { // TableCreationConfiguration
+ *       Enabled: true || false, // required
+ *     },
  *     BufferingHints: "<BufferingHints>",
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
  *     ProcessingConfiguration: "<ProcessingConfiguration>",
@@ -500,6 +513,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     RoleARN: "STRING_VALUE",
  *     CatalogConfiguration: { // CatalogConfiguration
  *       CatalogARN: "STRING_VALUE",
+ *       WarehouseLocation: "STRING_VALUE",
  *     },
  *     S3Configuration: { // S3DestinationConfiguration
  *       RoleARN: "STRING_VALUE", // required

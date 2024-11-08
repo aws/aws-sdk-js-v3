@@ -32,30 +32,30 @@ export interface CreateDeliveryStreamCommandInput extends CreateDeliveryStreamIn
 export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Firehose delivery stream.</p>
- *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
+ * <p>Creates a Firehose stream.</p>
+ *          <p>By default, you can create up to 50 Firehose streams per Amazon Web Services
  *          Region.</p>
  *          <p>This is an asynchronous operation that immediately returns. The initial status of the
- *          delivery stream is <code>CREATING</code>. After the delivery stream is created, its status
- *          is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the
+ *          Firehose stream is <code>CREATING</code>. After the Firehose stream is created, its status
+ *          is <code>ACTIVE</code> and it now accepts data. If the Firehose stream creation fails, the
  *          status transitions to <code>CREATING_FAILED</code>. Attempts to send data to a delivery
  *          stream that is not in the <code>ACTIVE</code> state cause an exception. To check the state
- *          of a delivery stream, use <a>DescribeDeliveryStream</a>.</p>
- *          <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status
+ *          of a Firehose stream, use <a>DescribeDeliveryStream</a>.</p>
+ *          <p>If the status of a Firehose stream is <code>CREATING_FAILED</code>, this status
  *          doesn't change, and you can't invoke <code>CreateDeliveryStream</code> again on it.
  *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete
  *          it.</p>
- *          <p>A Firehose delivery stream can be configured to receive records directly
+ *          <p>A Firehose stream can be configured to receive records directly
  *          from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it
  *          can be configured to use an existing Kinesis stream as its source. To specify a Kinesis
  *          data stream as input, set the <code>DeliveryStreamType</code> parameter to
  *             <code>KinesisStreamAsSource</code>, and provide the Kinesis stream Amazon Resource Name
  *          (ARN) and role ARN in the <code>KinesisStreamSourceConfiguration</code>
  *          parameter.</p>
- *          <p>To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a> in your request. This is
+ *          <p>To create a Firehose stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a> in your request. This is
  *          optional. You can also invoke <a>StartDeliveryStreamEncryption</a> to turn on
- *          SSE for an existing delivery stream that doesn't have SSE enabled.</p>
- *          <p>A delivery stream is configured with a single destination, such as Amazon Simple
+ *          SSE for an existing Firehose stream that doesn't have SSE enabled.</p>
+ *          <p>A Firehose stream is configured with a single destination, such as Amazon Simple
  *          Storage Service (Amazon S3), Amazon Redshift, Amazon OpenSearch Service, Amazon OpenSearch
  *          Serverless, Splunk, and any custom HTTP endpoint or HTTP endpoints owned by or supported by
  *          third-party service providers, including Datadog, Dynatrace, LogicMonitor, MongoDB, New
@@ -107,7 +107,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * const client = new FirehoseClient(config);
  * const input = { // CreateDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource",
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource" || "DatabaseAsSource",
  *   KinesisStreamSourceConfiguration: { // KinesisStreamSourceConfiguration
  *     KinesisStreamARN: "STRING_VALUE", // required
  *     RoleARN: "STRING_VALUE", // required
@@ -586,9 +586,22 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *         UniqueKeys: [
  *           "STRING_VALUE",
  *         ],
+ *         PartitionSpec: { // PartitionSpec
+ *           Identity: [ // PartitionFields
+ *             { // PartitionField
+ *               SourceName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
  *         S3ErrorOutputPrefix: "STRING_VALUE",
  *       },
  *     ],
+ *     SchemaEvolutionConfiguration: { // SchemaEvolutionConfiguration
+ *       Enabled: true || false, // required
+ *     },
+ *     TableCreationConfiguration: { // TableCreationConfiguration
+ *       Enabled: true || false, // required
+ *     },
  *     BufferingHints: "<BufferingHints>",
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
  *     ProcessingConfiguration: "<ProcessingConfiguration>",
@@ -599,8 +612,53 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *     RoleARN: "STRING_VALUE", // required
  *     CatalogConfiguration: { // CatalogConfiguration
  *       CatalogARN: "STRING_VALUE",
+ *       WarehouseLocation: "STRING_VALUE",
  *     },
  *     S3Configuration: "<S3DestinationConfiguration>", // required
+ *   },
+ *   DatabaseSourceConfiguration: { // DatabaseSourceConfiguration
+ *     Type: "MySQL" || "PostgreSQL", // required
+ *     Endpoint: "STRING_VALUE", // required
+ *     Port: Number("int"), // required
+ *     SSLMode: "Disabled" || "Enabled",
+ *     Databases: { // DatabaseList
+ *       Include: [ // DatabaseIncludeOrExcludeList
+ *         "STRING_VALUE",
+ *       ],
+ *       Exclude: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Tables: { // DatabaseTableList
+ *       Include: [ // DatabaseTableIncludeOrExcludeList
+ *         "STRING_VALUE",
+ *       ],
+ *       Exclude: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Columns: { // DatabaseColumnList
+ *       Include: [ // DatabaseColumnIncludeOrExcludeList
+ *         "STRING_VALUE",
+ *       ],
+ *       Exclude: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     SurrogateKeys: [ // DatabaseSurrogateKeyList
+ *       "STRING_VALUE",
+ *     ],
+ *     SnapshotWatermarkTable: "STRING_VALUE", // required
+ *     DatabaseSourceAuthenticationConfiguration: { // DatabaseSourceAuthenticationConfiguration
+ *       SecretsManagerConfiguration: {
+ *         SecretARN: "STRING_VALUE",
+ *         RoleARN: "STRING_VALUE",
+ *         Enabled: true || false, // required
+ *       },
+ *     },
+ *     DatabaseSourceVPCConfiguration: { // DatabaseSourceVPCConfiguration
+ *       VpcEndpointServiceName: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new CreateDeliveryStreamCommand(input);
@@ -622,7 +680,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *
  * @throws {@link InvalidKMSResourceException} (client fault)
  *  <p>Firehose throws this exception when an attempt to put records or to start
- *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          or stop Firehose stream encryption fails. This happens when the KMS service throws one of
  *          the following exception types: <code>AccessDeniedException</code>,
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
  *             <code>NotFoundException</code>.</p>

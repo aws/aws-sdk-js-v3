@@ -28,14 +28,14 @@ export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInpu
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists your delivery streams in alphabetical order of their names.</p>
- *          <p>The number of delivery streams might be too large to return using a single call to
- *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
+ * <p>Lists your Firehose streams in alphabetical order of their names.</p>
+ *          <p>The number of Firehose streams might be too large to return using a single call to
+ *             <code>ListDeliveryStreams</code>. You can limit the number of Firehose streams returned,
  *          using the <code>Limit</code> parameter. To determine whether there are more delivery
  *          streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
- *          there are more delivery streams to list, you can request them by calling this operation
+ *          there are more Firehose streams to list, you can request them by calling this operation
  *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
- *          of the last delivery stream returned in the last call.</p>
+ *          of the last Firehose stream returned in the last call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * const client = new FirehoseClient(config);
  * const input = { // ListDeliveryStreamsInput
  *   Limit: Number("int"),
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource",
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource" || "DatabaseAsSource",
  *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
  * };
  * const command = new ListDeliveryStreamsCommand(input);
