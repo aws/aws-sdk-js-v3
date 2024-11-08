@@ -252,14 +252,6 @@ export class InternalServerException extends __BaseException {
 
 /**
  * <p>Contains information about an input into the flow.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export type FlowInputContent = FlowInputContent.DocumentMember | FlowInputContent.$UnknownMember;
@@ -298,14 +290,6 @@ export namespace FlowInputContent {
 
 /**
  * <p>Contains information about an input into the prompt flow and where to send it.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface FlowInput {
@@ -349,6 +333,12 @@ export interface InvokeFlowRequest {
    * @public
    */
   inputs: FlowInput[] | undefined;
+
+  /**
+   * <p>Specifies whether to return the trace for the flow or not. Traces track inputs and outputs for nodes in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+   * @public
+   */
+  enableTrace?: boolean;
 }
 
 /**
@@ -366,14 +356,6 @@ export type FlowCompletionReason = (typeof FlowCompletionReason)[keyof typeof Fl
 
 /**
  * <p>Contains information about why a flow completed.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface FlowCompletionEvent {
@@ -386,14 +368,6 @@ export interface FlowCompletionEvent {
 
 /**
  * <p>Contains information about the content in an output from prompt flow invocation.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export type FlowOutputContent = FlowOutputContent.DocumentMember | FlowOutputContent.$UnknownMember;
@@ -451,14 +425,6 @@ export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * <p>Contains information about an output from prompt flow invoction.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface FlowOutputEvent {
@@ -479,6 +445,291 @@ export interface FlowOutputEvent {
    * @public
    */
   content: FlowOutputContent | undefined;
+}
+
+/**
+ * <p>Contains information about a condition that was satisfied. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceCondition {
+  /**
+   * <p>The name of the condition.</p>
+   * @public
+   */
+  conditionName: string | undefined;
+}
+
+/**
+ * <p>Contains information about an output from a condition node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceConditionNodeResultEvent {
+  /**
+   * <p>The name of the condition node.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the trace was returned.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>An array of objects containing information about the conditions that were satisfied.</p>
+   * @public
+   */
+  satisfiedConditions: FlowTraceCondition[] | undefined;
+}
+
+/**
+ * <p>Contains the content of the node input. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export type FlowTraceNodeInputContent =
+  | FlowTraceNodeInputContent.DocumentMember
+  | FlowTraceNodeInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowTraceNodeInputContent {
+  /**
+   * <p>The content of the node input.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowTraceNodeInputContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about a field in the input into a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceNodeInputField {
+  /**
+   * <p>The name of the node input.</p>
+   * @public
+   */
+  nodeInputName: string | undefined;
+
+  /**
+   * <p>The content of the node input.</p>
+   * @public
+   */
+  content: FlowTraceNodeInputContent | undefined;
+}
+
+/**
+ * <p>Contains information about the input into a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceNodeInputEvent {
+  /**
+   * <p>The name of the node that received the input.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the trace was returned.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>An array of objects containing information about each field in the input.</p>
+   * @public
+   */
+  fields: FlowTraceNodeInputField[] | undefined;
+}
+
+/**
+ * <p>Contains the content of the node output. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export type FlowTraceNodeOutputContent =
+  | FlowTraceNodeOutputContent.DocumentMember
+  | FlowTraceNodeOutputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowTraceNodeOutputContent {
+  /**
+   * <p>The content of the node output.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowTraceNodeOutputContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about a field in the output from a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceNodeOutputField {
+  /**
+   * <p>The name of the node output.</p>
+   * @public
+   */
+  nodeOutputName: string | undefined;
+
+  /**
+   * <p>The content of the node output.</p>
+   * @public
+   */
+  content: FlowTraceNodeOutputContent | undefined;
+}
+
+/**
+ * <p>Contains information about the output from a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceNodeOutputEvent {
+  /**
+   * <p>The name of the node that yielded the output.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the trace was returned.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>An array of objects containing information about each field in the output.</p>
+   * @public
+   */
+  fields: FlowTraceNodeOutputField[] | undefined;
+}
+
+/**
+ * <p>Contains information about an input or output for a node in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export type FlowTrace =
+  | FlowTrace.ConditionNodeResultTraceMember
+  | FlowTrace.NodeInputTraceMember
+  | FlowTrace.NodeOutputTraceMember
+  | FlowTrace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowTrace {
+  /**
+   * <p>Contains information about the input into a node.</p>
+   * @public
+   */
+  export interface NodeInputTraceMember {
+    nodeInputTrace: FlowTraceNodeInputEvent;
+    nodeOutputTrace?: never;
+    conditionNodeResultTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the output from a node.</p>
+   * @public
+   */
+  export interface NodeOutputTraceMember {
+    nodeInputTrace?: never;
+    nodeOutputTrace: FlowTraceNodeOutputEvent;
+    conditionNodeResultTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about an output from a condition node.</p>
+   * @public
+   */
+  export interface ConditionNodeResultTraceMember {
+    nodeInputTrace?: never;
+    nodeOutputTrace?: never;
+    conditionNodeResultTrace: FlowTraceConditionNodeResultEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    nodeInputTrace?: never;
+    nodeOutputTrace?: never;
+    conditionNodeResultTrace?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    nodeInputTrace: (value: FlowTraceNodeInputEvent) => T;
+    nodeOutputTrace: (value: FlowTraceNodeOutputEvent) => T;
+    conditionNodeResultTrace: (value: FlowTraceConditionNodeResultEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowTrace, visitor: Visitor<T>): T => {
+    if (value.nodeInputTrace !== undefined) return visitor.nodeInputTrace(value.nodeInputTrace);
+    if (value.nodeOutputTrace !== undefined) return visitor.nodeOutputTrace(value.nodeOutputTrace);
+    if (value.conditionNodeResultTrace !== undefined)
+      return visitor.conditionNodeResultTrace(value.conditionNodeResultTrace);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about a trace, which tracks an input or output for a node in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+ * @public
+ */
+export interface FlowTraceEvent {
+  /**
+   * <p>The trace object containing information about an input or output for a node in the flow.</p>
+   * @public
+   */
+  trace: FlowTrace | undefined;
 }
 
 /**
@@ -563,14 +814,6 @@ export class ValidationException extends __BaseException {
 
 /**
  * <p>The output of the flow.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export type FlowResponseStream =
@@ -580,6 +823,7 @@ export type FlowResponseStream =
   | FlowResponseStream.DependencyFailedExceptionMember
   | FlowResponseStream.FlowCompletionEventMember
   | FlowResponseStream.FlowOutputEventMember
+  | FlowResponseStream.FlowTraceEventMember
   | FlowResponseStream.InternalServerExceptionMember
   | FlowResponseStream.ResourceNotFoundExceptionMember
   | FlowResponseStream.ServiceQuotaExceededExceptionMember
@@ -598,6 +842,7 @@ export namespace FlowResponseStream {
   export interface FlowOutputEventMember {
     flowOutputEvent: FlowOutputEvent;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -617,6 +862,27 @@ export namespace FlowResponseStream {
   export interface FlowCompletionEventMember {
     flowOutputEvent?: never;
     flowCompletionEvent: FlowCompletionEvent;
+    flowTraceEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about a trace, which tracks an input or output for a node in the flow.</p>
+   * @public
+   */
+  export interface FlowTraceEventMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    flowTraceEvent: FlowTraceEvent;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -636,6 +902,7 @@ export namespace FlowResponseStream {
   export interface InternalServerExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException: InternalServerException;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -655,6 +922,7 @@ export namespace FlowResponseStream {
   export interface ValidationExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException: ValidationException;
     resourceNotFoundException?: never;
@@ -674,6 +942,7 @@ export namespace FlowResponseStream {
   export interface ResourceNotFoundExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException: ResourceNotFoundException;
@@ -693,6 +962,7 @@ export namespace FlowResponseStream {
   export interface ServiceQuotaExceededExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -712,6 +982,7 @@ export namespace FlowResponseStream {
   export interface ThrottlingExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -731,6 +1002,7 @@ export namespace FlowResponseStream {
   export interface AccessDeniedExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -750,6 +1022,7 @@ export namespace FlowResponseStream {
   export interface ConflictExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -769,6 +1042,7 @@ export namespace FlowResponseStream {
   export interface DependencyFailedExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -788,6 +1062,7 @@ export namespace FlowResponseStream {
   export interface BadGatewayExceptionMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -806,6 +1081,7 @@ export namespace FlowResponseStream {
   export interface $UnknownMember {
     flowOutputEvent?: never;
     flowCompletionEvent?: never;
+    flowTraceEvent?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -821,6 +1097,7 @@ export namespace FlowResponseStream {
   export interface Visitor<T> {
     flowOutputEvent: (value: FlowOutputEvent) => T;
     flowCompletionEvent: (value: FlowCompletionEvent) => T;
+    flowTraceEvent: (value: FlowTraceEvent) => T;
     internalServerException: (value: InternalServerException) => T;
     validationException: (value: ValidationException) => T;
     resourceNotFoundException: (value: ResourceNotFoundException) => T;
@@ -836,6 +1113,7 @@ export namespace FlowResponseStream {
   export const visit = <T>(value: FlowResponseStream, visitor: Visitor<T>): T => {
     if (value.flowOutputEvent !== undefined) return visitor.flowOutputEvent(value.flowOutputEvent);
     if (value.flowCompletionEvent !== undefined) return visitor.flowCompletionEvent(value.flowCompletionEvent);
+    if (value.flowTraceEvent !== undefined) return visitor.flowTraceEvent(value.flowTraceEvent);
     if (value.internalServerException !== undefined)
       return visitor.internalServerException(value.internalServerException);
     if (value.validationException !== undefined) return visitor.validationException(value.validationException);
@@ -2520,12 +2798,6 @@ export interface ModelInvocationInput {
   type?: PromptType;
 
   /**
-   * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
-   * @public
-   */
-  inferenceConfiguration?: InferenceConfiguration;
-
-  /**
    * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.</p>
    * @public
    */
@@ -2536,6 +2808,12 @@ export interface ModelInvocationInput {
    * @public
    */
   promptCreationMode?: CreationMode;
+
+  /**
+   * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+   * @public
+   */
+  inferenceConfiguration?: InferenceConfiguration;
 
   /**
    * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>.</p>
@@ -4131,7 +4409,7 @@ export interface ExternalSourcesRetrieveAndGenerateConfiguration {
  */
 export interface GenerationConfiguration {
   /**
-   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * <p>Contains the template for the prompt that's sent to the model for response generation. Generation prompts must include the <code>$search_results$</code> variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
    * @public
    */
   promptTemplate?: PromptTemplate;
@@ -4187,7 +4465,7 @@ export interface QueryTransformationConfiguration {
  */
 export interface OrchestrationConfiguration {
   /**
-   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
    * @public
    */
   promptTemplate?: PromptTemplate;
@@ -5175,9 +5453,83 @@ export const FlowOutputEventFilterSensitiveLog = (obj: FlowOutputEvent): any => 
 /**
  * @internal
  */
+export const FlowTraceConditionFilterSensitiveLog = (obj: FlowTraceCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceConditionNodeResultEventFilterSensitiveLog = (obj: FlowTraceConditionNodeResultEvent): any => ({
+  ...obj,
+  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputContentFilterSensitiveLog = (obj: FlowTraceNodeInputContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputFieldFilterSensitiveLog = (obj: FlowTraceNodeInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputEventFilterSensitiveLog = (obj: FlowTraceNodeInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeOutputFieldFilterSensitiveLog = (obj: FlowTraceNodeOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeOutputEventFilterSensitiveLog = (obj: FlowTraceNodeOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceFilterSensitiveLog = (obj: FlowTrace): any => {
+  if (obj.nodeInputTrace !== undefined) return { nodeInputTrace: SENSITIVE_STRING };
+  if (obj.nodeOutputTrace !== undefined) return { nodeOutputTrace: SENSITIVE_STRING };
+  if (obj.conditionNodeResultTrace !== undefined) return { conditionNodeResultTrace: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowTraceEventFilterSensitiveLog = (obj: FlowTraceEvent): any => ({
+  ...obj,
+  ...(obj.trace && { trace: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const FlowResponseStreamFilterSensitiveLog = (obj: FlowResponseStream): any => {
   if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
   if (obj.flowCompletionEvent !== undefined) return { flowCompletionEvent: SENSITIVE_STRING };
+  if (obj.flowTraceEvent !== undefined) return { flowTraceEvent: FlowTraceEventFilterSensitiveLog(obj.flowTraceEvent) };
   if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
   if (obj.validationException !== undefined) return { validationException: obj.validationException };
   if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };

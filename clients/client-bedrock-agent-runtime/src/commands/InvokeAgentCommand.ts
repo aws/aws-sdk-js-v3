@@ -374,6 +374,8 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
  * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: { // InferenceConfiguration
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -383,8 +385,6 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           },
  * //           modelInvocationOutput: { // PreProcessingModelInvocationOutput
@@ -505,6 +505,8 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
  * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: {
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -514,8 +516,6 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           },
  * //           modelInvocationOutput: { // OrchestrationModelInvocationOutput
@@ -536,6 +536,8 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
  * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: {
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -545,8 +547,6 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           },
  * //           modelInvocationOutput: { // PostProcessingModelInvocationOutput

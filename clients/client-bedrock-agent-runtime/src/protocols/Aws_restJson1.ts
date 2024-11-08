@@ -66,6 +66,15 @@ import {
   FlowOutputContent,
   FlowOutputEvent,
   FlowResponseStream,
+  FlowTrace,
+  FlowTraceConditionNodeResultEvent,
+  FlowTraceEvent,
+  FlowTraceNodeInputContent,
+  FlowTraceNodeInputEvent,
+  FlowTraceNodeInputField,
+  FlowTraceNodeOutputContent,
+  FlowTraceNodeOutputEvent,
+  FlowTraceNodeOutputField,
   FunctionResult,
   GenerationConfiguration,
   GuardrailConfiguration,
@@ -201,6 +210,7 @@ export const se_InvokeFlowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      enableTrace: [],
       inputs: (_) => se_FlowInputs(_, context),
     })
   );
@@ -618,6 +628,11 @@ const de_FlowResponseStream = (
         flowCompletionEvent: await de_FlowCompletionEvent_event(event["flowCompletionEvent"], context),
       };
     }
+    if (event["flowTraceEvent"] != null) {
+      return {
+        flowTraceEvent: await de_FlowTraceEvent_event(event["flowTraceEvent"], context),
+      };
+    }
     if (event["internalServerException"] != null) {
       return {
         internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
@@ -807,6 +822,12 @@ const de_FlowOutputEvent_event = async (output: any, context: __SerdeContext): P
   const contents: FlowOutputEvent = {} as any;
   const data: any = await parseBody(output.body, context);
   Object.assign(contents, de_FlowOutputEvent(data, context));
+  return contents;
+};
+const de_FlowTraceEvent_event = async (output: any, context: __SerdeContext): Promise<FlowTraceEvent> => {
+  const contents: FlowTraceEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_FlowTraceEvent(data, context));
   return contents;
 };
 const de_InternalServerException_event = async (
@@ -1341,6 +1362,145 @@ const de_FlowOutputEvent = (output: any, context: __SerdeContext): FlowOutputEve
     nodeName: __expectString,
     nodeType: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTrace
+ */
+const de_FlowTrace = (output: any, context: __SerdeContext): FlowTrace => {
+  if (output.conditionNodeResultTrace != null) {
+    return {
+      conditionNodeResultTrace: de_FlowTraceConditionNodeResultEvent(output.conditionNodeResultTrace, context),
+    };
+  }
+  if (output.nodeInputTrace != null) {
+    return {
+      nodeInputTrace: de_FlowTraceNodeInputEvent(output.nodeInputTrace, context),
+    };
+  }
+  if (output.nodeOutputTrace != null) {
+    return {
+      nodeOutputTrace: de_FlowTraceNodeOutputEvent(output.nodeOutputTrace, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_FlowTraceCondition omitted.
+
+/**
+ * deserializeAws_restJson1FlowTraceConditionNodeResultEvent
+ */
+const de_FlowTraceConditionNodeResultEvent = (
+  output: any,
+  context: __SerdeContext
+): FlowTraceConditionNodeResultEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    satisfiedConditions: _json,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_FlowTraceConditions omitted.
+
+/**
+ * deserializeAws_restJson1FlowTraceEvent
+ */
+const de_FlowTraceEvent = (output: any, context: __SerdeContext): FlowTraceEvent => {
+  return take(output, {
+    trace: (_: any) => de_FlowTrace(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeInputContent
+ */
+const de_FlowTraceNodeInputContent = (output: any, context: __SerdeContext): FlowTraceNodeInputContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeInputEvent
+ */
+const de_FlowTraceNodeInputEvent = (output: any, context: __SerdeContext): FlowTraceNodeInputEvent => {
+  return take(output, {
+    fields: (_: any) => de_FlowTraceNodeInputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeInputField
+ */
+const de_FlowTraceNodeInputField = (output: any, context: __SerdeContext): FlowTraceNodeInputField => {
+  return take(output, {
+    content: (_: any) => de_FlowTraceNodeInputContent(__expectUnion(_), context),
+    nodeInputName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeInputFields
+ */
+const de_FlowTraceNodeInputFields = (output: any, context: __SerdeContext): FlowTraceNodeInputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowTraceNodeInputField(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeOutputContent
+ */
+const de_FlowTraceNodeOutputContent = (output: any, context: __SerdeContext): FlowTraceNodeOutputContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeOutputEvent
+ */
+const de_FlowTraceNodeOutputEvent = (output: any, context: __SerdeContext): FlowTraceNodeOutputEvent => {
+  return take(output, {
+    fields: (_: any) => de_FlowTraceNodeOutputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeOutputField
+ */
+const de_FlowTraceNodeOutputField = (output: any, context: __SerdeContext): FlowTraceNodeOutputField => {
+  return take(output, {
+    content: (_: any) => de_FlowTraceNodeOutputContent(__expectUnion(_), context),
+    nodeOutputName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeOutputFields
+ */
+const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): FlowTraceNodeOutputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowTraceNodeOutputField(entry, context);
+    });
+  return retVal;
 };
 
 // de_FunctionInvocationInput omitted.

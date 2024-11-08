@@ -59,6 +59,7 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  *       },
  *     },
  *   ],
+ *   enableTrace: true || false,
  * };
  * const command = new InvokeFlowCommand(input);
  * const response = await client.send(command);
@@ -73,6 +74,43 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * //     },
  * //     flowCompletionEvent: { // FlowCompletionEvent
  * //       completionReason: "SUCCESS", // required
+ * //     },
+ * //     flowTraceEvent: { // FlowTraceEvent
+ * //       trace: { // FlowTrace Union: only one key present
+ * //         nodeInputTrace: { // FlowTraceNodeInputEvent
+ * //           nodeName: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           fields: [ // FlowTraceNodeInputFields // required
+ * //             { // FlowTraceNodeInputField
+ * //               nodeInputName: "STRING_VALUE", // required
+ * //               content: { // FlowTraceNodeInputContent Union: only one key present
+ * //                 document: "DOCUMENT_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         nodeOutputTrace: { // FlowTraceNodeOutputEvent
+ * //           nodeName: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           fields: [ // FlowTraceNodeOutputFields // required
+ * //             { // FlowTraceNodeOutputField
+ * //               nodeOutputName: "STRING_VALUE", // required
+ * //               content: { // FlowTraceNodeOutputContent Union: only one key present
+ * //                 document: "DOCUMENT_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         conditionNodeResultTrace: { // FlowTraceConditionNodeResultEvent
+ * //           nodeName: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           satisfiedConditions: [ // FlowTraceConditions // required
+ * //             { // FlowTraceCondition
+ * //               conditionName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
