@@ -88,6 +88,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     S3Key: "STRING_VALUE",
  *     S3ObjectVersion: "STRING_VALUE",
  *     ImageUri: "STRING_VALUE",
+ *     SourceKMSKeyArn: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
  *   Timeout: Number("int"),

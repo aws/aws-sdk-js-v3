@@ -152,6 +152,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //     Location: "STRING_VALUE",
  * //     ImageUri: "STRING_VALUE",
  * //     ResolvedImageUri: "STRING_VALUE",
+ * //     SourceKMSKeyArn: "STRING_VALUE",
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

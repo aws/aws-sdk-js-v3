@@ -1629,6 +1629,13 @@ export interface FunctionCode {
    * @public
    */
   ImageUri?: string;
+
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's
+   * .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
+   * @public
+   */
+  SourceKMSKeyArn?: string;
 }
 
 /**
@@ -2040,12 +2047,23 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's
-   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When
-   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, Lambda also uses
-   * this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to
-   * encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR).
-   * If you don't provide a customer managed key, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">
+   * Specifying a customer managed key for Lambda</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
    * @public
    */
   KMSKeyArn?: string;
@@ -2536,8 +2554,23 @@ export interface FunctionConfiguration {
   Environment?: EnvironmentResponse;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt the function's snapshot. This key is
-   *       returned only if you've configured a customer managed key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">
+   *           Specifying a customer managed key for Lambda</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
    * @public
    */
   KMSKeyArn?: string;
@@ -3349,6 +3382,13 @@ export interface FunctionCodeLocation {
    * @public
    */
   ResolvedImageUri?: string;
+
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's
+   * .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
+   * @public
+   */
+  SourceKMSKeyArn?: string;
 }
 
 /**
@@ -3399,7 +3439,7 @@ export interface GetFunctionResponse {
 
   /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda
-   *       returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
+   *       returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -7206,6 +7246,13 @@ export interface UpdateFunctionCodeRequest {
    * @public
    */
   Architectures?: Architecture[];
+
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's
+   *       .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
+   * @public
+   */
+  SourceKMSKeyArn?: string;
 }
 
 /**
@@ -7307,12 +7354,23 @@ export interface UpdateFunctionConfigurationRequest {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's
-   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When
-   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, Lambda also uses
-   * this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to
-   * encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR).
-   * If you don't provide a customer managed key, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">
+   * Specifying a customer managed key for Lambda</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
    * @public
    */
   KMSKeyArn?: string;

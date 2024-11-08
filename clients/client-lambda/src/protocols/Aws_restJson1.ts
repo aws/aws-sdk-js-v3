@@ -1728,6 +1728,7 @@ export const se_UpdateFunctionCodeCommand = async (
       S3Bucket: [],
       S3Key: [],
       S3ObjectVersion: [],
+      SourceKMSKeyArn: [],
       ZipFile: (_) => context.base64Encoder(_),
     })
   );
@@ -4646,6 +4647,7 @@ const se_FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
     S3Bucket: [],
     S3Key: [],
     S3ObjectVersion: [],
+    SourceKMSKeyArn: [],
     ZipFile: context.base64Encoder,
   });
 };

@@ -68,6 +68,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *   Architectures: [ // ArchitecturesList
  *     "x86_64" || "arm64",
  *   ],
+ *   SourceKMSKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateFunctionCodeCommand(input);
  * const response = await client.send(command);
