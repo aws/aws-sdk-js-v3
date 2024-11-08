@@ -4,7 +4,7 @@ import { Checksum } from "@smithy/types";
 import * as zlib from "zlib";
 
 class NodeCrc32 implements Checksum {
-  checksum = 0;
+  private checksum = 0;
 
   update(data: Uint8Array) {
     // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
