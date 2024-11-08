@@ -64,6 +64,16 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *       launchTemplateId: "STRING_VALUE",
  *       launchTemplateName: "STRING_VALUE",
  *       version: "STRING_VALUE",
+ *       overrides: [ // LaunchTemplateSpecificationOverrideList
+ *         { // LaunchTemplateSpecificationOverride
+ *           launchTemplateId: "STRING_VALUE",
+ *           launchTemplateName: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *           targetInstanceTypes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
  *     },
  *     ec2Configuration: [ // Ec2ConfigurationList
  *       { // Ec2Configuration

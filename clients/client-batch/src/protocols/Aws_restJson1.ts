@@ -140,6 +140,7 @@ import {
   KeyValuePair,
   KeyValuesPair,
   LaunchTemplateSpecification,
+  LaunchTemplateSpecificationOverride,
   LinuxParameters,
   LogConfiguration,
   MountPoint,
@@ -1470,6 +1471,10 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_LaunchTemplateSpecification omitted.
 
+// se_LaunchTemplateSpecificationOverride omitted.
+
+// se_LaunchTemplateSpecificationOverrideList omitted.
+
 // se_LinuxParameters omitted.
 
 // se_ListEcsTaskProperties omitted.
@@ -1841,6 +1846,10 @@ const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => 
 // de_KeyValuePair omitted.
 
 // de_LaunchTemplateSpecification omitted.
+
+// de_LaunchTemplateSpecificationOverride omitted.
+
+// de_LaunchTemplateSpecificationOverrideList omitted.
 
 // de_LinuxParameters omitted.
 
