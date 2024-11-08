@@ -595,4 +595,32 @@ describe("convertToAttr", () => {
       expect(convertToAttr(new Date(), { convertClassInstanceToMap: true })).toEqual({ M: {} });
     });
   });
+
+  describe("imprecise numbers", () => {
+    const impreciseNumbers = [
+      { val: 1.23e40, str: "1.23e+40" }, // https://github.com/aws/aws-sdk-js-v3/issues/6571
+      { val: Number.MAX_VALUE, str: Number.MAX_VALUE.toString() },
+      { val: Number.MAX_SAFE_INTEGER + 1, str: (Number.MAX_SAFE_INTEGER + 1).toString() },
+    ];
+
+    describe("without allowImpreciseNumbers", () => {
+      impreciseNumbers.forEach(({ val }) => {
+        it(`throws for imprecise number: ${val}`, () => {
+          expect(() => {
+            convertToAttr(val);
+          }).toThrowError(
+            `Number ${val.toString()} is greater than Number.MAX_SAFE_INTEGER. Use NumberValue from @aws-sdk/lib-dynamodb.`
+          );
+        });
+      });
+    });
+
+    describe("with allowImpreciseNumbers", () => {
+      impreciseNumbers.forEach(({ val, str }) => {
+        it(`allows imprecise number: ${val}`, () => {
+          expect(convertToAttr(val, { allowImpreciseNumbers: true })).toEqual({ N: str });
+        });
+      });
+    });
+  });
 });
