@@ -53,6 +53,7 @@ export interface CreateRegistrationVersionCommandOutput extends CreateRegistrati
  * //     DraftTimestamp: new Date("TIMESTAMP"), // required
  * //     SubmittedTimestamp: new Date("TIMESTAMP"),
  * //     ReviewingTimestamp: new Date("TIMESTAMP"),
+ * //     RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //     ApprovedTimestamp: new Date("TIMESTAMP"),
  * //     DiscardedTimestamp: new Date("TIMESTAMP"),
  * //     DeniedTimestamp: new Date("TIMESTAMP"),

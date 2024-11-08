@@ -1435,15 +1435,19 @@ export interface CreateRegistrationResult {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1451,7 +1455,7 @@ export interface CreateRegistrationResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1459,11 +1463,11 @@ export interface CreateRegistrationResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1706,6 +1710,12 @@ export interface RegistrationVersionStatusHistory {
   ReviewingTimestamp?: Date;
 
   /**
+   * <p>The time when the registration was in the requires authentication state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  RequiresAuthenticationTimestamp?: Date;
+
+  /**
    * <p>The time when the registration was in the approved state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
@@ -1763,23 +1773,11 @@ export interface CreateRegistrationVersionResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>APPROVED</code>: Your registration has been approved.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1787,11 +1785,27 @@ export interface CreateRegistrationVersionResult {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2458,15 +2472,19 @@ export interface DeleteRegistrationResult {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2474,7 +2492,7 @@ export interface DeleteRegistrationResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2482,11 +2500,11 @@ export interface DeleteRegistrationResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4406,15 +4424,19 @@ export interface RegistrationInformation {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
+   *                   <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *                   <code>DELETED</code>: The registration has been deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4422,7 +4444,7 @@ export interface RegistrationInformation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4430,11 +4452,11 @@ export interface RegistrationInformation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4953,23 +4975,11 @@ export interface RegistrationVersionInformation {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>APPROVED</code>: Your registration has been approved.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4977,11 +4987,27 @@ export interface RegistrationVersionInformation {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5602,23 +5628,11 @@ export interface DiscardRegistrationVersionResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>APPROVED</code>: Your registration has been approved.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5626,11 +5640,27 @@ export interface DiscardRegistrationVersionResult {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7547,23 +7577,11 @@ export interface SubmitRegistrationVersionResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>APPROVED</code>: Your registration has been approved.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7571,11 +7589,27 @@ export interface SubmitRegistrationVersionResult {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
+   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
    *             </li>
    *          </ul>
    * @public

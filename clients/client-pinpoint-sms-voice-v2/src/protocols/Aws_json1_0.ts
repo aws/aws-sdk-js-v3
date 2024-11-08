@@ -4660,6 +4660,7 @@ const de_RegistrationVersionStatusHistory = (
     DeniedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DiscardedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DraftTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequiresAuthenticationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReviewingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RevokedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SubmittedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
