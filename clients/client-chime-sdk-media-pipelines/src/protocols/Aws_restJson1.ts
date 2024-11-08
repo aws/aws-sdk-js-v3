@@ -207,6 +207,7 @@ import {
   SourceConfiguration,
   SpeakerSearchTask,
   SqsQueueSinkConfiguration,
+  SseAwsKeyManagementParams,
   StreamChannelDefinition,
   StreamConfiguration,
   Tag,
@@ -241,9 +242,11 @@ export const se_CreateMediaCapturePipelineCommand = async (
       ChimeSdkMeetingConfiguration: (_) => _json(_),
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       SinkArn: [],
+      SinkIamRoleArn: [],
       SinkType: [],
       SourceArn: [],
       SourceType: [],
+      SseAwsKeyManagementParams: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1886,6 +1889,8 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
 
 // se_SqsQueueSinkConfiguration omitted.
 
+// se_SseAwsKeyManagementParams omitted.
+
 // se_StreamChannelDefinition omitted.
 
 // se_StreamConfiguration omitted.
@@ -2054,9 +2059,11 @@ const de_MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCap
     MediaPipelineArn: __expectString,
     MediaPipelineId: __expectString,
     SinkArn: __expectString,
+    SinkIamRoleArn: __expectString,
     SinkType: __expectString,
     SourceArn: __expectString,
     SourceType: __expectString,
+    SseAwsKeyManagementParams: _json,
     Status: __expectString,
     UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -2233,6 +2240,8 @@ const de_SpeakerSearchTask = (output: any, context: __SerdeContext): SpeakerSear
 };
 
 // de_SqsQueueSinkConfiguration omitted.
+
+// de_SseAwsKeyManagementParams omitted.
 
 // de_StreamChannelDefinition omitted.
 

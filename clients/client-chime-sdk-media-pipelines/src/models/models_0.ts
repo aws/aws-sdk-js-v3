@@ -392,6 +392,10 @@ export interface AmazonTranscribeProcessorConfiguration {
 
   /**
    * <p>Turns language identification on or off for multiple languages.</p>
+   *          <note>
+   *             <p>Calls to this API must include a <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> parameter.
+   *          If you include more than one of those parameters, your transcription job fails.</p>
+   *          </note>
    * @public
    */
   IdentifyMultipleLanguages?: boolean;
@@ -1215,6 +1219,68 @@ export const MediaPipelineSourceType = {
 export type MediaPipelineSourceType = (typeof MediaPipelineSourceType)[keyof typeof MediaPipelineSourceType];
 
 /**
+ * <p>Contains server side encryption parameters to be used by media capture pipeline. The
+ *          parameters can also be used by media concatenation pipeline taking media capture pipeline
+ *          as a media source.</p>
+ * @public
+ */
+export interface SseAwsKeyManagementParams {
+  /**
+   * <p>The KMS key you want to use to encrypt your media pipeline output.
+   *          Decryption is required for concatenation pipeline. If using a key located in the current
+   *          Amazon Web Services account, you can specify your KMS key in one of four
+   *          ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example,
+   *                <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If using a key located in a different Amazon Web Services account than the current
+   *          Amazon Web Services account, you can specify your KMS key in one of two
+   *          ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify an encryption key, your output is encrypted with the default
+   *          Amazon S3 key (SSE-S3).</p>
+   *          <p>Note that the role specified in the <code>SinkIamRoleArn</code> request parameter must
+   *          have permission to use the specified KMS key.</p>
+   * @public
+   */
+  AwsKmsKeyId: string | undefined;
+
+  /**
+   * <p>Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption context as
+   *          non-secret key-value pair known as encryption context pairs, that provides an added layer
+   *          of security for your data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">KMS encryption
+   *             context</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the <i>Key Management Service Developer
+   *                      Guide</i>.</p>
+   * @public
+   */
+  AwsKmsEncryptionContext?: string;
+}
+
+/**
  * <p>A key/value pair that grants users access to meeting resources.</p>
  * @public
  */
@@ -1273,6 +1339,28 @@ export interface CreateMediaCapturePipelineRequest {
    * @public
    */
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
+
+  /**
+   * <p>An object that contains server side encryption parameters to be used by media capture
+   *          pipeline. The parameters can also be used by media concatenation pipeline taking media
+   *          capture pipeline as a media source.</p>
+   * @public
+   */
+  SseAwsKeyManagementParams?: SseAwsKeyManagementParams;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the sink role to be used with <code>AwsKmsKeyId</code>
+   *          in <code>SseAwsKeyManagementParams</code>. Can only interact with <code>S3Bucket</code>
+   *          sink type. The role must belong to the caller’s account and be able to act on behalf of the
+   *          caller during the API call. All minimum policy permissions requirements for the caller to
+   *          perform sink-related actions are the same for <code>SinkIamRoleArn</code>.</p>
+   *          <p>Additionally, the role must have permission to <code>kms:GenerateDataKey</code> using
+   *          KMS key supplied as <code>AwsKmsKeyId</code> in <code>SseAwsKeyManagementParams</code>. If
+   *          media concatenation will be required later, the role must also have permission to
+   *          <code>kms:Decrypt</code> for the same KMS key.</p>
+   * @public
+   */
+  SinkIamRoleArn?: string;
 
   /**
    * <p>The tag key-value pairs.</p>
@@ -1368,6 +1456,21 @@ export interface MediaCapturePipeline {
    * @public
    */
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
+
+  /**
+   * <p>An object that contains server side encryption parameters to be used by media capture
+   *          pipeline. The parameters can also be used by media concatenation pipeline taking media
+   *          capture pipeline as a media source.</p>
+   * @public
+   */
+  SseAwsKeyManagementParams?: SseAwsKeyManagementParams;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the sink role to be used with <code>AwsKmsKeyId</code>
+   *          in <code>SseAwsKeyManagementParams</code>.</p>
+   * @public
+   */
+  SinkIamRoleArn?: string;
 }
 
 /**
@@ -4060,6 +4163,7 @@ export const CreateMediaCapturePipelineRequestFilterSensitiveLog = (obj: CreateM
   ...(obj.ChimeSdkMeetingConfiguration && {
     ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfigurationFilterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
   }),
+  ...(obj.SinkIamRoleArn && { SinkIamRoleArn: SENSITIVE_STRING }),
 });
 
 /**
@@ -4072,6 +4176,7 @@ export const MediaCapturePipelineFilterSensitiveLog = (obj: MediaCapturePipeline
   ...(obj.ChimeSdkMeetingConfiguration && {
     ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfigurationFilterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
   }),
+  ...(obj.SinkIamRoleArn && { SinkIamRoleArn: SENSITIVE_STRING }),
 });
 
 /**

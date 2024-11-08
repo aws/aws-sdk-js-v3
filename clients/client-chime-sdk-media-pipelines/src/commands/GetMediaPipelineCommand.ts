@@ -117,6 +117,11 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //           },
  * //         },
  * //       },
+ * //       SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ * //         AwsKmsKeyId: "STRING_VALUE", // required
+ * //         AwsKmsEncryptionContext: "STRING_VALUE",
+ * //       },
+ * //       SinkIamRoleArn: "STRING_VALUE",
  * //     },
  * //     MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
  * //       Sources: [ // LiveConnectorSourceList

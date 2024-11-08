@@ -107,6 +107,11 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *       },
  *     },
  *   },
+ *   SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ *     AwsKmsKeyId: "STRING_VALUE", // required
+ *     AwsKmsEncryptionContext: "STRING_VALUE",
+ *   },
+ *   SinkIamRoleArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -184,6 +189,11 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * //         },
  * //       },
  * //     },
+ * //     SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ * //       AwsKmsKeyId: "STRING_VALUE", // required
+ * //       AwsKmsEncryptionContext: "STRING_VALUE",
+ * //     },
+ * //     SinkIamRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

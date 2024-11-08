@@ -116,6 +116,11 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * //         },
  * //       },
  * //     },
+ * //     SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ * //       AwsKmsKeyId: "STRING_VALUE", // required
+ * //       AwsKmsEncryptionContext: "STRING_VALUE",
+ * //     },
+ * //     SinkIamRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
