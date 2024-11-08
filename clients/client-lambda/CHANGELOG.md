@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-lambda:** This release adds support for using AWS KMS customer managed keys to encrypt AWS Lambda .zip deployment packages. ([0c470f6](https://github.com/aws/aws-sdk-js-v3/commit/0c470f6e777f94f3df52660226f58ff94a1a2835))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

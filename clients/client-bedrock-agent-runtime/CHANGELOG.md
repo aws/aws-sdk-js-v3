@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds trace functionality to Bedrock Prompt Flows ([bc89971](https://github.com/aws/aws-sdk-js-v3/commit/bc8997185262078a5b7038122d63b4f72e74e57c))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

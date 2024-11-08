@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-controlcatalog:** AWS Control Catalog GetControl public API returns additional data in output, including Implementation and Parameters ([43e848f](https://github.com/aws/aws-sdk-js-v3/commit/43e848f37d1b5ecd344c1506204a225773cee3ee))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-controlcatalog

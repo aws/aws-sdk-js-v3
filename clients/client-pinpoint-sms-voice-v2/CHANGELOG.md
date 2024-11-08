@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** Added the RequiresAuthenticationTimestamp field to the RegistrationVersionStatusHistory data type. ([90f0be2](https://github.com/aws/aws-sdk-js-v3/commit/90f0be2f0a7156cbb8fac3da2869e20da4328f16))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

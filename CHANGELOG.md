@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-batch:** This feature allows override LaunchTemplates to be specified in an AWS Batch Compute Environment. ([bf10da9](https://github.com/aws/aws-sdk-js-v3/commit/bf10da9ab7e12423e05450c3b938e5102fbbe88c))
+* **client-bedrock-agent-runtime:** This release adds trace functionality to Bedrock Prompt Flows ([bc89971](https://github.com/aws/aws-sdk-js-v3/commit/bc8997185262078a5b7038122d63b4f72e74e57c))
+* **client-chime-sdk-media-pipelines:** Added support for Media Capture Pipeline and Media Concatenation Pipeline for customer managed server side encryption. Now Media Capture Pipeline can use IAM sink role to get access to KMS key and encrypt/decrypt recorded artifacts. KMS key ID can also be supplied with encryption context. ([88e1c21](https://github.com/aws/aws-sdk-js-v3/commit/88e1c217d5db6310c42466cb98b79dda519a37eb))
+* **client-controlcatalog:** AWS Control Catalog GetControl public API returns additional data in output, including Implementation and Parameters ([43e848f](https://github.com/aws/aws-sdk-js-v3/commit/43e848f37d1b5ecd344c1506204a225773cee3ee))
+* **client-eks:** Adds new error code `Ec2InstanceTypeDoesNotExist` for Amazon EKS managed node groups ([84db913](https://github.com/aws/aws-sdk-js-v3/commit/84db913d62a462614e4f895351746c166bd31962))
+* **client-firehose:** Amazon Data Firehose / Features : Adds support for a new DeliveryStreamType, DatabaseAsSource. DatabaseAsSource hoses allow customers to stream CDC events from their RDS and Amazon EC2 hosted databases, running MySQL and PostgreSQL database engines, to Iceberg Table destinations. ([9933561](https://github.com/aws/aws-sdk-js-v3/commit/993356150b9ad067a87cc1bbf219a700582e6e8f))
+* **client-lambda:** This release adds support for using AWS KMS customer managed keys to encrypt AWS Lambda .zip deployment packages. ([0c470f6](https://github.com/aws/aws-sdk-js-v3/commit/0c470f6e777f94f3df52660226f58ff94a1a2835))
+* **client-pinpoint-sms-voice-v2:** Added the RequiresAuthenticationTimestamp field to the RegistrationVersionStatusHistory data type. ([90f0be2](https://github.com/aws/aws-sdk-js-v3/commit/90f0be2f0a7156cbb8fac3da2869e20da4328f16))
+* **client-qbusiness:** Adds S3 path option to pass group member list for PutGroup API. ([a0824b3](https://github.com/aws/aws-sdk-js-v3/commit/a0824b3db9ab0b24ba90c8f3c41a9ce60f43ce3b))
+* **clients:** update client endpoints as of 2024-11-08 ([175111a](https://github.com/aws/aws-sdk-js-v3/commit/175111af18dff2d36437f6c64e0f3255f0470fe5))
+* **middleware-flexible-checksums:** use Node.js native CRC32 checksum API ([#6641](https://github.com/aws/aws-sdk-js-v3/issues/6641)) ([6a48760](https://github.com/aws/aws-sdk-js-v3/commit/6a48760ced7fb088d4989ec138b55210181c267f))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 
