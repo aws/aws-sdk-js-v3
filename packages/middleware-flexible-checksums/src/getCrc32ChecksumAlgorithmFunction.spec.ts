@@ -1,14 +1,13 @@
 import { AwsCrc32 } from "@aws-crypto/crc32";
 import { numToUint8 } from "@aws-crypto/util";
 import { describe, expect, test as it, vi } from "vitest";
-import zlib from "zlib";
+import * as zlib from "zlib";
 
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 
 describe(getCrc32ChecksumAlgorithmFunction.name, () => {
   it("returns AwsCrc32 if zlib.crc32 is undefined", () => {
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
-    zlib.crc32 = undefined;
+    vi.mock("zlib", () => ({ crc32: undefined }));
     expect(getCrc32ChecksumAlgorithmFunction()).toBe(AwsCrc32);
   });
 
