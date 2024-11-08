@@ -3537,6 +3537,7 @@ export const NodegroupIssueCode = {
   AUTO_SCALING_GROUP_OPT_IN_REQUIRED: "AutoScalingGroupOptInRequired",
   AUTO_SCALING_GROUP_RATE_LIMIT_EXCEEDED: "AutoScalingGroupRateLimitExceeded",
   CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  EC2_INSTANCE_TYPE_DOES_NOT_EXIST: "Ec2InstanceTypeDoesNotExist",
   EC2_LAUNCH_TEMPLATE_DELETION_FAILURE: "Ec2LaunchTemplateDeletionFailure",
   EC2_LAUNCH_TEMPLATE_INVALID_CONFIGURATION: "Ec2LaunchTemplateInvalidConfiguration",
   EC2_LAUNCH_TEMPLATE_MAX_LIMIT_EXCEEDED: "Ec2LaunchTemplateMaxLimitExceeded",
@@ -3602,6 +3603,13 @@ export interface Issue {
    *                     or more of your managed nodes is unable to to communicate with your Kubernetes
    *                     cluster API server. This can happen if there are network disruptions or if API
    *                     servers are timing out processing requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Ec2InstanceTypeDoesNotExist</b>: One or more of
+   *                     the supplied Amazon EC2 instance types do not exist. Amazon EKS checked for the
+   *                     instance types that you provided in this Amazon Web Services Region, and one or more aren't
+   *                     available.</p>
    *             </li>
    *             <li>
    *                <p>
