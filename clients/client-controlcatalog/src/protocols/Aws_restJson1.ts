@@ -173,7 +173,9 @@ export const de_GetControlCommand = async (
     Arn: __expectString,
     Behavior: __expectString,
     Description: __expectString,
+    Implementation: _json,
     Name: __expectString,
+    Parameters: _json,
     RegionConfiguration: _json,
   });
   Object.assign(contents, doc);
@@ -441,6 +443,10 @@ const de_CommonControlSummaryList = (output: any, context: __SerdeContext): Comm
   return retVal;
 };
 
+// de_ControlParameter omitted.
+
+// de_ControlParameters omitted.
+
 // de_Controls omitted.
 
 // de_ControlSummary omitted.
@@ -471,6 +477,8 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
     });
   return retVal;
 };
+
+// de_ImplementationDetails omitted.
 
 /**
  * deserializeAws_restJson1ObjectiveSummary

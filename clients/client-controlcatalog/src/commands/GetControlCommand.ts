@@ -52,6 +52,14 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   Implementation: { // ImplementationDetails
+ * //     Type: "STRING_VALUE", // required
+ * //   },
+ * //   Parameters: [ // ControlParameters
+ * //     { // ControlParameter
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
