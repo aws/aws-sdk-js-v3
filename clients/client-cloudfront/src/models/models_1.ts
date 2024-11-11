@@ -5243,7 +5243,7 @@ export interface UpdateDistributionWithStagingConfigRequest {
    * <p>The current versions (<code>ETag</code> values) of both primary and staging distributions.
    * 			Provide these in the following format:</p>
    *          <p>
-   *             <code><primary ETag>, <staging ETag></code>
+   *             <code>&lt;primary ETag&gt;, &lt;staging ETag&gt;</code>
    *          </p>
    * @public
    */

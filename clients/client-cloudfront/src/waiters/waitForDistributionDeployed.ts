@@ -30,7 +30,7 @@ export const waitForDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetDistributionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 2100 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -42,7 +42,7 @@ export const waitUntilDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetDistributionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 2100 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };
