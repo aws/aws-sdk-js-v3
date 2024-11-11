@@ -3422,6 +3422,7 @@ const se_PackageFilter = (input: PackageFilter, context: __SerdeContext): any =>
   return take(input, {
     architecture: _json,
     epoch: (_) => se_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,
@@ -4297,6 +4298,7 @@ const de_PackageFilter = (output: any, context: __SerdeContext): PackageFilter =
   return take(output, {
     architecture: _json,
     epoch: (_: any) => de_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,

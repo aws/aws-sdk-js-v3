@@ -28,7 +28,7 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Lists coverage details for you environment.</p>
+ * <p>Lists coverage details for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

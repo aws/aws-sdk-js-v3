@@ -141,6 +141,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         architecture: "<StringFilter>",
  *         sourceLayerHash: "<StringFilter>",
  *         sourceLambdaLayerArn: "<StringFilter>",
+ *         filePath: "<StringFilter>",
  *       },
  *     ],
  *     relatedVulnerabilities: "<StringFilterList>",

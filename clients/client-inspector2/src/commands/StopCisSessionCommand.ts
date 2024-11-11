@@ -31,7 +31,7 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  * <p>
  *          Stops a CIS session.
  *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
- *          The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service.
+ *          The Amazon Inspector SSM plugin calls this API to stop a CIS scan session for the scan ID supplied by the service.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,9 +78,6 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *          <p>
- *          For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
- *       </p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>A conflict occurred.</p>

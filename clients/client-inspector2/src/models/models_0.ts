@@ -5,9 +5,6 @@ import { Inspector2ServiceException as __BaseException } from "./Inspector2Servi
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
- *          <p>
- *          For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
- *       </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -2295,6 +2292,9 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
  * @enum
  */
 export const Runtime = {
+  DOTNETCORE_3_1: "DOTNETCORE_3_1",
+  DOTNET_6: "DOTNET_6",
+  DOTNET_7: "DOTNET_7",
   GO_1_X: "GO_1_X",
   JAVA_11: "JAVA_11",
   JAVA_17: "JAVA_17",
@@ -2306,9 +2306,12 @@ export const Runtime = {
   NODEJS_16_X: "NODEJS_16_X",
   NODEJS_18_X: "NODEJS_18_X",
   PYTHON_3_10: "PYTHON_3_10",
+  PYTHON_3_11: "PYTHON_3_11",
   PYTHON_3_7: "PYTHON_3_7",
   PYTHON_3_8: "PYTHON_3_8",
   PYTHON_3_9: "PYTHON_3_9",
+  RUBY_2_7: "RUBY_2_7",
+  RUBY_3_2: "RUBY_3_2",
   UNSUPPORTED: "UNSUPPORTED",
 } as const;
 
@@ -4697,7 +4700,7 @@ export interface CoverageFilterCriteria {
   lastScannedAt?: CoverageDateFilter[];
 
   /**
-   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_HYBRID</code>.</p>
+   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_AGENTLESS</code>.</p>
    * @public
    */
   scanMode?: CoverageStringFilter[];
@@ -5259,6 +5262,12 @@ export interface PackageFilter {
    * @public
    */
   sourceLambdaLayerArn?: StringFilter;
+
+  /**
+   * <p>An object that contains details on the package file path to filter on.</p>
+   * @public
+   */
+  filePath?: StringFilter;
 }
 
 /**
@@ -6726,6 +6735,7 @@ export const PackageManager = {
   BUNDLER: "BUNDLER",
   CARGO: "CARGO",
   COMPOSER: "COMPOSER",
+  DOTNET_CORE: "DOTNET_CORE",
   GEMSPEC: "GEMSPEC",
   GOBINARY: "GOBINARY",
   GOMOD: "GOMOD",
@@ -7564,7 +7574,7 @@ export interface GetSbomExportResponse {
   errorMessage?: string;
 
   /**
-   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings</p>
    * @public
    */
   s3Destination?: Destination;
