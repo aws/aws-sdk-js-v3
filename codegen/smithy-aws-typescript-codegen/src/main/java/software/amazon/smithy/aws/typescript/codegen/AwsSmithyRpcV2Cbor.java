@@ -8,6 +8,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.protocols.cbor.SmithyRpcV2Cbor;
 
 /**
@@ -32,6 +33,24 @@ public final class AwsSmithyRpcV2Cbor extends SmithyRpcV2Cbor {
                 };
                 """);
         }
+    }
+
+    @Override
+    protected void writeSharedRequestHeaders(ProtocolGenerator.GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
+        writer.openBlock("const SHARED_HEADERS: __HeaderBag = {", "};", () -> {
+            writer.write("'content-type': $S,", getDocumentContentType());
+            writer.write("""
+                "smithy-protocol": "rpc-v2-cbor",
+                "accept": "application/cbor",
+                """);
+            if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+                writer.write("""
+                    "x-amzn-query-mode": "true",
+                    """);
+            }
+        });
     }
 
     @Override

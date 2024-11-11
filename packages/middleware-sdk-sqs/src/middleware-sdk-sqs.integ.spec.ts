@@ -9,6 +9,8 @@ import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 const sqsModel: any = require("../../../codegen/sdk-codegen/aws-models/sqs.json");
 const useAwsQuery = !!sqsModel.shapes["com.amazonaws.sqs#AmazonSQS"].traits["aws.protocols#awsQuery"];
+const isAwsQueryCompatible =
+  !!sqsModel.shapes["com.amazonaws.sqs#AmazonSQS"].traits["aws.protocols#awsQueryCompatible"];
 
 let hashError = "";
 const md5 = (str: string) =>
@@ -316,6 +318,28 @@ describe("middleware-sdk-sqs", () => {
 
         expect.hasAssertions();
       });
+    });
+  });
+
+  it("should send the x-amzn-query-mode header when in awsQueryCompatible mode", async () => {
+    const client = new SQS({
+      region: "us-west-2",
+      credentials: mockCredentials,
+      logger,
+    });
+
+    requireRequestsFrom(client).toMatch({
+      hostname: "abc.com",
+      protocol: "https:",
+      path: "/",
+      headers: {
+        "x-amzn-query-mode": "true",
+      },
+    });
+
+    await client.sendMessage({
+      QueueUrl: "https://abc.com/123/MyQueue",
+      MessageBody: "hello",
     });
   });
 
