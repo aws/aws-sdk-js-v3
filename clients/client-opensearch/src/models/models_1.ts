@@ -7,6 +7,7 @@ import {
   AdvancedSecurityOptionsInputFilterSensitiveLog,
   AIMLOptionsInput,
   AppConfig,
+  AuthorizedPrincipal,
   AutoTuneOptions,
   AWSServicePrincipal,
   ChangeProgressDetails,
@@ -30,17 +31,227 @@ import {
   MaintenanceType,
   NodeToNodeEncryptionOptions,
   OffPeakWindowOptions,
+  PackageConfiguration,
   PackageDetails,
+  PackageEncryptionOptions,
   PackageSource,
   ScheduledAction,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SoftwareUpdateOptions,
   VpcEndpoint,
+  VpcEndpointSummary,
   VPCOptions,
 } from "./models_0";
 
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
+
+/**
+ * <p>Container for the request parameters to the <code>ListVersions</code> operation.</p>
+ * @public
+ */
+export interface ListVersionsRequest {
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you
+   *    can include the returned <code>nextToken</code> in subsequent <code>ListVersions</code>
+   *    operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Container for the parameters for response received from the <code>ListVersions</code>
+ *    operation.</p>
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * <p>A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
+   *    supports.</p>
+   * @public
+   */
+  Versions?: string[];
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointAccessResponse {
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM principals</a>
+   *    that can currently access the domain.</p>
+   * @public
+   */
+  AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsRequest {
+  /**
+   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
+   *    you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code>
+   *    operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsResponse {
+  /**
+   * <p>Information about each endpoint.</p>
+   * @public
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsForDomainRequest {
+  /**
+   * <p>The name of the domain to list associated VPC endpoints for.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListEndpointsForDomain</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListEndpointsForDomain</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsForDomainResponse {
+  /**
+   * <p>Information about each endpoint associated with the domain.</p>
+   * @public
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
+ *    operation.</p>
+ * @public
+ */
+export interface PurchaseReservedInstanceOfferingRequest {
+  /**
+   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   * @public
+   */
+  ReservedInstanceOfferingId: string | undefined;
+
+  /**
+   * <p>A customer-specified identifier to track this reservation.</p>
+   * @public
+   */
+  ReservationName: string | undefined;
+
+  /**
+   * <p>The number of OpenSearch instances to reserve.</p>
+   * @public
+   */
+  InstanceCount?: number;
+}
+
+/**
+ * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code> operation.</p>
+ * @public
+ */
+export interface PurchaseReservedInstanceOfferingResponse {
+  /**
+   * <p>The ID of the Reserved Instance offering that was purchased.</p>
+   * @public
+   */
+  ReservedInstanceId?: string;
+
+  /**
+   * <p>The customer-specified identifier used to track this reservation.</p>
+   * @public
+   */
+  ReservationName?: string;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>RejectInboundConnection</code> operation.</p>
+ * @public
+ */
+export interface RejectInboundConnectionRequest {
+  /**
+   * <p>The unique identifier of the inbound connection to reject.</p>
+   * @public
+   */
+  ConnectionId: string | undefined;
+}
 
 /**
  * <p>Represents the output of a <code>RejectInboundConnection</code> operation.</p>
@@ -586,6 +797,18 @@ export interface UpdatePackageRequest {
    * @public
    */
   CommitMessage?: string;
+
+  /**
+   * <p>The updated configuration details for a package.</p>
+   * @public
+   */
+  PackageConfiguration?: PackageConfiguration;
+
+  /**
+   * <p>Encryption options for a package.</p>
+   * @public
+   */
+  PackageEncryptionOptions?: PackageEncryptionOptions;
 }
 
 /**
@@ -598,6 +821,67 @@ export interface UpdatePackageResponse {
    * @public
    */
   PackageDetails?: PackageDetails;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageScopeOperationEnum = {
+  ADD: "ADD",
+  OVERRIDE: "OVERRIDE",
+  REMOVE: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageScopeOperationEnum = (typeof PackageScopeOperationEnum)[keyof typeof PackageScopeOperationEnum];
+
+/**
+ * @public
+ */
+export interface UpdatePackageScopeRequest {
+  /**
+   * <p>ID of the package whose scope is being updated.</p>
+   * @public
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p> The operation to perform on the package scope (e.g., add/remove/override users).</p>
+   * @public
+   */
+  Operation: PackageScopeOperationEnum | undefined;
+
+  /**
+   * <p> List of users to be added or removed from the package scope.</p>
+   * @public
+   */
+  PackageUserList: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageScopeResponse {
+  /**
+   * <p> ID of the package whose scope was updated.</p>
+   * @public
+   */
+  PackageID?: string;
+
+  /**
+   * <p>The operation that was performed on the package scope.</p>
+   * @public
+   */
+  Operation?: PackageScopeOperationEnum;
+
+  /**
+   * <p> List of users who have access to the package after the scope update.</p>
+   * @public
+   */
+  PackageUserList?: string[];
 }
 
 /**

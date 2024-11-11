@@ -40,6 +40,7 @@ import {
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "../commands/AddDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "../commands/AssociatePackageCommand";
+import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "../commands/AssociatePackagesCommand";
 import {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -125,6 +126,7 @@ import {
   DescribeVpcEndpointsCommandOutput,
 } from "../commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "../commands/DissociatePackageCommand";
+import { DissociatePackagesCommandInput, DissociatePackagesCommandOutput } from "../commands/DissociatePackagesCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import {
   GetCompatibleVersionsCommandInput,
@@ -200,6 +202,7 @@ import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from ".
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
+import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "../commands/UpdatePackageScopeCommand";
 import {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
@@ -263,6 +266,7 @@ import {
   InvalidTypeException,
   IPAddressTypeStatus,
   JWTOptionsInput,
+  KeyStoreAccessOption,
   LimitExceededException,
   LogPublishingOption,
   LogPublishingOptionsStatus,
@@ -277,8 +281,13 @@ import {
   OffPeakWindowOptions,
   OffPeakWindowOptionsStatus,
   OptionStatus,
+  PackageAssociationConfiguration,
+  PackageConfiguration,
   PackageDetails,
+  PackageDetailsForAssociation,
+  PackageEncryptionOptions,
   PackageSource,
+  PackageVendingOptions,
   PackageVersionHistory,
   RecurringCharge,
   ReservedInstance,
@@ -379,11 +388,42 @@ export const se_AssociatePackageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/2021-01-01/packages/associate/{PackageID}/{DomainName}");
   b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AssociationConfiguration: (_) => _json(_),
+      PrerequisitePackageIDList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociatePackagesCommand
+ */
+export const se_AssociatePackagesCommand = async (
+  input: AssociatePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/associateMultiple");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      PackageList: (_) => _json(_),
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -567,10 +607,14 @@ export const se_CreatePackageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      EngineVersion: [],
+      PackageConfiguration: (_) => _json(_),
       PackageDescription: [],
+      PackageEncryptionOptions: (_) => _json(_),
       PackageName: [],
       PackageSource: (_) => _json(_),
       PackageType: [],
+      PackageVendingOptions: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1030,6 +1074,29 @@ export const se_DissociatePackageCommand = async (
   b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DissociatePackagesCommand
+ */
+export const se_DissociatePackagesCommand = async (
+  input: DissociatePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/dissociateMultiple");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      PackageList: (_) => _json(_),
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1655,9 +1722,35 @@ export const se_UpdatePackageCommand = async (
   body = JSON.stringify(
     take(input, {
       CommitMessage: [],
+      PackageConfiguration: (_) => _json(_),
       PackageDescription: [],
+      PackageEncryptionOptions: (_) => _json(_),
       PackageID: [],
       PackageSource: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePackageScopeCommand
+ */
+export const se_UpdatePackageScopeCommand = async (
+  input: UpdatePackageScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/updateScope");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Operation: [],
+      PackageID: [],
+      PackageUserList: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1813,6 +1906,27 @@ export const de_AssociatePackageCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociatePackagesCommand
+ */
+export const de_AssociatePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2502,6 +2616,27 @@ export const de_DissociatePackageCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DissociatePackagesCommand
+ */
+export const de_DissociatePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociatePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetApplicationCommand
  */
 export const de_GetApplicationCommand = async (
@@ -3166,6 +3301,29 @@ export const de_UpdatePackageCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdatePackageScopeCommand
+ */
+export const de_UpdatePackageScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageScopeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Operation: __expectString,
+    PackageID: __expectString,
+    PackageUserList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateScheduledActionCommand
  */
 export const de_UpdateScheduledActionCommand = async (
@@ -3643,6 +3801,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_JWTOptionsInput omitted.
 
+// se_KeyStoreAccessOption omitted.
+
 // se_LogPublishingOption omitted.
 
 // se_LogPublishingOptions omitted.
@@ -3663,7 +3823,23 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_OffPeakWindowOptions omitted.
 
+// se_PackageAssociationConfiguration omitted.
+
+// se_PackageConfiguration omitted.
+
+// se_PackageDetailsForAssociation omitted.
+
+// se_PackageDetailsForAssociationList omitted.
+
+// se_PackageEncryptionOptions omitted.
+
+// se_PackageIDList omitted.
+
 // se_PackageSource omitted.
+
+// se_PackageUserList omitted.
+
+// se_PackageVendingOptions omitted.
 
 // se_S3GlueDataCatalog omitted.
 
@@ -4076,6 +4252,7 @@ const de_DomainMaintenanceList = (output: any, context: __SerdeContext): DomainM
  */
 const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
   return take(output, {
+    AssociationConfiguration: _json,
     DomainName: __expectString,
     DomainPackageStatus: __expectString,
     ErrorDetails: _json,
@@ -4084,6 +4261,7 @@ const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPa
     PackageName: __expectString,
     PackageType: __expectString,
     PackageVersion: __expectString,
+    PrerequisitePackageIDList: _json,
     ReferencePath: __expectString,
   }) as any;
 };
@@ -4238,6 +4416,8 @@ const de_IPAddressTypeStatus = (output: any, context: __SerdeContext): IPAddress
 
 // de_JWTOptionsOutput omitted.
 
+// de_KeyStoreAccessOption omitted.
+
 // de_Limits omitted.
 
 // de_LimitsByRole omitted.
@@ -4318,11 +4498,17 @@ const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => 
 
 // de_OutboundConnectionStatus omitted.
 
+// de_PackageAssociationConfiguration omitted.
+
+// de_PackageConfiguration omitted.
+
 /**
  * deserializeAws_restJson1PackageDetails
  */
 const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
   return take(output, {
+    AllowListedUserList: _json,
+    AvailablePackageConfiguration: _json,
     AvailablePackageVersion: __expectString,
     AvailablePluginProperties: _json,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4330,10 +4516,13 @@ const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails
     ErrorDetails: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PackageDescription: __expectString,
+    PackageEncryptionOptions: _json,
     PackageID: __expectString,
     PackageName: __expectString,
+    PackageOwner: __expectString,
     PackageStatus: __expectString,
     PackageType: __expectString,
+    PackageVendingOptions: _json,
   }) as any;
 };
 
@@ -4349,6 +4538,14 @@ const de_PackageDetailsList = (output: any, context: __SerdeContext): PackageDet
   return retVal;
 };
 
+// de_PackageEncryptionOptions omitted.
+
+// de_PackageIDList omitted.
+
+// de_PackageUserList omitted.
+
+// de_PackageVendingOptions omitted.
+
 /**
  * deserializeAws_restJson1PackageVersionHistory
  */
@@ -4356,6 +4553,7 @@ const de_PackageVersionHistory = (output: any, context: __SerdeContext): Package
   return take(output, {
     CommitMessage: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageConfiguration: _json,
     PackageVersion: __expectString,
     PluginProperties: _json,
   }) as any;

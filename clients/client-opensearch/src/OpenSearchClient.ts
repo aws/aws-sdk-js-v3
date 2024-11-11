@@ -60,6 +60,7 @@ import {
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
+import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "./commands/AssociatePackagesCommand";
 import {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -145,6 +146,7 @@ import {
   DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
+import { DissociatePackagesCommandInput, DissociatePackagesCommandOutput } from "./commands/DissociatePackagesCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetCompatibleVersionsCommandInput,
@@ -220,6 +222,7 @@ import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from ".
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "./commands/UpdatePackageScopeCommand";
 import {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
@@ -245,6 +248,7 @@ export type ServiceInputTypes =
   | AddDataSourceCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
+  | AssociatePackagesCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
   | CancelDomainConfigChangeCommandInput
   | CancelServiceSoftwareUpdateCommandInput
@@ -276,6 +280,7 @@ export type ServiceInputTypes =
   | DescribeReservedInstancesCommandInput
   | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
+  | DissociatePackagesCommandInput
   | GetApplicationCommandInput
   | GetCompatibleVersionsCommandInput
   | GetDataSourceCommandInput
@@ -306,6 +311,7 @@ export type ServiceInputTypes =
   | UpdateDataSourceCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
+  | UpdatePackageScopeCommandInput
   | UpdateScheduledActionCommandInput
   | UpdateVpcEndpointCommandInput
   | UpgradeDomainCommandInput;
@@ -318,6 +324,7 @@ export type ServiceOutputTypes =
   | AddDataSourceCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
+  | AssociatePackagesCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
   | CancelDomainConfigChangeCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
@@ -349,6 +356,7 @@ export type ServiceOutputTypes =
   | DescribeReservedInstancesCommandOutput
   | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
+  | DissociatePackagesCommandOutput
   | GetApplicationCommandOutput
   | GetCompatibleVersionsCommandOutput
   | GetDataSourceCommandOutput
@@ -379,6 +387,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
+  | UpdatePackageScopeCommandOutput
   | UpdateScheduledActionCommandOutput
   | UpdateVpcEndpointCommandOutput
   | UpgradeDomainCommandOutput;

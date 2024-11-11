@@ -19,6 +19,11 @@ import {
   AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
 import {
+  AssociatePackagesCommand,
+  AssociatePackagesCommandInput,
+  AssociatePackagesCommandOutput,
+} from "./commands/AssociatePackagesCommand";
+import {
   AuthorizeVpcEndpointAccessCommand,
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -174,6 +179,11 @@ import {
   DissociatePackageCommandOutput,
 } from "./commands/DissociatePackageCommand";
 import {
+  DissociatePackagesCommand,
+  DissociatePackagesCommandInput,
+  DissociatePackagesCommandOutput,
+} from "./commands/DissociatePackagesCommand";
+import {
   GetApplicationCommand,
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
@@ -316,6 +326,11 @@ import {
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  UpdatePackageScopeCommand,
+  UpdatePackageScopeCommandInput,
+  UpdatePackageScopeCommandOutput,
+} from "./commands/UpdatePackageScopeCommand";
+import {
   UpdateScheduledActionCommand,
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
@@ -337,6 +352,7 @@ const commands = {
   AddDataSourceCommand,
   AddTagsCommand,
   AssociatePackageCommand,
+  AssociatePackagesCommand,
   AuthorizeVpcEndpointAccessCommand,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
@@ -368,6 +384,7 @@ const commands = {
   DescribeReservedInstancesCommand,
   DescribeVpcEndpointsCommand,
   DissociatePackageCommand,
+  DissociatePackagesCommand,
   GetApplicationCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
@@ -398,6 +415,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
+  UpdatePackageScopeCommand,
   UpdateScheduledActionCommand,
   UpdateVpcEndpointCommand,
   UpgradeDomainCommand,
@@ -458,6 +476,23 @@ export interface OpenSearch {
     args: AssociatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociatePackagesCommand}
+   */
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePackagesCommandOutput>;
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    cb: (err: any, data?: AssociatePackagesCommandOutput) => void
+  ): void;
+  associatePackages(
+    args: AssociatePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePackagesCommandOutput) => void
   ): void;
 
   /**
@@ -963,6 +998,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DissociatePackagesCommand}
+   */
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DissociatePackagesCommandOutput>;
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    cb: (err: any, data?: DissociatePackagesCommandOutput) => void
+  ): void;
+  dissociatePackages(
+    args: DissociatePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DissociatePackagesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetApplicationCommand}
    */
   getApplication(
@@ -1436,6 +1488,23 @@ export interface OpenSearch {
     args: UpdatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageScopeCommand}
+   */
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageScopeCommandOutput>;
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    cb: (err: any, data?: UpdatePackageScopeCommandOutput) => void
+  ): void;
+  updatePackageScope(
+    args: UpdatePackageScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageScopeCommandOutput) => void
   ): void;
 
   /**

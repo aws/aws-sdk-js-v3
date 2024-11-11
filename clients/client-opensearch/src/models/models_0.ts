@@ -1097,6 +1097,36 @@ export interface AIMLOptionsStatus {
 }
 
 /**
+ * <p>The configuration parameters to enable access to the key store required by the package.</p>
+ * @public
+ */
+export interface KeyStoreAccessOption {
+  /**
+   * <p>Role ARN to access the KeyStore Key</p>
+   * @public
+   */
+  KeyAccessRoleArn?: string;
+
+  /**
+   * <p>This indicates whether Key Store access is enabled </p>
+   * @public
+   */
+  KeyStoreAccessEnabled: boolean | undefined;
+}
+
+/**
+ * <p>The configuration for associating a package with a domain.</p>
+ * @public
+ */
+export interface PackageAssociationConfiguration {
+  /**
+   * <p>The configuration parameters to enable accessing the key store required by the package.</p>
+   * @public
+   */
+  KeyStoreAccessOption?: KeyStoreAccessOption;
+}
+
+/**
  * <p>Container for the request parameters to the <code>AssociatePackage</code> operation.</p>
  * @public
  */
@@ -1113,6 +1143,18 @@ export interface AssociatePackageRequest {
    * @public
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>A list of package IDs that must be associated with the domain before the package specified in the request can be associated.</p>
+   * @public
+   */
+  PrerequisitePackageIDList?: string[];
+
+  /**
+   * <p>The configuration for associating a package with an Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  AssociationConfiguration?: PackageAssociationConfiguration;
 }
 
 /**
@@ -1155,6 +1197,8 @@ export interface ErrorDetails {
  * @enum
  */
 export const PackageType = {
+  PACKAGE_CONFIG: "PACKAGE-CONFIG",
+  PACKAGE_LICENSE: "PACKAGE-LICENSE",
   TXT_DICTIONARY: "TXT-DICTIONARY",
   ZIP_PLUGIN: "ZIP-PLUGIN",
 } as const;
@@ -1213,6 +1257,12 @@ export interface DomainPackageDetails {
   PackageVersion?: string;
 
   /**
+   * <p>A list of package IDs that must be associated with the domain before or with the package can be associated.</p>
+   * @public
+   */
+  PrerequisitePackageIDList?: string[];
+
+  /**
    * <p>The relative path of the package on the OpenSearch Service cluster nodes. This is <code>synonym_path</code>
    *    when the package is for synonym files.</p>
    * @public
@@ -1224,6 +1274,12 @@ export interface DomainPackageDetails {
    * @public
    */
   ErrorDetails?: ErrorDetails;
+
+  /**
+   * <p>The configuration for associating a package with an Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  AssociationConfiguration?: PackageAssociationConfiguration;
 }
 
 /**
@@ -1256,6 +1312,59 @@ export class ConflictException extends __BaseException {
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
+}
+
+/**
+ * <p> Details of a package that is associated with a domain.</p>
+ * @public
+ */
+export interface PackageDetailsForAssociation {
+  /**
+   * <p>Internal ID of the package that you want to associate with a domain.</p>
+   * @public
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p>List of package IDs that must be associated with the domain with or before the package can be associated.</p>
+   * @public
+   */
+  PrerequisitePackageIDList?: string[];
+
+  /**
+   * <p>The configuration parameters for associating the package with a domain.</p>
+   * @public
+   */
+  AssociationConfiguration?: PackageAssociationConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface AssociatePackagesRequest {
+  /**
+   * <p>A list of packages and their prerequisites to be associated with a domain.</p>
+   * @public
+   */
+  PackageList: PackageDetailsForAssociation[] | undefined;
+
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains owned
+   *    by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociatePackagesResponse {
+  /**
+   * <p>List of information about packages that are associated with a domain. </p>
+   * @public
+   */
+  DomainPackageDetailsList?: DomainPackageDetails[];
 }
 
 /**
@@ -3511,6 +3620,69 @@ export interface CreateOutboundConnectionResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RequirementLevel = {
+  NONE: "NONE",
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequirementLevel = (typeof RequirementLevel)[keyof typeof RequirementLevel];
+
+/**
+ * <p> The configuration parameters for a package.</p>
+ * @public
+ */
+export interface PackageConfiguration {
+  /**
+   * <p>The license requirements for the package.</p>
+   * @public
+   */
+  LicenseRequirement: RequirementLevel | undefined;
+
+  /**
+   * <p>The relative file path for the license associated with the package.</p>
+   * @public
+   */
+  LicenseFilepath?: string;
+
+  /**
+   * <p>The configuration requirements for the package.</p>
+   * @public
+   */
+  ConfigurationRequirement: RequirementLevel | undefined;
+
+  /**
+   * <p>This indicates whether a B/G deployment is required for updating the configuration that the plugin is prerequisite for.</p>
+   * @public
+   */
+  RequiresRestartForConfigurationUpdate?: boolean;
+}
+
+/**
+ * <p>Encryption options for a package.</p>
+ * @public
+ */
+export interface PackageEncryptionOptions {
+  /**
+   * <p> KMS key ID for encrypting the package.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>This indicates whether encryption is enabled for the package.</p>
+   * @public
+   */
+  EncryptionEnabled: boolean | undefined;
+}
+
+/**
  * <p>The Amazon S3 location to import the package from.</p>
  * @public
  */
@@ -3526,6 +3698,20 @@ export interface PackageSource {
    * @public
    */
   S3Key?: string;
+}
+
+/**
+ * <p>The vending options for a package to determine if the package can be used by other users.
+ *   </p>
+ * @public
+ */
+export interface PackageVendingOptions {
+  /**
+   * <p>This indicates whether vending is enabled for the package to determine if package can be used by other users.
+   *   </p>
+   * @public
+   */
+  VendingEnabled: boolean | undefined;
 }
 
 /**
@@ -3556,6 +3742,31 @@ export interface CreatePackageRequest {
    * @public
    */
   PackageSource: PackageSource | undefined;
+
+  /**
+   * <p> The configuration parameters for the package being created.</p>
+   * @public
+   */
+  PackageConfiguration?: PackageConfiguration;
+
+  /**
+   * <p>The version of the Amazon OpenSearch Service engine for which is compatible with the package. This can only be specified for package type <code>ZIP-PLUGIN</code>
+   *          </p>
+   * @public
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p> The vending options for the package being created. They determine if the package can be vended to other users.</p>
+   * @public
+   */
+  PackageVendingOptions?: PackageVendingOptions;
+
+  /**
+   * <p>The encryption parameters for the package being created.</p>
+   * @public
+   */
+  PackageEncryptionOptions?: PackageEncryptionOptions;
 }
 
 /**
@@ -3685,6 +3896,36 @@ export interface PackageDetails {
    * @public
    */
   AvailablePluginProperties?: PluginProperties;
+
+  /**
+   * <p>This represents the available configuration parameters for the package.</p>
+   * @public
+   */
+  AvailablePackageConfiguration?: PackageConfiguration;
+
+  /**
+   * <p> A list of users who are allowed to view and associate the package. This field is only visible to the owner of a package.</p>
+   * @public
+   */
+  AllowListedUserList?: string[];
+
+  /**
+   * <p>The owner of the package who is allowed to create/update a package and add users to the package scope.</p>
+   * @public
+   */
+  PackageOwner?: string;
+
+  /**
+   * <p>Package Vending Options for a package.</p>
+   * @public
+   */
+  PackageVendingOptions?: PackageVendingOptions;
+
+  /**
+   * <p>Package Encryption Options for a package.</p>
+   * @public
+   */
+  PackageEncryptionOptions?: PackageEncryptionOptions;
 }
 
 /**
@@ -5751,6 +5992,7 @@ export const DescribePackagesFilterName = {
   EngineVersion: "EngineVersion",
   PackageID: "PackageID",
   PackageName: "PackageName",
+  PackageOwner: "PackageOwner",
   PackageStatus: "PackageStatus",
   PackageType: "PackageType",
 } as const;
@@ -6210,6 +6452,35 @@ export interface DissociatePackageResponse {
 /**
  * @public
  */
+export interface DissociatePackagesRequest {
+  /**
+   * <p>A list of package IDs to be dissociated from a domain.</p>
+   * @public
+   */
+  PackageList: string[] | undefined;
+
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains owned
+   *    by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DissociatePackagesResponse {
+  /**
+   * <p>A list of package details for the packages that were dissociated from the domain.</p>
+   * @public
+   */
+  DomainPackageDetailsList?: DomainPackageDetails[];
+}
+
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>Unique identifier of the checked OpenSearch Application.</p>
@@ -6559,6 +6830,12 @@ export interface PackageVersionHistory {
    * @public
    */
   PluginProperties?: PluginProperties;
+
+  /**
+   * <p>The configuration details for a specific version of a package.</p>
+   * @public
+   */
+  PackageConfiguration?: PackageConfiguration;
 }
 
 /**
@@ -7486,213 +7763,6 @@ export interface ListTagsResponse {
    * @public
    */
   TagList?: Tag[];
-}
-
-/**
- * <p>Container for the request parameters to the <code>ListVersions</code> operation.</p>
- * @public
- */
-export interface ListVersionsRequest {
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *     <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you
-   *    can include the returned <code>nextToken</code> in subsequent <code>ListVersions</code>
-   *    operations, which returns results in the next page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Container for the parameters for response received from the <code>ListVersions</code>
- *    operation.</p>
- * @public
- */
-export interface ListVersionsResponse {
-  /**
-   * <p>A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
-   *    supports.</p>
-   * @public
-   */
-  Versions?: string[];
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
-   *    returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointAccessRequest {
-  /**
-   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a
-   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointAccessResponse {
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM principals</a>
-   *    that can currently access the domain.</p>
-   * @public
-   */
-  AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
-   *    returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsRequest {
-  /**
-   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
-   *    you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code>
-   *    operations, which returns results in the next page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsResponse {
-  /**
-   * <p>Information about each endpoint.</p>
-   * @public
-   */
-  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
-   *    returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsForDomainRequest {
-  /**
-   * <p>The name of the domain to list associated VPC endpoints for.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>If your initial <code>ListEndpointsForDomain</code> operation returns a
-   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>ListEndpointsForDomain</code> operations, which returns results in the next page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsForDomainResponse {
-  /**
-   * <p>Information about each endpoint associated with the domain.</p>
-   * @public
-   */
-  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
-   *    returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
- *    operation.</p>
- * @public
- */
-export interface PurchaseReservedInstanceOfferingRequest {
-  /**
-   * <p>The ID of the Reserved Instance offering to purchase.</p>
-   * @public
-   */
-  ReservedInstanceOfferingId: string | undefined;
-
-  /**
-   * <p>A customer-specified identifier to track this reservation.</p>
-   * @public
-   */
-  ReservationName: string | undefined;
-
-  /**
-   * <p>The number of OpenSearch instances to reserve.</p>
-   * @public
-   */
-  InstanceCount?: number;
-}
-
-/**
- * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code> operation.</p>
- * @public
- */
-export interface PurchaseReservedInstanceOfferingResponse {
-  /**
-   * <p>The ID of the Reserved Instance offering that was purchased.</p>
-   * @public
-   */
-  ReservedInstanceId?: string;
-
-  /**
-   * <p>The customer-specified identifier used to track this reservation.</p>
-   * @public
-   */
-  ReservationName?: string;
-}
-
-/**
- * <p>Container for the request parameters to the <code>RejectInboundConnection</code> operation.</p>
- * @public
- */
-export interface RejectInboundConnectionRequest {
-  /**
-   * <p>The unique identifier of the inbound connection to reject.</p>
-   * @public
-   */
-  ConnectionId: string | undefined;
 }
 
 /**

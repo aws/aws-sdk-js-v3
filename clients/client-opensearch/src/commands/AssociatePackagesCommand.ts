@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/models_0";
+import { AssociatePackagesRequest, AssociatePackagesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_ListPackagesForDomainCommand, se_ListPackagesForDomainCommand } from "../protocols/Aws_restJson1";
+import { de_AssociatePackagesCommand, se_AssociatePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,34 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListPackagesForDomainCommand}.
+ * The input for {@link AssociatePackagesCommand}.
  */
-export interface ListPackagesForDomainCommandInput extends ListPackagesForDomainRequest {}
+export interface AssociatePackagesCommandInput extends AssociatePackagesRequest {}
 /**
  * @public
  *
- * The output of {@link ListPackagesForDomainCommand}.
+ * The output of {@link AssociatePackagesCommand}.
  */
-export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
+export interface AssociatePackagesCommandOutput extends AssociatePackagesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all packages associated with an Amazon OpenSearch Service domain. For more
- *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
- *     OpenSearch Service</a>.</p>
+ * <p>Operation in the Amazon OpenSearch Service API for associating  multiple packages with a domain simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListPackagesForDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListPackagesForDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, AssociatePackagesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, AssociatePackagesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = { // ListPackagesForDomainRequest
+ * const input = { // AssociatePackagesRequest
+ *   PackageList: [ // PackageDetailsForAssociationList // required
+ *     { // PackageDetailsForAssociation
+ *       PackageID: "STRING_VALUE", // required
+ *       PrerequisitePackageIDList: [ // PackageIDList
+ *         "STRING_VALUE",
+ *       ],
+ *       AssociationConfiguration: { // PackageAssociationConfiguration
+ *         KeyStoreAccessOption: { // KeyStoreAccessOption
+ *           KeyAccessRoleArn: "STRING_VALUE",
+ *           KeyStoreAccessEnabled: true || false, // required
+ *         },
+ *       },
+ *     },
+ *   ],
  *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListPackagesForDomainCommand(input);
+ * const command = new AssociatePackagesCommand(input);
  * const response = await client.send(command);
- * // { // ListPackagesForDomainResponse
+ * // { // AssociatePackagesResponse
  * //   DomainPackageDetailsList: [ // DomainPackageDetailsList
  * //     { // DomainPackageDetails
  * //       PackageID: "STRING_VALUE",
@@ -70,22 +80,24 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * //       },
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
- * @returns {@link ListPackagesForDomainCommandOutput}
- * @see {@link ListPackagesForDomainCommandInput} for command's `input` shape.
- * @see {@link ListPackagesForDomainCommandOutput} for command's `response` shape.
+ * @param AssociatePackagesCommandInput - {@link AssociatePackagesCommandInput}
+ * @returns {@link AssociatePackagesCommandOutput}
+ * @see {@link AssociatePackagesCommandInput} for command's `input` shape.
+ * @see {@link AssociatePackagesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>An error occurred because you don't have permissions to access the resource.</p>
  *
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -101,10 +113,10 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  *
  * @public
  */
-export class ListPackagesForDomainCommand extends $Command
+export class AssociatePackagesCommand extends $Command
   .classBuilder<
-    ListPackagesForDomainCommandInput,
-    ListPackagesForDomainCommandOutput,
+    AssociatePackagesCommandInput,
+    AssociatePackagesCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,21 +128,21 @@ export class ListPackagesForDomainCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonOpenSearchService", "ListPackagesForDomain", {})
-  .n("OpenSearchClient", "ListPackagesForDomainCommand")
+  .s("AmazonOpenSearchService", "AssociatePackages", {})
+  .n("OpenSearchClient", "AssociatePackagesCommand")
   .f(void 0, void 0)
-  .ser(se_ListPackagesForDomainCommand)
-  .de(de_ListPackagesForDomainCommand)
+  .ser(se_AssociatePackagesCommand)
+  .de(de_AssociatePackagesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListPackagesForDomainRequest;
-      output: ListPackagesForDomainResponse;
+      input: AssociatePackagesRequest;
+      output: AssociatePackagesResponse;
     };
     sdk: {
-      input: ListPackagesForDomainCommandInput;
-      output: ListPackagesForDomainCommandOutput;
+      input: AssociatePackagesCommandInput;
+      output: AssociatePackagesCommandOutput;
     };
   };
 }

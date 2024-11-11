@@ -58,6 +58,12 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * //         ClassName: "STRING_VALUE",
  * //         UncompressedSizeInBytes: Number("long"),
  * //       },
+ * //       PackageConfiguration: { // PackageConfiguration
+ * //         LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //         LicenseFilepath: "STRING_VALUE",
+ * //         ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //         RequiresRestartForConfigurationUpdate: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
