@@ -139,7 +139,7 @@ export interface unmarshallOptions {
    * If a function is provided, it will be called with the string representation of numbers to handle
    * custom conversions (e.g., using BigInt or decimal libraries).
    */
-  wrapNumbers?: boolean | ((value: string) => number | bigint | NumberValue);
+  wrapNumbers?: boolean | ((value: string) => number | bigint | NumberValue | any);
   /**
    * When true, skip wrapping the data in `{ M: data }` before converting.
    *
