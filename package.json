@@ -110,8 +110,7 @@
     "vitest": "0.34.6",
     "webpack": "5.76.0",
     "webpack-cli": "4.10.0",
-    "yargs": "17.5.1",
-    "yarn": "1.22.13"
+    "yargs": "17.5.1"
   },
   "overrides": {
     "vite": "4.5.5"
@@ -125,10 +124,6 @@
       "lib/*",
       "packages/*",
       "private/*"
-    ],
-    "nohoist": [
-      "**/@aws-sdk/client-sso/**",
-      "**/@babel/**"
     ]
   },
   "husky": {
@@ -144,5 +139,5 @@
     ],
     "**/*.{ts,js,md,json}": "prettier --write"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@4.5.1"
 }
