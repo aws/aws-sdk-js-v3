@@ -33,10 +33,9 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the instance types that an
- *       Outpost can support in <code>InstanceTypeCapacity</code>. This will generally include instance types that
- *       are not currently configured and therefore cannot be launched with the current Outpost
- *       capacity configuration.</p>
+ * <p>Gets the instance types that an Outpost can support in <code>InstanceTypeCapacity</code>.
+ *       This will generally include instance types that are not currently configured and therefore
+ *       cannot be launched with the current Outpost capacity configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,7 +44,7 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * const client = new OutpostsClient(config);
  * const input = { // GetOutpostSupportedInstanceTypesInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   OrderId: "STRING_VALUE", // required
+ *   OrderId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

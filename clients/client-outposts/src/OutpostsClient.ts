@@ -75,7 +75,12 @@ import {
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import { ListAssetInstancesCommandInput, ListAssetInstancesCommandOutput } from "./commands/ListAssetInstancesCommand";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import {
+  ListBlockingInstancesForCapacityTaskCommandInput,
+  ListBlockingInstancesForCapacityTaskCommandOutput,
+} from "./commands/ListBlockingInstancesForCapacityTaskCommand";
 import { ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput } from "./commands/ListCapacityTasksCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
@@ -127,7 +132,9 @@ export type ServiceInputTypes =
   | GetOutpostSupportedInstanceTypesCommandInput
   | GetSiteAddressCommandInput
   | GetSiteCommandInput
+  | ListAssetInstancesCommandInput
   | ListAssetsCommandInput
+  | ListBlockingInstancesForCapacityTaskCommandInput
   | ListCapacityTasksCommandInput
   | ListCatalogItemsCommandInput
   | ListOrdersCommandInput
@@ -163,7 +170,9 @@ export type ServiceOutputTypes =
   | GetOutpostSupportedInstanceTypesCommandOutput
   | GetSiteAddressCommandOutput
   | GetSiteCommandOutput
+  | ListAssetInstancesCommandOutput
   | ListAssetsCommandOutput
+  | ListBlockingInstancesForCapacityTaskCommandOutput
   | ListCapacityTasksCommandOutput
   | ListCatalogItemsCommandOutput
   | ListOrdersCommandOutput

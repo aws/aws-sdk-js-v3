@@ -51,15 +51,27 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * //       Count: Number("int"), // required
  * //     },
  * //   ],
+ * //   InstancesToExclude: { // InstancesToExclude
+ * //     Instances: [ // InstanceIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AccountIds: [ // AccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Services: [ // AWSServiceNameList
+ * //       "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //     ],
+ * //   },
  * //   DryRun: true || false,
- * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  * //   Failed: { // CapacityTaskFailure
  * //     Reason: "STRING_VALUE", // required
- * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION",
+ * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION" || "UNEXPECTED_ASSET_STATE" || "BLOCKING_INSTANCES_NOT_EVACUATED" || "INTERNAL_SERVER_ERROR" || "RESOURCE_NOT_FOUND",
  * //   },
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   CompletionDate: new Date("TIMESTAMP"),
  * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   TaskActionOnBlockingInstances: "WAIT_FOR_EVACUATION" || "FAIL_TASK",
  * // };
  *
  * ```

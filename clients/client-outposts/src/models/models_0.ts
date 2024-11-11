@@ -137,6 +137,24 @@ export const AssetType = {
 export type AssetType = (typeof AssetType)[keyof typeof AssetType];
 
 /**
+ * <p>The capacity for each instance type.</p>
+ * @public
+ */
+export interface AssetInstanceTypeCapacity {
+  /**
+   * <p>The type of instance.</p>
+   * @public
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The number of each instance type.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -189,6 +207,19 @@ export interface ComputeAttributes {
    * @public
    */
   InstanceFamilies?: string[];
+
+  /**
+   * <p>The instance type capacities configured for this asset. This can be changed through a
+   *       capacity task.</p>
+   * @public
+   */
+  InstanceTypeCapacities?: AssetInstanceTypeCapacity[];
+
+  /**
+   * <p>The maximum number of vCPUs possible for the specified asset.</p>
+   * @public
+   */
+  MaxVcpus?: number;
 }
 
 /**
@@ -231,6 +262,60 @@ export interface AssetInfo {
  * @public
  * @enum
  */
+export const AWSServiceName = {
+  AWS: "AWS",
+  EC2: "EC2",
+  ELASTICACHE: "ELASTICACHE",
+  ELB: "ELB",
+  RDS: "RDS",
+  ROUTE53: "ROUTE53",
+} as const;
+
+/**
+ * @public
+ */
+export type AWSServiceName = (typeof AWSServiceName)[keyof typeof AWSServiceName];
+
+/**
+ * <p>An Amazon EC2 instance.</p>
+ * @public
+ */
+export interface AssetInstance {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The type of instance.</p>
+   * @public
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  AssetId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services service name of the instance.</p>
+   * @public
+   */
+  AwsServiceName?: AWSServiceName;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AssetState = {
   ACTIVE: "ACTIVE",
   ISOLATED: "ISOLATED",
@@ -241,6 +326,31 @@ export const AssetState = {
  * @public
  */
 export type AssetState = (typeof AssetState)[keyof typeof AssetState];
+
+/**
+ * <p>A running Amazon EC2 instance that can be stopped to free up capacity needed to run the
+ *       capacity task.</p>
+ * @public
+ */
+export interface BlockingInstance {
+  /**
+   * <p>The ID of the blocking instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services service name that owns the specified blocking instance.</p>
+   * @public
+   */
+  AwsServiceName?: AWSServiceName;
+}
 
 /**
  * @public
@@ -400,6 +510,10 @@ export interface CancelOrderOutput {}
  * @enum
  */
 export const CapacityTaskFailureType = {
+  BLOCKING_INSTANCES_NOT_EVACUATED: "BLOCKING_INSTANCES_NOT_EVACUATED",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  UNEXPECTED_ASSET_STATE: "UNEXPECTED_ASSET_STATE",
   UNSUPPORTED_CAPACITY_CONFIGURATION: "UNSUPPORTED_CAPACITY_CONFIGURATION",
 } as const;
 
@@ -431,11 +545,13 @@ export interface CapacityTaskFailure {
  * @enum
  */
 export const CapacityTaskStatus = {
+  CANCELLATION_IN_PROGRESS: "CANCELLATION_IN_PROGRESS",
   CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   REQUESTED: "REQUESTED",
+  WAITING_FOR_EVACUATION: "WAITING_FOR_EVACUATION",
 } as const;
 
 /**
@@ -914,8 +1030,8 @@ export interface Order {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built or shipped. To get
-   *           more details, see the line item status.</p>
+   *                   <code>IN_PROGRESS</code> - Order is either being built or shipped. To get more
+   *           details, see the line item status.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1575,6 +1691,32 @@ export interface GetCapacityTaskInput {
 }
 
 /**
+ * <p>User-specified instances that must not be stopped. These instances will not appear in the
+ *       list of instances that Amazon Web Services recommends to stop in order to free up capacity.</p>
+ * @public
+ */
+export interface InstancesToExclude {
+  /**
+   * <p>List of user-specified instances that must not be stopped.</p>
+   * @public
+   */
+  Instances?: string[];
+
+  /**
+   * <p>IDs of the accounts that own each instance that must not be stopped.</p>
+   * @public
+   */
+  AccountIds?: string[];
+
+  /**
+   * <p>Names of the services that own each instance that must not be stopped in order to free up
+   *       the capacity needed to run the capacity task.</p>
+   * @public
+   */
+  Services?: AWSServiceName[];
+}
+
+/**
  * <p>The instance type that you specify determines the combination of CPU, memory, storage, and
  *       networking capacity.</p>
  * @public
@@ -1592,6 +1734,21 @@ export interface InstanceTypeCapacity {
    */
   Count: number | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskActionOnBlockingInstances = {
+  FAIL_TASK: "FAIL_TASK",
+  WAIT_FOR_EVACUATION: "WAIT_FOR_EVACUATION",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskActionOnBlockingInstances =
+  (typeof TaskActionOnBlockingInstances)[keyof typeof TaskActionOnBlockingInstances];
 
 /**
  * @public
@@ -1620,6 +1777,13 @@ export interface GetCapacityTaskOutput {
    * @public
    */
   RequestedInstancePools?: InstanceTypeCapacity[];
+
+  /**
+   * <p>Instances that the user specified they cannot stop in order to free up the capacity needed
+   *       to run the capacity task.</p>
+   * @public
+   */
+  InstancesToExclude?: InstancesToExclude;
 
   /**
    * <p>Performs a dry run to determine if you are above or below instance capacity.</p>
@@ -1675,6 +1839,24 @@ export interface GetCapacityTaskOutput {
    * @public
    */
   LastModifiedDate?: Date;
+
+  /**
+   * <p>User-specified option in case an instance is blocking the capacity task from running.
+   *       Shows one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
+   *           if instances have stopped and capacity is available to complete the task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances;
 }
 
 /**
@@ -1855,7 +2037,7 @@ export interface GetOutpostSupportedInstanceTypesInput {
    * <p>The ID for the Amazon Web Services Outposts order.</p>
    * @public
    */
-  OrderId: string | undefined;
+  OrderId?: string;
 
   /**
    * <p>The maximum page size.</p>
@@ -1952,6 +2134,71 @@ export interface GetSiteAddressOutput {
 /**
  * @public
  */
+export interface ListAssetInstancesInput {
+  /**
+   * <p>The ID of the Outpost.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>Filters the results by asset ID.</p>
+   * @public
+   */
+  AssetIdFilter?: string[];
+
+  /**
+   * <p>Filters the results by instance ID.</p>
+   * @public
+   */
+  InstanceTypeFilter?: string[];
+
+  /**
+   * <p>Filters the results by account ID.</p>
+   * @public
+   */
+  AccountIdFilter?: string[];
+
+  /**
+   * <p>Filters the results by Amazon Web Services service.</p>
+   * @public
+   */
+  AwsServiceFilter?: AWSServiceName[];
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetInstancesOutput {
+  /**
+   * <p>List of instances owned by all accounts on the Outpost. Does not include Amazon EBS or Amazon S3
+   *       instances.</p>
+   * @public
+   */
+  AssetInstances?: AssetInstance[];
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListAssetsInput {
   /**
    * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
@@ -2004,6 +2251,53 @@ export interface ListAssetsOutput {
 /**
  * @public
  */
+export interface ListBlockingInstancesForCapacityTaskInput {
+  /**
+   * <p>The ID or ARN of the Outpost associated with the specified capacity task.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the capacity task.</p>
+   * @public
+   */
+  CapacityTaskId: string | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBlockingInstancesForCapacityTaskOutput {
+  /**
+   * <p>A list of all running Amazon EC2 instances on the Outpost. Stopping one or more of these
+   *       instances can free up the capacity needed to run the capacity task.</p>
+   * @public
+   */
+  BlockingInstances?: BlockingInstance[];
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListCapacityTasksInput {
   /**
    * <p>Filters the results by an Outpost ID or an Outpost ARN.</p>
@@ -2024,8 +2318,8 @@ export interface ListCapacityTasksInput {
   NextToken?: string;
 
   /**
-   * <p>A list of statuses. For example,
-   *         <code>REQUESTED</code> or <code>WAITING_FOR_EVACUATION</code>.</p>
+   * <p>A list of statuses. For example, <code>REQUESTED</code> or
+   *         <code>WAITING_FOR_EVACUATION</code>.</p>
    * @public
    */
   CapacityTaskStatusFilter?: CapacityTaskStatus[];
@@ -2355,7 +2649,7 @@ export interface StartCapacityTaskInput {
    * <p>The ID of the Amazon Web Services Outposts order associated with the specified capacity task.</p>
    * @public
    */
-  OrderId: string | undefined;
+  OrderId?: string;
 
   /**
    * <p>The instance pools specified in the capacity task.</p>
@@ -2364,11 +2658,37 @@ export interface StartCapacityTaskInput {
   InstancePools: InstanceTypeCapacity[] | undefined;
 
   /**
-   * <p>You can request a dry run to determine if the instance type and instance size changes is above or below available instance
-   *       capacity. Requesting a dry run does not make any changes to your plan.</p>
+   * <p>List of user-specified running instances that must not be stopped in order to free up the
+   *       capacity needed to run the capacity task.</p>
+   * @public
+   */
+  InstancesToExclude?: InstancesToExclude;
+
+  /**
+   * <p>You can request a dry run to determine if the instance type and instance size changes is
+   *       above or below available instance capacity. Requesting a dry run does not make any changes to
+   *       your plan.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Specify one of the following options in case an instance is blocking the capacity task
+   *       from running.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
+   *           if instances have stopped and capacity is available to complete the task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances;
 }
 
 /**
@@ -2398,6 +2718,13 @@ export interface StartCapacityTaskOutput {
    * @public
    */
   RequestedInstancePools?: InstanceTypeCapacity[];
+
+  /**
+   * <p>User-specified instances that must not be stopped in order to free up the capacity needed
+   *       to run the capacity task.</p>
+   * @public
+   */
+  InstancesToExclude?: InstancesToExclude;
 
   /**
    * <p>Results of the dry run showing if the specified capacity task is above or below the
@@ -2435,6 +2762,24 @@ export interface StartCapacityTaskOutput {
    * @public
    */
   LastModifiedDate?: Date;
+
+  /**
+   * <p>User-specified option in case an instance is blocking the capacity task from
+   *       running.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
+   *           if instances have stopped and capacity is available to complete the task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances;
 }
 
 /**

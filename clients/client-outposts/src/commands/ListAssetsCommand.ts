@@ -63,6 +63,13 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * //         InstanceFamilies: [ // InstanceFamilies
  * //           "STRING_VALUE",
  * //         ],
+ * //         InstanceTypeCapacities: [ // AssetInstanceCapacityList
+ * //           { // AssetInstanceTypeCapacity
+ * //             InstanceType: "STRING_VALUE", // required
+ * //             Count: Number("int"), // required
+ * //           },
+ * //         ],
+ * //         MaxVcpus: Number("int"),
  * //       },
  * //       AssetLocation: { // AssetLocation
  * //         RackElevation: Number("float"),

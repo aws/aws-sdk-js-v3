@@ -28,7 +28,7 @@ export interface StartCapacityTaskCommandInput extends StartCapacityTaskInput {}
 export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the specified capacity task. You can have one active capacity task for an order.</p>
+ * <p>Starts the specified capacity task. You can have one active capacity task per order or Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,14 +37,26 @@ export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput,
  * const client = new OutpostsClient(config);
  * const input = { // StartCapacityTaskInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   OrderId: "STRING_VALUE", // required
+ *   OrderId: "STRING_VALUE",
  *   InstancePools: [ // RequestedInstancePools // required
  *     { // InstanceTypeCapacity
  *       InstanceType: "STRING_VALUE", // required
  *       Count: Number("int"), // required
  *     },
  *   ],
+ *   InstancesToExclude: { // InstancesToExclude
+ *     Instances: [ // InstanceIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountIds: [ // AccountIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     Services: [ // AWSServiceNameList
+ *       "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ *     ],
+ *   },
  *   DryRun: true || false,
+ *   TaskActionOnBlockingInstances: "WAIT_FOR_EVACUATION" || "FAIL_TASK",
  * };
  * const command = new StartCapacityTaskCommand(input);
  * const response = await client.send(command);
@@ -58,15 +70,27 @@ export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput,
  * //       Count: Number("int"), // required
  * //     },
  * //   ],
+ * //   InstancesToExclude: { // InstancesToExclude
+ * //     Instances: [ // InstanceIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AccountIds: [ // AccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Services: [ // AWSServiceNameList
+ * //       "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //     ],
+ * //   },
  * //   DryRun: true || false,
- * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  * //   Failed: { // CapacityTaskFailure
  * //     Reason: "STRING_VALUE", // required
- * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION",
+ * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION" || "UNEXPECTED_ASSET_STATE" || "BLOCKING_INSTANCES_NOT_EVACUATED" || "INTERNAL_SERVER_ERROR" || "RESOURCE_NOT_FOUND",
  * //   },
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   CompletionDate: new Date("TIMESTAMP"),
  * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   TaskActionOnBlockingInstances: "WAIT_FOR_EVACUATION" || "FAIL_TASK",
  * // };
  *
  * ```

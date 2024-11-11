@@ -43,7 +43,7 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   CapacityTaskStatusFilter: [ // CapacityTaskStatusList
- *     "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ *     "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  *   ],
  * };
  * const command = new ListCapacityTasksCommand(input);
@@ -54,7 +54,7 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  * //       CapacityTaskId: "STRING_VALUE",
  * //       OutpostId: "STRING_VALUE",
  * //       OrderId: "STRING_VALUE",
- * //       CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //       CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       CompletionDate: new Date("TIMESTAMP"),
  * //       LastModifiedDate: new Date("TIMESTAMP"),

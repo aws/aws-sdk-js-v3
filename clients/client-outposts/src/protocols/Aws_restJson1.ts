@@ -48,7 +48,12 @@ import {
 } from "../commands/GetOutpostSupportedInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "../commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "../commands/GetSiteCommand";
+import { ListAssetInstancesCommandInput, ListAssetInstancesCommandOutput } from "../commands/ListAssetInstancesCommand";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
+import {
+  ListBlockingInstancesForCapacityTaskCommandInput,
+  ListBlockingInstancesForCapacityTaskCommandOutput,
+} from "../commands/ListBlockingInstancesForCapacityTaskCommand";
 import { ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput } from "../commands/ListCapacityTasksCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "../commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
@@ -74,9 +79,11 @@ import {
   Address,
   AssetInfo,
   AssetLocation,
+  AWSServiceName,
   CapacityTaskSummary,
   CatalogItem,
   ConflictException,
+  InstancesToExclude,
   InstanceTypeCapacity,
   InternalServerException,
   LineItemRequest,
@@ -348,7 +355,7 @@ export const se_GetOutpostSupportedInstanceTypesCommand = async (
   b.bp("/outposts/{OutpostIdentifier}/supportedInstanceTypes");
   b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
   const query: any = map({
-    [_OI]: [, __expectNonNull(input[_OI]!, `OrderId`)],
+    [_OI]: [, input[_OI]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
   });
@@ -393,6 +400,30 @@ export const se_GetSiteAddressCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAssetInstancesCommand
+ */
+export const se_ListAssetInstancesCommand = async (
+  input: ListAssetInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outposts/{OutpostIdentifier}/assetInstances");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  const query: any = map({
+    [_AIF]: [() => input.AssetIdFilter !== void 0, () => input[_AIF]! || []],
+    [_ITF]: [() => input.InstanceTypeFilter !== void 0, () => input[_ITF]! || []],
+    [_AIFc]: [() => input.AccountIdFilter !== void 0, () => input[_AIFc]! || []],
+    [_ASF]: [() => input.AwsServiceFilter !== void 0, () => input[_ASF]! || []],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListAssetsCommand
  */
 export const se_ListAssetsCommand = async (
@@ -408,6 +439,27 @@ export const se_ListAssetsCommand = async (
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
     [_SF]: [() => input.StatusFilter !== void 0, () => input[_SF]! || []],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListBlockingInstancesForCapacityTaskCommand
+ */
+export const se_ListBlockingInstancesForCapacityTaskCommand = async (
+  input: ListBlockingInstancesForCapacityTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}/blockingInstances");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  b.p("CapacityTaskId", () => input.CapacityTaskId!, "{CapacityTaskId}", false);
+  const query: any = map({
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -555,7 +607,9 @@ export const se_StartCapacityTaskCommand = async (
     take(input, {
       DryRun: [],
       InstancePools: (_) => _json(_),
+      InstancesToExclude: (_) => _json(_),
       OrderId: [],
+      TaskActionOnBlockingInstances: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -886,10 +940,12 @@ export const de_GetCapacityTaskCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DryRun: __expectBoolean,
     Failed: _json,
+    InstancesToExclude: _json,
     LastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OrderId: __expectString,
     OutpostId: __expectString,
     RequestedInstancePools: _json,
+    TaskActionOnBlockingInstances: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1071,6 +1127,28 @@ export const de_GetSiteAddressCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAssetInstancesCommand
+ */
+export const de_ListAssetInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetInstancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AssetInstances: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListAssetsCommand
  */
 export const de_ListAssetsCommand = async (
@@ -1086,6 +1164,28 @@ export const de_ListAssetsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Assets: (_) => de_AssetListDefinition(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBlockingInstancesForCapacityTaskCommand
+ */
+export const de_ListBlockingInstancesForCapacityTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBlockingInstancesForCapacityTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BlockingInstances: _json,
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1244,10 +1344,12 @@ export const de_StartCapacityTaskCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DryRun: __expectBoolean,
     Failed: _json,
+    InstancesToExclude: _json,
     LastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OrderId: __expectString,
     OutpostId: __expectString,
     RequestedInstancePools: _json,
+    TaskActionOnBlockingInstances: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1546,7 +1648,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccountIdList omitted.
+
 // se_Address omitted.
+
+// se_AWSServiceNameList omitted.
+
+// se_InstanceIdList omitted.
+
+// se_InstancesToExclude omitted.
 
 // se_InstanceTypeCapacity omitted.
 
@@ -1559,6 +1669,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_RequestedInstancePools omitted.
 
 // se_TagMap omitted.
+
+// de_AccountIdList omitted.
 
 // de_Address omitted.
 
@@ -1574,6 +1686,14 @@ const de_AssetInfo = (output: any, context: __SerdeContext): AssetInfo => {
     RackId: __expectString,
   }) as any;
 };
+
+// de_AssetInstance omitted.
+
+// de_AssetInstanceCapacityList omitted.
+
+// de_AssetInstanceList omitted.
+
+// de_AssetInstanceTypeCapacity omitted.
 
 /**
  * deserializeAws_restJson1AssetListDefinition
@@ -1595,6 +1715,12 @@ const de_AssetLocation = (output: any, context: __SerdeContext): AssetLocation =
     RackElevation: __limitedParseFloat32,
   }) as any;
 };
+
+// de_AWSServiceNameList omitted.
+
+// de_BlockingInstance omitted.
+
+// de_BlockingInstancesList omitted.
 
 // de_CapacityTaskFailure omitted.
 
@@ -1663,6 +1789,10 @@ const de_CatalogItemListDefinition = (output: any, context: __SerdeContext): Cat
 // de_EC2CapacityListDefinition omitted.
 
 // de_InstanceFamilies omitted.
+
+// de_InstanceIdList omitted.
+
+// de_InstancesToExclude omitted.
 
 // de_InstanceTypeCapacity omitted.
 
@@ -1758,6 +1888,9 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _AIF = "AssetIdFilter";
+const _AIFc = "AccountIdFilter";
+const _ASF = "AwsServiceFilter";
 const _AT = "AddressType";
 const _AZF = "AvailabilityZoneFilter";
 const _AZIF = "AvailabilityZoneIdFilter";
@@ -1765,6 +1898,7 @@ const _CTSF = "CapacityTaskStatusFilter";
 const _ECFF = "EC2FamilyFilter";
 const _HIF = "HostIdFilter";
 const _ICF = "ItemClassFilter";
+const _ITF = "InstanceTypeFilter";
 const _LCSF = "LifeCycleStatusFilter";
 const _MR = "MaxResults";
 const _NT = "NextToken";
