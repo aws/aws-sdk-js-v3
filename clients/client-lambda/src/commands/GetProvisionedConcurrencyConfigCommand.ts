@@ -82,27 +82,6 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
- * @example To get a provisioned concurrency configuration
- * ```javascript
- * // The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.
- * const input = {
- *   "FunctionName": "my-function",
- *   "Qualifier": "BLUE"
- * };
- * const command = new GetProvisionedConcurrencyConfigCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AllocatedProvisionedConcurrentExecutions": 100,
- *   "AvailableProvisionedConcurrentExecutions": 100,
- *   "LastModified": "2019-12-31T20:28:49+0000",
- *   "RequestedProvisionedConcurrentExecutions": 100,
- *   "Status": "READY"
- * }
- * *\/
- * // example id: to-get-a-provisioned-concurrency-configuration-1586490192690
- * ```
- *
  * @example To view a provisioned concurrency configuration
  * ```javascript
  * // The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.
@@ -122,6 +101,27 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * }
  * *\/
  * // example id: to-view-a-provisioned-concurrency-configuration-1586490192690
+ * ```
+ *
+ * @example To get a provisioned concurrency configuration
+ * ```javascript
+ * // The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.
+ * const input = {
+ *   "FunctionName": "my-function",
+ *   "Qualifier": "BLUE"
+ * };
+ * const command = new GetProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AllocatedProvisionedConcurrentExecutions": 100,
+ *   "AvailableProvisionedConcurrentExecutions": 100,
+ *   "LastModified": "2019-12-31T20:28:49+0000",
+ *   "RequestedProvisionedConcurrentExecutions": 100,
+ *   "Status": "READY"
+ * }
+ * *\/
+ * // example id: to-get-a-provisioned-concurrency-configuration-1586490192690
  * ```
  *
  */
