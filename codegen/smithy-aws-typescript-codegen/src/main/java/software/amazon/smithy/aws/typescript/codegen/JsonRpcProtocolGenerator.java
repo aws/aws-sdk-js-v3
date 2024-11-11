@@ -144,6 +144,11 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
                     // AWS JSON RPC protocols use a combination of the service and operation shape names,
                     // separated by a '.' character, for the target header.
                     writer.write("'x-amz-target': `$L`,", targetHeader);
+                    if (serviceShape.hasTrait(AwsQueryCompatibleTrait.class)) {
+                        writer.write("""
+                            "x-amzn-query-mode": "true",
+                        """);
+                    }
                 }
         );
     }

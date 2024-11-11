@@ -2087,6 +2087,7 @@ function sharedHeaders(operation: string): __HeaderBag {
   return {
     "content-type": "application/x-amz-json-1.0",
     "x-amz-target": `AmazonSQS.${operation}`,
+    "x-amzn-query-mode": "true",
   };
 }
 
