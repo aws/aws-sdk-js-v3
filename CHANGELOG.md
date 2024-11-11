@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.689.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.688.0...v3.689.0) (2024-11-11)
+
+
+### Features
+
+* **client-cloudfront:** No API changes from previous release. This release migrated the model to Smithy keeping all features unchanged. ([5eded70](https://github.com/aws/aws-sdk-js-v3/commit/5eded7001123769dc5dd6d6d89b101fc778182d5))
+* **client-inspector2:** Adds support for filePath filter. ([a0e7fd5](https://github.com/aws/aws-sdk-js-v3/commit/a0e7fd5146c5b694c4406a19de6e1a2d7d4d6074))
+* **client-lambda:** Add Python 3.13 (python3.13) support to AWS Lambda ([e88b05c](https://github.com/aws/aws-sdk-js-v3/commit/e88b05c55fb46805d796ef060d249b33533d06c7))
+* **client-opensearch:** Adds Support for new AssociatePackages and DissociatePackages API in Amazon OpenSearch Service that allows association and dissociation operations to be carried out on multiple packages at the same time. ([aad1fc8](https://github.com/aws/aws-sdk-js-v3/commit/aad1fc8654154b07f4fc86739e0bdf13d46789f0))
+* **client-outposts:** This release updates StartCapacityTask to allow an active Outpost to be modified. It also adds a new API to list all running EC2 instances on the Outpost. ([c02da55](https://github.com/aws/aws-sdk-js-v3/commit/c02da554c516e74171b5270d66563e519f02c7a8))
+* **clients:** update client endpoints as of 2024-11-11 ([955880d](https://github.com/aws/aws-sdk-js-v3/commit/955880d13e06d1708c430f483d41ee315772e297))
+* **codegen:** send x-amzn-query-mode header ([#6651](https://github.com/aws/aws-sdk-js-v3/issues/6651)) ([925e731](https://github.com/aws/aws-sdk-js-v3/commit/925e731008b370dfaefb4b006d348629b2b3a16c))
+* **lib-dynamodb:** add support for imprecise numbers and custom number retrieval ([#6644](https://github.com/aws/aws-sdk-js-v3/issues/6644)) ([4e2f525](https://github.com/aws/aws-sdk-js-v3/commit/4e2f525103f82c220f0568ecf8e317f6ba86bc58))
+
+
+
+
+
 # [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
 
 

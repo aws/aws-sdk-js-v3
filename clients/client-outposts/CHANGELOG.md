@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.689.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.688.0...v3.689.0) (2024-11-11)
+
+
+### Features
+
+* **client-outposts:** This release updates StartCapacityTask to allow an active Outpost to be modified. It also adds a new API to list all running EC2 instances on the Outpost. ([c02da55](https://github.com/aws/aws-sdk-js-v3/commit/c02da554c516e74171b5270d66563e519f02c7a8))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

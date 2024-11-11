@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.689.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.688.0...v3.689.0) (2024-11-11)
+
+
+### Features
+
+* **lib-dynamodb:** add support for imprecise numbers and custom number retrieval ([#6644](https://github.com/aws/aws-sdk-js-v3/issues/6644)) ([4e2f525](https://github.com/aws/aws-sdk-js-v3/commit/4e2f525103f82c220f0568ecf8e317f6ba86bc58))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/util-dynamodb

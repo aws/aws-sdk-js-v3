@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.689.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.688.0...v3.689.0) (2024-11-11)
+
+
+### Features
+
+* **codegen:** send x-amzn-query-mode header ([#6651](https://github.com/aws/aws-sdk-js-v3/issues/6651)) ([925e731](https://github.com/aws/aws-sdk-js-v3/commit/925e731008b370dfaefb4b006d348629b2b3a16c))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-sqs
