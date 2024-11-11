@@ -28,6 +28,14 @@ export interface marshallOptions {
    * but false if directly using the marshall function (backwards compatibility).
    */
   convertTopLevelContainer?: boolean;
+  /**
+   * Whether to allow numbers beyond Number.MAX_SAFE_INTEGER during marshalling.
+   * When set to true, allows numbers that may lose precision when converted to JavaScript numbers.
+   * When false (default), throws an error if a number exceeds Number.MAX_SAFE_INTEGER to prevent
+   * unintended loss of precision. Consider using the NumberValue type from @aws-sdk/lib-dynamodb
+   * for precise handling of large numbers.
+   */
+  allowImpreciseNumbers?: boolean;
 }
 
 /**

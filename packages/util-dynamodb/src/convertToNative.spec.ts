@@ -92,6 +92,17 @@ describe("convertToNative", () => {
         }).toThrowError(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
       });
     });
+
+    it("handles custom wrapNumbers function", () => {
+      expect(
+        convertToNative(
+          { N: "124" },
+          {
+            wrapNumbers: (str: string) => Number(str) / 2,
+          }
+        )
+      ).toEqual(62);
+    });
   });
 
   describe("binary", () => {

@@ -2,17 +2,21 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToNative } from "./convertToNative";
 import { NativeAttributeValue } from "./models";
+import { NumberValue } from "./NumberValue";
 
 /**
  * An optional configuration object for `convertToNative`
  */
 export interface unmarshallOptions {
   /**
-   * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
+   * Whether to modify how numbers are unmarshalled from DynamoDB.
+   * When set to true, returns numbers as NumberValue instances instead of native JavaScript numbers.
    * This allows for the safe round-trip transport of numbers of arbitrary size.
+   *
+   * If a function is provided, it will be called with the string representation of numbers to handle
+   * custom conversions (e.g., using BigInt or decimal libraries).
    */
-  wrapNumbers?: boolean;
-
+  wrapNumbers?: boolean | ((value: string) => number | bigint | NumberValue | any);
   /**
    * When true, skip wrapping the data in `{ M: data }` before converting.
    *
