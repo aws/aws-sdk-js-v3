@@ -11,7 +11,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, RequestChecksumCalculation } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
@@ -74,6 +74,12 @@ export const flexibleChecksumsMiddleware =
     const { base64Encoder, streamHasher } = config;
     const requestChecksumCalculation = await config.requestChecksumCalculation();
     const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
+
+    if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_REQUIRED) {
+      setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_REQUIRED", "a");
+    } else {
+      setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_SUPPORTED", "Z");
+    }
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(
       input,

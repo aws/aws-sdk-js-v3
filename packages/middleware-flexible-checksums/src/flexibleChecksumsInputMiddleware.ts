@@ -1,3 +1,4 @@
+import { setFeature } from "@aws-sdk/core";
 import {
   HandlerExecutionContext,
   MetadataBearer,
@@ -48,6 +49,12 @@ export const flexibleChecksumsInputMiddleware =
     const input = args.input;
     const { requestValidationModeMember } = middlewareConfig;
     const responseChecksumValidation = await config.responseChecksumValidation();
+
+    if (responseChecksumValidation === ResponseChecksumValidation.WHEN_REQUIRED) {
+      setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED", "c");
+    } else {
+      setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_SUPPORTED", "b");
+    }
 
     if (requestValidationModeMember && responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED) {
       input[requestValidationModeMember] = "ENABLED";

@@ -1,3 +1,4 @@
+import { setFeature } from "@aws-sdk/core";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
@@ -13,6 +14,7 @@ import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
 
+vi.mock("@aws-sdk/core");
 vi.mock("@smithy/protocol-http");
 vi.mock("./getChecksumAlgorithmForRequest");
 vi.mock("./getChecksumLocationName");
@@ -169,6 +171,20 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeaders);
       expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, mockRequest.body);
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
+    });
+  });
+
+  describe("set feature", () => {
+    it.each([
+      ["FLEXIBLE_CHECKSUMS_REQ_WHEN_REQUIRED", "a", RequestChecksumCalculation.WHEN_REQUIRED],
+      ["FLEXIBLE_CHECKSUMS_REQ_WHEN_SUPPORTED", "Z", RequestChecksumCalculation.WHEN_SUPPORTED],
+    ])("logs %s and %s when RequestChecksumCalculation=%s", async (feature, value, requestChecksumCalculation) => {
+      const mockConfig = {
+        requestChecksumCalculation: () => Promise.resolve(requestChecksumCalculation),
+      } as PreviouslyResolved;
+      const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
+      await handler(mockArgs);
+      expect(setFeature).toHaveBeenCalledWith(expect.anything(), feature, value);
     });
   });
 });
