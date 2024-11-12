@@ -178,7 +178,7 @@ export interface UpdateAccessKeyRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The access key ID of the secret access key you want to update.</p>
@@ -207,7 +207,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             value of <code>6</code>.</p>
    * @public
    */
-  MinimumPasswordLength?: number;
+  MinimumPasswordLength?: number | undefined;
 
   /**
    * <p>Specifies whether IAM user passwords must contain at least one of the following
@@ -218,7 +218,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             symbol character.</p>
    * @public
    */
-  RequireSymbols?: boolean;
+  RequireSymbols?: boolean | undefined;
 
   /**
    * <p>Specifies whether IAM user passwords must contain at least one numeric character (0
@@ -228,7 +228,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             numeric character.</p>
    * @public
    */
-  RequireNumbers?: boolean;
+  RequireNumbers?: boolean | undefined;
 
   /**
    * <p>Specifies whether IAM user passwords must contain at least one uppercase character
@@ -238,7 +238,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             uppercase character.</p>
    * @public
    */
-  RequireUppercaseCharacters?: boolean;
+  RequireUppercaseCharacters?: boolean | undefined;
 
   /**
    * <p>Specifies whether IAM user passwords must contain at least one lowercase character
@@ -248,7 +248,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             lowercase character.</p>
    * @public
    */
-  RequireLowercaseCharacters?: boolean;
+  RequireLowercaseCharacters?: boolean | undefined;
 
   /**
    * <p> Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own
@@ -260,7 +260,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             automatically have permissions to change their own password.</p>
    * @public
    */
-  AllowUsersToChangePassword?: boolean;
+  AllowUsersToChangePassword?: boolean | undefined;
 
   /**
    * <p>The number of days that an IAM user password is valid.</p>
@@ -268,7 +268,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             value of <code>0</code>. The result is that IAM user passwords never expire.</p>
    * @public
    */
-  MaxPasswordAge?: number;
+  MaxPasswordAge?: number | undefined;
 
   /**
    * <p>Specifies the number of previous passwords that IAM users are prevented from
@@ -278,7 +278,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *             previous passwords.</p>
    * @public
    */
-  PasswordReusePrevention?: number;
+  PasswordReusePrevention?: number | undefined;
 
   /**
    * <p> Prevents IAM users who are accessing the account via the Amazon Web Services Management Console from setting a
@@ -299,7 +299,7 @@ export interface UpdateAccountPasswordPolicyRequest {
    *          </note>
    * @public
    */
-  HardExpiry?: boolean;
+  HardExpiry?: boolean | undefined;
 }
 
 /**
@@ -361,7 +361,7 @@ export interface UpdateGroupRequest {
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    * @public
    */
-  NewPath?: string;
+  NewPath?: string | undefined;
 
   /**
    * <p>New name for the IAM group. Only include this if changing the group's name.</p>
@@ -370,7 +370,7 @@ export interface UpdateGroupRequest {
    *             "MyResource" and "myresource".</p>
    * @public
    */
-  NewGroupName?: string;
+  NewGroupName?: string | undefined;
 }
 
 /**
@@ -407,14 +407,14 @@ export interface UpdateLoginProfileRequest {
    *             a password policy on the Amazon Web Services account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Allows this new password to be used only once by requiring the specified IAM user to
    *             set a new password on next sign-in.</p>
    * @public
    */
-  PasswordResetRequired?: boolean;
+  PasswordResetRequired?: boolean | undefined;
 }
 
 /**
@@ -452,7 +452,7 @@ export interface UpdateRoleRequest {
    * <p>The new description that you want to apply to the specified role.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.
@@ -474,7 +474,7 @@ export interface UpdateRoleRequest {
    *          </note>
    * @public
    */
-  MaxSessionDuration?: number;
+  MaxSessionDuration?: number | undefined;
 }
 
 /**
@@ -507,7 +507,7 @@ export interface UpdateRoleDescriptionResponse {
    * <p>A structure that contains details about the modified role.</p>
    * @public
    */
-  Role?: Role;
+  Role?: Role | undefined;
 }
 
 /**
@@ -542,7 +542,7 @@ export interface UpdateSAMLProviderResponse {
    * <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
    * @public
    */
-  SAMLProviderArn?: string;
+  SAMLProviderArn?: string | undefined;
 }
 
 /**
@@ -566,7 +566,7 @@ export interface UpdateServerCertificateRequest {
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    * @public
    */
-  NewPath?: string;
+  NewPath?: string | undefined;
 
   /**
    * <p>The new name for the server certificate. Include this only if you are updating the
@@ -575,7 +575,7 @@ export interface UpdateServerCertificateRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    * @public
    */
-  NewServerCertificateName?: string;
+  NewServerCertificateName?: string | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface UpdateServiceSpecificCredentialRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The unique identifier of the service-specific credential.</p>
@@ -617,7 +617,7 @@ export interface UpdateSigningCertificateRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The ID of the signing certificate you want to update.</p>
@@ -687,7 +687,7 @@ export interface UpdateUserRequest {
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    * @public
    */
-  NewPath?: string;
+  NewPath?: string | undefined;
 
   /**
    * <p>New name for the user. Include this parameter only if you're changing the user's
@@ -697,7 +697,7 @@ export interface UpdateUserRequest {
    *             "MyResource" and "myresource".</p>
    * @public
    */
-  NewUserName?: string;
+  NewUserName?: string | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface UploadServerCertificateRequest {
    *          </note>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The name for the server certificate. Do not include the path in this value. The name
@@ -838,7 +838,7 @@ export interface UploadServerCertificateRequest {
    *          </ul>
    * @public
    */
-  CertificateChain?: string;
+  CertificateChain?: string | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the new IAM server certificate resource.
@@ -850,7 +850,7 @@ export interface UploadServerCertificateRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -864,7 +864,7 @@ export interface UploadServerCertificateResponse {
    *             certificate chain, and private key.</p>
    * @public
    */
-  ServerCertificateMetadata?: ServerCertificateMetadata;
+  ServerCertificateMetadata?: ServerCertificateMetadata | undefined;
 
   /**
    * <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key.
@@ -872,7 +872,7 @@ export interface UploadServerCertificateResponse {
    *       <i>IAM User Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -926,7 +926,7 @@ export interface UploadSigningCertificateRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The contents of the signing certificate.</p>
@@ -1052,7 +1052,7 @@ export interface UploadSSHPublicKeyResponse {
    * <p>Contains information about the SSH public key.</p>
    * @public
    */
-  SSHPublicKey?: SSHPublicKey;
+  SSHPublicKey?: SSHPublicKey | undefined;
 }
 
 /**

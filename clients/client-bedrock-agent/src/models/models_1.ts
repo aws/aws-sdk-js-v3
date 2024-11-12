@@ -44,13 +44,13 @@ export interface ListAgentKnowledgeBasesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -67,7 +67,7 @@ export interface ListAgentKnowledgeBasesResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -78,13 +78,13 @@ export interface ListKnowledgeBasesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -108,7 +108,7 @@ export interface KnowledgeBaseSummary {
    * <p>The description of the knowledge base.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the knowledge base.</p>
@@ -137,7 +137,7 @@ export interface ListKnowledgeBasesResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -166,13 +166,13 @@ export interface UpdateAgentKnowledgeBaseRequest {
    * <p>Specifies a new description for the knowledge base associated with an agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
-  knowledgeBaseState?: KnowledgeBaseState;
+  knowledgeBaseState?: KnowledgeBaseState | undefined;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface UpdateKnowledgeBaseRequest {
    * <p>Specifies a new description for the knowledge base.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
@@ -333,31 +333,31 @@ export interface PromptVariant {
    * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> with which to run inference on the prompt.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>Contains inference configurations for the prompt variant.</p>
    * @public
    */
-  inferenceConfiguration?: PromptInferenceConfiguration;
+  inferenceConfiguration?: PromptInferenceConfiguration | undefined;
 
   /**
    * <p>An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.</p>
    * @public
    */
-  metadata?: PromptMetadataEntry[];
+  metadata?: PromptMetadataEntry[] | undefined;
 
   /**
    * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
    * @public
    */
-  additionalModelRequestFields?: __DocumentType;
+  additionalModelRequestFields?: __DocumentType | undefined;
 
   /**
    * <p>Specifies a generative AI resource with which to use the prompt.</p>
    * @public
    */
-  genAiResource?: PromptGenAiResource;
+  genAiResource?: PromptGenAiResource | undefined;
 }
 
 /**
@@ -374,38 +374,38 @@ export interface CreatePromptRequest {
    * <p>A description for the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Any tags that you want to attach to the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -422,25 +422,25 @@ export interface CreatePromptResponse {
    * <p>The description of the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for your prompt.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -487,20 +487,20 @@ export interface CreatePromptVersionRequest {
    * <p>A description for the version of the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Any tags that you want to attach to the version of the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -517,25 +517,25 @@ export interface CreatePromptVersionResponse {
    * <p>A description for the version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the version of the prompt.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -582,7 +582,7 @@ export interface DeletePromptRequest {
    * <p>The version of the prompt to delete. To delete the prompt, omit this field.</p>
    * @public
    */
-  promptVersion?: string;
+  promptVersion?: string | undefined;
 }
 
 /**
@@ -599,7 +599,7 @@ export interface DeletePromptResponse {
    * <p>The version of the prompt that was deleted.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface GetPromptRequest {
    * <p>The version of the prompt about which you want to retrieve information. Omit this field to return information about the working draft of the prompt.</p>
    * @public
    */
-  promptVersion?: string;
+  promptVersion?: string | undefined;
 }
 
 /**
@@ -633,25 +633,25 @@ export interface GetPromptResponse {
    * <p>The descriptino of the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that the prompt is encrypted with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -692,19 +692,19 @@ export interface ListPromptsRequest {
    * <p>The unique identifier of the prompt for whose versions you want to return information. Omit this field to list information about all prompts in an account.</p>
    * @public
    */
-  promptIdentifier?: string;
+  promptIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -730,7 +730,7 @@ export interface PromptSummary {
    * <p>The description of the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -777,7 +777,7 @@ export interface ListPromptsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -794,25 +794,25 @@ export interface UpdatePromptRequest {
    * <p>A description for the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -835,25 +835,25 @@ export interface UpdatePromptResponse {
    * <p>The description of the prompt.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
    * @public
    */
-  defaultVariant?: string;
+  defaultVariant?: string | undefined;
 
   /**
    * <p>A list of objects, each containing details about a variant of the prompt.</p>
    * @public
    */
-  variants?: PromptVariant[];
+  variants?: PromptVariant[] | undefined;
 
   /**
    * <p>The unique identifier of the prompt.</p>
@@ -905,7 +905,7 @@ export interface ListTagsForResourceResponse {
    * <p>The key-value pairs for the tags associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -994,7 +994,7 @@ export interface DeleteAgentVersionRequest {
    * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -1062,13 +1062,13 @@ export interface ListAgentVersionsRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1085,7 +1085,7 @@ export interface ListAgentVersionsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**

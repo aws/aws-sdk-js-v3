@@ -40,13 +40,13 @@ export interface MatchedUser {
    * <p>A provided ID for the UserID. Unique within the collection.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The status of the user matched to a provided FaceID.</p>
    * @public
    */
-  UserStatus?: UserStatus;
+  UserStatus?: UserStatus | undefined;
 }
 
 /**
@@ -91,7 +91,7 @@ export interface PutProjectPolicyRequest {
    *          policy.</p>
    * @public
    */
-  PolicyRevisionId?: string;
+  PolicyRevisionId?: string | undefined;
 
   /**
    * <p>A resource policy to add to the model. The policy is a JSON structure that contains
@@ -112,7 +112,7 @@ export interface PutProjectPolicyResponse {
    * <p>The ID of the project policy.</p>
    * @public
    */
-  PolicyRevisionId?: string;
+  PolicyRevisionId?: string | undefined;
 }
 
 /**
@@ -143,13 +143,13 @@ export interface RecognizeCelebritiesResponse {
    *       <code>Urls</code>.</p>
    * @public
    */
-  CelebrityFaces?: Celebrity[];
+  CelebrityFaces?: Celebrity[] | undefined;
 
   /**
    * <p>Details about each unrecognized face in the image.</p>
    * @public
    */
-  UnrecognizedFaces?: ComparedFace[];
+  UnrecognizedFaces?: ComparedFace[] | undefined;
 
   /**
    * <note>
@@ -171,7 +171,7 @@ export interface RecognizeCelebritiesResponse {
    *          </note>
    * @public
    */
-  OrientationCorrection?: OrientationCorrection;
+  OrientationCorrection?: OrientationCorrection | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface SearchFacesRequest {
    *       with the highest confidence in the match.</p>
    * @public
    */
-  MaxFaces?: number;
+  MaxFaces?: number | undefined;
 
   /**
    * <p>Optional value specifying the minimum confidence in the face match to return. For
@@ -203,7 +203,7 @@ export interface SearchFacesRequest {
    *       value is 80%. </p>
    * @public
    */
-  FaceMatchThreshold?: number;
+  FaceMatchThreshold?: number | undefined;
 }
 
 /**
@@ -214,21 +214,21 @@ export interface SearchFacesResponse {
    * <p>ID of the face that was searched for matches in a collection.</p>
    * @public
    */
-  SearchedFaceId?: string;
+  SearchedFaceId?: string | undefined;
 
   /**
    * <p>An array of faces that matched the input face, along with the confidence in the
    *       match.</p>
    * @public
    */
-  FaceMatches?: FaceMatch[];
+  FaceMatches?: FaceMatch[] | undefined;
 
   /**
    * <p>Version number of the face detection model associated with the input collection
    *         (<code>CollectionId</code>).</p>
    * @public
    */
-  FaceModelVersion?: string;
+  FaceModelVersion?: string | undefined;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface SearchFacesByImageRequest {
    *       with the highest confidence in the match.</p>
    * @public
    */
-  MaxFaces?: number;
+  MaxFaces?: number | undefined;
 
   /**
    * <p>(Optional) Specifies the minimum confidence in the face match to return. For example,
@@ -264,7 +264,7 @@ export interface SearchFacesByImageRequest {
    *       80%.</p>
    * @public
    */
-  FaceMatchThreshold?: number;
+  FaceMatchThreshold?: number | undefined;
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
@@ -280,7 +280,7 @@ export interface SearchFacesByImageRequest {
    *       of the face model or higher.</p>
    * @public
    */
-  QualityFilter?: QualityFilter;
+  QualityFilter?: QualityFilter | undefined;
 }
 
 /**
@@ -292,28 +292,28 @@ export interface SearchFacesByImageResponse {
    *       search.</p>
    * @public
    */
-  SearchedFaceBoundingBox?: BoundingBox;
+  SearchedFaceBoundingBox?: BoundingBox | undefined;
 
   /**
    * <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a
    *       face.</p>
    * @public
    */
-  SearchedFaceConfidence?: number;
+  SearchedFaceConfidence?: number | undefined;
 
   /**
    * <p>An array of faces that match the input face, along with the confidence in the
    *       match.</p>
    * @public
    */
-  FaceMatches?: FaceMatch[];
+  FaceMatches?: FaceMatch[] | undefined;
 
   /**
    * <p>Version number of the face detection model associated with the input collection
    *         (<code>CollectionId</code>).</p>
    * @public
    */
-  FaceModelVersion?: string;
+  FaceModelVersion?: string | undefined;
 }
 
 /**
@@ -331,26 +331,26 @@ export interface SearchUsersRequest {
    * <p>ID for the existing User.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>ID for the existing face.</p>
    * @public
    */
-  FaceId?: string;
+  FaceId?: string | undefined;
 
   /**
    * <p>Optional value that specifies the minimum confidence in the matched UserID to return.
    *       Default value of 80.</p>
    * @public
    */
-  UserMatchThreshold?: number;
+  UserMatchThreshold?: number | undefined;
 
   /**
    * <p>Maximum number of identities to return.</p>
    * @public
    */
-  MaxUsers?: number;
+  MaxUsers?: number | undefined;
 }
 
 /**
@@ -363,7 +363,7 @@ export interface SearchedFace {
    * <p> Unique identifier assigned to the face.</p>
    * @public
    */
-  FaceId?: string;
+  FaceId?: string | undefined;
 }
 
 /**
@@ -375,7 +375,7 @@ export interface SearchedUser {
    * <p> A provided ID for the UserID. Unique within the collection. </p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 }
 
 /**
@@ -388,13 +388,13 @@ export interface UserMatch {
    * <p> Describes the UserID metadata.</p>
    * @public
    */
-  Similarity?: number;
+  Similarity?: number | undefined;
 
   /**
    * <p> Confidence in the match of this UserID with the input face. </p>
    * @public
    */
-  User?: MatchedUser;
+  User?: MatchedUser | undefined;
 }
 
 /**
@@ -406,25 +406,25 @@ export interface SearchUsersResponse {
    *       match. Array will be empty if there are no matches.</p>
    * @public
    */
-  UserMatches?: UserMatch[];
+  UserMatches?: UserMatch[] | undefined;
 
   /**
    * <p>Version number of the face detection model associated with the input CollectionId.</p>
    * @public
    */
-  FaceModelVersion?: string;
+  FaceModelVersion?: string | undefined;
 
   /**
    * <p>Contains the ID of a face that was used to search for matches in a collection.</p>
    * @public
    */
-  SearchedFace?: SearchedFace;
+  SearchedFace?: SearchedFace | undefined;
 
   /**
    * <p>Contains the ID of the UserID that was used to search for matches in a collection.</p>
    * @public
    */
-  SearchedUser?: SearchedUser;
+  SearchedUser?: SearchedUser | undefined;
 }
 
 /**
@@ -466,20 +466,20 @@ export interface SearchUsersByImageRequest {
    *       80.</p>
    * @public
    */
-  UserMatchThreshold?: number;
+  UserMatchThreshold?: number | undefined;
 
   /**
    * <p>Maximum number of UserIDs to return.</p>
    * @public
    */
-  MaxUsers?: number;
+  MaxUsers?: number | undefined;
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
    *       Filtered faces aren't searched for in the collection. The default value is NONE.</p>
    * @public
    */
-  QualityFilter?: QualityFilter;
+  QualityFilter?: QualityFilter | undefined;
 }
 
 /**
@@ -516,7 +516,7 @@ export interface SearchedFaceDetails {
    *         <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
    * @public
    */
-  FaceDetail?: FaceDetail;
+  FaceDetail?: FaceDetail | undefined;
 }
 
 /**
@@ -574,13 +574,13 @@ export interface UnsearchedFace {
    *         <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
    * @public
    */
-  FaceDetails?: FaceDetail;
+  FaceDetails?: FaceDetail | undefined;
 
   /**
    * <p> Reasons why a face wasn't used for Search. </p>
    * @public
    */
-  Reasons?: UnsearchedFaceReason[];
+  Reasons?: UnsearchedFaceReason[] | undefined;
 }
 
 /**
@@ -593,14 +593,14 @@ export interface SearchUsersByImageResponse {
    *       SearchUsersByImageResponse action is successful.</p>
    * @public
    */
-  UserMatches?: UserMatch[];
+  UserMatches?: UserMatch[] | undefined;
 
   /**
    * <p>Version number of the face detection model associated with the input collection
    *       CollectionId.</p>
    * @public
    */
-  FaceModelVersion?: string;
+  FaceModelVersion?: string | undefined;
 
   /**
    * <p>A list of FaceDetail objects containing the BoundingBox for the largest face in image, as
@@ -608,7 +608,7 @@ export interface SearchUsersByImageResponse {
    *       detected in the image the response will contain no SearchedFace object.</p>
    * @public
    */
-  SearchedFace?: SearchedFaceDetails;
+  SearchedFace?: SearchedFaceDetails | undefined;
 
   /**
    * <p>List of UnsearchedFace objects. Contains the face details infered from the specified image
@@ -616,7 +616,7 @@ export interface SearchUsersByImageResponse {
    *     </p>
    * @public
    */
-  UnsearchedFaces?: UnsearchedFace[];
+  UnsearchedFaces?: UnsearchedFace[] | undefined;
 }
 
 /**
@@ -636,21 +636,21 @@ export interface StartCelebrityRecognitionRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
    *       celebrity recognition analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 }
 
 /**
@@ -662,7 +662,7 @@ export interface StartCelebrityRecognitionResponse {
    *       a subsequent call to <code>GetCelebrityRecognition</code>.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -673,13 +673,13 @@ export interface StartCelebrityRecognitionResponse {
 export class VideoTooLargeException extends __BaseException {
   readonly name: "VideoTooLargeException" = "VideoTooLargeException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    * @public
    */
-  Logref?: string;
+  Logref?: string | undefined;
   /**
    * @internal
    */
@@ -715,7 +715,7 @@ export interface StartContentModerationRequest {
    *        returns labels with confidence values greater than or equal to 50 percent.</p>
    * @public
    */
-  MinConfidence?: number;
+  MinConfidence?: number | undefined;
 
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
@@ -723,21 +723,21 @@ export interface StartContentModerationRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
    *       content analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 }
 
 /**
@@ -749,7 +749,7 @@ export interface StartContentModerationResponse {
    *       a subsequent call to <code>GetContentModeration</code>.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -769,14 +769,14 @@ export interface StartFaceDetectionRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
    *          face detection operation. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>The face attributes you want returned.</p>
@@ -786,14 +786,14 @@ export interface StartFaceDetectionRequest {
    *             <code>ALL</code> - All facial attributes are returned.</p>
    * @public
    */
-  FaceAttributes?: FaceAttributes;
+  FaceAttributes?: FaceAttributes | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 }
 
 /**
@@ -805,7 +805,7 @@ export interface StartFaceDetectionResponse {
    *     a subsequent call to <code>GetFaceDetection</code>.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -824,14 +824,14 @@ export interface StartFaceSearchRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
    *       The default value is 80%.</p>
    * @public
    */
-  FaceMatchThreshold?: number;
+  FaceMatchThreshold?: number | undefined;
 
   /**
    * <p>ID of the collection that contains the faces you want to search for.</p>
@@ -843,14 +843,14 @@ export interface StartFaceSearchRequest {
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 }
 
 /**
@@ -861,7 +861,7 @@ export interface StartFaceSearchResponse {
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -881,7 +881,7 @@ export interface StartLabelDetectionRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence
@@ -893,34 +893,34 @@ export interface StartLabelDetectionRequest {
    *       percent.</p>
    * @public
    */
-  MinConfidence?: number;
+  MinConfidence?: number | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection
    *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
    * @public
    */
-  Features?: LabelDetectionFeatureName[];
+  Features?: LabelDetectionFeatureName[] | undefined;
 
   /**
    * <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation.
    *       Settings can include filters for GENERAL_LABELS.</p>
    * @public
    */
-  Settings?: LabelDetectionSettings;
+  Settings?: LabelDetectionSettings | undefined;
 }
 
 /**
@@ -932,7 +932,7 @@ export interface StartLabelDetectionResponse {
    *     a subsequent call to <code>GetLabelDetection</code>. </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -946,13 +946,13 @@ export interface StartMediaAnalysisJobRequest {
    *             processed more than once.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The name of the job. Does not have to be unique.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>Configuration options for the media analysis job to be created.</p>
@@ -978,7 +978,7 @@ export interface StartMediaAnalysisJobRequest {
    *         to encrypt results and manifest files written to the output Amazon S3 bucket.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -1009,21 +1009,21 @@ export interface StartPersonTrackingRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection
    *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface StartPersonTrackingResponse {
    *     a subsequent call to <code>GetPersonTracking</code>.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -1063,7 +1063,7 @@ export interface StartProjectVersionRequest {
    *          specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>
    * @public
    */
-  MaxInferenceUnits?: number;
+  MaxInferenceUnits?: number | undefined;
 }
 
 /**
@@ -1074,7 +1074,7 @@ export interface StartProjectVersionResponse {
    * <p>The current running status of the model. </p>
    * @public
    */
-  Status?: ProjectVersionStatus;
+  Status?: ProjectVersionStatus | undefined;
 }
 
 /**
@@ -1092,7 +1092,7 @@ export interface StartShotDetectionFilter {
    *         segments with confidence values greater than or equal to 50 percent.</p>
    * @public
    */
-  MinSegmentConfidence?: number;
+  MinSegmentConfidence?: number | undefined;
 }
 
 /**
@@ -1110,7 +1110,7 @@ export interface StartTechnicalCueDetectionFilter {
    *       segments with confidence values greater than or equal to 50 percent.</p>
    * @public
    */
-  MinSegmentConfidence?: number;
+  MinSegmentConfidence?: number | undefined;
 
   /**
    * <p>
@@ -1119,7 +1119,7 @@ export interface StartTechnicalCueDetectionFilter {
    *     </p>
    * @public
    */
-  BlackFrame?: BlackFrame;
+  BlackFrame?: BlackFrame | undefined;
 }
 
 /**
@@ -1133,13 +1133,13 @@ export interface StartSegmentDetectionFilters {
    * <p>Filters that are specific to technical cues.</p>
    * @public
    */
-  TechnicalCueFilter?: StartTechnicalCueDetectionFilter;
+  TechnicalCueFilter?: StartTechnicalCueDetectionFilter | undefined;
 
   /**
    * <p>Filters that are specific to shot detections.</p>
    * @public
    */
-  ShotFilter?: StartShotDetectionFilter;
+  ShotFilter?: StartShotDetectionFilter | undefined;
 }
 
 /**
@@ -1159,27 +1159,27 @@ export interface StartSegmentDetectionRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
    *       segment detection operation. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>Filters for technical cue or shot detection.</p>
    * @public
    */
-  Filters?: StartSegmentDetectionFilters;
+  Filters?: StartSegmentDetectionFilters | undefined;
 
   /**
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
@@ -1197,7 +1197,7 @@ export interface StartSegmentDetectionResponse {
    *     </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -1212,7 +1212,7 @@ export interface StreamProcessingStartSelector {
    *         </p>
    * @public
    */
-  KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
+  KVSStreamStartSelector?: KinesisVideoStreamStartSelector | undefined;
 }
 
 /**
@@ -1229,7 +1229,7 @@ export interface StreamProcessingStopSelector {
    *         </p>
    * @public
    */
-  MaxDurationInSeconds?: number;
+  MaxDurationInSeconds?: number | undefined;
 }
 
 /**
@@ -1251,7 +1251,7 @@ export interface StartStreamProcessorRequest {
    *          <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
    * @public
    */
-  StartSelector?: StreamProcessingStartSelector;
+  StartSelector?: StreamProcessingStartSelector | undefined;
 
   /**
    * <p>
@@ -1261,7 +1261,7 @@ export interface StartStreamProcessorRequest {
    *          <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
    * @public
    */
-  StopSelector?: StreamProcessingStopSelector;
+  StopSelector?: StreamProcessingStopSelector | undefined;
 }
 
 /**
@@ -1274,7 +1274,7 @@ export interface StartStreamProcessorResponse {
    *         </p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 }
 
 /**
@@ -1288,14 +1288,14 @@ export interface StartTextDetectionFilters {
    * <p>Filters focusing on qualities of the text, such as confidence or size.</p>
    * @public
    */
-  WordFilter?: DetectionFilter;
+  WordFilter?: DetectionFilter | undefined;
 
   /**
    * <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region
    *       of the screen.</p>
    * @public
    */
-  RegionsOfInterest?: RegionOfInterest[];
+  RegionsOfInterest?: RegionOfInterest[] | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface StartTextDetectionRequest {
    *         from being accidentaly started more than once.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
@@ -1323,20 +1323,20 @@ export interface StartTextDetectionRequest {
    *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
    * @public
    */
-  NotificationChannel?: NotificationChannel;
+  NotificationChannel?: NotificationChannel | undefined;
 
   /**
    * <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic.  For example, you can use <code>JobTag</code> to group related jobs
    *       and identify them in the completion notification.</p>
    * @public
    */
-  JobTag?: string;
+  JobTag?: string | undefined;
 
   /**
    * <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
    * @public
    */
-  Filters?: StartTextDetectionFilters;
+  Filters?: StartTextDetectionFilters | undefined;
 }
 
 /**
@@ -1347,7 +1347,7 @@ export interface StartTextDetectionResponse {
    * <p>Identifier for the text detection job.  Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -1370,7 +1370,7 @@ export interface StopProjectVersionResponse {
    * <p>The current status of the stop operation. </p>
    * @public
    */
-  Status?: ProjectVersionStatus;
+  Status?: ProjectVersionStatus | undefined;
 }
 
 /**
@@ -1489,7 +1489,7 @@ export interface StreamProcessorSettingsForUpdate {
    *         </p>
    * @public
    */
-  ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
+  ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate | undefined;
 }
 
 /**
@@ -1510,7 +1510,7 @@ export interface UpdateStreamProcessorRequest {
    *         </p>
    * @public
    */
-  SettingsForUpdate?: StreamProcessorSettingsForUpdate;
+  SettingsForUpdate?: StreamProcessorSettingsForUpdate | undefined;
 
   /**
    * <p>
@@ -1518,7 +1518,7 @@ export interface UpdateStreamProcessorRequest {
    *         </p>
    * @public
    */
-  RegionsOfInterestForUpdate?: RegionOfInterest[];
+  RegionsOfInterestForUpdate?: RegionOfInterest[] | undefined;
 
   /**
    * <p>
@@ -1527,7 +1527,7 @@ export interface UpdateStreamProcessorRequest {
    *         </p>
    * @public
    */
-  DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
+  DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference | undefined;
 
   /**
    * <p>
@@ -1535,7 +1535,7 @@ export interface UpdateStreamProcessorRequest {
    *         </p>
    * @public
    */
-  ParametersToDelete?: StreamProcessorParameterToDelete[];
+  ParametersToDelete?: StreamProcessorParameterToDelete[] | undefined;
 }
 
 /**

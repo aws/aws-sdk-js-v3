@@ -122,7 +122,7 @@ export interface GetRoutingControlStateResponse {
    * <p>The routing control name.</p>
    * @public
    */
-  RoutingControlName?: string;
+  RoutingControlName?: string | undefined;
 }
 
 /**
@@ -136,7 +136,7 @@ export class InternalServerException extends __BaseException {
    * Advice to clients on when the call can be safely retried
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -197,7 +197,7 @@ export class ThrottlingException extends __BaseException {
    * Advice to clients on when the call can be safely retried
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -258,13 +258,13 @@ export class ValidationException extends __BaseException {
    * Reason the request failed validation
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * The fields that caused the error, if applicable
    * @public
    */
-  fields?: ValidationExceptionField[];
+  fields?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -289,19 +289,19 @@ export interface ListRoutingControlsRequest {
    * <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
    * @public
    */
-  ControlPanelArn?: string;
+  ControlPanelArn?: string | undefined;
 
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of routing controls objects that you want to return with this call. The default value is 500.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -315,39 +315,39 @@ export interface RoutingControl {
    * <p>The Amazon Resource Name (ARN) of the control panel where the routing control is located.</p>
    * @public
    */
-  ControlPanelArn?: string;
+  ControlPanelArn?: string | undefined;
 
   /**
    * <p>The name of the control panel where the routing control is located. Only ASCII characters are supported for control
    * 		panel names.</p>
    * @public
    */
-  ControlPanelName?: string;
+  ControlPanelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    * @public
    */
-  RoutingControlArn?: string;
+  RoutingControlArn?: string | undefined;
 
   /**
    * <p>The name of the routing control.</p>
    * @public
    */
-  RoutingControlName?: string;
+  RoutingControlName?: string | undefined;
 
   /**
    * <p>The current state of the routing control. When a routing control state is set to ON, traffic flows to a cell. When
    * 			the state is set to OFF, traffic does not flow. </p>
    * @public
    */
-  RoutingControlState?: RoutingControlState;
+  RoutingControlState?: RoutingControlState | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the routing control owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -364,7 +364,7 @@ export interface ListRoutingControlsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -378,13 +378,13 @@ export class ServiceLimitExceededException extends __BaseException {
    * <p>The resource identifier of the limit that was exceeded.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type of the limit that was exceeded.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The code of the limit that was exceeded.</p>
@@ -439,7 +439,7 @@ export interface UpdateRoutingControlStateRequest {
    * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    * @public
    */
-  SafetyRulesToOverride?: string[];
+  SafetyRulesToOverride?: string[] | undefined;
 }
 
 /**
@@ -483,7 +483,7 @@ export interface UpdateRoutingControlStatesRequest {
    * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    * @public
    */
-  SafetyRulesToOverride?: string[];
+  SafetyRulesToOverride?: string[] | undefined;
 }
 
 /**

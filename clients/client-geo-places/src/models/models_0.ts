@@ -34,7 +34,7 @@ export interface AccessPoint {
    * <p>The position, in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 }
 
 /**
@@ -58,13 +58,13 @@ export interface Category {
    * <p>Localized name of the category type.</p>
    * @public
    */
-  LocalizedName?: string;
+  LocalizedName?: string | undefined;
 
   /**
    * <p>Boolean which indicates if this category is the primary offered by the place.</p>
    * @public
    */
-  Primary?: boolean;
+  Primary?: boolean | undefined;
 }
 
 /**
@@ -77,13 +77,13 @@ export interface AccessRestriction {
    * <p>The restriction.</p>
    * @public
    */
-  Restricted?: boolean;
+  Restricted?: boolean | undefined;
 
   /**
    * <p>Categories of results that results must belong too.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 }
 
 /**
@@ -95,19 +95,19 @@ export interface Country {
    * <p>Country, represented by its alpha 2-character code. </p>
    * @public
    */
-  Code2?: string;
+  Code2?: string | undefined;
 
   /**
    * <p>Country, represented by its alpha t-character code. </p>
    * @public
    */
-  Code3?: string;
+  Code3?: string | undefined;
 
   /**
    * <p>Name of the country.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -121,14 +121,14 @@ export interface Region {
    *          <p>Example: <code>BC</code>.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>Name for a the state, province, or region of the country. </p>
    *          <p>Example: <code>British Columbia</code>. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -155,26 +155,26 @@ export interface StreetComponents {
    *          <p>Example: Younge from the “Younge street".</p>
    * @public
    */
-  BaseName?: string;
+  BaseName?: string | undefined;
 
   /**
    * <p>Street type part of the street name. </p>
    *          <p>Example: <code>“avenue"</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>Defines if the street type is before or after the base name.</p>
    * @public
    */
-  TypePlacement?: TypePlacement;
+  TypePlacement?: TypePlacement | undefined;
 
   /**
    * <p>What character(s) separates the string from its type. </p>
    * @public
    */
-  TypeSeparator?: string;
+  TypeSeparator?: string | undefined;
 
   /**
    * <p>A prefix is a directional identifier that precedes, but is not included in, the base
@@ -182,7 +182,7 @@ export interface StreetComponents {
    *          <p>Example: E for East.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A suffix is a directional identifier that follows, but is not included in, the base name
@@ -190,19 +190,19 @@ export interface StreetComponents {
    *          <p>Example W for West.</p>
    * @public
    */
-  Suffix?: string;
+  Suffix?: string | undefined;
 
   /**
    * <p>Indicates the official directional identifiers assigned to highways.</p>
    * @public
    */
-  Direction?: string;
+  Direction?: string | undefined;
 
   /**
    * <p>A <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 }
 
 /**
@@ -214,13 +214,13 @@ export interface SubRegion {
    * <p>Abbreviated code for the county or sub-region.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>Name for the county or sub-region.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -233,53 +233,53 @@ export interface Address {
    *          postal rules. This is the correctly formatted address.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The country component of the address.</p>
    * @public
    */
-  Country?: Country;
+  Country?: Country | undefined;
 
   /**
    * <p>The region or state results should be present in. </p>
    *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
-  Region?: Region;
+  Region?: Region | undefined;
 
   /**
    * <p>The sub-region or county for which results should be present in. </p>
    * @public
    */
-  SubRegion?: SubRegion;
+  SubRegion?: SubRegion | undefined;
 
   /**
    * <p>The locality or city of the address.</p>
    *          <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
-  Locality?: string;
+  Locality?: string | undefined;
 
   /**
    * <p>The district or division of a locality associated with this address.</p>
    * @public
    */
-  District?: string;
+  District?: string | undefined;
 
   /**
    * <p>A subdivision of a district. </p>
    *          <p>Example: <code>Minden-Lübbecke</code>.</p>
    * @public
    */
-  SubDistrict?: string;
+  SubDistrict?: string | undefined;
 
   /**
    * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as
    *          post code, postcode, or ZIP code, for which the result should posses. </p>
    * @public
    */
-  PostalCode?: string;
+  PostalCode?: string | undefined;
 
   /**
    * <p>Name of the block. </p>
@@ -287,7 +287,7 @@ export interface Address {
    *          </p>
    * @public
    */
-  Block?: string;
+  Block?: string | undefined;
 
   /**
    * <p>Name of sub-block. </p>
@@ -295,7 +295,7 @@ export interface Address {
    *          </p>
    * @public
    */
-  SubBlock?: string;
+  SubBlock?: string | undefined;
 
   /**
    * <p>Name of the streets in the intersection. </p>
@@ -303,32 +303,32 @@ export interface Address {
    *          </p>
    * @public
    */
-  Intersection?: string[];
+  Intersection?: string[] | undefined;
 
   /**
    * <p>The name of the street results should be present in.</p>
    * @public
    */
-  Street?: string;
+  Street?: string | undefined;
 
   /**
    * <p>Components of the street. </p>
    *          <p>Example: Younge from the "Younge street".</p>
    * @public
    */
-  StreetComponents?: StreetComponents[];
+  StreetComponents?: StreetComponents[] | undefined;
 
   /**
    * <p>The number that identifies an address within a street.</p>
    * @public
    */
-  AddressNumber?: string;
+  AddressNumber?: string | undefined;
 
   /**
    * <p>The name of the building at the address.</p>
    * @public
    */
-  Building?: string;
+  Building?: string | undefined;
 }
 
 /**
@@ -341,33 +341,33 @@ export interface AddressComponentMatchScores {
    * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
    * @public
    */
-  Country?: number;
+  Country?: number | undefined;
 
   /**
    * <p>The region or state results should be to be present in. </p>
    *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
-  Region?: number;
+  Region?: number | undefined;
 
   /**
    * <p>The sub-region or county for which results should be present in. </p>
    * @public
    */
-  SubRegion?: number;
+  SubRegion?: number | undefined;
 
   /**
    * <p>The city or locality results should be present in. </p>
    *          <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
-  Locality?: number;
+  Locality?: number | undefined;
 
   /**
    * <p>The district or division of a city the results should be present in.</p>
    * @public
    */
-  District?: number;
+  District?: number | undefined;
 
   /**
    * <p>A subdivision of a district. </p>
@@ -375,14 +375,14 @@ export interface AddressComponentMatchScores {
    *          </p>
    * @public
    */
-  SubDistrict?: number;
+  SubDistrict?: number | undefined;
 
   /**
    * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as
    *          post code, postcode, or ZIP code, for which the result should posses. </p>
    * @public
    */
-  PostalCode?: number;
+  PostalCode?: number | undefined;
 
   /**
    * <p>Name of the block. </p>
@@ -390,7 +390,7 @@ export interface AddressComponentMatchScores {
    *          </p>
    * @public
    */
-  Block?: number;
+  Block?: number | undefined;
 
   /**
    * <p>Name of sub-block. </p>
@@ -398,7 +398,7 @@ export interface AddressComponentMatchScores {
    *          </p>
    * @public
    */
-  SubBlock?: number;
+  SubBlock?: number | undefined;
 
   /**
    * <p>Name of the streets in the intersection. </p>
@@ -406,19 +406,19 @@ export interface AddressComponentMatchScores {
    *          </p>
    * @public
    */
-  Intersection?: number[];
+  Intersection?: number[] | undefined;
 
   /**
    * <p>The house number or address results should have. </p>
    * @public
    */
-  AddressNumber?: number;
+  AddressNumber?: number | undefined;
 
   /**
    * <p>The name of the building at the address.</p>
    * @public
    */
-  Building?: number;
+  Building?: number | undefined;
 }
 
 /**
@@ -430,19 +430,19 @@ export interface PhonemeTranscription {
    * <p>Value which indicates how to pronounce the value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>Boolean which indicates if it the preferred pronunciation.</p>
    * @public
    */
-  Preferred?: boolean;
+  Preferred?: boolean | undefined;
 }
 
 /**
@@ -454,57 +454,57 @@ export interface AddressComponentPhonemes {
    * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
    * @public
    */
-  Country?: PhonemeTranscription[];
+  Country?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the region or state results should be to be present in.</p>
    * @public
    */
-  Region?: PhonemeTranscription[];
+  Region?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the sub-region or county for which results should be present in. </p>
    * @public
    */
-  SubRegion?: PhonemeTranscription[];
+  SubRegion?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the city or locality results should be present in. </p>
    *          <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
-  Locality?: PhonemeTranscription[];
+  Locality?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the district or division of a city results should be present in.</p>
    * @public
    */
-  District?: PhonemeTranscription[];
+  District?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the sub-district or division of a city results should be present
    *          in.</p>
    * @public
    */
-  SubDistrict?: PhonemeTranscription[];
+  SubDistrict?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the name of the block.</p>
    * @public
    */
-  Block?: PhonemeTranscription[];
+  Block?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the name of the sub-block.</p>
    * @public
    */
-  SubBlock?: PhonemeTranscription[];
+  SubBlock?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the name of the street results should be present in.</p>
    * @public
    */
-  Street?: PhonemeTranscription[];
+  Street?: PhonemeTranscription[] | undefined;
 }
 
 /**
@@ -566,25 +566,25 @@ export interface AutocompleteFilter {
    *          </p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>The <code>Circle</code> that all results must be in. </p>
    * @public
    */
-  Circle?: FilterCircle;
+  Circle?: FilterCircle | undefined;
 
   /**
    * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
    * @public
    */
-  IncludeCountries?: string[];
+  IncludeCountries?: string[] | undefined;
 
   /**
    * <p>The included place types.</p>
    * @public
    */
-  IncludePlaceTypes?: AutocompleteFilterPlaceType[];
+  IncludePlaceTypes?: AutocompleteFilterPlaceType[] | undefined;
 }
 
 /**
@@ -631,7 +631,7 @@ export interface AutocompleteRequest {
    * <p>An optional limit for the number of results returned in a single call. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The position in longitude and latitude that the results should be close to. Typically,
@@ -643,13 +643,13 @@ export interface AutocompleteRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: AutocompleteFilter;
+  Filter?: AutocompleteFilter | undefined;
 
   /**
    * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a
@@ -658,40 +658,40 @@ export interface AutocompleteRequest {
    *          postal code are returned.</p>
    * @public
    */
-  PostalCodeMode?: PostalCodeMode;
+  PostalCodeMode?: PostalCodeMode | undefined;
 
   /**
    * <p>A list of optional additional parameters that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: AutocompleteAdditionalFeature[];
+  AdditionalFeatures?: AutocompleteAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left
    *          empty.</p>
    * @public
    */
-  IntendedUse?: AutocompleteIntendedUse;
+  IntendedUse?: AutocompleteIntendedUse | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -703,19 +703,19 @@ export interface Highlight {
    * <p>Start index of the highlight.</p>
    * @public
    */
-  StartIndex?: number;
+  StartIndex?: number | undefined;
 
   /**
    * <p>End index of the highlight.</p>
    * @public
    */
-  EndIndex?: number;
+  EndIndex?: number | undefined;
 
   /**
    * <p>The highlight's value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -727,13 +727,13 @@ export interface CountryHighlights {
    * <p>Indicates the starting and ending index of the country code in the text query that match the found title.</p>
    * @public
    */
-  Code?: Highlight[];
+  Code?: Highlight[] | undefined;
 
   /**
    * <p>Indicates the starting and ending index of the country code in the text query that match the found title.</p>
    * @public
    */
-  Name?: Highlight[];
+  Name?: Highlight[] | undefined;
 }
 
 /**
@@ -745,13 +745,13 @@ export interface RegionHighlights {
    * <p>Indicates the starting and ending index of the region in the text query that match the found title. </p>
    * @public
    */
-  Code?: Highlight[];
+  Code?: Highlight[] | undefined;
 
   /**
    * <p>Indicates the starting and ending index of the region name in the text query that match the found title. </p>
    * @public
    */
-  Name?: Highlight[];
+  Name?: Highlight[] | undefined;
 }
 
 /**
@@ -765,13 +765,13 @@ export interface SubRegionHighlights {
    *          the found title. </p>
    * @public
    */
-  Code?: Highlight[];
+  Code?: Highlight[] | undefined;
 
   /**
    * <p>Indicates the starting and ending index of the name in the text query that match the found title. </p>
    * @public
    */
-  Name?: Highlight[];
+  Name?: Highlight[] | undefined;
 }
 
 /**
@@ -784,88 +784,88 @@ export interface AutocompleteAddressHighlights {
    *           This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.</p>
    * @public
    */
-  Label?: Highlight[];
+  Label?: Highlight[] | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
    * @public
    */
-  Country?: CountryHighlights;
+  Country?: CountryHighlights | undefined;
 
   /**
    * <p>The region or state results should be to be present in. </p>
    *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
-  Region?: RegionHighlights;
+  Region?: RegionHighlights | undefined;
 
   /**
    * <p>The sub-region or county for which results should be present in. </p>
    * @public
    */
-  SubRegion?: SubRegionHighlights;
+  SubRegion?: SubRegionHighlights | undefined;
 
   /**
    * <p>The city or locality results should be present in. </p>
    *          <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
-  Locality?: Highlight[];
+  Locality?: Highlight[] | undefined;
 
   /**
    * <p>The district or division of a city the results should be present in.</p>
    * @public
    */
-  District?: Highlight[];
+  District?: Highlight[] | undefined;
 
   /**
    * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
    * @public
    */
-  SubDistrict?: Highlight[];
+  SubDistrict?: Highlight[] | undefined;
 
   /**
    * <p>The name of the street results should be present in.</p>
    * @public
    */
-  Street?: Highlight[];
+  Street?: Highlight[] | undefined;
 
   /**
    * <p>Name of the block. Example: Sunny Mansion 203
    * block: 2 Chome</p>
    * @public
    */
-  Block?: Highlight[];
+  Block?: Highlight[] | undefined;
 
   /**
    * <p>Name of sub-block. Example Sunny Mansion 203 sub-block: 4</p>
    * @public
    */
-  SubBlock?: Highlight[];
+  SubBlock?: Highlight[] | undefined;
 
   /**
    * <p>Name of the streets in the intersection. For example: e.g. ["Friedrichstraße","Unter den Linden"]</p>
    * @public
    */
-  Intersection?: Highlight[][];
+  Intersection?: Highlight[][] | undefined;
 
   /**
    * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
    * @public
    */
-  PostalCode?: Highlight[];
+  PostalCode?: Highlight[] | undefined;
 
   /**
    * <p>The house number or address results should have. </p>
    * @public
    */
-  AddressNumber?: Highlight[];
+  AddressNumber?: Highlight[] | undefined;
 
   /**
    * <p>The name of the building at the address.</p>
    * @public
    */
-  Building?: Highlight[];
+  Building?: Highlight[] | undefined;
 }
 
 /**
@@ -877,13 +877,13 @@ export interface AutocompleteHighlights {
    * <p>Indicates where the title field in the result matches the input query.</p>
    * @public
    */
-  Title?: Highlight[];
+  Title?: Highlight[] | undefined;
 
   /**
    * <p>Describes how part of the result address match the input query.</p>
    * @public
    */
-  Address?: AutocompleteAddressHighlights;
+  Address?: AutocompleteAddressHighlights | undefined;
 }
 
 /**
@@ -939,31 +939,31 @@ export interface AutocompleteResultItem {
    * <p>The address associated with this result.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>The distance in meters between the center of the search area and this result. Useful to evaluate how far away from the original bias position the result is.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates the starting and ending index of the place in the text query that match the found title. </p>
    * @public
    */
-  Highlights?: AutocompleteHighlights;
+  Highlights?: AutocompleteHighlights | undefined;
 }
 
 /**
@@ -981,7 +981,7 @@ export interface AutocompleteResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: AutocompleteResultItem[];
+  ResultItems?: AutocompleteResultItem[] | undefined;
 }
 
 /**
@@ -1132,13 +1132,13 @@ export interface BusinessChain {
    * <p>The business chain name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Business Chain Id.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -1151,13 +1151,13 @@ export interface ComponentMatchScores {
    * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
    * @public
    */
-  Title?: number;
+  Title?: number | undefined;
 
   /**
    * <p>The place's address.</p>
    * @public
    */
-  Address?: AddressComponentMatchScores;
+  Address?: AddressComponentMatchScores | undefined;
 }
 
 /**
@@ -1169,19 +1169,19 @@ export interface ContactDetails {
    * <p>The contact's label.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The contact's value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>Categories of results that results must belong too.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 }
 
 /**
@@ -1193,25 +1193,25 @@ export interface Contacts {
    * <p>List of phone numbers for the results contact. </p>
    * @public
    */
-  Phones?: ContactDetails[];
+  Phones?: ContactDetails[] | undefined;
 
   /**
    * <p>List of fax addresses for the result contact. </p>
    * @public
    */
-  Faxes?: ContactDetails[];
+  Faxes?: ContactDetails[] | undefined;
 
   /**
    * <p>List of website URLs that belong to the result. </p>
    * @public
    */
-  Websites?: ContactDetails[];
+  Websites?: ContactDetails[] | undefined;
 
   /**
    * <p>List of emails for contacts of the result. </p>
    * @public
    */
-  Emails?: ContactDetails[];
+  Emails?: ContactDetails[] | undefined;
 }
 
 /**
@@ -1229,7 +1229,7 @@ export interface FoodType {
    * <p>The Food Type Id.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Boolean which indicates if this food type is the primary offered by the place. For
@@ -1237,7 +1237,7 @@ export interface FoodType {
    *          food.</p>
    * @public
    */
-  Primary?: boolean;
+  Primary?: boolean | undefined;
 }
 
 /**
@@ -1281,13 +1281,13 @@ export interface GeocodeFilter {
    * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
    * @public
    */
-  IncludeCountries?: string[];
+  IncludeCountries?: string[] | undefined;
 
   /**
    * <p>The included place types.</p>
    * @public
    */
-  IncludePlaceTypes?: GeocodeFilterPlaceType[];
+  IncludePlaceTypes?: GeocodeFilterPlaceType[] | undefined;
 }
 
 /**
@@ -1319,51 +1319,51 @@ export interface GeocodeQueryComponents {
    * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>The region or state results should be to be present in. </p>
    *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The sub-region or county for which results should be present in. </p>
    * @public
    */
-  SubRegion?: string;
+  SubRegion?: string | undefined;
 
   /**
    * <p>City or locality results should be present in. </p>
    *          <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
-  Locality?: string;
+  Locality?: string | undefined;
 
   /**
    * <p>The district or division of a city the results should be present in.</p>
    * @public
    */
-  District?: string;
+  District?: string | undefined;
 
   /**
    * <p>The name of the street results should be present in.</p>
    * @public
    */
-  Street?: string;
+  Street?: string | undefined;
 
   /**
    * <p>The house number or address results should have. </p>
    * @public
    */
-  AddressNumber?: string;
+  AddressNumber?: string | undefined;
 
   /**
    * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
    * @public
    */
-  PostalCode?: string;
+  PostalCode?: string | undefined;
 }
 
 /**
@@ -1374,19 +1374,19 @@ export interface GeocodeRequest {
    * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
    * @public
    */
-  QueryText?: string;
+  QueryText?: string | undefined;
 
   /**
    * <p>A structured free text query allows you to search for places by the name or text representation of specific properties of the place. </p>
    * @public
    */
-  QueryComponents?: GeocodeQueryComponents;
+  QueryComponents?: GeocodeQueryComponents | undefined;
 
   /**
    * <p>An optional limit for the number of results returned in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The position, in longitude and latitude, that the results should be close to. Typically,
@@ -1398,47 +1398,47 @@ export interface GeocodeRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: GeocodeFilter;
+  Filter?: GeocodeFilter | undefined;
 
   /**
    * <p>A list of optional additional parameters, such as time zone, that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: GeocodeAdditionalFeature[];
+  AdditionalFeatures?: GeocodeAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country.
    *       The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left
    *          empty.</p>
    * @public
    */
-  IntendedUse?: GeocodeIntendedUse;
+  IntendedUse?: GeocodeIntendedUse | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -1450,14 +1450,14 @@ export interface MatchScoreDetails {
    * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
    * @public
    */
-  Overall?: number;
+  Overall?: number | undefined;
 
   /**
    * <p>Indicates how well the component input matches the returned. It is equal to 1 if all
    *          input tokens are recognized and matched.</p>
    * @public
    */
-  Components?: ComponentMatchScores;
+  Components?: ComponentMatchScores | undefined;
 }
 
 /**
@@ -1511,7 +1511,7 @@ export interface UspsZip {
    * <p>The ZIP Classification Code, or in other words what type of postal code is it. </p>
    * @public
    */
-  ZipClassificationCode?: ZipClassificationCode;
+  ZipClassificationCode?: ZipClassificationCode | undefined;
 }
 
 /**
@@ -1541,7 +1541,7 @@ export interface UspsZipPlus4 {
    * <p>The USPS ZIP+4 Record Type Code.</p>
    * @public
    */
-  RecordTypeCode?: RecordTypeCode;
+  RecordTypeCode?: RecordTypeCode | undefined;
 }
 
 /**
@@ -1553,31 +1553,31 @@ export interface PostalCodeDetails {
    * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
    * @public
    */
-  PostalCode?: string;
+  PostalCode?: string | undefined;
 
   /**
    * <p>The postal authority or entity. This could be a governmental authority, a regulatory authority, or a designated postal operator.</p>
    * @public
    */
-  PostalAuthority?: PostalAuthority;
+  PostalAuthority?: PostalAuthority | undefined;
 
   /**
    * <p>The postal code type.</p>
    * @public
    */
-  PostalCodeType?: PostalCodeType;
+  PostalCodeType?: PostalCodeType | undefined;
 
   /**
    * <p>The ZIP Classification Code, or in other words what type of postal code is it.</p>
    * @public
    */
-  UspsZip?: UspsZip;
+  UspsZip?: UspsZip | undefined;
 
   /**
    * <p>The USPS ZIP+4 Record Type Code.</p>
    * @public
    */
-  UspsZipPlus4?: UspsZipPlus4;
+  UspsZipPlus4?: UspsZipPlus4 | undefined;
 }
 
 /**
@@ -1595,13 +1595,13 @@ export interface TimeZone {
    * <p>Time zone offset of the timezone from UTC.</p>
    * @public
    */
-  Offset?: string;
+  Offset?: string | undefined;
 
   /**
    * <p>The offset of the time zone from UTC, in seconds.</p>
    * @public
    */
-  OffsetSeconds?: number;
+  OffsetSeconds?: number | undefined;
 }
 
 /**
@@ -1631,31 +1631,31 @@ export interface GeocodeResultItem {
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>Boolean indicating if the address provided has been corrected.</p>
    * @public
    */
-  AddressNumberCorrected?: boolean;
+  AddressNumberCorrected?: boolean | undefined;
 
   /**
    * <p>Contains details about the postal code of the place/result. </p>
    * @public
    */
-  PostalCodeDetails?: PostalCodeDetails[];
+  PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
    * <p>The position in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The distance in meters from the QueryPosition.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -1664,44 +1664,44 @@ export interface GeocodeResultItem {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>Position of the access point represent by longitude and latitude.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input
    *          tokens are recognized and matched.</p>
    * @public
    */
-  MatchScores?: MatchScoreDetails;
+  MatchScores?: MatchScoreDetails | undefined;
 }
 
 /**
@@ -1719,7 +1719,7 @@ export interface GeocodeResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: GeocodeResultItem[];
+  ResultItems?: GeocodeResultItem[] | undefined;
 }
 
 /**
@@ -1773,32 +1773,32 @@ export interface GetPlaceRequest {
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: GetPlaceAdditionalFeature[];
+  AdditionalFeatures?: GetPlaceAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
-  IntendedUse?: GetPlaceIntendedUse;
+  IntendedUse?: GetPlaceIntendedUse | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -1810,14 +1810,14 @@ export interface OpeningHoursComponents {
    * <p>String which represents the opening hours, such as <code>"T070000"</code>.</p>
    * @public
    */
-  OpenTime?: string;
+  OpenTime?: string | undefined;
 
   /**
    * <p>String which represents the duration of the opening period, such as
    *             <code>"PT12H00M"</code>.</p>
    * @public
    */
-  OpenDuration?: string;
+  OpenDuration?: string | undefined;
 
   /**
    * <p>Days or periods when the provided opening hours are in affect. </p>
@@ -1825,7 +1825,7 @@ export interface OpeningHoursComponents {
    *          </p>
    * @public
    */
-  Recurrence?: string;
+  Recurrence?: string | undefined;
 }
 
 /**
@@ -1838,25 +1838,25 @@ export interface OpeningHours {
    *          in most cases represents how the result uniquely formats their opening hours. </p>
    * @public
    */
-  Display?: string[];
+  Display?: string[] | undefined;
 
   /**
    * <p>Boolean which indicates if the result/place is currently open. </p>
    * @public
    */
-  OpenNow?: boolean;
+  OpenNow?: boolean | undefined;
 
   /**
    * <p>Components of the opening hours object.</p>
    * @public
    */
-  Components?: OpeningHoursComponents[];
+  Components?: OpeningHoursComponents[] | undefined;
 
   /**
    * <p>Categories of results that results must belong too.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 }
 
 /**
@@ -1869,13 +1869,13 @@ export interface PhonemeDetails {
    *          fields.</p>
    * @public
    */
-  Title?: PhonemeTranscription[];
+  Title?: PhonemeTranscription[] | undefined;
 
   /**
    * <p>How to pronounce the address.</p>
    * @public
    */
-  Address?: AddressComponentPhonemes;
+  Address?: AddressComponentPhonemes | undefined;
 }
 
 /**
@@ -1911,25 +1911,25 @@ export interface GetPlaceResponse {
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>Boolean indicating if the address provided has been corrected.</p>
    * @public
    */
-  AddressNumberCorrected?: boolean;
+  AddressNumberCorrected?: boolean | undefined;
 
   /**
    * <p>Contains details about the postal code of the place/result. </p>
    * @public
    */
-  PostalCodeDetails?: PostalCodeDetails[];
+  PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
    * <p>The position, in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -1938,68 +1938,68 @@ export interface GetPlaceResponse {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  BusinessChains?: BusinessChain[];
+  BusinessChains?: BusinessChain[] | undefined;
 
   /**
    * <p>List of potential contact methods for the result/place.</p>
    * @public
    */
-  Contacts?: Contacts;
+  Contacts?: Contacts | undefined;
 
   /**
    * <p>List of opening hours objects.</p>
    * @public
    */
-  OpeningHours?: OpeningHours[];
+  OpeningHours?: OpeningHours[] | undefined;
 
   /**
    * <p>Position of the access point in <code>(lng,lat)</code>.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
    * @public
    */
-  AccessRestrictions?: AccessRestriction[];
+  AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>How the various components of the result's address are pronounced in various
    *          languages.</p>
    * @public
    */
-  Phonemes?: PhonemeDetails;
+  Phonemes?: PhonemeDetails | undefined;
 }
 
 /**
@@ -2044,7 +2044,7 @@ export interface ReverseGeocodeFilter {
    * <p>The included place types.</p>
    * @public
    */
-  IncludePlaceTypes?: ReverseGeocodeFilterPlaceType[];
+  IncludePlaceTypes?: ReverseGeocodeFilterPlaceType[] | undefined;
 }
 
 /**
@@ -2081,51 +2081,51 @@ export interface ReverseGeocodeRequest {
    * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p>
    * @public
    */
-  QueryRadius?: number;
+  QueryRadius?: number | undefined;
 
   /**
    * <p>An optional limit for the number of results returned in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: ReverseGeocodeFilter;
+  Filter?: ReverseGeocodeFilter | undefined;
 
   /**
    * <p>A list of optional additional parameters, such as time zone that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: ReverseGeocodeAdditionalFeature[];
+  AdditionalFeatures?: ReverseGeocodeAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
-  IntendedUse?: ReverseGeocodeIntendedUse;
+  IntendedUse?: ReverseGeocodeIntendedUse | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -2155,31 +2155,31 @@ export interface ReverseGeocodeResultItem {
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>Boolean indicating if the address provided has been corrected.</p>
    * @public
    */
-  AddressNumberCorrected?: boolean;
+  AddressNumberCorrected?: boolean | undefined;
 
   /**
    * <p>Contains details about the postal code of the place/result. </p>
    * @public
    */
-  PostalCodeDetails?: PostalCodeDetails[];
+  PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
    * <p>The position in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The distance in meters from the QueryPosition.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -2188,37 +2188,37 @@ export interface ReverseGeocodeResultItem {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>Position of the access point represent by longitude and latitude.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 }
 
 /**
@@ -2236,7 +2236,7 @@ export interface ReverseGeocodeResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: ReverseGeocodeResultItem[];
+  ResultItems?: ReverseGeocodeResultItem[] | undefined;
 }
 
 /**
@@ -2268,49 +2268,49 @@ export interface SearchNearbyFilter {
    *          </p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
    * @public
    */
-  IncludeCountries?: string[];
+  IncludeCountries?: string[] | undefined;
 
   /**
    * <p>Categories of results that results must belong too.</p>
    * @public
    */
-  IncludeCategories?: string[];
+  IncludeCategories?: string[] | undefined;
 
   /**
    * <p>Categories of results that results are excluded from.</p>
    * @public
    */
-  ExcludeCategories?: string[];
+  ExcludeCategories?: string[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  IncludeBusinessChains?: string[];
+  IncludeBusinessChains?: string[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  ExcludeBusinessChains?: string[];
+  ExcludeBusinessChains?: string[] | undefined;
 
   /**
    * <p>Food types that results are included from.</p>
    * @public
    */
-  IncludeFoodTypes?: string[];
+  IncludeFoodTypes?: string[] | undefined;
 
   /**
    * <p>Food types that results are excluded from.</p>
    * @public
    */
-  ExcludeFoodTypes?: string[];
+  ExcludeFoodTypes?: string[] | undefined;
 }
 
 /**
@@ -2347,58 +2347,58 @@ export interface SearchNearbyRequest {
    * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p>
    * @public
    */
-  QueryRadius?: number;
+  QueryRadius?: number | undefined;
 
   /**
    * <p>An optional limit for the number of results returned in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: SearchNearbyFilter;
+  Filter?: SearchNearbyFilter | undefined;
 
   /**
    * <p>A list of optional additional parameters, such as time zone, that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: SearchNearbyAdditionalFeature[];
+  AdditionalFeatures?: SearchNearbyAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
-  IntendedUse?: SearchNearbyIntendedUse;
+  IntendedUse?: SearchNearbyIntendedUse | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned,
    *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -2428,25 +2428,25 @@ export interface SearchNearbyResultItem {
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>Boolean indicating if the address provided has been corrected.</p>
    * @public
    */
-  AddressNumberCorrected?: boolean;
+  AddressNumberCorrected?: boolean | undefined;
 
   /**
    * <p>The position in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The distance in meters from the QueryPosition.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -2455,68 +2455,68 @@ export interface SearchNearbyResultItem {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  BusinessChains?: BusinessChain[];
+  BusinessChains?: BusinessChain[] | undefined;
 
   /**
    * <p>List of potential contact methods for the result/place.</p>
    * @public
    */
-  Contacts?: Contacts;
+  Contacts?: Contacts | undefined;
 
   /**
    * <p>List of opening hours objects.</p>
    * @public
    */
-  OpeningHours?: OpeningHours[];
+  OpeningHours?: OpeningHours[] | undefined;
 
   /**
    * <p>Position of the access point represent by longitude and latitude.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
    * @public
    */
-  AccessRestrictions?: AccessRestriction[];
+  AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>How the various components of the result's address are pronounced in various
    *          languages.</p>
    * @public
    */
-  Phonemes?: PhonemeDetails;
+  Phonemes?: PhonemeDetails | undefined;
 }
 
 /**
@@ -2534,14 +2534,14 @@ export interface SearchNearbyResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: SearchNearbyResultItem[];
+  ResultItems?: SearchNearbyResultItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned,
    *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2573,19 +2573,19 @@ export interface SearchTextFilter {
    *          </p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>The <code>Circle</code> that all results must be in. </p>
    * @public
    */
-  Circle?: FilterCircle;
+  Circle?: FilterCircle | undefined;
 
   /**
    * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
    * @public
    */
-  IncludeCountries?: string[];
+  IncludeCountries?: string[] | undefined;
 }
 
 /**
@@ -2616,19 +2616,19 @@ export interface SearchTextRequest {
    * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
    * @public
    */
-  QueryText?: string;
+  QueryText?: string | undefined;
 
   /**
    * <p>The query Id.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>An optional limit for the number of results returned in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The position, in longitude and latitude, that the results should be close to. Typically,
@@ -2639,52 +2639,52 @@ export interface SearchTextRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: SearchTextFilter;
+  Filter?: SearchTextFilter | undefined;
 
   /**
    * <p>A list of optional additional parameters, such as time zone, that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: SearchTextAdditionalFeature[];
+  AdditionalFeatures?: SearchTextAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
-  IntendedUse?: SearchTextIntendedUse;
+  IntendedUse?: SearchTextIntendedUse | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned,
    *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -2714,25 +2714,25 @@ export interface SearchTextResultItem {
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>Boolean indicating if the address provided has been corrected.</p>
    * @public
    */
-  AddressNumberCorrected?: boolean;
+  AddressNumberCorrected?: boolean | undefined;
 
   /**
    * <p>The position, in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The distance in meters from the QueryPosition.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -2741,68 +2741,68 @@ export interface SearchTextResultItem {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  BusinessChains?: BusinessChain[];
+  BusinessChains?: BusinessChain[] | undefined;
 
   /**
    * <p>List of potential contact methods for the result/place.</p>
    * @public
    */
-  Contacts?: Contacts;
+  Contacts?: Contacts | undefined;
 
   /**
    * <p>List of opening hours objects.</p>
    * @public
    */
-  OpeningHours?: OpeningHours[];
+  OpeningHours?: OpeningHours[] | undefined;
 
   /**
    * <p>Position of the access point represent by longitude and latitude.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
    * @public
    */
-  AccessRestrictions?: AccessRestriction[];
+  AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>How the various components of the result's address are pronounced in various
    *          languages.</p>
    * @public
    */
-  Phonemes?: PhonemeDetails;
+  Phonemes?: PhonemeDetails | undefined;
 }
 
 /**
@@ -2820,14 +2820,14 @@ export interface SearchTextResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: SearchTextResultItem[];
+  ResultItems?: SearchTextResultItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned,
    *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2858,19 +2858,19 @@ export interface SuggestFilter {
    *          </p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>The <code>Circle</code> that all results must be in. </p>
    * @public
    */
-  Circle?: FilterCircle;
+  Circle?: FilterCircle | undefined;
 
   /**
    * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
    * @public
    */
-  IncludeCountries?: string[];
+  IncludeCountries?: string[] | undefined;
 }
 
 /**
@@ -2903,13 +2903,13 @@ export interface SuggestRequest {
    * <p>An optional limit for the number of results returned in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Maximum number of query terms to be returned for use with a search text query.</p>
    * @public
    */
-  MaxQueryRefinements?: number;
+  MaxQueryRefinements?: number | undefined;
 
   /**
    * <p>The position, in longitude and latitude, that the results should be close to. Typically,
@@ -2920,45 +2920,45 @@ export interface SuggestRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
    * @public
    */
-  Filter?: SuggestFilter;
+  Filter?: SuggestFilter | undefined;
 
   /**
    * <p>A list of optional additional parameters, such as time zone, that can be requested for
    *          each result.</p>
    * @public
    */
-  AdditionalFeatures?: SuggestAdditionalFeature[];
+  AdditionalFeatures?: SuggestAdditionalFeature[] | undefined;
 
   /**
    * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
-  IntendedUse?: SuggestIntendedUse;
+  IntendedUse?: SuggestIntendedUse | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -3001,7 +3001,7 @@ export interface SuggestAddressHighlights {
    * <p>Indicates the starting and ending indexes of the places in the result which were identified to match the textQuery. This result is useful for providing emphasis to results where the user query directly matched to make selecting the correct result from a list easier for an end user.</p>
    * @public
    */
-  Label?: Highlight[];
+  Label?: Highlight[] | undefined;
 }
 
 /**
@@ -3013,13 +3013,13 @@ export interface SuggestHighlights {
    * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
    * @public
    */
-  Title?: Highlight[];
+  Title?: Highlight[] | undefined;
 
   /**
    * <p>The place's address.</p>
    * @public
    */
-  Address?: SuggestAddressHighlights;
+  Address?: SuggestAddressHighlights | undefined;
 }
 
 /**
@@ -3031,31 +3031,31 @@ export interface SuggestPlaceResult {
    * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
    * @public
    */
-  PlaceId?: string;
+  PlaceId?: string | undefined;
 
   /**
    * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
    * @public
    */
-  PlaceType?: PlaceType;
+  PlaceType?: PlaceType | undefined;
 
   /**
    * <p>The place's address.</p>
    * @public
    */
-  Address?: Address;
+  Address?: Address | undefined;
 
   /**
    * <p>The position, in longitude and latitude.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The distance in meters from the QueryPosition.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
@@ -3064,56 +3064,56 @@ export interface SuggestPlaceResult {
    *          </p>
    * @public
    */
-  MapView?: number[];
+  MapView?: number[] | undefined;
 
   /**
    * <p>Categories of results that results must belong to.</p>
    * @public
    */
-  Categories?: Category[];
+  Categories?: Category[] | undefined;
 
   /**
    * <p>List of food types offered by this result.</p>
    * @public
    */
-  FoodTypes?: FoodType[];
+  FoodTypes?: FoodType[] | undefined;
 
   /**
    * <p>The Business Chains associated with the place.</p>
    * @public
    */
-  BusinessChains?: BusinessChain[];
+  BusinessChains?: BusinessChain[] | undefined;
 
   /**
    * <p>Position of the access point represent by longitude and latitude.</p>
    * @public
    */
-  AccessPoints?: AccessPoint[];
+  AccessPoints?: AccessPoint[] | undefined;
 
   /**
    * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
    * @public
    */
-  AccessRestrictions?: AccessRestriction[];
+  AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
    * <p>The time zone in which the place is located.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>How the various components of the result's address are pronounced in various
    *          languages.</p>
    * @public
    */
-  Phonemes?: PhonemeDetails;
+  Phonemes?: PhonemeDetails | undefined;
 }
 
 /**
@@ -3139,13 +3139,13 @@ export interface SuggestQueryResult {
    * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The query type. Category qeuries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business.</p>
    * @public
    */
-  QueryType?: QueryType;
+  QueryType?: QueryType | undefined;
 }
 
 /**
@@ -3183,19 +3183,19 @@ export interface SuggestResultItem {
    * <p>The suggested place by its unique ID.</p>
    * @public
    */
-  Place?: SuggestPlaceResult;
+  Place?: SuggestPlaceResult | undefined;
 
   /**
    * <p>The suggested query results.</p>
    * @public
    */
-  Query?: SuggestQueryResult;
+  Query?: SuggestQueryResult | undefined;
 
   /**
    * <p>Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms. </p>
    * @public
    */
-  Highlights?: SuggestHighlights;
+  Highlights?: SuggestHighlights | undefined;
 }
 
 /**
@@ -3213,13 +3213,13 @@ export interface SuggestResponse {
    * <p>List of places or results returned for a query. </p>
    * @public
    */
-  ResultItems?: SuggestResultItem[];
+  ResultItems?: SuggestResultItem[] | undefined;
 
   /**
    * <p>Maximum number of query terms to be returned for use with a search text query.</p>
    * @public
    */
-  QueryRefinements?: QueryRefinement[];
+  QueryRefinements?: QueryRefinement[] | undefined;
 }
 
 /**

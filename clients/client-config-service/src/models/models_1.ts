@@ -43,13 +43,13 @@ export interface Tag {
    * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -60,13 +60,13 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -359,7 +359,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * <p>The description that you provide for your organization Config Custom Policy rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of notification that initiates Config to run an evaluation for a rule.
@@ -379,13 +379,13 @@ export interface OrganizationCustomPolicyRuleMetadata {
    *          </ul>
    * @public
    */
-  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[] | undefined;
 
   /**
    * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
    * @public
    */
-  InputParameters?: string;
+  InputParameters?: string | undefined;
 
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule. Your
@@ -393,31 +393,31 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceTypesScope?: string[];
+  ResourceTypesScope?: string[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceIdScope?: string;
+  ResourceIdScope?: string | undefined;
 
   /**
    * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
    * @public
    */
-  TagKeyScope?: string;
+  TagKeyScope?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
    * @public
    */
-  TagValueScope?: string;
+  TagValueScope?: string | undefined;
 
   /**
    * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
@@ -436,7 +436,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
    * @public
    */
-  DebugLogDeliveryAccounts?: string[];
+  DebugLogDeliveryAccounts?: string[] | undefined;
 }
 
 /**
@@ -459,7 +459,7 @@ export interface PutAggregationAuthorizationRequest {
    * <p>An array of tag object.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -472,7 +472,7 @@ export interface PutAggregationAuthorizationResponse {
    * 		</p>
    * @public
    */
-  AggregationAuthorization?: AggregationAuthorization;
+  AggregationAuthorization?: AggregationAuthorization | undefined;
 }
 
 /**
@@ -489,7 +489,7 @@ export interface PutConfigRuleRequest {
    * <p>An array of tag object.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -508,19 +508,19 @@ export interface PutConfigurationAggregatorRequest {
    * 		</p>
    * @public
    */
-  AccountAggregationSources?: AccountAggregationSource[];
+  AccountAggregationSources?: AccountAggregationSource[] | undefined;
 
   /**
    * <p>An OrganizationAggregationSource object.</p>
    * @public
    */
-  OrganizationAggregationSource?: OrganizationAggregationSource;
+  OrganizationAggregationSource?: OrganizationAggregationSource | undefined;
 
   /**
    * <p>An array of tag object.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -531,7 +531,7 @@ export interface PutConfigurationAggregatorResponse {
    * <p>Returns a ConfigurationAggregator object.</p>
    * @public
    */
-  ConfigurationAggregator?: ConfigurationAggregator;
+  ConfigurationAggregator?: ConfigurationAggregator | undefined;
 }
 
 /**
@@ -565,7 +565,7 @@ export interface PutConformancePackRequest {
    *          </note>
    * @public
    */
-  TemplateS3Uri?: string;
+  TemplateS3Uri?: string | undefined;
 
   /**
    * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
@@ -574,7 +574,7 @@ export interface PutConformancePackRequest {
    *          </note>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
@@ -583,7 +583,7 @@ export interface PutConformancePackRequest {
    *          </note>
    * @public
    */
-  DeliveryS3Bucket?: string;
+  DeliveryS3Bucket?: string | undefined;
 
   /**
    * <p>The prefix for the Amazon S3 bucket. </p>
@@ -592,19 +592,19 @@ export interface PutConformancePackRequest {
    *          </note>
    * @public
    */
-  DeliveryS3KeyPrefix?: string;
+  DeliveryS3KeyPrefix?: string | undefined;
 
   /**
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    * @public
    */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
    * <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
    * @public
    */
-  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
+  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
 }
 
 /**
@@ -615,7 +615,7 @@ export interface PutConformancePackResponse {
    * <p>ARN of the conformance pack.</p>
    * @public
    */
-  ConformancePackArn?: string;
+  ConformancePackArn?: string | undefined;
 }
 
 /**
@@ -645,7 +645,7 @@ export interface PutEvaluationsRequest {
    * 			function.</p>
    * @public
    */
-  Evaluations?: Evaluation[];
+  Evaluations?: Evaluation[] | undefined;
 
   /**
    * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
@@ -667,7 +667,7 @@ export interface PutEvaluationsRequest {
    *          </note>
    * @public
    */
-  TestMode?: boolean;
+  TestMode?: boolean | undefined;
 }
 
 /**
@@ -680,7 +680,7 @@ export interface PutEvaluationsResponse {
    * 			error.</p>
    * @public
    */
-  FailedEvaluations?: Evaluation[];
+  FailedEvaluations?: Evaluation[] | undefined;
 }
 
 /**
@@ -721,7 +721,7 @@ export interface PutOrganizationConfigRuleRequest {
    * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
    * @public
    */
-  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
+  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata | undefined;
 
   /**
    * <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type,
@@ -729,13 +729,13 @@ export interface PutOrganizationConfigRuleRequest {
    * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
    * @public
    */
-  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata | undefined;
 
   /**
    * <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
    * @public
    */
-  ExcludedAccounts?: string[];
+  ExcludedAccounts?: string[] | undefined;
 
   /**
    * <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
@@ -743,7 +743,7 @@ export interface PutOrganizationConfigRuleRequest {
    * 			Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
    * @public
    */
-  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
+  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata | undefined;
 }
 
 /**
@@ -754,7 +754,7 @@ export interface PutOrganizationConfigRuleResponse {
    * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
    * @public
    */
-  OrganizationConfigRuleArn?: string;
+  OrganizationConfigRuleArn?: string | undefined;
 }
 
 /**
@@ -776,14 +776,14 @@ export interface PutOrganizationConformancePackRequest {
    *          </note>
    * @public
    */
-  TemplateS3Uri?: string;
+  TemplateS3Uri?: string | undefined;
 
   /**
    * <p>A string containing full conformance pack template body. Structure containing the template body
    * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
@@ -792,7 +792,7 @@ export interface PutOrganizationConformancePackRequest {
    *          </note>
    * @public
    */
-  DeliveryS3Bucket?: string;
+  DeliveryS3Bucket?: string | undefined;
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
@@ -801,19 +801,19 @@ export interface PutOrganizationConformancePackRequest {
    *          </note>
    * @public
    */
-  DeliveryS3KeyPrefix?: string;
+  DeliveryS3KeyPrefix?: string | undefined;
 
   /**
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    * @public
    */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
    * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
    * @public
    */
-  ExcludedAccounts?: string[];
+  ExcludedAccounts?: string[] | undefined;
 }
 
 /**
@@ -824,7 +824,7 @@ export interface PutOrganizationConformancePackResponse {
    * <p>ARN of the organization conformance pack.</p>
    * @public
    */
-  OrganizationConformancePackArn?: string;
+  OrganizationConformancePackArn?: string | undefined;
 }
 
 /**
@@ -846,7 +846,7 @@ export interface PutRemediationConfigurationsResponse {
    * <p>Returns a list of failed remediation batch objects.</p>
    * @public
    */
-  FailedBatches?: FailedRemediationBatch[];
+  FailedBatches?: FailedRemediationBatch[] | undefined;
 }
 
 /**
@@ -869,13 +869,13 @@ export interface PutRemediationExceptionsRequest {
    * <p>The message contains an explanation of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The exception is automatically deleted after the expiration date.</p>
    * @public
    */
-  ExpirationTime?: Date;
+  ExpirationTime?: Date | undefined;
 }
 
 /**
@@ -886,7 +886,7 @@ export interface PutRemediationExceptionsResponse {
    * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
    * @public
    */
-  FailedBatches?: FailedRemediationExceptionBatch[];
+  FailedBatches?: FailedRemediationExceptionBatch[] | undefined;
 }
 
 /**
@@ -918,7 +918,7 @@ export interface PutResourceConfigRequest {
    * <p>Name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
@@ -937,7 +937,7 @@ export interface PutResourceConfigRequest {
    *          </note>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -964,7 +964,7 @@ export interface PutRetentionConfigurationResponse {
    * <p>Returns a retention configuration object.</p>
    * @public
    */
-  RetentionConfiguration?: RetentionConfiguration;
+  RetentionConfiguration?: RetentionConfiguration | undefined;
 }
 
 /**
@@ -986,7 +986,7 @@ export interface PutStoredQueryRequest {
    * <p>A list of <code>Tags</code> object.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -998,7 +998,7 @@ export interface PutStoredQueryResponse {
    * 			For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
    * @public
    */
-  QueryArn?: string;
+  QueryArn?: string | undefined;
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface QueryInfo {
    * <p>Returns a <code>FieldInfo</code> object.</p>
    * @public
    */
-  SelectFields?: FieldInfo[];
+  SelectFields?: FieldInfo[] | undefined;
 }
 
 /**
@@ -1076,19 +1076,19 @@ export interface SelectAggregateResourceConfigRequest {
    * <p>The maximum number of query results returned on each page. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1099,19 +1099,19 @@ export interface SelectAggregateResourceConfigResponse {
    * <p>Returns the results for the SQL query.</p>
    * @public
    */
-  Results?: string[];
+  Results?: string[] | undefined;
 
   /**
    * <p>Details about the query.</p>
    * @public
    */
-  QueryInfo?: QueryInfo;
+  QueryInfo?: QueryInfo | undefined;
 
   /**
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1128,13 +1128,13 @@ export interface SelectResourceConfigRequest {
    * <p>The maximum number of query results returned on each page. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1145,19 +1145,19 @@ export interface SelectResourceConfigResponse {
    * <p>Returns the results for the SQL query.</p>
    * @public
    */
-  Results?: string[];
+  Results?: string[] | undefined;
 
   /**
    * <p>Returns the <code>QueryInfo</code> object.</p>
    * @public
    */
-  QueryInfo?: QueryInfo;
+  QueryInfo?: QueryInfo | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1170,7 +1170,7 @@ export interface StartConfigRulesEvaluationRequest {
    * 			evaluations for.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 }
 
 /**
@@ -1218,13 +1218,13 @@ export interface StartRemediationExecutionResponse {
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
    * @public
    */
-  FailedItems?: ResourceKey[];
+  FailedItems?: ResourceKey[] | undefined;
 }
 
 /**
@@ -1241,7 +1241,7 @@ export interface StartResourceEvaluationRequest {
    * <p>Returns an <code>EvaluationContext</code> object.</p>
    * @public
    */
-  EvaluationContext?: EvaluationContext;
+  EvaluationContext?: EvaluationContext | undefined;
 
   /**
    * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
@@ -1253,7 +1253,7 @@ export interface StartResourceEvaluationRequest {
    * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
    * @public
    */
-  EvaluationTimeout?: number;
+  EvaluationTimeout?: number | undefined;
 
   /**
    * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
@@ -1268,7 +1268,7 @@ export interface StartResourceEvaluationRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1280,7 +1280,7 @@ export interface StartResourceEvaluationResponse {
    * 			unique ResourceEvaluationId that is associated with a single execution.</p>
    * @public
    */
-  ResourceEvaluationId?: string;
+  ResourceEvaluationId?: string | undefined;
 }
 
 /**

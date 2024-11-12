@@ -59,7 +59,7 @@ export interface CancelTaskOutput {
    * <p>The ID of the task that you are attempting to cancel.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 }
 
 /**
@@ -155,31 +155,31 @@ export interface Capacity {
    * <p>The name of the type of capacity, such as memory.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The unit of measure for the type of capacity.</p>
    * @public
    */
-  unit?: string;
+  unit?: string | undefined;
 
   /**
    * <p>The total capacity on the device.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 
   /**
    * <p>The amount of capacity used on the device.</p>
    * @public
    */
-  used?: number;
+  used?: number | undefined;
 
   /**
    * <p>The amount of capacity available for use on the device.</p>
    * @public
    */
-  available?: number;
+  available?: number | undefined;
 }
 
 /**
@@ -255,13 +255,13 @@ export interface CpuOptions {
    * <p>The number of cores that the CPU can use.</p>
    * @public
    */
-  coreCount?: number;
+  coreCount?: number | undefined;
 
   /**
    * <p>The number of threads per core in the CPU.</p>
    * @public
    */
-  threadsPerCore?: number;
+  threadsPerCore?: number | undefined;
 }
 
 /**
@@ -284,20 +284,20 @@ export interface CreateTaskInput {
    * <p>A description of the task and its targets.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A token ensuring that the action is called only once with the specified details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -308,13 +308,13 @@ export interface CreateTaskOutput {
    * <p>The ID of the task that you created.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task that you created.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface PhysicalNetworkInterface {
    * <p>The physical network interface ID.</p>
    * @public
    */
-  physicalNetworkInterfaceId?: string;
+  physicalNetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The
@@ -411,37 +411,37 @@ export interface PhysicalNetworkInterface {
    *       connector type.</p>
    * @public
    */
-  physicalConnectorType?: PhysicalConnectorType;
+  physicalConnectorType?: PhysicalConnectorType | undefined;
 
   /**
    * <p>A value that describes whether the IP address is dynamic or persistent.</p>
    * @public
    */
-  ipAddressAssignment?: IpAddressAssignment;
+  ipAddressAssignment?: IpAddressAssignment | undefined;
 
   /**
    * <p>The IP address of the device.</p>
    * @public
    */
-  ipAddress?: string;
+  ipAddress?: string | undefined;
 
   /**
    * <p>The netmask used to divide the IP address into subnets.</p>
    * @public
    */
-  netmask?: string;
+  netmask?: string | undefined;
 
   /**
    * <p>The default gateway of the device.</p>
    * @public
    */
-  defaultGateway?: string;
+  defaultGateway?: string | undefined;
 
   /**
    * <p>The MAC address of the device.</p>
    * @public
    */
-  macAddress?: string;
+  macAddress?: string | undefined;
 }
 
 /**
@@ -453,20 +453,20 @@ export interface SoftwareInformation {
    * <p>The version of the software currently installed on the device.</p>
    * @public
    */
-  installedVersion?: string;
+  installedVersion?: string | undefined;
 
   /**
    * <p>The version of the software being installed on the device.</p>
    * @public
    */
-  installingVersion?: string;
+  installingVersion?: string | undefined;
 
   /**
    * <p>The state of the software that is installed or that is being installed on the
    *       device.</p>
    * @public
    */
-  installState?: string;
+  installState?: string | undefined;
 }
 
 /**
@@ -478,69 +478,69 @@ export interface DescribeDeviceOutput {
    *       online.</p>
    * @public
    */
-  lastReachedOutAt?: Date;
+  lastReachedOutAt?: Date | undefined;
 
   /**
    * <p>When the device last pushed an update to the Amazon Web Services Cloud. Indicates when the device cache
    *       was refreshed.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The ID of the device that you checked the information for.</p>
    * @public
    */
-  managedDeviceId?: string;
+  managedDeviceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  managedDeviceArn?: string;
+  managedDeviceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services Snow Family device.</p>
    * @public
    */
-  deviceType?: string;
+  deviceType?: string | undefined;
 
   /**
    * <p>The ID of the job used when ordering the device.</p>
    * @public
    */
-  associatedWithJob?: string;
+  associatedWithJob?: string | undefined;
 
   /**
    * <p>The current state of the device.</p>
    * @public
    */
-  deviceState?: UnlockState;
+  deviceState?: UnlockState | undefined;
 
   /**
    * <p>The network interfaces available on the device.</p>
    * @public
    */
-  physicalNetworkInterfaces?: PhysicalNetworkInterface[];
+  physicalNetworkInterfaces?: PhysicalNetworkInterface[] | undefined;
 
   /**
    * <p>The hardware specifications of the device. </p>
    * @public
    */
-  deviceCapacities?: Capacity[];
+  deviceCapacities?: Capacity[] | undefined;
 
   /**
    * <p>The software installed on the device.</p>
    * @public
    */
-  software?: SoftwareInformation;
+  software?: SoftwareInformation | undefined;
 }
 
 /**
@@ -570,25 +570,25 @@ export interface EbsInstanceBlockDevice {
    * <p>When the attachment was initiated.</p>
    * @public
    */
-  attachTime?: Date;
+  attachTime?: Date | undefined;
 
   /**
    * <p>A value that indicates whether the volume is deleted on instance termination.</p>
    * @public
    */
-  deleteOnTermination?: boolean;
+  deleteOnTermination?: boolean | undefined;
 
   /**
    * <p>The attachment state.</p>
    * @public
    */
-  status?: AttachmentStatus;
+  status?: AttachmentStatus | undefined;
 
   /**
    * <p>The ID of the Amazon EBS volume.</p>
    * @public
    */
-  volumeId?: string;
+  volumeId?: string | undefined;
 }
 
 /**
@@ -600,14 +600,14 @@ export interface InstanceBlockDeviceMapping {
    * <p>The block device name.</p>
    * @public
    */
-  deviceName?: string;
+  deviceName?: string | undefined;
 
   /**
    * <p>The parameters used to automatically set up Amazon Elastic Block Store (Amazon EBS)
    *       volumes when the instance is launched. </p>
    * @public
    */
-  ebs?: EbsInstanceBlockDevice;
+  ebs?: EbsInstanceBlockDevice | undefined;
 }
 
 /**
@@ -619,13 +619,13 @@ export interface SecurityGroupIdentifier {
    * <p>The security group ID.</p>
    * @public
    */
-  groupId?: string;
+  groupId?: string | undefined;
 
   /**
    * <p>The security group name.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
@@ -696,7 +696,7 @@ export interface InstanceState {
    *       decimal. </p>
    * @public
    */
-  code?: number;
+  code?: number | undefined;
 
   /**
    * <p>The current
@@ -704,7 +704,7 @@ export interface InstanceState {
    *       of the instance.</p>
    * @public
    */
-  name?: InstanceStateName;
+  name?: InstanceStateName | undefined;
 }
 
 /**
@@ -718,80 +718,80 @@ export interface Instance {
    * <p>The ID of the AMI used to launch the instance.</p>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) launch index, which you can use to find this instance in
    *       the launch group. </p>
    * @public
    */
-  amiLaunchIndex?: number;
+  amiLaunchIndex?: number | undefined;
 
   /**
    * <p>The ID of the instance.</p>
    * @public
    */
-  instanceId?: string;
+  instanceId?: string | undefined;
 
   /**
    * <p>The description of the current state of an instance.</p>
    * @public
    */
-  state?: InstanceState;
+  state?: InstanceState | undefined;
 
   /**
    * <p>The instance type.</p>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>The private IPv4 address assigned to the instance.</p>
    * @public
    */
-  privateIpAddress?: string;
+  privateIpAddress?: string | undefined;
 
   /**
    * <p>The public IPv4 address assigned to the instance.</p>
    * @public
    */
-  publicIpAddress?: string;
+  publicIpAddress?: string | undefined;
 
   /**
    * <p>When the instance was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>When the instance was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>Any block device mapping entries for the instance.</p>
    * @public
    */
-  blockDeviceMappings?: InstanceBlockDeviceMapping[];
+  blockDeviceMappings?: InstanceBlockDeviceMapping[] | undefined;
 
   /**
    * <p>The security groups for the instance.</p>
    * @public
    */
-  securityGroups?: SecurityGroupIdentifier[];
+  securityGroups?: SecurityGroupIdentifier[] | undefined;
 
   /**
    * <p>The CPU options for the instance.</p>
    * @public
    */
-  cpuOptions?: CpuOptions;
+  cpuOptions?: CpuOptions | undefined;
 
   /**
    * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>). </p>
    * @public
    */
-  rootDeviceName?: string;
+  rootDeviceName?: string | undefined;
 }
 
 /**
@@ -803,13 +803,13 @@ export interface InstanceSummary {
    * <p>A structure containing details about the instance.</p>
    * @public
    */
-  instance?: Instance;
+  instance?: Instance | undefined;
 
   /**
    * <p>When the instance summary was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -820,7 +820,7 @@ export interface DescribeDeviceEc2Output {
    * <p>A list of structures containing information about each instance. </p>
    * @public
    */
-  instances?: InstanceSummary[];
+  instances?: InstanceSummary[] | undefined;
 }
 
 /**
@@ -867,37 +867,37 @@ export interface DescribeExecutionOutput {
    * <p>The ID of the task being executed on the device.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The ID of the execution.</p>
    * @public
    */
-  executionId?: string;
+  executionId?: string | undefined;
 
   /**
    * <p>The ID of the managed device that the task is being executed on.</p>
    * @public
    */
-  managedDeviceId?: string;
+  managedDeviceId?: string | undefined;
 
   /**
    * <p>The current state of the execution.</p>
    * @public
    */
-  state?: ExecutionState;
+  state?: ExecutionState | undefined;
 
   /**
    * <p>When the execution began.</p>
    * @public
    */
-  startedAt?: Date;
+  startedAt?: Date | undefined;
 
   /**
    * <p>When the status of the execution was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -934,56 +934,56 @@ export interface DescribeTaskOutput {
    * <p>The ID of the task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>The managed devices that the task was sent to.</p>
    * @public
    */
-  targets?: string[];
+  targets?: string[] | undefined;
 
   /**
    * <p>The current state of the task.</p>
    * @public
    */
-  state?: TaskState;
+  state?: TaskState | undefined;
 
   /**
    * <p>When the <code>CreateTask</code> operation was called.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>When the state of the task was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>When the task was completed.</p>
    * @public
    */
-  completedAt?: Date;
+  completedAt?: Date | undefined;
 
   /**
    * <p>The description provided of the task and managed devices.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -995,26 +995,26 @@ export interface DeviceSummary {
    * <p>The ID of the device.</p>
    * @public
    */
-  managedDeviceId?: string;
+  managedDeviceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  managedDeviceArn?: string;
+  managedDeviceArn?: string | undefined;
 
   /**
    * <p>The ID of the job used to order the device.</p>
    * @public
    */
-  associatedWithJob?: string;
+  associatedWithJob?: string | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1031,19 +1031,19 @@ export interface ListExecutionsInput {
    * <p>A structure used to filter the tasks by their current state.</p>
    * @public
    */
-  state?: ExecutionState;
+  state?: ExecutionState | undefined;
 
   /**
    * <p>The maximum number of tasks to list per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of tasks.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1055,25 +1055,25 @@ export interface ExecutionSummary {
    * <p>The ID of the task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The ID of the execution.</p>
    * @public
    */
-  executionId?: string;
+  executionId?: string | undefined;
 
   /**
    * <p>The ID of the managed device that the task is being executed on.</p>
    * @public
    */
-  managedDeviceId?: string;
+  managedDeviceId?: string | undefined;
 
   /**
    * <p>The state of the execution.</p>
    * @public
    */
-  state?: ExecutionState;
+  state?: ExecutionState | undefined;
 }
 
 /**
@@ -1085,13 +1085,13 @@ export interface ListExecutionsOutput {
    *       executing on, the execution ID, and the status of the execution.</p>
    * @public
    */
-  executions?: ExecutionSummary[];
+  executions?: ExecutionSummary[] | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of executions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1108,19 +1108,19 @@ export interface ListDeviceResourcesInput {
    * <p>A structure used to filter the results by type of resource.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The maximum number of resources per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1138,13 +1138,13 @@ export interface ResourceSummary {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -1155,13 +1155,13 @@ export interface ListDeviceResourcesOutput {
    * <p>A structure defining the resource's type, Amazon Resource Name (ARN), and ID.</p>
    * @public
    */
-  resources?: ResourceSummary[];
+  resources?: ResourceSummary[] | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1172,19 +1172,19 @@ export interface ListDevicesInput {
    * <p>The ID of the job used to order the device.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The maximum number of devices to list per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1195,13 +1195,13 @@ export interface ListDevicesOutput {
    * <p>A list of device structures that contain information about the device.</p>
    * @public
    */
-  devices?: DeviceSummary[];
+  devices?: DeviceSummary[] | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of devices.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1223,7 +1223,7 @@ export interface ListTagsForResourceOutput {
    * <p>The list of tags for the device or task.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1234,19 +1234,19 @@ export interface ListTasksInput {
    * <p>A structure used to filter the list of tasks.</p>
    * @public
    */
-  state?: TaskState;
+  state?: TaskState | undefined;
 
   /**
    * <p>The maximum number of tasks per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of tasks.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1264,20 +1264,20 @@ export interface TaskSummary {
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>The state of the task assigned to one or many devices.</p>
    * @public
    */
-  state?: TaskState;
+  state?: TaskState | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1288,13 +1288,13 @@ export interface ListTasksOutput {
    * <p>A list of task structures containing details about each task.</p>
    * @public
    */
-  tasks?: TaskSummary[];
+  tasks?: TaskSummary[] | undefined;
 
   /**
    * <p>A pagination token to continue to the next page of tasks.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**

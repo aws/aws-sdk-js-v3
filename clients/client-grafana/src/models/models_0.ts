@@ -149,7 +149,7 @@ export class InternalServerException extends __BaseException {
    * <p>How long to wait before you retry this operation.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -259,19 +259,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The ID of the service that is associated with the error.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The ID of the service quota that was exceeded.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The value of a parameter in the request caused an error.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -341,7 +341,7 @@ export class ValidationException extends __BaseException {
    * <p>A list of fields that might be associated with the error.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -403,41 +403,41 @@ export interface AssertionAttributes {
    *             names for SAML users.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The name of the attribute within the SAML assertion to use as the login names for SAML
    *             users.</p>
    * @public
    */
-  login?: string;
+  login?: string | undefined;
 
   /**
    * <p>The name of the attribute within the SAML assertion to use as the email names for SAML
    *             users.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>The name of the attribute within the SAML assertion to use as the user full "friendly"
    *             names for user groups.</p>
    * @public
    */
-  groups?: string;
+  groups?: string | undefined;
 
   /**
    * <p>The name of the attribute within the SAML assertion to use as the user roles.</p>
    * @public
    */
-  role?: string;
+  role?: string | undefined;
 
   /**
    * <p>The name of the attribute within the SAML assertion to use as the user full "friendly"
    *             names for the users' organizations.</p>
    * @public
    */
-  org?: string;
+  org?: string | undefined;
 }
 
 /**
@@ -484,7 +484,7 @@ export interface AssociateLicenseRequest {
    *             Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
-  grafanaToken?: string;
+  grafanaToken?: string | undefined;
 }
 
 /**
@@ -547,7 +547,7 @@ export interface AuthenticationSummary {
    *             configured.</p>
    * @public
    */
-  samlConfigurationStatus?: SamlConfigurationStatus;
+  samlConfigurationStatus?: SamlConfigurationStatus | undefined;
 }
 
 /**
@@ -797,7 +797,7 @@ export interface WorkspaceDescription {
    *             specifies which organizational units the workspace can access.</p>
    * @public
    */
-  accountAccessType?: AccountAccessType;
+  accountAccessType?: AccountAccessType | undefined;
 
   /**
    * <p>The date that the workspace was created.</p>
@@ -819,7 +819,7 @@ export interface WorkspaceDescription {
    * <p>The user-defined description of the workspace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The URL that users can use to access the Grafana console in the workspace.</p>
@@ -849,14 +849,14 @@ export interface WorkspaceDescription {
    * <p>The name of the workspace.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The name of the IAM role that is used to access resources through
    *                 Organizations.</p>
    * @public
    */
-  organizationRoleName?: string;
+  organizationRoleName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services notification channels that Amazon Managed Grafana can automatically
@@ -864,14 +864,14 @@ export interface WorkspaceDescription {
    *             these channels.</p>
    * @public
    */
-  notificationDestinations?: NotificationDestinationType[];
+  notificationDestinations?: NotificationDestinationType[] | undefined;
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources
    *             from, if this workspace is in an account that is part of an organization.</p>
    * @public
    */
-  organizationalUnits?: string[];
+  organizationalUnits?: string[] | undefined;
 
   /**
    * <p>If this is <code>SERVICE_MANAGED</code>, and the workplace was created through the
@@ -893,13 +893,13 @@ export interface WorkspaceDescription {
    *          </p>
    * @public
    */
-  permissionType?: PermissionType;
+  permissionType?: PermissionType | undefined;
 
   /**
    * <p>The name of the CloudFormation stack set that is used to generate IAM roles to be used for this workspace.</p>
    * @public
    */
-  stackSetName?: string;
+  stackSetName?: string | undefined;
 
   /**
    * <p>The current status of the workspace.</p>
@@ -912,7 +912,7 @@ export interface WorkspaceDescription {
    *             resources that the workspace will view data from. This role must already exist.</p>
    * @public
    */
-  workspaceRoleArn?: string;
+  workspaceRoleArn?: string | undefined;
 
   /**
    * <p>Specifies whether this workspace has a full Grafana Enterprise license.</p>
@@ -921,7 +921,7 @@ export interface WorkspaceDescription {
    *          </note>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>Specifies whether this workspace has already fully used its free trial for Grafana
@@ -931,7 +931,7 @@ export interface WorkspaceDescription {
    *          </note>
    * @public
    */
-  freeTrialConsumed?: boolean;
+  freeTrialConsumed?: boolean | undefined;
 
   /**
    * <p>If this workspace has a full Grafana Enterprise license purchased through
@@ -941,7 +941,7 @@ export interface WorkspaceDescription {
    *             license is removed.</p>
    * @public
    */
-  licenseExpiration?: Date;
+  licenseExpiration?: Date | undefined;
 
   /**
    * <p>If this workspace is currently in the free trial period for Grafana Enterprise, this
@@ -951,7 +951,7 @@ export interface WorkspaceDescription {
    *          </note>
    * @public
    */
-  freeTrialExpiration?: Date;
+  freeTrialExpiration?: Date | undefined;
 
   /**
    * <p>A structure that describes whether the workspace uses SAML, IAM Identity Center, or
@@ -964,26 +964,26 @@ export interface WorkspaceDescription {
    * <p>The list of tags associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration for connecting to data sources in a private VPC (Amazon Virtual Private Cloud).</p>
    * @public
    */
-  vpcConfiguration?: VpcConfiguration;
+  vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
    * <p>The configuration settings for network access to your workspace.</p>
    * @public
    */
-  networkAccessControl?: NetworkAccessConfiguration;
+  networkAccessControl?: NetworkAccessConfiguration | undefined;
 
   /**
    * <p>The token that ties this workspace to a Grafana Labs account. For more information,
    *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
-  grafanaToken?: string;
+  grafanaToken?: string | undefined;
 }
 
 /**
@@ -1017,7 +1017,7 @@ export interface AwsSsoAuthentication {
    * <p>The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana.</p>
    * @public
    */
-  ssoClientId?: string;
+  ssoClientId?: string | undefined;
 }
 
 /**
@@ -1089,14 +1089,14 @@ export interface RoleValues {
    *                 <code>Editor</code> role to.</p>
    * @public
    */
-  editor?: string[];
+  editor?: string[] | undefined;
 
   /**
    * <p>A list of groups from the SAML assertion attribute to grant the Grafana
    *                 <code>Admin</code> role to.</p>
    * @public
    */
-  admin?: string[];
+  admin?: string[] | undefined;
 }
 
 /**
@@ -1117,28 +1117,28 @@ export interface SamlConfiguration {
    *             workspace.</p>
    * @public
    */
-  assertionAttributes?: AssertionAttributes;
+  assertionAttributes?: AssertionAttributes | undefined;
 
   /**
    * <p>A structure containing arrays that map group names in the SAML assertion to the
    *             Grafana <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
    * @public
    */
-  roleValues?: RoleValues;
+  roleValues?: RoleValues | undefined;
 
   /**
    * <p>Lists which organizations defined in the SAML assertion are allowed to use the Amazon Managed Grafana workspace. If this is empty, all organizations in the assertion attribute
    *             have access.</p>
    * @public
    */
-  allowedOrganizations?: string[];
+  allowedOrganizations?: string[] | undefined;
 
   /**
    * <p>How long a sign-on session by a SAML user is valid, before the user has to sign on
    *             again.</p>
    * @public
    */
-  loginValidityDuration?: number;
+  loginValidityDuration?: number | undefined;
 }
 
 /**
@@ -1156,7 +1156,7 @@ export interface SamlAuthentication {
    * <p>A structure containing details about how this workspace works with SAML. </p>
    * @public
    */
-  configuration?: SamlConfiguration;
+  configuration?: SamlConfiguration | undefined;
 }
 
 /**
@@ -1179,13 +1179,13 @@ export interface AuthenticationDescription {
    *             workspace. </p>
    * @public
    */
-  saml?: SamlAuthentication;
+  saml?: SamlAuthentication | undefined;
 
   /**
    * <p>A structure containing information about how this workspace works with IAM Identity Center. </p>
    * @public
    */
-  awsSso?: AwsSsoAuthentication;
+  awsSso?: AwsSsoAuthentication | undefined;
 }
 
 /**
@@ -1225,7 +1225,7 @@ export interface UpdateWorkspaceAuthenticationRequest {
    *             have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
    * @public
    */
-  samlConfiguration?: SamlConfiguration;
+  samlConfiguration?: SamlConfiguration | undefined;
 }
 
 /**
@@ -1267,7 +1267,7 @@ export interface DescribeWorkspaceConfigurationResponse {
    * <p>The supported Grafana version for the workspace.</p>
    * @public
    */
-  grafanaVersion?: string;
+  grafanaVersion?: string | undefined;
 }
 
 /**
@@ -1297,7 +1297,7 @@ export interface UpdateWorkspaceConfigurationRequest {
    *             the <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListVersions.html">ListVersions</a> operation.</p>
    * @public
    */
-  grafanaVersion?: string;
+  grafanaVersion?: string | undefined;
 }
 
 /**
@@ -1352,7 +1352,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags that are associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1363,14 +1363,14 @@ export interface ListVersionsRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You receive this token from
    *             a previous <code>ListVersions</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The ID of the workspace to list the available upgrade versions. If not included,
@@ -1378,7 +1378,7 @@ export interface ListVersionsRequest {
    *             <code>CreateWorkspace</code>.</p>
    * @public
    */
-  workspaceId?: string;
+  workspaceId?: string | undefined;
 }
 
 /**
@@ -1390,14 +1390,14 @@ export interface ListVersionsResponse {
    *             next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The Grafana versions available to create. If a workspace ID is included in the
    *             request, the Grafana versions to which this workspace can be upgraded.</p>
    * @public
    */
-  grafanaVersions?: string[];
+  grafanaVersions?: string[] | undefined;
 }
 
 /**
@@ -1428,33 +1428,33 @@ export interface ListPermissionsRequest {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use when requesting the next set of results. You received this token from
    *             a previous <code>ListPermissions</code> operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>(Optional) If you specify <code>SSO_USER</code>, then only the permissions of IAM Identity Center users are returned. If you specify <code>SSO_GROUP</code>, only the
    *             permissions of IAM Identity Center groups are returned.</p>
    * @public
    */
-  userType?: UserType;
+  userType?: UserType | undefined;
 
   /**
    * <p>(Optional) Limits the results to only the user that matches this ID.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>(Optional) Limits the results to only the group that matches this ID.</p>
    * @public
    */
-  groupId?: string;
+  groupId?: string | undefined;
 
   /**
    * <p>The ID of the workspace to list permissions for. This parameter is required.</p>
@@ -1537,7 +1537,7 @@ export interface ListPermissionsResponse {
    *             next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The permissions returned by the operation.</p>
@@ -1743,14 +1743,14 @@ export interface ListWorkspaceServiceAccountsRequest {
    * <p>The maximum number of service accounts to include in the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of service accounts to return. (You receive this token
    *             from a previous <code>ListWorkspaceServiceAccounts</code> operation.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The workspace for which to list service accounts.</p>
@@ -1799,7 +1799,7 @@ export interface ListWorkspaceServiceAccountsResponse {
    * <p>The token to use when requesting the next set of service accounts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of structures containing information about the service accounts.</p>
@@ -1951,14 +1951,14 @@ export interface ListWorkspaceServiceAccountTokensRequest {
    * <p>The maximum number of tokens to include in the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of service accounts to return. (You receive this token
    *             from a previous <code>ListWorkspaceServiceAccountTokens</code> operation.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The ID of the service account for which to return tokens.</p>
@@ -2006,7 +2006,7 @@ export interface ServiceAccountTokenSummary {
    * <p>The last time the token was used to authorize a Grafana HTTP API.</p>
    * @public
    */
-  lastUsedAt?: Date;
+  lastUsedAt?: Date | undefined;
 }
 
 /**
@@ -2017,7 +2017,7 @@ export interface ListWorkspaceServiceAccountTokensResponse {
    * <p>The token to use when requesting the next set of service accounts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of structures containing information about the tokens.</p>
@@ -2102,14 +2102,14 @@ export interface CreateWorkspaceRequest {
    *             request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of an IAM role that already exists to use with Organizations to access Amazon Web Services data sources and notification channels in other accounts
    *             in an organization.</p>
    * @public
    */
-  organizationRoleName?: string;
+  organizationRoleName?: string | undefined;
 
   /**
    * <p>When creating a workspace through the Amazon Web Services API, CLI or Amazon Web Services CloudFormation, you must manage IAM roles and provision the
@@ -2137,13 +2137,13 @@ export interface CreateWorkspaceRequest {
    *             roles to be used for this workspace.</p>
    * @public
    */
-  stackSetName?: string;
+  stackSetName?: string | undefined;
 
   /**
    * <p>This parameter is for internal use only, and should not be used.</p>
    * @public
    */
-  workspaceDataSources?: DataSourceType[];
+  workspaceDataSources?: DataSourceType[] | undefined;
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this
@@ -2152,13 +2152,13 @@ export interface CreateWorkspaceRequest {
    *          </p>
    * @public
    */
-  workspaceDescription?: string;
+  workspaceDescription?: string | undefined;
 
   /**
    * <p>The name for the workspace. It does not have to be unique.</p>
    * @public
    */
-  workspaceName?: string;
+  workspaceName?: string | undefined;
 
   /**
    * <p>Specify the Amazon Web Services notification channels that you plan to use in this
@@ -2167,14 +2167,14 @@ export interface CreateWorkspaceRequest {
    *             channels.</p>
    * @public
    */
-  workspaceNotificationDestinations?: NotificationDestinationType[];
+  workspaceNotificationDestinations?: NotificationDestinationType[] | undefined;
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources
    *             from, if this workspace is in an account that is part of an organization.</p>
    * @public
    */
-  workspaceOrganizationalUnits?: string[];
+  workspaceOrganizationalUnits?: string[] | undefined;
 
   /**
    * <p>Specified the IAM role that grants permissions to the Amazon Web Services resources that the workspace will view data from, including both data
@@ -2182,7 +2182,7 @@ export interface CreateWorkspaceRequest {
    *             for this role as new data sources or notification channels are added. </p>
    * @public
    */
-  workspaceRoleArn?: string;
+  workspaceRoleArn?: string | undefined;
 
   /**
    * <p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to
@@ -2197,7 +2197,7 @@ export interface CreateWorkspaceRequest {
    * <p>The list of tags associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration settings for an Amazon VPC that contains data sources for
@@ -2208,7 +2208,7 @@ export interface CreateWorkspaceRequest {
    *          </note>
    * @public
    */
-  vpcConfiguration?: VpcConfiguration;
+  vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
    * <p>The configuration string for the workspace that you create. For more information about
@@ -2216,7 +2216,7 @@ export interface CreateWorkspaceRequest {
    *                 workspace</a>.</p>
    * @public
    */
-  configuration?: __LazyJsonString | string;
+  configuration?: __LazyJsonString | string | undefined;
 
   /**
    * <p>Configuration for network access to your workspace.</p>
@@ -2228,7 +2228,7 @@ export interface CreateWorkspaceRequest {
    *             required.</p>
    * @public
    */
-  networkAccessControl?: NetworkAccessConfiguration;
+  networkAccessControl?: NetworkAccessConfiguration | undefined;
 
   /**
    * <p>Specifies the version of Grafana to support in the new workspace. If not specified,
@@ -2237,7 +2237,7 @@ export interface CreateWorkspaceRequest {
    *             operation.</p>
    * @public
    */
-  grafanaVersion?: string;
+  grafanaVersion?: string | undefined;
 }
 
 /**
@@ -2303,14 +2303,14 @@ export interface ListWorkspacesRequest {
    * <p>The maximum number of workspaces to include in the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of workspaces to return. (You receive this token from a
    *             previous <code>ListWorkspaces</code> operation.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2328,7 +2328,7 @@ export interface WorkspaceSummary {
    * <p>The customer-entered description of the workspace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The URL endpoint to use to access the Grafana console in the workspace.</p>
@@ -2358,7 +2358,7 @@ export interface WorkspaceSummary {
    * <p>The name of the workspace.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Web Services notification channels that Amazon Managed Grafana can automatically
@@ -2366,7 +2366,7 @@ export interface WorkspaceSummary {
    *             use these channels.</p>
    * @public
    */
-  notificationDestinations?: NotificationDestinationType[];
+  notificationDestinations?: NotificationDestinationType[] | undefined;
 
   /**
    * <p>The current status of the workspace.</p>
@@ -2385,7 +2385,7 @@ export interface WorkspaceSummary {
    * <p>The list of tags associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether this workspace has a full Grafana Enterprise license.</p>
@@ -2394,14 +2394,14 @@ export interface WorkspaceSummary {
    *          </note>
    * @public
    */
-  licenseType?: LicenseType;
+  licenseType?: LicenseType | undefined;
 
   /**
    * <p>The token that ties this workspace to a Grafana Labs account. For more information,
    *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
-  grafanaToken?: string;
+  grafanaToken?: string | undefined;
 }
 
 /**
@@ -2419,7 +2419,7 @@ export interface ListWorkspacesResponse {
    * <p>The token to use when requesting the next set of workspaces.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2434,7 +2434,7 @@ export interface UpdateWorkspaceRequest {
    *             can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>
    * @public
    */
-  accountAccessType?: AccountAccessType;
+  accountAccessType?: AccountAccessType | undefined;
 
   /**
    * <p>The name of an IAM role that already exists to use to access resources
@@ -2442,7 +2442,7 @@ export interface UpdateWorkspaceRequest {
    *             <code>permissionType</code> set to <code>CUSTOMER_MANAGED</code>.</p>
    * @public
    */
-  organizationRoleName?: string;
+  organizationRoleName?: string | undefined;
 
   /**
    * <p>Use this parameter if you want to change a workspace from <code>SERVICE_MANAGED</code>
@@ -2468,27 +2468,27 @@ export interface UpdateWorkspaceRequest {
    *          </note>
    * @public
    */
-  permissionType?: PermissionType;
+  permissionType?: PermissionType | undefined;
 
   /**
    * <p>The name of the CloudFormation stack set to use to generate IAM
    *             roles to be used for this workspace.</p>
    * @public
    */
-  stackSetName?: string;
+  stackSetName?: string | undefined;
 
   /**
    * <p>This parameter is for internal use only, and should not be used.</p>
    * @public
    */
-  workspaceDataSources?: DataSourceType[];
+  workspaceDataSources?: DataSourceType[] | undefined;
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this
    *             workspace.</p>
    * @public
    */
-  workspaceDescription?: string;
+  workspaceDescription?: string | undefined;
 
   /**
    * <p>The ID of the workspace to update.</p>
@@ -2500,7 +2500,7 @@ export interface UpdateWorkspaceRequest {
    * <p>A new name for the workspace to update.</p>
    * @public
    */
-  workspaceName?: string;
+  workspaceName?: string | undefined;
 
   /**
    * <p>Specify the Amazon Web Services notification channels that you plan to use in this
@@ -2509,14 +2509,14 @@ export interface UpdateWorkspaceRequest {
    *             channels.</p>
    * @public
    */
-  workspaceNotificationDestinations?: NotificationDestinationType[];
+  workspaceNotificationDestinations?: NotificationDestinationType[] | undefined;
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources
    *             from, if this workspace is in an account that is part of an organization.</p>
    * @public
    */
-  workspaceOrganizationalUnits?: string[];
+  workspaceOrganizationalUnits?: string[] | undefined;
 
   /**
    * <p>Specifies an IAM role that grants permissions to Amazon Web Services
@@ -2526,14 +2526,14 @@ export interface UpdateWorkspaceRequest {
    *             then this role is required.</p>
    * @public
    */
-  workspaceRoleArn?: string;
+  workspaceRoleArn?: string | undefined;
 
   /**
    * <p>The configuration settings for an Amazon VPC that contains data sources for
    *             your Grafana workspace to connect to.</p>
    * @public
    */
-  vpcConfiguration?: VpcConfiguration;
+  vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
    * <p>Whether to remove the VPC configuration from the workspace.</p>
@@ -2541,7 +2541,7 @@ export interface UpdateWorkspaceRequest {
    *             will return an error.</p>
    * @public
    */
-  removeVpcConfiguration?: boolean;
+  removeVpcConfiguration?: boolean | undefined;
 
   /**
    * <p>The configuration settings for network access to your workspace.</p>
@@ -2553,7 +2553,7 @@ export interface UpdateWorkspaceRequest {
    *             required.</p>
    * @public
    */
-  networkAccessControl?: NetworkAccessConfiguration;
+  networkAccessControl?: NetworkAccessConfiguration | undefined;
 
   /**
    * <p>Whether to remove the network access configuration from the workspace.</p>
@@ -2564,7 +2564,7 @@ export interface UpdateWorkspaceRequest {
    *             authorization will still be required.</p>
    * @public
    */
-  removeNetworkAccessConfiguration?: boolean;
+  removeNetworkAccessConfiguration?: boolean | undefined;
 }
 
 /**

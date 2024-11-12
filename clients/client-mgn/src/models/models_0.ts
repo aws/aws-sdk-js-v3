@@ -10,7 +10,7 @@ import { MgnServiceException as __BaseException } from "./MgnServiceException";
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -87,25 +87,25 @@ export interface ApplicationAggregatedStatus {
    * <p>Application aggregated status last update dateTime.</p>
    * @public
    */
-  lastUpdateDateTime?: string;
+  lastUpdateDateTime?: string | undefined;
 
   /**
    * <p>Application aggregated status health status.</p>
    * @public
    */
-  healthStatus?: ApplicationHealthStatus;
+  healthStatus?: ApplicationHealthStatus | undefined;
 
   /**
    * <p>Application aggregated status progress status.</p>
    * @public
    */
-  progressStatus?: ApplicationProgressStatus;
+  progressStatus?: ApplicationProgressStatus | undefined;
 
   /**
    * <p>Application aggregated status total source servers amount.</p>
    * @public
    */
-  totalSourceServers?: number;
+  totalSourceServers?: number | undefined;
 }
 
 /**
@@ -116,61 +116,61 @@ export interface Application {
    * <p>Application ID.</p>
    * @public
    */
-  applicationID?: string;
+  applicationID?: string | undefined;
 
   /**
    * <p>Application ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Application name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Application description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Application archival status.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 
   /**
    * <p>Application aggregated status.</p>
    * @public
    */
-  applicationAggregatedStatus?: ApplicationAggregatedStatus;
+  applicationAggregatedStatus?: ApplicationAggregatedStatus | undefined;
 
   /**
    * <p>Application creation dateTime.</p>
    * @public
    */
-  creationDateTime?: string;
+  creationDateTime?: string | undefined;
 
   /**
    * <p>Application last modified dateTime.</p>
    * @public
    */
-  lastModifiedDateTime?: string;
+  lastModifiedDateTime?: string | undefined;
 
   /**
    * <p>Application tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Application wave ID.</p>
    * @public
    */
-  waveID?: string;
+  waveID?: string | undefined;
 }
 
 /**
@@ -187,7 +187,7 @@ export interface ArchiveApplicationRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -199,25 +199,25 @@ export interface ErrorDetails {
    * <p>Error details message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Error details code.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>Error details resourceId.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Error details resourceType.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 }
 
 /**
@@ -227,24 +227,24 @@ export interface ErrorDetails {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * <p>A conflict occurred when prompting for the Resource ID.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>A conflict occurred when prompting for resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Conflict Exception specific errors.</p>
    * @public
    */
-  errors?: ErrorDetails[];
+  errors?: ErrorDetails[] | undefined;
 
   /**
    * @internal
@@ -270,18 +270,18 @@ export class ConflictException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * <p>Resource ID not found error.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Resource type not found error.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -306,36 +306,36 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * <p>Exceeded the service quota resource ID.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Exceeded the service quota resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Exceeded the service quota service code.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>Exceeded the service quota code.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Exceeded the service quota value.</p>
    * @public
    */
-  quotaValue?: number;
+  quotaValue?: number | undefined;
 
   /**
    * @internal
@@ -363,7 +363,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class UninitializedAccountException extends __BaseException {
   readonly name: "UninitializedAccountException" = "UninitializedAccountException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -398,7 +398,7 @@ export interface AssociateSourceServersRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -420,19 +420,19 @@ export interface CreateApplicationRequest {
    * <p>Application description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Application tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -449,7 +449,7 @@ export interface DeleteApplicationRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -477,7 +477,7 @@ export interface DisassociateSourceServersRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -494,19 +494,19 @@ export interface ListApplicationsRequestFilters {
    * <p>Filter applications list by application ID.</p>
    * @public
    */
-  applicationIDs?: string[];
+  applicationIDs?: string[] | undefined;
 
   /**
    * <p>Filter applications list by archival status.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 
   /**
    * <p>Filter applications list by wave ID.</p>
    * @public
    */
-  waveIDs?: string[];
+  waveIDs?: string[] | undefined;
 }
 
 /**
@@ -517,25 +517,25 @@ export interface ListApplicationsRequest {
    * <p>Applications list filters.</p>
    * @public
    */
-  filters?: ListApplicationsRequestFilters;
+  filters?: ListApplicationsRequestFilters | undefined;
 
   /**
    * <p>Maximum results to return when listing applications.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Applications list Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -546,13 +546,13 @@ export interface ListApplicationsResponse {
    * <p>Applications list.</p>
    * @public
    */
-  items?: Application[];
+  items?: Application[] | undefined;
 
   /**
    * <p>Response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -569,7 +569,7 @@ export interface UnarchiveApplicationRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -586,19 +586,19 @@ export interface UpdateApplicationRequest {
    * <p>Application name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Application description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface ConnectorSsmCommandConfig {
    * <p>Connector SSM command config output S3 bucket name.</p>
    * @public
    */
-  outputS3BucketName?: string;
+  outputS3BucketName?: string | undefined;
 
   /**
    * <p>Connector SSM command config CloudWatch output enabled.</p>
@@ -628,7 +628,7 @@ export interface ConnectorSsmCommandConfig {
    * <p>Connector SSM command config CloudWatch log group name.</p>
    * @public
    */
-  cloudWatchLogGroupName?: string;
+  cloudWatchLogGroupName?: string | undefined;
 }
 
 /**
@@ -639,37 +639,37 @@ export interface Connector {
    * <p>Connector ID.</p>
    * @public
    */
-  connectorID?: string;
+  connectorID?: string | undefined;
 
   /**
    * <p>Connector name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Connector SSM instance ID.</p>
    * @public
    */
-  ssmInstanceID?: string;
+  ssmInstanceID?: string | undefined;
 
   /**
    * <p>Connector arn.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Connector tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Connector SSM command config.</p>
    * @public
    */
-  ssmCommandConfig?: ConnectorSsmCommandConfig;
+  ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
 }
 
 /**
@@ -692,13 +692,13 @@ export interface CreateConnectorRequest {
    * <p>Create Connector request tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Create Connector request SSM command config.</p>
    * @public
    */
-  ssmCommandConfig?: ConnectorSsmCommandConfig;
+  ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
 }
 
 /**
@@ -710,13 +710,13 @@ export interface ValidationExceptionField {
    * <p>Validate exception field name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Validate exception field message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -742,18 +742,18 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * <p>Validate exception reason.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>Validate exception field list.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -791,7 +791,7 @@ export interface ListConnectorsRequestFilters {
    * <p>List Connectors Request Filters connector IDs.</p>
    * @public
    */
-  connectorIDs?: string[];
+  connectorIDs?: string[] | undefined;
 }
 
 /**
@@ -802,19 +802,19 @@ export interface ListConnectorsRequest {
    * <p>List Connectors Request filters.</p>
    * @public
    */
-  filters?: ListConnectorsRequestFilters;
+  filters?: ListConnectorsRequestFilters | undefined;
 
   /**
    * <p>List Connectors Request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List Connectors Request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -825,13 +825,13 @@ export interface ListConnectorsResponse {
    * <p>List connectors response items.</p>
    * @public
    */
-  items?: Connector[];
+  items?: Connector[] | undefined;
 
   /**
    * <p>List connectors response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -848,13 +848,13 @@ export interface UpdateConnectorRequest {
    * <p>Update Connector request name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Update Connector request SSM command config.</p>
    * @public
    */
-  ssmCommandConfig?: ConnectorSsmCommandConfig;
+  ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
 }
 
 /**
@@ -872,13 +872,13 @@ export interface ListExportErrorsRequest {
    * <p>List export errors request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List export errors request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -890,7 +890,7 @@ export interface ExportErrorData {
    * <p>Export errors data raw error.</p>
    * @public
    */
-  rawError?: string;
+  rawError?: string | undefined;
 }
 
 /**
@@ -902,13 +902,13 @@ export interface ExportTaskError {
    * <p>Export task error datetime.</p>
    * @public
    */
-  errorDateTime?: string;
+  errorDateTime?: string | undefined;
 
   /**
    * <p>Export task error data.</p>
    * @public
    */
-  errorData?: ExportErrorData;
+  errorData?: ExportErrorData | undefined;
 }
 
 /**
@@ -920,13 +920,13 @@ export interface ListExportErrorsResponse {
    * <p>List export errors response items.</p>
    * @public
    */
-  items?: ExportTaskError[];
+  items?: ExportTaskError[] | undefined;
 
   /**
    * <p>List export errors response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -938,7 +938,7 @@ export interface ListExportsRequestFilters {
    * <p>List exports request filters export ids.</p>
    * @public
    */
-  exportIDs?: string[];
+  exportIDs?: string[] | undefined;
 }
 
 /**
@@ -950,19 +950,19 @@ export interface ListExportsRequest {
    * <p>List exports request filters.</p>
    * @public
    */
-  filters?: ListExportsRequestFilters;
+  filters?: ListExportsRequestFilters | undefined;
 
   /**
    * <p>List export request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List export request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -990,19 +990,19 @@ export interface ExportTaskSummary {
    * <p>Export task summary servers count.</p>
    * @public
    */
-  serversCount?: number;
+  serversCount?: number | undefined;
 
   /**
    * <p>Export task summary applications count.</p>
    * @public
    */
-  applicationsCount?: number;
+  applicationsCount?: number | undefined;
 
   /**
    * <p>Export task summary waves count.</p>
    * @public
    */
-  wavesCount?: number;
+  wavesCount?: number | undefined;
 }
 
 /**
@@ -1014,55 +1014,55 @@ export interface ExportTask {
    * <p>Export task id.</p>
    * @public
    */
-  exportID?: string;
+  exportID?: string | undefined;
 
   /**
    * <p>Export task s3 bucket.</p>
    * @public
    */
-  s3Bucket?: string;
+  s3Bucket?: string | undefined;
 
   /**
    * <p>Export task s3 key.</p>
    * @public
    */
-  s3Key?: string;
+  s3Key?: string | undefined;
 
   /**
    * <p>Export task s3 bucket owner.</p>
    * @public
    */
-  s3BucketOwner?: string;
+  s3BucketOwner?: string | undefined;
 
   /**
    * <p>Export task creation datetime.</p>
    * @public
    */
-  creationDateTime?: string;
+  creationDateTime?: string | undefined;
 
   /**
    * <p>Export task end datetime.</p>
    * @public
    */
-  endDateTime?: string;
+  endDateTime?: string | undefined;
 
   /**
    * <p>Export task status.</p>
    * @public
    */
-  status?: ExportStatus;
+  status?: ExportStatus | undefined;
 
   /**
    * <p>Export task progress percentage.</p>
    * @public
    */
-  progressPercentage?: number;
+  progressPercentage?: number | undefined;
 
   /**
    * <p>Export task summary.</p>
    * @public
    */
-  summary?: ExportTaskSummary;
+  summary?: ExportTaskSummary | undefined;
 }
 
 /**
@@ -1074,13 +1074,13 @@ export interface ListExportsResponse {
    * <p>List export response items.</p>
    * @public
    */
-  items?: ExportTask[];
+  items?: ExportTask[] | undefined;
 
   /**
    * <p>List export response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1104,7 +1104,7 @@ export interface StartExportRequest {
    * <p>Start export request s3 bucket owner.</p>
    * @public
    */
-  s3BucketOwner?: string;
+  s3BucketOwner?: string | undefined;
 }
 
 /**
@@ -1116,7 +1116,7 @@ export interface StartExportResponse {
    * <p>Start export response export task.</p>
    * @public
    */
-  exportTask?: ExportTask;
+  exportTask?: ExportTask | undefined;
 }
 
 /**
@@ -1134,13 +1134,13 @@ export interface ListImportErrorsRequest {
    * <p>List import errors request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List import errors request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1152,43 +1152,43 @@ export interface ImportErrorData {
    * <p>Import error data source server ID.</p>
    * @public
    */
-  sourceServerID?: string;
+  sourceServerID?: string | undefined;
 
   /**
    * <p>Import error data application ID.</p>
    * @public
    */
-  applicationID?: string;
+  applicationID?: string | undefined;
 
   /**
    * <p>Import error data wave id.</p>
    * @public
    */
-  waveID?: string;
+  waveID?: string | undefined;
 
   /**
    * <p>Import error data ec2 LaunchTemplate ID.</p>
    * @public
    */
-  ec2LaunchTemplateID?: string;
+  ec2LaunchTemplateID?: string | undefined;
 
   /**
    * <p>Import error data row number.</p>
    * @public
    */
-  rowNumber?: number;
+  rowNumber?: number | undefined;
 
   /**
    * <p>Import error data raw error.</p>
    * @public
    */
-  rawError?: string;
+  rawError?: string | undefined;
 
   /**
    * <p>Import error data source account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -1214,19 +1214,19 @@ export interface ImportTaskError {
    * <p>Import task error datetime.</p>
    * @public
    */
-  errorDateTime?: string;
+  errorDateTime?: string | undefined;
 
   /**
    * <p>Import task error type.</p>
    * @public
    */
-  errorType?: ImportErrorType;
+  errorType?: ImportErrorType | undefined;
 
   /**
    * <p>Import task error data.</p>
    * @public
    */
-  errorData?: ImportErrorData;
+  errorData?: ImportErrorData | undefined;
 }
 
 /**
@@ -1238,13 +1238,13 @@ export interface ListImportErrorsResponse {
    * <p>List imports errors response items.</p>
    * @public
    */
-  items?: ImportTaskError[];
+  items?: ImportTaskError[] | undefined;
 
   /**
    * <p>List imports errors response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface ListImportsRequestFilters {
    * <p>List imports request filters import IDs.</p>
    * @public
    */
-  importIDs?: string[];
+  importIDs?: string[] | undefined;
 }
 
 /**
@@ -1268,19 +1268,19 @@ export interface ListImportsRequest {
    * <p>List imports request filters.</p>
    * @public
    */
-  filters?: ListImportsRequestFilters;
+  filters?: ListImportsRequestFilters | undefined;
 
   /**
    * <p>List imports request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List imports request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1304,7 +1304,7 @@ export interface S3BucketSource {
    * <p>S3 bucket source s3 bucket owner.</p>
    * @public
    */
-  s3BucketOwner?: string;
+  s3BucketOwner?: string | undefined;
 }
 
 /**
@@ -1332,13 +1332,13 @@ export interface ImportTaskSummaryApplications {
    * <p>Import task summary applications created count.</p>
    * @public
    */
-  createdCount?: number;
+  createdCount?: number | undefined;
 
   /**
    * <p>Import task summary applications modified count.</p>
    * @public
    */
-  modifiedCount?: number;
+  modifiedCount?: number | undefined;
 }
 
 /**
@@ -1350,13 +1350,13 @@ export interface ImportTaskSummaryServers {
    * <p>Import task summary servers created count.</p>
    * @public
    */
-  createdCount?: number;
+  createdCount?: number | undefined;
 
   /**
    * <p>Import task summary servers modified count.</p>
    * @public
    */
-  modifiedCount?: number;
+  modifiedCount?: number | undefined;
 }
 
 /**
@@ -1368,13 +1368,13 @@ export interface ImportTaskSummaryWaves {
    * <p>Import task summery waves created count.</p>
    * @public
    */
-  createdCount?: number;
+  createdCount?: number | undefined;
 
   /**
    * <p>Import task summery waves modified count.</p>
    * @public
    */
-  modifiedCount?: number;
+  modifiedCount?: number | undefined;
 }
 
 /**
@@ -1386,19 +1386,19 @@ export interface ImportTaskSummary {
    * <p>Import task summary waves.</p>
    * @public
    */
-  waves?: ImportTaskSummaryWaves;
+  waves?: ImportTaskSummaryWaves | undefined;
 
   /**
    * <p>Import task summary applications.</p>
    * @public
    */
-  applications?: ImportTaskSummaryApplications;
+  applications?: ImportTaskSummaryApplications | undefined;
 
   /**
    * <p>Import task summary servers.</p>
    * @public
    */
-  servers?: ImportTaskSummaryServers;
+  servers?: ImportTaskSummaryServers | undefined;
 }
 
 /**
@@ -1410,43 +1410,43 @@ export interface ImportTask {
    * <p>Import task id.</p>
    * @public
    */
-  importID?: string;
+  importID?: string | undefined;
 
   /**
    * <p>Import task s3 bucket source.</p>
    * @public
    */
-  s3BucketSource?: S3BucketSource;
+  s3BucketSource?: S3BucketSource | undefined;
 
   /**
    * <p>Import task creation datetime.</p>
    * @public
    */
-  creationDateTime?: string;
+  creationDateTime?: string | undefined;
 
   /**
    * <p>Import task end datetime.</p>
    * @public
    */
-  endDateTime?: string;
+  endDateTime?: string | undefined;
 
   /**
    * <p>Import task status.</p>
    * @public
    */
-  status?: ImportStatus;
+  status?: ImportStatus | undefined;
 
   /**
    * <p>Import task progress percentage.</p>
    * @public
    */
-  progressPercentage?: number;
+  progressPercentage?: number | undefined;
 
   /**
    * <p>Import task summary.</p>
    * @public
    */
-  summary?: ImportTaskSummary;
+  summary?: ImportTaskSummary | undefined;
 }
 
 /**
@@ -1458,13 +1458,13 @@ export interface ListImportsResponse {
    * <p>List import response items.</p>
    * @public
    */
-  items?: ImportTask[];
+  items?: ImportTask[] | undefined;
 
   /**
    * <p>List import response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1476,7 +1476,7 @@ export interface StartImportRequest {
    * <p>Start import request client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Start import request s3 bucket source.</p>
@@ -1494,7 +1494,7 @@ export interface StartImportResponse {
    * <p>Start import response import task.</p>
    * @public
    */
-  importTask?: ImportTask;
+  importTask?: ImportTask | undefined;
 }
 
 /**
@@ -1521,7 +1521,7 @@ export interface DeleteJobRequest {
    * <p>Request to delete Job from service by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -1543,19 +1543,19 @@ export interface DescribeJobLogItemsRequest {
    * <p>Request to describe Job log item maximum results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request to describe Job log next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Request to describe Job log Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -1595,25 +1595,25 @@ export interface JobLogEventData {
    * <p>Job Event Source Server ID.</p>
    * @public
    */
-  sourceServerID?: string;
+  sourceServerID?: string | undefined;
 
   /**
    * <p>Job Event conversion Server ID.</p>
    * @public
    */
-  conversionServerID?: string;
+  conversionServerID?: string | undefined;
 
   /**
    * <p>Job Event Target instance ID.</p>
    * @public
    */
-  targetInstanceID?: string;
+  targetInstanceID?: string | undefined;
 
   /**
    * <p>Job error.</p>
    * @public
    */
-  rawError?: string;
+  rawError?: string | undefined;
 }
 
 /**
@@ -1625,19 +1625,19 @@ export interface JobLog {
    * <p>Job log event date and time.</p>
    * @public
    */
-  logDateTime?: string;
+  logDateTime?: string | undefined;
 
   /**
    * <p>Job log event.</p>
    * @public
    */
-  event?: JobLogEvent;
+  event?: JobLogEvent | undefined;
 
   /**
    * <p>Job event data</p>
    * @public
    */
-  eventData?: JobLogEventData;
+  eventData?: JobLogEventData | undefined;
 }
 
 /**
@@ -1648,13 +1648,13 @@ export interface DescribeJobLogItemsResponse {
    * <p>Request to describe Job log response items.</p>
    * @public
    */
-  items?: JobLog[];
+  items?: JobLog[] | undefined;
 
   /**
    * <p>Request to describe Job log response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1666,19 +1666,19 @@ export interface DescribeJobsRequestFilters {
    * <p>Request to describe Job log filters by job ID.</p>
    * @public
    */
-  jobIDs?: string[];
+  jobIDs?: string[] | undefined;
 
   /**
    * <p>Request to describe Job log filters by date.</p>
    * @public
    */
-  fromDate?: string;
+  fromDate?: string | undefined;
 
   /**
    * <p>Request to describe job log items by last date.</p>
    * @public
    */
-  toDate?: string;
+  toDate?: string | undefined;
 }
 
 /**
@@ -1689,25 +1689,25 @@ export interface DescribeJobsRequest {
    * <p>Request to describe Job log filters.</p>
    * @public
    */
-  filters?: DescribeJobsRequestFilters;
+  filters?: DescribeJobsRequestFilters | undefined;
 
   /**
    * <p>Request to describe job log items by max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request to describe job log items by next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Request to describe job log items by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -1850,25 +1850,25 @@ export interface SsmDocument {
    * <p>AWS Systems Manager Document timeout seconds.</p>
    * @public
    */
-  timeoutSeconds?: number;
+  timeoutSeconds?: number | undefined;
 
   /**
    * <p>If true, Cutover will not be enabled if the document has failed.</p>
    * @public
    */
-  mustSucceedForCutover?: boolean;
+  mustSucceedForCutover?: boolean | undefined;
 
   /**
    * <p>AWS Systems Manager Document parameters.</p>
    * @public
    */
-  parameters?: Record<string, SsmParameterStoreParameter[]>;
+  parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
    * <p>AWS Systems Manager Document external parameters.</p>
    * @public
    */
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Record<string, SsmExternalParameter> | undefined;
 }
 
 /**
@@ -1894,31 +1894,31 @@ export interface JobPostLaunchActionsLaunchStatus {
    * <p>AWS Systems Manager's Document of the of the Job Post Launch Actions.</p>
    * @public
    */
-  ssmDocument?: SsmDocument;
+  ssmDocument?: SsmDocument | undefined;
 
   /**
    * <p>AWS Systems Manager Document type.</p>
    * @public
    */
-  ssmDocumentType?: SsmDocumentType;
+  ssmDocumentType?: SsmDocumentType | undefined;
 
   /**
    * <p>AWS Systems Manager Document's execution ID of the of the Job Post Launch Actions.</p>
    * @public
    */
-  executionID?: string;
+  executionID?: string | undefined;
 
   /**
    * <p>AWS Systems Manager Document's execution status.</p>
    * @public
    */
-  executionStatus?: PostLaunchActionExecutionStatus;
+  executionStatus?: PostLaunchActionExecutionStatus | undefined;
 
   /**
    * <p>AWS Systems Manager Document's failure reason.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -1930,13 +1930,13 @@ export interface PostLaunchActionsStatus {
    * <p>Time where the AWS Systems Manager was detected as running on the Test or Cutover instance.</p>
    * @public
    */
-  ssmAgentDiscoveryDatetime?: string;
+  ssmAgentDiscoveryDatetime?: string | undefined;
 
   /**
    * <p>List of Post Launch Action status.</p>
    * @public
    */
-  postLaunchActionsLaunchStatusList?: JobPostLaunchActionsLaunchStatus[];
+  postLaunchActionsLaunchStatusList?: JobPostLaunchActionsLaunchStatus[] | undefined;
 }
 
 /**
@@ -1954,19 +1954,19 @@ export interface ParticipatingServer {
    * <p>Participating server launch status.</p>
    * @public
    */
-  launchStatus?: LaunchStatus;
+  launchStatus?: LaunchStatus | undefined;
 
   /**
    * <p>Participating server's launched ec2 instance ID.</p>
    * @public
    */
-  launchedEc2InstanceID?: string;
+  launchedEc2InstanceID?: string | undefined;
 
   /**
    * <p>Participating server's Post Launch Actions Status.</p>
    * @public
    */
-  postLaunchActionsStatus?: PostLaunchActionsStatus;
+  postLaunchActionsStatus?: PostLaunchActionsStatus | undefined;
 }
 
 /**
@@ -2013,49 +2013,49 @@ export interface Job {
    * <p>the ARN of the specific Job.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Job type.</p>
    * @public
    */
-  type?: JobType;
+  type?: JobType | undefined;
 
   /**
    * <p>Job initiated by field.</p>
    * @public
    */
-  initiatedBy?: InitiatedBy;
+  initiatedBy?: InitiatedBy | undefined;
 
   /**
    * <p>Job creation time.</p>
    * @public
    */
-  creationDateTime?: string;
+  creationDateTime?: string | undefined;
 
   /**
    * <p>Job end time.</p>
    * @public
    */
-  endDateTime?: string;
+  endDateTime?: string | undefined;
 
   /**
    * <p>Job status.</p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>Servers participating in a specific Job.</p>
    * @public
    */
-  participatingServers?: ParticipatingServer[];
+  participatingServers?: ParticipatingServer[] | undefined;
 
   /**
    * <p>Tags associated with specific Job.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2066,13 +2066,13 @@ export interface DescribeJobsResponse {
    * <p>Request to describe Job log items.</p>
    * @public
    */
-  items?: Job[];
+  items?: Job[] | undefined;
 
   /**
    * <p>Request to describe Job response by next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2118,19 +2118,19 @@ export interface LaunchTemplateDiskConf {
    * <p>Launch template disk volume type configuration.</p>
    * @public
    */
-  volumeType?: VolumeType;
+  volumeType?: VolumeType | undefined;
 
   /**
    * <p>Launch template disk iops configuration.</p>
    * @public
    */
-  iops?: number;
+  iops?: number | undefined;
 
   /**
    * <p>Launch template disk throughput configuration.</p>
    * @public
    */
-  throughput?: number;
+  throughput?: number | undefined;
 }
 
 /**
@@ -2156,7 +2156,7 @@ export interface Licensing {
    * <p>Configure BYOL OS licensing.</p>
    * @public
    */
-  osByol?: boolean;
+  osByol?: boolean | undefined;
 }
 
 /**
@@ -2184,31 +2184,31 @@ export interface PostLaunchActions {
    * <p>Deployment type in which AWS Systems Manager Documents will be executed.</p>
    * @public
    */
-  deployment?: PostLaunchActionsDeploymentType;
+  deployment?: PostLaunchActionsDeploymentType | undefined;
 
   /**
    * <p>AWS Systems Manager Command's logs S3 log bucket.</p>
    * @public
    */
-  s3LogBucket?: string;
+  s3LogBucket?: string | undefined;
 
   /**
    * <p>AWS Systems Manager Command's logs S3 output key prefix.</p>
    * @public
    */
-  s3OutputKeyPrefix?: string;
+  s3OutputKeyPrefix?: string | undefined;
 
   /**
    * <p>AWS Systems Manager Command's CloudWatch log group name.</p>
    * @public
    */
-  cloudWatchLogGroupName?: string;
+  cloudWatchLogGroupName?: string | undefined;
 
   /**
    * <p>AWS Systems Manager Documents.</p>
    * @public
    */
-  ssmDocuments?: SsmDocument[];
+  ssmDocuments?: SsmDocument[] | undefined;
 }
 
 /**
@@ -2234,85 +2234,85 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * <p>Launch configuration template post launch actions.</p>
    * @public
    */
-  postLaunchActions?: PostLaunchActions;
+  postLaunchActions?: PostLaunchActions | undefined;
 
   /**
    * <p>Enable map auto tagging.</p>
    * @public
    */
-  enableMapAutoTagging?: boolean;
+  enableMapAutoTagging?: boolean | undefined;
 
   /**
    * <p>Launch configuration template map auto tagging MPE ID.</p>
    * @public
    */
-  mapAutoTaggingMpeID?: string;
+  mapAutoTaggingMpeID?: string | undefined;
 
   /**
    * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Launch disposition.</p>
    * @public
    */
-  launchDisposition?: LaunchDisposition;
+  launchDisposition?: LaunchDisposition | undefined;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    * @public
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
    * <p>Copy private Ip.</p>
    * @public
    */
-  copyPrivateIp?: boolean;
+  copyPrivateIp?: boolean | undefined;
 
   /**
    * <p>Associate public Ip address.</p>
    * @public
    */
-  associatePublicIpAddress?: boolean;
+  associatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>Copy tags.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>Configure Licensing.</p>
    * @public
    */
-  licensing?: Licensing;
+  licensing?: Licensing | undefined;
 
   /**
    * <p>Launch configuration template boot mode.</p>
    * @public
    */
-  bootMode?: BootMode;
+  bootMode?: BootMode | undefined;
 
   /**
    * <p>Small volume maximum size.</p>
    * @public
    */
-  smallVolumeMaxSize?: number;
+  smallVolumeMaxSize?: number | undefined;
 
   /**
    * <p>Small volume config.</p>
    * @public
    */
-  smallVolumeConf?: LaunchTemplateDiskConf;
+  smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
    * <p>Large volume config.</p>
    * @public
    */
-  largeVolumeConf?: LaunchTemplateDiskConf;
+  largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 }
 
 /**
@@ -2329,97 +2329,97 @@ export interface LaunchConfigurationTemplate {
    * <p>ARN of the Launch Configuration Template.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Post Launch Actions of the Launch Configuration Template.</p>
    * @public
    */
-  postLaunchActions?: PostLaunchActions;
+  postLaunchActions?: PostLaunchActions | undefined;
 
   /**
    * <p>Enable map auto tagging.</p>
    * @public
    */
-  enableMapAutoTagging?: boolean;
+  enableMapAutoTagging?: boolean | undefined;
 
   /**
    * <p>Launch configuration template map auto tagging MPE ID.</p>
    * @public
    */
-  mapAutoTaggingMpeID?: string;
+  mapAutoTaggingMpeID?: string | undefined;
 
   /**
    * <p>Tags of the Launch Configuration Template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>EC2 launch template ID.</p>
    * @public
    */
-  ec2LaunchTemplateID?: string;
+  ec2LaunchTemplateID?: string | undefined;
 
   /**
    * <p>Launch disposition.</p>
    * @public
    */
-  launchDisposition?: LaunchDisposition;
+  launchDisposition?: LaunchDisposition | undefined;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    * @public
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
    * <p>Copy private Ip.</p>
    * @public
    */
-  copyPrivateIp?: boolean;
+  copyPrivateIp?: boolean | undefined;
 
   /**
    * <p>Associate public Ip address.</p>
    * @public
    */
-  associatePublicIpAddress?: boolean;
+  associatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>Copy tags.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>Configure Licensing.</p>
    * @public
    */
-  licensing?: Licensing;
+  licensing?: Licensing | undefined;
 
   /**
    * <p>Launch configuration template boot mode.</p>
    * @public
    */
-  bootMode?: BootMode;
+  bootMode?: BootMode | undefined;
 
   /**
    * <p>Small volume maximum size.</p>
    * @public
    */
-  smallVolumeMaxSize?: number;
+  smallVolumeMaxSize?: number | undefined;
 
   /**
    * <p>Small volume config.</p>
    * @public
    */
-  smallVolumeConf?: LaunchTemplateDiskConf;
+  smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
    * <p>Large volume config.</p>
    * @public
    */
-  largeVolumeConf?: LaunchTemplateDiskConf;
+  largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 }
 
 /**
@@ -2446,19 +2446,19 @@ export interface DescribeLaunchConfigurationTemplatesRequest {
    * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
    * @public
    */
-  launchConfigurationTemplateIDs?: string[];
+  launchConfigurationTemplateIDs?: string[] | undefined;
 
   /**
    * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2469,13 +2469,13 @@ export interface DescribeLaunchConfigurationTemplatesResponse {
    * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
    * @public
    */
-  items?: LaunchConfigurationTemplate[];
+  items?: LaunchConfigurationTemplate[] | undefined;
 
   /**
    * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2487,7 +2487,7 @@ export interface TemplateActionsRequestFilters {
    * <p>Action IDs to filter template post migration custom actions by.</p>
    * @public
    */
-  actionIDs?: string[];
+  actionIDs?: string[] | undefined;
 }
 
 /**
@@ -2504,19 +2504,19 @@ export interface ListTemplateActionsRequest {
    * <p>Filters to apply when listing template post migration custom actions.</p>
    * @public
    */
-  filters?: TemplateActionsRequestFilters;
+  filters?: TemplateActionsRequestFilters | undefined;
 
   /**
    * <p>Maximum amount of items to return when listing template post migration custom actions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Next token to use when listing template post migration custom actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2527,79 +2527,79 @@ export interface TemplateActionDocument {
    * <p>Template post migration custom action ID.</p>
    * @public
    */
-  actionID?: string;
+  actionID?: string | undefined;
 
   /**
    * <p>Template post migration custom action name.</p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>Template post migration custom action document identifier.</p>
    * @public
    */
-  documentIdentifier?: string;
+  documentIdentifier?: string | undefined;
 
   /**
    * <p>Template post migration custom action order.</p>
    * @public
    */
-  order?: number;
+  order?: number | undefined;
 
   /**
    * <p>Template post migration custom action document version.</p>
    * @public
    */
-  documentVersion?: string;
+  documentVersion?: string | undefined;
 
   /**
    * <p>Template post migration custom action active status.</p>
    * @public
    */
-  active?: boolean;
+  active?: boolean | undefined;
 
   /**
    * <p>Template post migration custom action timeout in seconds.</p>
    * @public
    */
-  timeoutSeconds?: number;
+  timeoutSeconds?: number | undefined;
 
   /**
    * <p>Template post migration custom action must succeed for cutover.</p>
    * @public
    */
-  mustSucceedForCutover?: boolean;
+  mustSucceedForCutover?: boolean | undefined;
 
   /**
    * <p>Template post migration custom action parameters.</p>
    * @public
    */
-  parameters?: Record<string, SsmParameterStoreParameter[]>;
+  parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
    * <p>Operating system eligible for this template post migration custom action.</p>
    * @public
    */
-  operatingSystem?: string;
+  operatingSystem?: string | undefined;
 
   /**
    * <p>Template post migration custom action external parameters.</p>
    * @public
    */
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
    * <p>Template post migration custom action description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Template post migration custom action category.</p>
    * @public
    */
-  category?: ActionCategory;
+  category?: ActionCategory | undefined;
 }
 
 /**
@@ -2610,13 +2610,13 @@ export interface ListTemplateActionsResponse {
    * <p>List of template post migration custom actions.</p>
    * @public
    */
-  items?: TemplateActionDocument[];
+  items?: TemplateActionDocument[] | undefined;
 
   /**
    * <p>Next token returned when listing template post migration custom actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2657,55 +2657,55 @@ export interface PutTemplateActionRequest {
    * <p>Template post migration custom action document version.</p>
    * @public
    */
-  documentVersion?: string;
+  documentVersion?: string | undefined;
 
   /**
    * <p>Template post migration custom action active status.</p>
    * @public
    */
-  active?: boolean;
+  active?: boolean | undefined;
 
   /**
    * <p>Template post migration custom action timeout in seconds.</p>
    * @public
    */
-  timeoutSeconds?: number;
+  timeoutSeconds?: number | undefined;
 
   /**
    * <p>Template post migration custom action must succeed for cutover.</p>
    * @public
    */
-  mustSucceedForCutover?: boolean;
+  mustSucceedForCutover?: boolean | undefined;
 
   /**
    * <p>Template post migration custom action parameters.</p>
    * @public
    */
-  parameters?: Record<string, SsmParameterStoreParameter[]>;
+  parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
    * <p>Operating system eligible for this template post migration custom action.</p>
    * @public
    */
-  operatingSystem?: string;
+  operatingSystem?: string | undefined;
 
   /**
    * <p>Template post migration custom action external parameters.</p>
    * @public
    */
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
    * <p>Template post migration custom action description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Template post migration custom action category.</p>
    * @public
    */
-  category?: ActionCategory;
+  category?: ActionCategory | undefined;
 }
 
 /**
@@ -2744,79 +2744,79 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * <p>Post Launch Action to execute on the Test or Cutover instance.</p>
    * @public
    */
-  postLaunchActions?: PostLaunchActions;
+  postLaunchActions?: PostLaunchActions | undefined;
 
   /**
    * <p>Enable map auto tagging.</p>
    * @public
    */
-  enableMapAutoTagging?: boolean;
+  enableMapAutoTagging?: boolean | undefined;
 
   /**
    * <p>Launch configuration template map auto tagging MPE ID.</p>
    * @public
    */
-  mapAutoTaggingMpeID?: string;
+  mapAutoTaggingMpeID?: string | undefined;
 
   /**
    * <p>Launch disposition.</p>
    * @public
    */
-  launchDisposition?: LaunchDisposition;
+  launchDisposition?: LaunchDisposition | undefined;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    * @public
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
    * <p>Copy private Ip.</p>
    * @public
    */
-  copyPrivateIp?: boolean;
+  copyPrivateIp?: boolean | undefined;
 
   /**
    * <p>Associate public Ip address.</p>
    * @public
    */
-  associatePublicIpAddress?: boolean;
+  associatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>Copy tags.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>Configure Licensing.</p>
    * @public
    */
-  licensing?: Licensing;
+  licensing?: Licensing | undefined;
 
   /**
    * <p>Launch configuration template boot mode.</p>
    * @public
    */
-  bootMode?: BootMode;
+  bootMode?: BootMode | undefined;
 
   /**
    * <p>Small volume maximum size.</p>
    * @public
    */
-  smallVolumeMaxSize?: number;
+  smallVolumeMaxSize?: number | undefined;
 
   /**
    * <p>Small volume config.</p>
    * @public
    */
-  smallVolumeConf?: LaunchTemplateDiskConf;
+  smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
    * <p>Large volume config.</p>
    * @public
    */
-  largeVolumeConf?: LaunchTemplateDiskConf;
+  largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 }
 
 /**
@@ -2828,13 +2828,13 @@ export interface ListManagedAccountsRequest {
    * <p>List managed accounts request max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>List managed accounts request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2846,7 +2846,7 @@ export interface ManagedAccount {
    * <p>Managed account, account ID.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 }
 
 /**
@@ -2864,7 +2864,7 @@ export interface ListManagedAccountsResponse {
    * <p>List managed accounts response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2878,7 +2878,7 @@ export class InternalServerException extends __BaseException {
    * <p>The server encountered an unexpected condition that prevented it from fulfilling the request. The request will be retried again after x seconds.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -2913,7 +2913,7 @@ export interface ListTagsForResourceResponse {
    * <p>List tags for resource response.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2927,19 +2927,19 @@ export class ThrottlingException extends __BaseException {
    * <p>Reached throttling quota exception service code.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>Reached throttling quota exception.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Reached throttling quota exception will retry after x seconds.</p>
    * @public
    */
-  retryAfterSeconds?: string;
+  retryAfterSeconds?: string | undefined;
 
   /**
    * @internal
@@ -3053,7 +3053,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>Request to configure an EBS encryption key during Replication Settings template creation.</p>
    * @public
    */
-  ebsEncryptionKeyArn?: string;
+  ebsEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Request to configure bandwidth throttling during Replication Settings template creation.</p>
@@ -3083,13 +3083,13 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>Request to use Fips Endpoint during Replication Settings template creation.</p>
    * @public
    */
-  useFipsEndpoint?: boolean;
+  useFipsEndpoint?: boolean | undefined;
 
   /**
    * <p>Request to configure tags during Replication Settings template creation.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3106,91 +3106,91 @@ export interface ReplicationConfigurationTemplate {
    * <p>Replication Configuration template ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Replication Configuration template Staging Area subnet ID.</p>
    * @public
    */
-  stagingAreaSubnetId?: string;
+  stagingAreaSubnetId?: string | undefined;
 
   /**
    * <p>Replication Configuration template associate default Application Migration Service Security group.</p>
    * @public
    */
-  associateDefaultSecurityGroup?: boolean;
+  associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
    * <p>Replication Configuration template server Security Groups IDs.</p>
    * @public
    */
-  replicationServersSecurityGroupsIDs?: string[];
+  replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
    * <p>Replication Configuration template server instance type.</p>
    * @public
    */
-  replicationServerInstanceType?: string;
+  replicationServerInstanceType?: string | undefined;
 
   /**
    * <p>Replication Configuration template use Dedicated Replication Server.</p>
    * @public
    */
-  useDedicatedReplicationServer?: boolean;
+  useDedicatedReplicationServer?: boolean | undefined;
 
   /**
    * <p>Replication Configuration template use default large Staging Disk type.</p>
    * @public
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * <p>Replication Configuration template EBS encryption.</p>
    * @public
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * <p>Replication Configuration template EBS encryption key ARN.</p>
    * @public
    */
-  ebsEncryptionKeyArn?: string;
+  ebsEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Replication Configuration template bandwidth throttling.</p>
    * @public
    */
-  bandwidthThrottling?: number;
+  bandwidthThrottling?: number | undefined;
 
   /**
    * <p>Replication Configuration template data plane routing.</p>
    * @public
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * <p>Replication Configuration template create Public IP.</p>
    * @public
    */
-  createPublicIP?: boolean;
+  createPublicIP?: boolean | undefined;
 
   /**
    * <p>Replication Configuration template Staging Area Tags.</p>
    * @public
    */
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Record<string, string> | undefined;
 
   /**
    * <p>Replication Configuration template use Fips Endpoint.</p>
    * @public
    */
-  useFipsEndpoint?: boolean;
+  useFipsEndpoint?: boolean | undefined;
 
   /**
    * <p>Replication Configuration template Tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3217,19 +3217,19 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
    * <p>Request to describe Replication Configuration template by template IDs.</p>
    * @public
    */
-  replicationConfigurationTemplateIDs?: string[];
+  replicationConfigurationTemplateIDs?: string[] | undefined;
 
   /**
    * <p>Request to describe Replication Configuration template by max results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request to describe Replication Configuration template by next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3240,13 +3240,13 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
    * <p>Request to describe Replication Configuration template by items.</p>
    * @public
    */
-  items?: ReplicationConfigurationTemplate[];
+  items?: ReplicationConfigurationTemplate[] | undefined;
 
   /**
    * <p>Request to describe Replication Configuration template by next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3263,85 +3263,85 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * <p>Update replication configuration template ARN request.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Update replication configuration template Staging Area subnet ID request.</p>
    * @public
    */
-  stagingAreaSubnetId?: string;
+  stagingAreaSubnetId?: string | undefined;
 
   /**
    * <p>Update replication configuration template associate default Application Migration Service Security group request.</p>
    * @public
    */
-  associateDefaultSecurityGroup?: boolean;
+  associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
    * <p>Update replication configuration template Replication Server Security groups IDs request.</p>
    * @public
    */
-  replicationServersSecurityGroupsIDs?: string[];
+  replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
    * <p>Update replication configuration template Replication Server instance type request.</p>
    * @public
    */
-  replicationServerInstanceType?: string;
+  replicationServerInstanceType?: string | undefined;
 
   /**
    * <p>Update replication configuration template use dedicated Replication Server request.</p>
    * @public
    */
-  useDedicatedReplicationServer?: boolean;
+  useDedicatedReplicationServer?: boolean | undefined;
 
   /**
    * <p>Update replication configuration template use default large Staging Disk type request.</p>
    * @public
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * <p>Update replication configuration template EBS encryption request.</p>
    * @public
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * <p>Update replication configuration template EBS encryption key ARN request.</p>
    * @public
    */
-  ebsEncryptionKeyArn?: string;
+  ebsEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Update replication configuration template bandwidth throttling request.</p>
    * @public
    */
-  bandwidthThrottling?: number;
+  bandwidthThrottling?: number | undefined;
 
   /**
    * <p>Update replication configuration template data plane routing request.</p>
    * @public
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * <p>Update replication configuration template create Public IP request.</p>
    * @public
    */
-  createPublicIP?: boolean;
+  createPublicIP?: boolean | undefined;
 
   /**
    * <p>Update replication configuration template Staging Area Tags request.</p>
    * @public
    */
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Record<string, string> | undefined;
 
   /**
    * <p>Update replication configuration template use Fips Endpoint request.</p>
    * @public
    */
-  useFipsEndpoint?: boolean;
+  useFipsEndpoint?: boolean | undefined;
 }
 
 /**
@@ -3392,7 +3392,7 @@ export interface ChangeServerLifeCycleStateRequest {
    * <p>The request to change the source server migration account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -3404,13 +3404,13 @@ export interface SourceServerConnectorAction {
    * <p>Source Server connector action credentials secret arn.</p>
    * @public
    */
-  credentialsSecretArn?: string;
+  credentialsSecretArn?: string | undefined;
 
   /**
    * <p>Source Server connector action connector arn.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 }
 
 /**
@@ -3450,13 +3450,13 @@ export interface DataReplicationError {
    * <p>Error in data replication.</p>
    * @public
    */
-  error?: DataReplicationErrorString;
+  error?: DataReplicationErrorString | undefined;
 
   /**
    * <p>Error in data replication.</p>
    * @public
    */
-  rawError?: string;
+  rawError?: string | undefined;
 }
 
 /**
@@ -3510,13 +3510,13 @@ export interface DataReplicationInitiationStep {
    * <p>Request to query data initiation step name.</p>
    * @public
    */
-  name?: DataReplicationInitiationStepName;
+  name?: DataReplicationInitiationStepName | undefined;
 
   /**
    * <p>Request to query data initiation status.</p>
    * @public
    */
-  status?: DataReplicationInitiationStepStatus;
+  status?: DataReplicationInitiationStepStatus | undefined;
 }
 
 /**
@@ -3528,19 +3528,19 @@ export interface DataReplicationInitiation {
    * <p>Request to query data initiation start date and time.</p>
    * @public
    */
-  startDateTime?: string;
+  startDateTime?: string | undefined;
 
   /**
    * <p>Request to query next data initiation date and time.</p>
    * @public
    */
-  nextAttemptDateTime?: string;
+  nextAttemptDateTime?: string | undefined;
 
   /**
    * <p>Request to query data initiation steps.</p>
    * @public
    */
-  steps?: DataReplicationInitiationStep[];
+  steps?: DataReplicationInitiationStep[] | undefined;
 }
 
 /**
@@ -3576,31 +3576,31 @@ export interface DataReplicationInfoReplicatedDisk {
    * <p>Request to query device name.</p>
    * @public
    */
-  deviceName?: string;
+  deviceName?: string | undefined;
 
   /**
    * <p>Request to query total amount of data replicated in bytes.</p>
    * @public
    */
-  totalStorageBytes?: number;
+  totalStorageBytes?: number | undefined;
 
   /**
    * <p>Request to query amount of data replicated in bytes.</p>
    * @public
    */
-  replicatedStorageBytes?: number;
+  replicatedStorageBytes?: number | undefined;
 
   /**
    * <p>Request to query amount of data rescanned in bytes.</p>
    * @public
    */
-  rescannedStorageBytes?: number;
+  rescannedStorageBytes?: number | undefined;
 
   /**
    * <p>Request to query data replication backlog size in bytes.</p>
    * @public
    */
-  backloggedStorageBytes?: number;
+  backloggedStorageBytes?: number | undefined;
 }
 
 /**
@@ -3612,43 +3612,43 @@ export interface DataReplicationInfo {
    * <p>Request to query data replication lag duration.</p>
    * @public
    */
-  lagDuration?: string;
+  lagDuration?: string | undefined;
 
   /**
    * <p>Request to query the time when data replication will be complete.</p>
    * @public
    */
-  etaDateTime?: string;
+  etaDateTime?: string | undefined;
 
   /**
    * <p>Request to query disks replicated.</p>
    * @public
    */
-  replicatedDisks?: DataReplicationInfoReplicatedDisk[];
+  replicatedDisks?: DataReplicationInfoReplicatedDisk[] | undefined;
 
   /**
    * <p>Request to query the data replication state.</p>
    * @public
    */
-  dataReplicationState?: DataReplicationState;
+  dataReplicationState?: DataReplicationState | undefined;
 
   /**
    * <p>Request to query whether data replication has been initiated.</p>
    * @public
    */
-  dataReplicationInitiation?: DataReplicationInitiation;
+  dataReplicationInitiation?: DataReplicationInitiation | undefined;
 
   /**
    * <p>Error in obtaining data replication info.</p>
    * @public
    */
-  dataReplicationError?: DataReplicationError;
+  dataReplicationError?: DataReplicationError | undefined;
 
   /**
    * <p>Request to query data replication last snapshot time.</p>
    * @public
    */
-  lastSnapshotDateTime?: string;
+  lastSnapshotDateTime?: string | undefined;
 }
 
 /**
@@ -3676,19 +3676,19 @@ export interface LaunchedInstance {
    * <p>Launched instance EC2 ID.</p>
    * @public
    */
-  ec2InstanceID?: string;
+  ec2InstanceID?: string | undefined;
 
   /**
    * <p>Launched instance Job ID.</p>
    * @public
    */
-  jobID?: string;
+  jobID?: string | undefined;
 
   /**
    * <p>Launched instance first boot.</p>
    * @public
    */
-  firstBoot?: FirstBoot;
+  firstBoot?: FirstBoot | undefined;
 }
 
 /**
@@ -3700,7 +3700,7 @@ export interface LifeCycleLastCutoverFinalized {
    * <p>Lifecycle Cutover finalized date and time.</p>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 }
 
 /**
@@ -3712,13 +3712,13 @@ export interface LifeCycleLastCutoverInitiated {
    * <p/>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 
   /**
    * <p>Lifecycle last Cutover initiated by Job ID.</p>
    * @public
    */
-  jobID?: string;
+  jobID?: string | undefined;
 }
 
 /**
@@ -3730,7 +3730,7 @@ export interface LifeCycleLastCutoverReverted {
    * <p>Lifecycle last Cutover reverted API call date time.</p>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 }
 
 /**
@@ -3742,19 +3742,19 @@ export interface LifeCycleLastCutover {
    * <p>Lifecycle last Cutover initiated.</p>
    * @public
    */
-  initiated?: LifeCycleLastCutoverInitiated;
+  initiated?: LifeCycleLastCutoverInitiated | undefined;
 
   /**
    * <p>Lifecycle last Cutover reverted.</p>
    * @public
    */
-  reverted?: LifeCycleLastCutoverReverted;
+  reverted?: LifeCycleLastCutoverReverted | undefined;
 
   /**
    * <p>Lifecycle Cutover finalized date and time.</p>
    * @public
    */
-  finalized?: LifeCycleLastCutoverFinalized;
+  finalized?: LifeCycleLastCutoverFinalized | undefined;
 }
 
 /**
@@ -3766,7 +3766,7 @@ export interface LifeCycleLastTestFinalized {
    * <p>Lifecycle Test failed API call date and time.</p>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 }
 
 /**
@@ -3778,13 +3778,13 @@ export interface LifeCycleLastTestInitiated {
    * <p>Lifecycle last Test initiated API call date and time.</p>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 
   /**
    * <p>Lifecycle last Test initiated Job ID.</p>
    * @public
    */
-  jobID?: string;
+  jobID?: string | undefined;
 }
 
 /**
@@ -3796,7 +3796,7 @@ export interface LifeCycleLastTestReverted {
    * <p>Lifecycle last Test reverted API call date and time.</p>
    * @public
    */
-  apiCallDateTime?: string;
+  apiCallDateTime?: string | undefined;
 }
 
 /**
@@ -3808,19 +3808,19 @@ export interface LifeCycleLastTest {
    * <p>Lifecycle last Test initiated.</p>
    * @public
    */
-  initiated?: LifeCycleLastTestInitiated;
+  initiated?: LifeCycleLastTestInitiated | undefined;
 
   /**
    * <p>Lifecycle last Test reverted.</p>
    * @public
    */
-  reverted?: LifeCycleLastTestReverted;
+  reverted?: LifeCycleLastTestReverted | undefined;
 
   /**
    * <p>Lifecycle last Test finalized.</p>
    * @public
    */
-  finalized?: LifeCycleLastTestFinalized;
+  finalized?: LifeCycleLastTestFinalized | undefined;
 }
 
 /**
@@ -3854,43 +3854,43 @@ export interface LifeCycle {
    * <p>Lifecycle added to service data and time.</p>
    * @public
    */
-  addedToServiceDateTime?: string;
+  addedToServiceDateTime?: string | undefined;
 
   /**
    * <p>Lifecycle replication initiation date and time.</p>
    * @public
    */
-  firstByteDateTime?: string;
+  firstByteDateTime?: string | undefined;
 
   /**
    * <p>Lifecycle elapsed time and duration.</p>
    * @public
    */
-  elapsedReplicationDuration?: string;
+  elapsedReplicationDuration?: string | undefined;
 
   /**
    * <p>Lifecycle last seen date and time.</p>
    * @public
    */
-  lastSeenByServiceDateTime?: string;
+  lastSeenByServiceDateTime?: string | undefined;
 
   /**
    * <p>Lifecycle last Test.</p>
    * @public
    */
-  lastTest?: LifeCycleLastTest;
+  lastTest?: LifeCycleLastTest | undefined;
 
   /**
    * <p>Lifecycle last Cutover.</p>
    * @public
    */
-  lastCutover?: LifeCycleLastCutover;
+  lastCutover?: LifeCycleLastCutover | undefined;
 
   /**
    * <p>Lifecycle state.</p>
    * @public
    */
-  state?: LifeCycleState;
+  state?: LifeCycleState | undefined;
 }
 
 /**
@@ -3916,13 +3916,13 @@ export interface CPU {
    * <p>The number of CPU cores on the source server.</p>
    * @public
    */
-  cores?: number;
+  cores?: number | undefined;
 
   /**
    * <p>The source server's CPU model name.</p>
    * @public
    */
-  modelName?: string;
+  modelName?: string | undefined;
 }
 
 /**
@@ -3934,13 +3934,13 @@ export interface Disk {
    * <p>The disk or device name.</p>
    * @public
    */
-  deviceName?: string;
+  deviceName?: string | undefined;
 
   /**
    * <p>The amount of storage on the disk in bytes.</p>
    * @public
    */
-  bytes?: number;
+  bytes?: number | undefined;
 }
 
 /**
@@ -3952,31 +3952,31 @@ export interface IdentificationHints {
    * <p>FQDN address identification hint.</p>
    * @public
    */
-  fqdn?: string;
+  fqdn?: string | undefined;
 
   /**
    * <p>Hostname identification hint.</p>
    * @public
    */
-  hostname?: string;
+  hostname?: string | undefined;
 
   /**
    * <p>vmWare UUID identification hint.</p>
    * @public
    */
-  vmWareUuid?: string;
+  vmWareUuid?: string | undefined;
 
   /**
    * <p>AWS Instance ID identification hint.</p>
    * @public
    */
-  awsInstanceID?: string;
+  awsInstanceID?: string | undefined;
 
   /**
    * <p>vCenter VM path identification hint.</p>
    * @public
    */
-  vmPath?: string;
+  vmPath?: string | undefined;
 }
 
 /**
@@ -3988,19 +3988,19 @@ export interface NetworkInterface {
    * <p>Network interface Mac address.</p>
    * @public
    */
-  macAddress?: string;
+  macAddress?: string | undefined;
 
   /**
    * <p>Network interface IPs.</p>
    * @public
    */
-  ips?: string[];
+  ips?: string[] | undefined;
 
   /**
    * <p>Network interface primary IP.</p>
    * @public
    */
-  isPrimary?: boolean;
+  isPrimary?: boolean | undefined;
 }
 
 /**
@@ -4012,7 +4012,7 @@ export interface OS {
    * <p>OS full string.</p>
    * @public
    */
-  fullString?: string;
+  fullString?: string | undefined;
 }
 
 /**
@@ -4024,49 +4024,49 @@ export interface SourceProperties {
    * <p>Source server last update date and time.</p>
    * @public
    */
-  lastUpdatedDateTime?: string;
+  lastUpdatedDateTime?: string | undefined;
 
   /**
    * <p>Source server recommended instance type.</p>
    * @public
    */
-  recommendedInstanceType?: string;
+  recommendedInstanceType?: string | undefined;
 
   /**
    * <p>Source server identification hints.</p>
    * @public
    */
-  identificationHints?: IdentificationHints;
+  identificationHints?: IdentificationHints | undefined;
 
   /**
    * <p>Source server network interfaces.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p>Source Server disks.</p>
    * @public
    */
-  disks?: Disk[];
+  disks?: Disk[] | undefined;
 
   /**
    * <p>Source Server CPUs.</p>
    * @public
    */
-  cpus?: CPU[];
+  cpus?: CPU[] | undefined;
 
   /**
    * <p>Source server RAM in bytes.</p>
    * @public
    */
-  ramBytes?: number;
+  ramBytes?: number | undefined;
 
   /**
    * <p>Source server OS.</p>
    * @public
    */
-  os?: OS;
+  os?: OS | undefined;
 }
 
 /**
@@ -4077,85 +4077,85 @@ export interface SourceServer {
    * <p>Source server ID.</p>
    * @public
    */
-  sourceServerID?: string;
+  sourceServerID?: string | undefined;
 
   /**
    * <p>Source server ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Source server archived status.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 
   /**
    * <p>Source server Tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Source server launched instance.</p>
    * @public
    */
-  launchedInstance?: LaunchedInstance;
+  launchedInstance?: LaunchedInstance | undefined;
 
   /**
    * <p>Source server data replication info.</p>
    * @public
    */
-  dataReplicationInfo?: DataReplicationInfo;
+  dataReplicationInfo?: DataReplicationInfo | undefined;
 
   /**
    * <p>Source server lifecycle state.</p>
    * @public
    */
-  lifeCycle?: LifeCycle;
+  lifeCycle?: LifeCycle | undefined;
 
   /**
    * <p>Source server properties.</p>
    * @public
    */
-  sourceProperties?: SourceProperties;
+  sourceProperties?: SourceProperties | undefined;
 
   /**
    * <p>Source server replication type.</p>
    * @public
    */
-  replicationType?: ReplicationType;
+  replicationType?: ReplicationType | undefined;
 
   /**
    * <p>Source server vCenter client id.</p>
    * @public
    */
-  vcenterClientID?: string;
+  vcenterClientID?: string | undefined;
 
   /**
    * <p>Source server application ID.</p>
    * @public
    */
-  applicationID?: string;
+  applicationID?: string | undefined;
 
   /**
    * <p>Source server user provided ID.</p>
    * @public
    */
-  userProvidedID?: string;
+  userProvidedID?: string | undefined;
 
   /**
    * <p>Source server fqdn for action framework.</p>
    * @public
    */
-  fqdnForActionFramework?: string;
+  fqdnForActionFramework?: string | undefined;
 
   /**
    * <p>Source Server connector action.</p>
    * @public
    */
-  connectorAction?: SourceServerConnectorAction;
+  connectorAction?: SourceServerConnectorAction | undefined;
 }
 
 /**
@@ -4172,7 +4172,7 @@ export interface DeleteSourceServerRequest {
    * <p>Request to delete Source Server from service by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4189,31 +4189,31 @@ export interface DescribeSourceServersRequestFilters {
    * <p>Request to filter Source Servers list by Source Server ID.</p>
    * @public
    */
-  sourceServerIDs?: string[];
+  sourceServerIDs?: string[] | undefined;
 
   /**
    * <p>Request to filter Source Servers list by archived.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 
   /**
    * <p>Request to filter Source Servers list by replication type.</p>
    * @public
    */
-  replicationTypes?: ReplicationType[];
+  replicationTypes?: ReplicationType[] | undefined;
 
   /**
    * <p>Request to filter Source Servers list by life cycle states.</p>
    * @public
    */
-  lifeCycleStates?: LifeCycleState[];
+  lifeCycleStates?: LifeCycleState[] | undefined;
 
   /**
    * <p>Request to filter Source Servers list by application IDs.</p>
    * @public
    */
-  applicationIDs?: string[];
+  applicationIDs?: string[] | undefined;
 }
 
 /**
@@ -4224,25 +4224,25 @@ export interface DescribeSourceServersRequest {
    * <p>Request to filter Source Servers list.</p>
    * @public
    */
-  filters?: DescribeSourceServersRequestFilters;
+  filters?: DescribeSourceServersRequestFilters | undefined;
 
   /**
    * <p>Request to filter Source Servers list by maximum results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request to filter Source Servers list by next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Request to filter Source Servers list by Accoun ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4253,13 +4253,13 @@ export interface DescribeSourceServersResponse {
    * <p>Request to filter Source Servers list by item.</p>
    * @public
    */
-  items?: SourceServer[];
+  items?: SourceServer[] | undefined;
 
   /**
    * <p>Request to filter Source Servers next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4276,7 +4276,7 @@ export interface DisconnectFromServiceRequest {
    * <p>Request to disconnect Source Server from service by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4293,7 +4293,7 @@ export interface FinalizeCutoverRequest {
    * <p>Request to finalize Cutover by Source Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4310,7 +4310,7 @@ export interface GetLaunchConfigurationRequest {
    * <p>Request to get Launch Configuration information by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4321,73 +4321,73 @@ export interface LaunchConfiguration {
    * <p>Launch configuration Source Server ID.</p>
    * @public
    */
-  sourceServerID?: string;
+  sourceServerID?: string | undefined;
 
   /**
    * <p>Launch configuration name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Launch configuration EC2 Launch template ID.</p>
    * @public
    */
-  ec2LaunchTemplateID?: string;
+  ec2LaunchTemplateID?: string | undefined;
 
   /**
    * <p>Launch disposition for launch configuration.</p>
    * @public
    */
-  launchDisposition?: LaunchDisposition;
+  launchDisposition?: LaunchDisposition | undefined;
 
   /**
    * <p>Launch configuration Target instance type right sizing method.</p>
    * @public
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
    * <p>Copy Private IP during Launch Configuration.</p>
    * @public
    */
-  copyPrivateIp?: boolean;
+  copyPrivateIp?: boolean | undefined;
 
   /**
    * <p>Copy Tags during Launch Configuration.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>Launch configuration OS licensing.</p>
    * @public
    */
-  licensing?: Licensing;
+  licensing?: Licensing | undefined;
 
   /**
    * <p>Launch configuration boot mode.</p>
    * @public
    */
-  bootMode?: BootMode;
+  bootMode?: BootMode | undefined;
 
   /**
    * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
    * @public
    */
-  postLaunchActions?: PostLaunchActions;
+  postLaunchActions?: PostLaunchActions | undefined;
 
   /**
    * <p>Enable map auto tagging.</p>
    * @public
    */
-  enableMapAutoTagging?: boolean;
+  enableMapAutoTagging?: boolean | undefined;
 
   /**
    * <p>Map auto tagging MPE ID.</p>
    * @public
    */
-  mapAutoTaggingMpeID?: string;
+  mapAutoTaggingMpeID?: string | undefined;
 }
 
 /**
@@ -4404,7 +4404,7 @@ export interface GetReplicationConfigurationRequest {
    * <p>Request to get Replication Configuration by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4437,31 +4437,31 @@ export interface ReplicationConfigurationReplicatedDisk {
    * <p>Replication Configuration replicated disk device name.</p>
    * @public
    */
-  deviceName?: string;
+  deviceName?: string | undefined;
 
   /**
    * <p>Replication Configuration replicated disk boot disk.</p>
    * @public
    */
-  isBootDisk?: boolean;
+  isBootDisk?: boolean | undefined;
 
   /**
    * <p>Replication Configuration replicated disk staging disk type.</p>
    * @public
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
+  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | undefined;
 
   /**
    * <p>Replication Configuration replicated disk IOPs.</p>
    * @public
    */
-  iops?: number;
+  iops?: number | undefined;
 
   /**
    * <p>Replication Configuration replicated disk throughput.</p>
    * @public
    */
-  throughput?: number;
+  throughput?: number | undefined;
 }
 
 /**
@@ -4472,97 +4472,97 @@ export interface ReplicationConfiguration {
    * <p>Replication Configuration Source Server ID.</p>
    * @public
    */
-  sourceServerID?: string;
+  sourceServerID?: string | undefined;
 
   /**
    * <p>Replication Configuration name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Replication Configuration Staging Area subnet ID.</p>
    * @public
    */
-  stagingAreaSubnetId?: string;
+  stagingAreaSubnetId?: string | undefined;
 
   /**
    * <p>Replication Configuration associate default Application Migration Service Security Group.</p>
    * @public
    */
-  associateDefaultSecurityGroup?: boolean;
+  associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
    * <p>Replication Configuration Replication Server Security Group IDs.</p>
    * @public
    */
-  replicationServersSecurityGroupsIDs?: string[];
+  replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
    * <p>Replication Configuration Replication Server instance type.</p>
    * @public
    */
-  replicationServerInstanceType?: string;
+  replicationServerInstanceType?: string | undefined;
 
   /**
    * <p>Replication Configuration use Dedicated Replication Server.</p>
    * @public
    */
-  useDedicatedReplicationServer?: boolean;
+  useDedicatedReplicationServer?: boolean | undefined;
 
   /**
    * <p>Replication Configuration use default large Staging Disks.</p>
    * @public
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * <p>Replication Configuration replicated disks.</p>
    * @public
    */
-  replicatedDisks?: ReplicationConfigurationReplicatedDisk[];
+  replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
    * <p>Replication Configuration EBS encryption.</p>
    * @public
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * <p>Replication Configuration EBS encryption key ARN.</p>
    * @public
    */
-  ebsEncryptionKeyArn?: string;
+  ebsEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Replication Configuration set bandwidth throttling.</p>
    * @public
    */
-  bandwidthThrottling?: number;
+  bandwidthThrottling?: number | undefined;
 
   /**
    * <p>Replication Configuration data plane routing.</p>
    * @public
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * <p>Replication Configuration create Public IP.</p>
    * @public
    */
-  createPublicIP?: boolean;
+  createPublicIP?: boolean | undefined;
 
   /**
    * <p>Replication Configuration Staging Area tags.</p>
    * @public
    */
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Record<string, string> | undefined;
 
   /**
    * <p>Replication Configuration use Fips Endpoint.</p>
    * @public
    */
-  useFipsEndpoint?: boolean;
+  useFipsEndpoint?: boolean | undefined;
 }
 
 /**
@@ -4574,7 +4574,7 @@ export interface SourceServerActionsRequestFilters {
    * <p>Action IDs to filter source server post migration custom actions by.</p>
    * @public
    */
-  actionIDs?: string[];
+  actionIDs?: string[] | undefined;
 }
 
 /**
@@ -4591,25 +4591,25 @@ export interface ListSourceServerActionsRequest {
    * <p>Filters to apply when listing source server post migration custom actions.</p>
    * @public
    */
-  filters?: SourceServerActionsRequestFilters;
+  filters?: SourceServerActionsRequestFilters | undefined;
 
   /**
    * <p>Maximum amount of items to return when listing source server post migration custom actions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Next token to use when listing source server post migration custom actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Account ID to return when listing source server post migration custom actions.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4620,73 +4620,73 @@ export interface SourceServerActionDocument {
    * <p>Source server post migration custom action ID.</p>
    * @public
    */
-  actionID?: string;
+  actionID?: string | undefined;
 
   /**
    * <p>Source server post migration custom action name.</p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>Source server post migration custom action document identifier.</p>
    * @public
    */
-  documentIdentifier?: string;
+  documentIdentifier?: string | undefined;
 
   /**
    * <p>Source server post migration custom action order.</p>
    * @public
    */
-  order?: number;
+  order?: number | undefined;
 
   /**
    * <p>Source server post migration custom action document version.</p>
    * @public
    */
-  documentVersion?: string;
+  documentVersion?: string | undefined;
 
   /**
    * <p>Source server post migration custom action active status.</p>
    * @public
    */
-  active?: boolean;
+  active?: boolean | undefined;
 
   /**
    * <p>Source server post migration custom action timeout in seconds.</p>
    * @public
    */
-  timeoutSeconds?: number;
+  timeoutSeconds?: number | undefined;
 
   /**
    * <p>Source server post migration custom action must succeed for cutover.</p>
    * @public
    */
-  mustSucceedForCutover?: boolean;
+  mustSucceedForCutover?: boolean | undefined;
 
   /**
    * <p>Source server post migration custom action parameters.</p>
    * @public
    */
-  parameters?: Record<string, SsmParameterStoreParameter[]>;
+  parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
    * <p>Source server post migration custom action external parameters.</p>
    * @public
    */
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
    * <p>Source server post migration custom action description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Source server post migration custom action category.</p>
    * @public
    */
-  category?: ActionCategory;
+  category?: ActionCategory | undefined;
 }
 
 /**
@@ -4697,13 +4697,13 @@ export interface ListSourceServerActionsResponse {
    * <p>List of source server post migration custom actions.</p>
    * @public
    */
-  items?: SourceServerActionDocument[];
+  items?: SourceServerActionDocument[] | undefined;
 
   /**
    * <p>Next token returned when listing source server post migration custom actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4720,7 +4720,7 @@ export interface MarkAsArchivedRequest {
    * <p>Mark as archived by Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4737,7 +4737,7 @@ export interface PauseReplicationRequest {
    * <p>Pause Replication Request account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4778,55 +4778,55 @@ export interface PutSourceServerActionRequest {
    * <p>Source server post migration custom action document version.</p>
    * @public
    */
-  documentVersion?: string;
+  documentVersion?: string | undefined;
 
   /**
    * <p>Source server post migration custom action active status.</p>
    * @public
    */
-  active?: boolean;
+  active?: boolean | undefined;
 
   /**
    * <p>Source server post migration custom action timeout in seconds.</p>
    * @public
    */
-  timeoutSeconds?: number;
+  timeoutSeconds?: number | undefined;
 
   /**
    * <p>Source server post migration custom action must succeed for cutover.</p>
    * @public
    */
-  mustSucceedForCutover?: boolean;
+  mustSucceedForCutover?: boolean | undefined;
 
   /**
    * <p>Source server post migration custom action parameters.</p>
    * @public
    */
-  parameters?: Record<string, SsmParameterStoreParameter[]>;
+  parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
    * <p>Source server post migration custom action external parameters.</p>
    * @public
    */
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
    * <p>Source server post migration custom action description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Source server post migration custom action category.</p>
    * @public
    */
-  category?: ActionCategory;
+  category?: ActionCategory | undefined;
 
   /**
    * <p>Source server post migration custom account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4849,7 +4849,7 @@ export interface RemoveSourceServerActionRequest {
    * <p>Source server post migration account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4871,7 +4871,7 @@ export interface ResumeReplicationRequest {
    * <p>Resume Replication Request account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4888,7 +4888,7 @@ export interface RetryDataReplicationRequest {
    * <p>Retry data replication for Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4905,13 +4905,13 @@ export interface StartCutoverRequest {
    * <p>Start Cutover by Tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Start Cutover by Account IDs</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4922,7 +4922,7 @@ export interface StartCutoverResponse {
    * <p>Start Cutover Job response.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -4939,7 +4939,7 @@ export interface StartReplicationRequest {
    * <p>Account ID on which to start replication.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4956,13 +4956,13 @@ export interface StartTestRequest {
    * <p>Start Test by Tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Start Test for Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -4973,7 +4973,7 @@ export interface StartTestResponse {
    * <p>Start Test Job response.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -4990,7 +4990,7 @@ export interface StopReplicationRequest {
    * <p>Stop Replication Request account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5007,13 +5007,13 @@ export interface TerminateTargetInstancesRequest {
    * <p>Terminate Target instance by Tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Terminate Target instance by Account ID</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5024,7 +5024,7 @@ export interface TerminateTargetInstancesResponse {
    * <p>Terminate Target instance Job response.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -5041,67 +5041,67 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>Update Launch configuration name request.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Update Launch configuration launch disposition request.</p>
    * @public
    */
-  launchDisposition?: LaunchDisposition;
+  launchDisposition?: LaunchDisposition | undefined;
 
   /**
    * <p>Update Launch configuration Target instance right sizing request.</p>
    * @public
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
    * <p>Update Launch configuration copy Private IP request.</p>
    * @public
    */
-  copyPrivateIp?: boolean;
+  copyPrivateIp?: boolean | undefined;
 
   /**
    * <p>Update Launch configuration copy Tags request.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>Update Launch configuration licensing request.</p>
    * @public
    */
-  licensing?: Licensing;
+  licensing?: Licensing | undefined;
 
   /**
    * <p>Update Launch configuration boot mode request.</p>
    * @public
    */
-  bootMode?: BootMode;
+  bootMode?: BootMode | undefined;
 
   /**
    * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
    * @public
    */
-  postLaunchActions?: PostLaunchActions;
+  postLaunchActions?: PostLaunchActions | undefined;
 
   /**
    * <p>Enable map auto tagging.</p>
    * @public
    */
-  enableMapAutoTagging?: boolean;
+  enableMapAutoTagging?: boolean | undefined;
 
   /**
    * <p>Launch configuration map auto tagging MPE ID.</p>
    * @public
    */
-  mapAutoTaggingMpeID?: string;
+  mapAutoTaggingMpeID?: string | undefined;
 
   /**
    * <p>Update Launch configuration Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5118,97 +5118,97 @@ export interface UpdateReplicationConfigurationRequest {
    * <p>Update replication configuration name request.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Update replication configuration Staging Area subnet request.</p>
    * @public
    */
-  stagingAreaSubnetId?: string;
+  stagingAreaSubnetId?: string | undefined;
 
   /**
    * <p>Update replication configuration associate default Application Migration Service Security group request.</p>
    * @public
    */
-  associateDefaultSecurityGroup?: boolean;
+  associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
    * <p>Update replication configuration Replication Server Security Groups IDs request.</p>
    * @public
    */
-  replicationServersSecurityGroupsIDs?: string[];
+  replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
    * <p>Update replication configuration Replication Server instance type request.</p>
    * @public
    */
-  replicationServerInstanceType?: string;
+  replicationServerInstanceType?: string | undefined;
 
   /**
    * <p>Update replication configuration use dedicated Replication Server request.</p>
    * @public
    */
-  useDedicatedReplicationServer?: boolean;
+  useDedicatedReplicationServer?: boolean | undefined;
 
   /**
    * <p>Update replication configuration use default large Staging Disk type request.</p>
    * @public
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * <p>Update replication configuration replicated disks request.</p>
    * @public
    */
-  replicatedDisks?: ReplicationConfigurationReplicatedDisk[];
+  replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
    * <p>Update replication configuration EBS encryption request.</p>
    * @public
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * <p>Update replication configuration EBS encryption key ARN request.</p>
    * @public
    */
-  ebsEncryptionKeyArn?: string;
+  ebsEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Update replication configuration bandwidth throttling request.</p>
    * @public
    */
-  bandwidthThrottling?: number;
+  bandwidthThrottling?: number | undefined;
 
   /**
    * <p>Update replication configuration data plane routing request.</p>
    * @public
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * <p>Update replication configuration create Public IP request.</p>
    * @public
    */
-  createPublicIP?: boolean;
+  createPublicIP?: boolean | undefined;
 
   /**
    * <p>Update replication configuration Staging Area Tags request.</p>
    * @public
    */
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Record<string, string> | undefined;
 
   /**
    * <p>Update replication configuration use Fips Endpoint.</p>
    * @public
    */
-  useFipsEndpoint?: boolean;
+  useFipsEndpoint?: boolean | undefined;
 
   /**
    * <p>Update replication configuration Account ID request.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5219,7 +5219,7 @@ export interface UpdateSourceServerRequest {
    * <p>Update Source Server request account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 
   /**
    * <p>Update Source Server request source server ID.</p>
@@ -5231,7 +5231,7 @@ export interface UpdateSourceServerRequest {
    * <p>Update Source Server request connector action.</p>
    * @public
    */
-  connectorAction?: SourceServerConnectorAction;
+  connectorAction?: SourceServerConnectorAction | undefined;
 }
 
 /**
@@ -5254,7 +5254,7 @@ export interface UpdateSourceServerReplicationTypeRequest {
    * <p>Account ID on which to update replication type.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5310,13 +5310,13 @@ export interface DescribeVcenterClientsRequest {
    * <p>Maximum results to be returned in DescribeVcenterClients.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Next pagination token to be provided for DescribeVcenterClients.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5328,49 +5328,49 @@ export interface VcenterClient {
    * <p>ID of vCenter client.</p>
    * @public
    */
-  vcenterClientID?: string;
+  vcenterClientID?: string | undefined;
 
   /**
    * <p>Arn of vCenter client.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Hostname of vCenter client .</p>
    * @public
    */
-  hostname?: string;
+  hostname?: string | undefined;
 
   /**
    * <p>Vcenter UUID of vCenter client.</p>
    * @public
    */
-  vcenterUUID?: string;
+  vcenterUUID?: string | undefined;
 
   /**
    * <p>Datacenter name of vCenter client.</p>
    * @public
    */
-  datacenterName?: string;
+  datacenterName?: string | undefined;
 
   /**
    * <p>Last seen time of vCenter client.</p>
    * @public
    */
-  lastSeenDatetime?: string;
+  lastSeenDatetime?: string | undefined;
 
   /**
    * <p>Tags for Source Server of vCenter client.</p>
    * @public
    */
-  sourceServerTags?: Record<string, string>;
+  sourceServerTags?: Record<string, string> | undefined;
 
   /**
    * <p>Tags for vCenter client.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5381,13 +5381,13 @@ export interface DescribeVcenterClientsResponse {
    * <p>List of items returned by DescribeVcenterClients.</p>
    * @public
    */
-  items?: VcenterClient[];
+  items?: VcenterClient[] | undefined;
 
   /**
    * <p>Next pagination token returned from DescribeVcenterClients.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5404,7 +5404,7 @@ export interface ArchiveWaveRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5446,31 +5446,31 @@ export interface WaveAggregatedStatus {
    * <p>Wave aggregated status last update dateTime.</p>
    * @public
    */
-  lastUpdateDateTime?: string;
+  lastUpdateDateTime?: string | undefined;
 
   /**
    * <p>DateTime marking when the first source server in the wave started replication.</p>
    * @public
    */
-  replicationStartedDateTime?: string;
+  replicationStartedDateTime?: string | undefined;
 
   /**
    * <p>Wave aggregated status health status.</p>
    * @public
    */
-  healthStatus?: WaveHealthStatus;
+  healthStatus?: WaveHealthStatus | undefined;
 
   /**
    * <p>Wave aggregated status progress status.</p>
    * @public
    */
-  progressStatus?: WaveProgressStatus;
+  progressStatus?: WaveProgressStatus | undefined;
 
   /**
    * <p>Wave aggregated status total applications amount.</p>
    * @public
    */
-  totalApplications?: number;
+  totalApplications?: number | undefined;
 }
 
 /**
@@ -5481,55 +5481,55 @@ export interface Wave {
    * <p>Wave ID.</p>
    * @public
    */
-  waveID?: string;
+  waveID?: string | undefined;
 
   /**
    * <p>Wave ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Wave name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Wave description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Wave archival status.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 
   /**
    * <p>Wave aggregated status.</p>
    * @public
    */
-  waveAggregatedStatus?: WaveAggregatedStatus;
+  waveAggregatedStatus?: WaveAggregatedStatus | undefined;
 
   /**
    * <p>Wave creation dateTime.</p>
    * @public
    */
-  creationDateTime?: string;
+  creationDateTime?: string | undefined;
 
   /**
    * <p>Wave last modified dateTime.</p>
    * @public
    */
-  lastModifiedDateTime?: string;
+  lastModifiedDateTime?: string | undefined;
 
   /**
    * <p>Wave tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5552,7 +5552,7 @@ export interface AssociateApplicationsRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5574,19 +5574,19 @@ export interface CreateWaveRequest {
    * <p>Wave description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Wave tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5603,7 +5603,7 @@ export interface DeleteWaveRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5631,7 +5631,7 @@ export interface DisassociateApplicationsRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5648,13 +5648,13 @@ export interface ListWavesRequestFilters {
    * <p>Filter waves list by wave ID.</p>
    * @public
    */
-  waveIDs?: string[];
+  waveIDs?: string[] | undefined;
 
   /**
    * <p>Filter waves list by archival status.</p>
    * @public
    */
-  isArchived?: boolean;
+  isArchived?: boolean | undefined;
 }
 
 /**
@@ -5665,25 +5665,25 @@ export interface ListWavesRequest {
    * <p>Waves list filters.</p>
    * @public
    */
-  filters?: ListWavesRequestFilters;
+  filters?: ListWavesRequestFilters | undefined;
 
   /**
    * <p>Maximum results to return when listing waves.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Request next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Request account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5694,13 +5694,13 @@ export interface ListWavesResponse {
    * <p>Waves list.</p>
    * @public
    */
-  items?: Wave[];
+  items?: Wave[] | undefined;
 
   /**
    * <p>Response next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5717,7 +5717,7 @@ export interface UnarchiveWaveRequest {
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**
@@ -5734,19 +5734,19 @@ export interface UpdateWaveRequest {
    * <p>Wave name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Wave description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Account ID.</p>
    * @public
    */
-  accountID?: string;
+  accountID?: string | undefined;
 }
 
 /**

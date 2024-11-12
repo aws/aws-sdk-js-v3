@@ -100,13 +100,13 @@ export interface InboundConnectionStatus {
    *          </ul>
    * @public
    */
-  StatusCode?: InboundConnectionStatusCode;
+  StatusCode?: InboundConnectionStatusCode | undefined;
 
   /**
    * <p>Information about the connection.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -118,7 +118,7 @@ export interface AWSDomainInformation {
    * <p>The Amazon Web Services account ID of the domain owner.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Name of the domain.</p>
@@ -130,7 +130,7 @@ export interface AWSDomainInformation {
    * <p>The Amazon Web Services Region in which the domain is located.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface DomainInformationContainer {
    * <p>Information about an Amazon OpenSearch Service domain.</p>
    * @public
    */
-  AWSDomainInformation?: AWSDomainInformation;
+  AWSDomainInformation?: AWSDomainInformation | undefined;
 }
 
 /**
@@ -156,31 +156,31 @@ export interface InboundConnection {
    * <p>Information about the source (local) domain.</p>
    * @public
    */
-  LocalDomainInfo?: DomainInformationContainer;
+  LocalDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>Information about the destination (remote) domain.</p>
    * @public
    */
-  RemoteDomainInfo?: DomainInformationContainer;
+  RemoteDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>The unique identifier of the connection.</p>
    * @public
    */
-  ConnectionId?: string;
+  ConnectionId?: string | undefined;
 
   /**
    * <p>The current status of the connection.</p>
    * @public
    */
-  ConnectionStatus?: InboundConnectionStatus;
+  ConnectionStatus?: InboundConnectionStatus | undefined;
 
   /**
    * <p>The connection mode.</p>
    * @public
    */
-  ConnectionMode?: ConnectionMode;
+  ConnectionMode?: ConnectionMode | undefined;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface AcceptInboundConnectionResponse {
    * <p>Information about the accepted inbound connection.</p>
    * @public
    */
-  Connection?: InboundConnection;
+  Connection?: InboundConnection | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface OptionStatus {
    * <p>The latest version of the entity.</p>
    * @public
    */
-  UpdateVersion?: number;
+  UpdateVersion?: number | undefined;
 
   /**
    * <p>The state of the entity.</p>
@@ -323,7 +323,7 @@ export interface OptionStatus {
    * <p>Indicates whether the entity is being deleted.</p>
    * @public
    */
-  PendingDeletion?: boolean;
+  PendingDeletion?: boolean | undefined;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface S3GlueDataCatalog {
    * <p>>The Amazon Resource Name (ARN) for the S3 Glue Data Catalog.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -472,7 +472,7 @@ export interface AddDataSourceRequest {
    * <p>A description of the data source.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -484,7 +484,7 @@ export interface AddDataSourceResponse {
    * <p>A message associated with creation of the data source.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -589,13 +589,13 @@ export interface AdditionalLimit {
    *          </ul>
    * @public
    */
-  LimitName?: string;
+  LimitName?: string | undefined;
 
   /**
    * <p> The values of the additional instance type limits.</p>
    * @public
    */
-  LimitValues?: string[];
+  LimitValues?: string[] | undefined;
 }
 
 /**
@@ -698,25 +698,25 @@ export interface JWTOptionsOutput {
    * <p>True if JWT use is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The key used for matching the JWT subject attribute.</p>
    * @public
    */
-  SubjectKey?: string;
+  SubjectKey?: string | undefined;
 
   /**
    * <p>The key used for matching the JWT roles attribute.</p>
    * @public
    */
-  RolesKey?: string;
+  RolesKey?: string | undefined;
 
   /**
    * <p>The key used to verify the signature of incoming JWT requests.</p>
    * @public
    */
-  PublicKey?: string;
+  PublicKey?: string | undefined;
 }
 
 /**
@@ -746,31 +746,31 @@ export interface SAMLOptionsOutput {
    * <p>True if SAML is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Describes the SAML identity provider's information.</p>
    * @public
    */
-  Idp?: SAMLIdp;
+  Idp?: SAMLIdp | undefined;
 
   /**
    * <p>The key used for matching the SAML subject attribute.</p>
    * @public
    */
-  SubjectKey?: string;
+  SubjectKey?: string | undefined;
 
   /**
    * <p>The key used for matching the SAML roles attribute.</p>
    * @public
    */
-  RolesKey?: string;
+  RolesKey?: string | undefined;
 
   /**
    * <p>The duration, in minutes, after which a user session becomes inactive.</p>
    * @public
    */
-  SessionTimeoutMinutes?: number;
+  SessionTimeoutMinutes?: number | undefined;
 }
 
 /**
@@ -782,32 +782,32 @@ export interface AdvancedSecurityOptions {
    * <p>True if fine-grained access control is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>True if the internal user database is enabled.</p>
    * @public
    */
-  InternalUserDatabaseEnabled?: boolean;
+  InternalUserDatabaseEnabled?: boolean | undefined;
 
   /**
    * <p>Container for information about the SAML configuration for OpenSearch Dashboards.</p>
    * @public
    */
-  SAMLOptions?: SAMLOptionsOutput;
+  SAMLOptions?: SAMLOptionsOutput | undefined;
 
   /**
    * <p>Container for information about the JWT configuration of the Amazon OpenSearch Service.</p>
    * @public
    */
-  JWTOptions?: JWTOptionsOutput;
+  JWTOptions?: JWTOptionsOutput | undefined;
 
   /**
    * <p>Date and time when the migration period will be disabled. Only necessary when <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing">enabling
    *     fine-grained access control on an existing domain</a>.</p>
    * @public
    */
-  AnonymousAuthDisableDate?: Date;
+  AnonymousAuthDisableDate?: Date | undefined;
 
   /**
    * <p>True if a 30-day migration period is enabled, during which administrators can create role
@@ -815,7 +815,7 @@ export interface AdvancedSecurityOptions {
    *     fine-grained access control on an existing domain</a>.</p>
    * @public
    */
-  AnonymousAuthEnabled?: boolean;
+  AnonymousAuthEnabled?: boolean | undefined;
 }
 
 /**
@@ -827,25 +827,25 @@ export interface JWTOptionsInput {
    * <p>True to enable JWT authentication and authorization for a domain.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Element of the JWT assertion to use for the user name.</p>
    * @public
    */
-  SubjectKey?: string;
+  SubjectKey?: string | undefined;
 
   /**
    * <p>Element of the JWT assertion to use for roles.</p>
    * @public
    */
-  RolesKey?: string;
+  RolesKey?: string | undefined;
 
   /**
    * <p>Element of the JWT assertion used by the cluster to verify JWT signatures.</p>
    * @public
    */
-  PublicKey?: string;
+  PublicKey?: string | undefined;
 }
 
 /**
@@ -858,21 +858,21 @@ export interface MasterUserOptions {
    *     <code>InternalUserDatabaseEnabled</code> is <code>false</code>.</p>
    * @public
    */
-  MasterUserARN?: string;
+  MasterUserARN?: string | undefined;
 
   /**
    * <p>User name for the master user. Only specify if <code>InternalUserDatabaseEnabled</code> is
    *     <code>true</code>.</p>
    * @public
    */
-  MasterUserName?: string;
+  MasterUserName?: string | undefined;
 
   /**
    * <p>Password for the master user. Only specify if <code>InternalUserDatabaseEnabled</code> is
    *     <code>true</code>.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 }
 
 /**
@@ -884,46 +884,46 @@ export interface SAMLOptionsInput {
    * <p>True to enable SAML authentication for a domain.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The SAML Identity Provider's information.</p>
    * @public
    */
-  Idp?: SAMLIdp;
+  Idp?: SAMLIdp | undefined;
 
   /**
    * <p>The SAML master user name, which is stored in the domain's internal user database.</p>
    * @public
    */
-  MasterUserName?: string;
+  MasterUserName?: string | undefined;
 
   /**
    * <p>The backend role that the SAML master user is mapped to.</p>
    * @public
    */
-  MasterBackendRole?: string;
+  MasterBackendRole?: string | undefined;
 
   /**
    * <p>Element of the SAML assertion to use for the user name. Default is
    *    <code>NameID</code>.</p>
    * @public
    */
-  SubjectKey?: string;
+  SubjectKey?: string | undefined;
 
   /**
    * <p>Element of the SAML assertion to use for backend roles. Default is
    *    <code>roles</code>.</p>
    * @public
    */
-  RolesKey?: string;
+  RolesKey?: string | undefined;
 
   /**
    * <p>The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440,
    *    and the default value is 60.</p>
    * @public
    */
-  SessionTimeoutMinutes?: number;
+  SessionTimeoutMinutes?: number | undefined;
 }
 
 /**
@@ -936,31 +936,31 @@ export interface AdvancedSecurityOptionsInput {
    * <p>True to enable fine-grained access control.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>True to enable the internal user database.</p>
    * @public
    */
-  InternalUserDatabaseEnabled?: boolean;
+  InternalUserDatabaseEnabled?: boolean | undefined;
 
   /**
    * <p>Container for information about the master user.</p>
    * @public
    */
-  MasterUserOptions?: MasterUserOptions;
+  MasterUserOptions?: MasterUserOptions | undefined;
 
   /**
    * <p>Container for information about the SAML configuration for OpenSearch Dashboards.</p>
    * @public
    */
-  SAMLOptions?: SAMLOptionsInput;
+  SAMLOptions?: SAMLOptionsInput | undefined;
 
   /**
    * <p>Container for information about the JWT configuration of the Amazon OpenSearch Service. </p>
    * @public
    */
-  JWTOptions?: JWTOptionsInput;
+  JWTOptions?: JWTOptionsInput | undefined;
 
   /**
    * <p>True to enable a 30-day migration period during which administrators can create role
@@ -968,7 +968,7 @@ export interface AdvancedSecurityOptionsInput {
    *     fine-grained access control on an existing domain</a>.</p>
    * @public
    */
-  AnonymousAuthEnabled?: boolean;
+  AnonymousAuthEnabled?: boolean | undefined;
 }
 
 /**
@@ -1013,7 +1013,7 @@ export interface NaturalLanguageQueryGenerationOptionsInput {
    * <p>The desired state of the natural language query generation feature. Valid values are ENABLED and DISABLED.</p>
    * @public
    */
-  DesiredState?: NaturalLanguageQueryGenerationDesiredState;
+  DesiredState?: NaturalLanguageQueryGenerationDesiredState | undefined;
 }
 
 /**
@@ -1025,7 +1025,7 @@ export interface AIMLOptionsInput {
    * <p>Container for parameters required for natural language query generation on the specified domain.</p>
    * @public
    */
-  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsInput;
+  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsInput | undefined;
 }
 
 /**
@@ -1057,13 +1057,13 @@ export interface NaturalLanguageQueryGenerationOptionsOutput {
    * <p>The desired state of the natural language query generation feature. Valid values are ENABLED and DISABLED.</p>
    * @public
    */
-  DesiredState?: NaturalLanguageQueryGenerationDesiredState;
+  DesiredState?: NaturalLanguageQueryGenerationDesiredState | undefined;
 
   /**
    * <p>The current state of the natural language query generation feature, indicating completion, in progress, or failure.</p>
    * @public
    */
-  CurrentState?: NaturalLanguageQueryGenerationCurrentState;
+  CurrentState?: NaturalLanguageQueryGenerationCurrentState | undefined;
 }
 
 /**
@@ -1075,7 +1075,7 @@ export interface AIMLOptionsOutput {
    * <p>Container for parameters required for natural language query generation on the specified domain.</p>
    * @public
    */
-  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsOutput;
+  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsOutput | undefined;
 }
 
 /**
@@ -1087,13 +1087,13 @@ export interface AIMLOptionsStatus {
    * <p>Machine learning options on the specified domain.</p>
    * @public
    */
-  Options?: AIMLOptionsOutput;
+  Options?: AIMLOptionsOutput | undefined;
 
   /**
    * <p>Provides the current status of an entity.</p>
    * @public
    */
-  Status?: OptionStatus;
+  Status?: OptionStatus | undefined;
 }
 
 /**
@@ -1105,7 +1105,7 @@ export interface KeyStoreAccessOption {
    * <p>Role ARN to access the KeyStore Key</p>
    * @public
    */
-  KeyAccessRoleArn?: string;
+  KeyAccessRoleArn?: string | undefined;
 
   /**
    * <p>This indicates whether Key Store access is enabled </p>
@@ -1123,7 +1123,7 @@ export interface PackageAssociationConfiguration {
    * <p>The configuration parameters to enable accessing the key store required by the package.</p>
    * @public
    */
-  KeyStoreAccessOption?: KeyStoreAccessOption;
+  KeyStoreAccessOption?: KeyStoreAccessOption | undefined;
 }
 
 /**
@@ -1148,13 +1148,13 @@ export interface AssociatePackageRequest {
    * <p>A list of package IDs that must be associated with the domain before the package specified in the request can be associated.</p>
    * @public
    */
-  PrerequisitePackageIDList?: string[];
+  PrerequisitePackageIDList?: string[] | undefined;
 
   /**
    * <p>The configuration for associating a package with an Amazon OpenSearch Service domain.</p>
    * @public
    */
-  AssociationConfiguration?: PackageAssociationConfiguration;
+  AssociationConfiguration?: PackageAssociationConfiguration | undefined;
 }
 
 /**
@@ -1183,13 +1183,13 @@ export interface ErrorDetails {
    * <p>The type of error that occurred.</p>
    * @public
    */
-  ErrorType?: string;
+  ErrorType?: string | undefined;
 
   /**
    * <p>A message describing the error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -1218,68 +1218,68 @@ export interface DomainPackageDetails {
    * <p>Internal ID of the package.</p>
    * @public
    */
-  PackageID?: string;
+  PackageID?: string | undefined;
 
   /**
    * <p>User-specified name of the package.</p>
    * @public
    */
-  PackageName?: string;
+  PackageName?: string | undefined;
 
   /**
    * <p>The type of package.</p>
    * @public
    */
-  PackageType?: PackageType;
+  PackageType?: PackageType | undefined;
 
   /**
    * <p>Timestamp of the most recent update to the package association status.</p>
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 
   /**
    * <p>Name of the domain that the package is associated with.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>State of the association.</p>
    * @public
    */
-  DomainPackageStatus?: DomainPackageStatus;
+  DomainPackageStatus?: DomainPackageStatus | undefined;
 
   /**
    * <p>The current version of the package.</p>
    * @public
    */
-  PackageVersion?: string;
+  PackageVersion?: string | undefined;
 
   /**
    * <p>A list of package IDs that must be associated with the domain before or with the package can be associated.</p>
    * @public
    */
-  PrerequisitePackageIDList?: string[];
+  PrerequisitePackageIDList?: string[] | undefined;
 
   /**
    * <p>The relative path of the package on the OpenSearch Service cluster nodes. This is <code>synonym_path</code>
    *    when the package is for synonym files.</p>
    * @public
    */
-  ReferencePath?: string;
+  ReferencePath?: string | undefined;
 
   /**
    * <p>Additional information if the package is in an error state. Null otherwise.</p>
    * @public
    */
-  ErrorDetails?: ErrorDetails;
+  ErrorDetails?: ErrorDetails | undefined;
 
   /**
    * <p>The configuration for associating a package with an Amazon OpenSearch Service domain.</p>
    * @public
    */
-  AssociationConfiguration?: PackageAssociationConfiguration;
+  AssociationConfiguration?: PackageAssociationConfiguration | undefined;
 }
 
 /**
@@ -1291,7 +1291,7 @@ export interface AssociatePackageResponse {
    * <p>Information about a package that is associated with a domain.</p>
    * @public
    */
-  DomainPackageDetails?: DomainPackageDetails;
+  DomainPackageDetails?: DomainPackageDetails | undefined;
 }
 
 /**
@@ -1329,13 +1329,13 @@ export interface PackageDetailsForAssociation {
    * <p>List of package IDs that must be associated with the domain with or before the package can be associated.</p>
    * @public
    */
-  PrerequisitePackageIDList?: string[];
+  PrerequisitePackageIDList?: string[] | undefined;
 
   /**
    * <p>The configuration parameters for associating the package with a domain.</p>
    * @public
    */
-  AssociationConfiguration?: PackageAssociationConfiguration;
+  AssociationConfiguration?: PackageAssociationConfiguration | undefined;
 }
 
 /**
@@ -1364,7 +1364,7 @@ export interface AssociatePackagesResponse {
    * <p>List of information about packages that are associated with a domain. </p>
    * @public
    */
-  DomainPackageDetailsList?: DomainPackageDetails[];
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
 }
 
 /**
@@ -1394,13 +1394,13 @@ export interface AuthorizeVpcEndpointAccessRequest {
    * <p>The Amazon Web Services account ID to grant access to.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The Amazon Web Services service SP to grant access to.</p>
    * @public
    */
-  Service?: AWSServicePrincipal;
+  Service?: AWSServicePrincipal | undefined;
 }
 
 /**
@@ -1427,13 +1427,13 @@ export interface AuthorizedPrincipal {
    * <p>The type of principal.</p>
    * @public
    */
-  PrincipalType?: PrincipalType;
+  PrincipalType?: PrincipalType | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM principal</a> that is allowed access to the domain.</p>
    * @public
    */
-  Principal?: string;
+  Principal?: string | undefined;
 }
 
 /**
@@ -1463,7 +1463,7 @@ export interface CancelDomainConfigChangeRequest {
    * <p>When set to <code>True</code>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -1475,19 +1475,19 @@ export interface CancelledChangeProperty {
    * <p>The name of the property whose change was cancelled.</p>
    * @public
    */
-  PropertyName?: string;
+  PropertyName?: string | undefined;
 
   /**
    * <p>The pending value of the property that was cancelled. This would have been the eventual value of the property if the chance had not been cancelled.</p>
    * @public
    */
-  CancelledValue?: string;
+  CancelledValue?: string | undefined;
 
   /**
    * <p>The current value of the property, after the change was cancelled.</p>
    * @public
    */
-  ActiveValue?: string;
+  ActiveValue?: string | undefined;
 }
 
 /**
@@ -1498,19 +1498,19 @@ export interface CancelDomainConfigChangeResponse {
    * <p>The unique identifiers of the changes that were cancelled.</p>
    * @public
    */
-  CancelledChangeIds?: string[];
+  CancelledChangeIds?: string[] | undefined;
 
   /**
    * <p>The domain change properties that were cancelled.</p>
    * @public
    */
-  CancelledChangeProperties?: CancelledChangeProperty[];
+  CancelledChangeProperties?: CancelledChangeProperty[] | undefined;
 
   /**
    * <p>Whether or not the request was a dry run. If <code>True</code>, the changes were not actually cancelled. </p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -1554,53 +1554,53 @@ export interface ServiceSoftwareOptions {
    * <p>The current service software version present on the domain.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 
   /**
    * <p>The new service software version, if one is available.</p>
    * @public
    */
-  NewVersion?: string;
+  NewVersion?: string | undefined;
 
   /**
    * <p>True if you're able to update your service software version. False if you can't update your
    *    service software version.</p>
    * @public
    */
-  UpdateAvailable?: boolean;
+  UpdateAvailable?: boolean | undefined;
 
   /**
    * <p> True if you're able to cancel your service software version update. False if you can't
    *    cancel your service software update.</p>
    * @public
    */
-  Cancellable?: boolean;
+  Cancellable?: boolean | undefined;
 
   /**
    * <p>The status of your service software update.</p>
    * @public
    */
-  UpdateStatus?: DeploymentStatus;
+  UpdateStatus?: DeploymentStatus | undefined;
 
   /**
    * <p>A description of the service software update status.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timestamp, in Epoch time, until which you can manually request a service software update. After this date,
    *    we automatically update your service software.</p>
    * @public
    */
-  AutomatedUpdateDate?: Date;
+  AutomatedUpdateDate?: Date | undefined;
 
   /**
    * <p>True if a service software is never automatically updated. False if a service software is
    *    automatically updated after the automated update date.</p>
    * @public
    */
-  OptionalDeployment?: boolean;
+  OptionalDeployment?: boolean | undefined;
 }
 
 /**
@@ -1613,7 +1613,7 @@ export interface CancelServiceSoftwareUpdateResponse {
    * <p>Container for the state of your domain relative to the latest service software.</p>
    * @public
    */
-  ServiceSoftwareOptions?: ServiceSoftwareOptions;
+  ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
 }
 
 /**
@@ -1639,13 +1639,13 @@ export interface AppConfig {
    * <p>Specify the item to configure, such as admin role for the OpenSearch Application.</p>
    * @public
    */
-  key?: AppConfigType;
+  key?: AppConfigType | undefined;
 
   /**
    * <p>Specifies the value to configure for the key, such as an IAM user ARN.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1659,13 +1659,13 @@ export interface DataSource {
    *   </p>
    * @public
    */
-  dataSourceArn?: string;
+  dataSourceArn?: string | undefined;
 
   /**
    * <p>Detailed description of a data source.</p>
    * @public
    */
-  dataSourceDescription?: string;
+  dataSourceDescription?: string | undefined;
 }
 
 /**
@@ -1677,7 +1677,7 @@ export interface IamIdentityCenterOptionsInput {
    * <p>Enable/disable settings for IAM Identity Center.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -1685,13 +1685,13 @@ export interface IamIdentityCenterOptionsInput {
    *   </p>
    * @public
    */
-  iamIdentityCenterInstanceArn?: string;
+  iamIdentityCenterInstanceArn?: string | undefined;
 
   /**
    * <p>Amazon Resource Name of IAM Identity Center's application.</p>
    * @public
    */
-  iamRoleForIdentityCenterApplicationArn?: string;
+  iamRoleForIdentityCenterApplicationArn?: string | undefined;
 }
 
 /**
@@ -1702,7 +1702,7 @@ export interface CreateApplicationRequest {
    * <p>A unique client idempotency token. It will be auto generated if not provided.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Name of the OpenSearch Appication to create. Application names are unique across the applications
@@ -1715,25 +1715,25 @@ export interface CreateApplicationRequest {
    * <p>Data sources to be associated with the OpenSearch Application.</p>
    * @public
    */
-  dataSources?: DataSource[];
+  dataSources?: DataSource[] | undefined;
 
   /**
    * <p>Settings of IAM Identity Center for the OpenSearch Application.</p>
    * @public
    */
-  iamIdentityCenterOptions?: IamIdentityCenterOptionsInput;
+  iamIdentityCenterOptions?: IamIdentityCenterOptionsInput | undefined;
 
   /**
    * <p>Configurations of the OpenSearch Application, inlcuding admin configuration.</p>
    * @public
    */
-  appConfigs?: AppConfig[];
+  appConfigs?: AppConfig[] | undefined;
 
   /**
    * <p>A list of tags attached to a domain.</p>
    * @public
    */
-  tagList?: Tag[];
+  tagList?: Tag[] | undefined;
 }
 
 /**
@@ -1745,7 +1745,7 @@ export interface IamIdentityCenterOptions {
    * <p>IAM Identity Center is enabled for the OpenSearch Application.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -1753,13 +1753,13 @@ export interface IamIdentityCenterOptions {
    *   </p>
    * @public
    */
-  iamIdentityCenterInstanceArn?: string;
+  iamIdentityCenterInstanceArn?: string | undefined;
 
   /**
    * <p>Amazon Resource Name of the IAM Identity Center's Application created for the OpenSearch Application after enabling IAM Identity Center.</p>
    * @public
    */
-  iamRoleForIdentityCenterApplicationArn?: string;
+  iamRoleForIdentityCenterApplicationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -1767,7 +1767,7 @@ export interface IamIdentityCenterOptions {
    *   </p>
    * @public
    */
-  iamIdentityCenterApplicationArn?: string;
+  iamIdentityCenterApplicationArn?: string | undefined;
 }
 
 /**
@@ -1778,13 +1778,13 @@ export interface CreateApplicationResponse {
    * <p>Unique identifier for the created OpenSearch Application.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Name of the created OpenSearch Application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -1792,37 +1792,37 @@ export interface CreateApplicationResponse {
    *   </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Data sources associated with the created OpenSearch Application.</p>
    * @public
    */
-  dataSources?: DataSource[];
+  dataSources?: DataSource[] | undefined;
 
   /**
    * <p>Settings of IAM Identity Center for the created OpenSearch Application.</p>
    * @public
    */
-  iamIdentityCenterOptions?: IamIdentityCenterOptions;
+  iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
    * <p>Configurations of the OpenSearch Application, inlcuding admin configuration.</p>
    * @public
    */
-  appConfigs?: AppConfig[];
+  appConfigs?: AppConfig[] | undefined;
 
   /**
    * <p>A list of tags attached to a domain.</p>
    * @public
    */
-  tagList?: Tag[];
+  tagList?: Tag[] | undefined;
 
   /**
    * <p>Timestamp when the OpenSearch Application was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -1862,13 +1862,13 @@ export interface Duration {
    * <p>Integer to specify the value of a maintenance schedule duration.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 
   /**
    * <p>The unit of measurement for the duration of a maintenance schedule.</p>
    * @public
    */
-  Unit?: TimeUnit;
+  Unit?: TimeUnit | undefined;
 }
 
 /**
@@ -1887,21 +1887,21 @@ export interface AutoTuneMaintenanceSchedule {
    * <p>The Epoch timestamp at which the Auto-Tune maintenance schedule starts.</p>
    * @public
    */
-  StartAt?: Date;
+  StartAt?: Date | undefined;
 
   /**
    * <p>The duration of the maintenance schedule. For example, <code>"Duration": \{"Value": 2,
    *     "Unit": "HOURS"\}</code>.</p>
    * @public
    */
-  Duration?: Duration;
+  Duration?: Duration | undefined;
 
   /**
    * <p>A cron expression for a recurring maintenance schedule during which Auto-Tune can deploy
    *    changes.</p>
    * @public
    */
-  CronExpressionForRecurrence?: string;
+  CronExpressionForRecurrence?: string | undefined;
 }
 
 /**
@@ -1915,19 +1915,19 @@ export interface AutoTuneOptionsInput {
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    * @public
    */
-  DesiredState?: AutoTuneDesiredState;
+  DesiredState?: AutoTuneDesiredState | undefined;
 
   /**
    * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak windows</a>.</p>
    * @public
    */
-  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[] | undefined;
 
   /**
    * <p>Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.</p>
    * @public
    */
-  UseOffPeakWindow?: boolean;
+  UseOffPeakWindow?: boolean | undefined;
 }
 
 /**
@@ -2069,19 +2069,19 @@ export interface NodeConfig {
    * <p>A boolean that indicates whether a particular node type is enabled or not.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The instance type of a particular node type in the cluster.</p>
    * @public
    */
-  Type?: OpenSearchPartitionInstanceType;
+  Type?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>The number of nodes of a particular node type in the cluster.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 }
 
 /**
@@ -2106,13 +2106,13 @@ export interface NodeOption {
    * <p>Container for node type like coordinating.</p>
    * @public
    */
-  NodeType?: NodeOptionsNodeType;
+  NodeType?: NodeOptionsNodeType | undefined;
 
   /**
    * <p>Container for specifying configuration of any node type.</p>
    * @public
    */
-  NodeConfig?: NodeConfig;
+  NodeConfig?: NodeConfig | undefined;
 }
 
 /**
@@ -2142,7 +2142,7 @@ export interface ZoneAwarenessConfig {
    *    provisioned within a VPC, this value be equal to number of subnets.</p>
    * @public
    */
-  AvailabilityZoneCount?: number;
+  AvailabilityZoneCount?: number | undefined;
 }
 
 /**
@@ -2155,83 +2155,83 @@ export interface ClusterConfig {
    * <p>Instance type of data nodes in the cluster.</p>
    * @public
    */
-  InstanceType?: OpenSearchPartitionInstanceType;
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>Number of data nodes in the cluster. This number must be greater than 1, otherwise you
    *    receive a validation exception.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>Indicates whether dedicated master nodes are enabled for the cluster.<code>True</code> if
    *    the cluster will use a dedicated master node.<code>False</code> if the cluster will not.</p>
    * @public
    */
-  DedicatedMasterEnabled?: boolean;
+  DedicatedMasterEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether multiple Availability Zones are enabled. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html">Configuring a multi-AZ domain in Amazon OpenSearch Service</a>.</p>
    * @public
    */
-  ZoneAwarenessEnabled?: boolean;
+  ZoneAwarenessEnabled?: boolean | undefined;
 
   /**
    * <p>Container for zone awareness configuration options. Only required if
    *     <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
    * @public
    */
-  ZoneAwarenessConfig?: ZoneAwarenessConfig;
+  ZoneAwarenessConfig?: ZoneAwarenessConfig | undefined;
 
   /**
    * <p>OpenSearch Service instance type of the dedicated master nodes in the cluster.</p>
    * @public
    */
-  DedicatedMasterType?: OpenSearchPartitionInstanceType;
+  DedicatedMasterType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>Number of dedicated master nodes in the cluster. This number must be greater than 2 and not 4,
    *    otherwise you receive a validation exception.</p>
    * @public
    */
-  DedicatedMasterCount?: number;
+  DedicatedMasterCount?: number | undefined;
 
   /**
    * <p>Whether to enable warm storage for the cluster.</p>
    * @public
    */
-  WarmEnabled?: boolean;
+  WarmEnabled?: boolean | undefined;
 
   /**
    * <p>The instance type for the cluster's warm nodes.</p>
    * @public
    */
-  WarmType?: OpenSearchWarmPartitionInstanceType;
+  WarmType?: OpenSearchWarmPartitionInstanceType | undefined;
 
   /**
    * <p>The number of warm nodes in the cluster.</p>
    * @public
    */
-  WarmCount?: number;
+  WarmCount?: number | undefined;
 
   /**
    * <p>Container for cold storage configuration options.</p>
    * @public
    */
-  ColdStorageOptions?: ColdStorageOptions;
+  ColdStorageOptions?: ColdStorageOptions | undefined;
 
   /**
    * <p>A boolean that indicates whether a multi-AZ domain is turned on with a standby AZ. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html">Configuring a multi-AZ domain in Amazon OpenSearch Service</a>. </p>
    * @public
    */
-  MultiAZWithStandbyEnabled?: boolean;
+  MultiAZWithStandbyEnabled?: boolean | undefined;
 
   /**
    * <p>List of node options for the domain.</p>
    * @public
    */
-  NodeOptions?: NodeOption[];
+  NodeOptions?: NodeOption[] | undefined;
 }
 
 /**
@@ -2245,28 +2245,28 @@ export interface CognitoOptions {
    * <p>Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch
    *    Dashboards authentication.</p>
    * @public
    */
-  UserPoolId?: string;
+  UserPoolId?: string | undefined;
 
   /**
    * <p>The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch
    *    Dashboards authentication.</p>
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * <p>The <code>AmazonOpenSearchServiceCognitoAccess</code> role that allows OpenSearch Service to
    *    configure your user pool and identity pool.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -2293,7 +2293,7 @@ export interface DomainEndpointOptions {
    * <p>True to require that all traffic to the domain arrive over HTTPS.</p>
    * @public
    */
-  EnforceHTTPS?: boolean;
+  EnforceHTTPS?: boolean | undefined;
 
   /**
    * <p>Specify the TLS security policy to apply to the HTTPS endpoint of the domain. The policy can
@@ -2317,26 +2317,26 @@ export interface DomainEndpointOptions {
    *          </ul>
    * @public
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy;
+  TLSSecurityPolicy?: TLSSecurityPolicy | undefined;
 
   /**
    * <p>Whether to enable a custom endpoint for the domain.</p>
    * @public
    */
-  CustomEndpointEnabled?: boolean;
+  CustomEndpointEnabled?: boolean | undefined;
 
   /**
    * <p>The fully qualified URL for the custom endpoint.</p>
    * @public
    */
-  CustomEndpoint?: string;
+  CustomEndpoint?: string | undefined;
 
   /**
    * <p>The ARN for your security certificate, managed in Amazon Web Services Certificate Manager
    *    (ACM).</p>
    * @public
    */
-  CustomEndpointCertificateArn?: string;
+  CustomEndpointCertificateArn?: string | undefined;
 }
 
 /**
@@ -2366,33 +2366,33 @@ export interface EBSOptions {
    *    domain.</p>
    * @public
    */
-  EBSEnabled?: boolean;
+  EBSEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the type of EBS volumes attached to data nodes.</p>
    * @public
    */
-  VolumeType?: VolumeType;
+  VolumeType?: VolumeType | undefined;
 
   /**
    * <p>Specifies the size (in GiB) of EBS volumes attached to data nodes.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>Specifies the baseline input/output (I/O) performance of EBS volumes attached to data nodes.
    *    Applicable only for the <code>gp3</code> and provisioned IOPS EBS volume types.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable
    *    only for the <code>gp3</code> volume type.</p>
    * @public
    */
-  Throughput?: number;
+  Throughput?: number | undefined;
 }
 
 /**
@@ -2407,13 +2407,13 @@ export interface EncryptionAtRestOptions {
    * <p>True to enable encryption at rest.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -2454,25 +2454,25 @@ export interface IdentityCenterOptionsInput {
    * <p>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</p>
    * @public
    */
-  EnabledAPIAccess?: boolean;
+  EnabledAPIAccess?: boolean | undefined;
 
   /**
    * <p>The ARN for IAM Identity Center Instance which will be used for IAM Identity Center Application creation.</p>
    * @public
    */
-  IdentityCenterInstanceARN?: string;
+  IdentityCenterInstanceARN?: string | undefined;
 
   /**
    * <p>Specify the attribute that contains the subject (username, userID, email) of IAM Identity Center.</p>
    * @public
    */
-  SubjectKey?: SubjectKeyIdCOption;
+  SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
    * <p>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity Center</p>
    * @public
    */
-  RolesKey?: RolesKeyIdCOption;
+  RolesKey?: RolesKeyIdCOption | undefined;
 }
 
 /**
@@ -2519,13 +2519,13 @@ export interface LogPublishingOption {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish logs to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Whether the log should be published.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -2537,7 +2537,7 @@ export interface NodeToNodeEncryptionOptions {
    * <p>True to enable node-to-node encryption.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -2577,7 +2577,7 @@ export interface OffPeakWindow {
    *    11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.</p>
    * @public
    */
-  WindowStartTime?: WindowStartTime;
+  WindowStartTime?: WindowStartTime | undefined;
 }
 
 /**
@@ -2593,13 +2593,13 @@ export interface OffPeakWindowOptions {
    *    enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Off-peak window settings for the domain.</p>
    * @public
    */
-  OffPeakWindow?: OffPeakWindow;
+  OffPeakWindow?: OffPeakWindow | undefined;
 }
 
 /**
@@ -2613,7 +2613,7 @@ export interface SnapshotOptions {
    *    specified domain. Default is <code>0</code> hours.</p>
    * @public
    */
-  AutomatedSnapshotStartHour?: number;
+  AutomatedSnapshotStartHour?: number | undefined;
 }
 
 /**
@@ -2625,7 +2625,7 @@ export interface SoftwareUpdateOptions {
    * <p>Whether automatic service software updates are enabled for the domain.</p>
    * @public
    */
-  AutoSoftwareUpdateEnabled?: boolean;
+  AutoSoftwareUpdateEnabled?: boolean | undefined;
 }
 
 /**
@@ -2641,14 +2641,14 @@ export interface VPCOptions {
    *    only one.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The list of security group IDs associated with the VPC endpoints for the domain. If you do
    *    not provide a security group ID, OpenSearch Service uses the default security group for the VPC.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -2669,27 +2669,27 @@ export interface CreateDomainRequest {
    *     and managing Amazon OpenSearch Service domains</a>.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Container for the cluster configuration of a domain.</p>
    * @public
    */
-  ClusterConfig?: ClusterConfig;
+  ClusterConfig?: ClusterConfig | undefined;
 
   /**
    * <p>Container for the parameters required to enable EBS-based storage for an OpenSearch Service
    *    domain.</p>
    * @public
    */
-  EBSOptions?: EBSOptions;
+  EBSOptions?: EBSOptions | undefined;
 
   /**
    * <p>Identity and Access Management (IAM) policy document specifying the access policies for the
    *    new domain.</p>
    * @public
    */
-  AccessPolicies?: string;
+  AccessPolicies?: string | undefined;
 
   /**
    * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share
@@ -2697,14 +2697,14 @@ export interface CreateDomainRequest {
    *    If you set your IP address type to dual stack, you can't change your address type later.</p>
    * @public
    */
-  IPAddressType?: IPAddressType;
+  IPAddressType?: IPAddressType | undefined;
 
   /**
    * <p>DEPRECATED. Container for the parameters required to configure automated snapshots of domain
    *    indexes.</p>
    * @public
    */
-  SnapshotOptions?: SnapshotOptions;
+  SnapshotOptions?: SnapshotOptions | undefined;
 
   /**
    * <p>Container for the values required to configure VPC access domains. If you don't specify
@@ -2713,25 +2713,25 @@ export interface CreateDomainRequest {
    *     your Amazon OpenSearch Service domains using a VPC</a>.</p>
    * @public
    */
-  VPCOptions?: VPCOptions;
+  VPCOptions?: VPCOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure Amazon Cognito authentication. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html">Configuring Amazon Cognito authentication for OpenSearch Dashboards</a>.</p>
    * @public
    */
-  CognitoOptions?: CognitoOptions;
+  CognitoOptions?: CognitoOptions | undefined;
 
   /**
    * <p>Key-value pairs to enable encryption at rest.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
    * <p>Enables node-to-node encryption.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions | undefined;
 
   /**
    * <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are
@@ -2769,44 +2769,44 @@ export interface CreateDomainRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
    * @public
    */
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Key-value pairs to configure log publishing.</p>
    * @public
    */
-  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
    * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
    *    traffic.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptions;
+  DomainEndpointOptions?: DomainEndpointOptions | undefined;
 
   /**
    * <p>Options for fine-grained access control.</p>
    * @public
    */
-  AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
+  AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
 
   /**
    * <p>Options for IAM Identity Center Option control for the domain.</p>
    * @public
    */
-  IdentityCenterOptions?: IdentityCenterOptionsInput;
+  IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;
 
   /**
    * <p>List of tags to add to the domain upon creation.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 
   /**
    * <p>Options for Auto-Tune.</p>
    * @public
    */
-  AutoTuneOptions?: AutoTuneOptionsInput;
+  AutoTuneOptions?: AutoTuneOptionsInput | undefined;
 
   /**
    * <p>Specifies a daily 10-hour time block during which OpenSearch Service can perform
@@ -2815,19 +2815,19 @@ export interface CreateDomainRequest {
    *    time of 10:00 P.M. local time (for the Region that the domain is created in) is used.</p>
    * @public
    */
-  OffPeakWindowOptions?: OffPeakWindowOptions;
+  OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
 
   /**
    * <p>Software update options for the domain.</p>
    * @public
    */
-  SoftwareUpdateOptions?: SoftwareUpdateOptions;
+  SoftwareUpdateOptions?: SoftwareUpdateOptions | undefined;
 
   /**
    * <p>Options for all machine learning features for the specified domain.</p>
    * @public
    */
-  AIMLOptions?: AIMLOptionsInput;
+  AIMLOptions?: AIMLOptionsInput | undefined;
 }
 
 /**
@@ -2860,20 +2860,20 @@ export interface AutoTuneOptionsOutput {
    * <p>The current state of Auto-Tune on the domain.</p>
    * @public
    */
-  State?: AutoTuneState;
+  State?: AutoTuneState | undefined;
 
   /**
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>Whether the domain's off-peak window will be used to deploy Auto-Tune changes rather
    *    than a maintenance schedule.</p>
    * @public
    */
-  UseOffPeakWindow?: boolean;
+  UseOffPeakWindow?: boolean | undefined;
 }
 
 /**
@@ -2919,37 +2919,37 @@ export interface ChangeProgressDetails {
    * <p>The ID of the configuration change.</p>
    * @public
    */
-  ChangeId?: string;
+  ChangeId?: string | undefined;
 
   /**
    * <p>A message corresponding to the status of the configuration change.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The current status of the configuration change.</p>
    * @public
    */
-  ConfigChangeStatus?: ConfigChangeStatus;
+  ConfigChangeStatus?: ConfigChangeStatus | undefined;
 
   /**
    * <p>The IAM principal who initiated the configuration change.</p>
    * @public
    */
-  InitiatedBy?: InitiatedBy;
+  InitiatedBy?: InitiatedBy | undefined;
 
   /**
    * <p>The time that the configuration change was initiated, in Universal Coordinated Time (UTC).</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The last time that the configuration change was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -2980,37 +2980,37 @@ export interface IdentityCenterOptions {
    * <p>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</p>
    * @public
    */
-  EnabledAPIAccess?: boolean;
+  EnabledAPIAccess?: boolean | undefined;
 
   /**
    * <p>The ARN for IAM Identity Center Instance.</p>
    * @public
    */
-  IdentityCenterInstanceARN?: string;
+  IdentityCenterInstanceARN?: string | undefined;
 
   /**
    * <p>Specify the attribute that contains the subject (username, userID, email) of IAM Identity Center.</p>
    * @public
    */
-  SubjectKey?: SubjectKeyIdCOption;
+  SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
    * <p>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity Center</p>
    * @public
    */
-  RolesKey?: RolesKeyIdCOption;
+  RolesKey?: RolesKeyIdCOption | undefined;
 
   /**
    * <p>The ARN for IAM Identity Center Application which will integrate with Amazon OpenSearch Service.</p>
    * @public
    */
-  IdentityCenterApplicationARN?: string;
+  IdentityCenterApplicationARN?: string | undefined;
 
   /**
    * <p>The ID of IAM Identity Store.</p>
    * @public
    */
-  IdentityStoreId?: string;
+  IdentityStoreId?: string | undefined;
 }
 
 /**
@@ -3036,19 +3036,19 @@ export interface ModifyingProperties {
    * <p>The name of the property that is currently being modified.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current value of the domain property that is being modified.</p>
    * @public
    */
-  ActiveValue?: string;
+  ActiveValue?: string | undefined;
 
   /**
    * <p>The value that the property that is currently being modified will eventually have.</p>
    * @public
    */
-  PendingValue?: string;
+  PendingValue?: string | undefined;
 
   /**
    * <p>The type of value that is currently being modified. Properties can have two types:</p>
@@ -3064,7 +3064,7 @@ export interface ModifyingProperties {
    *          </ul>
    * @public
    */
-  ValueType?: PropertyValueType;
+  ValueType?: PropertyValueType | undefined;
 }
 
 /**
@@ -3079,25 +3079,25 @@ export interface VPCDerivedInfo {
    * <p>The ID for your VPC. Amazon VPC generates this value when you create a VPC.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 
   /**
    * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The list of Availability Zones associated with the VPC subnets.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -3130,7 +3130,7 @@ export interface DomainStatus {
    *    if domain creation is still in progress.</p>
    * @public
    */
-  Created?: boolean;
+  Created?: boolean | undefined;
 
   /**
    * <p>Deletion status of an OpenSearch Service domain. True if domain deletion is complete. False
@@ -3138,14 +3138,14 @@ export interface DomainStatus {
    *    no longer returned.</p>
    * @public
    */
-  Deleted?: boolean;
+  Deleted?: boolean | undefined;
 
   /**
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to the
    *    domain.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>If <code>IPAddressType</code> to set to <code>dualstack</code>, a version 2 domain endpoint is provisioned.
@@ -3154,7 +3154,7 @@ export interface DomainStatus {
    *   </p>
    * @public
    */
-  EndpointV2?: string;
+  EndpointV2?: string | undefined;
 
   /**
    * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. For example:</p>
@@ -3174,20 +3174,20 @@ export interface DomainStatus {
    *          </ul>
    * @public
    */
-  Endpoints?: Record<string, string>;
+  Endpoints?: Record<string, string> | undefined;
 
   /**
    * <p>The dual stack hosted zone ID for the domain. </p>
    * @public
    */
-  DomainEndpointV2HostedZoneId?: string;
+  DomainEndpointV2HostedZoneId?: string | undefined;
 
   /**
    * <p>The status of the domain configuration. True if OpenSearch Service is processing
    *    configuration changes. False if the configuration is active.</p>
    * @public
    */
-  Processing?: boolean;
+  Processing?: boolean | undefined;
 
   /**
    * <p>The status of a domain version upgrade to a new version of OpenSearch or Elasticsearch. True
@@ -3195,14 +3195,14 @@ export interface DomainStatus {
    *    active.</p>
    * @public
    */
-  UpgradeProcessing?: boolean;
+  UpgradeProcessing?: boolean | undefined;
 
   /**
    * <p>Version of OpenSearch or Elasticsearch that the domain is running, in the format
    *     <code>Elasticsearch_X.Y</code> or <code>OpenSearch_X.Y</code>.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Container for the cluster configuration of the domain.</p>
@@ -3214,131 +3214,131 @@ export interface DomainStatus {
    * <p>Container for EBS-based storage settings for the domain.</p>
    * @public
    */
-  EBSOptions?: EBSOptions;
+  EBSOptions?: EBSOptions | undefined;
 
   /**
    * <p>Identity and Access Management (IAM) policy document specifying the access policies for the
    *    domain.</p>
    * @public
    */
-  AccessPolicies?: string;
+  AccessPolicies?: string | undefined;
 
   /**
    * <p>The type of IP addresses supported by the endpoint for the domain.</p>
    * @public
    */
-  IPAddressType?: IPAddressType;
+  IPAddressType?: IPAddressType | undefined;
 
   /**
    * <p>DEPRECATED. Container for parameters required to configure automated snapshots of domain
    *    indexes.</p>
    * @public
    */
-  SnapshotOptions?: SnapshotOptions;
+  SnapshotOptions?: SnapshotOptions | undefined;
 
   /**
    * <p>The VPC configuration for the domain.</p>
    * @public
    */
-  VPCOptions?: VPCDerivedInfo;
+  VPCOptions?: VPCDerivedInfo | undefined;
 
   /**
    * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
    * @public
    */
-  CognitoOptions?: CognitoOptions;
+  CognitoOptions?: CognitoOptions | undefined;
 
   /**
    * <p>Encryption at rest settings for the domain.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
    * <p>Whether node-to-node encryption is enabled or disabled.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions | undefined;
 
   /**
    * <p>Key-value pairs that specify advanced configuration options.</p>
    * @public
    */
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Log publishing options for the domain.</p>
    * @public
    */
-  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
    * <p>The current status of the domain's service software.</p>
    * @public
    */
-  ServiceSoftwareOptions?: ServiceSoftwareOptions;
+  ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
 
   /**
    * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
    *    traffic.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptions;
+  DomainEndpointOptions?: DomainEndpointOptions | undefined;
 
   /**
    * <p>Settings for fine-grained access control.</p>
    * @public
    */
-  AdvancedSecurityOptions?: AdvancedSecurityOptions;
+  AdvancedSecurityOptions?: AdvancedSecurityOptions | undefined;
 
   /**
    * <p>Container for IAM Identity Center Option control for the domain.</p>
    * @public
    */
-  IdentityCenterOptions?: IdentityCenterOptions;
+  IdentityCenterOptions?: IdentityCenterOptions | undefined;
 
   /**
    * <p>Auto-Tune settings for the domain.</p>
    * @public
    */
-  AutoTuneOptions?: AutoTuneOptionsOutput;
+  AutoTuneOptions?: AutoTuneOptionsOutput | undefined;
 
   /**
    * <p>Information about a configuration change happening on the domain.</p>
    * @public
    */
-  ChangeProgressDetails?: ChangeProgressDetails;
+  ChangeProgressDetails?: ChangeProgressDetails | undefined;
 
   /**
    * <p>Options that specify a custom 10-hour window during which OpenSearch Service can perform
    *    configuration changes on the domain.</p>
    * @public
    */
-  OffPeakWindowOptions?: OffPeakWindowOptions;
+  OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
 
   /**
    * <p>Service software update options for the domain.</p>
    * @public
    */
-  SoftwareUpdateOptions?: SoftwareUpdateOptions;
+  SoftwareUpdateOptions?: SoftwareUpdateOptions | undefined;
 
   /**
    * <p>The status of any changes that are currently in progress for the domain.</p>
    * @public
    */
-  DomainProcessingStatus?: DomainProcessingStatusType;
+  DomainProcessingStatus?: DomainProcessingStatusType | undefined;
 
   /**
    * <p>Information about the domain properties that are currently being modified.</p>
    * @public
    */
-  ModifyingProperties?: ModifyingProperties[];
+  ModifyingProperties?: ModifyingProperties[] | undefined;
 
   /**
    * <p>Container for parameters required to enable all machine learning features.</p>
    * @public
    */
-  AIMLOptions?: AIMLOptionsOutput;
+  AIMLOptions?: AIMLOptionsOutput | undefined;
 }
 
 /**
@@ -3351,7 +3351,7 @@ export interface CreateDomainResponse {
    * <p>The status of the newly created domain.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 }
 
 /**
@@ -3419,7 +3419,7 @@ export interface CrossClusterSearchConnectionProperties {
    *    queries return partial results despite failures on one or more remote clusters.</p>
    * @public
    */
-  SkipUnavailable?: SkipUnavailableStatus;
+  SkipUnavailable?: SkipUnavailableStatus | undefined;
 }
 
 /**
@@ -3434,13 +3434,13 @@ export interface ConnectionProperties {
    *          <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The connection properties for cross cluster search.</p>
    * @public
    */
-  CrossClusterSearch?: CrossClusterSearchConnectionProperties;
+  CrossClusterSearch?: CrossClusterSearchConnectionProperties | undefined;
 }
 
 /**
@@ -3470,13 +3470,13 @@ export interface CreateOutboundConnectionRequest {
    * <p>The connection mode.</p>
    * @public
    */
-  ConnectionMode?: ConnectionMode;
+  ConnectionMode?: ConnectionMode | undefined;
 
   /**
    * <p>The <code>ConnectionProperties</code> for the outbound connection.</p>
    * @public
    */
-  ConnectionProperties?: ConnectionProperties;
+  ConnectionProperties?: ConnectionProperties | undefined;
 }
 
 /**
@@ -3560,13 +3560,13 @@ export interface OutboundConnectionStatus {
    *          </ul>
    * @public
    */
-  StatusCode?: OutboundConnectionStatusCode;
+  StatusCode?: OutboundConnectionStatusCode | undefined;
 
   /**
    * <p>Verbose information for the outbound connection.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -3579,44 +3579,44 @@ export interface CreateOutboundConnectionResponse {
    * <p>Information about the source (local) domain.</p>
    * @public
    */
-  LocalDomainInfo?: DomainInformationContainer;
+  LocalDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>Information about the destination (remote) domain.</p>
    * @public
    */
-  RemoteDomainInfo?: DomainInformationContainer;
+  RemoteDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>Name of the connection.</p>
    * @public
    */
-  ConnectionAlias?: string;
+  ConnectionAlias?: string | undefined;
 
   /**
    * <p>The status of the connection.</p>
    * @public
    */
-  ConnectionStatus?: OutboundConnectionStatus;
+  ConnectionStatus?: OutboundConnectionStatus | undefined;
 
   /**
    * <p>The unique identifier for the created outbound connection, which is used for subsequent
    *    operations on the connection.</p>
    * @public
    */
-  ConnectionId?: string;
+  ConnectionId?: string | undefined;
 
   /**
    * <p>The connection mode.</p>
    * @public
    */
-  ConnectionMode?: ConnectionMode;
+  ConnectionMode?: ConnectionMode | undefined;
 
   /**
    * <p>The <code>ConnectionProperties</code> for the newly created connection.</p>
    * @public
    */
-  ConnectionProperties?: ConnectionProperties;
+  ConnectionProperties?: ConnectionProperties | undefined;
 }
 
 /**
@@ -3649,7 +3649,7 @@ export interface PackageConfiguration {
    * <p>The relative file path for the license associated with the package.</p>
    * @public
    */
-  LicenseFilepath?: string;
+  LicenseFilepath?: string | undefined;
 
   /**
    * <p>The configuration requirements for the package.</p>
@@ -3661,7 +3661,7 @@ export interface PackageConfiguration {
    * <p>This indicates whether a B/G deployment is required for updating the configuration that the plugin is prerequisite for.</p>
    * @public
    */
-  RequiresRestartForConfigurationUpdate?: boolean;
+  RequiresRestartForConfigurationUpdate?: boolean | undefined;
 }
 
 /**
@@ -3673,7 +3673,7 @@ export interface PackageEncryptionOptions {
    * <p> KMS key ID for encrypting the package.</p>
    * @public
    */
-  KmsKeyIdentifier?: string;
+  KmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>This indicates whether encryption is enabled for the package.</p>
@@ -3691,13 +3691,13 @@ export interface PackageSource {
    * <p>The name of the Amazon S3 bucket containing the package.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Key (file name) of the package.</p>
    * @public
    */
-  S3Key?: string;
+  S3Key?: string | undefined;
 }
 
 /**
@@ -3735,7 +3735,7 @@ export interface CreatePackageRequest {
    * <p>Description of the package.</p>
    * @public
    */
-  PackageDescription?: string;
+  PackageDescription?: string | undefined;
 
   /**
    * <p>The Amazon S3 location from which to import the package.</p>
@@ -3747,26 +3747,26 @@ export interface CreatePackageRequest {
    * <p> The configuration parameters for the package being created.</p>
    * @public
    */
-  PackageConfiguration?: PackageConfiguration;
+  PackageConfiguration?: PackageConfiguration | undefined;
 
   /**
    * <p>The version of the Amazon OpenSearch Service engine for which is compatible with the package. This can only be specified for package type <code>ZIP-PLUGIN</code>
    *          </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p> The vending options for the package being created. They determine if the package can be vended to other users.</p>
    * @public
    */
-  PackageVendingOptions?: PackageVendingOptions;
+  PackageVendingOptions?: PackageVendingOptions | undefined;
 
   /**
    * <p>The encryption parameters for the package being created.</p>
    * @public
    */
-  PackageEncryptionOptions?: PackageEncryptionOptions;
+  PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
 }
 
 /**
@@ -3778,31 +3778,31 @@ export interface PluginProperties {
    * <p>The name of the plugin.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the plugin.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The version of the plugin.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The name of the class to load.</p>
    * @public
    */
-  ClassName?: string;
+  ClassName?: string | undefined;
 
   /**
    * <p>The uncompressed size of the plugin.</p>
    * @public
    */
-  UncompressedSizeInBytes?: number;
+  UncompressedSizeInBytes?: number | undefined;
 }
 
 /**
@@ -3834,98 +3834,98 @@ export interface PackageDetails {
    * <p>The unique identifier of the package.</p>
    * @public
    */
-  PackageID?: string;
+  PackageID?: string | undefined;
 
   /**
    * <p>The user-specified name of the package.</p>
    * @public
    */
-  PackageName?: string;
+  PackageName?: string | undefined;
 
   /**
    * <p>The type of package.</p>
    * @public
    */
-  PackageType?: PackageType;
+  PackageType?: PackageType | undefined;
 
   /**
    * <p>User-specified description of the package.</p>
    * @public
    */
-  PackageDescription?: string;
+  PackageDescription?: string | undefined;
 
   /**
    * <p>The current status of the package. The available options are <code>AVAILABLE</code>, <code>COPYING</code>, <code>COPY_FAILED</code>, <code>VALIDATNG</code>, <code>VALIDATION_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
    * @public
    */
-  PackageStatus?: PackageStatus;
+  PackageStatus?: PackageStatus | undefined;
 
   /**
    * <p>The timestamp when the package was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Date and time when the package was last updated.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The package version.</p>
    * @public
    */
-  AvailablePackageVersion?: string;
+  AvailablePackageVersion?: string | undefined;
 
   /**
    * <p>Additional information if the package is in an error state. Null otherwise.</p>
    * @public
    */
-  ErrorDetails?: ErrorDetails;
+  ErrorDetails?: ErrorDetails | undefined;
 
   /**
    * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
    *    Defaults to the latest version of OpenSearch.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>If the package is a <code>ZIP-PLUGIN</code> package, additional information about plugin properties.</p>
    * @public
    */
-  AvailablePluginProperties?: PluginProperties;
+  AvailablePluginProperties?: PluginProperties | undefined;
 
   /**
    * <p>This represents the available configuration parameters for the package.</p>
    * @public
    */
-  AvailablePackageConfiguration?: PackageConfiguration;
+  AvailablePackageConfiguration?: PackageConfiguration | undefined;
 
   /**
    * <p> A list of users who are allowed to view and associate the package. This field is only visible to the owner of a package.</p>
    * @public
    */
-  AllowListedUserList?: string[];
+  AllowListedUserList?: string[] | undefined;
 
   /**
    * <p>The owner of the package who is allowed to create/update a package and add users to the package scope.</p>
    * @public
    */
-  PackageOwner?: string;
+  PackageOwner?: string | undefined;
 
   /**
    * <p>Package Vending Options for a package.</p>
    * @public
    */
-  PackageVendingOptions?: PackageVendingOptions;
+  PackageVendingOptions?: PackageVendingOptions | undefined;
 
   /**
    * <p>Package Encryption Options for a package.</p>
    * @public
    */
-  PackageEncryptionOptions?: PackageEncryptionOptions;
+  PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
 }
 
 /**
@@ -3937,7 +3937,7 @@ export interface CreatePackageResponse {
    * <p>Basic information about an OpenSearch Service package.</p>
    * @public
    */
-  PackageDetails?: PackageDetails;
+  PackageDetails?: PackageDetails | undefined;
 }
 
 /**
@@ -3960,7 +3960,7 @@ export interface CreateVpcEndpointRequest {
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3992,38 +3992,38 @@ export interface VpcEndpoint {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>The creator of the endpoint.</p>
    * @public
    */
-  VpcEndpointOwner?: string;
+  VpcEndpointOwner?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain associated with the endpoint.</p>
    * @public
    */
-  DomainArn?: string;
+  DomainArn?: string | undefined;
 
   /**
    * <p>Options to specify the subnets and security groups for an Amazon OpenSearch Service VPC
    *    endpoint.</p>
    * @public
    */
-  VpcOptions?: VPCDerivedInfo;
+  VpcOptions?: VPCDerivedInfo | undefined;
 
   /**
    * <p>The current status of the endpoint.</p>
    * @public
    */
-  Status?: VpcEndpointStatus;
+  Status?: VpcEndpointStatus | undefined;
 
   /**
    * <p>The connection endpoint ID for connecting to the domain.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 }
 
 /**
@@ -4081,7 +4081,7 @@ export interface DeleteDataSourceResponse {
    * <p>A message associated with deletion of the data source.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -4106,7 +4106,7 @@ export interface DeleteDomainResponse {
    * <p>The status of the domain being deleted.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 }
 
 /**
@@ -4131,7 +4131,7 @@ export interface DeleteInboundConnectionResponse {
    * <p>The deleted inbound connection.</p>
    * @public
    */
-  Connection?: InboundConnection;
+  Connection?: InboundConnection | undefined;
 }
 
 /**
@@ -4155,43 +4155,43 @@ export interface OutboundConnection {
    * <p>Information about the source (local) domain.</p>
    * @public
    */
-  LocalDomainInfo?: DomainInformationContainer;
+  LocalDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>Information about the destination (remote) domain.</p>
    * @public
    */
-  RemoteDomainInfo?: DomainInformationContainer;
+  RemoteDomainInfo?: DomainInformationContainer | undefined;
 
   /**
    * <p>Unique identifier of the connection.</p>
    * @public
    */
-  ConnectionId?: string;
+  ConnectionId?: string | undefined;
 
   /**
    * <p>Name of the connection.</p>
    * @public
    */
-  ConnectionAlias?: string;
+  ConnectionAlias?: string | undefined;
 
   /**
    * <p>Status of the connection.</p>
    * @public
    */
-  ConnectionStatus?: OutboundConnectionStatus;
+  ConnectionStatus?: OutboundConnectionStatus | undefined;
 
   /**
    * <p>The connection mode.</p>
    * @public
    */
-  ConnectionMode?: ConnectionMode;
+  ConnectionMode?: ConnectionMode | undefined;
 
   /**
    * <p>Properties for the outbound connection.</p>
    * @public
    */
-  ConnectionProperties?: ConnectionProperties;
+  ConnectionProperties?: ConnectionProperties | undefined;
 }
 
 /**
@@ -4203,7 +4203,7 @@ export interface DeleteOutboundConnectionResponse {
    * <p>The deleted inbound connection.</p>
    * @public
    */
-  Connection?: OutboundConnection;
+  Connection?: OutboundConnection | undefined;
 }
 
 /**
@@ -4228,7 +4228,7 @@ export interface DeletePackageResponse {
    * <p> Information about the deleted package.</p>
    * @public
    */
-  PackageDetails?: PackageDetails;
+  PackageDetails?: PackageDetails | undefined;
 }
 
 /**
@@ -4251,25 +4251,25 @@ export interface VpcEndpointSummary {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>The creator of the endpoint.</p>
    * @public
    */
-  VpcEndpointOwner?: string;
+  VpcEndpointOwner?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain associated with the endpoint.</p>
    * @public
    */
-  DomainArn?: string;
+  DomainArn?: string | undefined;
 
   /**
    * <p>The current status of the endpoint.</p>
    * @public
    */
-  Status?: VpcEndpointStatus;
+  Status?: VpcEndpointStatus | undefined;
 }
 
 /**
@@ -4324,7 +4324,7 @@ export interface DescribeDomainAutoTunesRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribeDomainAutoTunes</code> operation returns a
@@ -4332,7 +4332,7 @@ export interface DescribeDomainAutoTunesRequest {
    *     <code>DescribeDomainAutoTunes</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4376,26 +4376,26 @@ export interface ScheduledAutoTuneDetails {
    * <p>The date and time when the Auto-Tune action is scheduled for the domain.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 
   /**
    * <p>The type of Auto-Tune action.</p>
    * @public
    */
-  ActionType?: ScheduledAutoTuneActionType;
+  ActionType?: ScheduledAutoTuneActionType | undefined;
 
   /**
    * <p>A description of the Auto-Tune action.</p>
    * @public
    */
-  Action?: string;
+  Action?: string | undefined;
 
   /**
    * <p>The severity of the Auto-Tune action. Valid values are <code>LOW</code>,
    *    <code>MEDIUM</code>, and <code>HIGH</code>.</p>
    * @public
    */
-  Severity?: ScheduledAutoTuneSeverityType;
+  Severity?: ScheduledAutoTuneSeverityType | undefined;
 }
 
 /**
@@ -4408,7 +4408,7 @@ export interface AutoTuneDetails {
    * <p>Container for details about a scheduled Auto-Tune action.</p>
    * @public
    */
-  ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails;
+  ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails | undefined;
 }
 
 /**
@@ -4434,13 +4434,13 @@ export interface AutoTune {
    * <p>The type of Auto-Tune action.</p>
    * @public
    */
-  AutoTuneType?: AutoTuneType;
+  AutoTuneType?: AutoTuneType | undefined;
 
   /**
    * <p>Details about an Auto-Tune action.</p>
    * @public
    */
-  AutoTuneDetails?: AutoTuneDetails;
+  AutoTuneDetails?: AutoTuneDetails | undefined;
 }
 
 /**
@@ -4452,7 +4452,7 @@ export interface DescribeDomainAutoTunesResponse {
    * <p>The list of setting adjustments that Auto-Tune has made to the domain.</p>
    * @public
    */
-  AutoTunes?: AutoTune[];
+  AutoTunes?: AutoTune[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -4460,7 +4460,7 @@ export interface DescribeDomainAutoTunesResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4480,7 +4480,7 @@ export interface DescribeDomainChangeProgressRequest {
    *    request returns information about the most recent configuration change.</p>
    * @public
    */
-  ChangeId?: string;
+  ChangeId?: string | undefined;
 }
 
 /**
@@ -4492,25 +4492,25 @@ export interface ChangeProgressStage {
    * <p>The name of the stage.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the stage.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The description of the stage.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The most recent updated timestamp of the stage.</p>
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 }
 
 /**
@@ -4538,61 +4538,61 @@ export interface ChangeProgressStatusDetails {
    * <p>The unique change identifier associated with a specific domain configuration change.</p>
    * @public
    */
-  ChangeId?: string;
+  ChangeId?: string | undefined;
 
   /**
    * <p>The time at which the configuration change is made on the domain.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The overall status of the domain configuration change.</p>
    * @public
    */
-  Status?: OverallChangeStatus;
+  Status?: OverallChangeStatus | undefined;
 
   /**
    * <p>The list of properties in the domain configuration change that are still pending.</p>
    * @public
    */
-  PendingProperties?: string[];
+  PendingProperties?: string[] | undefined;
 
   /**
    * <p>The list of properties in the domain configuration change that have completed.</p>
    * @public
    */
-  CompletedProperties?: string[];
+  CompletedProperties?: string[] | undefined;
 
   /**
    * <p>The total number of stages required for the configuration change.</p>
    * @public
    */
-  TotalNumberOfStages?: number;
+  TotalNumberOfStages?: number | undefined;
 
   /**
    * <p>The specific stages that the domain is going through to perform the configuration change.</p>
    * @public
    */
-  ChangeProgressStages?: ChangeProgressStage[];
+  ChangeProgressStages?: ChangeProgressStage[] | undefined;
 
   /**
    * <p>The last time that the status of the configuration change was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The current status of the configuration change.</p>
    * @public
    */
-  ConfigChangeStatus?: ConfigChangeStatus;
+  ConfigChangeStatus?: ConfigChangeStatus | undefined;
 
   /**
    * <p>The IAM principal who initiated the configuration change.</p>
    * @public
    */
-  InitiatedBy?: InitiatedBy;
+  InitiatedBy?: InitiatedBy | undefined;
 }
 
 /**
@@ -4605,7 +4605,7 @@ export interface DescribeDomainChangeProgressResponse {
    * <p>Container for information about the stages of a configuration change happening on a domain.</p>
    * @public
    */
-  ChangeProgressStatus?: ChangeProgressStatusDetails;
+  ChangeProgressStatus?: ChangeProgressStatusDetails | undefined;
 }
 
 /**
@@ -4644,7 +4644,7 @@ export interface AutoTuneOptions {
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    * @public
    */
-  DesiredState?: AutoTuneDesiredState;
+  DesiredState?: AutoTuneDesiredState | undefined;
 
   /**
    * <p>When disabling Auto-Tune, specify <code>NO_ROLLBACK</code> to retain all prior Auto-Tune
@@ -4653,7 +4653,7 @@ export interface AutoTuneOptions {
    *    request. Otherwise, OpenSearch Service is unable to perform the rollback.</p>
    * @public
    */
-  RollbackOnDisable?: RollbackOnDisable;
+  RollbackOnDisable?: RollbackOnDisable | undefined;
 
   /**
    * <p>DEPRECATED. Use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a>
@@ -4661,14 +4661,14 @@ export interface AutoTuneOptions {
    *          <p>A list of maintenance schedules during which Auto-Tune can deploy changes.</p>
    * @public
    */
-  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[] | undefined;
 
   /**
    * <p>Whether to use the domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a> to
    *    deploy configuration changes on the domain rather than a maintenance schedule.</p>
    * @public
    */
-  UseOffPeakWindow?: boolean;
+  UseOffPeakWindow?: boolean | undefined;
 }
 
 /**
@@ -4693,7 +4693,7 @@ export interface AutoTuneStatus {
    * <p>The latest version of the Auto-Tune options.</p>
    * @public
    */
-  UpdateVersion?: number;
+  UpdateVersion?: number | undefined;
 
   /**
    * <p>The current state of Auto-Tune on the domain.</p>
@@ -4705,13 +4705,13 @@ export interface AutoTuneStatus {
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>Indicates whether the domain is being deleted.</p>
    * @public
    */
-  PendingDeletion?: boolean;
+  PendingDeletion?: boolean | undefined;
 }
 
 /**
@@ -4723,13 +4723,13 @@ export interface AutoTuneOptionsStatus {
    * <p>Auto-Tune settings for updating a domain.</p>
    * @public
    */
-  Options?: AutoTuneOptions;
+  Options?: AutoTuneOptions | undefined;
 
   /**
    * <p>The current status of Auto-Tune for a domain.</p>
    * @public
    */
-  Status?: AutoTuneStatus;
+  Status?: AutoTuneStatus | undefined;
 }
 
 /**
@@ -4886,13 +4886,13 @@ export interface LogPublishingOptionsStatus {
    * <p>The log publishing options configured for the domain.</p>
    * @public
    */
-  Options?: Partial<Record<LogType, LogPublishingOption>>;
+  Options?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
    * <p>The status of the log publishing options for the domain.</p>
    * @public
    */
-  Status?: OptionStatus;
+  Status?: OptionStatus | undefined;
 }
 
 /**
@@ -4923,13 +4923,13 @@ export interface OffPeakWindowOptionsStatus {
    * <p>The domain's off-peak window configuration.</p>
    * @public
    */
-  Options?: OffPeakWindowOptions;
+  Options?: OffPeakWindowOptions | undefined;
 
   /**
    * <p>The current status of off-peak window options.</p>
    * @public
    */
-  Status?: OptionStatus;
+  Status?: OptionStatus | undefined;
 }
 
 /**
@@ -4960,13 +4960,13 @@ export interface SoftwareUpdateOptionsStatus {
    * <p>The service software update options for a domain.</p>
    * @public
    */
-  Options?: SoftwareUpdateOptions;
+  Options?: SoftwareUpdateOptions | undefined;
 
   /**
    * <p>The status of service software update options, including creation date and last updated date.</p>
    * @public
    */
-  Status?: OptionStatus;
+  Status?: OptionStatus | undefined;
 }
 
 /**
@@ -4996,25 +4996,25 @@ export interface DomainConfig {
    * <p>The OpenSearch or Elasticsearch version that the domain is running.</p>
    * @public
    */
-  EngineVersion?: VersionStatus;
+  EngineVersion?: VersionStatus | undefined;
 
   /**
    * <p>Container for the cluster configuration of a the domain.</p>
    * @public
    */
-  ClusterConfig?: ClusterConfigStatus;
+  ClusterConfig?: ClusterConfigStatus | undefined;
 
   /**
    * <p>Container for EBS options configured for the domain.</p>
    * @public
    */
-  EBSOptions?: EBSOptionsStatus;
+  EBSOptions?: EBSOptionsStatus | undefined;
 
   /**
    * <p>Specifies the access policies for the domain.</p>
    * @public
    */
-  AccessPolicies?: AccessPoliciesStatus;
+  AccessPolicies?: AccessPoliciesStatus | undefined;
 
   /**
    * <p>Choose either dual stack or IPv4 as your IP address type.
@@ -5022,106 +5022,106 @@ export interface DomainConfig {
    *    If you set your IP address type to dual stack, you can't change your address type later.</p>
    * @public
    */
-  IPAddressType?: IPAddressTypeStatus;
+  IPAddressType?: IPAddressTypeStatus | undefined;
 
   /**
    * <p>DEPRECATED. Container for parameters required to configure automated snapshots of domain
    *    indexes.</p>
    * @public
    */
-  SnapshotOptions?: SnapshotOptionsStatus;
+  SnapshotOptions?: SnapshotOptionsStatus | undefined;
 
   /**
    * <p>The current VPC options for the domain and the status of any updates to their
    *    configuration.</p>
    * @public
    */
-  VPCOptions?: VPCDerivedInfoStatus;
+  VPCOptions?: VPCDerivedInfoStatus | undefined;
 
   /**
    * <p>Container for Amazon Cognito options for the domain.</p>
    * @public
    */
-  CognitoOptions?: CognitoOptionsStatus;
+  CognitoOptions?: CognitoOptionsStatus | undefined;
 
   /**
    * <p>Key-value pairs to enable encryption at rest.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptionsStatus;
+  EncryptionAtRestOptions?: EncryptionAtRestOptionsStatus | undefined;
 
   /**
    * <p>Whether node-to-node encryption is enabled or disabled.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptionsStatus;
+  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptionsStatus | undefined;
 
   /**
    * <p>Key-value pairs to specify advanced configuration options. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced options</a>.</p>
    * @public
    */
-  AdvancedOptions?: AdvancedOptionsStatus;
+  AdvancedOptions?: AdvancedOptionsStatus | undefined;
 
   /**
    * <p>Key-value pairs to configure log publishing.</p>
    * @public
    */
-  LogPublishingOptions?: LogPublishingOptionsStatus;
+  LogPublishingOptions?: LogPublishingOptionsStatus | undefined;
 
   /**
    * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
    *    traffic.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptionsStatus;
+  DomainEndpointOptions?: DomainEndpointOptionsStatus | undefined;
 
   /**
    * <p>Container for fine-grained access control settings for the domain.</p>
    * @public
    */
-  AdvancedSecurityOptions?: AdvancedSecurityOptionsStatus;
+  AdvancedSecurityOptions?: AdvancedSecurityOptionsStatus | undefined;
 
   /**
    * <p>Container for IAM Identity Center Option control for the domain.</p>
    * @public
    */
-  IdentityCenterOptions?: IdentityCenterOptionsStatus;
+  IdentityCenterOptions?: IdentityCenterOptionsStatus | undefined;
 
   /**
    * <p>Container for Auto-Tune settings for the domain.</p>
    * @public
    */
-  AutoTuneOptions?: AutoTuneOptionsStatus;
+  AutoTuneOptions?: AutoTuneOptionsStatus | undefined;
 
   /**
    * <p>Container for information about the progress of an existing configuration change.</p>
    * @public
    */
-  ChangeProgressDetails?: ChangeProgressDetails;
+  ChangeProgressDetails?: ChangeProgressDetails | undefined;
 
   /**
    * <p>Container for off-peak window options for the domain.</p>
    * @public
    */
-  OffPeakWindowOptions?: OffPeakWindowOptionsStatus;
+  OffPeakWindowOptions?: OffPeakWindowOptionsStatus | undefined;
 
   /**
    * <p>Software update options for the domain.</p>
    * @public
    */
-  SoftwareUpdateOptions?: SoftwareUpdateOptionsStatus;
+  SoftwareUpdateOptions?: SoftwareUpdateOptionsStatus | undefined;
 
   /**
    * <p>Information about the domain properties that are currently being modified.</p>
    * @public
    */
-  ModifyingProperties?: ModifyingProperties[];
+  ModifyingProperties?: ModifyingProperties[] | undefined;
 
   /**
    * <p>Container for parameters required to enable all machine learning features.</p>
    * @public
    */
-  AIMLOptions?: AIMLOptionsStatus;
+  AIMLOptions?: AIMLOptionsStatus | undefined;
 }
 
 /**
@@ -5203,7 +5203,7 @@ export interface AvailabilityZoneInfo {
    * <p>The name of the Availability Zone.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
@@ -5223,31 +5223,31 @@ export interface AvailabilityZoneInfo {
    *          </ul>
    * @public
    */
-  ZoneStatus?: ZoneStatus;
+  ZoneStatus?: ZoneStatus | undefined;
 
   /**
    * <p>The total number of data nodes configured in the Availability Zone.</p>
    * @public
    */
-  ConfiguredDataNodeCount?: string;
+  ConfiguredDataNodeCount?: string | undefined;
 
   /**
    * <p>The number of data nodes active in the Availability Zone.</p>
    * @public
    */
-  AvailableDataNodeCount?: string;
+  AvailableDataNodeCount?: string | undefined;
 
   /**
    * <p>The total number of primary and replica shards in the Availability Zone.</p>
    * @public
    */
-  TotalShards?: string;
+  TotalShards?: string | undefined;
 
   /**
    * <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
    * @public
    */
-  TotalUnAssignedShards?: string;
+  TotalUnAssignedShards?: string | undefined;
 }
 
 /**
@@ -5259,7 +5259,7 @@ export interface EnvironmentInfo {
    * <p> A list of <code>AvailabilityZoneInfo</code> for the domain.</p>
    * @public
    */
-  AvailabilityZoneInformation?: AvailabilityZoneInfo[];
+  AvailabilityZoneInformation?: AvailabilityZoneInfo[] | undefined;
 }
 
 /**
@@ -5295,50 +5295,50 @@ export interface DescribeDomainHealthResponse {
    *          </ul>
    * @public
    */
-  DomainState?: DomainState;
+  DomainState?: DomainState | undefined;
 
   /**
    * <p>The number of Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
    * @public
    */
-  AvailabilityZoneCount?: string;
+  AvailabilityZoneCount?: string | undefined;
 
   /**
    * <p>The number of active Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
    * @public
    */
-  ActiveAvailabilityZoneCount?: string;
+  ActiveAvailabilityZoneCount?: string | undefined;
 
   /**
    * <p>The number of standby Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
    * @public
    */
-  StandByAvailabilityZoneCount?: string;
+  StandByAvailabilityZoneCount?: string | undefined;
 
   /**
    * <p>The number of data nodes configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
    * @public
    */
-  DataNodeCount?: string;
+  DataNodeCount?: string | undefined;
 
   /**
    * <p>A boolean that indicates if dedicated master nodes are activated for the domain.</p>
    * @public
    */
-  DedicatedMaster?: boolean;
+  DedicatedMaster?: boolean | undefined;
 
   /**
    * <p>The number of nodes that can be elected as a master node. If dedicated master nodes is turned on, this value is the number of dedicated master nodes configured for the domain.
    *    If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
    * @public
    */
-  MasterEligibleNodeCount?: string;
+  MasterEligibleNodeCount?: string | undefined;
 
   /**
    * <p>The number of warm nodes configured for the domain.</p>
    * @public
    */
-  WarmNodeCount?: string;
+  WarmNodeCount?: string | undefined;
 
   /**
    * <p>Indicates whether the domain has an elected master node.</p>
@@ -5354,7 +5354,7 @@ export interface DescribeDomainHealthResponse {
    *          </ul>
    * @public
    */
-  MasterNode?: MasterNodeStatus;
+  MasterNode?: MasterNodeStatus | undefined;
 
   /**
    * <p>The current health status of your cluster.</p>
@@ -5378,25 +5378,25 @@ export interface DescribeDomainHealthResponse {
    *          </ul>
    * @public
    */
-  ClusterHealth?: DomainHealth;
+  ClusterHealth?: DomainHealth | undefined;
 
   /**
    * <p>The total number of primary and replica shards for the domain.</p>
    * @public
    */
-  TotalShards?: string;
+  TotalShards?: string | undefined;
 
   /**
    * <p>The total number of primary and replica shards not allocated to any of the nodes for the cluster.</p>
    * @public
    */
-  TotalUnAssignedShards?: string;
+  TotalUnAssignedShards?: string | undefined;
 
   /**
    * <p>A list of <code>EnvironmentInfo</code> for the domain. </p>
    * @public
    */
-  EnvironmentInformation?: EnvironmentInfo[];
+  EnvironmentInformation?: EnvironmentInfo[] | undefined;
 }
 
 /**
@@ -5451,50 +5451,50 @@ export interface DomainNodesStatus {
    * <p>The ID of the node.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 
   /**
    * <p>Indicates whether the nodes is a data, master, or ultrawarm node.</p>
    * @public
    */
-  NodeType?: NodeType;
+  NodeType?: NodeType | undefined;
 
   /**
    * <p>The Availability Zone of the node.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The instance type information of the node.</p>
    * @public
    */
-  InstanceType?: OpenSearchPartitionInstanceType;
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>Indicates if the node is active or in standby.</p>
    * @public
    */
-  NodeStatus?: NodeStatus;
+  NodeStatus?: NodeStatus | undefined;
 
   /**
    * <p>Indicates if the node has EBS or instance storage. </p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>If the nodes has EBS storage, indicates if the volume type is GP2 or GP3. Only applicable
    *    for data nodes. </p>
    * @public
    */
-  StorageVolumeType?: VolumeType;
+  StorageVolumeType?: VolumeType | undefined;
 
   /**
    * <p>The storage size of the node, in GiB.</p>
    * @public
    */
-  StorageSize?: string;
+  StorageSize?: string | undefined;
 }
 
 /**
@@ -5507,7 +5507,7 @@ export interface DescribeDomainNodesResponse {
    *    details about the all nodes on the requested domain.</p>
    * @public
    */
-  DomainNodesStatusList?: DomainNodesStatus[];
+  DomainNodesStatusList?: DomainNodesStatus[] | undefined;
 }
 
 /**
@@ -5549,14 +5549,14 @@ export interface DescribeDryRunProgressRequest {
    * <p>The unique identifier of the dry run.</p>
    * @public
    */
-  DryRunId?: string;
+  DryRunId?: string | undefined;
 
   /**
    * <p>Whether to include the configuration of the dry run in the response. The configuration
    *    specifies the updates that you're planning to make on the domain.</p>
    * @public
    */
-  LoadDryRunConfig?: boolean;
+  LoadDryRunConfig?: boolean | undefined;
 }
 
 /**
@@ -5569,13 +5569,13 @@ export interface ValidationFailure {
    * <p>The error code of the failure.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A message corresponding to the failure.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -5611,7 +5611,7 @@ export interface DryRunProgressStatus {
    * <p>Any validation failures that occurred as a result of the dry run.</p>
    * @public
    */
-  ValidationFailures?: ValidationFailure[];
+  ValidationFailures?: ValidationFailure[] | undefined;
 }
 
 /**
@@ -5645,13 +5645,13 @@ export interface DryRunResults {
    *          </ul>
    * @public
    */
-  DeploymentType?: string;
+  DeploymentType?: string | undefined;
 
   /**
    * <p>A message corresponding to the deployment type.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -5662,19 +5662,19 @@ export interface DescribeDryRunProgressResponse {
    * <p>The current status of the dry run, including any validation errors.</p>
    * @public
    */
-  DryRunProgressStatus?: DryRunProgressStatus;
+  DryRunProgressStatus?: DryRunProgressStatus | undefined;
 
   /**
    * <p>Details about the changes you're planning to make on the domain.</p>
    * @public
    */
-  DryRunConfig?: DomainStatus;
+  DryRunConfig?: DomainStatus | undefined;
 
   /**
    * <p>The results of the dry run. </p>
    * @public
    */
-  DryRunResults?: DryRunResults;
+  DryRunResults?: DryRunResults | undefined;
 }
 
 /**
@@ -5688,13 +5688,13 @@ export interface Filter {
    * <p>The name of the filter.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>One or more values for the filter.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -5706,14 +5706,14 @@ export interface DescribeInboundConnectionsRequest {
    * <p> A list of filters used to match properties for inbound cross-cluster connections.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribeInboundConnections</code> operation returns a
@@ -5722,7 +5722,7 @@ export interface DescribeInboundConnectionsRequest {
    *    page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5734,7 +5734,7 @@ export interface DescribeInboundConnectionsResponse {
    * <p>List of inbound connections.</p>
    * @public
    */
-  Connections?: InboundConnection[];
+  Connections?: InboundConnection[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -5742,7 +5742,7 @@ export interface DescribeInboundConnectionsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5774,7 +5774,7 @@ export interface DescribeInstanceTypeLimitsRequest {
    * <p>The name of the domain. Only specify if you need the limits for an existing domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The OpenSearch Service instance type for which you need limit information.</p>
@@ -5800,13 +5800,13 @@ export interface InstanceCountLimits {
    * <p>The maximum allowed number of instances.</p>
    * @public
    */
-  MinimumInstanceCount?: number;
+  MinimumInstanceCount?: number | undefined;
 
   /**
    * <p>The minimum allowed number of instances.</p>
    * @public
    */
-  MaximumInstanceCount?: number;
+  MaximumInstanceCount?: number | undefined;
 }
 
 /**
@@ -5818,7 +5818,7 @@ export interface InstanceLimits {
    * <p>Limits on the number of instances that can be created for a given instance type.</p>
    * @public
    */
-  InstanceCountLimits?: InstanceCountLimits;
+  InstanceCountLimits?: InstanceCountLimits | undefined;
 }
 
 /**
@@ -5863,13 +5863,13 @@ export interface StorageTypeLimit {
    *          </ul>
    * @public
    */
-  LimitName?: string;
+  LimitName?: string | undefined;
 
   /**
    * <p>The limit values.</p>
    * @public
    */
-  LimitValues?: string[];
+  LimitValues?: string[] | undefined;
 }
 
 /**
@@ -5882,19 +5882,19 @@ export interface StorageType {
    * <p>The name of the storage type.</p>
    * @public
    */
-  StorageTypeName?: string;
+  StorageTypeName?: string | undefined;
 
   /**
    * <p>The storage sub-type, such as <code>gp3</code> or <code>io1</code>.</p>
    * @public
    */
-  StorageSubTypeName?: string;
+  StorageSubTypeName?: string | undefined;
 
   /**
    * <p>Limits that are applicable for the given storage type.</p>
    * @public
    */
-  StorageTypeLimits?: StorageTypeLimit[];
+  StorageTypeLimits?: StorageTypeLimit[] | undefined;
 }
 
 /**
@@ -5906,20 +5906,20 @@ export interface Limits {
    * <p>Storage-related attributes that are available for a given instance type.</p>
    * @public
    */
-  StorageTypes?: StorageType[];
+  StorageTypes?: StorageType[] | undefined;
 
   /**
    * <p>The limits for a given instance type.</p>
    * @public
    */
-  InstanceLimits?: InstanceLimits;
+  InstanceLimits?: InstanceLimits | undefined;
 
   /**
    * <p>List of additional limits that are specific to a given instance type for each of its
    *    instance roles.</p>
    * @public
    */
-  AdditionalLimits?: AdditionalLimit[];
+  AdditionalLimits?: AdditionalLimit[] | undefined;
 }
 
 /**
@@ -5933,7 +5933,7 @@ export interface DescribeInstanceTypeLimitsResponse {
    *    nodes.<code>master</code> refers to dedicated master nodes.</p>
    * @public
    */
-  LimitsByRole?: Record<string, Limits>;
+  LimitsByRole?: Record<string, Limits> | undefined;
 }
 
 /**
@@ -5945,14 +5945,14 @@ export interface DescribeOutboundConnectionsRequest {
    * <p>List of filter names and values that you can use for requests.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribeOutboundConnections</code> operation returns a
@@ -5961,7 +5961,7 @@ export interface DescribeOutboundConnectionsRequest {
    *    page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5973,7 +5973,7 @@ export interface DescribeOutboundConnectionsResponse {
    * <p>List of outbound connections that match the filter criteria.</p>
    * @public
    */
-  Connections?: OutboundConnection[];
+  Connections?: OutboundConnection[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -5981,7 +5981,7 @@ export interface DescribeOutboundConnectionsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6011,13 +6011,13 @@ export interface DescribePackagesFilter {
    * <p>Any field from <code>PackageDetails</code>.</p>
    * @public
    */
-  Name?: DescribePackagesFilterName;
+  Name?: DescribePackagesFilterName | undefined;
 
   /**
    * <p>A non-empty list of values for the specified filter field.</p>
    * @public
    */
-  Value?: string[];
+  Value?: string[] | undefined;
 }
 
 /**
@@ -6029,14 +6029,14 @@ export interface DescribePackagesRequest {
    * <p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>
    * @public
    */
-  Filters?: DescribePackagesFilter[];
+  Filters?: DescribePackagesFilter[] | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *    <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribePackageFilters</code> operation returns a
@@ -6044,7 +6044,7 @@ export interface DescribePackagesRequest {
    *    <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6056,7 +6056,7 @@ export interface DescribePackagesResponse {
    * <p>Basic information about a package.</p>
    * @public
    */
-  PackageDetailsList?: PackageDetails[];
+  PackageDetailsList?: PackageDetails[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -6064,7 +6064,7 @@ export interface DescribePackagesResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6078,14 +6078,14 @@ export interface DescribeReservedInstanceOfferingsRequest {
    *    instance types that match the specified reservation identifier.</p>
    * @public
    */
-  ReservedInstanceOfferingId?: string;
+  ReservedInstanceOfferingId?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribeReservedInstanceOfferings</code> operation returns a
@@ -6094,7 +6094,7 @@ export interface DescribeReservedInstanceOfferingsRequest {
    *    page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6123,13 +6123,13 @@ export interface RecurringCharge {
    * <p>The monetary amount of the recurring charge.</p>
    * @public
    */
-  RecurringChargeAmount?: number;
+  RecurringChargeAmount?: number | undefined;
 
   /**
    * <p>The frequency of the recurring charge.</p>
    * @public
    */
-  RecurringChargeFrequency?: string;
+  RecurringChargeFrequency?: string | undefined;
 }
 
 /**
@@ -6141,51 +6141,51 @@ export interface ReservedInstanceOffering {
    * <p>The unique identifier of the Reserved Instance offering.</p>
    * @public
    */
-  ReservedInstanceOfferingId?: string;
+  ReservedInstanceOfferingId?: string | undefined;
 
   /**
    * <p>The OpenSearch instance type offered by the Reserved Instance offering.</p>
    * @public
    */
-  InstanceType?: OpenSearchPartitionInstanceType;
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>The duration, in seconds, for which the offering will reserve the OpenSearch instance.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The upfront fixed charge you will pay to purchase the specific Reserved Instance
    *    offering.</p>
    * @public
    */
-  FixedPrice?: number;
+  FixedPrice?: number | undefined;
 
   /**
    * <p>The hourly rate at which you're charged for the domain using this Reserved Instance.</p>
    * @public
    */
-  UsagePrice?: number;
+  UsagePrice?: number | undefined;
 
   /**
    * <p>The currency code for the Reserved Instance offering.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>Payment option for the Reserved Instance offering</p>
    * @public
    */
-  PaymentOption?: ReservedInstancePaymentOption;
+  PaymentOption?: ReservedInstancePaymentOption | undefined;
 
   /**
    * <p>The recurring charge to your account, regardless of whether you creates any domains using
    *    the offering.</p>
    * @public
    */
-  RecurringCharges?: RecurringCharge[];
+  RecurringCharges?: RecurringCharge[] | undefined;
 }
 
 /**
@@ -6199,13 +6199,13 @@ export interface DescribeReservedInstanceOfferingsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>List of Reserved Instance offerings.</p>
    * @public
    */
-  ReservedInstanceOfferings?: ReservedInstanceOffering[];
+  ReservedInstanceOfferings?: ReservedInstanceOffering[] | undefined;
 }
 
 /**
@@ -6219,14 +6219,14 @@ export interface DescribeReservedInstancesRequest {
    *    specified reserved OpenSearch instance ID.</p>
    * @public
    */
-  ReservedInstanceId?: string;
+  ReservedInstanceId?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>DescribeReservedInstances</code> operation returns a
@@ -6235,7 +6235,7 @@ export interface DescribeReservedInstancesRequest {
    *    page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6247,87 +6247,87 @@ export interface ReservedInstance {
    * <p>The customer-specified identifier to track this reservation.</p>
    * @public
    */
-  ReservationName?: string;
+  ReservationName?: string | undefined;
 
   /**
    * <p>The unique identifier for the reservation.</p>
    * @public
    */
-  ReservedInstanceId?: string;
+  ReservedInstanceId?: string | undefined;
 
   /**
    * <p>The unique identifier of the billing subscription.</p>
    * @public
    */
-  BillingSubscriptionId?: number;
+  BillingSubscriptionId?: number | undefined;
 
   /**
    * <p>The unique identifier of the Reserved Instance offering.</p>
    * @public
    */
-  ReservedInstanceOfferingId?: string;
+  ReservedInstanceOfferingId?: string | undefined;
 
   /**
    * <p>The OpenSearch instance type offered by theReserved Instance offering.</p>
    * @public
    */
-  InstanceType?: OpenSearchPartitionInstanceType;
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>The date and time when the reservation was purchased.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The duration, in seconds, for which the OpenSearch instance is reserved.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The upfront fixed charge you will paid to purchase the specific Reserved Instance
    *    offering.</p>
    * @public
    */
-  FixedPrice?: number;
+  FixedPrice?: number | undefined;
 
   /**
    * <p>The hourly rate at which you're charged for the domain using this Reserved Instance.</p>
    * @public
    */
-  UsagePrice?: number;
+  UsagePrice?: number | undefined;
 
   /**
    * <p>The currency code for the offering.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>The number of OpenSearch instances that have been reserved.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The state of the Reserved Instance.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The payment option as defined in the Reserved Instance offering.</p>
    * @public
    */
-  PaymentOption?: ReservedInstancePaymentOption;
+  PaymentOption?: ReservedInstancePaymentOption | undefined;
 
   /**
    * <p>The recurring charge to your account, regardless of whether you create any domains using the
    *    Reserved Instance offering.</p>
    * @public
    */
-  RecurringCharges?: RecurringCharge[];
+  RecurringCharges?: RecurringCharge[] | undefined;
 }
 
 /**
@@ -6342,13 +6342,13 @@ export interface DescribeReservedInstancesResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>List of Reserved Instances in the current Region.</p>
    * @public
    */
-  ReservedInstances?: ReservedInstance[];
+  ReservedInstances?: ReservedInstance[] | undefined;
 }
 
 /**
@@ -6386,19 +6386,19 @@ export interface VpcEndpointError {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>The code associated with the error.</p>
    * @public
    */
-  ErrorCode?: VpcEndpointErrorCode;
+  ErrorCode?: VpcEndpointErrorCode | undefined;
 
   /**
    * <p>A message describing the error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -6446,7 +6446,7 @@ export interface DissociatePackageResponse {
    * <p> Information about a package that has been dissociated from the domain.</p>
    * @public
    */
-  DomainPackageDetails?: DomainPackageDetails;
+  DomainPackageDetails?: DomainPackageDetails | undefined;
 }
 
 /**
@@ -6475,7 +6475,7 @@ export interface DissociatePackagesResponse {
    * <p>A list of package details for the packages that were dissociated from the domain.</p>
    * @public
    */
-  DomainPackageDetailsList?: DomainPackageDetails[];
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
 }
 
 /**
@@ -6514,7 +6514,7 @@ export interface GetApplicationResponse {
    * <p>Unique identifier of the checked OpenSearch Application.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -6522,55 +6522,55 @@ export interface GetApplicationResponse {
    *   </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Name of the checked OpenSearch Application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Endpoint URL of the checked OpenSearch Application.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>Current status of the checked OpenSearch Application. Possible values are <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
-  status?: ApplicationStatus;
+  status?: ApplicationStatus | undefined;
 
   /**
    * <p>IAM Identity Center settings for the checked OpenSearch Application.</p>
    * @public
    */
-  iamIdentityCenterOptions?: IamIdentityCenterOptions;
+  iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
    * <p>Associated data sources to the checked OpenSearch Application.</p>
    * @public
    */
-  dataSources?: DataSource[];
+  dataSources?: DataSource[] | undefined;
 
   /**
    * <p>App configurations of the checked OpenSearch Application.</p>
    * @public
    */
-  appConfigs?: AppConfig[];
+  appConfigs?: AppConfig[] | undefined;
 
   /**
    * <p>Timestamp at which the checked OpenSearch Application was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Timestamp at which the checked OpenSearch Application was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -6583,7 +6583,7 @@ export interface GetCompatibleVersionsRequest {
    *    domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 }
 
 /**
@@ -6596,13 +6596,13 @@ export interface CompatibleVersionsMap {
    * <p>The current version that the OpenSearch Service domain is running.</p>
    * @public
    */
-  SourceVersion?: string;
+  SourceVersion?: string | undefined;
 
   /**
    * <p>The possible versions that you can upgrade the domain to.</p>
    * @public
    */
-  TargetVersions?: string[];
+  TargetVersions?: string[] | undefined;
 }
 
 /**
@@ -6615,7 +6615,7 @@ export interface GetCompatibleVersionsResponse {
    *    to.</p>
    * @public
    */
-  CompatibleVersions?: CompatibleVersionsMap[];
+  CompatibleVersions?: CompatibleVersionsMap[] | undefined;
 }
 
 /**
@@ -6660,25 +6660,25 @@ export interface GetDataSourceResponse {
    * <p>The type of data source.</p>
    * @public
    */
-  DataSourceType?: DataSourceType;
+  DataSourceType?: DataSourceType | undefined;
 
   /**
    * <p>The name of the data source.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the data source.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the data source.</p>
    * @public
    */
-  Status?: DataSourceStatus;
+  Status?: DataSourceStatus | undefined;
 }
 
 /**
@@ -6741,37 +6741,37 @@ export interface GetDomainMaintenanceStatusResponse {
    * <p>The status of the maintenance action.</p>
    * @public
    */
-  Status?: MaintenanceStatus;
+  Status?: MaintenanceStatus | undefined;
 
   /**
    * <p>The status message of the maintenance action.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The node ID of the maintenance action.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 
   /**
    * <p>The action name.</p>
    * @public
    */
-  Action?: MaintenanceType;
+  Action?: MaintenanceType | undefined;
 
   /**
    * <p>The time at which the action was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time at which the action was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -6790,7 +6790,7 @@ export interface GetPackageVersionHistoryRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>GetPackageVersionHistory</code> operation returns a
@@ -6799,7 +6799,7 @@ export interface GetPackageVersionHistoryRequest {
    *   </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6811,31 +6811,31 @@ export interface PackageVersionHistory {
    * <p>The package version.</p>
    * @public
    */
-  PackageVersion?: string;
+  PackageVersion?: string | undefined;
 
   /**
    * <p>A message associated with the package version when it was uploaded.</p>
    * @public
    */
-  CommitMessage?: string;
+  CommitMessage?: string | undefined;
 
   /**
    * <p>The date and time when the package was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Additional information about plugin properties if the package is a <code>ZIP-PLUGIN</code> package.</p>
    * @public
    */
-  PluginProperties?: PluginProperties;
+  PluginProperties?: PluginProperties | undefined;
 
   /**
    * <p>The configuration details for a specific version of a package.</p>
    * @public
    */
-  PackageConfiguration?: PackageConfiguration;
+  PackageConfiguration?: PackageConfiguration | undefined;
 }
 
 /**
@@ -6847,13 +6847,13 @@ export interface GetPackageVersionHistoryResponse {
    * <p>The unique identifier of the package.</p>
    * @public
    */
-  PackageID?: string;
+  PackageID?: string | undefined;
 
   /**
    * <p>A list of package versions, along with their creation time and commit message.</p>
    * @public
    */
-  PackageVersionHistoryList?: PackageVersionHistory[];
+  PackageVersionHistoryList?: PackageVersionHistory[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -6861,7 +6861,7 @@ export interface GetPackageVersionHistoryResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6880,7 +6880,7 @@ export interface GetUpgradeHistoryRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>GetUpgradeHistory</code> operation returns a <code>nextToken</code>,
@@ -6888,7 +6888,7 @@ export interface GetUpgradeHistoryRequest {
    *    operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6942,7 +6942,7 @@ export interface UpgradeStepItem {
    *          </ul>
    * @public
    */
-  UpgradeStep?: UpgradeStep;
+  UpgradeStep?: UpgradeStep | undefined;
 
   /**
    * <p> The current status of the upgrade. The status can take one of the following values: </p>
@@ -6962,19 +6962,19 @@ export interface UpgradeStepItem {
    *          </ul>
    * @public
    */
-  UpgradeStepStatus?: UpgradeStatus;
+  UpgradeStepStatus?: UpgradeStatus | undefined;
 
   /**
    * <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
    * @public
    */
-  Issues?: string[];
+  Issues?: string[] | undefined;
 
   /**
    * <p>The floating point value representing the progress percentage of a particular step.</p>
    * @public
    */
-  ProgressPercent?: number;
+  ProgressPercent?: number | undefined;
 }
 
 /**
@@ -6987,14 +6987,14 @@ export interface UpgradeHistory {
    * <p>A string that describes the upgrade.</p>
    * @public
    */
-  UpgradeName?: string;
+  UpgradeName?: string | undefined;
 
   /**
    * <p>UTC timestamp at which the upgrade API call was made, in the format
    *     <code>yyyy-MM-ddTHH:mm:ssZ</code>.</p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p> The current status of the upgrade. The status can take one of the following values: </p>
@@ -7014,13 +7014,13 @@ export interface UpgradeHistory {
    *          </ul>
    * @public
    */
-  UpgradeStatus?: UpgradeStatus;
+  UpgradeStatus?: UpgradeStatus | undefined;
 
   /**
    * <p>A list of each step performed as part of a specific upgrade or upgrade eligibility check.</p>
    * @public
    */
-  StepsList?: UpgradeStepItem[];
+  StepsList?: UpgradeStepItem[] | undefined;
 }
 
 /**
@@ -7033,7 +7033,7 @@ export interface GetUpgradeHistoryResponse {
    *    domain.</p>
    * @public
    */
-  UpgradeHistories?: UpgradeHistory[];
+  UpgradeHistories?: UpgradeHistory[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7041,7 +7041,7 @@ export interface GetUpgradeHistoryResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7065,19 +7065,19 @@ export interface GetUpgradeStatusResponse {
    * <p>One of three steps that an upgrade or upgrade eligibility check goes through.</p>
    * @public
    */
-  UpgradeStep?: UpgradeStep;
+  UpgradeStep?: UpgradeStep | undefined;
 
   /**
    * <p>The status of the current step that an upgrade is on.</p>
    * @public
    */
-  StepStatus?: UpgradeStatus;
+  StepStatus?: UpgradeStatus | undefined;
 
   /**
    * <p>A string that describes the update.</p>
    * @public
    */
-  UpgradeName?: string;
+  UpgradeName?: string | undefined;
 }
 
 /**
@@ -7090,20 +7090,20 @@ export interface ListApplicationsRequest {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>OpenSearch Application Status can be used as filters for the listing request. Possible values are <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
-  statuses?: ApplicationStatus[];
+  statuses?: ApplicationStatus[] | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return for a given
    *    request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -7115,7 +7115,7 @@ export interface ApplicationSummary {
    * <p>Unique identifier for an OpenSearch application.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -7123,37 +7123,37 @@ export interface ApplicationSummary {
    *   </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Name of an OpenSearch Application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Endpoint URL of an OpenSearch Application.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>Status of an OpenSearch Application. Possible values are <code>CREATING</code>, <code>UPDATING</code>,<code> DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
-  status?: ApplicationStatus;
+  status?: ApplicationStatus | undefined;
 
   /**
    * <p>Timestamp at which an OpenSearch Application was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Timestamp at which an OpenSearch Application was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -7164,7 +7164,7 @@ export interface ListApplicationsResponse {
    * <p>Summary of the OpenSearch Applications, including ID, ARN, name, endpoint, status, create time and last update time.</p>
    * @public
    */
-  ApplicationSummaries?: ApplicationSummary[];
+  ApplicationSummaries?: ApplicationSummary[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7172,7 +7172,7 @@ export interface ListApplicationsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7197,25 +7197,25 @@ export interface DataSourceDetails {
    * <p>The type of data source.</p>
    * @public
    */
-  DataSourceType?: DataSourceType;
+  DataSourceType?: DataSourceType | undefined;
 
   /**
    * <p>The name of the data source.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the data source.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the data source.</p>
    * @public
    */
-  Status?: DataSourceStatus;
+  Status?: DataSourceStatus | undefined;
 }
 
 /**
@@ -7227,7 +7227,7 @@ export interface ListDataSourcesResponse {
    * <p>A list of data sources associated with specified domain.</p>
    * @public
    */
-  DataSources?: DataSourceDetails[];
+  DataSources?: DataSourceDetails[] | undefined;
 }
 
 /**
@@ -7246,20 +7246,20 @@ export interface ListDomainMaintenancesRequest {
    * <p>The name of the action.</p>
    * @public
    */
-  Action?: MaintenanceType;
+  Action?: MaintenanceType | undefined;
 
   /**
    * <p>The status of the action.</p>
    * @public
    */
-  Status?: MaintenanceStatus;
+  Status?: MaintenanceStatus | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *    <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
@@ -7267,7 +7267,7 @@ export interface ListDomainMaintenancesRequest {
    *    <code>ListDomainMaintenances</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7279,49 +7279,49 @@ export interface DomainMaintenanceDetails {
    * <p>The ID of the requested action.</p>
    * @public
    */
-  MaintenanceId?: string;
+  MaintenanceId?: string | undefined;
 
   /**
    * <p>The name of the domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The name of the action.</p>
    * @public
    */
-  Action?: MaintenanceType;
+  Action?: MaintenanceType | undefined;
 
   /**
    * <p>The ID of the data node.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 
   /**
    * <p>The status of the action.</p>
    * @public
    */
-  Status?: MaintenanceStatus;
+  Status?: MaintenanceStatus | undefined;
 
   /**
    * <p>The status message for the action.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The time at which the action was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time at which the action was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -7333,7 +7333,7 @@ export interface ListDomainMaintenancesResponse {
    * <p>A list of the submitted maintenance actions.</p>
    * @public
    */
-  DomainMaintenances?: DomainMaintenanceDetails[];
+  DomainMaintenances?: DomainMaintenanceDetails[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7341,7 +7341,7 @@ export interface ListDomainMaintenancesResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7367,7 +7367,7 @@ export interface ListDomainNamesRequest {
    * <p>Filters the output by domain engine type.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 }
 
 /**
@@ -7379,14 +7379,14 @@ export interface DomainInfo {
    * <p>Name of the domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The type of search engine that the domain is running.<code>OpenSearch</code> for an
    *    OpenSearch engine, or <code>Elasticsearch</code> for a legacy Elasticsearch OSS engine.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 }
 
 /**
@@ -7400,7 +7400,7 @@ export interface ListDomainNamesResponse {
    *    engine types.</p>
    * @public
    */
-  DomainNames?: DomainInfo[];
+  DomainNames?: DomainInfo[] | undefined;
 }
 
 /**
@@ -7419,7 +7419,7 @@ export interface ListDomainsForPackageRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListDomainsForPackage</code> operation returns a
@@ -7427,7 +7427,7 @@ export interface ListDomainsForPackageRequest {
    *     <code>ListDomainsForPackage</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7439,7 +7439,7 @@ export interface ListDomainsForPackageResponse {
    * <p>Information about all domains associated with a package.</p>
    * @public
    */
-  DomainPackageDetailsList?: DomainPackageDetails[];
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7447,7 +7447,7 @@ export interface ListDomainsForPackageResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7465,14 +7465,14 @@ export interface ListInstanceTypeDetailsRequest {
    * <p>The name of the domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListInstanceTypeDetails</code> operation returns a
@@ -7480,19 +7480,19 @@ export interface ListInstanceTypeDetailsRequest {
    *     <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the Availability Zones for the domain.</p>
    * @public
    */
-  RetrieveAZs?: boolean;
+  RetrieveAZs?: boolean | undefined;
 
   /**
    * <p>An optional parameter that lists information for a given instance type.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 }
 
 /**
@@ -7505,51 +7505,51 @@ export interface InstanceTypeDetails {
    * <p>The instance type.</p>
    * @public
    */
-  InstanceType?: OpenSearchPartitionInstanceType;
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
    *    type.</p>
    * @public
    */
-  EncryptionEnabled?: boolean;
+  EncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>Whether Amazon Cognito access is supported for the instance type.</p>
    * @public
    */
-  CognitoEnabled?: boolean;
+  CognitoEnabled?: boolean | undefined;
 
   /**
    * <p>Whether logging is supported for the instance type.</p>
    * @public
    */
-  AppLogsEnabled?: boolean;
+  AppLogsEnabled?: boolean | undefined;
 
   /**
    * <p>Whether fine-grained access control is supported for the instance type.</p>
    * @public
    */
-  AdvancedSecurityEnabled?: boolean;
+  AdvancedSecurityEnabled?: boolean | undefined;
 
   /**
    * <p>Whether UltraWarm is supported for the instance type.</p>
    * @public
    */
-  WarmEnabled?: boolean;
+  WarmEnabled?: boolean | undefined;
 
   /**
    * <p>Whether the instance acts as a data node, a dedicated master node, or an UltraWarm
    *    node.</p>
    * @public
    */
-  InstanceRole?: string[];
+  InstanceRole?: string[] | undefined;
 
   /**
    * <p>The supported Availability Zones for the instance type.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 }
 
 /**
@@ -7561,7 +7561,7 @@ export interface ListInstanceTypeDetailsResponse {
    *    version.</p>
    * @public
    */
-  InstanceTypeDetails?: InstanceTypeDetails[];
+  InstanceTypeDetails?: InstanceTypeDetails[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7569,7 +7569,7 @@ export interface ListInstanceTypeDetailsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7588,7 +7588,7 @@ export interface ListPackagesForDomainRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListPackagesForDomain</code> operation returns a
@@ -7596,7 +7596,7 @@ export interface ListPackagesForDomainRequest {
    *     <code>ListPackagesForDomain</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7608,7 +7608,7 @@ export interface ListPackagesForDomainResponse {
    * <p>List of all packages associated with a domain.</p>
    * @public
    */
-  DomainPackageDetailsList?: DomainPackageDetails[];
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7616,7 +7616,7 @@ export interface ListPackagesForDomainResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7634,7 +7634,7 @@ export interface ListScheduledActionsRequest {
    *    <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
@@ -7642,7 +7642,7 @@ export interface ListScheduledActionsRequest {
    *    operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7695,31 +7695,31 @@ export interface ScheduledAction {
    * <p>A description of the action to be taken.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
    * @public
    */
-  ScheduledBy?: ScheduledBy;
+  ScheduledBy?: ScheduledBy | undefined;
 
   /**
    * <p>The current status of the scheduled action.</p>
    * @public
    */
-  Status?: ActionStatus;
+  Status?: ActionStatus | undefined;
 
   /**
    * <p>Whether the action is required or optional.</p>
    * @public
    */
-  Mandatory?: boolean;
+  Mandatory?: boolean | undefined;
 
   /**
    * <p>Whether or not the scheduled action is cancellable.</p>
    * @public
    */
-  Cancellable?: boolean;
+  Cancellable?: boolean | undefined;
 }
 
 /**
@@ -7730,7 +7730,7 @@ export interface ListScheduledActionsResponse {
    * <p>A list of actions that are scheduled for the domain.</p>
    * @public
    */
-  ScheduledActions?: ScheduledAction[];
+  ScheduledActions?: ScheduledAction[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -7738,7 +7738,7 @@ export interface ListScheduledActionsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7762,7 +7762,7 @@ export interface ListTagsResponse {
    * <p>List of resource tags associated with the specified domain.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**

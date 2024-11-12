@@ -11,7 +11,7 @@ import { VoiceIDServiceException as __BaseException } from "./VoiceIDServiceExce
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -58,25 +58,25 @@ export interface Fraudster {
    * <p>The identifier of the domain that contains the fraudster.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the fraudster.</p>
    * @public
    */
-  GeneratedFraudsterId?: string;
+  GeneratedFraudsterId?: string | undefined;
 
   /**
    * <p>The timestamp of when Voice ID identified the fraudster.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The identifier of the watchlists the fraudster is a part of.</p>
    * @public
    */
-  WatchlistIds?: string[];
+  WatchlistIds?: string[] | undefined;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface AssociateFraudsterResponse {
    * <p>Contains all the information about a fraudster.</p>
    * @public
    */
-  Fraudster?: Fraudster;
+  Fraudster?: Fraudster | undefined;
 }
 
 /**
@@ -120,7 +120,7 @@ export type ConflictType = (typeof ConflictType)[keyof typeof ConflictType];
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of conflict which caused a ConflictException. Possible types and the
    *             corresponding error messages are as follows:</p>
@@ -157,7 +157,7 @@ export class ConflictException extends __BaseException {
    *          </ul>
    * @public
    */
-  ConflictType?: ConflictType;
+  ConflictType?: ConflictType | undefined;
   /**
    * @internal
    */
@@ -180,7 +180,7 @@ export class ConflictException extends __BaseException {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -222,14 +222,14 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource which cannot not be found. Possible types are
    *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
    *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
   /**
    * @internal
    */
@@ -252,7 +252,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -277,7 +277,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -300,7 +300,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -360,42 +360,42 @@ export interface AuthenticationResult {
    *             changes, Voice ID always returns cached Authentication Result for this API.</p>
    * @public
    */
-  AuthenticationResultId?: string;
+  AuthenticationResultId?: string | undefined;
 
   /**
    * <p>A timestamp of when audio aggregation started for this authentication
    *             result.</p>
    * @public
    */
-  AudioAggregationStartedAt?: Date;
+  AudioAggregationStartedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when audio aggregation ended for this authentication
    *             result.</p>
    * @public
    */
-  AudioAggregationEndedAt?: Date;
+  AudioAggregationEndedAt?: Date | undefined;
 
   /**
    * <p>The client-provided identifier for the speaker whose authentication result is
    *             produced. Only present if a <code>SpeakerId</code> is provided for the session.</p>
    * @public
    */
-  CustomerSpeakerId?: string;
+  CustomerSpeakerId?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the speaker whose authentication result is
    *             produced.</p>
    * @public
    */
-  GeneratedSpeakerId?: string;
+  GeneratedSpeakerId?: string | undefined;
 
   /**
    * <p>The authentication decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    * @public
    */
-  Decision?: AuthenticationDecision;
+  Decision?: AuthenticationDecision | undefined;
 
   /**
    * <p>The authentication score for the speaker whose authentication result is produced. This
@@ -403,14 +403,14 @@ export interface AuthenticationResult {
    *                 <code>REJECT</code>.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>The <code>AuthenticationConfiguration</code> used to generate this authentication
    *             result.</p>
    * @public
    */
-  Configuration?: AuthenticationConfiguration;
+  Configuration?: AuthenticationConfiguration | undefined;
 }
 
 /**
@@ -462,7 +462,7 @@ export interface CreateDomainRequest {
    * <p>A brief description of this domain.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The configuration, containing the KMS key identifier, to be used by
@@ -479,13 +479,13 @@ export interface CreateDomainRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A list of tags you want added to the domain.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -531,7 +531,7 @@ export interface ServerSideEncryptionUpdateDetails {
    *             ServerSideEncryptionConfiguration was updated to a new KMS key ID.</p>
    * @public
    */
-  OldKmsKeyId?: string;
+  OldKmsKeyId?: string | undefined;
 
   /**
    * <p>Status of the server-side encryption update. During an update, if there is an issue
@@ -541,14 +541,14 @@ export interface ServerSideEncryptionUpdateDetails {
    *             configuration will re-attempt this update process.</p>
    * @public
    */
-  UpdateStatus?: ServerSideEncryptionUpdateStatus;
+  UpdateStatus?: ServerSideEncryptionUpdateStatus | undefined;
 
   /**
    * <p>Message explaining the current UpdateStatus. When the UpdateStatus is FAILED, this
    *             message explains the cause of the failure.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -572,50 +572,50 @@ export interface Domain {
    * <p>The identifier of the domain.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the domain.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name for the domain.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the domain.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current status of the domain.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 
   /**
    * <p>The server-side encryption configuration containing the KMS key
    *             identifier you want Voice ID to use to encrypt your data.</p>
    * @public
    */
-  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the domain was last update.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>Details about the most recent server-side encryption configuration update. When the
@@ -623,13 +623,13 @@ export interface Domain {
    *             complete, the domain's data can only be accessed using the new KMS key.</p>
    * @public
    */
-  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
+  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails | undefined;
 
   /**
    * <p>The watchlist details of a domain. Contains the default watchlist ID of the domain.</p>
    * @public
    */
-  WatchlistDetails?: WatchlistDetails;
+  WatchlistDetails?: WatchlistDetails | undefined;
 }
 
 /**
@@ -640,7 +640,7 @@ export interface CreateDomainResponse {
    * <p>Information about the newly created domain.</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 }
 
 /**
@@ -663,7 +663,7 @@ export interface CreateWatchlistRequest {
    * <p>A brief description of this watchlist.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -672,7 +672,7 @@ export interface CreateWatchlistRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -684,43 +684,43 @@ export interface Watchlist {
    * <p>The identifier of the domain that contains the watchlist.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The identifier of the watchlist.</p>
    * @public
    */
-  WatchlistId?: string;
+  WatchlistId?: string | undefined;
 
   /**
    * <p>The name for the watchlist.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the watchlist.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the specified watchlist is the default watchlist of a domain.</p>
    * @public
    */
-  DefaultWatchlist?: boolean;
+  DefaultWatchlist?: boolean | undefined;
 
   /**
    * <p>The timestamp of when the watchlist was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the watchlist was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -731,7 +731,7 @@ export interface CreateWatchlistResponse {
    * <p>Information about the newly created watchlist.</p>
    * @public
    */
-  Watchlist?: Watchlist;
+  Watchlist?: Watchlist | undefined;
 }
 
 /**
@@ -815,7 +815,7 @@ export interface DescribeDomainResponse {
    * <p>Information about the specified domain.</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 }
 
 /**
@@ -843,7 +843,7 @@ export interface DescribeFraudsterResponse {
    * <p>Information about the specified fraudster.</p>
    * @public
    */
-  Fraudster?: Fraudster;
+  Fraudster?: Fraudster | undefined;
 }
 
 /**
@@ -872,13 +872,13 @@ export interface FailureDetails {
    * <p>An HTTP status code representing the nature of the error.</p>
    * @public
    */
-  StatusCode?: number;
+  StatusCode?: number | undefined;
 
   /**
    * <p>A description of the error that caused the batch job failure.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -904,7 +904,7 @@ export interface JobProgress {
    *             input file.</p>
    * @public
    */
-  PercentComplete?: number;
+  PercentComplete?: number | undefined;
 }
 
 /**
@@ -946,7 +946,7 @@ export interface OutputDataConfig {
    *             </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -976,21 +976,21 @@ export interface RegistrationConfig {
    *             domain.</p>
    * @public
    */
-  DuplicateRegistrationAction?: DuplicateRegistrationAction;
+  DuplicateRegistrationAction?: DuplicateRegistrationAction | undefined;
 
   /**
    * <p>The minimum similarity score between the new and old fraudsters in order to consider
    *             the new fraudster a duplicate.</p>
    * @public
    */
-  FraudsterSimilarityThreshold?: number;
+  FraudsterSimilarityThreshold?: number | undefined;
 
   /**
    * <p>The identifiers of watchlists that a fraudster is registered to. If a watchlist isn't provided, the fraudsters are registered to the default watchlist.
    *         </p>
    * @public
    */
-  WatchlistIds?: string[];
+  WatchlistIds?: string[] | undefined;
 }
 
 /**
@@ -1002,32 +1002,32 @@ export interface FraudsterRegistrationJob {
    * <p>The client-provided name for the fraudster registration job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the fraudster registration job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The current status of the fraudster registration job.</p>
    * @public
    */
-  JobStatus?: FraudsterRegistrationJobStatus;
+  JobStatus?: FraudsterRegistrationJobStatus | undefined;
 
   /**
    * <p>The identifier of the domain that contains the fraudster registration job.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions to access
    *             customer's buckets to read the input manifest file and write the job output file.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>The registration config containing details such as the action to take when a duplicate
@@ -1035,14 +1035,14 @@ export interface FraudsterRegistrationJob {
    *             fraudster.</p>
    * @public
    */
-  RegistrationConfig?: RegistrationConfig;
+  RegistrationConfig?: RegistrationConfig | undefined;
 
   /**
    * <p>The input data config containing an S3 URI for the input manifest file that contains
    *             the list of fraudster registration job requests.</p>
    * @public
    */
-  InputDataConfig?: InputDataConfig;
+  InputDataConfig?: InputDataConfig | undefined;
 
   /**
    * <p>The output data config containing the S3 location where you want Voice ID to write
@@ -1050,19 +1050,19 @@ export interface FraudsterRegistrationJob {
    *             encrypt the file.</p>
    * @public
    */
-  OutputDataConfig?: OutputDataConfig;
+  OutputDataConfig?: OutputDataConfig | undefined;
 
   /**
    * <p>A timestamp of when the fraudster registration job was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when the fraudster registration job ended.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>Contains details that are populated when an entire batch job fails. In cases of
@@ -1072,14 +1072,14 @@ export interface FraudsterRegistrationJob {
    *             failed.</p>
    * @public
    */
-  FailureDetails?: FailureDetails;
+  FailureDetails?: FailureDetails | undefined;
 
   /**
    * <p>Shows the completed percentage of registration requests listed in the input
    *             file.</p>
    * @public
    */
-  JobProgress?: JobProgress;
+  JobProgress?: JobProgress | undefined;
 }
 
 /**
@@ -1090,7 +1090,7 @@ export interface DescribeFraudsterRegistrationJobResponse {
    * <p>Contains details about the specified fraudster registration job.</p>
    * @public
    */
-  Job?: FraudsterRegistrationJob;
+  Job?: FraudsterRegistrationJob | undefined;
 }
 
 /**
@@ -1135,44 +1135,44 @@ export interface Speaker {
    * <p>The identifier of the domain that contains the speaker.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The client-provided identifier for the speaker.</p>
    * @public
    */
-  CustomerSpeakerId?: string;
+  CustomerSpeakerId?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the speaker.</p>
    * @public
    */
-  GeneratedSpeakerId?: string;
+  GeneratedSpeakerId?: string | undefined;
 
   /**
    * <p>The current status of the speaker.</p>
    * @public
    */
-  Status?: SpeakerStatus;
+  Status?: SpeakerStatus | undefined;
 
   /**
    * <p>A timestamp of when the speaker was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of the speaker's last update.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the speaker was last accessed for enrollment, re-enrollment or a
    *             successful authentication. This timestamp is accurate to one hour.</p>
    * @public
    */
-  LastAccessedAt?: Date;
+  LastAccessedAt?: Date | undefined;
 }
 
 /**
@@ -1183,7 +1183,7 @@ export interface DescribeSpeakerResponse {
    * <p>Information about the specified speaker.</p>
    * @public
    */
-  Speaker?: Speaker;
+  Speaker?: Speaker | undefined;
 }
 
 /**
@@ -1243,7 +1243,7 @@ export interface EnrollmentJobFraudDetectionConfig {
    *             flagged by the fraud detection system.</p>
    * @public
    */
-  FraudDetectionAction?: FraudDetectionAction;
+  FraudDetectionAction?: FraudDetectionAction | undefined;
 
   /**
    * <p>Threshold value for determining whether the speaker is a high risk to be fraudulent.
@@ -1251,14 +1251,14 @@ export interface EnrollmentJobFraudDetectionConfig {
    *             threshold, the speaker is considered a fraudster.</p>
    * @public
    */
-  RiskThreshold?: number;
+  RiskThreshold?: number | undefined;
 
   /**
    * <p>The identifier of watchlists against which fraud detection is performed.
    *         </p>
    * @public
    */
-  WatchlistIds?: string[];
+  WatchlistIds?: string[] | undefined;
 }
 
 /**
@@ -1274,13 +1274,13 @@ export interface EnrollmentConfig {
    *             the latest audio.</p>
    * @public
    */
-  ExistingEnrollmentAction?: ExistingEnrollmentAction;
+  ExistingEnrollmentAction?: ExistingEnrollmentAction | undefined;
 
   /**
    * <p>The fraud detection configuration to use for the speaker enrollment job.</p>
    * @public
    */
-  FraudDetectionConfig?: EnrollmentJobFraudDetectionConfig;
+  FraudDetectionConfig?: EnrollmentJobFraudDetectionConfig | undefined;
 }
 
 /**
@@ -1309,46 +1309,46 @@ export interface SpeakerEnrollmentJob {
    * <p>The client-provided name for the speaker enrollment job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the speaker enrollment job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The current status of the speaker enrollment job.</p>
    * @public
    */
-  JobStatus?: SpeakerEnrollmentJobStatus;
+  JobStatus?: SpeakerEnrollmentJobStatus | undefined;
 
   /**
    * <p>The identifier of the domain that contains the speaker enrollment job.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions to access
    *             customer's buckets to read the input manifest file and write the job output file.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>The configuration that defines the action to take when the speaker is already enrolled
    *             in Voice ID, and the <code>FraudDetectionConfig</code> to use.</p>
    * @public
    */
-  EnrollmentConfig?: EnrollmentConfig;
+  EnrollmentConfig?: EnrollmentConfig | undefined;
 
   /**
    * <p>The input data config containing an S3 URI for the input manifest file that contains
    *             the list of speaker enrollment job requests.</p>
    * @public
    */
-  InputDataConfig?: InputDataConfig;
+  InputDataConfig?: InputDataConfig | undefined;
 
   /**
    * <p>The output data config containing the S3 location where Voice ID writes the job
@@ -1356,19 +1356,19 @@ export interface SpeakerEnrollmentJob {
    *             file.</p>
    * @public
    */
-  OutputDataConfig?: OutputDataConfig;
+  OutputDataConfig?: OutputDataConfig | undefined;
 
   /**
    * <p>A timestamp of when the speaker enrollment job was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when the speaker enrollment job ended. </p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>Contains details that are populated when an entire batch job fails. In cases of
@@ -1378,14 +1378,14 @@ export interface SpeakerEnrollmentJob {
    *             failed.</p>
    * @public
    */
-  FailureDetails?: FailureDetails;
+  FailureDetails?: FailureDetails | undefined;
 
   /**
    * <p>Provides details on job progress. This field shows the completed percentage of
    *             registration requests listed in the input file.</p>
    * @public
    */
-  JobProgress?: JobProgress;
+  JobProgress?: JobProgress | undefined;
 }
 
 /**
@@ -1396,7 +1396,7 @@ export interface DescribeSpeakerEnrollmentJobResponse {
    * <p>Contains details about the specified speaker enrollment job.</p>
    * @public
    */
-  Job?: SpeakerEnrollmentJob;
+  Job?: SpeakerEnrollmentJob | undefined;
 }
 
 /**
@@ -1424,7 +1424,7 @@ export interface DescribeWatchlistResponse {
    * <p>Information about the specified watchlist.</p>
    * @public
    */
-  Watchlist?: Watchlist;
+  Watchlist?: Watchlist | undefined;
 }
 
 /**
@@ -1458,7 +1458,7 @@ export interface DisassociateFraudsterResponse {
    * <p>Contains all the information about a fraudster.</p>
    * @public
    */
-  Fraudster?: Fraudster;
+  Fraudster?: Fraudster | undefined;
 }
 
 /**
@@ -1470,7 +1470,7 @@ export interface ListDomainsRequest {
    *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -1479,7 +1479,7 @@ export interface ListDomainsRequest {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1491,50 +1491,50 @@ export interface DomainSummary {
    * <p>The identifier of the domain.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the domain.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The client-provided name for the domain.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the domain.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current status of the domain.</p>
    * @public
    */
-  DomainStatus?: DomainStatus;
+  DomainStatus?: DomainStatus | undefined;
 
   /**
    * <p>The server-side encryption configuration containing the KMS key
    *             identifier you want Voice ID to use to encrypt your data.</p>
    * @public
    */
-  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the domain was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>Details about the most recent server-side encryption configuration update. When the
@@ -1542,13 +1542,13 @@ export interface DomainSummary {
    *             complete, the domain's data can only be accessed using the new KMS key.</p>
    * @public
    */
-  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
+  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails | undefined;
 
   /**
    * <p>Provides information about <code>watchlistDetails</code> and <code>DefaultWatchlistID</code>. </p>
    * @public
    */
-  WatchlistDetails?: WatchlistDetails;
+  WatchlistDetails?: WatchlistDetails | undefined;
 }
 
 /**
@@ -1559,7 +1559,7 @@ export interface ListDomainsResponse {
    * <p>A list containing details about each domain in the Amazon Web Services account.</p>
    * @public
    */
-  DomainSummaries?: DomainSummary[];
+  DomainSummaries?: DomainSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -1568,7 +1568,7 @@ export interface ListDomainsResponse {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1591,7 +1591,7 @@ export interface UpdateDomainRequest {
    * <p>A brief description about this domain.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The configuration, containing the KMS key identifier, to be used by
@@ -1614,7 +1614,7 @@ export interface UpdateDomainResponse {
    * <p>Details about the updated domain</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 }
 
 /**
@@ -1647,14 +1647,14 @@ export interface FraudDetectionConfiguration {
    *             considered a fraudster.</p>
    * @public
    */
-  RiskThreshold?: number;
+  RiskThreshold?: number | undefined;
 
   /**
    * <p>The identifier of the watchlist against which fraud detection is performed.
    *         </p>
    * @public
    */
-  WatchlistId?: string;
+  WatchlistId?: string | undefined;
 }
 
 /**
@@ -1704,7 +1704,7 @@ export interface KnownFraudsterRisk {
    *             non-zero RiskScore, this value is <code>null</code>.</p>
    * @public
    */
-  GeneratedFraudsterId?: string;
+  GeneratedFraudsterId?: string | undefined;
 }
 
 /**
@@ -1752,35 +1752,35 @@ export interface FraudDetectionResult {
    *             Fraud Detection result for this API.</p>
    * @public
    */
-  FraudDetectionResultId?: string;
+  FraudDetectionResultId?: string | undefined;
 
   /**
    * <p>A timestamp of when audio aggregation started for this fraud detection
    *             result.</p>
    * @public
    */
-  AudioAggregationStartedAt?: Date;
+  AudioAggregationStartedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when audio aggregation ended for this fraud detection
    *             result.</p>
    * @public
    */
-  AudioAggregationEndedAt?: Date;
+  AudioAggregationEndedAt?: Date | undefined;
 
   /**
    * <p>The <code>FraudDetectionConfiguration</code> used to generate this fraud detection
    *             result.</p>
    * @public
    */
-  Configuration?: FraudDetectionConfiguration;
+  Configuration?: FraudDetectionConfiguration | undefined;
 
   /**
    * <p>The fraud detection decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    * @public
    */
-  Decision?: FraudDetectionDecision;
+  Decision?: FraudDetectionDecision | undefined;
 
   /**
    * <p>The reason speaker was flagged by the fraud detection system. This is only be
@@ -1788,14 +1788,14 @@ export interface FraudDetectionResult {
    *             possible values: <code>KNOWN_FRAUDSTER</code> and <code>VOICE_SPOOFING</code>.</p>
    * @public
    */
-  Reasons?: FraudDetectionReason[];
+  Reasons?: FraudDetectionReason[] | undefined;
 
   /**
    * <p>Details about each risk analyzed for this speaker. Currently, this contains
    *             KnownFraudsterRisk and VoiceSpoofingRisk details.</p>
    * @public
    */
-  RiskDetails?: FraudRiskDetails;
+  RiskDetails?: FraudRiskDetails | undefined;
 }
 
 /**
@@ -1821,19 +1821,19 @@ export interface EvaluateSessionResponse {
    * <p>The identifier of the domain that contains the session.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The service-generated identifier of the session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>The client-provided name of the session.</p>
    * @public
    */
-  SessionName?: string;
+  SessionName?: string | undefined;
 
   /**
    * <p>The current status of audio streaming for this session. This field is useful to infer
@@ -1847,21 +1847,21 @@ export interface EvaluateSessionResponse {
    *             session is needed to try again.</p>
    * @public
    */
-  StreamingStatus?: StreamingStatus;
+  StreamingStatus?: StreamingStatus | undefined;
 
   /**
    * <p>Details resulting from the authentication process, such as authentication decision and
    *             authentication score.</p>
    * @public
    */
-  AuthenticationResult?: AuthenticationResult;
+  AuthenticationResult?: AuthenticationResult | undefined;
 
   /**
    * <p>Details resulting from the fraud detection process, such as fraud detection decision
    *             and risk score.</p>
    * @public
    */
-  FraudDetectionResult?: FraudDetectionResult;
+  FraudDetectionResult?: FraudDetectionResult | undefined;
 }
 
 /**
@@ -1873,37 +1873,37 @@ export interface FraudsterRegistrationJobSummary {
    * <p>The client-provided name for the fraudster registration job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the fraudster registration job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The current status of the fraudster registration job.</p>
    * @public
    */
-  JobStatus?: FraudsterRegistrationJobStatus;
+  JobStatus?: FraudsterRegistrationJobStatus | undefined;
 
   /**
    * <p>The identifier of the domain that contains the fraudster registration job.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>A timestamp of when the fraudster registration job was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when the fraudster registration job ended.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>Contains details that are populated when an entire batch job fails. In cases of
@@ -1913,14 +1913,14 @@ export interface FraudsterRegistrationJobSummary {
    *             failed.</p>
    * @public
    */
-  FailureDetails?: FailureDetails;
+  FailureDetails?: FailureDetails | undefined;
 
   /**
    * <p>Shows the completed percentage of registration requests listed in the input
    *             file.</p>
    * @public
    */
-  JobProgress?: JobProgress;
+  JobProgress?: JobProgress | undefined;
 }
 
 /**
@@ -1933,25 +1933,25 @@ export interface FraudsterSummary {
    * <p>The identifier of the domain that contains the fraudster summary.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the fraudster.</p>
    * @public
    */
-  GeneratedFraudsterId?: string;
+  GeneratedFraudsterId?: string | undefined;
 
   /**
    * <p>The timestamp of when the fraudster summary was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The identifier of the watchlists the fraudster is a part of.</p>
    * @public
    */
-  WatchlistIds?: string[];
+  WatchlistIds?: string[] | undefined;
 }
 
 /**
@@ -1968,14 +1968,14 @@ export interface ListFraudsterRegistrationJobsRequest {
    * <p>Provides the status of your fraudster registration job.</p>
    * @public
    */
-  JobStatus?: FraudsterRegistrationJobStatus;
+  JobStatus?: FraudsterRegistrationJobStatus | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -1984,7 +1984,7 @@ export interface ListFraudsterRegistrationJobsRequest {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1995,7 +1995,7 @@ export interface ListFraudsterRegistrationJobsResponse {
    * <p>A list containing details about each specified fraudster registration job.</p>
    * @public
    */
-  JobSummaries?: FraudsterRegistrationJobSummary[];
+  JobSummaries?: FraudsterRegistrationJobSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2004,7 +2004,7 @@ export interface ListFraudsterRegistrationJobsResponse {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2021,14 +2021,14 @@ export interface ListFraudstersRequest {
    * <p>The identifier of the watchlist. If provided, all fraudsters in the watchlist are listed. If not provided, all fraudsters in the domain are listed.</p>
    * @public
    */
-  WatchlistId?: string;
+  WatchlistId?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.    </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2038,7 +2038,7 @@ export interface ListFraudstersRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2050,7 +2050,7 @@ export interface ListFraudstersResponse {
    *         </p>
    * @public
    */
-  FraudsterSummaries?: FraudsterSummary[];
+  FraudsterSummaries?: FraudsterSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2060,7 +2060,7 @@ export interface ListFraudstersResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2077,14 +2077,14 @@ export interface ListSpeakerEnrollmentJobsRequest {
    * <p>Provides the status of your speaker enrollment Job.</p>
    * @public
    */
-  JobStatus?: SpeakerEnrollmentJobStatus;
+  JobStatus?: SpeakerEnrollmentJobStatus | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2093,7 +2093,7 @@ export interface ListSpeakerEnrollmentJobsRequest {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2105,37 +2105,37 @@ export interface SpeakerEnrollmentJobSummary {
    * <p>The client-provided name for the speaker enrollment job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the speaker enrollment job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The current status of the speaker enrollment job.</p>
    * @public
    */
-  JobStatus?: SpeakerEnrollmentJobStatus;
+  JobStatus?: SpeakerEnrollmentJobStatus | undefined;
 
   /**
    * <p>The identifier of the domain that contains the speaker enrollment job.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>A timestamp of when of the speaker enrollment job was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp of when the speaker enrollment job ended.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>Contains details that are populated when an entire batch job fails. In cases of
@@ -2145,14 +2145,14 @@ export interface SpeakerEnrollmentJobSummary {
    *             failed.</p>
    * @public
    */
-  FailureDetails?: FailureDetails;
+  FailureDetails?: FailureDetails | undefined;
 
   /**
    * <p>Provides details regarding job progress. This field shows the completed percentage of
    *             enrollment requests listed in the input file.</p>
    * @public
    */
-  JobProgress?: JobProgress;
+  JobProgress?: JobProgress | undefined;
 }
 
 /**
@@ -2163,7 +2163,7 @@ export interface ListSpeakerEnrollmentJobsResponse {
    * <p>A list containing details about each specified speaker enrollment job.</p>
    * @public
    */
-  JobSummaries?: SpeakerEnrollmentJobSummary[];
+  JobSummaries?: SpeakerEnrollmentJobSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2172,7 +2172,7 @@ export interface ListSpeakerEnrollmentJobsResponse {
    *             unchanged. Each pagination token expires after 24 hours. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2190,7 +2190,7 @@ export interface ListSpeakersRequest {
    *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2199,7 +2199,7 @@ export interface ListSpeakersRequest {
    *             unchanged. Each pagination token expires after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2211,44 +2211,44 @@ export interface SpeakerSummary {
    * <p>The identifier of the domain that contains the speaker.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The client-provided identifier for the speaker.</p>
    * @public
    */
-  CustomerSpeakerId?: string;
+  CustomerSpeakerId?: string | undefined;
 
   /**
    * <p>The service-generated identifier for the speaker. </p>
    * @public
    */
-  GeneratedSpeakerId?: string;
+  GeneratedSpeakerId?: string | undefined;
 
   /**
    * <p>The current status of the speaker.</p>
    * @public
    */
-  Status?: SpeakerStatus;
+  Status?: SpeakerStatus | undefined;
 
   /**
    * <p>A timestamp showing the speaker's creation time. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>A timestamp showing the speaker's last update.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the speaker was last accessed for enrollment, re-enrollment or a
    *             successful authentication. This timestamp is accurate to one hour.</p>
    * @public
    */
-  LastAccessedAt?: Date;
+  LastAccessedAt?: Date | undefined;
 }
 
 /**
@@ -2260,7 +2260,7 @@ export interface ListSpeakersResponse {
    *         </p>
    * @public
    */
-  SpeakerSummaries?: SpeakerSummary[];
+  SpeakerSummaries?: SpeakerSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2269,7 +2269,7 @@ export interface ListSpeakersResponse {
    *             unchanged. Each pagination token expires after 24 hours. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2292,7 +2292,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags associated with the specified resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2311,7 +2311,7 @@ export interface ListWatchlistsRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2321,7 +2321,7 @@ export interface ListWatchlistsRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2333,43 +2333,43 @@ export interface WatchlistSummary {
    * <p>The identifier of the domain that contains the watchlist.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The identifier of the watchlist.</p>
    * @public
    */
-  WatchlistId?: string;
+  WatchlistId?: string | undefined;
 
   /**
    * <p>The name for the watchlist.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the watchlist.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the specified watchlist is the default watchlist of a domain.</p>
    * @public
    */
-  DefaultWatchlist?: boolean;
+  DefaultWatchlist?: boolean | undefined;
 
   /**
    * <p>The timestamp of when the watchlist was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the watchlist was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2381,7 +2381,7 @@ export interface ListWatchlistsResponse {
    *         </p>
    * @public
    */
-  WatchlistSummaries?: WatchlistSummary[];
+  WatchlistSummaries?: WatchlistSummary[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -2391,7 +2391,7 @@ export interface ListWatchlistsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2419,7 +2419,7 @@ export interface OptOutSpeakerResponse {
    * <p>Details about the opted-out speaker.</p>
    * @public
    */
-  Speaker?: Speaker;
+  Speaker?: Speaker | undefined;
 }
 
 /**
@@ -2433,13 +2433,13 @@ export interface StartFraudsterRegistrationJobRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the new fraudster registration job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The identifier of the domain that contains the fraudster registration job and in which
@@ -2464,7 +2464,7 @@ export interface StartFraudsterRegistrationJobRequest {
    *             fraudster. </p>
    * @public
    */
-  RegistrationConfig?: RegistrationConfig;
+  RegistrationConfig?: RegistrationConfig | undefined;
 
   /**
    * <p>The input data config containing an S3 URI for the input manifest file that contains
@@ -2490,7 +2490,7 @@ export interface StartFraudsterRegistrationJobResponse {
    * <p>Details about the started fraudster registration job.</p>
    * @public
    */
-  Job?: FraudsterRegistrationJob;
+  Job?: FraudsterRegistrationJob | undefined;
 }
 
 /**
@@ -2504,13 +2504,13 @@ export interface StartSpeakerEnrollmentJobRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A name for your speaker enrollment job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The identifier of the domain that contains the speaker enrollment job and in which the
@@ -2533,7 +2533,7 @@ export interface StartSpeakerEnrollmentJobRequest {
    *             is already enrolled in Voice ID or when a speaker is identified as a fraudster.</p>
    * @public
    */
-  EnrollmentConfig?: EnrollmentConfig;
+  EnrollmentConfig?: EnrollmentConfig | undefined;
 
   /**
    * <p>The input data config containing the S3 location for the input manifest file that
@@ -2559,7 +2559,7 @@ export interface StartSpeakerEnrollmentJobResponse {
    * <p>Details about the started speaker enrollment job.</p>
    * @public
    */
-  Job?: SpeakerEnrollmentJob;
+  Job?: SpeakerEnrollmentJob | undefined;
 }
 
 /**
@@ -2627,13 +2627,13 @@ export interface UpdateWatchlistRequest {
    * <p>The name of the watchlist.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A brief description about this watchlist.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -2644,7 +2644,7 @@ export interface UpdateWatchlistResponse {
    * <p>Details about the updated watchlist.</p>
    * @public
    */
-  Watchlist?: Watchlist;
+  Watchlist?: Watchlist | undefined;
 }
 
 /**

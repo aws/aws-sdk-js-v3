@@ -83,18 +83,6 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyValueStoreCommand(input);
  * await client.send(command);
- * // example id: to-delete-a-key-value-store-1699751759648
- * ```
- *
- * @example To delete a KeyValueStore
- * ```javascript
- * // Use the following command to delete a KeyValueStore.
- * const input = {
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
- * };
- * const command = new DeleteKeyValueStoreCommand(input);
- * await client.send(command);
  * // example id: example-1
  * ```
  *

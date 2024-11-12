@@ -89,7 +89,7 @@ export interface AddPolicyStatementInput {
    * <p>A set of condition keys that you can use in key policies.</p>
    * @public
    */
-  condition?: string;
+  condition?: string | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface AddPolicyStatementOutput {
    * <p>The resource-based policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface BatchDeleteUniqueIdInput {
    * <p>The input source for the batch delete unique ID operation.</p>
    * @public
    */
-  inputSource?: string;
+  inputSource?: string | undefined;
 
   /**
    * <p>The unique IDs to delete.</p>
@@ -393,14 +393,14 @@ export interface ProviderProperties {
    * <p>The required configuration fields to use with the provider service.</p>
    * @public
    */
-  providerConfiguration?: __DocumentType;
+  providerConfiguration?: __DocumentType | undefined;
 
   /**
    * <p>The Amazon S3 location that temporarily stores your data while it processes.
    *          Your information won't be saved permanently.</p>
    * @public
    */
-  intermediateSourceConfiguration?: IntermediateSourceConfiguration;
+  intermediateSourceConfiguration?: IntermediateSourceConfiguration | undefined;
 }
 
 /**
@@ -462,7 +462,7 @@ export interface IdMappingRuleBasedProperties {
    * <p> The rules that can be used for ID mapping.</p>
    * @public
    */
-  rules?: Rule[];
+  rules?: Rule[] | undefined;
 
   /**
    * <p> The set of rules you can use in an ID mapping workflow. The limitations specified for
@@ -514,14 +514,14 @@ export interface IdMappingTechniques {
    *          matching.</p>
    * @public
    */
-  ruleBasedProperties?: IdMappingRuleBasedProperties;
+  ruleBasedProperties?: IdMappingRuleBasedProperties | undefined;
 
   /**
    * <p>An object which defines any additional configurations required by the provider
    *          service.</p>
    * @public
    */
-  providerProperties?: ProviderProperties;
+  providerProperties?: ProviderProperties | undefined;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface IdMappingWorkflowInputSource {
    * <p>The name of the schema to be retrieved.</p>
    * @public
    */
-  schemaName?: string;
+  schemaName?: string | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -566,7 +566,7 @@ export interface IdMappingWorkflowInputSource {
    *             <code>sourceIds</code> will resolve to.</p>
    * @public
    */
-  type?: IdNamespaceType;
+  type?: IdNamespaceType | undefined;
 }
 
 /**
@@ -585,7 +585,7 @@ export interface IdMappingWorkflowOutputSource {
    *          an Entity Resolution managed KMS key.</p>
    * @public
    */
-  KMSArn?: string;
+  KMSArn?: string | undefined;
 }
 
 /**
@@ -603,7 +603,7 @@ export interface CreateIdMappingWorkflowInput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -617,7 +617,7 @@ export interface CreateIdMappingWorkflowInput {
    *          fields <code>OutputS3Path</code> and <code>Output</code>.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingWorkflowOutputSource[];
+  outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
 
   /**
    * <p>An object which defines the ID mapping technique and any additional
@@ -631,13 +631,13 @@ export interface CreateIdMappingWorkflowInput {
    *          this role to create resources on your behalf as part of workflow execution.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -661,7 +661,7 @@ export interface CreateIdMappingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -675,7 +675,7 @@ export interface CreateIdMappingWorkflowOutput {
    *          fields <code>OutputS3Path</code> and <code>Output</code>.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingWorkflowOutputSource[];
+  outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
 
   /**
    * <p>An object which defines the ID mapping technique and any additional
@@ -689,7 +689,7 @@ export interface CreateIdMappingWorkflowOutput {
    *          this role to create resources on your behalf as part of workflow execution.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -705,13 +705,13 @@ export class ExceedsLimitException extends __BaseException {
    * <p>The name of the quota that has been breached.</p>
    * @public
    */
-  quotaName?: string;
+  quotaName?: string | undefined;
 
   /**
    * <p>The current quota value for the customers.</p>
    * @public
    */
-  quotaValue?: number;
+  quotaValue?: number | undefined;
 
   /**
    * @internal
@@ -745,7 +745,7 @@ export interface NamespaceProviderProperties {
    *          service.</p>
    * @public
    */
-  providerConfiguration?: __DocumentType;
+  providerConfiguration?: __DocumentType | undefined;
 }
 
 /**
@@ -758,14 +758,14 @@ export interface NamespaceRuleBasedProperties {
    * <p> The rules for the ID namespace.</p>
    * @public
    */
-  rules?: Rule[];
+  rules?: Rule[] | undefined;
 
   /**
    * <p> The sets of rules you can use in an ID mapping workflow. The limitations specified for
    *          the source and target must be compatible.</p>
    * @public
    */
-  ruleDefinitionTypes?: IdMappingWorkflowRuleDefinitionType[];
+  ruleDefinitionTypes?: IdMappingWorkflowRuleDefinitionType[] | undefined;
 
   /**
    * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or
@@ -780,7 +780,7 @@ export interface NamespaceRuleBasedProperties {
    *          Profile A matches the value of the <code>Email</code> field of Profile B.</p>
    * @public
    */
-  attributeMatchingModel?: AttributeMatchingModel;
+  attributeMatchingModel?: AttributeMatchingModel | undefined;
 
   /**
    * <p> The type of matching record that is allowed to be used in an ID mapping workflow. </p>
@@ -790,7 +790,7 @@ export interface NamespaceRuleBasedProperties {
    *          the source are matched to one record in the target.</p>
    * @public
    */
-  recordMatchingModels?: RecordMatchingModel[];
+  recordMatchingModels?: RecordMatchingModel[] | undefined;
 }
 
 /**
@@ -810,14 +810,14 @@ export interface IdNamespaceIdMappingWorkflowProperties {
    *          matching.</p>
    * @public
    */
-  ruleBasedProperties?: NamespaceRuleBasedProperties;
+  ruleBasedProperties?: NamespaceRuleBasedProperties | undefined;
 
   /**
    * <p>An object which defines any additional configurations required by the provider
    *          service.</p>
    * @public
    */
-  providerProperties?: NamespaceProviderProperties;
+  providerProperties?: NamespaceProviderProperties | undefined;
 }
 
 /**
@@ -836,7 +836,7 @@ export interface IdNamespaceInputSource {
    * <p>The name of the schema.</p>
    * @public
    */
-  schemaName?: string;
+  schemaName?: string | undefined;
 }
 
 /**
@@ -853,14 +853,14 @@ export interface CreateIdNamespaceInput {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
    *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
    * @public
    */
-  inputSourceConfig?: IdNamespaceInputSource[];
+  inputSourceConfig?: IdNamespaceInputSource[] | undefined;
 
   /**
    * <p>Determines the properties of <code>IdMappingWorflow</code> where this
@@ -868,7 +868,7 @@ export interface CreateIdNamespaceInput {
    *          <code>Target</code>.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[] | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -887,13 +887,13 @@ export interface CreateIdNamespaceInput {
    *          as part of the workflow run.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -916,14 +916,14 @@ export interface CreateIdNamespaceOutput {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
    *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
    * @public
    */
-  inputSourceConfig?: IdNamespaceInputSource[];
+  inputSourceConfig?: IdNamespaceInputSource[] | undefined;
 
   /**
    * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
@@ -931,7 +931,7 @@ export interface CreateIdNamespaceOutput {
    *          <code>Target</code>.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[] | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -950,7 +950,7 @@ export interface CreateIdNamespaceOutput {
    *          as part of the workflow run.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the ID namespace was created.</p>
@@ -968,7 +968,7 @@ export interface CreateIdNamespaceOutput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -994,7 +994,7 @@ export interface IncrementalRunConfig {
    * <p>The type of incremental run. It takes only one value: <code>IMMEDIATE</code>.</p>
    * @public
    */
-  incrementalRunType?: IncrementalRunType;
+  incrementalRunType?: IncrementalRunType | undefined;
 }
 
 /**
@@ -1023,7 +1023,7 @@ export interface InputSource {
    *          in the output to (123)-456-7890.</p>
    * @public
    */
-  applyNormalization?: boolean;
+  applyNormalization?: boolean | undefined;
 }
 
 /**
@@ -1044,7 +1044,7 @@ export interface OutputAttribute {
    * <p>Enables the ability to hash the column values in the output.</p>
    * @public
    */
-  hashed?: boolean;
+  hashed?: boolean | undefined;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface OutputSource {
    * <p>Customer KMS ARN for encryption at rest. If not provided, system will use an Entity Resolution managed KMS key.</p>
    * @public
    */
-  KMSArn?: string;
+  KMSArn?: string | undefined;
 
   /**
    * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields
@@ -1081,7 +1081,7 @@ export interface OutputSource {
    *          in the output to (123)-456-7890.</p>
    * @public
    */
-  applyNormalization?: boolean;
+  applyNormalization?: boolean | undefined;
 }
 
 /**
@@ -1150,7 +1150,7 @@ export interface RuleBasedProperties {
    *          IDs.</p>
    * @public
    */
-  matchPurpose?: MatchPurpose;
+  matchPurpose?: MatchPurpose | undefined;
 }
 
 /**
@@ -1171,13 +1171,13 @@ export interface ResolutionTechniques {
    *             <code>Rules</code>, which is a list of rule objects.</p>
    * @public
    */
-  ruleBasedProperties?: RuleBasedProperties;
+  ruleBasedProperties?: RuleBasedProperties | undefined;
 
   /**
    * <p>The properties of the provider service.</p>
    * @public
    */
-  providerProperties?: ProviderProperties;
+  providerProperties?: ProviderProperties | undefined;
 }
 
 /**
@@ -1195,7 +1195,7 @@ export interface CreateMatchingWorkflowInput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -1224,7 +1224,7 @@ export interface CreateMatchingWorkflowInput {
    *             <code>incrementalRunType</code> as a field.</p>
    * @public
    */
-  incrementalRunConfig?: IncrementalRunConfig;
+  incrementalRunConfig?: IncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
@@ -1237,7 +1237,7 @@ export interface CreateMatchingWorkflowInput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface CreateMatchingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -1290,7 +1290,7 @@ export interface CreateMatchingWorkflowOutput {
    *             <code>incrementalRunType</code> as a field.</p>
    * @public
    */
-  incrementalRunConfig?: IncrementalRunConfig;
+  incrementalRunConfig?: IncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
@@ -1359,7 +1359,7 @@ export interface SchemaInputAttribute {
    *          value.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p>A key that allows grouping of multiple input attributes into a unified matching group. </p>
@@ -1371,13 +1371,13 @@ export interface SchemaInputAttribute {
    *          purposes but will still be included in the output table.</p>
    * @public
    */
-  matchKey?: string;
+  matchKey?: string | undefined;
 
   /**
    * <p>The subtype of the attribute, selected from a list of values.</p>
    * @public
    */
-  subType?: string;
+  subType?: string | undefined;
 
   /**
    * <p> Indicates if the column values are hashed in the schema input. If the value is set to
@@ -1385,7 +1385,7 @@ export interface SchemaInputAttribute {
    *             <code>FALSE</code>, the column values are cleartext.</p>
    * @public
    */
-  hashed?: boolean;
+  hashed?: boolean | undefined;
 }
 
 /**
@@ -1403,7 +1403,7 @@ export interface CreateSchemaMappingInput {
    * <p>A description of the schema.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds
@@ -1417,7 +1417,7 @@ export interface CreateSchemaMappingInput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1556,7 +1556,7 @@ export interface DeletePolicyStatementOutput {
    * <p>The resource-based policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -1607,7 +1607,7 @@ export interface ErrorDetails {
    * <p>The error message from the job, if there is one.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1621,37 +1621,37 @@ export interface IdMappingJobMetrics {
    * <p>The total number of records that were input for processing.</p>
    * @public
    */
-  inputRecords?: number;
+  inputRecords?: number | undefined;
 
   /**
    * <p>The total number of records that were processed.</p>
    * @public
    */
-  totalRecordsProcessed?: number;
+  totalRecordsProcessed?: number | undefined;
 
   /**
    * <p>The total number of records that did not get processed.</p>
    * @public
    */
-  recordsNotProcessed?: number;
+  recordsNotProcessed?: number | undefined;
 
   /**
    * <p> The total number of records that were mapped.</p>
    * @public
    */
-  totalMappedRecords?: number;
+  totalMappedRecords?: number | undefined;
 
   /**
    * <p> The total number of mapped source records.</p>
    * @public
    */
-  totalMappedSourceRecords?: number;
+  totalMappedSourceRecords?: number | undefined;
 
   /**
    * <p> The total number of distinct mapped target records.</p>
    * @public
    */
-  totalMappedTargetRecords?: number;
+  totalMappedTargetRecords?: number | undefined;
 }
 
 /**
@@ -1679,7 +1679,7 @@ export interface IdMappingJobOutputSource {
    *          an Entity Resolution managed KMS key.</p>
    * @public
    */
-  KMSArn?: string;
+  KMSArn?: string | undefined;
 }
 
 /**
@@ -1724,26 +1724,26 @@ export interface GetIdMappingJobOutput {
    * <p>The time at which the job has finished.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Metrics associated with the execution, specifically total records processed, unique IDs
    *          generated, and records the execution skipped.</p>
    * @public
    */
-  metrics?: IdMappingJobMetrics;
+  metrics?: IdMappingJobMetrics | undefined;
 
   /**
    * <p>An object containing an error message, if there was an error.</p>
    * @public
    */
-  errorDetails?: ErrorDetails;
+  errorDetails?: ErrorDetails | undefined;
 
   /**
    * <p>A list of <code>OutputSource</code> objects.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingJobOutputSource[];
+  outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
 }
 
 /**
@@ -1778,7 +1778,7 @@ export interface GetIdMappingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -1792,7 +1792,7 @@ export interface GetIdMappingWorkflowOutput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingWorkflowOutputSource[];
+  outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
 
   /**
    * <p>An object which defines the ID mapping technique and any additional
@@ -1818,13 +1818,13 @@ export interface GetIdMappingWorkflowOutput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1858,14 +1858,14 @@ export interface GetIdNamespaceOutput {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
    *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
    * @public
    */
-  inputSourceConfig?: IdNamespaceInputSource[];
+  inputSourceConfig?: IdNamespaceInputSource[] | undefined;
 
   /**
    * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
@@ -1873,7 +1873,7 @@ export interface GetIdNamespaceOutput {
    *          <code>Target</code>.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[] | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -1892,7 +1892,7 @@ export interface GetIdNamespaceOutput {
    *          as part of a workflow run.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the ID namespace was created.</p>
@@ -1910,7 +1910,7 @@ export interface GetIdNamespaceOutput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1936,7 +1936,7 @@ export interface GetMatchIdInput {
    *          in the output to (123)-456-7890.</p>
    * @public
    */
-  applyNormalization?: boolean;
+  applyNormalization?: boolean | undefined;
 }
 
 /**
@@ -1947,13 +1947,13 @@ export interface GetMatchIdOutput {
    * <p>The unique identifiers for this group of match records.</p>
    * @public
    */
-  matchId?: string;
+  matchId?: string | undefined;
 
   /**
    * <p>The rule the record matched on.</p>
    * @public
    */
-  matchRule?: string;
+  matchRule?: string | undefined;
 }
 
 /**
@@ -1983,25 +1983,25 @@ export interface JobMetrics {
    * <p>The total number of input records.</p>
    * @public
    */
-  inputRecords?: number;
+  inputRecords?: number | undefined;
 
   /**
    * <p>The total number of records processed.</p>
    * @public
    */
-  totalRecordsProcessed?: number;
+  totalRecordsProcessed?: number | undefined;
 
   /**
    * <p>The total number of records that did not get processed.</p>
    * @public
    */
-  recordsNotProcessed?: number;
+  recordsNotProcessed?: number | undefined;
 
   /**
    * <p>The total number of <code>matchID</code>s generated.</p>
    * @public
    */
-  matchIDs?: number;
+  matchIDs?: number | undefined;
 }
 
 /**
@@ -2029,7 +2029,7 @@ export interface JobOutputSource {
    *          an Entity Resolution managed KMS key.</p>
    * @public
    */
-  KMSArn?: string;
+  KMSArn?: string | undefined;
 }
 
 /**
@@ -2058,26 +2058,26 @@ export interface GetMatchingJobOutput {
    * <p>The time at which the job has finished.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Metrics associated with the execution, specifically total records processed, unique IDs
    *          generated, and records the execution skipped.</p>
    * @public
    */
-  metrics?: JobMetrics;
+  metrics?: JobMetrics | undefined;
 
   /**
    * <p>An object containing an error message, if there was an error.</p>
    * @public
    */
-  errorDetails?: ErrorDetails;
+  errorDetails?: ErrorDetails | undefined;
 
   /**
    * <p>A list of <code>OutputSource</code> objects.</p>
    * @public
    */
-  outputSourceConfig?: JobOutputSource[];
+  outputSourceConfig?: JobOutputSource[] | undefined;
 }
 
 /**
@@ -2112,7 +2112,7 @@ export interface GetMatchingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -2153,7 +2153,7 @@ export interface GetMatchingWorkflowOutput {
    *             <code>incrementalRunType</code> as a field.</p>
    * @public
    */
-  incrementalRunConfig?: IncrementalRunConfig;
+  incrementalRunConfig?: IncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
@@ -2166,7 +2166,7 @@ export interface GetMatchingWorkflowOutput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2201,7 +2201,7 @@ export interface GetPolicyOutput {
    * <p>The resource-based policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -2242,13 +2242,13 @@ export interface ProviderSchemaAttribute {
    * <p>The sub type of the provider schema attribute.</p>
    * @public
    */
-  subType?: string;
+  subType?: string | undefined;
 
   /**
    * <p>The hashing attribute of the provider schema.</p>
    * @public
    */
-  hashing?: boolean;
+  hashing?: boolean | undefined;
 }
 
 /**
@@ -2260,13 +2260,13 @@ export interface ProviderComponentSchema {
    * <p>Input schema for the provider service.</p>
    * @public
    */
-  schemas?: string[][];
+  schemas?: string[][] | undefined;
 
   /**
    * <p>The provider schema attributes.</p>
    * @public
    */
-  providerSchemaAttributes?: ProviderSchemaAttribute[];
+  providerSchemaAttributes?: ProviderSchemaAttribute[] | undefined;
 }
 
 /**
@@ -2349,19 +2349,19 @@ export interface ProviderIdNameSpaceConfiguration {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configurations required for the target ID namespace.</p>
    * @public
    */
-  providerTargetConfigurationDefinition?: __DocumentType;
+  providerTargetConfigurationDefinition?: __DocumentType | undefined;
 
   /**
    * <p>Configurations required for the source ID namespace.</p>
    * @public
    */
-  providerSourceConfigurationDefinition?: __DocumentType;
+  providerSourceConfigurationDefinition?: __DocumentType | undefined;
 }
 
 /**
@@ -2375,13 +2375,13 @@ export interface ProviderIntermediateDataAccessConfiguration {
    *          customer's intermediate S3 bucket.</p>
    * @public
    */
-  awsAccountIds?: string[];
+  awsAccountIds?: string[] | undefined;
 
   /**
    * <p>The S3 bucket actions that the provider requires permission for.</p>
    * @public
    */
-  requiredBucketActions?: string[];
+  requiredBucketActions?: string[] | undefined;
 }
 
 /**
@@ -2437,19 +2437,19 @@ export interface GetProviderServiceOutput {
    * <p>The definition of the provider configuration.</p>
    * @public
    */
-  providerConfigurationDefinition?: __DocumentType;
+  providerConfigurationDefinition?: __DocumentType | undefined;
 
   /**
    * <p>The provider configuration required for different ID namespace types.</p>
    * @public
    */
-  providerIdNameSpaceConfiguration?: ProviderIdNameSpaceConfiguration;
+  providerIdNameSpaceConfiguration?: ProviderIdNameSpaceConfiguration | undefined;
 
   /**
    * <p>Provider service job configurations.</p>
    * @public
    */
-  providerJobConfiguration?: __DocumentType;
+  providerJobConfiguration?: __DocumentType | undefined;
 
   /**
    * <p>The required configuration fields to use with the provider service.</p>
@@ -2478,13 +2478,13 @@ export interface GetProviderServiceOutput {
    *          providers to create an S3 bucket for intermediate data storage.</p>
    * @public
    */
-  providerIntermediateDataAccessConfiguration?: ProviderIntermediateDataAccessConfiguration;
+  providerIntermediateDataAccessConfiguration?: ProviderIntermediateDataAccessConfiguration | undefined;
 
   /**
    * <p>Input schema for the provider service.</p>
    * @public
    */
-  providerComponentSchema?: ProviderComponentSchema;
+  providerComponentSchema?: ProviderComponentSchema | undefined;
 }
 
 /**
@@ -2519,7 +2519,7 @@ export interface GetSchemaMappingOutput {
    * <p>A description of the schema.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds
@@ -2545,7 +2545,7 @@ export interface GetSchemaMappingOutput {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether the schema mapping has been applied to a workflow.</p>
@@ -2568,13 +2568,13 @@ export interface ListIdMappingJobsInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2605,7 +2605,7 @@ export interface JobSummary {
    * <p>The time at which the job has finished.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -2616,13 +2616,13 @@ export interface ListIdMappingJobsOutput {
    * <p>A list of <code>JobSummary</code> objects.</p>
    * @public
    */
-  jobs?: JobSummary[];
+  jobs?: JobSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2633,13 +2633,13 @@ export interface ListIdMappingWorkflowsInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2683,13 +2683,13 @@ export interface ListIdMappingWorkflowsOutput {
    * <p>A list of <code>IdMappingWorkflowSummary</code> objects.</p>
    * @public
    */
-  workflowSummaries?: IdMappingWorkflowSummary[];
+  workflowSummaries?: IdMappingWorkflowSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2700,13 +2700,13 @@ export interface ListIdNamespacesInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of <code>IdNamespace</code> objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2742,14 +2742,14 @@ export interface IdNamespaceSummary {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An object which defines any additional configurations required by the ID mapping
    *          workflow.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowMetadata[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowMetadata[] | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -2783,13 +2783,13 @@ export interface ListIdNamespacesOutput {
    * <p>A list of <code>IdNamespaceSummaries</code> objects.</p>
    * @public
    */
-  idNamespaceSummaries?: IdNamespaceSummary[];
+  idNamespaceSummaries?: IdNamespaceSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2806,13 +2806,13 @@ export interface ListMatchingJobsInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2824,13 +2824,13 @@ export interface ListMatchingJobsOutput {
    *          time, and end time of a job.</p>
    * @public
    */
-  jobs?: JobSummary[];
+  jobs?: JobSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2841,13 +2841,13 @@ export interface ListMatchingWorkflowsInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2900,13 +2900,13 @@ export interface ListMatchingWorkflowsOutput {
    *             <code>UpdatedAt</code>.</p>
    * @public
    */
-  workflowSummaries?: MatchingWorkflowSummary[];
+  workflowSummaries?: MatchingWorkflowSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2917,19 +2917,19 @@ export interface ListProviderServicesInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of the provider. This name is typically the company name.</p>
    * @public
    */
-  providerName?: string;
+  providerName?: string | undefined;
 }
 
 /**
@@ -2979,13 +2979,13 @@ export interface ListProviderServicesOutput {
    * <p>A list of <code>ProviderServices</code> objects.</p>
    * @public
    */
-  providerServiceSummaries?: ProviderServiceSummary[];
+  providerServiceSummaries?: ProviderServiceSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2996,13 +2996,13 @@ export interface ListSchemaMappingsInput {
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3053,13 +3053,13 @@ export interface ListSchemaMappingsOutput {
    *             <code>UpdatedAt</code>.</p>
    * @public
    */
-  schemaList?: SchemaMappingSummary[];
+  schemaList?: SchemaMappingSummary[] | undefined;
 
   /**
    * <p>The pagination token from the previous API call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3099,7 +3099,7 @@ export interface PutPolicyInput {
    * <p>A unique identifier for the current revision of the policy.</p>
    * @public
    */
-  token?: string;
+  token?: string | undefined;
 
   /**
    * <p>The resource-based policy.</p>
@@ -3134,7 +3134,7 @@ export interface PutPolicyOutput {
    * <p>The resource-based policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -3151,7 +3151,7 @@ export interface StartIdMappingJobInput {
    * <p>A list of <code>OutputSource</code> objects.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingJobOutputSource[];
+  outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
 }
 
 /**
@@ -3168,7 +3168,7 @@ export interface StartIdMappingJobOutput {
    * <p>A list of <code>OutputSource</code> objects.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingJobOutputSource[];
+  outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
 }
 
 /**
@@ -3251,7 +3251,7 @@ export interface UpdateIdMappingWorkflowInput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -3265,7 +3265,7 @@ export interface UpdateIdMappingWorkflowInput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingWorkflowOutputSource[];
+  outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
 
   /**
    * <p>An object which defines the ID mapping technique and any additional
@@ -3279,7 +3279,7 @@ export interface UpdateIdMappingWorkflowInput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -3303,7 +3303,7 @@ export interface UpdateIdMappingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -3317,7 +3317,7 @@ export interface UpdateIdMappingWorkflowOutput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig?: IdMappingWorkflowOutputSource[];
+  outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
 
   /**
    * <p>An object which defines the ID mapping technique and any additional
@@ -3331,7 +3331,7 @@ export interface UpdateIdMappingWorkflowOutput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -3348,14 +3348,14 @@ export interface UpdateIdNamespaceInput {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
    *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
    * @public
    */
-  inputSourceConfig?: IdNamespaceInputSource[];
+  inputSourceConfig?: IdNamespaceInputSource[] | undefined;
 
   /**
    * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
@@ -3363,7 +3363,7 @@ export interface UpdateIdNamespaceInput {
    *          <code>Target</code>.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
@@ -3371,7 +3371,7 @@ export interface UpdateIdNamespaceInput {
    *          as part of a workflow run.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -3394,14 +3394,14 @@ export interface UpdateIdNamespaceOutput {
    * <p>The description of the ID namespace.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
    *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
    * @public
    */
-  inputSourceConfig?: IdNamespaceInputSource[];
+  inputSourceConfig?: IdNamespaceInputSource[] | undefined;
 
   /**
    * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
@@ -3409,7 +3409,7 @@ export interface UpdateIdNamespaceOutput {
    *          <code>Target</code>.</p>
    * @public
    */
-  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[] | undefined;
 
   /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
@@ -3428,7 +3428,7 @@ export interface UpdateIdNamespaceOutput {
    *          as part of a workflow run.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the ID namespace was created.</p>
@@ -3457,7 +3457,7 @@ export interface UpdateMatchingWorkflowInput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -3486,7 +3486,7 @@ export interface UpdateMatchingWorkflowInput {
    *             <code>incrementalRunType</code> as a field.</p>
    * @public
    */
-  incrementalRunConfig?: IncrementalRunConfig;
+  incrementalRunConfig?: IncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to
@@ -3510,7 +3510,7 @@ export interface UpdateMatchingWorkflowOutput {
    * <p>A description of the workflow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>InputSource</code> objects, which have the fields
@@ -3540,7 +3540,7 @@ export interface UpdateMatchingWorkflowOutput {
    *             <code>incrementalRunType</code> as a field.</p>
    * @public
    */
-  incrementalRunConfig?: IncrementalRunConfig;
+  incrementalRunConfig?: IncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
@@ -3565,7 +3565,7 @@ export interface UpdateSchemaMappingInput {
    * <p>A description of the schema.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds
@@ -3597,7 +3597,7 @@ export interface UpdateSchemaMappingOutput {
    * <p>A description of the schema.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds

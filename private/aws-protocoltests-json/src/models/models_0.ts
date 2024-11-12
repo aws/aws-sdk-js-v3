@@ -11,7 +11,7 @@ import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolS
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -34,7 +34,7 @@ export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -44,8 +44,8 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -65,7 +65,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export interface ContentTypeParametersInput {
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -77,7 +77,7 @@ export interface ContentTypeParametersOutput {}
  * @public
  */
 export interface DatetimeOffsetsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
@@ -96,14 +96,14 @@ export interface HostLabelInput {
  * @public
  */
 export interface SimpleStruct {
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface StructWithJsonName {
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -150,14 +150,14 @@ export class FooError extends __BaseException {
  * @public
  */
 export interface FractionalSecondsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -186,12 +186,12 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum;
-  fooEnum2?: FooEnum;
-  fooEnum3?: FooEnum;
-  fooEnumList?: FooEnum[];
-  fooEnumSet?: FooEnum[];
-  fooEnumMap?: Record<string, FooEnum>;
+  fooEnum1?: FooEnum | undefined;
+  fooEnum2?: FooEnum | undefined;
+  fooEnum3?: FooEnum | undefined;
+  fooEnumList?: FooEnum[] | undefined;
+  fooEnumSet?: FooEnum[] | undefined;
+  fooEnumMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
@@ -383,91 +383,91 @@ export interface UnionInputOutput {
    * A union with a representative set of types for members.
    * @public
    */
-  contents?: MyUnion;
+  contents?: MyUnion | undefined;
 }
 
 /**
  * @public
  */
 export interface NullOperationInputOutput {
-  string?: string;
+  string?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithOptionalInputOutputInput {
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithOptionalInputOutputOutput {
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface PutAndGetInlineDocumentsInputOutput {
-  inlineDocument?: __DocumentType;
+  inlineDocument?: __DocumentType | undefined;
 }
 
 /**
  * @public
  */
 export interface PutWithContentEncodingInput {
-  encoding?: string;
-  data?: string;
+  encoding?: string | undefined;
+  data?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesInputOutput {
-  floatValue?: number;
-  doubleValue?: number;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface SparseNullsOperationInputOutput {
-  sparseStringList?: string[];
-  sparseStringMap?: Record<string, string>;
+  sparseStringList?: string[] | undefined;
+  sparseStringMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface KitchenSink {
-  Blob?: Uint8Array;
-  Boolean?: boolean;
-  Double?: number;
-  EmptyStruct?: EmptyStruct;
-  Float?: number;
-  HttpdateTimestamp?: Date;
-  Integer?: number;
-  Iso8601Timestamp?: Date;
-  JsonValue?: __LazyJsonString | string;
-  ListOfLists?: string[][];
-  ListOfMapsOfStrings?: Record<string, string>[];
-  ListOfStrings?: string[];
-  ListOfStructs?: SimpleStruct[];
-  Long?: number;
-  MapOfListsOfStrings?: Record<string, string[]>;
-  MapOfMaps?: Record<string, Record<string, string>>;
-  MapOfStrings?: Record<string, string>;
-  MapOfStructs?: Record<string, SimpleStruct>;
-  RecursiveList?: KitchenSink[];
-  RecursiveMap?: Record<string, KitchenSink>;
-  RecursiveStruct?: KitchenSink;
-  SimpleStruct?: SimpleStruct;
-  String?: string;
-  StructWithJsonName?: StructWithJsonName;
-  Timestamp?: Date;
-  UnixTimestamp?: Date;
+  Blob?: Uint8Array | undefined;
+  Boolean?: boolean | undefined;
+  Double?: number | undefined;
+  EmptyStruct?: EmptyStruct | undefined;
+  Float?: number | undefined;
+  HttpdateTimestamp?: Date | undefined;
+  Integer?: number | undefined;
+  Iso8601Timestamp?: Date | undefined;
+  JsonValue?: __LazyJsonString | string | undefined;
+  ListOfLists?: string[][] | undefined;
+  ListOfMapsOfStrings?: Record<string, string>[] | undefined;
+  ListOfStrings?: string[] | undefined;
+  ListOfStructs?: SimpleStruct[] | undefined;
+  Long?: number | undefined;
+  MapOfListsOfStrings?: Record<string, string[]> | undefined;
+  MapOfMaps?: Record<string, Record<string, string>> | undefined;
+  MapOfStrings?: Record<string, string> | undefined;
+  MapOfStructs?: Record<string, SimpleStruct> | undefined;
+  RecursiveList?: KitchenSink[] | undefined;
+  RecursiveMap?: Record<string, KitchenSink> | undefined;
+  RecursiveStruct?: KitchenSink | undefined;
+  SimpleStruct?: SimpleStruct | undefined;
+  String?: string | undefined;
+  StructWithJsonName?: StructWithJsonName | undefined;
+  Timestamp?: Date | undefined;
+  UnixTimestamp?: Date | undefined;
 }
 
 /**
@@ -476,17 +476,17 @@ export interface KitchenSink {
 export class ErrorWithMembers extends __BaseException {
   readonly name: "ErrorWithMembers" = "ErrorWithMembers";
   readonly $fault: "client" = "client";
-  Code?: string;
-  ComplexData?: KitchenSink;
-  IntegerField?: number;
-  ListField?: string[];
-  MapField?: Record<string, string>;
-  Message?: string;
+  Code?: string | undefined;
+  ComplexData?: KitchenSink | undefined;
+  IntegerField?: number | undefined;
+  ListField?: string[] | undefined;
+  MapField?: Record<string, string> | undefined;
+  Message?: string | undefined;
   /**
    * abc
    * @public
    */
-  StringField?: string;
+  StringField?: string | undefined;
   /**
    * @internal
    */

@@ -29,7 +29,7 @@ export interface AddAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -107,19 +107,19 @@ export interface BatchPutMessageErrorEntry {
    *             <code>messageId</code> key in the message object.</p>
    * @public
    */
-  messageId?: string;
+  messageId?: string | undefined;
 
   /**
    * <p>The code associated with the error.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>The message associated with the error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface BatchPutMessageResponse {
    * <p>A list of any errors encountered when sending the messages to the channel.</p>
    * @public
    */
-  batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
+  batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[] | undefined;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface CustomerManagedChannelS3Storage {
    *       has exactly one key. The prefix must end with a forward slash (/).</p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants IoT Analytics permission to interact with your Amazon S3
@@ -304,7 +304,7 @@ export interface ChannelStorage {
    *       of S3 storage after the data store is created.</p>
    * @public
    */
-  serviceManagedS3?: ServiceManagedChannelS3Storage;
+  serviceManagedS3?: ServiceManagedChannelS3Storage | undefined;
 
   /**
    * <p>Used to store channel data in an S3 bucket that you manage. If customer managed storage is
@@ -312,7 +312,7 @@ export interface ChannelStorage {
    *       of S3 storage after the data store is created.</p>
    * @public
    */
-  customerManagedS3?: CustomerManagedChannelS3Storage;
+  customerManagedS3?: CustomerManagedChannelS3Storage | undefined;
 }
 
 /**
@@ -324,14 +324,14 @@ export interface RetentionPeriod {
    * <p>If true, message data is kept indefinitely.</p>
    * @public
    */
-  unlimited?: boolean;
+  unlimited?: boolean | undefined;
 
   /**
    * <p>The number of days that message data is kept. The <code>unlimited</code> parameter must be
    *       false.</p>
    * @public
    */
-  numberOfDays?: number;
+  numberOfDays?: number | undefined;
 }
 
 /**
@@ -369,20 +369,20 @@ export interface CreateChannelRequest {
    *       created.</p>
    * @public
    */
-  channelStorage?: ChannelStorage;
+  channelStorage?: ChannelStorage | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the channel. When
    *         <code>customerManagedS3</code> storage is selected, this parameter is ignored.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Metadata which can be used to manage the channel.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -393,19 +393,19 @@ export interface CreateChannelResponse {
    * <p>The name of the channel.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>The ARN of the channel.</p>
    * @public
    */
-  channelArn?: string;
+  channelArn?: string | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the channel.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 }
 
 /**
@@ -439,13 +439,13 @@ export class ResourceAlreadyExistsException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * @internal
@@ -540,25 +540,25 @@ export interface Variable {
    * <p>The value of the variable as a string.</p>
    * @public
    */
-  stringValue?: string;
+  stringValue?: string | undefined;
 
   /**
    * <p>The value of the variable as a double (numeric).</p>
    * @public
    */
-  doubleValue?: number;
+  doubleValue?: number | undefined;
 
   /**
    * <p>The value of the variable as a structure that specifies a dataset content version.</p>
    * @public
    */
-  datasetContentVersionValue?: DatasetContentVersionValue;
+  datasetContentVersionValue?: DatasetContentVersionValue | undefined;
 
   /**
    * <p>The value of the variable as a structure that specifies an output file URI.</p>
    * @public
    */
-  outputFileUriValue?: OutputFileUriValue;
+  outputFileUriValue?: OutputFileUriValue | undefined;
 }
 
 /**
@@ -595,7 +595,7 @@ export interface ContainerDatasetAction {
    *       or <code>outputFileUriValue</code>.</p>
    * @public
    */
-  variables?: Variable[];
+  variables?: Variable[] | undefined;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface QueryFilter {
    *       action.</p>
    * @public
    */
-  deltaTime?: DeltaTime;
+  deltaTime?: DeltaTime | undefined;
 }
 
 /**
@@ -654,7 +654,7 @@ export interface SqlQueryDatasetAction {
    * <p>Prefilters applied to message data.</p>
    * @public
    */
-  filters?: QueryFilter[];
+  filters?: QueryFilter[] | undefined;
 }
 
 /**
@@ -667,14 +667,14 @@ export interface DatasetAction {
    * <p>The name of the dataset action by which dataset contents are automatically created.</p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>An <code>SqlQueryDatasetAction</code> object that uses an SQL query to automatically
    *       create dataset contents.</p>
    * @public
    */
-  queryAction?: SqlQueryDatasetAction;
+  queryAction?: SqlQueryDatasetAction | undefined;
 
   /**
    * <p>Information that allows the system to run a containerized application to create the
@@ -682,7 +682,7 @@ export interface DatasetAction {
    *       support libraries.</p>
    * @public
    */
-  containerAction?: ContainerDatasetAction;
+  containerAction?: ContainerDatasetAction | undefined;
 }
 
 /**
@@ -773,7 +773,7 @@ export interface S3DestinationConfiguration {
    *       and load (ETL) service.</p>
    * @public
    */
-  glueConfiguration?: GlueConfiguration;
+  glueConfiguration?: GlueConfiguration | undefined;
 
   /**
    * <p>The ARN of the role that grants IoT Analytics permission to interact with your Amazon S3 and Glue
@@ -792,13 +792,13 @@ export interface DatasetContentDeliveryDestination {
    * <p>Configuration information for delivery of dataset contents to IoT Events.</p>
    * @public
    */
-  iotEventsDestinationConfiguration?: IotEventsDestinationConfiguration;
+  iotEventsDestinationConfiguration?: IotEventsDestinationConfiguration | undefined;
 
   /**
    * <p>Configuration information for delivery of dataset contents to Amazon S3.</p>
    * @public
    */
-  s3DestinationConfiguration?: S3DestinationConfiguration;
+  s3DestinationConfiguration?: S3DestinationConfiguration | undefined;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface DatasetContentDeliveryRule {
    * <p>The name of the dataset content delivery rules entry.</p>
    * @public
    */
-  entryName?: string;
+  entryName?: string | undefined;
 
   /**
    * <p>The destination to which dataset contents are delivered.</p>
@@ -854,7 +854,7 @@ export interface LateDataRuleConfiguration {
    * <p>The information needed to configure a delta time session window.</p>
    * @public
    */
-  deltaTimeSessionWindowConfiguration?: DeltaTimeSessionWindowConfiguration;
+  deltaTimeSessionWindowConfiguration?: DeltaTimeSessionWindowConfiguration | undefined;
 }
 
 /**
@@ -867,7 +867,7 @@ export interface LateDataRule {
    * <p>The name of the late data rule.</p>
    * @public
    */
-  ruleName?: string;
+  ruleName?: string | undefined;
 
   /**
    * <p>The information needed to configure the late data rule.</p>
@@ -901,7 +901,7 @@ export interface Schedule {
    *         Guide</i>.</p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 }
 
 /**
@@ -914,14 +914,14 @@ export interface DatasetTrigger {
    * <p>The Schedule when the trigger is initiated.</p>
    * @public
    */
-  schedule?: Schedule;
+  schedule?: Schedule | undefined;
 
   /**
    * <p>The dataset whose content creation triggers the creation of this dataset's
    *       contents.</p>
    * @public
    */
-  dataset?: TriggeringDataset;
+  dataset?: TriggeringDataset | undefined;
 }
 
 /**
@@ -933,14 +933,14 @@ export interface VersioningConfiguration {
    * <p>If true, unlimited versions of dataset contents are kept.</p>
    * @public
    */
-  unlimited?: boolean;
+  unlimited?: boolean | undefined;
 
   /**
    * <p>How many versions of dataset contents are kept. The <code>unlimited</code> parameter must
    *       be <code>false</code>.</p>
    * @public
    */
-  maxVersions?: number;
+  maxVersions?: number | undefined;
 }
 
 /**
@@ -965,14 +965,14 @@ export interface CreateDatasetRequest {
    *       contain up to five <code>DataSetTrigger</code> objects.</p>
    * @public
    */
-  triggers?: DatasetTrigger[];
+  triggers?: DatasetTrigger[] | undefined;
 
   /**
    * <p>When dataset contents are created, they are delivered to destinations specified
    *       here.</p>
    * @public
    */
-  contentDeliveryRules?: DatasetContentDeliveryRule[];
+  contentDeliveryRules?: DatasetContentDeliveryRule[] | undefined;
 
   /**
    * <p>Optional. How long, in days, versions of dataset contents are kept for the dataset. If not
@@ -983,7 +983,7 @@ export interface CreateDatasetRequest {
    *         <i>IoT Analytics User Guide</i>.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
@@ -993,19 +993,19 @@ export interface CreateDatasetRequest {
    *         <i>IoT Analytics User Guide</i>.</p>
    * @public
    */
-  versioningConfiguration?: VersioningConfiguration;
+  versioningConfiguration?: VersioningConfiguration | undefined;
 
   /**
    * <p>Metadata which can be used to manage the dataset.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>A list of data rules that send notifications to CloudWatch, when data arrives late. To specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a> filter.</p>
    * @public
    */
-  lateDataRules?: LateDataRule[];
+  lateDataRules?: LateDataRule[] | undefined;
 }
 
 /**
@@ -1016,19 +1016,19 @@ export interface CreateDatasetResponse {
    * <p>The name of the dataset.</p>
    * @public
    */
-  datasetName?: string;
+  datasetName?: string | undefined;
 
   /**
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>How long, in days, dataset contents are kept for the dataset.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 }
 
 /**
@@ -1046,7 +1046,7 @@ export interface CreateDatasetContentRequest {
    *       content, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a> filter.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -1057,7 +1057,7 @@ export interface CreateDatasetContentResponse {
    * <p>The version ID of the dataset contents that are being created.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -1088,7 +1088,7 @@ export interface TimestampPartition {
    *       since epoch (January 1, 1970 at midnight UTC time). </p>
    * @public
    */
-  timestampFormat?: string;
+  timestampFormat?: string | undefined;
 }
 
 /**
@@ -1101,13 +1101,13 @@ export interface DatastorePartition {
    * <p> A partition dimension defined by an <code>attributeName</code>. </p>
    * @public
    */
-  attributePartition?: Partition;
+  attributePartition?: Partition | undefined;
 
   /**
    * <p> A partition dimension defined by a timestamp attribute. </p>
    * @public
    */
-  timestampPartition?: TimestampPartition;
+  timestampPartition?: TimestampPartition | undefined;
 }
 
 /**
@@ -1119,7 +1119,7 @@ export interface DatastorePartitions {
    * <p> A list of partition dimensions in a data store. </p>
    * @public
    */
-  partitions?: DatastorePartition[];
+  partitions?: DatastorePartition[] | undefined;
 }
 
 /**
@@ -1137,7 +1137,7 @@ export interface CustomerManagedDatastoreS3Storage {
    * <p>(Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).</p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants IoT Analytics permission to interact with your Amazon S3 resources.</p>
@@ -1161,7 +1161,7 @@ export interface IotSiteWiseCustomerManagedDatastoreS3Storage {
    * <p> (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/). </p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 }
 
 /**
@@ -1291,7 +1291,7 @@ export interface SchemaDefinition {
    *       types.</p>
    * @public
    */
-  columns?: Column[];
+  columns?: Column[] | undefined;
 }
 
 /**
@@ -1303,7 +1303,7 @@ export interface ParquetConfiguration {
    * <p>Information needed to define a schema.</p>
    * @public
    */
-  schemaDefinition?: SchemaDefinition;
+  schemaDefinition?: SchemaDefinition | undefined;
 }
 
 /**
@@ -1317,13 +1317,13 @@ export interface FileFormatConfiguration {
    * <p>Contains the configuration information of the JSON format.</p>
    * @public
    */
-  jsonConfiguration?: JsonConfiguration;
+  jsonConfiguration?: JsonConfiguration | undefined;
 
   /**
    * <p>Contains the configuration information of the Parquet format.</p>
    * @public
    */
-  parquetConfiguration?: ParquetConfiguration;
+  parquetConfiguration?: ParquetConfiguration | undefined;
 }
 
 /**
@@ -1340,20 +1340,20 @@ export interface CreateDatastoreRequest {
    * <p>Where data in a data store is stored.. You can choose <code>serviceManagedS3</code> storage, <code>customerManagedS3</code> storage, or <code>iotSiteWiseMultiLayerStorage</code> storage. The default is <code>serviceManagedS3</code>. You can't change the choice of Amazon S3 storage after your data store is created. </p>
    * @public
    */
-  datastoreStorage?: DatastoreStorage;
+  datastoreStorage?: DatastoreStorage | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the data store. When
    *         <code>customerManagedS3</code> storage is selected, this parameter is ignored.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Metadata which can be used to manage the data store.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Contains the configuration information of file formats.  IoT Analytics data stores support JSON and <a href="https://parquet.apache.org/">Parquet</a>.</p>
@@ -1361,13 +1361,13 @@ export interface CreateDatastoreRequest {
    *          <p>You can't change the file format after you create the data store.</p>
    * @public
    */
-  fileFormatConfiguration?: FileFormatConfiguration;
+  fileFormatConfiguration?: FileFormatConfiguration | undefined;
 
   /**
    * <p> Contains information about the partition dimensions in a data store. </p>
    * @public
    */
-  datastorePartitions?: DatastorePartitions;
+  datastorePartitions?: DatastorePartitions | undefined;
 }
 
 /**
@@ -1378,19 +1378,19 @@ export interface CreateDatastoreResponse {
    * <p>The name of the data store.</p>
    * @public
    */
-  datastoreName?: string;
+  datastoreName?: string | undefined;
 
   /**
    * <p>The ARN of the data store.</p>
    * @public
    */
-  datastoreArn?: string;
+  datastoreArn?: string | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the data store.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 }
 
 /**
@@ -1414,7 +1414,7 @@ export interface ChannelActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1468,7 +1468,7 @@ export interface DeviceRegistryEnrichActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1505,7 +1505,7 @@ export interface DeviceShadowEnrichActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1530,7 +1530,7 @@ export interface FilterActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface LambdaActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1593,7 +1593,7 @@ export interface MathActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1617,7 +1617,7 @@ export interface RemoveAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1642,7 +1642,7 @@ export interface SelectAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    * @public
    */
-  next?: string;
+  next?: string | undefined;
 }
 
 /**
@@ -1654,63 +1654,63 @@ export interface PipelineActivity {
    * <p>Determines the source of the messages to be processed.</p>
    * @public
    */
-  channel?: ChannelActivity;
+  channel?: ChannelActivity | undefined;
 
   /**
    * <p>Runs a Lambda function to modify the message.</p>
    * @public
    */
-  lambda?: LambdaActivity;
+  lambda?: LambdaActivity | undefined;
 
   /**
    * <p>Specifies where to store the processed message data.</p>
    * @public
    */
-  datastore?: DatastoreActivity;
+  datastore?: DatastoreActivity | undefined;
 
   /**
    * <p>Adds other attributes based on existing attributes in the message.</p>
    * @public
    */
-  addAttributes?: AddAttributesActivity;
+  addAttributes?: AddAttributesActivity | undefined;
 
   /**
    * <p>Removes attributes from a message.</p>
    * @public
    */
-  removeAttributes?: RemoveAttributesActivity;
+  removeAttributes?: RemoveAttributesActivity | undefined;
 
   /**
    * <p>Used to create a new message using only the specified attributes from the original
    *       message. </p>
    * @public
    */
-  selectAttributes?: SelectAttributesActivity;
+  selectAttributes?: SelectAttributesActivity | undefined;
 
   /**
    * <p>Filters a message based on its attributes.</p>
    * @public
    */
-  filter?: FilterActivity;
+  filter?: FilterActivity | undefined;
 
   /**
    * <p>Computes an arithmetic expression using the message's attributes and adds it to the
    *       message.</p>
    * @public
    */
-  math?: MathActivity;
+  math?: MathActivity | undefined;
 
   /**
    * <p>Adds data from the IoT device registry to your message.</p>
    * @public
    */
-  deviceRegistryEnrich?: DeviceRegistryEnrichActivity;
+  deviceRegistryEnrich?: DeviceRegistryEnrichActivity | undefined;
 
   /**
    * <p>Adds information from the IoT Device Shadow service to a message.</p>
    * @public
    */
-  deviceShadowEnrich?: DeviceShadowEnrichActivity;
+  deviceShadowEnrich?: DeviceShadowEnrichActivity | undefined;
 }
 
 /**
@@ -1743,7 +1743,7 @@ export interface CreatePipelineRequest {
    * <p>Metadata which can be used to manage the pipeline.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1754,13 +1754,13 @@ export interface CreatePipelineResponse {
    * <p>The name of the pipeline.</p>
    * @public
    */
-  pipelineName?: string;
+  pipelineName?: string | undefined;
 
   /**
    * <p>The ARN of the pipeline.</p>
    * @public
    */
-  pipelineArn?: string;
+  pipelineArn?: string | undefined;
 }
 
 /**
@@ -1801,7 +1801,7 @@ export interface DeleteDatasetContentRequest {
    *       set. If not specified, "$LATEST_SUCCEEDED" is the default.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -1841,7 +1841,7 @@ export interface DescribeChannelRequest {
    *       This feature can't be used with a channel whose S3 storage is customer-managed.</p>
    * @public
    */
-  includeStatistics?: boolean;
+  includeStatistics?: boolean | undefined;
 }
 
 /**
@@ -1869,7 +1869,7 @@ export interface Channel {
    * <p>The name of the channel.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Where channel data is stored. You can choose one of <code>serviceManagedS3</code> or
@@ -1878,37 +1878,37 @@ export interface Channel {
    *       created.</p>
    * @public
    */
-  storage?: ChannelStorage;
+  storage?: ChannelStorage | undefined;
 
   /**
    * <p>The ARN of the channel.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status of the channel.</p>
    * @public
    */
-  status?: ChannelStatus;
+  status?: ChannelStatus | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the channel.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>When the channel was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>When the channel was last updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The last time when a new message arrived in the channel.</p>
@@ -1916,7 +1916,7 @@ export interface Channel {
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    * @public
    */
-  lastMessageArrivalTime?: Date;
+  lastMessageArrivalTime?: Date | undefined;
 }
 
 /**
@@ -1928,13 +1928,13 @@ export interface EstimatedResourceSize {
    * <p>The estimated size of the resource, in bytes.</p>
    * @public
    */
-  estimatedSizeInBytes?: number;
+  estimatedSizeInBytes?: number | undefined;
 
   /**
    * <p>The time when the estimate of the size of the resource was made.</p>
    * @public
    */
-  estimatedOn?: Date;
+  estimatedOn?: Date | undefined;
 }
 
 /**
@@ -1946,7 +1946,7 @@ export interface ChannelStatistics {
    * <p>The estimated size of the channel.</p>
    * @public
    */
-  size?: EstimatedResourceSize;
+  size?: EstimatedResourceSize | undefined;
 }
 
 /**
@@ -1957,14 +1957,14 @@ export interface DescribeChannelResponse {
    * <p>An object that contains information about the channel.</p>
    * @public
    */
-  channel?: Channel;
+  channel?: Channel | undefined;
 
   /**
    * <p>Statistics about the channel. Included if the <code>includeStatistics</code> parameter is
    *       set to <code>true</code> in the request.</p>
    * @public
    */
-  statistics?: ChannelStatistics;
+  statistics?: ChannelStatistics | undefined;
 }
 
 /**
@@ -2002,58 +2002,58 @@ export interface Dataset {
    * <p>The name of the dataset.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The <code>DatasetAction</code> objects that automatically create the dataset
    *       contents.</p>
    * @public
    */
-  actions?: DatasetAction[];
+  actions?: DatasetAction[] | undefined;
 
   /**
    * <p>The <code>DatasetTrigger</code> objects that specify when the dataset is automatically
    *       updated.</p>
    * @public
    */
-  triggers?: DatasetTrigger[];
+  triggers?: DatasetTrigger[] | undefined;
 
   /**
    * <p>When dataset contents are created they are delivered to destinations specified
    *       here.</p>
    * @public
    */
-  contentDeliveryRules?: DatasetContentDeliveryRule[];
+  contentDeliveryRules?: DatasetContentDeliveryRule[] | undefined;
 
   /**
    * <p>The status of the dataset.</p>
    * @public
    */
-  status?: DatasetStatus;
+  status?: DatasetStatus | undefined;
 
   /**
    * <p>When the dataset was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the dataset was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>Optional. How long, in days, message data is kept for the dataset.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
@@ -2064,13 +2064,13 @@ export interface Dataset {
    *         <i>IoT Analytics User Guide</i>.</p>
    * @public
    */
-  versioningConfiguration?: VersioningConfiguration;
+  versioningConfiguration?: VersioningConfiguration | undefined;
 
   /**
    * <p>A list of data rules that send notifications to CloudWatch, when data arrives late. To specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a> filter.</p>
    * @public
    */
-  lateDataRules?: LateDataRule[];
+  lateDataRules?: LateDataRule[] | undefined;
 }
 
 /**
@@ -2081,7 +2081,7 @@ export interface DescribeDatasetResponse {
    * <p>An object that contains information about the dataset.</p>
    * @public
    */
-  dataset?: Dataset;
+  dataset?: Dataset | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface DescribeDatastoreRequest {
    *       customer-managed.</p>
    * @public
    */
-  includeStatistics?: boolean;
+  includeStatistics?: boolean | undefined;
 }
 
 /**
@@ -2127,19 +2127,19 @@ export interface Datastore {
    * <p>The name of the data store.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Where data in a data store is stored.. You can choose <code>serviceManagedS3</code> storage, <code>customerManagedS3</code> storage, or <code>iotSiteWiseMultiLayerStorage</code> storage. The default is <code>serviceManagedS3</code>. You can't change the choice of Amazon S3 storage after your data store is created. </p>
    * @public
    */
-  storage?: DatastoreStorage;
+  storage?: DatastoreStorage | undefined;
 
   /**
    * <p>The ARN of the data store.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status of a data store:</p>
@@ -2159,26 +2159,26 @@ export interface Datastore {
    *          </dl>
    * @public
    */
-  status?: DatastoreStatus;
+  status?: DatastoreStatus | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the data store. When
    *         <code>customerManagedS3</code> storage is selected, this parameter is ignored.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>When the data store was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the data store was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The last time when a new message arrived in the data store.</p>
@@ -2186,7 +2186,7 @@ export interface Datastore {
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    * @public
    */
-  lastMessageArrivalTime?: Date;
+  lastMessageArrivalTime?: Date | undefined;
 
   /**
    * <p>Contains the configuration information of file formats.  IoT Analytics data stores support JSON and <a href="https://parquet.apache.org/">Parquet</a>.</p>
@@ -2194,13 +2194,13 @@ export interface Datastore {
    *          <p>You can't change the file format after you create the data store.</p>
    * @public
    */
-  fileFormatConfiguration?: FileFormatConfiguration;
+  fileFormatConfiguration?: FileFormatConfiguration | undefined;
 
   /**
    * <p> Contains information about the partition dimensions in a data store. </p>
    * @public
    */
-  datastorePartitions?: DatastorePartitions;
+  datastorePartitions?: DatastorePartitions | undefined;
 }
 
 /**
@@ -2212,7 +2212,7 @@ export interface DatastoreStatistics {
    * <p>The estimated size of the data store.</p>
    * @public
    */
-  size?: EstimatedResourceSize;
+  size?: EstimatedResourceSize | undefined;
 }
 
 /**
@@ -2223,14 +2223,14 @@ export interface DescribeDatastoreResponse {
    * <p>Information about the data store.</p>
    * @public
    */
-  datastore?: Datastore;
+  datastore?: Datastore | undefined;
 
   /**
    * <p>Additional statistical information about the data store. Included if the
    *         <code>includeStatistics</code> parameter is set to <code>true</code> in the request.</p>
    * @public
    */
-  statistics?: DatastoreStatistics;
+  statistics?: DatastoreStatistics | undefined;
 }
 
 /**
@@ -2283,7 +2283,7 @@ export interface DescribeLoggingOptionsResponse {
    * <p>The current settings of the IoT Analytics logging options.</p>
    * @public
    */
-  loggingOptions?: LoggingOptions;
+  loggingOptions?: LoggingOptions | undefined;
 }
 
 /**
@@ -2322,19 +2322,19 @@ export interface ReprocessingSummary {
    * <p>The <code>reprocessingId</code> returned by <code>StartPipelineReprocessing</code>.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status of the pipeline reprocessing.</p>
    * @public
    */
-  status?: ReprocessingStatus;
+  status?: ReprocessingStatus | undefined;
 
   /**
    * <p>The time the pipeline reprocessing was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 }
 
 /**
@@ -2346,37 +2346,37 @@ export interface Pipeline {
    * <p>The name of the pipeline.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the pipeline.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The activities that perform transformations on the messages.</p>
    * @public
    */
-  activities?: PipelineActivity[];
+  activities?: PipelineActivity[] | undefined;
 
   /**
    * <p>A summary of information about the pipeline reprocessing.</p>
    * @public
    */
-  reprocessingSummaries?: ReprocessingSummary[];
+  reprocessingSummaries?: ReprocessingSummary[] | undefined;
 
   /**
    * <p>When the pipeline was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the pipeline was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -2387,7 +2387,7 @@ export interface DescribePipelineResponse {
    * <p>A <code>Pipeline</code> object that contains information about the pipeline.</p>
    * @public
    */
-  pipeline?: Pipeline;
+  pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -2406,7 +2406,7 @@ export interface GetDatasetContentRequest {
    *       completed dataset. If not specified, "$LATEST_SUCCEEDED" is the default.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -2418,13 +2418,13 @@ export interface DatasetEntry {
    * <p>The name of the dataset item.</p>
    * @public
    */
-  entryName?: string;
+  entryName?: string | undefined;
 
   /**
    * <p>The presigned URI of the dataset item.</p>
    * @public
    */
-  dataURI?: string;
+  dataURI?: string | undefined;
 }
 
 /**
@@ -2452,13 +2452,13 @@ export interface DatasetContentStatus {
    *       FAILED.</p>
    * @public
    */
-  state?: DatasetContentState;
+  state?: DatasetContentState | undefined;
 
   /**
    * <p>The reason the dataset contents are in this state.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -2469,19 +2469,19 @@ export interface GetDatasetContentResponse {
    * <p>A list of <code>DatasetEntry</code> objects.</p>
    * @public
    */
-  entries?: DatasetEntry[];
+  entries?: DatasetEntry[] | undefined;
 
   /**
    * <p>The time when the request was made.</p>
    * @public
    */
-  timestamp?: Date;
+  timestamp?: Date | undefined;
 
   /**
    * <p>The status of the dataset content.</p>
    * @public
    */
-  status?: DatasetContentStatus;
+  status?: DatasetContentStatus | undefined;
 }
 
 /**
@@ -2492,14 +2492,14 @@ export interface ListChannelsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2511,7 +2511,7 @@ export interface CustomerManagedChannelS3StorageSummary {
    * <p>The name of the S3 bucket in which channel data is stored.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>(Optional) The prefix used to create the keys of the channel data objects. Each object in
@@ -2519,14 +2519,14 @@ export interface CustomerManagedChannelS3StorageSummary {
    *       bucket has exactly one key). The prefix must end with a forward slash (/).</p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants IoT Analytics permission to interact with your Amazon S3
    *       resources.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -2544,13 +2544,13 @@ export interface ChannelStorageSummary {
    * <p>Used to store channel data in an S3 bucket managed by IoT Analytics.</p>
    * @public
    */
-  serviceManagedS3?: ServiceManagedChannelS3StorageSummary;
+  serviceManagedS3?: ServiceManagedChannelS3StorageSummary | undefined;
 
   /**
    * <p>Used to store channel data in an S3 bucket that you manage.</p>
    * @public
    */
-  customerManagedS3?: CustomerManagedChannelS3StorageSummary;
+  customerManagedS3?: CustomerManagedChannelS3StorageSummary | undefined;
 }
 
 /**
@@ -2562,31 +2562,31 @@ export interface ChannelSummary {
    * <p>The name of the channel.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>Where channel data is stored.</p>
    * @public
    */
-  channelStorage?: ChannelStorageSummary;
+  channelStorage?: ChannelStorageSummary | undefined;
 
   /**
    * <p>The status of the channel.</p>
    * @public
    */
-  status?: ChannelStatus;
+  status?: ChannelStatus | undefined;
 
   /**
    * <p>When the channel was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the channel was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The last time when a new message arrived in the channel.</p>
@@ -2594,7 +2594,7 @@ export interface ChannelSummary {
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    * @public
    */
-  lastMessageArrivalTime?: Date;
+  lastMessageArrivalTime?: Date | undefined;
 }
 
 /**
@@ -2605,14 +2605,14 @@ export interface ListChannelsResponse {
    * <p>A list of <code>ChannelSummary</code> objects.</p>
    * @public
    */
-  channelSummaries?: ChannelSummary[];
+  channelSummaries?: ChannelSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2629,13 +2629,13 @@ export interface ListDatasetContentsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A filter to limit results to those dataset contents whose creation is scheduled on or
@@ -2643,7 +2643,7 @@ export interface ListDatasetContentsRequest {
    *         <code>CreateDataset</code> request. (timestamp)</p>
    * @public
    */
-  scheduledOnOrAfter?: Date;
+  scheduledOnOrAfter?: Date | undefined;
 
   /**
    * <p>A filter to limit results to those dataset contents whose creation is scheduled before the
@@ -2651,7 +2651,7 @@ export interface ListDatasetContentsRequest {
    *       request. (timestamp)</p>
    * @public
    */
-  scheduledBefore?: Date;
+  scheduledBefore?: Date | undefined;
 }
 
 /**
@@ -2663,31 +2663,31 @@ export interface DatasetContentSummary {
    * <p>The version of the dataset contents.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The status of the dataset contents.</p>
    * @public
    */
-  status?: DatasetContentStatus;
+  status?: DatasetContentStatus | undefined;
 
   /**
    * <p>The actual time the creation of the dataset contents was started.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time the creation of the dataset contents was scheduled to start.</p>
    * @public
    */
-  scheduleTime?: Date;
+  scheduleTime?: Date | undefined;
 
   /**
    * <p>The time the dataset content status was updated to SUCCEEDED or FAILED.</p>
    * @public
    */
-  completionTime?: Date;
+  completionTime?: Date | undefined;
 }
 
 /**
@@ -2698,14 +2698,14 @@ export interface ListDatasetContentsResponse {
    * <p>Summary information about dataset contents that have been created.</p>
    * @public
    */
-  datasetContentSummaries?: DatasetContentSummary[];
+  datasetContentSummaries?: DatasetContentSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2716,14 +2716,14 @@ export interface ListDatasetsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2749,13 +2749,13 @@ export interface DatasetActionSummary {
    * <p>The name of the action that automatically creates the dataset's contents.</p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>The type of action by which the dataset's contents are automatically created.</p>
    * @public
    */
-  actionType?: DatasetActionType;
+  actionType?: DatasetActionType | undefined;
 }
 
 /**
@@ -2767,25 +2767,25 @@ export interface DatasetSummary {
    * <p>The name of the dataset.</p>
    * @public
    */
-  datasetName?: string;
+  datasetName?: string | undefined;
 
   /**
    * <p>The status of the dataset.</p>
    * @public
    */
-  status?: DatasetStatus;
+  status?: DatasetStatus | undefined;
 
   /**
    * <p>The time the dataset was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the dataset was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>A list of triggers. A trigger causes dataset content to be populated at a specified time
@@ -2793,13 +2793,13 @@ export interface DatasetSummary {
    *       to five <code>DataSetTrigger</code> objects</p>
    * @public
    */
-  triggers?: DatasetTrigger[];
+  triggers?: DatasetTrigger[] | undefined;
 
   /**
    * <p>A list of <code>DataActionSummary</code> objects.</p>
    * @public
    */
-  actions?: DatasetActionSummary[];
+  actions?: DatasetActionSummary[] | undefined;
 }
 
 /**
@@ -2810,14 +2810,14 @@ export interface ListDatasetsResponse {
    * <p>A list of <code>DatasetSummary</code> objects.</p>
    * @public
    */
-  datasetSummaries?: DatasetSummary[];
+  datasetSummaries?: DatasetSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2828,14 +2828,14 @@ export interface ListDatastoresRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2847,19 +2847,19 @@ export interface CustomerManagedDatastoreS3StorageSummary {
    * <p>The name of the Amazon S3 bucket where your data is stored.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>(Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).</p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants IoT Analytics permission to interact with your Amazon S3 resources.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -2871,13 +2871,13 @@ export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
    * <p> The name of the Amazon S3 bucket where your data is stored. </p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p> (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/). </p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 }
 
 /**
@@ -2889,7 +2889,7 @@ export interface DatastoreIotSiteWiseMultiLayerStorageSummary {
    * <p>Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage.</p>
    * @public
    */
-  customerManagedS3Storage?: IotSiteWiseCustomerManagedDatastoreS3StorageSummary;
+  customerManagedS3Storage?: IotSiteWiseCustomerManagedDatastoreS3StorageSummary | undefined;
 }
 
 /**
@@ -2907,19 +2907,19 @@ export interface DatastoreStorageSummary {
    * <p>Used to store data in an Amazon S3 bucket managed by IoT Analytics.</p>
    * @public
    */
-  serviceManagedS3?: ServiceManagedDatastoreS3StorageSummary;
+  serviceManagedS3?: ServiceManagedDatastoreS3StorageSummary | undefined;
 
   /**
    * <p>Used to store data in an Amazon S3 bucket managed by IoT Analytics.</p>
    * @public
    */
-  customerManagedS3?: CustomerManagedDatastoreS3StorageSummary;
+  customerManagedS3?: CustomerManagedDatastoreS3StorageSummary | undefined;
 
   /**
    * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. </p>
    * @public
    */
-  iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorageSummary;
+  iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorageSummary | undefined;
 }
 
 /**
@@ -2945,31 +2945,31 @@ export interface DatastoreSummary {
    * <p>The name of the data store.</p>
    * @public
    */
-  datastoreName?: string;
+  datastoreName?: string | undefined;
 
   /**
    * <p>Where data in a data store is stored.</p>
    * @public
    */
-  datastoreStorage?: DatastoreStorageSummary;
+  datastoreStorage?: DatastoreStorageSummary | undefined;
 
   /**
    * <p>The status of the data store.</p>
    * @public
    */
-  status?: DatastoreStatus;
+  status?: DatastoreStatus | undefined;
 
   /**
    * <p>When the data store was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the data store was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The last time when a new message arrived in the data store.</p>
@@ -2977,19 +2977,19 @@ export interface DatastoreSummary {
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    * @public
    */
-  lastMessageArrivalTime?: Date;
+  lastMessageArrivalTime?: Date | undefined;
 
   /**
    * <p>The file format of the data in the data store.</p>
    * @public
    */
-  fileFormatType?: FileFormatType;
+  fileFormatType?: FileFormatType | undefined;
 
   /**
    * <p> Contains information about the partition dimensions in a data store. </p>
    * @public
    */
-  datastorePartitions?: DatastorePartitions;
+  datastorePartitions?: DatastorePartitions | undefined;
 }
 
 /**
@@ -3000,14 +3000,14 @@ export interface ListDatastoresResponse {
    * <p>A list of <code>DatastoreSummary</code> objects.</p>
    * @public
    */
-  datastoreSummaries?: DatastoreSummary[];
+  datastoreSummaries?: DatastoreSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3018,14 +3018,14 @@ export interface ListPipelinesRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3037,25 +3037,25 @@ export interface PipelineSummary {
    * <p>The name of the pipeline.</p>
    * @public
    */
-  pipelineName?: string;
+  pipelineName?: string | undefined;
 
   /**
    * <p>A summary of information about the pipeline reprocessing.</p>
    * @public
    */
-  reprocessingSummaries?: ReprocessingSummary[];
+  reprocessingSummaries?: ReprocessingSummary[] | undefined;
 
   /**
    * <p>When the pipeline was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>When the pipeline was last updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -3066,14 +3066,14 @@ export interface ListPipelinesResponse {
    * <p>A list of <code>PipelineSummary</code> objects.</p>
    * @public
    */
-  pipelineSummaries?: PipelineSummary[];
+  pipelineSummaries?: PipelineSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3095,7 +3095,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags (metadata) that you have assigned to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3140,13 +3140,13 @@ export interface RunPipelineActivityResponse {
    *       base64.)</p>
    * @public
    */
-  payloads?: Uint8Array[];
+  payloads?: Uint8Array[] | undefined;
 
   /**
    * <p>In case the pipeline activity fails, the log message that is generated.</p>
    * @public
    */
-  logResult?: string;
+  logResult?: string | undefined;
 }
 
 /**
@@ -3164,19 +3164,19 @@ export interface SampleChannelDataRequest {
    *       10.</p>
    * @public
    */
-  maxMessages?: number;
+  maxMessages?: number | undefined;
 
   /**
    * <p>The start of the time window from which sample messages are retrieved.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end of the time window from which sample messages are retrieved.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -3188,7 +3188,7 @@ export interface SampleChannelDataResponse {
    *       string.</p>
    * @public
    */
-  payloads?: Uint8Array[];
+  payloads?: Uint8Array[] | undefined;
 }
 
 /**
@@ -3205,7 +3205,7 @@ export interface ChannelMessages {
    *          </p>
    * @public
    */
-  s3Paths?: string[];
+  s3Paths?: string[] | undefined;
 }
 
 /**
@@ -3224,7 +3224,7 @@ export interface StartPipelineReprocessingRequest {
    *         <code>channelMessages</code> object.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
@@ -3232,7 +3232,7 @@ export interface StartPipelineReprocessingRequest {
    *         <code>channelMessages</code> object.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Specifies one or more sets of channel messages that you want to reprocess.</p>
@@ -3240,7 +3240,7 @@ export interface StartPipelineReprocessingRequest {
    *         <code>startTime</code> and <code>endTime</code>.</p>
    * @public
    */
-  channelMessages?: ChannelMessages;
+  channelMessages?: ChannelMessages | undefined;
 }
 
 /**
@@ -3251,7 +3251,7 @@ export interface StartPipelineReprocessingResponse {
    * <p>The ID of the pipeline reprocessing activity that was started.</p>
    * @public
    */
-  reprocessingId?: string;
+  reprocessingId?: string | undefined;
 }
 
 /**
@@ -3315,14 +3315,14 @@ export interface UpdateChannelRequest {
    *       created.</p>
    * @public
    */
-  channelStorage?: ChannelStorage;
+  channelStorage?: ChannelStorage | undefined;
 
   /**
    * <p>How long, in days, message data is kept for the channel. The retention period can't be
    *       updated if the channel's Amazon S3 storage is customer-managed.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 }
 
 /**
@@ -3346,20 +3346,20 @@ export interface UpdateDatasetRequest {
    *       five <code>DatasetTrigger</code> objects.</p>
    * @public
    */
-  triggers?: DatasetTrigger[];
+  triggers?: DatasetTrigger[] | undefined;
 
   /**
    * <p>When dataset contents are created, they are delivered to destinations specified
    *       here.</p>
    * @public
    */
-  contentDeliveryRules?: DatasetContentDeliveryRule[];
+  contentDeliveryRules?: DatasetContentDeliveryRule[] | undefined;
 
   /**
    * <p>How long, in days, dataset contents are kept for the dataset.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
@@ -3369,13 +3369,13 @@ export interface UpdateDatasetRequest {
    *         <i>IoT Analytics User Guide</i>.</p>
    * @public
    */
-  versioningConfiguration?: VersioningConfiguration;
+  versioningConfiguration?: VersioningConfiguration | undefined;
 
   /**
    * <p>A list of data rules that send notifications to CloudWatch, when data arrives late. To specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a> filter.</p>
    * @public
    */
-  lateDataRules?: LateDataRule[];
+  lateDataRules?: LateDataRule[] | undefined;
 }
 
 /**
@@ -3393,13 +3393,13 @@ export interface UpdateDatastoreRequest {
    *       updated if the data store's Amazon S3 storage is customer-managed.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Where data in a data store is stored.. You can choose <code>serviceManagedS3</code> storage, <code>customerManagedS3</code> storage, or <code>iotSiteWiseMultiLayerStorage</code> storage. The default is <code>serviceManagedS3</code>. You can't change the choice of Amazon S3 storage after your data store is created. </p>
    * @public
    */
-  datastoreStorage?: DatastoreStorage;
+  datastoreStorage?: DatastoreStorage | undefined;
 
   /**
    * <p>Contains the configuration information of file formats.  IoT Analytics data stores support JSON and <a href="https://parquet.apache.org/">Parquet</a>.</p>
@@ -3407,7 +3407,7 @@ export interface UpdateDatastoreRequest {
    *          <p>You can't change the file format after you create the data store.</p>
    * @public
    */
-  fileFormatConfiguration?: FileFormatConfiguration;
+  fileFormatConfiguration?: FileFormatConfiguration | undefined;
 }
 
 /**

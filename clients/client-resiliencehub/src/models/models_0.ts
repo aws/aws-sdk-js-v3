@@ -129,13 +129,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The identifier of the resource that the exception applies to.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that the exception applies to.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -163,7 +163,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds to wait before retrying the operation.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -388,13 +388,13 @@ export interface PhysicalResourceId {
    * <p>The Amazon Web Services Region that the physical resource is located in.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account that owns the physical resource.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 }
 
 /**
@@ -406,25 +406,25 @@ export interface ResourceMapping {
    * <p>Name of the resource that this resource is mapped to when the <code>mappingType</code> is <code>Resource</code>.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Name of the CloudFormation stack this resource is mapped to when the <code>mappingType</code> is <code>CfnStack</code>.</p>
    * @public
    */
-  logicalStackName?: string;
+  logicalStackName?: string | undefined;
 
   /**
    * <p>Name of the application this resource is mapped to when the <code>mappingType</code> is <code>AppRegistryApp</code>.</p>
    * @public
    */
-  appRegistryAppName?: string;
+  appRegistryAppName?: string | undefined;
 
   /**
    * <p>Name of the Resource Groups that this resource is mapped to when the <code>mappingType</code> is <code>ResourceGroup</code>.</p>
    * @public
    */
-  resourceGroupName?: string;
+  resourceGroupName?: string | undefined;
 
   /**
    * <p>Specifies the type of resource mapping.</p>
@@ -442,7 +442,7 @@ export interface ResourceMapping {
    * <p>Name of the Terraform source that this resource is mapped to when the <code>mappingType</code> is <code>Terraform</code>.</p>
    * @public
    */
-  terraformSourceName?: string;
+  terraformSourceName?: string | undefined;
 
   /**
    * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the <code>mappingType</code> is
@@ -452,7 +452,7 @@ export interface ResourceMapping {
    *          </note>
    * @public
    */
-  eksSourceName?: string;
+  eksSourceName?: string | undefined;
 }
 
 /**
@@ -523,13 +523,13 @@ export class ConflictException extends __BaseException {
    * <p>The identifier of the resource that the exception applies to.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that the exception applies to.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -592,37 +592,37 @@ export interface RecommendationItem {
    * <p>Identifier of the resource.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Identifier of the target account.</p>
    * @public
    */
-  targetAccountId?: string;
+  targetAccountId?: string | undefined;
 
   /**
    * <p>The target region.</p>
    * @public
    */
-  targetRegion?: string;
+  targetRegion?: string | undefined;
 
   /**
    * <p>Specifies if the recommendation has already been implemented.</p>
    * @public
    */
-  alreadyImplemented?: boolean;
+  alreadyImplemented?: boolean | undefined;
 
   /**
    * <p>Indicates if an operational recommendation item is excluded.</p>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 
   /**
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    * @public
    */
-  excludeReason?: ExcludeRecommendationReason;
+  excludeReason?: ExcludeRecommendationReason | undefined;
 }
 
 /**
@@ -685,7 +685,7 @@ export interface AlarmRecommendation {
    * <p>Description of the alarm recommendation.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Type of alarm recommendation.</p>
@@ -700,31 +700,31 @@ export interface AlarmRecommendation {
    *       item in the <code>appComponentNames</code> list.</p>
    * @public
    */
-  appComponentName?: string;
+  appComponentName?: string | undefined;
 
   /**
    * <p>List of CloudWatch alarm recommendations.</p>
    * @public
    */
-  items?: RecommendationItem[];
+  items?: RecommendationItem[] | undefined;
 
   /**
    * <p>The prerequisite for the alarm recommendation.</p>
    * @public
    */
-  prerequisite?: string;
+  prerequisite?: string | undefined;
 
   /**
    * <p>List of Application Component names for the CloudWatch alarm recommendation.</p>
    * @public
    */
-  appComponentNames?: string[];
+  appComponentNames?: string[] | undefined;
 
   /**
    * <p>Status of the recommended Amazon CloudWatch alarm.</p>
    * @public
    */
-  recommendationStatus?: RecommendationStatus;
+  recommendationStatus?: RecommendationStatus | undefined;
 }
 
 /**
@@ -818,7 +818,7 @@ export interface EventSubscription {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  snsTopicArn?: string;
+  snsTopicArn?: string | undefined;
 }
 
 /**
@@ -868,7 +868,7 @@ export interface PermissionModel {
    *          </note>
    * @public
    */
-  invokerRoleName?: string;
+  invokerRoleName?: string | undefined;
 
   /**
    * <p>Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These
@@ -889,7 +889,7 @@ export interface PermissionModel {
    *          </note>
    * @public
    */
-  crossAccountRoleArns?: string[];
+  crossAccountRoleArns?: string[] | undefined;
 }
 
 /**
@@ -931,7 +931,7 @@ export interface App {
    * <p>Optional description for an application.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -941,7 +941,7 @@ export interface App {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>Date and time when the app was created.</p>
@@ -953,51 +953,51 @@ export interface App {
    * <p>Status of the application.</p>
    * @public
    */
-  status?: AppStatusType;
+  status?: AppStatusType | undefined;
 
   /**
    * <p>Current status of compliance for the resiliency policy.</p>
    * @public
    */
-  complianceStatus?: AppComplianceStatusType;
+  complianceStatus?: AppComplianceStatusType | undefined;
 
   /**
    * <p>Date and time the most recent compliance evaluation.</p>
    * @public
    */
-  lastAppComplianceEvaluationTime?: Date;
+  lastAppComplianceEvaluationTime?: Date | undefined;
 
   /**
    * <p>Current resiliency score for the application.</p>
    * @public
    */
-  resiliencyScore?: number;
+  resiliencyScore?: number | undefined;
 
   /**
    * <p>Date and time the most recent resiliency score evaluation.</p>
    * @public
    */
-  lastResiliencyScoreEvaluationTime?: Date;
+  lastResiliencyScoreEvaluationTime?: Date | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
-  assessmentSchedule?: AppAssessmentScheduleType;
+  assessmentSchedule?: AppAssessmentScheduleType | undefined;
 
   /**
    * <p>Defines the roles and credentials that Resilience Hub would use while creating the
    *       application, importing its resources, and running an assessment.</p>
    * @public
    */
-  permissionModel?: PermissionModel;
+  permissionModel?: PermissionModel | undefined;
 
   /**
    * <p>The list of events you would like to subscribe and get notification for. Currently,
@@ -1006,32 +1006,32 @@ export interface App {
    *       events.</p>
    * @public
    */
-  eventSubscriptions?: EventSubscription[];
+  eventSubscriptions?: EventSubscription[] | undefined;
 
   /**
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    * @public
    */
-  driftStatus?: AppDriftStatusType;
+  driftStatus?: AppDriftStatusType | undefined;
 
   /**
    * <p>Indicates the last time that a drift was evaluated.</p>
    * @public
    */
-  lastDriftEvaluationTime?: Date;
+  lastDriftEvaluationTime?: Date | undefined;
 
   /**
    * <p>Recovery Time Objective (RTO) in seconds.</p>
    * @public
    */
-  rtoInSecs?: number;
+  rtoInSecs?: number | undefined;
 
   /**
    * <p>Recovery Point Objective (RPO) in seconds.</p>
    * @public
    */
-  rpoInSecs?: number;
+  rpoInSecs?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
@@ -1040,7 +1040,7 @@ export interface App {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  awsApplicationArn?: string;
+  awsApplicationArn?: string | undefined;
 }
 
 /**
@@ -1100,43 +1100,43 @@ export interface DisruptionCompliance {
    * <p>The Recovery Time Objective (RTO) that is achievable, in seconds</p>
    * @public
    */
-  achievableRtoInSecs?: number;
+  achievableRtoInSecs?: number | undefined;
 
   /**
    * <p>The current RTO, in seconds.</p>
    * @public
    */
-  currentRtoInSecs?: number;
+  currentRtoInSecs?: number | undefined;
 
   /**
    * <p>Reference identifier of the RTO.</p>
    * @public
    */
-  rtoReferenceId?: string;
+  rtoReferenceId?: string | undefined;
 
   /**
    * <p>The RTO description.</p>
    * @public
    */
-  rtoDescription?: string;
+  rtoDescription?: string | undefined;
 
   /**
    * <p>The current RPO, in seconds.</p>
    * @public
    */
-  currentRpoInSecs?: number;
+  currentRpoInSecs?: number | undefined;
 
   /**
    * <p>Reference identifier of the RPO .</p>
    * @public
    */
-  rpoReferenceId?: string;
+  rpoReferenceId?: string | undefined;
 
   /**
    * <p>The RPO description.</p>
    * @public
    */
-  rpoDescription?: string;
+  rpoDescription?: string | undefined;
 
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
@@ -1148,13 +1148,13 @@ export interface DisruptionCompliance {
    * <p>The Recovery Point Objective (RPO) that is achievable, in seconds.</p>
    * @public
    */
-  achievableRpoInSecs?: number;
+  achievableRpoInSecs?: number | undefined;
 
   /**
    * <p>The disruption compliance message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1315,58 +1315,58 @@ export interface ResiliencyPolicy {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>The name of the policy</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The description for the policy.</p>
    * @public
    */
-  policyDescription?: string;
+  policyDescription?: string | undefined;
 
   /**
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    * @public
    */
-  dataLocationConstraint?: DataLocationConstraint;
+  dataLocationConstraint?: DataLocationConstraint | undefined;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    * @public
    */
-  tier?: ResiliencyPolicyTier;
+  tier?: ResiliencyPolicyTier | undefined;
 
   /**
    * <p>Specifies the estimated cost tier of the resiliency policy.</p>
    * @public
    */
-  estimatedCostTier?: EstimatedCostTier;
+  estimatedCostTier?: EstimatedCostTier | undefined;
 
   /**
    * <p>The resiliency policy.</p>
    * @public
    */
-  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>> | undefined;
 
   /**
    * <p>Date and time when the resiliency policy was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1396,7 +1396,7 @@ export interface ScoringComponentResiliencyScore {
    *       equal to the <code>possibleScore</code>.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 
   /**
    * <p>Maximum possible score that can be obtained for the scoring component. </p>
@@ -1405,7 +1405,7 @@ export interface ScoringComponentResiliencyScore {
    *       implementing all the Resilience Hub recommendations.</p>
    * @public
    */
-  possibleScore?: number;
+  possibleScore?: number | undefined;
 
   /**
    * <p>Number of recommendations that must be implemented to obtain the maximum possible score
@@ -1417,7 +1417,7 @@ export interface ScoringComponentResiliencyScore {
    *       maximum possible score.</p>
    * @public
    */
-  outstandingCount?: number;
+  outstandingCount?: number | undefined;
 
   /**
    * <p>Number of recommendations that were excluded from the assessment.</p>
@@ -1425,7 +1425,7 @@ export interface ScoringComponentResiliencyScore {
    *       it indicates that 7 Amazon CloudWatch alarms are excluded from the assessment.</p>
    * @public
    */
-  excludedCount?: number;
+  excludedCount?: number | undefined;
 }
 
 /**
@@ -1453,7 +1453,7 @@ export interface ResiliencyScore {
    *       your application generated by Resilience Hub after running an assessment.</p>
    * @public
    */
-  componentScore?: Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>>;
+  componentScore?: Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>> | undefined;
 }
 
 /**
@@ -1465,19 +1465,19 @@ export interface ResourceError {
    * <p>Identifier of the logical resource. </p>
    * @public
    */
-  logicalResourceId?: string;
+  logicalResourceId?: string | undefined;
 
   /**
    * <p>Identifier of the physical resource. </p>
    * @public
    */
-  physicalResourceId?: string;
+  physicalResourceId?: string | undefined;
 
   /**
    * <p> This is the error message. </p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -1489,7 +1489,7 @@ export interface ResourceErrorsDetails {
    * <p> A list of errors retrieving an application's resources. </p>
    * @public
    */
-  resourceErrors?: ResourceError[];
+  resourceErrors?: ResourceError[] | undefined;
 
   /**
    * <p> This indicates if there are more errors not listed in the
@@ -1497,7 +1497,7 @@ export interface ResourceErrorsDetails {
    *       list. </p>
    * @public
    */
-  hasMoreErrors?: boolean;
+  hasMoreErrors?: boolean | undefined;
 }
 
 /**
@@ -1521,7 +1521,7 @@ export interface AssessmentRiskRecommendation {
    *          </note>
    * @public
    */
-  risk?: string;
+  risk?: string | undefined;
 
   /**
    * <p>Indicates the recommendation provided by the Resilience Hub to address the identified
@@ -1531,7 +1531,7 @@ export interface AssessmentRiskRecommendation {
    *          </note>
    * @public
    */
-  recommendation?: string;
+  recommendation?: string | undefined;
 
   /**
    * <p>Indicates the Application Components (AppComponents) that were assessed as part of the
@@ -1541,7 +1541,7 @@ export interface AssessmentRiskRecommendation {
    *          </note>
    * @public
    */
-  appComponents?: string[];
+  appComponents?: string[] | undefined;
 }
 
 /**
@@ -1559,7 +1559,7 @@ export interface AssessmentSummary {
    *          </note>
    * @public
    */
-  summary?: string;
+  summary?: string | undefined;
 
   /**
    * <p>Indicates the top risks and recommendations identified by the Resilience Hub assessment,
@@ -1569,7 +1569,7 @@ export interface AssessmentSummary {
    *          </note>
    * @public
    */
-  riskRecommendations?: AssessmentRiskRecommendation[];
+  riskRecommendations?: AssessmentRiskRecommendation[] | undefined;
 }
 
 /**
@@ -1585,13 +1585,13 @@ export interface AppAssessment {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Version of an application.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 
   /**
    * <p>The entity that invoked the assessment.</p>
@@ -1603,25 +1603,25 @@ export interface AppAssessment {
    * <p>Cost for the application.</p>
    * @public
    */
-  cost?: Cost;
+  cost?: Cost | undefined;
 
   /**
    * <p>Current resiliency score for an application.</p>
    * @public
    */
-  resiliencyScore?: ResiliencyScore;
+  resiliencyScore?: ResiliencyScore | undefined;
 
   /**
    * <p>Application compliance against the resiliency policy.</p>
    * @public
    */
-  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>> | undefined;
 
   /**
    * <p>Current status of the compliance for the resiliency policy.</p>
    * @public
    */
-  complianceStatus?: ComplianceStatus;
+  complianceStatus?: ComplianceStatus | undefined;
 
   /**
    * <p>Current status of the assessment for the resiliency policy.</p>
@@ -1633,25 +1633,25 @@ export interface AppAssessment {
    * <p>Starting time for the action.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>End time for the action.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Error or warning message from the assessment execution</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Name of the assessment.</p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -1667,34 +1667,34 @@ export interface AppAssessment {
    * <p>Resiliency policy of an application.</p>
    * @public
    */
-  policy?: ResiliencyPolicy;
+  policy?: ResiliencyPolicy | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p> A resource error object containing a list of errors retrieving an application's
    *       resources. </p>
    * @public
    */
-  resourceErrorsDetails?: ResourceErrorsDetails;
+  resourceErrorsDetails?: ResourceErrorsDetails | undefined;
 
   /**
    * <p>Version name of the published application.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 
   /**
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    * @public
    */
-  driftStatus?: DriftStatus;
+  driftStatus?: DriftStatus | undefined;
 
   /**
    * <p>Indicates the AI-generated summary for the Resilience Hub assessment, providing a concise overview that highlights the top risks and recommendations.</p>
@@ -1703,7 +1703,7 @@ export interface AppAssessment {
    *          </note>
    * @public
    */
-  summary?: AssessmentSummary;
+  summary?: AssessmentSummary | undefined;
 }
 
 /**
@@ -1719,13 +1719,13 @@ export interface AppAssessmentSummary {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Version of an application.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 
   /**
    * <p>Current status of the assessment for the resiliency policy.</p>
@@ -1737,31 +1737,31 @@ export interface AppAssessmentSummary {
    * <p>Entity that invoked the assessment.</p>
    * @public
    */
-  invoker?: AssessmentInvoker;
+  invoker?: AssessmentInvoker | undefined;
 
   /**
    * <p>Starting time for the action.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>End time for the action.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Message from the assessment run.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Name of the assessment.</p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -1778,32 +1778,32 @@ export interface AppAssessmentSummary {
    *       status of compliance for the resiliency policy.</p>
    * @public
    */
-  complianceStatus?: ComplianceStatus;
+  complianceStatus?: ComplianceStatus | undefined;
 
   /**
    * <p>Cost for an application.</p>
    * @public
    */
-  cost?: Cost;
+  cost?: Cost | undefined;
 
   /**
    * <p>Current resiliency score for the application.</p>
    * @public
    */
-  resiliencyScore?: number;
+  resiliencyScore?: number | undefined;
 
   /**
    * <p>Name of an application version.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 
   /**
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    * @public
    */
-  driftStatus?: DriftStatus;
+  driftStatus?: DriftStatus | undefined;
 }
 
 /**
@@ -1827,7 +1827,7 @@ export interface AppComponent {
    * <p>Identifier of the Application Component.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
@@ -1840,7 +1840,7 @@ export interface AppComponent {
    *          </note>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1852,37 +1852,37 @@ export interface AppComponentCompliance {
    * <p>The cost for the application.</p>
    * @public
    */
-  cost?: Cost;
+  cost?: Cost | undefined;
 
   /**
    * <p>Name of the Application Component.</p>
    * @public
    */
-  appComponentName?: string;
+  appComponentName?: string | undefined;
 
   /**
    * <p>The compliance of the Application Component against the resiliency policy.</p>
    * @public
    */
-  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>> | undefined;
 
   /**
    * <p>The compliance message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Status of the action.</p>
    * @public
    */
-  status?: ComplianceStatus;
+  status?: ComplianceStatus | undefined;
 
   /**
    * <p>The current resiliency score for the application.</p>
    * @public
    */
-  resiliencyScore?: ResiliencyScore;
+  resiliencyScore?: ResiliencyScore | undefined;
 }
 
 /**
@@ -1929,7 +1929,7 @@ export interface AppInputSource {
    * <p>The name of the input source.</p>
    * @public
    */
-  sourceName?: string;
+  sourceName?: string | undefined;
 
   /**
    * <p>The resource type of the input source.</p>
@@ -1944,25 +1944,25 @@ export interface AppInputSource {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  sourceArn?: string;
+  sourceArn?: string | undefined;
 
   /**
    * <p>The name of the Terraform s3 state ﬁle.</p>
    * @public
    */
-  terraformSource?: TerraformSource;
+  terraformSource?: TerraformSource | undefined;
 
   /**
    * <p>The number of resources.</p>
    * @public
    */
-  resourceCount?: number;
+  resourceCount?: number | undefined;
 
   /**
    * <p>The namespace on your Amazon Elastic Kubernetes Service cluster.</p>
    * @public
    */
-  eksSourceClusterNamespace?: EksSourceClusterNamespace;
+  eksSourceClusterNamespace?: EksSourceClusterNamespace | undefined;
 }
 
 /**
@@ -1990,7 +1990,7 @@ export interface AppSummary {
    * <p>The optional description for an app.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Date and time when the app was created.</p>
@@ -2002,50 +2002,50 @@ export interface AppSummary {
    * <p>The current status of compliance for the resiliency policy.</p>
    * @public
    */
-  complianceStatus?: AppComplianceStatusType;
+  complianceStatus?: AppComplianceStatusType | undefined;
 
   /**
    * <p>The current resiliency score for the application.</p>
    * @public
    */
-  resiliencyScore?: number;
+  resiliencyScore?: number | undefined;
 
   /**
    * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
-  assessmentSchedule?: AppAssessmentScheduleType;
+  assessmentSchedule?: AppAssessmentScheduleType | undefined;
 
   /**
    * <p>Status of the application.</p>
    * @public
    */
-  status?: AppStatusType;
+  status?: AppStatusType | undefined;
 
   /**
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    * @public
    */
-  driftStatus?: AppDriftStatusType;
+  driftStatus?: AppDriftStatusType | undefined;
 
   /**
    * <p>Date and time of the most recent compliance evaluation.</p>
    * @public
    */
-  lastAppComplianceEvaluationTime?: Date;
+  lastAppComplianceEvaluationTime?: Date | undefined;
 
   /**
    * <p>Recovery Time Objective (RTO) in seconds.</p>
    * @public
    */
-  rtoInSecs?: number;
+  rtoInSecs?: number | undefined;
 
   /**
    * <p>Recovery Point Objective (RPO) in seconds.</p>
    * @public
    */
-  rpoInSecs?: number;
+  rpoInSecs?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
@@ -2054,7 +2054,7 @@ export interface AppSummary {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  awsApplicationArn?: string;
+  awsApplicationArn?: string | undefined;
 }
 
 /**
@@ -2072,19 +2072,19 @@ export interface AppVersionSummary {
    * <p>Identifier of the application version.</p>
    * @public
    */
-  identifier?: number;
+  identifier?: number | undefined;
 
   /**
    * <p>Creation time of the application version.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>Name of the application version.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 }
 
 /**
@@ -2096,19 +2096,19 @@ export interface UpdateRecommendationStatusItem {
    * <p>Resource identifier of the operational recommendation item.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Identifier of the target Amazon Web Services account.</p>
    * @public
    */
-  targetAccountId?: string;
+  targetAccountId?: string | undefined;
 
   /**
    * <p>Identifier of the target Amazon Web Services Region.</p>
    * @public
    */
-  targetRegion?: string;
+  targetRegion?: string | undefined;
 }
 
 /**
@@ -2135,7 +2135,7 @@ export interface UpdateRecommendationStatusRequestEntry {
    * <p>The operational recommendation item.</p>
    * @public
    */
-  item?: UpdateRecommendationStatusItem;
+  item?: UpdateRecommendationStatusItem | undefined;
 
   /**
    * <p>Indicates if the operational recommendation needs to be excluded. If set to True, the
@@ -2148,7 +2148,7 @@ export interface UpdateRecommendationStatusRequestEntry {
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    * @public
    */
-  excludeReason?: ExcludeRecommendationReason;
+  excludeReason?: ExcludeRecommendationReason | undefined;
 }
 
 /**
@@ -2218,7 +2218,7 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
    * <p>The operational recommendation item.</p>
    * @public
    */
-  item?: UpdateRecommendationStatusItem;
+  item?: UpdateRecommendationStatusItem | undefined;
 
   /**
    * <p>Indicates if the operational recommendation was successfully excluded.</p>
@@ -2230,7 +2230,7 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    * @public
    */
-  excludeReason?: ExcludeRecommendationReason;
+  excludeReason?: ExcludeRecommendationReason | undefined;
 }
 
 /**
@@ -2275,7 +2275,7 @@ export interface CreateAppRequest {
    * <p>The optional description for an app.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -2285,34 +2285,34 @@ export interface CreateAppRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
-  assessmentSchedule?: AppAssessmentScheduleType;
+  assessmentSchedule?: AppAssessmentScheduleType | undefined;
 
   /**
    * <p>Defines the roles and credentials that Resilience Hub would use while creating the
    *       application, importing its resources, and running an assessment.</p>
    * @public
    */
-  permissionModel?: PermissionModel;
+  permissionModel?: PermissionModel | undefined;
 
   /**
    * <p>The list of events you would like to subscribe and get notification for. Currently,
@@ -2320,7 +2320,7 @@ export interface CreateAppRequest {
    *         <b>Scheduled assessment failure</b> events notification.</p>
    * @public
    */
-  eventSubscriptions?: EventSubscription[];
+  eventSubscriptions?: EventSubscription[] | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
@@ -2329,7 +2329,7 @@ export interface CreateAppRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  awsApplicationArn?: string;
+  awsApplicationArn?: string | undefined;
 }
 
 /**
@@ -2362,7 +2362,7 @@ export interface CreateAppVersionAppComponentRequest {
    * <p>Identifier of the Application Component.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Name of the Application Component.</p>
@@ -2380,14 +2380,14 @@ export interface CreateAppVersionAppComponentRequest {
    * <p>Currently, there is no supported additional information for Application Components.</p>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2414,7 +2414,7 @@ export interface CreateAppVersionAppComponentResponse {
    * <p>List of Application Components that belong to this resource.</p>
    * @public
    */
-  appComponent?: AppComponent;
+  appComponent?: AppComponent | undefined;
 }
 
 /**
@@ -2432,19 +2432,19 @@ export interface LogicalResourceId {
    * <p>The name of the CloudFormation stack this resource belongs to.</p>
    * @public
    */
-  logicalStackName?: string;
+  logicalStackName?: string | undefined;
 
   /**
    * <p>The name of the resource group that this resource belongs to.</p>
    * @public
    */
-  resourceGroupName?: string;
+  resourceGroupName?: string | undefined;
 
   /**
    * <p> The name of the Terraform S3 state file this resource belongs to. </p>
    * @public
    */
-  terraformSourceName?: string;
+  terraformSourceName?: string | undefined;
 
   /**
    * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
@@ -2453,7 +2453,7 @@ export interface LogicalResourceId {
    *          </note>
    * @public
    */
-  eksSourceName?: string;
+  eksSourceName?: string | undefined;
 }
 
 /**
@@ -2474,7 +2474,7 @@ export interface CreateAppVersionResourceRequest {
    * <p>Name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Logical identifier of the resource.</p>
@@ -2492,13 +2492,13 @@ export interface CreateAppVersionResourceRequest {
    * <p>Amazon Web Services region that owns the physical resource.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>Amazon Web Services account that owns the physical resource.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>Type of resource.</p>
@@ -2516,14 +2516,14 @@ export interface CreateAppVersionResourceRequest {
    * <p>Currently, there is no supported additional information for resources.</p>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2550,7 +2550,7 @@ export interface PhysicalResource {
    * <p>The name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Logical identifier of the resource.</p>
@@ -2574,7 +2574,7 @@ export interface PhysicalResource {
    * <p>The application components that belong to this resource.</p>
    * @public
    */
-  appComponents?: AppComponent[];
+  appComponents?: AppComponent[] | undefined;
 
   /**
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
@@ -2587,25 +2587,25 @@ export interface PhysicalResource {
    *          </note>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 
   /**
    * <p>Indicates if a resource is included or excluded from the assessment.</p>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 
   /**
    * <p>Type of input source.</p>
    * @public
    */
-  sourceType?: ResourceSourceType;
+  sourceType?: ResourceSourceType | undefined;
 
   /**
    * <p>Name of the parent resource.</p>
    * @public
    */
-  parentResourceName?: string;
+  parentResourceName?: string | undefined;
 }
 
 /**
@@ -2632,7 +2632,7 @@ export interface CreateAppVersionResourceResponse {
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
    * @public
    */
-  physicalResource?: PhysicalResource;
+  physicalResource?: PhysicalResource | undefined;
 }
 
 /**
@@ -2672,7 +2672,7 @@ export interface CreateRecommendationTemplateRequest {
    * <p>Identifiers for the recommendations used to create a recommendation template.</p>
    * @public
    */
-  recommendationIds?: string[];
+  recommendationIds?: string[] | undefined;
 
   /**
    * <p>The format for the recommendation template.</p>
@@ -2688,7 +2688,7 @@ export interface CreateRecommendationTemplateRequest {
    *          </dl>
    * @public
    */
-  format?: TemplateFormat;
+  format?: TemplateFormat | undefined;
 
   /**
    * <p>An array of strings that specify the recommendation template type or types.</p>
@@ -2708,7 +2708,7 @@ export interface CreateRecommendationTemplateRequest {
    *          </dl>
    * @public
    */
-  recommendationTypes?: RenderRecommendationType[];
+  recommendationTypes?: RenderRecommendationType[] | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -2731,20 +2731,20 @@ export interface CreateRecommendationTemplateRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket that will contain the recommendation template.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 }
 
 /**
@@ -2773,13 +2773,13 @@ export interface S3Location {
    * <p>The name of the Amazon S3 bucket.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -2791,7 +2791,7 @@ export interface RecommendationTemplate {
    * <p>The file location of the template.</p>
    * @public
    */
-  templatesLocation?: S3Location;
+  templatesLocation?: S3Location | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -2811,13 +2811,13 @@ export interface RecommendationTemplate {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Identifiers for the recommendations used in the recommendation template.</p>
    * @public
    */
-  recommendationIds?: string[];
+  recommendationIds?: string[] | undefined;
 
   /**
    * <p>An array of strings that specify the recommendation template type or types.</p>
@@ -2865,7 +2865,7 @@ export interface RecommendationTemplate {
    * <p>Message for the recommendation template.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Status of the action.</p>
@@ -2883,26 +2883,26 @@ export interface RecommendationTemplate {
    * <p>The start time for the action.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time for the action.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Indicates if replacements are needed.</p>
    * @public
    */
-  needsReplacements?: boolean;
+  needsReplacements?: boolean | undefined;
 }
 
 /**
@@ -2914,7 +2914,7 @@ export interface CreateRecommendationTemplateResponse {
    *       template's name, format, status, tags, Amazon S3 bucket location, and more.</p>
    * @public
    */
-  recommendationTemplate?: RecommendationTemplate;
+  recommendationTemplate?: RecommendationTemplate | undefined;
 }
 
 /**
@@ -2931,14 +2931,14 @@ export interface CreateResiliencyPolicyRequest {
    * <p>The description for the policy.</p>
    * @public
    */
-  policyDescription?: string;
+  policyDescription?: string | undefined;
 
   /**
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    * @public
    */
-  dataLocationConstraint?: DataLocationConstraint;
+  dataLocationConstraint?: DataLocationConstraint | undefined;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
@@ -2959,14 +2959,14 @@ export interface CreateResiliencyPolicyRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2999,14 +2999,14 @@ export interface DeleteAppRequest {
    * <p>A boolean option to force the deletion of an Resilience Hub application. </p>
    * @public
    */
-  forceDelete?: boolean;
+  forceDelete?: boolean | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3043,7 +3043,7 @@ export interface DeleteAppAssessmentRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3089,28 +3089,28 @@ export interface DeleteAppInputSourceRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  sourceArn?: string;
+  sourceArn?: string | undefined;
 
   /**
    * <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub
    *       application.</p>
    * @public
    */
-  terraformSource?: TerraformSource;
+  terraformSource?: TerraformSource | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the
    *         Resilience Hub application.</p>
    * @public
    */
-  eksSourceClusterNamespace?: EksSourceClusterNamespace;
+  eksSourceClusterNamespace?: EksSourceClusterNamespace | undefined;
 }
 
 /**
@@ -3125,13 +3125,13 @@ export interface DeleteAppInputSourceResponse {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Name of the input source from where the application resource is imported from.</p>
    * @public
    */
-  appInputSource?: AppInputSource;
+  appInputSource?: AppInputSource | undefined;
 }
 
 /**
@@ -3159,7 +3159,7 @@ export interface DeleteAppVersionAppComponentRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3186,7 +3186,7 @@ export interface DeleteAppVersionAppComponentResponse {
    * <p>List of Application Components that belong to this resource.</p>
    * @public
    */
-  appComponent?: AppComponent;
+  appComponent?: AppComponent | undefined;
 }
 
 /**
@@ -3207,38 +3207,38 @@ export interface DeleteAppVersionResourceRequest {
    * <p>Name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Logical identifier of the resource.</p>
    * @public
    */
-  logicalResourceId?: LogicalResourceId;
+  logicalResourceId?: LogicalResourceId | undefined;
 
   /**
    * <p>Physical identifier of the resource.</p>
    * @public
    */
-  physicalResourceId?: string;
+  physicalResourceId?: string | undefined;
 
   /**
    * <p>Amazon Web Services region that owns the physical resource.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>Amazon Web Services account that owns the physical resource.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3265,7 +3265,7 @@ export interface DeleteAppVersionResourceResponse {
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
    * @public
    */
-  physicalResource?: PhysicalResource;
+  physicalResource?: PhysicalResource | undefined;
 }
 
 /**
@@ -3283,7 +3283,7 @@ export interface DeleteRecommendationTemplateRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3322,7 +3322,7 @@ export interface DeleteResiliencyPolicyRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3443,7 +3443,7 @@ export interface DescribeAppVersionResponse {
    *          </note>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -3497,7 +3497,7 @@ export interface DescribeAppVersionAppComponentResponse {
    * <p>List of Application Components that belong to this resource.</p>
    * @public
    */
-  appComponent?: AppComponent;
+  appComponent?: AppComponent | undefined;
 }
 
 /**
@@ -3524,31 +3524,31 @@ export interface DescribeAppVersionResourceRequest {
    * <p>Name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Logical identifier of the resource.</p>
    * @public
    */
-  logicalResourceId?: LogicalResourceId;
+  logicalResourceId?: LogicalResourceId | undefined;
 
   /**
    * <p>Physical identifier of the resource.</p>
    * @public
    */
-  physicalResourceId?: string;
+  physicalResourceId?: string | undefined;
 
   /**
    * <p>Amazon Web Services region that owns the physical resource.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>Amazon Web Services account that owns the physical resource.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 }
 
 /**
@@ -3575,7 +3575,7 @@ export interface DescribeAppVersionResourceResponse {
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
    * @public
    */
-  physicalResource?: PhysicalResource;
+  physicalResource?: PhysicalResource | undefined;
 }
 
 /**
@@ -3602,7 +3602,7 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
    * <p>The identifier for a specific resolution.</p>
    * @public
    */
-  resolutionId?: string;
+  resolutionId?: string | undefined;
 }
 
 /**
@@ -3658,7 +3658,7 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
    * <p>The returned error message for the request.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -3992,7 +3992,7 @@ export interface ErrorDetail {
    * <p>Provides additional information about the error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -4047,13 +4047,13 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
    * <p>The error message returned for the resource request.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>List of errors that were encountered while importing resources.</p>
    * @public
    */
-  errorDetails?: ErrorDetail[];
+  errorDetails?: ErrorDetail[] | undefined;
 }
 
 /**
@@ -4102,7 +4102,7 @@ export interface DescribeResourceGroupingRecommendationTaskRequest {
    * <p>Indicates the identifier of the grouping recommendation task.</p>
    * @public
    */
-  groupingId?: string;
+  groupingId?: string | undefined;
 }
 
 /**
@@ -4142,7 +4142,7 @@ export interface DescribeResourceGroupingRecommendationTaskResponse {
    * <p>Indicates the error that occurred while generating a grouping recommendation.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -4199,26 +4199,26 @@ export interface ImportResourcesToDraftAppVersionRequest {
    * <p>The Amazon Resource Names (ARNs) for the resources.</p>
    * @public
    */
-  sourceArns?: string[];
+  sourceArns?: string[] | undefined;
 
   /**
    * <p> A list of terraform file s3 URLs you need to import. </p>
    * @public
    */
-  terraformSources?: TerraformSource[];
+  terraformSources?: TerraformSource[] | undefined;
 
   /**
    * <p>The import strategy you would like to set to import resources into Resilience Hub
    *       application.</p>
    * @public
    */
-  importStrategy?: ResourceImportStrategyType;
+  importStrategy?: ResourceImportStrategyType | undefined;
 
   /**
    * <p>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</p>
    * @public
    */
-  eksSources?: EksSource[];
+  eksSources?: EksSource[] | undefined;
 }
 
 /**
@@ -4245,7 +4245,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
    * <p>The Amazon Resource Names (ARNs) for the resources you have imported.</p>
    * @public
    */
-  sourceArns?: string[];
+  sourceArns?: string[] | undefined;
 
   /**
    * <p>Status of the action.</p>
@@ -4257,13 +4257,13 @@ export interface ImportResourcesToDraftAppVersionResponse {
    * <p> A list of terraform file s3 URLs you have imported. </p>
    * @public
    */
-  terraformSources?: TerraformSource[];
+  terraformSources?: TerraformSource[] | undefined;
 
   /**
    * <p>The input sources of the Amazon Elastic Kubernetes Service resources you have imported.</p>
    * @public
    */
-  eksSources?: EksSource[];
+  eksSources?: EksSource[] | undefined;
 }
 
 /**
@@ -4284,14 +4284,14 @@ export interface ListAlarmRecommendationsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4310,7 +4310,7 @@ export interface ListAlarmRecommendationsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4331,13 +4331,13 @@ export interface ListAppAssessmentComplianceDriftsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Indicates the maximum number of compliance drifts requested.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4380,57 +4380,57 @@ export interface ComplianceDrift {
    *       can be either application ID or the AppComponent ID.</p>
    * @public
    */
-  entityId?: string;
+  entityId?: string | undefined;
 
   /**
    * <p>The type of entity in which drift was detected. For compliance drifts, Resilience Hub supports <code>AWS::ResilienceHub::AppComponent</code> and
    *         <code>AWS::ResilienceHub::Application</code>.</p>
    * @public
    */
-  entityType?: string;
+  entityType?: string | undefined;
 
   /**
    * <p>The type of drift detected. Currently, Resilience Hub supports only <b>ApplicationCompliance</b> drift type.</p>
    * @public
    */
-  driftType?: DriftType;
+  driftType?: DriftType | undefined;
 
   /**
    * <p>Identifier of your application.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 
   /**
    * <p>Published version of your application on which drift was detected.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 
   /**
    * <p>Assessment identifier of a previous assessment of the same application version. Resilience Hub uses the previous assessment (associated with the reference identifier) to
    *       compare the compliance with the current assessment to identify drifts.</p>
    * @public
    */
-  expectedReferenceId?: string;
+  expectedReferenceId?: string | undefined;
 
   /**
    * <p>The expected compliance value of an entity.</p>
    * @public
    */
-  expectedValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  expectedValue?: Partial<Record<DisruptionType, DisruptionCompliance>> | undefined;
 
   /**
    * <p>Assessment identifier that is associated with this drift item.</p>
    * @public
    */
-  actualReferenceId?: string;
+  actualReferenceId?: string | undefined;
 
   /**
    * <p>Actual compliance value of the entity.</p>
    * @public
    */
-  actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>> | undefined;
 
   /**
    * <p>Difference type between actual and expected recovery point objective (RPO) and recovery
@@ -4438,7 +4438,7 @@ export interface ComplianceDrift {
    *           <code>NotEqual</code> difference type.</p>
    * @public
    */
-  diffType?: DifferenceType;
+  diffType?: DifferenceType | undefined;
 }
 
 /**
@@ -4456,7 +4456,7 @@ export interface ListAppAssessmentComplianceDriftsResponse {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4477,7 +4477,7 @@ export interface ListAppAssessmentResourceDriftsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Indicates the maximum number of drift results to include in the response. If more results
@@ -4485,7 +4485,7 @@ export interface ListAppAssessmentResourceDriftsRequest {
    *       that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4497,13 +4497,13 @@ export interface ResourceIdentifier {
    * <p>Logical identifier of the drifted resource.</p>
    * @public
    */
-  logicalResourceId?: LogicalResourceId;
+  logicalResourceId?: LogicalResourceId | undefined;
 
   /**
    * <p>Type of the drifted resource.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 }
 
 /**
@@ -4519,31 +4519,31 @@ export interface ResourceDrift {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Version of the application whose resources have drifted.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 
   /**
    * <p>Reference identifier of the resource drift.</p>
    * @public
    */
-  referenceId?: string;
+  referenceId?: string | undefined;
 
   /**
    * <p>Identifier of the drifted resource.</p>
    * @public
    */
-  resourceIdentifier?: ResourceIdentifier;
+  resourceIdentifier?: ResourceIdentifier | undefined;
 
   /**
    * <p>Indicates if the resource was added or removed.</p>
    * @public
    */
-  diffType?: DifferenceType;
+  diffType?: DifferenceType | undefined;
 }
 
 /**
@@ -4560,7 +4560,7 @@ export interface ListAppAssessmentResourceDriftsResponse {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4575,52 +4575,52 @@ export interface ListAppAssessmentsRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>The name for the assessment.</p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p>The current status of the assessment for the resiliency policy.</p>
    * @public
    */
-  assessmentStatus?: AssessmentStatus[];
+  assessmentStatus?: AssessmentStatus[] | undefined;
 
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    * @public
    */
-  complianceStatus?: ComplianceStatus;
+  complianceStatus?: ComplianceStatus | undefined;
 
   /**
    * <p>Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
    *         <code>System</code>.</p>
    * @public
    */
-  invoker?: AssessmentInvoker;
+  invoker?: AssessmentInvoker | undefined;
 
   /**
    * <p>The default is to sort by ascending <b>startTime</b>.
    * To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.</p>
    * @public
    */
-  reverseOrder?: boolean;
+  reverseOrder?: boolean | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4631,7 +4631,7 @@ export interface ListAppAssessmentsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The summaries for the specified assessments, returned as an object. This object includes
@@ -4650,14 +4650,14 @@ export interface ListAppComponentCompliancesRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -4686,7 +4686,7 @@ export interface ListAppComponentCompliancesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4707,14 +4707,14 @@ export interface ListAppComponentRecommendationsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4768,27 +4768,27 @@ export interface RecommendationDisruptionCompliance {
    * <p>The expected RTO after applying the recommended configuration change.</p>
    * @public
    */
-  expectedRtoInSecs?: number;
+  expectedRtoInSecs?: number | undefined;
 
   /**
    * <p>The expected Recovery Time Objective (RTO) description after applying the recommended
    *       configuration change.</p>
    * @public
    */
-  expectedRtoDescription?: string;
+  expectedRtoDescription?: string | undefined;
 
   /**
    * <p>The expected RPO after applying the recommended configuration change.</p>
    * @public
    */
-  expectedRpoInSecs?: number;
+  expectedRpoInSecs?: number | undefined;
 
   /**
    * <p>The expected Recovery Point Objective (RPO) description after applying the recommended
    *       configuration change.</p>
    * @public
    */
-  expectedRpoDescription?: string;
+  expectedRpoDescription?: string | undefined;
 }
 
 /**
@@ -4800,27 +4800,27 @@ export interface ConfigRecommendation {
    * <p>The cost for the application.</p>
    * @public
    */
-  cost?: Cost;
+  cost?: Cost | undefined;
 
   /**
    * <p>Name of the Application Component.</p>
    * @public
    */
-  appComponentName?: string;
+  appComponentName?: string | undefined;
 
   /**
    * <p>The current compliance against the resiliency policy before applying the configuration
    *       change.</p>
    * @public
    */
-  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>> | undefined;
 
   /**
    * <p>The expected compliance against the resiliency policy after applying the configuration
    *       change.</p>
    * @public
    */
-  recommendationCompliance?: Partial<Record<DisruptionType, RecommendationDisruptionCompliance>>;
+  recommendationCompliance?: Partial<Record<DisruptionType, RecommendationDisruptionCompliance>> | undefined;
 
   /**
    * <p>The type of optimization.</p>
@@ -4838,19 +4838,19 @@ export interface ConfigRecommendation {
    * <p>The optional description for an app.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>List of the suggested configuration changes.</p>
    * @public
    */
-  suggestedChanges?: string[];
+  suggestedChanges?: string[] | undefined;
 
   /**
    * <p>The architecture type.</p>
    * @public
    */
-  haArchitecture?: HaArchitecture;
+  haArchitecture?: HaArchitecture | undefined;
 
   /**
    * <p>Reference identifier for the recommendation configuration.</p>
@@ -4918,7 +4918,7 @@ export interface ListAppComponentRecommendationsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4945,14 +4945,14 @@ export interface ListAppInputSourcesRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of input sources to be displayed per Resilience Hub
    *       application.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4969,7 +4969,7 @@ export interface ListAppInputSourcesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4980,20 +4980,20 @@ export interface ListAppsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name for the one of the listed applications.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
@@ -5003,21 +5003,21 @@ export interface ListAppsRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Indicates the lower limit of the range that is used to filter applications based on their
    *       last assessment times.</p>
    * @public
    */
-  fromLastAssessmentTime?: Date;
+  fromLastAssessmentTime?: Date | undefined;
 
   /**
    * <p>Indicates the upper limit of the range that is used to filter the applications based on
    *       their last assessment times.</p>
    * @public
    */
-  toLastAssessmentTime?: Date;
+  toLastAssessmentTime?: Date | undefined;
 
   /**
    * <p>The application list is sorted based on the values of
@@ -5026,7 +5026,7 @@ export interface ListAppsRequest {
    *         <code>True</code>.</p>
    * @public
    */
-  reverseOrder?: boolean;
+  reverseOrder?: boolean | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
@@ -5035,7 +5035,7 @@ export interface ListAppsRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  awsApplicationArn?: string;
+  awsApplicationArn?: string | undefined;
 }
 
 /**
@@ -5052,7 +5052,7 @@ export interface ListAppsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5079,13 +5079,13 @@ export interface ListAppVersionAppComponentsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of Application Components to be displayed per Resilience Hub application version.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5112,13 +5112,13 @@ export interface ListAppVersionAppComponentsResponse {
    * <p>Defines an Application Component.</p>
    * @public
    */
-  appComponents?: AppComponent[];
+  appComponents?: AppComponent[] | undefined;
 
   /**
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5145,14 +5145,14 @@ export interface ListAppVersionResourceMappingsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5173,7 +5173,7 @@ export interface ListAppVersionResourceMappingsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5200,20 +5200,20 @@ export interface ListAppVersionResourcesRequest {
    * <p>The identifier for a specific resolution.</p>
    * @public
    */
-  resolutionId?: string;
+  resolutionId?: string | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5236,7 +5236,7 @@ export interface ListAppVersionResourcesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5257,26 +5257,26 @@ export interface ListAppVersionsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Lower limit of the time range to filter the application versions.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>Upper limit of the time range to filter the application versions.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -5293,7 +5293,7 @@ export interface ListAppVersionsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5308,45 +5308,45 @@ export interface ListRecommendationTemplatesRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  assessmentArn?: string;
+  assessmentArn?: string | undefined;
 
   /**
    * <p>The default is to sort by ascending <b>startTime</b>.
    * To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.</p>
    * @public
    */
-  reverseOrder?: boolean;
+  reverseOrder?: boolean | undefined;
 
   /**
    * <p>Status of the action.</p>
    * @public
    */
-  status?: RecommendationTemplateStatus[];
+  status?: RecommendationTemplateStatus[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
    * @public
    */
-  recommendationTemplateArn?: string;
+  recommendationTemplateArn?: string | undefined;
 
   /**
    * <p>The name for one of the listed recommendation templates.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5357,13 +5357,13 @@ export interface ListRecommendationTemplatesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The recommendation templates for the Resilience Hub applications.</p>
    * @public
    */
-  recommendationTemplates?: RecommendationTemplate[];
+  recommendationTemplates?: RecommendationTemplate[] | undefined;
 }
 
 /**
@@ -5374,20 +5374,20 @@ export interface ListResiliencyPoliciesRequest {
    * <p>The name of the policy</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5404,7 +5404,7 @@ export interface ListResiliencyPoliciesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5419,19 +5419,19 @@ export interface ListResourceGroupingRecommendationsRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of grouping recommendations to be displayed per Resilience Hub application.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5599,7 +5599,7 @@ export interface GroupingRecommendation {
    * <p>Indicates the reason you had selected while rejecting a grouping recommendation.</p>
    * @public
    */
-  rejectionReason?: GroupingRecommendationRejectionReason;
+  rejectionReason?: GroupingRecommendationRejectionReason | undefined;
 }
 
 /**
@@ -5616,7 +5616,7 @@ export interface ListResourceGroupingRecommendationsResponse {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5627,14 +5627,14 @@ export interface ListSopRecommendationsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -5675,13 +5675,13 @@ export interface SopRecommendation {
    * <p>Name of the Application Component.</p>
    * @public
    */
-  appComponentName?: string;
+  appComponentName?: string | undefined;
 
   /**
    * <p>Description of the SOP recommendation.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Identifier for the SOP recommendation.</p>
@@ -5693,13 +5693,13 @@ export interface SopRecommendation {
    * <p>Name of the SOP recommendation.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The recommendation items.</p>
    * @public
    */
-  items?: RecommendationItem[];
+  items?: RecommendationItem[] | undefined;
 
   /**
    * <p>Reference identifier for the SOP recommendation.</p>
@@ -5711,13 +5711,13 @@ export interface SopRecommendation {
    * <p>Prerequisite for the SOP recommendation.</p>
    * @public
    */
-  prerequisite?: string;
+  prerequisite?: string | undefined;
 
   /**
    * <p>Status of the recommended standard operating procedure.</p>
    * @public
    */
-  recommendationStatus?: RecommendationStatus;
+  recommendationStatus?: RecommendationStatus | undefined;
 }
 
 /**
@@ -5728,7 +5728,7 @@ export interface ListSopRecommendationsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The standard operating procedure (SOP) recommendations for the Resilience Hub
@@ -5746,14 +5746,14 @@ export interface ListSuggestedResiliencyPoliciesRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5770,7 +5770,7 @@ export interface ListSuggestedResiliencyPoliciesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5794,7 +5794,7 @@ export interface ListTagsForResourceResponse {
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5805,14 +5805,14 @@ export interface ListTestRecommendationsRequest {
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -5865,7 +5865,7 @@ export interface TestRecommendation {
    * <p>Identifier for the test recommendation.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 
   /**
    * <p>Reference identifier for the test recommendation.</p>
@@ -5877,62 +5877,62 @@ export interface TestRecommendation {
    * <p>Name of the Application Component.</p>
    * @public
    */
-  appComponentName?: string;
+  appComponentName?: string | undefined;
 
   /**
    * <p>Name of the test recommendation.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Intent of the test recommendation.</p>
    * @public
    */
-  intent?: string;
+  intent?: string | undefined;
 
   /**
    * <p>Level of risk for this test recommendation.</p>
    * @public
    */
-  risk?: TestRisk;
+  risk?: TestRisk | undefined;
 
   /**
    * <p>Type of test recommendation.</p>
    * @public
    */
-  type?: TestType;
+  type?: TestType | undefined;
 
   /**
    * <p>Description for the test recommendation.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The test recommendation items.</p>
    * @public
    */
-  items?: RecommendationItem[];
+  items?: RecommendationItem[] | undefined;
 
   /**
    * <p>Prerequisite of the test recommendation.</p>
    * @public
    */
-  prerequisite?: string;
+  prerequisite?: string | undefined;
 
   /**
    * <p> A list of recommended alarms that are used in the test and must be exported before or
    *       with the test. </p>
    * @public
    */
-  dependsOnAlarms?: string[];
+  dependsOnAlarms?: string[] | undefined;
 
   /**
    * <p>Status of the recommended test.</p>
    * @public
    */
-  recommendationStatus?: RecommendationStatus;
+  recommendationStatus?: RecommendationStatus | undefined;
 }
 
 /**
@@ -5943,7 +5943,7 @@ export interface ListTestRecommendationsResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The test recommendations for the Resilience Hub application.</p>
@@ -5976,20 +5976,20 @@ export interface ListUnsupportedAppVersionResourcesRequest {
    * <p>The identifier for a specific resolution.</p>
    * @public
    */
-  resolutionId?: string;
+  resolutionId?: string | undefined;
 
   /**
    * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6019,7 +6019,7 @@ export interface UnsupportedResource {
    * <p>The status of the unsupported resource.</p>
    * @public
    */
-  unsupportedResourceStatus?: string;
+  unsupportedResourceStatus?: string | undefined;
 }
 
 /**
@@ -6042,7 +6042,7 @@ export interface ListUnsupportedAppVersionResourcesResponse {
    * <p>Token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6063,7 +6063,7 @@ export interface PublishAppVersionRequest {
    * <p>Name of the application version.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 }
 
 /**
@@ -6084,19 +6084,19 @@ export interface PublishAppVersionResponse {
    * <p>The version of the application.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 
   /**
    * <p>Identifier of the application version.</p>
    * @public
    */
-  identifier?: number;
+  identifier?: number | undefined;
 
   /**
    * <p>Name of the application version.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 }
 
 /**
@@ -6391,13 +6391,13 @@ export interface PutDraftAppVersionTemplateResponse {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>The version of the application.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 }
 
 /**
@@ -6415,7 +6415,7 @@ export interface RejectGroupingRecommendationEntry {
    * <p>Indicates the reason you had selected while rejecting a grouping recommendation.</p>
    * @public
    */
-  rejectionReason?: GroupingRecommendationRejectionReason;
+  rejectionReason?: GroupingRecommendationRejectionReason | undefined;
 }
 
 /**
@@ -6478,32 +6478,32 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
    * <p>The names of the resources you want to remove from the resource mappings.</p>
    * @public
    */
-  resourceNames?: string[];
+  resourceNames?: string[] | undefined;
 
   /**
    * <p>The names of the CloudFormation stacks you want to remove from the resource mappings.</p>
    * @public
    */
-  logicalStackNames?: string[];
+  logicalStackNames?: string[] | undefined;
 
   /**
    * <p>The names of the registered applications you want to remove from the resource
    *       mappings.</p>
    * @public
    */
-  appRegistryAppNames?: string[];
+  appRegistryAppNames?: string[] | undefined;
 
   /**
    * <p>The names of the resource groups you want to remove from the resource mappings.</p>
    * @public
    */
-  resourceGroupNames?: string[];
+  resourceGroupNames?: string[] | undefined;
 
   /**
    * <p>The names of the Terraform sources you want to remove from the resource mappings.</p>
    * @public
    */
-  terraformSourceNames?: string[];
+  terraformSourceNames?: string[] | undefined;
 
   /**
    * <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from
@@ -6513,7 +6513,7 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
    *          </note>
    * @public
    */
-  eksSourceNames?: string[];
+  eksSourceNames?: string[] | undefined;
 }
 
 /**
@@ -6528,13 +6528,13 @@ export interface RemoveDraftAppVersionResourceMappingsResponse {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>The version of the application.</p>
    * @public
    */
-  appVersion?: string;
+  appVersion?: string | undefined;
 }
 
 /**
@@ -6622,14 +6622,14 @@ export interface StartAppAssessmentRequest {
    * You should not reuse the same client token for other API requests.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6688,7 +6688,7 @@ export interface StartResourceGroupingRecommendationTaskResponse {
    * <p>Indicates the error that occurred while executing a grouping recommendation task.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -6753,7 +6753,7 @@ export interface UpdateAppRequest {
    * <p>The optional description for an app.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -6763,26 +6763,26 @@ export interface UpdateAppRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>Specifies if the resiliency policy ARN should be cleared.</p>
    * @public
    */
-  clearResiliencyPolicyArn?: boolean;
+  clearResiliencyPolicyArn?: boolean | undefined;
 
   /**
    * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
-  assessmentSchedule?: AppAssessmentScheduleType;
+  assessmentSchedule?: AppAssessmentScheduleType | undefined;
 
   /**
    * <p>Defines the roles and credentials that Resilience Hub would use while creating an
    *       application, importing its resources, and running an assessment.</p>
    * @public
    */
-  permissionModel?: PermissionModel;
+  permissionModel?: PermissionModel | undefined;
 
   /**
    * <p>The list of events you would like to subscribe and get notification for. Currently,
@@ -6791,7 +6791,7 @@ export interface UpdateAppRequest {
    *       events.</p>
    * @public
    */
-  eventSubscriptions?: EventSubscription[];
+  eventSubscriptions?: EventSubscription[] | undefined;
 }
 
 /**
@@ -6831,7 +6831,7 @@ export interface UpdateAppVersionRequest {
    *          </note>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -6861,7 +6861,7 @@ export interface UpdateAppVersionResponse {
    *          </note>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -6888,19 +6888,19 @@ export interface UpdateAppVersionAppComponentRequest {
    * <p>Name of the Application Component.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Type of Application Component. For more information about the types of Application Component, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html">Grouping resources in an AppComponent</a>.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>Currently, there is no supported additional information for Application Components.</p>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -6927,7 +6927,7 @@ export interface UpdateAppVersionAppComponentResponse {
    * <p>List of Application Components that belong to this resource.</p>
    * @public
    */
-  appComponent?: AppComponent;
+  appComponent?: AppComponent | undefined;
 }
 
 /**
@@ -6948,49 +6948,49 @@ export interface UpdateAppVersionResourceRequest {
    * <p>Name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>Logical identifier of the resource.</p>
    * @public
    */
-  logicalResourceId?: LogicalResourceId;
+  logicalResourceId?: LogicalResourceId | undefined;
 
   /**
    * <p>Physical identifier of the resource.</p>
    * @public
    */
-  physicalResourceId?: string;
+  physicalResourceId?: string | undefined;
 
   /**
    * <p>Amazon Web Services region that owns the physical resource.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>Amazon Web Services account that owns the physical resource.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>Type of resource.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p>
    * @public
    */
-  appComponents?: string[];
+  appComponents?: string[] | undefined;
 
   /**
    * <p>Currently, there is no supported additional information for resources.</p>
    * @public
    */
-  additionalInfo?: Record<string, string[]>;
+  additionalInfo?: Record<string, string[]> | undefined;
 
   /**
    * <p>Indicates if a resource is excluded from an Resilience Hub application.</p>
@@ -7000,7 +7000,7 @@ export interface UpdateAppVersionResourceRequest {
    *          </note>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 }
 
 /**
@@ -7027,7 +7027,7 @@ export interface UpdateAppVersionResourceResponse {
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
    * @public
    */
-  physicalResource?: PhysicalResource;
+  physicalResource?: PhysicalResource | undefined;
 }
 
 /**
@@ -7048,34 +7048,34 @@ export interface UpdateResiliencyPolicyRequest {
    * <p>The name of the policy</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The description for the policy.</p>
    * @public
    */
-  policyDescription?: string;
+  policyDescription?: string | undefined;
 
   /**
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    * @public
    */
-  dataLocationConstraint?: DataLocationConstraint;
+  dataLocationConstraint?: DataLocationConstraint | undefined;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    * @public
    */
-  tier?: ResiliencyPolicyTier;
+  tier?: ResiliencyPolicyTier | undefined;
 
   /**
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    * @public
    */
-  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>> | undefined;
 }
 
 /**

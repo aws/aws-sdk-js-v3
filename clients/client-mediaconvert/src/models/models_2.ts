@@ -32,37 +32,37 @@ export interface ReservationPlan {
    * The length of the term of your reserved queue pricing plan commitment.
    * @public
    */
-  Commitment?: Commitment;
+  Commitment?: Commitment | undefined;
 
   /**
    * The timestamp in epoch seconds for when the current pricing plan term for this reserved queue expires.
    * @public
    */
-  ExpiresAt?: Date;
+  ExpiresAt?: Date | undefined;
 
   /**
    * The timestamp in epoch seconds for when you set up the current pricing plan for this reserved queue.
    * @public
    */
-  PurchasedAt?: Date;
+  PurchasedAt?: Date | undefined;
 
   /**
    * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
    * @public
    */
-  RenewalType?: RenewalType;
+  RenewalType?: RenewalType | undefined;
 
   /**
    * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. When you increase this number, you extend your existing commitment with a new 12-month commitment for a larger number of RTS. The new commitment begins when you purchase the additional capacity. You can't decrease the number of RTS in your reserved queue.
    * @public
    */
-  ReservedSlots?: number;
+  ReservedSlots?: number | undefined;
 
   /**
    * Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
    * @public
    */
-  Status?: ReservationPlanStatus;
+  Status?: ReservationPlanStatus | undefined;
 }
 
 /**
@@ -88,25 +88,25 @@ export interface Queue {
    * An identifier for this resource that is unique within all of AWS.
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * The timestamp in epoch seconds for when you created the queue.
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * An optional description that you create for each queue.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * The timestamp in epoch seconds for when you most recently updated the queue.
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 
   /**
    * A name that you create for each queue. Each name must be unique within your account.
@@ -118,37 +118,37 @@ export interface Queue {
    * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * The estimated number of jobs with a PROGRESSING status.
    * @public
    */
-  ProgressingJobsCount?: number;
+  ProgressingJobsCount?: number | undefined;
 
   /**
    * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
    * @public
    */
-  ReservationPlan?: ReservationPlan;
+  ReservationPlan?: ReservationPlan | undefined;
 
   /**
    * Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
    * @public
    */
-  Status?: QueueStatus;
+  Status?: QueueStatus | undefined;
 
   /**
    * The estimated number of jobs with a SUBMITTED status.
    * @public
    */
-  SubmittedJobsCount?: number;
+  SubmittedJobsCount?: number | undefined;
 
   /**
    * Specifies whether this on-demand queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface AssociateCertificateResponse {}
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -196,7 +196,7 @@ export class BadRequestException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -218,7 +218,7 @@ export class ConflictException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -240,7 +240,7 @@ export class ForbiddenException extends __BaseException {
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -262,7 +262,7 @@ export class InternalServerErrorException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -284,7 +284,7 @@ export class NotFoundException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -323,49 +323,49 @@ export interface CreateJobRequest {
    * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
-  AccelerationSettings?: AccelerationSettings;
+  AccelerationSettings?: AccelerationSettings | undefined;
 
   /**
    * Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
    * @public
    */
-  BillingTagsSource?: BillingTagsSource;
+  BillingTagsSource?: BillingTagsSource | undefined;
 
   /**
    * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
-  HopDestinations?: HopDestination[];
+  HopDestinations?: HopDestination[] | undefined;
 
   /**
    * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. To specify a Job engine version: Enter a date in a YYYY-MM-DD format. For a list of valid Job engine versions, submit a ListVersions request. To not specify a Job engine version: Leave blank.
    * @public
    */
-  JobEngineVersion?: string;
+  JobEngineVersion?: string | undefined;
 
   /**
    * Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
    * @public
    */
-  JobTemplate?: string;
+  JobTemplate?: string | undefined;
 
   /**
    * Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
    * @public
    */
-  Queue?: string;
+  Queue?: string | undefined;
 
   /**
    * Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
@@ -383,25 +383,25 @@ export interface CreateJobRequest {
    * Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
    * @public
    */
-  SimulateReservedQueue?: SimulateReservedQueue;
+  SimulateReservedQueue?: SimulateReservedQueue | undefined;
 
   /**
    * Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
    * @public
    */
-  StatusUpdateInterval?: StatusUpdateInterval;
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
 
   /**
    * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
    * @public
    */
-  UserMetadata?: Record<string, string>;
+  UserMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -412,7 +412,7 @@ export interface CreateJobResponse {
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    * @public
    */
-  Job?: Job;
+  Job?: Job | undefined;
 }
 
 /**
@@ -423,25 +423,25 @@ export interface CreateJobTemplateRequest {
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
-  AccelerationSettings?: AccelerationSettings;
+  AccelerationSettings?: AccelerationSettings | undefined;
 
   /**
    * Optional. A category for the job template you are creating
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * Optional. A description of the job template you are creating.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
-  HopDestinations?: HopDestination[];
+  HopDestinations?: HopDestination[] | undefined;
 
   /**
    * The name of the job template you are creating.
@@ -453,13 +453,13 @@ export interface CreateJobTemplateRequest {
    * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
    * @public
    */
-  Queue?: string;
+  Queue?: string | undefined;
 
   /**
    * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
@@ -471,13 +471,13 @@ export interface CreateJobTemplateRequest {
    * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
    * @public
    */
-  StatusUpdateInterval?: StatusUpdateInterval;
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
 
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -488,7 +488,7 @@ export interface CreateJobTemplateResponse {
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    * @public
    */
-  JobTemplate?: JobTemplate;
+  JobTemplate?: JobTemplate | undefined;
 }
 
 /**
@@ -499,13 +499,13 @@ export interface CreatePresetRequest {
    * Optional. A category for the preset you are creating.
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * Optional. A description of the preset you are creating.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * The name of the preset you are creating.
@@ -523,7 +523,7 @@ export interface CreatePresetRequest {
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -534,7 +534,7 @@ export interface CreatePresetResponse {
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    * @public
    */
-  Preset?: Preset;
+  Preset?: Preset | undefined;
 }
 
 /**
@@ -569,7 +569,7 @@ export interface CreateQueueRequest {
    * Optional. A description of the queue that you are creating.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * The name of the queue that you are creating.
@@ -581,25 +581,25 @@ export interface CreateQueueRequest {
    * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
    * @public
    */
-  ReservationPlanSettings?: ReservationPlanSettings;
+  ReservationPlanSettings?: ReservationPlanSettings | undefined;
 
   /**
    * Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
    * @public
    */
-  Status?: QueueStatus;
+  Status?: QueueStatus | undefined;
 
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface CreateQueueResponse {
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    * @public
    */
-  Queue?: Queue;
+  Queue?: Queue | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface DescribeEndpointsRequest {
    * Optional. Max number of endpoints, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * @deprecated
@@ -701,13 +701,13 @@ export interface DescribeEndpointsRequest {
    * Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
    * @public
    */
-  Mode?: DescribeEndpointsMode;
+  Mode?: DescribeEndpointsMode | undefined;
 
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of endpoints.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -718,13 +718,13 @@ export interface DescribeEndpointsResponse {
    * List of endpoints
    * @public
    */
-  Endpoints?: Endpoint[];
+  Endpoints?: Endpoint[] | undefined;
 
   /**
    * Use this string to request the next batch of endpoints.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface GetJobResponse {
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    * @public
    */
-  Job?: Job;
+  Job?: Job | undefined;
 }
 
 /**
@@ -784,7 +784,7 @@ export interface GetJobTemplateResponse {
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    * @public
    */
-  JobTemplate?: JobTemplate;
+  JobTemplate?: JobTemplate | undefined;
 }
 
 /**
@@ -815,19 +815,19 @@ export interface Policy {
    * Allow or disallow jobs that specify HTTP inputs.
    * @public
    */
-  HttpInputs?: InputPolicy;
+  HttpInputs?: InputPolicy | undefined;
 
   /**
    * Allow or disallow jobs that specify HTTPS inputs.
    * @public
    */
-  HttpsInputs?: InputPolicy;
+  HttpsInputs?: InputPolicy | undefined;
 
   /**
    * Allow or disallow jobs that specify Amazon S3 inputs.
    * @public
    */
-  S3Inputs?: InputPolicy;
+  S3Inputs?: InputPolicy | undefined;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface GetPolicyResponse {
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    * @public
    */
-  Policy?: Policy;
+  Policy?: Policy | undefined;
 }
 
 /**
@@ -860,7 +860,7 @@ export interface GetPresetResponse {
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    * @public
    */
-  Preset?: Preset;
+  Preset?: Preset | undefined;
 }
 
 /**
@@ -882,7 +882,7 @@ export interface GetQueueResponse {
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    * @public
    */
-  Queue?: Queue;
+  Queue?: Queue | undefined;
 }
 
 /**
@@ -922,31 +922,31 @@ export interface ListJobsRequest {
    * Optional. Number of jobs, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    * @public
    */
-  Order?: Order;
+  Order?: Order | undefined;
 
   /**
    * Optional. Provide a queue name to get back only jobs from that queue.
    * @public
    */
-  Queue?: string;
+  Queue?: string | undefined;
 
   /**
    * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
    * @public
    */
-  Status?: JobStatus;
+  Status?: JobStatus | undefined;
 }
 
 /**
@@ -957,13 +957,13 @@ export interface ListJobsResponse {
    * List of jobs
    * @public
    */
-  Jobs?: Job[];
+  Jobs?: Job[] | undefined;
 
   /**
    * Use this string to request the next batch of jobs.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -974,31 +974,31 @@ export interface ListJobTemplatesRequest {
    * Optionally, specify a job template category to limit responses to only job templates from that category.
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
    * @public
    */
-  ListBy?: JobTemplateListBy;
+  ListBy?: JobTemplateListBy | undefined;
 
   /**
    * Optional. Number of job templates, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of job templates.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    * @public
    */
-  Order?: Order;
+  Order?: Order | undefined;
 }
 
 /**
@@ -1009,13 +1009,13 @@ export interface ListJobTemplatesResponse {
    * List of Job templates.
    * @public
    */
-  JobTemplates?: JobTemplate[];
+  JobTemplates?: JobTemplate[] | undefined;
 
   /**
    * Use this string to request the next batch of job templates.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1041,31 +1041,31 @@ export interface ListPresetsRequest {
    * Optionally, specify a preset category to limit responses to only presets from that category.
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
    * @public
    */
-  ListBy?: PresetListBy;
+  ListBy?: PresetListBy | undefined;
 
   /**
    * Optional. Number of presets, up to twenty, that will be returned at one time
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of presets.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    * @public
    */
-  Order?: Order;
+  Order?: Order | undefined;
 }
 
 /**
@@ -1076,13 +1076,13 @@ export interface ListPresetsResponse {
    * Use this string to request the next batch of presets.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * List of presets
    * @public
    */
-  Presets?: Preset[];
+  Presets?: Preset[] | undefined;
 }
 
 /**
@@ -1107,25 +1107,25 @@ export interface ListQueuesRequest {
    * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
    * @public
    */
-  ListBy?: QueueListBy;
+  ListBy?: QueueListBy | undefined;
 
   /**
    * Optional. Number of queues, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of queues.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    * @public
    */
-  Order?: Order;
+  Order?: Order | undefined;
 }
 
 /**
@@ -1136,13 +1136,13 @@ export interface ListQueuesResponse {
    * Use this string to request the next batch of queues.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * List of queues.
    * @public
    */
-  Queues?: Queue[];
+  Queues?: Queue[] | undefined;
 }
 
 /**
@@ -1165,13 +1165,13 @@ export interface ResourceTags {
    * The Amazon Resource Name (ARN) of the resource.
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * The tags for the resource.
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1182,7 +1182,7 @@ export interface ListTagsForResourceResponse {
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
    * @public
    */
-  ResourceTags?: ResourceTags;
+  ResourceTags?: ResourceTags | undefined;
 }
 
 /**
@@ -1193,13 +1193,13 @@ export interface ListVersionsRequest {
    * Optional. Number of valid Job engine versions, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1210,13 +1210,13 @@ export interface ListVersionsResponse {
    * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Retrieve a JSON array of all available Job engine versions and the date they expire.
    * @public
    */
-  Versions?: JobEngineVersion[];
+  Versions?: JobEngineVersion[] | undefined;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface PutPolicyResponse {
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    * @public
    */
-  Policy?: Policy;
+  Policy?: Policy | undefined;
 }
 
 /**
@@ -1249,37 +1249,37 @@ export interface SearchJobsRequest {
    * Optional. Provide your input file URL or your partial input file name. The maximum length for an input file is 300 characters.
    * @public
    */
-  InputFile?: string;
+  InputFile?: string | undefined;
 
   /**
    * Optional. Number of jobs, up to twenty, that will be returned at one time.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    * @public
    */
-  Order?: Order;
+  Order?: Order | undefined;
 
   /**
    * Optional. Provide a queue name, or a queue ARN, to return only jobs from that queue.
    * @public
    */
-  Queue?: string;
+  Queue?: string | undefined;
 
   /**
    * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
    * @public
    */
-  Status?: JobStatus;
+  Status?: JobStatus | undefined;
 }
 
 /**
@@ -1290,13 +1290,13 @@ export interface SearchJobsResponse {
    * List of jobs.
    * @public
    */
-  Jobs?: Job[];
+  Jobs?: Job[] | undefined;
 
   /**
    * Use this string to request the next batch of jobs.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1335,7 +1335,7 @@ export interface UntagResourceRequest {
    * The keys of the tags that you want to remove from the resource.
    * @public
    */
-  TagKeys?: string[];
+  TagKeys?: string[] | undefined;
 }
 
 /**
@@ -1351,25 +1351,25 @@ export interface UpdateJobTemplateRequest {
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
    * @public
    */
-  AccelerationSettings?: AccelerationSettings;
+  AccelerationSettings?: AccelerationSettings | undefined;
 
   /**
    * The new category for the job template, if you are changing it.
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * The new description for the job template, if you are changing it.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * Optional list of hop destinations.
    * @public
    */
-  HopDestinations?: HopDestination[];
+  HopDestinations?: HopDestination[] | undefined;
 
   /**
    * The name of the job template you are modifying
@@ -1381,25 +1381,25 @@ export interface UpdateJobTemplateRequest {
    * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * The new queue for the job template, if you are changing it.
    * @public
    */
-  Queue?: string;
+  Queue?: string | undefined;
 
   /**
    * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
    * @public
    */
-  Settings?: JobTemplateSettings;
+  Settings?: JobTemplateSettings | undefined;
 
   /**
    * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
    * @public
    */
-  StatusUpdateInterval?: StatusUpdateInterval;
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
 }
 
 /**
@@ -1410,7 +1410,7 @@ export interface UpdateJobTemplateResponse {
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    * @public
    */
-  JobTemplate?: JobTemplate;
+  JobTemplate?: JobTemplate | undefined;
 }
 
 /**
@@ -1421,13 +1421,13 @@ export interface UpdatePresetRequest {
    * The new category for the preset, if you are changing it.
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * The new description for the preset, if you are changing it.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * The name of the preset you are modifying.
@@ -1439,7 +1439,7 @@ export interface UpdatePresetRequest {
    * Settings for preset
    * @public
    */
-  Settings?: PresetSettings;
+  Settings?: PresetSettings | undefined;
 }
 
 /**
@@ -1450,7 +1450,7 @@ export interface UpdatePresetResponse {
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    * @public
    */
-  Preset?: Preset;
+  Preset?: Preset | undefined;
 }
 
 /**
@@ -1461,7 +1461,7 @@ export interface UpdateQueueRequest {
    * The new description for the queue, if you are changing it.
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * The name of the queue that you are modifying.
@@ -1473,13 +1473,13 @@ export interface UpdateQueueRequest {
    * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
    * @public
    */
-  ReservationPlanSettings?: ReservationPlanSettings;
+  ReservationPlanSettings?: ReservationPlanSettings | undefined;
 
   /**
    * Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
    * @public
    */
-  Status?: QueueStatus;
+  Status?: QueueStatus | undefined;
 }
 
 /**
@@ -1490,5 +1490,5 @@ export interface UpdateQueueResponse {
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    * @public
    */
-  Queue?: Queue;
+  Queue?: Queue | undefined;
 }

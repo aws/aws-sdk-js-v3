@@ -94,27 +94,27 @@ export interface AutoRetryConfig {
    *             retry your build for up to 2 additional times.</p>
    * @public
    */
-  autoRetryLimit?: number;
+  autoRetryLimit?: number | undefined;
 
   /**
    * <p>The number of times that the build has been retried. The initial build will have an auto-retry number of 0.</p>
    * @public
    */
-  autoRetryNumber?: number;
+  autoRetryNumber?: number | undefined;
 
   /**
    * <p>The build ARN of the auto-retried build triggered by the current build. The next auto-retry
    *             will be <code>null</code> for builds that don't trigger an auto-retry.</p>
    * @public
    */
-  nextAutoRetry?: string;
+  nextAutoRetry?: string | undefined;
 
   /**
    * <p>The build ARN of the build that triggered the current auto-retry build. The previous auto-retry will be
    *             <code>null</code> for the initial build.</p>
    * @public
    */
-  previousAutoRetry?: string;
+  previousAutoRetry?: string | undefined;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface BuildNotDeleted {
    * <p>The ID of the build that could not be successfully deleted.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Additional information about the build that could not be successfully deleted.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 }
 
 /**
@@ -154,13 +154,13 @@ export interface BatchDeleteBuildsOutput {
    * <p>The IDs of the builds that were successfully deleted.</p>
    * @public
    */
-  buildsDeleted?: string[];
+  buildsDeleted?: string[] | undefined;
 
   /**
    * <p>Information about any builds that could not be successfully deleted.</p>
    * @public
    */
-  buildsNotDeleted?: BuildNotDeleted[];
+  buildsNotDeleted?: BuildNotDeleted[] | undefined;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface BuildArtifacts {
    * <p>Information about the location of the build artifacts.</p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>The SHA-256 hash of the build artifact.</p>
@@ -230,7 +230,7 @@ export interface BuildArtifacts {
    *          </note>
    * @public
    */
-  sha256sum?: string;
+  sha256sum?: string | undefined;
 
   /**
    * <p>The MD5 hash of the build artifact.</p>
@@ -242,7 +242,7 @@ export interface BuildArtifacts {
    *          </note>
    * @public
    */
-  md5sum?: string;
+  md5sum?: string | undefined;
 
   /**
    * <p> If this flag is set, a name specified in the buildspec file overrides the artifact
@@ -251,19 +251,19 @@ export interface BuildArtifacts {
    *             name so that it is always unique. </p>
    * @public
    */
-  overrideArtifactName?: boolean;
+  overrideArtifactName?: boolean | undefined;
 
   /**
    * <p> Information that tells you if encryption for build artifacts is disabled. </p>
    * @public
    */
-  encryptionDisabled?: boolean;
+  encryptionDisabled?: boolean | undefined;
 
   /**
    * <p> An identifier for this artifact definition. </p>
    * @public
    */
-  artifactIdentifier?: string;
+  artifactIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the bucket owner's access for objects that another account uploads to their
@@ -310,7 +310,7 @@ export interface BuildArtifacts {
    *          </dl>
    * @public
    */
-  bucketOwnerAccess?: BucketOwnerAccess;
+  bucketOwnerAccess?: BucketOwnerAccess | undefined;
 }
 
 /**
@@ -336,7 +336,7 @@ export interface BatchRestrictions {
    * <p>Specifies the maximum number of builds allowed.</p>
    * @public
    */
-  maximumBuildsAllowed?: number;
+  maximumBuildsAllowed?: number | undefined;
 
   /**
    * <p>An array of strings that specify the compute types that are allowed for the batch
@@ -345,7 +345,7 @@ export interface BatchRestrictions {
    *         </p>
    * @public
    */
-  computeTypesAllowed?: string[];
+  computeTypesAllowed?: string[] | undefined;
 }
 
 /**
@@ -357,27 +357,27 @@ export interface ProjectBuildBatchConfig {
    * <p>Specifies the service role ARN for the batch build project.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>Specifies if the build artifacts for the batch build should be combined into a single
    *             artifact location.</p>
    * @public
    */
-  combineArtifacts?: boolean;
+  combineArtifacts?: boolean | undefined;
 
   /**
    * <p>A <code>BatchRestrictions</code> object that specifies the restrictions for the batch
    *             build.</p>
    * @public
    */
-  restrictions?: BatchRestrictions;
+  restrictions?: BatchRestrictions | undefined;
 
   /**
    * <p>Specifies the maximum amount of time, in minutes, that the batch build must be completed in.</p>
    * @public
    */
-  timeoutInMins?: number;
+  timeoutInMins?: number | undefined;
 
   /**
    * <p>Specifies how build status reports are sent to the source provider for the batch build. This property is only used
@@ -395,7 +395,7 @@ export interface ProjectBuildBatchConfig {
    *          </dl>
    * @public
    */
-  batchReportMode?: BatchReportModeType;
+  batchReportMode?: BatchReportModeType | undefined;
 }
 
 /**
@@ -426,19 +426,19 @@ export interface ResolvedArtifact {
    * <p>Specifies the type of artifact.</p>
    * @public
    */
-  type?: ArtifactsType;
+  type?: ArtifactsType | undefined;
 
   /**
    * <p>The location of the artifact.</p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>The identifier of the artifact.</p>
    * @public
    */
-  identifier?: string;
+  identifier?: string | undefined;
 }
 
 /**
@@ -450,13 +450,13 @@ export interface BuildSummary {
    * <p>The batch build ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>When the build was started, expressed in Unix time format.</p>
    * @public
    */
-  requestedOn?: Date;
+  requestedOn?: Date | undefined;
 
   /**
    * <p>The status of the build group.</p>
@@ -488,21 +488,21 @@ export interface BuildSummary {
    *          </dl>
    * @public
    */
-  buildStatus?: StatusType;
+  buildStatus?: StatusType | undefined;
 
   /**
    * <p>A <code>ResolvedArtifact</code> object that represents the primary build artifacts for the
    *             build group.</p>
    * @public
    */
-  primaryArtifact?: ResolvedArtifact;
+  primaryArtifact?: ResolvedArtifact | undefined;
 
   /**
    * <p>An array of <code>ResolvedArtifact</code> objects that represents the secondary build
    *             artifacts for the build group.</p>
    * @public
    */
-  secondaryArtifacts?: ResolvedArtifact[];
+  secondaryArtifacts?: ResolvedArtifact[] | undefined;
 }
 
 /**
@@ -516,34 +516,34 @@ export interface BuildGroup {
    * <p>Contains the identifier of the build group.</p>
    * @public
    */
-  identifier?: string;
+  identifier?: string | undefined;
 
   /**
    * <p>An array of strings that contain the identifiers of the build groups that this build
    *             group depends on.</p>
    * @public
    */
-  dependsOn?: string[];
+  dependsOn?: string[] | undefined;
 
   /**
    * <p>Specifies if failures in this build group can be ignored.</p>
    * @public
    */
-  ignoreFailure?: boolean;
+  ignoreFailure?: boolean | undefined;
 
   /**
    * <p>A <code>BuildSummary</code> object that contains a summary of the current build
    *             group.</p>
    * @public
    */
-  currentBuildSummary?: BuildSummary;
+  currentBuildSummary?: BuildSummary | undefined;
 
   /**
    * <p>An array of <code>BuildSummary</code> objects that contain summaries of previous
    *             build groups.</p>
    * @public
    */
-  priorBuildSummaryList?: BuildSummary[];
+  priorBuildSummaryList?: BuildSummary[] | undefined;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface ProjectCache {
    *          </ul>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>An array of strings that specify the local cache modes. You can use one or more local
@@ -679,7 +679,7 @@ export interface ProjectCache {
    *          </dl>
    * @public
    */
-  modes?: CacheMode[];
+  modes?: CacheMode[] | undefined;
 }
 
 /**
@@ -705,25 +705,25 @@ export interface ComputeConfiguration {
    * <p>The number of vCPUs of the instance type included in your fleet.</p>
    * @public
    */
-  vCpu?: number;
+  vCpu?: number | undefined;
 
   /**
    * <p>The amount of memory of the instance type included in your fleet.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The amount of disk space of the instance type included in your fleet.</p>
    * @public
    */
-  disk?: number;
+  disk?: number | undefined;
 
   /**
    * <p>The machine type of the instance type included in your fleet.</p>
    * @public
    */
-  machineType?: MachineType;
+  machineType?: MachineType | undefined;
 }
 
 /**
@@ -817,7 +817,7 @@ export interface EnvironmentVariable {
    *          </ul>
    * @public
    */
-  type?: EnvironmentVariableType;
+  type?: EnvironmentVariableType | undefined;
 }
 
 /**
@@ -831,7 +831,7 @@ export interface ProjectFleet {
    * <p>Specifies the compute fleet ARN for the build project.</p>
    * @public
    */
-  fleetArn?: string;
+  fleetArn?: string | undefined;
 }
 
 /**
@@ -1104,20 +1104,20 @@ export interface ProjectEnvironment {
    * <p>The compute configuration of the build project. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>A ProjectFleet object to use for this build project.</p>
    * @public
    */
-  fleet?: ProjectFleet;
+  fleet?: ProjectFleet | undefined;
 
   /**
    * <p>A set of environment variables to make available to builds for this build
    *             project.</p>
    * @public
    */
-  environmentVariables?: EnvironmentVariable[];
+  environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
    * <p>Enables running the Docker daemon inside a Docker container. Set to true only if the
@@ -1143,7 +1143,7 @@ export interface ProjectEnvironment {
    *          </p>
    * @public
    */
-  privilegedMode?: boolean;
+  privilegedMode?: boolean | undefined;
 
   /**
    * <p>The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded
@@ -1151,13 +1151,13 @@ export interface ProjectEnvironment {
    *                 <i>CodeBuild User Guide</i>.</p>
    * @public
    */
-  certificate?: string;
+  certificate?: string | undefined;
 
   /**
    * <p> The credentials for access to a private registry.</p>
    * @public
    */
-  registryCredential?: RegistryCredential;
+  registryCredential?: RegistryCredential | undefined;
 
   /**
    * <p> The type of credentials CodeBuild uses to pull images in your build. There are two valid
@@ -1179,7 +1179,7 @@ export interface ProjectEnvironment {
    *         </p>
    * @public
    */
-  imagePullCredentialsType?: ImagePullCredentialsType;
+  imagePullCredentialsType?: ImagePullCredentialsType | undefined;
 }
 
 /**
@@ -1207,7 +1207,7 @@ export interface ProjectFileSystemLocation {
    * <p> The type of the file system. The one supported type is <code>EFS</code>. </p>
    * @public
    */
-  type?: FileSystemType;
+  type?: FileSystemType | undefined;
 
   /**
    * <p>A string that specifies the location of the file system created by Amazon EFS. Its
@@ -1222,13 +1222,13 @@ export interface ProjectFileSystemLocation {
    *             CodeBuild mounts the entire file system. </p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>The location in the container where you mount the file system. </p>
    * @public
    */
-  mountPoint?: string;
+  mountPoint?: string | undefined;
 
   /**
    * <p>The name used to access a file system created by Amazon EFS. CodeBuild creates an
@@ -1239,7 +1239,7 @@ export interface ProjectFileSystemLocation {
    *          <p> The <code>identifier</code> is used to mount your file system. </p>
    * @public
    */
-  identifier?: string;
+  identifier?: string | undefined;
 
   /**
    * <p> The mount options for a file system created by Amazon EFS. The default mount options
@@ -1249,7 +1249,7 @@ export interface ProjectFileSystemLocation {
    *                 Options</a>. </p>
    * @public
    */
-  mountOptions?: string;
+  mountOptions?: string | undefined;
 }
 
 /**
@@ -1292,14 +1292,14 @@ export interface CloudWatchLogsConfig {
    *                 with Log Groups and Log Streams</a>. </p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p> The prefix of the stream name of the CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
    *                 with Log Groups and Log Streams</a>. </p>
    * @public
    */
-  streamName?: string;
+  streamName?: string | undefined;
 }
 
 /**
@@ -1331,14 +1331,14 @@ export interface S3LogsConfig {
    *                 <code>arn:aws:s3:::my-bucket/build-log</code>. </p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p> Set to true if you do not want your S3 build log output encrypted. By default S3
    *             build logs are encrypted. </p>
    * @public
    */
-  encryptionDisabled?: boolean;
+  encryptionDisabled?: boolean | undefined;
 
   /**
    * <p>Specifies the bucket owner's access for objects that another account uploads to their
@@ -1385,7 +1385,7 @@ export interface S3LogsConfig {
    *          </dl>
    * @public
    */
-  bucketOwnerAccess?: BucketOwnerAccess;
+  bucketOwnerAccess?: BucketOwnerAccess | undefined;
 }
 
 /**
@@ -1398,14 +1398,14 @@ export interface LogsConfig {
    * <p> Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default. </p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsConfig;
+  cloudWatchLogs?: CloudWatchLogsConfig | undefined;
 
   /**
    * <p> Information about logs built to an S3 bucket for a build project. S3 logs are not
    *             enabled by default. </p>
    * @public
    */
-  s3Logs?: S3LogsConfig;
+  s3Logs?: S3LogsConfig | undefined;
 }
 
 /**
@@ -1418,14 +1418,14 @@ export interface PhaseContext {
    * <p>The status code for the context of the build phase.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>An explanation of the build phase's context. This might include a command ID and an
    *             exit code.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1487,7 +1487,7 @@ export interface BuildBatchPhase {
    *          </dl>
    * @public
    */
-  phaseType?: BuildBatchPhaseType;
+  phaseType?: BuildBatchPhaseType | undefined;
 
   /**
    * <p>The current status of the batch build phase. Valid values include:</p>
@@ -1519,33 +1519,33 @@ export interface BuildBatchPhase {
    *          </dl>
    * @public
    */
-  phaseStatus?: StatusType;
+  phaseStatus?: StatusType | undefined;
 
   /**
    * <p>When the batch build phase started, expressed in Unix time format.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>When the batch build phase ended, expressed in Unix time format.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>How long, in seconds, between the starting and ending times of the batch build's
    *         phase.</p>
    * @public
    */
-  durationInSeconds?: number;
+  durationInSeconds?: number | undefined;
 
   /**
    * <p>Additional information about the batch build phase. Especially to help troubleshoot a
    *             failed batch build.</p>
    * @public
    */
-  contexts?: PhaseContext[];
+  contexts?: PhaseContext[] | undefined;
 }
 
 /**
@@ -1579,7 +1579,7 @@ export interface SourceAuth {
    * <p>The resource value that applies to the specified authorization type.</p>
    * @public
    */
-  resource?: string;
+  resource?: string | undefined;
 }
 
 /**
@@ -1605,7 +1605,7 @@ export interface BuildStatusConfig {
    *          </dl>
    * @public
    */
-  context?: string;
+  context?: string | undefined;
 
   /**
    * <p>Specifies the target url of the build status CodeBuild sends to the source provider. The
@@ -1624,7 +1624,7 @@ export interface BuildStatusConfig {
    *          </dl>
    * @public
    */
-  targetUrl?: string;
+  targetUrl?: string | undefined;
 }
 
 /**
@@ -1787,19 +1787,19 @@ export interface ProjectSource {
    *        </p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>Information about the Git clone depth for the build project.</p>
    * @public
    */
-  gitCloneDepth?: number;
+  gitCloneDepth?: number | undefined;
 
   /**
    * <p> Information about the Git submodules configuration for the build project. </p>
    * @public
    */
-  gitSubmodulesConfig?: GitSubmodulesConfig;
+  gitSubmodulesConfig?: GitSubmodulesConfig | undefined;
 
   /**
    * <p>The buildspec file declaration to use for the builds in this build project.</p>
@@ -1813,14 +1813,14 @@ export interface ProjectSource {
    *             its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
    * @public
    */
-  buildspec?: string;
+  buildspec?: string | undefined;
 
   /**
    * <p>Information about the authorization settings for CodeBuild to access the source code to be
    *             built.</p>
    * @public
    */
-  auth?: SourceAuth;
+  auth?: SourceAuth | undefined;
 
   /**
    * <p> Set to true to report the status of a build's start and finish to your source
@@ -1836,7 +1836,7 @@ export interface ProjectSource {
    *               effect.</p>
    * @public
    */
-  reportBuildStatus?: boolean;
+  reportBuildStatus?: boolean | undefined;
 
   /**
    * <p>Contains information that defines how the build project reports the build status to
@@ -1845,21 +1845,21 @@ export interface ProjectSource {
    *             <code>BITBUCKET</code>.</p>
    * @public
    */
-  buildStatusConfig?: BuildStatusConfig;
+  buildStatusConfig?: BuildStatusConfig | undefined;
 
   /**
    * <p>Enable this flag to ignore SSL warnings while connecting to the project source
    *           code.</p>
    * @public
    */
-  insecureSsl?: boolean;
+  insecureSsl?: boolean | undefined;
 
   /**
    * <p>An identifier for this project source. The identifier can only contain
    *           alphanumeric characters and underscores, and must be less than 128 characters in length. </p>
    * @public
    */
-  sourceIdentifier?: string;
+  sourceIdentifier?: string | undefined;
 }
 
 /**
@@ -1919,19 +1919,19 @@ export interface VpcConfig {
    * <p>The ID of the Amazon VPC.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 
   /**
    * <p>A list of one or more security groups IDs in your Amazon VPC.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -1943,43 +1943,43 @@ export interface BuildBatch {
    * <p>The identifier of the batch build.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The ARN of the batch build.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time that the batch build started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The date and time that the batch build ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The current phase of the batch build.</p>
    * @public
    */
-  currentPhase?: string;
+  currentPhase?: string | undefined;
 
   /**
    * <p>The status of the batch build.</p>
    * @public
    */
-  buildBatchStatus?: StatusType;
+  buildBatchStatus?: StatusType | undefined;
 
   /**
    * <p>The identifier of the version of the source code to be built.</p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>The identifier of the resolved version of this batch build's source code.</p>
@@ -1996,33 +1996,33 @@ export interface BuildBatch {
    *          </ul>
    * @public
    */
-  resolvedSourceVersion?: string;
+  resolvedSourceVersion?: string | undefined;
 
   /**
    * <p>The name of the batch build project.</p>
    * @public
    */
-  projectName?: string;
+  projectName?: string | undefined;
 
   /**
    * <p>An array of <code>BuildBatchPhase</code> objects the specify the phases of the
    *             batch build.</p>
    * @public
    */
-  phases?: BuildBatchPhase[];
+  phases?: BuildBatchPhase[] | undefined;
 
   /**
    * <p>Information about the build input source code for the build project.</p>
    * @public
    */
-  source?: ProjectSource;
+  source?: ProjectSource | undefined;
 
   /**
    * <p>An array of <code>ProjectSource</code> objects that define the sources for the batch
    *             build.</p>
    * @public
    */
-  secondarySources?: ProjectSource[];
+  secondarySources?: ProjectSource[] | undefined;
 
   /**
    * <p>An array of <code>ProjectSourceVersion</code> objects. Each
@@ -2052,65 +2052,65 @@ export interface BuildBatch {
    *          </ul>
    * @public
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>A <code>BuildArtifacts</code> object the defines the build artifacts for this batch build.</p>
    * @public
    */
-  artifacts?: BuildArtifacts;
+  artifacts?: BuildArtifacts | undefined;
 
   /**
    * <p>An array of <code>BuildArtifacts</code> objects the define the build artifacts
    *             for this batch build.</p>
    * @public
    */
-  secondaryArtifacts?: BuildArtifacts[];
+  secondaryArtifacts?: BuildArtifacts[] | undefined;
 
   /**
    * <p>Information about the cache for the build project.</p>
    * @public
    */
-  cache?: ProjectCache;
+  cache?: ProjectCache | undefined;
 
   /**
    * <p>Information about the build environment of the build project.</p>
    * @public
    */
-  environment?: ProjectEnvironment;
+  environment?: ProjectEnvironment | undefined;
 
   /**
    * <p>The name of a service role used for builds in the batch.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
    *             specified S3 bucket, or both. </p>
    * @public
    */
-  logConfig?: LogsConfig;
+  logConfig?: LogsConfig | undefined;
 
   /**
    * <p>Specifies the maximum amount of time, in minutes, that the build in a batch must be
    *             completed in.</p>
    * @public
    */
-  buildTimeoutInMinutes?: number;
+  buildTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>Specifies the amount of time, in minutes, that the batch build is allowed to be queued
    *             before it times out.</p>
    * @public
    */
-  queuedTimeoutInMinutes?: number;
+  queuedTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>Indicates if the batch build is complete.</p>
    * @public
    */
-  complete?: boolean;
+  complete?: boolean | undefined;
 
   /**
    * <p>The entity that started the batch build. Valid values include:</p>
@@ -2129,13 +2129,13 @@ export interface BuildBatch {
    *          </ul>
    * @public
    */
-  initiator?: string;
+  initiator?: string | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the batch build output
@@ -2148,7 +2148,7 @@ export interface BuildBatch {
    *             the format <code>alias/<alias-name></code>).</p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>The number of the batch build. For each project, the <code>buildBatchNumber</code> of its
@@ -2157,7 +2157,7 @@ export interface BuildBatch {
    *                 <code>buildBatchNumber</code> of other batch builds does not change.</p>
    * @public
    */
-  buildBatchNumber?: number;
+  buildBatchNumber?: number | undefined;
 
   /**
    * <p>An array of <code>ProjectFileSystemLocation</code> objects for the batch build
@@ -2167,27 +2167,27 @@ export interface BuildBatch {
    *             Elastic File System. </p>
    * @public
    */
-  fileSystemLocations?: ProjectFileSystemLocation[];
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
 
   /**
    * <p>Contains configuration information about a batch build project.</p>
    * @public
    */
-  buildBatchConfig?: ProjectBuildBatchConfig;
+  buildBatchConfig?: ProjectBuildBatchConfig | undefined;
 
   /**
    * <p>An array of <code>BuildGroup</code> objects that define the build groups for the
    *             batch build.</p>
    * @public
    */
-  buildGroups?: BuildGroup[];
+  buildGroups?: BuildGroup[] | undefined;
 
   /**
    * <p>Specifies if session debugging is enabled for this batch build. For more information, see
    *   <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>
    * @public
    */
-  debugSessionEnabled?: boolean;
+  debugSessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -2199,13 +2199,13 @@ export interface BatchGetBuildBatchesOutput {
    *             builds.</p>
    * @public
    */
-  buildBatches?: BuildBatch[];
+  buildBatches?: BuildBatch[] | undefined;
 
   /**
    * <p>An array that contains the identifiers of any batch builds that are not found.</p>
    * @public
    */
-  buildBatchesNotFound?: string[];
+  buildBatchesNotFound?: string[] | undefined;
 }
 
 /**
@@ -2229,7 +2229,7 @@ export interface DebugSession {
    * <p>Specifies if session debugging is enabled for this build.</p>
    * @public
    */
-  sessionEnabled?: boolean;
+  sessionEnabled?: boolean | undefined;
 
   /**
    * <p>Contains the identifier of the Session Manager session used for the build. To work with
@@ -2237,7 +2237,7 @@ export interface DebugSession {
    *             build.</p>
    * @public
    */
-  sessionTarget?: string;
+  sessionTarget?: string | undefined;
 }
 
 /**
@@ -2259,13 +2259,13 @@ export interface ExportedEnvironmentVariable {
    * <p>The name of the exported environment variable.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The value assigned to the exported environment variable.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2277,32 +2277,32 @@ export interface LogsLocation {
    * <p>The name of the CloudWatch Logs group for the build logs.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p>The name of the CloudWatch Logs stream for the build logs.</p>
    * @public
    */
-  streamName?: string;
+  streamName?: string | undefined;
 
   /**
    * <p>The URL to an individual build log in CloudWatch Logs. The log stream is created during the PROVISIONING phase of a build and the <code>deeplink</code> will not be valid until it is created.</p>
    * @public
    */
-  deepLink?: string;
+  deepLink?: string | undefined;
 
   /**
    * <p> The URL to a build log in an S3 bucket. </p>
    * @public
    */
-  s3DeepLink?: string;
+  s3DeepLink?: string | undefined;
 
   /**
    * <p>The ARN of the CloudWatch Logs stream for a build execution. Its format is <code>arn:$\{Partition\}:logs:$\{Region\}:$\{Account\}:log-group:$\{LogGroupName\}:log-stream:$\{LogStreamName\}</code>.
    *             The CloudWatch Logs stream is created during the PROVISIONING phase of a build and the ARN will not be valid until it is created. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by CloudWatch Logs</a>.</p>
    * @public
    */
-  cloudWatchLogsArn?: string;
+  cloudWatchLogsArn?: string | undefined;
 
   /**
    * <p> The ARN of S3 logs for a build project. Its format is
@@ -2310,19 +2310,19 @@ export interface LogsLocation {
    *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies">Resources Defined by Amazon S3</a>. </p>
    * @public
    */
-  s3LogsArn?: string;
+  s3LogsArn?: string | undefined;
 
   /**
    * <p> Information about CloudWatch Logs for a build project. </p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsConfig;
+  cloudWatchLogs?: CloudWatchLogsConfig | undefined;
 
   /**
    * <p> Information about S3 logs for a build project. </p>
    * @public
    */
-  s3Logs?: S3LogsConfig;
+  s3Logs?: S3LogsConfig | undefined;
 }
 
 /**
@@ -2334,13 +2334,13 @@ export interface NetworkInterface {
    * <p>The ID of the subnet.</p>
    * @public
    */
-  subnetId?: string;
+  subnetId?: string | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
    * @public
    */
-  networkInterfaceId?: string;
+  networkInterfaceId?: string | undefined;
 }
 
 /**
@@ -2422,7 +2422,7 @@ export interface BuildPhase {
    *          </dl>
    * @public
    */
-  phaseType?: BuildPhaseType;
+  phaseType?: BuildPhaseType | undefined;
 
   /**
    * <p>The current status of the build phase. Valid values include:</p>
@@ -2454,33 +2454,33 @@ export interface BuildPhase {
    *          </dl>
    * @public
    */
-  phaseStatus?: StatusType;
+  phaseStatus?: StatusType | undefined;
 
   /**
    * <p>When the build phase started, expressed in Unix time format.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>When the build phase ended, expressed in Unix time format.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>How long, in seconds, between the starting and ending times of the build's
    *             phase.</p>
    * @public
    */
-  durationInSeconds?: number;
+  durationInSeconds?: number | undefined;
 
   /**
    * <p>Additional information about a build phase, especially to help troubleshoot a failed
    *             build.</p>
    * @public
    */
-  contexts?: PhaseContext[];
+  contexts?: PhaseContext[] | undefined;
 }
 
 /**
@@ -2492,13 +2492,13 @@ export interface Build {
    * <p>The unique ID for the build.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the build.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The number of the build. For each project, the <code>buildNumber</code> of its first
@@ -2507,25 +2507,25 @@ export interface Build {
    *             other builds does not change.</p>
    * @public
    */
-  buildNumber?: number;
+  buildNumber?: number | undefined;
 
   /**
    * <p>When the build process started, expressed in Unix time format.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>When the build process ended, expressed in Unix time format.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The current build phase.</p>
    * @public
    */
-  currentPhase?: string;
+  currentPhase?: string | undefined;
 
   /**
    * <p>The current status of the build. Valid values include:</p>
@@ -2557,7 +2557,7 @@ export interface Build {
    *          </ul>
    * @public
    */
-  buildStatus?: StatusType;
+  buildStatus?: StatusType | undefined;
 
   /**
    * <p>Any version identifier for the version of the source code to be built. If
@@ -2567,7 +2567,7 @@ export interface Build {
    *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p> An identifier for the version of this build's source code. </p>
@@ -2584,32 +2584,32 @@ export interface Build {
    *          </ul>
    * @public
    */
-  resolvedSourceVersion?: string;
+  resolvedSourceVersion?: string | undefined;
 
   /**
    * <p>The name of the CodeBuild project.</p>
    * @public
    */
-  projectName?: string;
+  projectName?: string | undefined;
 
   /**
    * <p>Information about all previous build phases that are complete and information about
    *             any current build phase that is not yet complete.</p>
    * @public
    */
-  phases?: BuildPhase[];
+  phases?: BuildPhase[] | undefined;
 
   /**
    * <p>Information about the source code to be built.</p>
    * @public
    */
-  source?: ProjectSource;
+  source?: ProjectSource | undefined;
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    * @public
    */
-  secondarySources?: ProjectSource[];
+  secondarySources?: ProjectSource[] | undefined;
 
   /**
    * <p> An array of <code>ProjectSourceVersion</code> objects. Each
@@ -2639,62 +2639,62 @@ export interface Build {
    *          </ul>
    * @public
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>Information about the output artifacts for the build.</p>
    * @public
    */
-  artifacts?: BuildArtifacts;
+  artifacts?: BuildArtifacts | undefined;
 
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    * @public
    */
-  secondaryArtifacts?: BuildArtifacts[];
+  secondaryArtifacts?: BuildArtifacts[] | undefined;
 
   /**
    * <p>Information about the cache for the build.</p>
    * @public
    */
-  cache?: ProjectCache;
+  cache?: ProjectCache | undefined;
 
   /**
    * <p>Information about the build environment for this build.</p>
    * @public
    */
-  environment?: ProjectEnvironment;
+  environment?: ProjectEnvironment | undefined;
 
   /**
    * <p>The name of a service role used for this build.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>Information about the build's logs in CloudWatch Logs.</p>
    * @public
    */
-  logs?: LogsLocation;
+  logs?: LogsLocation | undefined;
 
   /**
    * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out this build if it does not
    *             get marked as completed.</p>
    * @public
    */
-  timeoutInMinutes?: number;
+  timeoutInMinutes?: number | undefined;
 
   /**
    * <p> The number of minutes a build is allowed to be queued before it times out. </p>
    * @public
    */
-  queuedTimeoutInMinutes?: number;
+  queuedTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>Whether the build is complete. True if complete; otherwise, false.</p>
    * @public
    */
-  buildComplete?: boolean;
+  buildComplete?: boolean | undefined;
 
   /**
    * <p>The entity that started the build. Valid values include:</p>
@@ -2714,7 +2714,7 @@ export interface Build {
    *          </ul>
    * @public
    */
-  initiator?: string;
+  initiator?: string | undefined;
 
   /**
    * <p>If your CodeBuild project accesses resources in an Amazon VPC, you provide this parameter
@@ -2723,13 +2723,13 @@ export interface Build {
    *             security group and one subnet ID.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>Describes a network interface.</p>
    * @public
    */
-  networkInterface?: NetworkInterface;
+  networkInterface?: NetworkInterface | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
@@ -2742,7 +2742,7 @@ export interface Build {
    *             the format <code>alias/<alias-name></code>).</p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>A list of exported environment variables for this build.</p>
@@ -2751,13 +2751,13 @@ export interface Build {
    *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>
    * @public
    */
-  exportedEnvironmentVariables?: ExportedEnvironmentVariable[];
+  exportedEnvironmentVariables?: ExportedEnvironmentVariable[] | undefined;
 
   /**
    * <p> An array of the ARNs associated with this build's reports. </p>
    * @public
    */
-  reportArns?: string[];
+  reportArns?: string[] | undefined;
 
   /**
    * <p>
@@ -2767,25 +2767,25 @@ export interface Build {
    *   </p>
    * @public
    */
-  fileSystemLocations?: ProjectFileSystemLocation[];
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
 
   /**
    * <p>Contains information about the debug session for this build.</p>
    * @public
    */
-  debugSession?: DebugSession;
+  debugSession?: DebugSession | undefined;
 
   /**
    * <p>The ARN of the batch build that this build is a member of, if applicable.</p>
    * @public
    */
-  buildBatchArn?: string;
+  buildBatchArn?: string | undefined;
 
   /**
    * <p>Information about the auto-retry configuration for the build.</p>
    * @public
    */
-  autoRetryConfig?: AutoRetryConfig;
+  autoRetryConfig?: AutoRetryConfig | undefined;
 }
 
 /**
@@ -2796,13 +2796,13 @@ export interface BatchGetBuildsOutput {
    * <p>Information about the requested builds.</p>
    * @public
    */
-  builds?: Build[];
+  builds?: Build[] | undefined;
 
   /**
    * <p>The IDs of builds for which information could not be found.</p>
    * @public
    */
-  buildsNotFound?: string[];
+  buildsNotFound?: string[] | undefined;
 }
 
 /**
@@ -2905,13 +2905,13 @@ export interface ProxyConfiguration {
    * <p>The default behavior of outgoing traffic.</p>
    * @public
    */
-  defaultBehavior?: FleetProxyRuleBehavior;
+  defaultBehavior?: FleetProxyRuleBehavior | undefined;
 
   /**
    * <p>An array of <code>FleetProxyRule</code> objects that represent the specified destination domains or IPs to allow or deny network access control to.</p>
    * @public
    */
-  orderedProxyRules?: FleetProxyRule[];
+  orderedProxyRules?: FleetProxyRule[] | undefined;
 }
 
 /**
@@ -2949,13 +2949,13 @@ export interface TargetTrackingScalingConfiguration {
    * <p>The metric type to determine auto-scaling.</p>
    * @public
    */
-  metricType?: FleetScalingMetricType;
+  metricType?: FleetScalingMetricType | undefined;
 
   /**
    * <p>The value of <code>metricType</code> when to start scaling.</p>
    * @public
    */
-  targetValue?: number;
+  targetValue?: number | undefined;
 }
 
 /**
@@ -2967,25 +2967,25 @@ export interface ScalingConfigurationOutput {
    * <p>The scaling type for a compute fleet.</p>
    * @public
    */
-  scalingType?: FleetScalingType;
+  scalingType?: FleetScalingType | undefined;
 
   /**
    * <p>A list of <code>TargetTrackingScalingConfiguration</code> objects.</p>
    * @public
    */
-  targetTrackingScalingConfigs?: TargetTrackingScalingConfiguration[];
+  targetTrackingScalingConfigs?: TargetTrackingScalingConfiguration[] | undefined;
 
   /**
    * <p>The maximum number of instances in the ﬂeet when auto-scaling.</p>
    * @public
    */
-  maxCapacity?: number;
+  maxCapacity?: number | undefined;
 
   /**
    * <p>The desired number of instances in the ﬂeet when auto-scaling.</p>
    * @public
    */
-  desiredCapacity?: number;
+  desiredCapacity?: number | undefined;
 }
 
 /**
@@ -3068,7 +3068,7 @@ export interface FleetStatus {
    *          </ul>
    * @public
    */
-  statusCode?: FleetStatusCode;
+  statusCode?: FleetStatusCode | undefined;
 
   /**
    * <p>Additional information about a compute fleet. Valid values include:</p>
@@ -3084,13 +3084,13 @@ export interface FleetStatus {
    *          </ul>
    * @public
    */
-  context?: FleetContextCode;
+  context?: FleetContextCode | undefined;
 
   /**
    * <p>A message associated with the status of a compute fleet.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -3103,13 +3103,13 @@ export interface Tag {
    * <p>The tag's key.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The tag's value.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -3121,43 +3121,43 @@ export interface Fleet {
    * <p>The ARN of the compute fleet.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the compute fleet.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the compute fleet.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The time at which the compute fleet was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The time at which the compute fleet was last modified.</p>
    * @public
    */
-  lastModified?: Date;
+  lastModified?: Date | undefined;
 
   /**
    * <p>The status of the compute fleet.</p>
    * @public
    */
-  status?: FleetStatus;
+  status?: FleetStatus | undefined;
 
   /**
    * <p>The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.</p>
    * @public
    */
-  baseCapacity?: number;
+  baseCapacity?: number | undefined;
 
   /**
    * <p>The environment type of the compute fleet.</p>
@@ -3227,7 +3227,7 @@ export interface Fleet {
    *                 user guide</i>.</p>
    * @public
    */
-  environmentType?: EnvironmentType;
+  environmentType?: EnvironmentType | undefined;
 
   /**
    * <p>Information about the compute resources the compute fleet uses. Available values
@@ -3329,19 +3329,19 @@ export interface Fleet {
    *          </p>
    * @public
    */
-  computeType?: ComputeType;
+  computeType?: ComputeType | undefined;
 
   /**
    * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The scaling configuration of the compute fleet.</p>
    * @public
    */
-  scalingConfiguration?: ScalingConfigurationOutput;
+  scalingConfiguration?: ScalingConfigurationOutput | undefined;
 
   /**
    * <p>The compute fleet overflow behavior.</p>
@@ -3362,32 +3362,32 @@ export interface Fleet {
    *          </ul>
    * @public
    */
-  overflowBehavior?: FleetOverflowBehavior;
+  overflowBehavior?: FleetOverflowBehavior | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The proxy configuration of the compute fleet.</p>
    * @public
    */
-  proxyConfiguration?: ProxyConfiguration;
+  proxyConfiguration?: ProxyConfiguration | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
    *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
-  fleetServiceRole?: string;
+  fleetServiceRole?: string | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -3395,7 +3395,7 @@ export interface Fleet {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3406,13 +3406,13 @@ export interface BatchGetFleetsOutput {
    * <p>Information about the requested compute fleets.</p>
    * @public
    */
-  fleets?: Fleet[];
+  fleets?: Fleet[] | undefined;
 
   /**
    * <p>The names of compute fleets for which information could not be found.</p>
    * @public
    */
-  fleetsNotFound?: string[];
+  fleetsNotFound?: string[] | undefined;
 }
 
 /**
@@ -3478,7 +3478,7 @@ export interface ProjectArtifacts {
    *          </ul>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 
   /**
    * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that CodeBuild
@@ -3505,7 +3505,7 @@ export interface ProjectArtifacts {
    *                 <code>MyArtifacts/MyArtifact.zip</code>.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>Along with <code>path</code> and <code>name</code>, the pattern that CodeBuild uses to
@@ -3542,7 +3542,7 @@ export interface ProjectArtifacts {
    *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
    * @public
    */
-  namespaceType?: ArtifactNamespace;
+  namespaceType?: ArtifactNamespace | undefined;
 
   /**
    * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that CodeBuild
@@ -3585,7 +3585,7 @@ export interface ProjectArtifacts {
    *          </ul>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of build output artifact to create:</p>
@@ -3618,7 +3618,7 @@ export interface ProjectArtifacts {
    *          </ul>
    * @public
    */
-  packaging?: ArtifactPackaging;
+  packaging?: ArtifactPackaging | undefined;
 
   /**
    * <p> If this flag is set, a name specified in the buildspec file overrides the artifact
@@ -3627,7 +3627,7 @@ export interface ProjectArtifacts {
    *             name so that it is always unique. </p>
    * @public
    */
-  overrideArtifactName?: boolean;
+  overrideArtifactName?: boolean | undefined;
 
   /**
    * <p> Set to true if you do not want your output artifacts encrypted. This option is valid
@@ -3635,13 +3635,13 @@ export interface ProjectArtifacts {
    *             invalidInputException is thrown. </p>
    * @public
    */
-  encryptionDisabled?: boolean;
+  encryptionDisabled?: boolean | undefined;
 
   /**
    * <p> An identifier for this artifact definition. </p>
    * @public
    */
-  artifactIdentifier?: string;
+  artifactIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the bucket owner's access for objects that another account uploads to their
@@ -3688,7 +3688,7 @@ export interface ProjectArtifacts {
    *          </dl>
    * @public
    */
-  bucketOwnerAccess?: BucketOwnerAccess;
+  bucketOwnerAccess?: BucketOwnerAccess | undefined;
 }
 
 /**
@@ -3701,14 +3701,14 @@ export interface ProjectBadge {
    *             badge.</p>
    * @public
    */
-  badgeEnabled?: boolean;
+  badgeEnabled?: boolean | undefined;
 
   /**
    * <p>The publicly-accessible URL through which you can access the build badge for your
    *             project. </p>
    * @public
    */
-  badgeRequestUrl?: string;
+  badgeRequestUrl?: string | undefined;
 }
 
 /**
@@ -3934,7 +3934,7 @@ export interface WebhookFilter {
    *             the <code>pattern</code> triggers a build. </p>
    * @public
    */
-  excludeMatchedPattern?: boolean;
+  excludeMatchedPattern?: boolean | undefined;
 }
 
 /**
@@ -3967,7 +3967,7 @@ export interface ScopeConfiguration {
    * <p>The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.</p>
    * @public
    */
-  domain?: string;
+  domain?: string | undefined;
 
   /**
    * <p>The type of scope for a GitHub or GitLab webhook.</p>
@@ -3986,13 +3986,13 @@ export interface Webhook {
    * <p>The URL to the webhook.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 
   /**
    * <p>The CodeBuild endpoint where webhook events are sent.</p>
    * @public
    */
-  payloadUrl?: string;
+  payloadUrl?: string | undefined;
 
   /**
    * <p>The secret token of the associated repository. </p>
@@ -4001,7 +4001,7 @@ export interface Webhook {
    *          </note>
    * @public
    */
-  secret?: string;
+  secret?: string | undefined;
 
   /**
    * <p>A regular expression used to determine which repository branches are built when a
@@ -4013,7 +4013,7 @@ export interface Webhook {
    *          </note>
    * @public
    */
-  branchFilter?: string;
+  branchFilter?: string | undefined;
 
   /**
    * <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which
@@ -4024,13 +4024,13 @@ export interface Webhook {
    *       filters must pass. </p>
    * @public
    */
-  filterGroups?: WebhookFilter[][];
+  filterGroups?: WebhookFilter[][] | undefined;
 
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    * @public
    */
-  buildType?: WebhookBuildType;
+  buildType?: WebhookBuildType | undefined;
 
   /**
    * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
@@ -4041,14 +4041,14 @@ export interface Webhook {
    *          </note>
    * @public
    */
-  manualCreation?: boolean;
+  manualCreation?: boolean | undefined;
 
   /**
    * <p>A timestamp that indicates the last time a repository's secret token was modified.
    *     </p>
    * @public
    */
-  lastModifiedSecret?: Date;
+  lastModifiedSecret?: Date | undefined;
 
   /**
    * <p>The scope configuration for global or organization webhooks.</p>
@@ -4057,7 +4057,7 @@ export interface Webhook {
    *          </note>
    * @public
    */
-  scopeConfiguration?: ScopeConfiguration;
+  scopeConfiguration?: ScopeConfiguration | undefined;
 }
 
 /**
@@ -4069,31 +4069,31 @@ export interface Project {
    * <p>The name of the build project.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>A description that makes the build project easy to identify.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information about the build input source code for this build project.</p>
    * @public
    */
-  source?: ProjectSource;
+  source?: ProjectSource | undefined;
 
   /**
    * <p>An array of <code>ProjectSource</code> objects. </p>
    * @public
    */
-  secondarySources?: ProjectSource[];
+  secondarySources?: ProjectSource[] | undefined;
 
   /**
    * <p>A version of the build input to be built for this project. If not specified, the
@@ -4131,7 +4131,7 @@ export interface Project {
    *     </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>An array of <code>ProjectSourceVersion</code> objects. If
@@ -4139,51 +4139,51 @@ export interface Project {
    *       over these <code>secondarySourceVersions</code> (at the project level). </p>
    * @public
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>Information about the build output artifacts for the build project.</p>
    * @public
    */
-  artifacts?: ProjectArtifacts;
+  artifacts?: ProjectArtifacts | undefined;
 
   /**
    * <p>An array of <code>ProjectArtifacts</code> objects. </p>
    * @public
    */
-  secondaryArtifacts?: ProjectArtifacts[];
+  secondaryArtifacts?: ProjectArtifacts[] | undefined;
 
   /**
    * <p>Information about the cache for the build project.</p>
    * @public
    */
-  cache?: ProjectCache;
+  cache?: ProjectCache | undefined;
 
   /**
    * <p>Information about the build environment for this build project.</p>
    * @public
    */
-  environment?: ProjectEnvironment;
+  environment?: ProjectEnvironment | undefined;
 
   /**
    * <p>The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web Services services
    *       on behalf of the Amazon Web Services account.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out any
    *       related build that did not get marked as completed. The default is 60 minutes.</p>
    * @public
    */
-  timeoutInMinutes?: number;
+  timeoutInMinutes?: number | undefined;
 
   /**
    * <p>The number of minutes a build is allowed to be queued before it times out. </p>
    * @public
    */
-  queuedTimeoutInMinutes?: number;
+  queuedTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
@@ -4198,7 +4198,7 @@ export interface Project {
    *     </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this build project.</p>
@@ -4206,46 +4206,46 @@ export interface Project {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>When the build project was created, expressed in Unix time format.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>When the build project's settings were last modified, expressed in Unix time
    *       format.</p>
    * @public
    */
-  lastModified?: Date;
+  lastModified?: Date | undefined;
 
   /**
    * <p>Information about a webhook that connects repository events to a build project in
    *       CodeBuild.</p>
    * @public
    */
-  webhook?: Webhook;
+  webhook?: Webhook | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>Information about the build badge for the build project.</p>
    * @public
    */
-  badge?: ProjectBadge;
+  badge?: ProjectBadge | undefined;
 
   /**
    * <p>Information about logs for the build project. A project can create logs in CloudWatch Logs, an
    *       S3 bucket, or both. </p>
    * @public
    */
-  logsConfig?: LogsConfig;
+  logsConfig?: LogsConfig | undefined;
 
   /**
    * <p>
@@ -4255,7 +4255,7 @@ export interface Project {
    *   </p>
    * @public
    */
-  fileSystemLocations?: ProjectFileSystemLocation[];
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
 
   /**
    * <p>A <a>ProjectBuildBatchConfig</a>
@@ -4263,7 +4263,7 @@ export interface Project {
    *             options for the project.</p>
    * @public
    */
-  buildBatchConfig?: ProjectBuildBatchConfig;
+  buildBatchConfig?: ProjectBuildBatchConfig | undefined;
 
   /**
    * <p>The maximum number of concurrent builds that are allowed for this project.</p>
@@ -4271,7 +4271,7 @@ export interface Project {
    *   If the current build count meets this limit, new builds are throttled and are not run.</p>
    * @public
    */
-  concurrentBuildLimit?: number;
+  concurrentBuildLimit?: number | undefined;
 
   /**
    * <p>Specifies the visibility of the project's builds. Possible values are:</p>
@@ -4287,20 +4287,20 @@ export interface Project {
    *          </dl>
    * @public
    */
-  projectVisibility?: ProjectVisibilityType;
+  projectVisibility?: ProjectVisibilityType | undefined;
 
   /**
    * <p>Contains the project identifier used with the public build APIs. </p>
    * @public
    */
-  publicProjectAlias?: string;
+  publicProjectAlias?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for
    *       the project's builds.</p>
    * @public
    */
-  resourceAccessRole?: string;
+  resourceAccessRole?: string | undefined;
 
   /**
    * <p>The maximum number of additional automatic retries after a failed build. For example, if the
@@ -4308,7 +4308,7 @@ export interface Project {
    *       retry your build for up to 2 additional times.</p>
    * @public
    */
-  autoRetryLimit?: number;
+  autoRetryLimit?: number | undefined;
 }
 
 /**
@@ -4319,13 +4319,13 @@ export interface BatchGetProjectsOutput {
    * <p>Information about the requested build projects.</p>
    * @public
    */
-  projects?: Project[];
+  projects?: Project[] | undefined;
 
   /**
    * <p>The names of build projects for which information could not be found.</p>
    * @public
    */
-  projectsNotFound?: string[];
+  projectsNotFound?: string[] | undefined;
 }
 
 /**
@@ -4378,20 +4378,20 @@ export interface S3ReportExportConfig {
    * <p> The name of the S3 bucket where the raw data of a report are exported. </p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket
    *         that is owned by an account other than the account running the build.</p>
    * @public
    */
-  bucketOwner?: string;
+  bucketOwner?: string | undefined;
 
   /**
    * <p> The path to the exported report's raw data results. </p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p> The type of build output artifact to create. Valid values include: </p>
@@ -4409,19 +4409,19 @@ export interface S3ReportExportConfig {
    *          </ul>
    * @public
    */
-  packaging?: ReportPackagingType;
+  packaging?: ReportPackagingType | undefined;
 
   /**
    * <p> The encryption key for the report's encrypted raw data. </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p> A boolean value that specifies if the results of a report are encrypted. </p>
    * @public
    */
-  encryptionDisabled?: boolean;
+  encryptionDisabled?: boolean | undefined;
 }
 
 /**
@@ -4443,14 +4443,14 @@ export interface ReportExportConfig {
    *          </ul>
    * @public
    */
-  exportConfigType?: ReportExportConfigType;
+  exportConfigType?: ReportExportConfigType | undefined;
 
   /**
    * <p> A <code>S3ReportExportConfig</code> object that contains information about the S3
    *             bucket where the run of a report is exported. </p>
    * @public
    */
-  s3Destination?: S3ReportExportConfig;
+  s3Destination?: S3ReportExportConfig | undefined;
 }
 
 /**
@@ -4493,14 +4493,14 @@ export interface ReportGroup {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the <code>ReportGroup</code>.
    *     </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of the <code>ReportGroup</code>. This can be one of the following
@@ -4517,26 +4517,26 @@ export interface ReportGroup {
    *          </dl>
    * @public
    */
-  type?: ReportType;
+  type?: ReportType | undefined;
 
   /**
    * <p>Information about the destination where the raw data of this <code>ReportGroup</code>
    *             is exported. </p>
    * @public
    */
-  exportConfig?: ReportExportConfig;
+  exportConfig?: ReportExportConfig | undefined;
 
   /**
    * <p>The date and time this <code>ReportGroup</code> was created. </p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The date and time this <code>ReportGroup</code> was last modified. </p>
    * @public
    */
-  lastModified?: Date;
+  lastModified?: Date | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this report group. </p>
@@ -4544,7 +4544,7 @@ export interface ReportGroup {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The status of the report group. This property is read-only.</p>
@@ -4561,7 +4561,7 @@ export interface ReportGroup {
    *          </dl>
    * @public
    */
-  status?: ReportGroupStatusType;
+  status?: ReportGroupStatusType | undefined;
 }
 
 /**
@@ -4574,7 +4574,7 @@ export interface BatchGetReportGroupsOutput {
    *     </p>
    * @public
    */
-  reportGroups?: ReportGroup[];
+  reportGroups?: ReportGroup[] | undefined;
 
   /**
    * <p>
@@ -4582,7 +4582,7 @@ export interface BatchGetReportGroupsOutput {
    *     </p>
    * @public
    */
-  reportGroupsNotFound?: string[];
+  reportGroupsNotFound?: string[] | undefined;
 }
 
 /**
@@ -4611,37 +4611,37 @@ export interface CodeCoverageReportSummary {
    * <p>The percentage of lines that are covered by your tests.</p>
    * @public
    */
-  lineCoveragePercentage?: number;
+  lineCoveragePercentage?: number | undefined;
 
   /**
    * <p>The number of lines that are covered by your tests.</p>
    * @public
    */
-  linesCovered?: number;
+  linesCovered?: number | undefined;
 
   /**
    * <p>The number of lines that are not covered by your tests.</p>
    * @public
    */
-  linesMissed?: number;
+  linesMissed?: number | undefined;
 
   /**
    * <p>The percentage of branches that are covered by your tests.</p>
    * @public
    */
-  branchCoveragePercentage?: number;
+  branchCoveragePercentage?: number | undefined;
 
   /**
    * <p>The number of conditional branches that are covered by your tests.</p>
    * @public
    */
-  branchesCovered?: number;
+  branchesCovered?: number | undefined;
 
   /**
    * <p>The number of conditional branches that are not covered by your tests.</p>
    * @public
    */
-  branchesMissed?: number;
+  branchesMissed?: number | undefined;
 }
 
 /**
@@ -4700,7 +4700,7 @@ export interface Report {
    * <p> The ARN of the report run. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of the report that was run.</p>
@@ -4716,72 +4716,72 @@ export interface Report {
    *          </dl>
    * @public
    */
-  type?: ReportType;
+  type?: ReportType | undefined;
 
   /**
    * <p> The name of the report that was run. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The ARN of the report group associated with this report. </p>
    * @public
    */
-  reportGroupArn?: string;
+  reportGroupArn?: string | undefined;
 
   /**
    * <p> The ARN of the build run that generated this report. </p>
    * @public
    */
-  executionId?: string;
+  executionId?: string | undefined;
 
   /**
    * <p> The status of this report. </p>
    * @public
    */
-  status?: ReportStatusType;
+  status?: ReportStatusType | undefined;
 
   /**
    * <p> The date and time this report run occurred. </p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p> The date and time a report expires. A report expires 30 days after it is created. An
    *       expired report is not available to view in CodeBuild. </p>
    * @public
    */
-  expired?: Date;
+  expired?: Date | undefined;
 
   /**
    * <p> Information about where the raw data used to generate this report was exported.
    *     </p>
    * @public
    */
-  exportConfig?: ReportExportConfig;
+  exportConfig?: ReportExportConfig | undefined;
 
   /**
    * <p> A boolean that specifies if this report run is truncated. The list of test cases is
    *       truncated after the maximum number of test cases is reached. </p>
    * @public
    */
-  truncated?: boolean;
+  truncated?: boolean | undefined;
 
   /**
    * <p> A <code>TestReportSummary</code> object that contains information about this test
    *       report. </p>
    * @public
    */
-  testSummary?: TestReportSummary;
+  testSummary?: TestReportSummary | undefined;
 
   /**
    * <p>A <code>CodeCoverageReportSummary</code> object that contains a code coverage summary for
    *             this report.</p>
    * @public
    */
-  codeCoverageSummary?: CodeCoverageReportSummary;
+  codeCoverageSummary?: CodeCoverageReportSummary | undefined;
 }
 
 /**
@@ -4794,7 +4794,7 @@ export interface BatchGetReportsOutput {
    *     </p>
    * @public
    */
-  reports?: Report[];
+  reports?: Report[] | undefined;
 
   /**
    * <p>
@@ -4802,7 +4802,7 @@ export interface BatchGetReportsOutput {
    *     </p>
    * @public
    */
-  reportsNotFound?: string[];
+  reportsNotFound?: string[] | undefined;
 }
 
 /**
@@ -4815,7 +4815,7 @@ export interface BuildBatchFilter {
    *             be retrieved.</p>
    * @public
    */
-  status?: StatusType;
+  status?: StatusType | undefined;
 }
 
 /**
@@ -4827,19 +4827,19 @@ export interface ScalingConfigurationInput {
    * <p>The scaling type for a compute fleet.</p>
    * @public
    */
-  scalingType?: FleetScalingType;
+  scalingType?: FleetScalingType | undefined;
 
   /**
    * <p>A list of <code>TargetTrackingScalingConfiguration</code> objects.</p>
    * @public
    */
-  targetTrackingScalingConfigs?: TargetTrackingScalingConfiguration[];
+  targetTrackingScalingConfigs?: TargetTrackingScalingConfiguration[] | undefined;
 
   /**
    * <p>The maximum number of instances in the ﬂeet when auto-scaling.</p>
    * @public
    */
-  maxCapacity?: number;
+  maxCapacity?: number | undefined;
 }
 
 /**
@@ -5034,13 +5034,13 @@ export interface CreateFleetInput {
    * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The scaling configuration of the compute fleet.</p>
    * @public
    */
-  scalingConfiguration?: ScalingConfigurationInput;
+  scalingConfiguration?: ScalingConfigurationInput | undefined;
 
   /**
    * <p>The compute fleet overflow behavior.</p>
@@ -5061,32 +5061,32 @@ export interface CreateFleetInput {
    *          </ul>
    * @public
    */
-  overflowBehavior?: FleetOverflowBehavior;
+  overflowBehavior?: FleetOverflowBehavior | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The proxy configuration of the compute fleet.</p>
    * @public
    */
-  proxyConfiguration?: ProxyConfiguration;
+  proxyConfiguration?: ProxyConfiguration | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
    *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
-  fleetServiceRole?: string;
+  fleetServiceRole?: string | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -5094,7 +5094,7 @@ export interface CreateFleetInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5105,7 +5105,7 @@ export interface CreateFleetOutput {
    * <p>Information about the compute fleet</p>
    * @public
    */
-  fleet?: Fleet;
+  fleet?: Fleet | undefined;
 }
 
 /**
@@ -5143,7 +5143,7 @@ export interface CreateProjectInput {
    * <p>A description that makes the build project easy to identify.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information about the build input source code for the build project.</p>
@@ -5155,7 +5155,7 @@ export interface CreateProjectInput {
    * <p>An array of <code>ProjectSource</code> objects. </p>
    * @public
    */
-  secondarySources?: ProjectSource[];
+  secondarySources?: ProjectSource[] | undefined;
 
   /**
    * <p>A version of the build input to be built for this project. If not specified, the latest
@@ -5193,7 +5193,7 @@ export interface CreateProjectInput {
    *     </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>An array of <code>ProjectSourceVersion</code> objects. If
@@ -5202,7 +5202,7 @@ export interface CreateProjectInput {
    *     </p>
    * @public
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>Information about the build output artifacts for the build project.</p>
@@ -5214,14 +5214,14 @@ export interface CreateProjectInput {
    * <p>An array of <code>ProjectArtifacts</code> objects. </p>
    * @public
    */
-  secondaryArtifacts?: ProjectArtifacts[];
+  secondaryArtifacts?: ProjectArtifacts[] | undefined;
 
   /**
    * <p>Stores recently used information so that it can be quickly accessed at a later
    *         time.</p>
    * @public
    */
-  cache?: ProjectCache;
+  cache?: ProjectCache | undefined;
 
   /**
    * <p>Information about the build environment for the build project.</p>
@@ -5241,13 +5241,13 @@ export interface CreateProjectInput {
    *       any build that has not been marked as completed. The default is 60 minutes.</p>
    * @public
    */
-  timeoutInMinutes?: number;
+  timeoutInMinutes?: number | undefined;
 
   /**
    * <p>The number of minutes a build is allowed to be queued before it times out. </p>
    * @public
    */
-  queuedTimeoutInMinutes?: number;
+  queuedTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
@@ -5261,7 +5261,7 @@ export interface CreateProjectInput {
    *     </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this build project.</p>
@@ -5269,7 +5269,7 @@ export interface CreateProjectInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>VpcConfig enables CodeBuild to access resources in an Amazon VPC.</p>
@@ -5278,21 +5278,21 @@ export interface CreateProjectInput {
    *          </note>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>Set this to true to generate a publicly accessible URL for your project's build
    *         badge.</p>
    * @public
    */
-  badgeEnabled?: boolean;
+  badgeEnabled?: boolean | undefined;
 
   /**
    * <p>Information about logs for the build project. These can be logs in CloudWatch Logs, logs
    *       uploaded to a specified S3 bucket, or both. </p>
    * @public
    */
-  logsConfig?: LogsConfig;
+  logsConfig?: LogsConfig | undefined;
 
   /**
    * <p>
@@ -5302,7 +5302,7 @@ export interface CreateProjectInput {
    *   </p>
    * @public
    */
-  fileSystemLocations?: ProjectFileSystemLocation[];
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
 
   /**
    * <p>A <a>ProjectBuildBatchConfig</a>
@@ -5310,7 +5310,7 @@ export interface CreateProjectInput {
    *             for the project.</p>
    * @public
    */
-  buildBatchConfig?: ProjectBuildBatchConfig;
+  buildBatchConfig?: ProjectBuildBatchConfig | undefined;
 
   /**
    * <p>The maximum number of concurrent builds that are allowed for this project.</p>
@@ -5318,7 +5318,7 @@ export interface CreateProjectInput {
    *   If the current build count meets this limit, new builds are throttled and are not run.</p>
    * @public
    */
-  concurrentBuildLimit?: number;
+  concurrentBuildLimit?: number | undefined;
 
   /**
    * <p>The maximum number of additional automatic retries after a failed build. For example, if the
@@ -5326,7 +5326,7 @@ export interface CreateProjectInput {
    *       retry your build for up to 2 additional times.</p>
    * @public
    */
-  autoRetryLimit?: number;
+  autoRetryLimit?: number | undefined;
 }
 
 /**
@@ -5337,7 +5337,7 @@ export interface CreateProjectOutput {
    * <p>Information about the build project that was created.</p>
    * @public
    */
-  project?: Project;
+  project?: Project | undefined;
 }
 
 /**
@@ -5376,7 +5376,7 @@ export interface CreateReportGroupInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5389,7 +5389,7 @@ export interface CreateReportGroupOutput {
    *     </p>
    * @public
    */
-  reportGroup?: ReportGroup;
+  reportGroup?: ReportGroup | undefined;
 }
 
 /**
@@ -5412,7 +5412,7 @@ export interface CreateWebhookInput {
    *          </note>
    * @public
    */
-  branchFilter?: string;
+  branchFilter?: string | undefined;
 
   /**
    * <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which
@@ -5423,13 +5423,13 @@ export interface CreateWebhookInput {
    *       filters must pass. </p>
    * @public
    */
-  filterGroups?: WebhookFilter[][];
+  filterGroups?: WebhookFilter[][] | undefined;
 
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    * @public
    */
-  buildType?: WebhookBuildType;
+  buildType?: WebhookBuildType | undefined;
 
   /**
    * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
@@ -5441,7 +5441,7 @@ export interface CreateWebhookInput {
    *          </note>
    * @public
    */
-  manualCreation?: boolean;
+  manualCreation?: boolean | undefined;
 
   /**
    * <p>The scope configuration for global or organization webhooks.</p>
@@ -5450,7 +5450,7 @@ export interface CreateWebhookInput {
    *          </note>
    * @public
    */
-  scopeConfiguration?: ScopeConfiguration;
+  scopeConfiguration?: ScopeConfiguration | undefined;
 }
 
 /**
@@ -5462,7 +5462,7 @@ export interface CreateWebhookOutput {
    *       CodeBuild.</p>
    * @public
    */
-  webhook?: Webhook;
+  webhook?: Webhook | undefined;
 }
 
 /**
@@ -5524,20 +5524,20 @@ export interface DeleteBuildBatchOutput {
    * <p>The status code.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>An array of strings that contain the identifiers of the builds that were deleted.</p>
    * @public
    */
-  buildsDeleted?: string[];
+  buildsDeleted?: string[] | undefined;
 
   /**
    * <p>An array of <code>BuildNotDeleted</code> objects that specify the builds that could not be
    *             deleted.</p>
    * @public
    */
-  buildsNotDeleted?: BuildNotDeleted[];
+  buildsNotDeleted?: BuildNotDeleted[] | undefined;
 }
 
 /**
@@ -5608,7 +5608,7 @@ export interface DeleteReportGroupInput {
    *             an exception is thrown. </p>
    * @public
    */
-  deleteReports?: boolean;
+  deleteReports?: boolean | undefined;
 }
 
 /**
@@ -5651,7 +5651,7 @@ export interface DeleteSourceCredentialsOutput {
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -5717,19 +5717,19 @@ export interface DescribeCodeCoveragesInput {
    *             return the beginning of the list, exclude this parameter.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies if the results are sorted in ascending or descending order.</p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>Specifies how the results are sorted. Possible values are:</p>
@@ -5745,19 +5745,19 @@ export interface DescribeCodeCoveragesInput {
    *          </dl>
    * @public
    */
-  sortBy?: ReportCodeCoverageSortByType;
+  sortBy?: ReportCodeCoverageSortByType | undefined;
 
   /**
    * <p>The minimum line coverage percentage to report.</p>
    * @public
    */
-  minLineCoveragePercentage?: number;
+  minLineCoveragePercentage?: number | undefined;
 
   /**
    * <p>The maximum line coverage percentage to report.</p>
    * @public
    */
-  maxLineCoveragePercentage?: number;
+  maxLineCoveragePercentage?: number | undefined;
 }
 
 /**
@@ -5773,61 +5773,61 @@ export interface CodeCoverage {
    * <p>The identifier of the code coverage report.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The ARN of the report.</p>
    * @public
    */
-  reportARN?: string;
+  reportARN?: string | undefined;
 
   /**
    * <p>The path of the test report file.</p>
    * @public
    */
-  filePath?: string;
+  filePath?: string | undefined;
 
   /**
    * <p>The percentage of lines that are covered by your tests.</p>
    * @public
    */
-  lineCoveragePercentage?: number;
+  lineCoveragePercentage?: number | undefined;
 
   /**
    * <p>The number of lines that are covered by your tests.</p>
    * @public
    */
-  linesCovered?: number;
+  linesCovered?: number | undefined;
 
   /**
    * <p>The number of lines that are not covered by your tests.</p>
    * @public
    */
-  linesMissed?: number;
+  linesMissed?: number | undefined;
 
   /**
    * <p>The percentage of branches that are covered by your tests.</p>
    * @public
    */
-  branchCoveragePercentage?: number;
+  branchCoveragePercentage?: number | undefined;
 
   /**
    * <p>The number of conditional branches that are covered by your tests.</p>
    * @public
    */
-  branchesCovered?: number;
+  branchesCovered?: number | undefined;
 
   /**
    * <p>The number of conditional branches that are not covered by your tests.</p>
    * @public
    */
-  branchesMissed?: number;
+  branchesMissed?: number | undefined;
 
   /**
    * <p>The date and time that the tests were run.</p>
    * @public
    */
-  expired?: Date;
+  expired?: Date | undefined;
 }
 
 /**
@@ -5839,13 +5839,13 @@ export interface DescribeCodeCoveragesOutput {
    *             call to <code>DescribeCodeCoverages</code> to retrieve the next set of items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of <code>CodeCoverage</code> objects that contain the results.</p>
    * @public
    */
-  codeCoverages?: CodeCoverage[];
+  codeCoverages?: CodeCoverage[] | undefined;
 }
 
 /**
@@ -5886,7 +5886,7 @@ export interface TestCaseFilter {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>A keyword that is used to filter on the <code>name</code> or the <code>prefix</code>
@@ -5894,7 +5894,7 @@ export interface TestCaseFilter {
    *                 <code>name</code> or the <code>prefix</code> will be returned.</p>
    * @public
    */
-  keyword?: string;
+  keyword?: string | undefined;
 }
 
 /**
@@ -5919,7 +5919,7 @@ export interface DescribeTestCasesInput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -5928,7 +5928,7 @@ export interface DescribeTestCasesInput {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -5936,7 +5936,7 @@ export interface DescribeTestCasesInput {
    *     </p>
    * @public
    */
-  filter?: TestCaseFilter;
+  filter?: TestCaseFilter | undefined;
 }
 
 /**
@@ -5949,26 +5949,26 @@ export interface TestCase {
    * <p> The ARN of the report to which the test case belongs. </p>
    * @public
    */
-  reportArn?: string;
+  reportArn?: string | undefined;
 
   /**
    * <p> The path to the raw data file that contains the test result. </p>
    * @public
    */
-  testRawDataPath?: string;
+  testRawDataPath?: string | undefined;
 
   /**
    * <p> A string that is applied to a series of related test cases. CodeBuild generates the
    *             prefix. The prefix depends on the framework used to generate the tests. </p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 
   /**
    * <p> The name of the test case. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The status returned by the test case after it was run. Valid statuses are
@@ -5976,27 +5976,27 @@ export interface TestCase {
    *                 <code>SKIPPED</code>, and <code>UNKNOWN</code>. </p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p> The number of nanoseconds it took to run this test case. </p>
    * @public
    */
-  durationInNanoSeconds?: number;
+  durationInNanoSeconds?: number | undefined;
 
   /**
    * <p> A message associated with a test case. For example, an error message or stack trace.
    *         </p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p> The date and time a test case expires. A test case expires 30 days after it is
    *             created. An expired test case is not available to view in CodeBuild. </p>
    * @public
    */
-  expired?: Date;
+  expired?: Date | undefined;
 }
 
 /**
@@ -6013,7 +6013,7 @@ export interface DescribeTestCasesOutput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6021,7 +6021,7 @@ export interface DescribeTestCasesOutput {
    *     </p>
    * @public
    */
-  testCases?: TestCase[];
+  testCases?: TestCase[] | undefined;
 }
 
 /**
@@ -6061,7 +6061,7 @@ export interface GetReportGroupTrendInput {
    *          <p>If this parameter is omitted, the most recent 100 reports are analyzed.</p>
    * @public
    */
-  numOfReports?: number;
+  numOfReports?: number | undefined;
 
   /**
    * <p>The test report value to accumulate. This must be one of the following values:</p>
@@ -6138,13 +6138,13 @@ export interface ReportWithRawData {
    * <p>The ARN of the report.</p>
    * @public
    */
-  reportArn?: string;
+  reportArn?: string | undefined;
 
   /**
    * <p>The value of the requested data field from the report.</p>
    * @public
    */
-  data?: string;
+  data?: string | undefined;
 }
 
 /**
@@ -6157,19 +6157,19 @@ export interface ReportGroupTrendStats {
    * <p>Contains the average of all values analyzed.</p>
    * @public
    */
-  average?: string;
+  average?: string | undefined;
 
   /**
    * <p>Contains the maximum value analyzed.</p>
    * @public
    */
-  max?: string;
+  max?: string | undefined;
 
   /**
    * <p>Contains the minimum value analyzed.</p>
    * @public
    */
-  min?: string;
+  min?: string | undefined;
 }
 
 /**
@@ -6180,13 +6180,13 @@ export interface GetReportGroupTrendOutput {
    * <p>Contains the accumulated trend data.</p>
    * @public
    */
-  stats?: ReportGroupTrendStats;
+  stats?: ReportGroupTrendStats | undefined;
 
   /**
    * <p>An array that contains the raw data for each report.</p>
    * @public
    */
-  rawData?: ReportWithRawData[];
+  rawData?: ReportWithRawData[] | undefined;
 }
 
 /**
@@ -6208,7 +6208,7 @@ export interface GetResourcePolicyOutput {
    * <p> The resource policy for the resource identified by the input ARN parameter. </p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -6237,7 +6237,7 @@ export interface ImportSourceCredentialsInput {
    *             is not valid for other types of source providers or connections. </p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
@@ -6267,7 +6267,7 @@ export interface ImportSourceCredentialsInput {
    *             value is <code>true</code>. </p>
    * @public
    */
-  shouldOverwrite?: boolean;
+  shouldOverwrite?: boolean | undefined;
 }
 
 /**
@@ -6278,7 +6278,7 @@ export interface ImportSourceCredentialsOutput {
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -6305,13 +6305,13 @@ export interface ListBuildBatchesInput {
    * <p>A <code>BuildBatchFilter</code> object that specifies the filters for the search.</p>
    * @public
    */
-  filter?: BuildBatchFilter;
+  filter?: BuildBatchFilter | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
@@ -6327,7 +6327,7 @@ export interface ListBuildBatchesInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
@@ -6335,7 +6335,7 @@ export interface ListBuildBatchesInput {
    *             beginning of the list, exclude this parameter.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6346,14 +6346,14 @@ export interface ListBuildBatchesOutput {
    * <p>An array of strings that contains the batch build identifiers.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>If there are more items to return, this contains a token that is passed to a subsequent
    *             call to <code>ListBuildBatches</code> to retrieve the next set of items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6364,19 +6364,19 @@ export interface ListBuildBatchesForProjectInput {
    * <p>The name of the project.</p>
    * @public
    */
-  projectName?: string;
+  projectName?: string | undefined;
 
   /**
    * <p>A <code>BuildBatchFilter</code> object that specifies the filters for the search.</p>
    * @public
    */
-  filter?: BuildBatchFilter;
+  filter?: BuildBatchFilter | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
@@ -6394,7 +6394,7 @@ export interface ListBuildBatchesForProjectInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
@@ -6402,7 +6402,7 @@ export interface ListBuildBatchesForProjectInput {
    *             beginning of the list, exclude this parameter.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6413,7 +6413,7 @@ export interface ListBuildBatchesForProjectOutput {
    * <p>An array of strings that contains the batch build identifiers.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>If there are more items to return, this contains a token that is passed to a
@@ -6421,7 +6421,7 @@ export interface ListBuildBatchesForProjectOutput {
    *             items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6444,7 +6444,7 @@ export interface ListBuildsInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -6455,7 +6455,7 @@ export interface ListBuildsInput {
    *             until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6466,7 +6466,7 @@ export interface ListBuildsOutput {
    * <p>A list of build IDs, with each build ID representing a single build.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -6475,7 +6475,7 @@ export interface ListBuildsOutput {
    *             call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6506,7 +6506,7 @@ export interface ListBuildsForProjectInput {
    *             error. </p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -6517,7 +6517,7 @@ export interface ListBuildsForProjectInput {
    *             until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6529,7 +6529,7 @@ export interface ListBuildsForProjectOutput {
    *             single build.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -6538,7 +6538,7 @@ export interface ListBuildsForProjectOutput {
    *             call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6555,19 +6555,19 @@ export interface EnvironmentImage {
    * <p>The name of the Docker image.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the Docker image.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of environment image versions.</p>
    * @public
    */
-  versions?: string[];
+  versions?: string[] | undefined;
 }
 
 /**
@@ -6602,14 +6602,14 @@ export interface EnvironmentLanguage {
    * <p>The programming language for the Docker images.</p>
    * @public
    */
-  language?: LanguageType;
+  language?: LanguageType | undefined;
 
   /**
    * <p>The list of Docker images that are related by the specified programming
    *             language.</p>
    * @public
    */
-  images?: EnvironmentImage[];
+  images?: EnvironmentImage[] | undefined;
 }
 
 /**
@@ -6637,14 +6637,14 @@ export interface EnvironmentPlatform {
    * <p>The platform's name.</p>
    * @public
    */
-  platform?: PlatformType;
+  platform?: PlatformType | undefined;
 
   /**
    * <p>The list of programming languages that are available for the specified
    *             platform.</p>
    * @public
    */
-  languages?: EnvironmentLanguage[];
+  languages?: EnvironmentLanguage[] | undefined;
 }
 
 /**
@@ -6656,7 +6656,7 @@ export interface ListCuratedEnvironmentImagesOutput {
    *             CodeBuild.</p>
    * @public
    */
-  platforms?: EnvironmentPlatform[];
+  platforms?: EnvironmentPlatform[] | undefined;
 }
 
 /**
@@ -6687,14 +6687,14 @@ export interface ListFleetsInput {
    *             until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of paginated compute fleets returned per response. Use
    *             <code>nextToken</code> to iterate pages in the list of returned compute fleets.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The order in which to list compute fleets. Valid values include:</p>
@@ -6712,7 +6712,7 @@ export interface ListFleetsInput {
    *             names.</p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>The criterion to be used to list compute fleet names. Valid values include:</p>
@@ -6736,7 +6736,7 @@ export interface ListFleetsInput {
    *                 based on the preceding criteria.</p>
    * @public
    */
-  sortBy?: FleetSortByType;
+  sortBy?: FleetSortByType | undefined;
 }
 
 /**
@@ -6750,13 +6750,13 @@ export interface ListFleetsOutput {
    *             call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of compute fleet names.</p>
    * @public
    */
-  fleets?: string[];
+  fleets?: string[] | undefined;
 }
 
 /**
@@ -6800,7 +6800,7 @@ export interface ListProjectsInput {
    *             based on the preceding criteria.</p>
    * @public
    */
-  sortBy?: ProjectSortByType;
+  sortBy?: ProjectSortByType | undefined;
 
   /**
    * <p>The order in which to list build projects. Valid values include:</p>
@@ -6818,7 +6818,7 @@ export interface ListProjectsInput {
    *             names.</p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -6829,7 +6829,7 @@ export interface ListProjectsInput {
    *             until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6843,14 +6843,14 @@ export interface ListProjectsOutput {
    *             call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of build project names, with each build project name representing a single
    *             build project.</p>
    * @public
    */
-  projects?: string[];
+  projects?: string[] | undefined;
 }
 
 /**
@@ -6879,7 +6879,7 @@ export interface ListReportGroupsInput {
    *     </p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>
@@ -6902,7 +6902,7 @@ export interface ListReportGroupsInput {
    *          </ul>
    * @public
    */
-  sortBy?: ReportGroupSortByType;
+  sortBy?: ReportGroupSortByType | undefined;
 
   /**
    * <p>
@@ -6914,7 +6914,7 @@ export interface ListReportGroupsInput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6923,7 +6923,7 @@ export interface ListReportGroupsInput {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6940,7 +6940,7 @@ export interface ListReportGroupsOutput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6948,7 +6948,7 @@ export interface ListReportGroupsOutput {
    *     </p>
    * @public
    */
-  reportGroups?: string[];
+  reportGroups?: string[] | undefined;
 }
 
 /**
@@ -6961,7 +6961,7 @@ export interface ReportFilter {
    * <p> The status used to filter reports. You can filter using one status only. </p>
    * @public
    */
-  status?: ReportStatusType;
+  status?: ReportStatusType | undefined;
 }
 
 /**
@@ -6986,7 +6986,7 @@ export interface ListReportsInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>
@@ -6998,7 +6998,7 @@ export interface ListReportsInput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -7007,7 +7007,7 @@ export interface ListReportsInput {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -7015,7 +7015,7 @@ export interface ListReportsInput {
    *     </p>
    * @public
    */
-  filter?: ReportFilter;
+  filter?: ReportFilter | undefined;
 }
 
 /**
@@ -7032,7 +7032,7 @@ export interface ListReportsOutput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -7040,7 +7040,7 @@ export interface ListReportsOutput {
    *     </p>
    * @public
    */
-  reports?: string[];
+  reports?: string[] | undefined;
 }
 
 /**
@@ -7065,7 +7065,7 @@ export interface ListReportsForReportGroupInput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -7073,7 +7073,7 @@ export interface ListReportsForReportGroupInput {
    *     </p>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p>
@@ -7082,7 +7082,7 @@ export interface ListReportsForReportGroupInput {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -7090,7 +7090,7 @@ export interface ListReportsForReportGroupInput {
    *     </p>
    * @public
    */
-  filter?: ReportFilter;
+  filter?: ReportFilter | undefined;
 }
 
 /**
@@ -7107,7 +7107,7 @@ export interface ListReportsForReportGroupOutput {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -7115,7 +7115,7 @@ export interface ListReportsForReportGroupOutput {
    *     </p>
    * @public
    */
-  reports?: string[];
+  reports?: string[] | undefined;
 }
 
 /**
@@ -7152,7 +7152,7 @@ export interface ListSharedProjectsInput {
    *          </ul>
    * @public
    */
-  sortBy?: SharedResourceSortByType;
+  sortBy?: SharedResourceSortByType | undefined;
 
   /**
    * <p>The order in which to list shared build projects. Valid values include:</p>
@@ -7168,7 +7168,7 @@ export interface ListSharedProjectsInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p> The maximum number of paginated shared build projects returned per response. Use
@@ -7176,7 +7176,7 @@ export interface ListSharedProjectsInput {
    *             objects. The default value is 100. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -7187,7 +7187,7 @@ export interface ListSharedProjectsInput {
    *             token that is returned, until no more next tokens are returned. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7203,14 +7203,14 @@ export interface ListSharedProjectsOutput {
    *             token that is returned, until no more next tokens are returned. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> The list of ARNs for the build projects shared with the current Amazon Web Services account or user.
    *         </p>
    * @public
    */
-  projects?: string[];
+  projects?: string[] | undefined;
 }
 
 /**
@@ -7231,7 +7231,7 @@ export interface ListSharedReportGroupsInput {
    *          </ul>
    * @public
    */
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType | undefined;
 
   /**
    * <p> The criterion to be used to list report groups shared with the current Amazon Web Services account or
@@ -7249,7 +7249,7 @@ export interface ListSharedReportGroupsInput {
    *          </ul>
    * @public
    */
-  sortBy?: SharedResourceSortByType;
+  sortBy?: SharedResourceSortByType | undefined;
 
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -7260,7 +7260,7 @@ export interface ListSharedReportGroupsInput {
    *             token that is returned, until no more next tokens are returned. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> The maximum number of paginated shared report groups per response. Use
@@ -7268,7 +7268,7 @@ export interface ListSharedReportGroupsInput {
    *                 <code>ReportGroup</code> objects. The default value is 100. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -7284,14 +7284,14 @@ export interface ListSharedReportGroupsOutput {
    *             token that is returned, until no more next tokens are returned. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> The list of ARNs for the report groups shared with the current Amazon Web Services account or user.
    *         </p>
    * @public
    */
-  reportGroups?: string[];
+  reportGroups?: string[] | undefined;
 }
 
 /**
@@ -7309,27 +7309,27 @@ export interface SourceCredentialsInfo {
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, GITLAB, GITLAB_SELF_MANAGED, or
    *             BITBUCKET. </p>
    * @public
    */
-  serverType?: ServerType;
+  serverType?: ServerType | undefined;
 
   /**
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
    *             BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. </p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 
   /**
    * <p>The connection ARN if your authType is CODECONNECTIONS or SECRETS_MANAGER.</p>
    * @public
    */
-  resource?: string;
+  resource?: string | undefined;
 }
 
 /**
@@ -7342,7 +7342,7 @@ export interface ListSourceCredentialsOutput {
    *             ARN, and type of source provider for one set of credentials. </p>
    * @public
    */
-  sourceCredentialsInfos?: SourceCredentialsInfo[];
+  sourceCredentialsInfos?: SourceCredentialsInfo[] | undefined;
 }
 
 /**
@@ -7374,7 +7374,7 @@ export interface PutResourcePolicyOutput {
    *             associated with a resource policy. </p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 }
 
 /**
@@ -7385,7 +7385,7 @@ export interface RetryBuildInput {
    * <p>Specifies the identifier of the build to restart.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
@@ -7395,7 +7395,7 @@ export interface RetryBuildInput {
    *       CodeBuild returns a parameter mismatch error.</p>
    * @public
    */
-  idempotencyToken?: string;
+  idempotencyToken?: string | undefined;
 }
 
 /**
@@ -7406,7 +7406,7 @@ export interface RetryBuildOutput {
    * <p>Information about a build.</p>
    * @public
    */
-  build?: Build;
+  build?: Build | undefined;
 }
 
 /**
@@ -7431,7 +7431,7 @@ export interface RetryBuildBatchInput {
    * <p>Specifies the identifier of the batch build to restart.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
@@ -7441,13 +7441,13 @@ export interface RetryBuildBatchInput {
    *             CodeBuild returns a parameter mismatch error.</p>
    * @public
    */
-  idempotencyToken?: string;
+  idempotencyToken?: string | undefined;
 
   /**
    * <p>Specifies the type of retry to perform.</p>
    * @public
    */
-  retryType?: RetryBuildBatchType;
+  retryType?: RetryBuildBatchType | undefined;
 }
 
 /**
@@ -7458,7 +7458,7 @@ export interface RetryBuildBatchOutput {
    * <p>Contains information about a batch build.</p>
    * @public
    */
-  buildBatch?: BuildBatch;
+  buildBatch?: BuildBatch | undefined;
 }
 
 /**
@@ -7475,14 +7475,14 @@ export interface StartBuildInput {
    * <p> An array of <code>ProjectSource</code> objects. </p>
    * @public
    */
-  secondarySourcesOverride?: ProjectSource[];
+  secondarySourcesOverride?: ProjectSource[] | undefined;
 
   /**
    * <p> An array of <code>ProjectSourceVersion</code> objects that specify one or more
    *             versions of the project's secondary sources to be used for this build only. </p>
    * @public
    */
-  secondarySourcesVersionOverride?: ProjectSourceVersion[];
+  secondarySourcesVersionOverride?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>The version of the build input to be built, for this build only. If not specified,
@@ -7525,41 +7525,41 @@ export interface StartBuildInput {
    *             with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>Build output artifact settings that override, for this build only, the latest ones
    *             already defined in the build project.</p>
    * @public
    */
-  artifactsOverride?: ProjectArtifacts;
+  artifactsOverride?: ProjectArtifacts | undefined;
 
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    * @public
    */
-  secondaryArtifactsOverride?: ProjectArtifacts[];
+  secondaryArtifactsOverride?: ProjectArtifacts[] | undefined;
 
   /**
    * <p>A set of environment variables that overrides, for this build only, the latest ones
    *             already defined in the build project.</p>
    * @public
    */
-  environmentVariablesOverride?: EnvironmentVariable[];
+  environmentVariablesOverride?: EnvironmentVariable[] | undefined;
 
   /**
    * <p>A source input type, for this build, that overrides the source input defined in the
    *             build project.</p>
    * @public
    */
-  sourceTypeOverride?: SourceType;
+  sourceTypeOverride?: SourceType | undefined;
 
   /**
    * <p>A location that overrides, for this build, the source location for the one defined in
    *             the build project.</p>
    * @public
    */
-  sourceLocationOverride?: string;
+  sourceLocationOverride?: string | undefined;
 
   /**
    * <p>An authorization type for this build that overrides the one defined in the build
@@ -7567,21 +7567,21 @@ export interface StartBuildInput {
    *             GitLab, or GitLab Self Managed.</p>
    * @public
    */
-  sourceAuthOverride?: SourceAuth;
+  sourceAuthOverride?: SourceAuth | undefined;
 
   /**
    * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
    *             build only, any previous depth of history defined in the build project.</p>
    * @public
    */
-  gitCloneDepthOverride?: number;
+  gitCloneDepthOverride?: number | undefined;
 
   /**
    * <p> Information about the Git submodules configuration for this build of an CodeBuild build
    *             project. </p>
    * @public
    */
-  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
+  gitSubmodulesConfigOverride?: GitSubmodulesConfig | undefined;
 
   /**
    * <p>A buildspec file declaration that overrides the latest one defined
@@ -7602,7 +7602,7 @@ export interface StartBuildInput {
    *          </note>
    * @public
    */
-  buildspecOverride?: string;
+  buildspecOverride?: string | undefined;
 
   /**
    * <p>Enable this flag to override the insecure SSL setting that is specified in the build
@@ -7611,7 +7611,7 @@ export interface StartBuildInput {
    *             is GitHub Enterprise.</p>
    * @public
    */
-  insecureSslOverride?: boolean;
+  insecureSslOverride?: boolean | undefined;
 
   /**
    * <p> Set to true to report to your source provider the status of a build's start and
@@ -7625,7 +7625,7 @@ export interface StartBuildInput {
    *          </note>
    * @public
    */
-  reportBuildStatusOverride?: boolean;
+  reportBuildStatusOverride?: boolean | undefined;
 
   /**
    * <p>Contains information that defines how the build project reports the build status to
@@ -7634,68 +7634,68 @@ export interface StartBuildInput {
    *             <code>BITBUCKET</code>.</p>
    * @public
    */
-  buildStatusConfigOverride?: BuildStatusConfig;
+  buildStatusConfigOverride?: BuildStatusConfig | undefined;
 
   /**
    * <p>A container type for this build that overrides the one specified in the build
    *             project.</p>
    * @public
    */
-  environmentTypeOverride?: EnvironmentType;
+  environmentTypeOverride?: EnvironmentType | undefined;
 
   /**
    * <p>The name of an image for this build that overrides the one specified in the build
    *             project.</p>
    * @public
    */
-  imageOverride?: string;
+  imageOverride?: string | undefined;
 
   /**
    * <p>The name of a compute type for this build that overrides the one specified in the
    *             build project.</p>
    * @public
    */
-  computeTypeOverride?: ComputeType;
+  computeTypeOverride?: ComputeType | undefined;
 
   /**
    * <p>The name of a certificate for this build that overrides the one specified in the build
    *             project.</p>
    * @public
    */
-  certificateOverride?: string;
+  certificateOverride?: string | undefined;
 
   /**
    * <p>A ProjectCache object specified for this build that overrides the one defined in the
    *             build project.</p>
    * @public
    */
-  cacheOverride?: ProjectCache;
+  cacheOverride?: ProjectCache | undefined;
 
   /**
    * <p>The name of a service role for this build that overrides the one specified in the
    *             build project.</p>
    * @public
    */
-  serviceRoleOverride?: string;
+  serviceRoleOverride?: string | undefined;
 
   /**
    * <p>Enable this flag to override privileged mode in the build project.</p>
    * @public
    */
-  privilegedModeOverride?: boolean;
+  privilegedModeOverride?: boolean | undefined;
 
   /**
    * <p>The number of build timeout minutes, from 5 to 2160 (36 hours), that overrides, for this
    *             build only, the latest setting already defined in the build project.</p>
    * @public
    */
-  timeoutInMinutesOverride?: number;
+  timeoutInMinutesOverride?: number | undefined;
 
   /**
    * <p> The number of minutes a build is allowed to be queued before it times out. </p>
    * @public
    */
-  queuedTimeoutInMinutesOverride?: number;
+  queuedTimeoutInMinutesOverride?: number | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build
@@ -7708,7 +7708,7 @@ export interface StartBuildInput {
    *             the format <code>alias/<alias-name></code>).</p>
    * @public
    */
-  encryptionKeyOverride?: string;
+  encryptionKeyOverride?: string | undefined;
 
   /**
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
@@ -7717,20 +7717,20 @@ export interface StartBuildInput {
    *             parameter, CodeBuild returns a parameter mismatch error. </p>
    * @public
    */
-  idempotencyToken?: string;
+  idempotencyToken?: string | undefined;
 
   /**
    * <p> Log settings for this build that override the log settings defined in the build
    *             project. </p>
    * @public
    */
-  logsConfigOverride?: LogsConfig;
+  logsConfigOverride?: LogsConfig | undefined;
 
   /**
    * <p> The credentials for access to a private registry. </p>
    * @public
    */
-  registryCredentialOverride?: RegistryCredential;
+  registryCredentialOverride?: RegistryCredential | undefined;
 
   /**
    * <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid
@@ -7751,21 +7751,21 @@ export interface StartBuildInput {
    *             you must use <code>CODEBUILD</code> credentials. </p>
    * @public
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType;
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | undefined;
 
   /**
    * <p>Specifies if session debugging is enabled for this build. For more information, see
    *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a running build in Session Manager</a>.</p>
    * @public
    */
-  debugSessionEnabled?: boolean;
+  debugSessionEnabled?: boolean | undefined;
 
   /**
    * <p>A ProjectFleet object specified for this build that overrides the one defined in the
    *             build project.</p>
    * @public
    */
-  fleetOverride?: ProjectFleet;
+  fleetOverride?: ProjectFleet | undefined;
 
   /**
    * <p>The maximum number of additional automatic retries after a failed build. For example, if the
@@ -7773,7 +7773,7 @@ export interface StartBuildInput {
    *             retry your build for up to 2 additional times.</p>
    * @public
    */
-  autoRetryLimitOverride?: number;
+  autoRetryLimitOverride?: number | undefined;
 }
 
 /**
@@ -7784,7 +7784,7 @@ export interface StartBuildOutput {
    * <p>Information about the build to be run.</p>
    * @public
    */
-  build?: Build;
+  build?: Build | undefined;
 }
 
 /**
@@ -7802,14 +7802,14 @@ export interface StartBuildBatchInput {
    *         defined in the batch build project.</p>
    * @public
    */
-  secondarySourcesOverride?: ProjectSource[];
+  secondarySourcesOverride?: ProjectSource[] | undefined;
 
   /**
    * <p>An array of <code>ProjectSourceVersion</code> objects that override the secondary source
    *             versions in the batch build project.</p>
    * @public
    */
-  secondarySourcesVersionOverride?: ProjectSourceVersion[];
+  secondarySourcesVersionOverride?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>The version of the batch build input to be built, for this build only. If not specified,
@@ -7848,42 +7848,42 @@ export interface StartBuildBatchInput {
    *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p>An array of <code>ProjectArtifacts</code> objects that contains information about the
    *             build output artifact overrides for the build project.</p>
    * @public
    */
-  artifactsOverride?: ProjectArtifacts;
+  artifactsOverride?: ProjectArtifacts | undefined;
 
   /**
    * <p>An array of <code>ProjectArtifacts</code> objects that override the secondary artifacts
    *             defined in the batch build project.</p>
    * @public
    */
-  secondaryArtifactsOverride?: ProjectArtifacts[];
+  secondaryArtifactsOverride?: ProjectArtifacts[] | undefined;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that override, or add to, the
    *             environment variables defined in the batch build project.</p>
    * @public
    */
-  environmentVariablesOverride?: EnvironmentVariable[];
+  environmentVariablesOverride?: EnvironmentVariable[] | undefined;
 
   /**
    * <p>The source input type that overrides the source input defined in the batch
    *         build project.</p>
    * @public
    */
-  sourceTypeOverride?: SourceType;
+  sourceTypeOverride?: SourceType | undefined;
 
   /**
    * <p>A location that overrides, for this batch build, the source location defined in
    *         the batch build project.</p>
    * @public
    */
-  sourceLocationOverride?: string;
+  sourceLocationOverride?: string | undefined;
 
   /**
    * <p>A <code>SourceAuth</code> object that overrides the one defined in the batch build
@@ -7891,21 +7891,21 @@ export interface StartBuildBatchInput {
    *             GitHub.</p>
    * @public
    */
-  sourceAuthOverride?: SourceAuth;
+  sourceAuthOverride?: SourceAuth | undefined;
 
   /**
    * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
    *         batch build only, any previous depth of history defined in the batch build project.</p>
    * @public
    */
-  gitCloneDepthOverride?: number;
+  gitCloneDepthOverride?: number | undefined;
 
   /**
    * <p>A <code>GitSubmodulesConfig</code> object that overrides the Git submodules configuration
    *             for this batch build.</p>
    * @public
    */
-  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
+  gitSubmodulesConfigOverride?: GitSubmodulesConfig | undefined;
 
   /**
    * <p>A buildspec file declaration that overrides, for this build only, the latest one
@@ -7920,7 +7920,7 @@ export interface StartBuildBatchInput {
    *         its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
    * @public
    */
-  buildspecOverride?: string;
+  buildspecOverride?: string | undefined;
 
   /**
    * <p>Enable this flag to override the insecure SSL setting that is specified in the batch build
@@ -7929,7 +7929,7 @@ export interface StartBuildBatchInput {
    *         is GitHub Enterprise.</p>
    * @public
    */
-  insecureSslOverride?: boolean;
+  insecureSslOverride?: boolean | undefined;
 
   /**
    * <p>Set to <code>true</code> to report to your source provider the status of a batch build's
@@ -7941,66 +7941,66 @@ export interface StartBuildBatchInput {
    *          </note>
    * @public
    */
-  reportBuildBatchStatusOverride?: boolean;
+  reportBuildBatchStatusOverride?: boolean | undefined;
 
   /**
    * <p>A container type for this batch build that overrides the one specified in the batch build
    *         project.</p>
    * @public
    */
-  environmentTypeOverride?: EnvironmentType;
+  environmentTypeOverride?: EnvironmentType | undefined;
 
   /**
    * <p>The name of an image for this batch build that overrides the one specified in the batch
    *             build project.</p>
    * @public
    */
-  imageOverride?: string;
+  imageOverride?: string | undefined;
 
   /**
    * <p>The name of a compute type for this batch build that overrides the one specified in the
    *         batch build project.</p>
    * @public
    */
-  computeTypeOverride?: ComputeType;
+  computeTypeOverride?: ComputeType | undefined;
 
   /**
    * <p>The name of a certificate for this batch build that overrides the one specified in the batch build
    *         project.</p>
    * @public
    */
-  certificateOverride?: string;
+  certificateOverride?: string | undefined;
 
   /**
    * <p>A <code>ProjectCache</code> object that specifies cache overrides.</p>
    * @public
    */
-  cacheOverride?: ProjectCache;
+  cacheOverride?: ProjectCache | undefined;
 
   /**
    * <p>The name of a service role for this batch build that overrides the one specified in the
    *         batch build project.</p>
    * @public
    */
-  serviceRoleOverride?: string;
+  serviceRoleOverride?: string | undefined;
 
   /**
    * <p>Enable this flag to override privileged mode in the batch build project.</p>
    * @public
    */
-  privilegedModeOverride?: boolean;
+  privilegedModeOverride?: boolean | undefined;
 
   /**
    * <p>Overrides the build timeout specified in the batch build project.</p>
    * @public
    */
-  buildTimeoutInMinutesOverride?: number;
+  buildTimeoutInMinutesOverride?: number | undefined;
 
   /**
    * <p>The number of minutes a batch build is allowed to be queued before it times out.</p>
    * @public
    */
-  queuedTimeoutInMinutesOverride?: number;
+  queuedTimeoutInMinutesOverride?: number | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) that overrides the one specified in the batch build
@@ -8013,7 +8013,7 @@ export interface StartBuildBatchInput {
    *         the format <code>alias/<alias-name></code>).</p>
    * @public
    */
-  encryptionKeyOverride?: string;
+  encryptionKeyOverride?: string | undefined;
 
   /**
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
@@ -8023,21 +8023,21 @@ export interface StartBuildBatchInput {
    *             CodeBuild returns a parameter mismatch error.</p>
    * @public
    */
-  idempotencyToken?: string;
+  idempotencyToken?: string | undefined;
 
   /**
    * <p>A <code>LogsConfig</code> object that override the log settings defined in the batch build
    *             project.</p>
    * @public
    */
-  logsConfigOverride?: LogsConfig;
+  logsConfigOverride?: LogsConfig | undefined;
 
   /**
    * <p>A <code>RegistryCredential</code> object that overrides credentials for access to a
    *             private registry.</p>
    * @public
    */
-  registryCredentialOverride?: RegistryCredential;
+  registryCredentialOverride?: RegistryCredential | undefined;
 
   /**
    * <p>The type of credentials CodeBuild uses to pull images in your batch build. There are two valid
@@ -8058,21 +8058,21 @@ export interface StartBuildBatchInput {
    *             you must use <code>CODEBUILD</code> credentials. </p>
    * @public
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType;
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | undefined;
 
   /**
    * <p>A <code>BuildBatchConfigOverride</code> object that contains batch build configuration
    *             overrides.</p>
    * @public
    */
-  buildBatchConfigOverride?: ProjectBuildBatchConfig;
+  buildBatchConfigOverride?: ProjectBuildBatchConfig | undefined;
 
   /**
    * <p>Specifies if session debugging is enabled for this batch build. For more information, see
    *   <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>
    * @public
    */
-  debugSessionEnabled?: boolean;
+  debugSessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -8083,7 +8083,7 @@ export interface StartBuildBatchOutput {
    * <p>A <code>BuildBatch</code> object that contains information about the batch build.</p>
    * @public
    */
-  buildBatch?: BuildBatch;
+  buildBatch?: BuildBatch | undefined;
 }
 
 /**
@@ -8105,7 +8105,7 @@ export interface StopBuildOutput {
    * <p>Information about the build.</p>
    * @public
    */
-  build?: Build;
+  build?: Build | undefined;
 }
 
 /**
@@ -8127,7 +8127,7 @@ export interface StopBuildBatchOutput {
    * <p>Contains information about a batch build.</p>
    * @public
    */
-  buildBatch?: BuildBatch;
+  buildBatch?: BuildBatch | undefined;
 }
 
 /**
@@ -8145,7 +8145,7 @@ export interface UpdateFleetInput {
    *             run in parallel.</p>
    * @public
    */
-  baseCapacity?: number;
+  baseCapacity?: number | undefined;
 
   /**
    * <p>The environment type of the compute fleet.</p>
@@ -8215,7 +8215,7 @@ export interface UpdateFleetInput {
    *                 user guide</i>.</p>
    * @public
    */
-  environmentType?: EnvironmentType;
+  environmentType?: EnvironmentType | undefined;
 
   /**
    * <p>Information about the compute resources the compute fleet uses. Available values
@@ -8317,19 +8317,19 @@ export interface UpdateFleetInput {
    *          </p>
    * @public
    */
-  computeType?: ComputeType;
+  computeType?: ComputeType | undefined;
 
   /**
    * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The scaling configuration of the compute fleet.</p>
    * @public
    */
-  scalingConfiguration?: ScalingConfigurationInput;
+  scalingConfiguration?: ScalingConfigurationInput | undefined;
 
   /**
    * <p>The compute fleet overflow behavior.</p>
@@ -8350,32 +8350,32 @@ export interface UpdateFleetInput {
    *          </ul>
    * @public
    */
-  overflowBehavior?: FleetOverflowBehavior;
+  overflowBehavior?: FleetOverflowBehavior | undefined;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The proxy configuration of the compute fleet.</p>
    * @public
    */
-  proxyConfiguration?: ProxyConfiguration;
+  proxyConfiguration?: ProxyConfiguration | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
    *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
-  fleetServiceRole?: string;
+  fleetServiceRole?: string | undefined;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -8383,7 +8383,7 @@ export interface UpdateFleetInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -8394,7 +8394,7 @@ export interface UpdateFleetOutput {
    * <p>A <code>Fleet</code> object.</p>
    * @public
    */
-  fleet?: Fleet;
+  fleet?: Fleet | undefined;
 }
 
 /**
@@ -8414,20 +8414,20 @@ export interface UpdateProjectInput {
    * <p>A new or replacement description of the build project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information to be changed about the build input source code for the build
    *     project.</p>
    * @public
    */
-  source?: ProjectSource;
+  source?: ProjectSource | undefined;
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    * @public
    */
-  secondarySources?: ProjectSource[];
+  secondarySources?: ProjectSource[] | undefined;
 
   /**
    * <p> A version of the build input to be built for this project. If not specified, the
@@ -8465,7 +8465,7 @@ export interface UpdateProjectInput {
    *     </p>
    * @public
    */
-  sourceVersion?: string;
+  sourceVersion?: string | undefined;
 
   /**
    * <p> An array of <code>ProjectSourceVersion</code> objects. If
@@ -8473,53 +8473,53 @@ export interface UpdateProjectInput {
    *     over these <code>secondarySourceVersions</code> (at the project level). </p>
    * @public
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
 
   /**
    * <p>Information to be changed about the build output artifacts for the build
    *         project.</p>
    * @public
    */
-  artifacts?: ProjectArtifacts;
+  artifacts?: ProjectArtifacts | undefined;
 
   /**
    * <p> An array of <code>ProjectArtifact</code> objects. </p>
    * @public
    */
-  secondaryArtifacts?: ProjectArtifacts[];
+  secondaryArtifacts?: ProjectArtifacts[] | undefined;
 
   /**
    * <p>Stores recently used information so that it can be quickly accessed at a later
    *       time.</p>
    * @public
    */
-  cache?: ProjectCache;
+  cache?: ProjectCache | undefined;
 
   /**
    * <p>Information to be changed about the build environment for the build project.</p>
    * @public
    */
-  environment?: ProjectEnvironment;
+  environment?: ProjectEnvironment | undefined;
 
   /**
    * <p>The replacement ARN of the IAM role that enables CodeBuild to interact with dependent
    *     Amazon Web Services services on behalf of the Amazon Web Services account.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>The replacement value in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before
    *       timing out any related build that did not get marked as completed.</p>
    * @public
    */
-  timeoutInMinutes?: number;
+  timeoutInMinutes?: number | undefined;
 
   /**
    * <p> The number of minutes a build is allowed to be queued before it times out. </p>
    * @public
    */
-  queuedTimeoutInMinutes?: number;
+  queuedTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
@@ -8533,7 +8533,7 @@ export interface UpdateProjectInput {
    *     </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>An updated list of tag key and value pairs associated with this build project.</p>
@@ -8541,27 +8541,27 @@ export interface UpdateProjectInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>VpcConfig enables CodeBuild to access resources in an Amazon VPC.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>Set this to true to generate a publicly accessible URL for your project's build
    *       badge.</p>
    * @public
    */
-  badgeEnabled?: boolean;
+  badgeEnabled?: boolean | undefined;
 
   /**
    * <p> Information about logs for the build project. A project can create logs in CloudWatch Logs,
    *     logs in an S3 bucket, or both. </p>
    * @public
    */
-  logsConfig?: LogsConfig;
+  logsConfig?: LogsConfig | undefined;
 
   /**
    * <p>
@@ -8571,13 +8571,13 @@ export interface UpdateProjectInput {
    *   </p>
    * @public
    */
-  fileSystemLocations?: ProjectFileSystemLocation[];
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
 
   /**
    * <p>Contains configuration information about a batch build project.</p>
    * @public
    */
-  buildBatchConfig?: ProjectBuildBatchConfig;
+  buildBatchConfig?: ProjectBuildBatchConfig | undefined;
 
   /**
    * <p>The maximum number of concurrent builds that are allowed for this project.</p>
@@ -8586,7 +8586,7 @@ export interface UpdateProjectInput {
    *          <p>To remove this limit, set this value to -1.</p>
    * @public
    */
-  concurrentBuildLimit?: number;
+  concurrentBuildLimit?: number | undefined;
 
   /**
    * <p>The maximum number of additional automatic retries after a failed build. For example, if the
@@ -8594,7 +8594,7 @@ export interface UpdateProjectInput {
    *       retry your build for up to 2 additional times.</p>
    * @public
    */
-  autoRetryLimit?: number;
+  autoRetryLimit?: number | undefined;
 }
 
 /**
@@ -8605,7 +8605,7 @@ export interface UpdateProjectOutput {
    * <p>Information about the build project that was changed.</p>
    * @public
    */
-  project?: Project;
+  project?: Project | undefined;
 }
 
 /**
@@ -8639,7 +8639,7 @@ export interface UpdateProjectVisibilityInput {
    *       the project's builds.</p>
    * @public
    */
-  resourceAccessRole?: string;
+  resourceAccessRole?: string | undefined;
 }
 
 /**
@@ -8650,13 +8650,13 @@ export interface UpdateProjectVisibilityOutput {
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
    * @public
    */
-  projectArn?: string;
+  projectArn?: string | undefined;
 
   /**
    * <p>Contains the project identifier used with the public build APIs. </p>
    * @public
    */
-  publicProjectAlias?: string;
+  publicProjectAlias?: string | undefined;
 
   /**
    * <p>Specifies the visibility of the project's builds. Possible values are:</p>
@@ -8672,7 +8672,7 @@ export interface UpdateProjectVisibilityOutput {
    *          </dl>
    * @public
    */
-  projectVisibility?: ProjectVisibilityType;
+  projectVisibility?: ProjectVisibilityType | undefined;
 }
 
 /**
@@ -8705,7 +8705,7 @@ export interface UpdateReportGroupInput {
    *          </ul>
    * @public
    */
-  exportConfig?: ReportExportConfig;
+  exportConfig?: ReportExportConfig | undefined;
 
   /**
    * <p>
@@ -8715,7 +8715,7 @@ export interface UpdateReportGroupInput {
    *       tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -8728,7 +8728,7 @@ export interface UpdateReportGroupOutput {
    *     </p>
    * @public
    */
-  reportGroup?: ReportGroup;
+  reportGroup?: ReportGroup | undefined;
 }
 
 /**
@@ -8751,7 +8751,7 @@ export interface UpdateWebhookInput {
    *          </note>
    * @public
    */
-  branchFilter?: string;
+  branchFilter?: string | undefined;
 
   /**
    * <p> A boolean value that specifies whether the associated GitHub repository's secret
@@ -8759,7 +8759,7 @@ export interface UpdateWebhookInput {
    *       <code>rotateSecret</code> is ignored. </p>
    * @public
    */
-  rotateSecret?: boolean;
+  rotateSecret?: boolean | undefined;
 
   /**
    * <p> An array of arrays of <code>WebhookFilter</code> objects used to determine if a
@@ -8768,13 +8768,13 @@ export interface UpdateWebhookInput {
    *             <code>WebhookFilter</code>. </p>
    * @public
    */
-  filterGroups?: WebhookFilter[][];
+  filterGroups?: WebhookFilter[][] | undefined;
 
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    * @public
    */
-  buildType?: WebhookBuildType;
+  buildType?: WebhookBuildType | undefined;
 }
 
 /**
@@ -8786,7 +8786,7 @@ export interface UpdateWebhookOutput {
    *     </p>
    * @public
    */
-  webhook?: Webhook;
+  webhook?: Webhook | undefined;
 }
 
 /**

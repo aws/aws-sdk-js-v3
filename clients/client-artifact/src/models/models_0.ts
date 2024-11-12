@@ -76,7 +76,7 @@ export interface AccountSettings {
    * <p>Notification subscription status of the customer.</p>
    * @public
    */
-  notificationSubscriptionStatus?: NotificationSubscriptionStatus;
+  notificationSubscriptionStatus?: NotificationSubscriptionStatus | undefined;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface GetAccountSettingsResponse {
    * <p>Account settings for the customer.</p>
    * @public
    */
-  accountSettings?: AccountSettings;
+  accountSettings?: AccountSettings | undefined;
 }
 
 /**
@@ -141,7 +141,7 @@ export class InternalServerException extends __BaseException {
    * <p>Number of seconds in which the caller can retry the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -253,19 +253,19 @@ export class ThrottlingException extends __BaseException {
    * <p>Code for the affected service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>Code for the affected quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Number of seconds in which the caller can retry the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -335,7 +335,7 @@ export class ValidationException extends __BaseException {
    * <p>The field that caused the error, if applicable.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -360,7 +360,7 @@ export interface PutAccountSettingsRequest {
    * <p>Desired notification subscription status.</p>
    * @public
    */
-  notificationSubscriptionStatus?: NotificationSubscriptionStatus;
+  notificationSubscriptionStatus?: NotificationSubscriptionStatus | undefined;
 }
 
 /**
@@ -371,7 +371,7 @@ export interface PutAccountSettingsResponse {
    * <p>Account settings for the customer.</p>
    * @public
    */
-  accountSettings?: AccountSettings;
+  accountSettings?: AccountSettings | undefined;
 }
 
 /**
@@ -388,7 +388,7 @@ export interface GetReportRequest {
    * <p>Version for the report resource.</p>
    * @public
    */
-  reportVersion?: number;
+  reportVersion?: number | undefined;
 
   /**
    * <p>Unique download token provided by GetTermForReport API.</p>
@@ -405,7 +405,7 @@ export interface GetReportResponse {
    * <p>Presigned S3 url to access the report content.</p>
    * @public
    */
-  documentPresignedUrl?: string;
+  documentPresignedUrl?: string | undefined;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface GetReportMetadataRequest {
    * <p>Version for the report resource.</p>
    * @public
    */
-  reportVersion?: number;
+  reportVersion?: number | undefined;
 }
 
 /**
@@ -470,121 +470,121 @@ export interface ReportDetail {
    * <p>Unique resource ID for the report resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Name for the report resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Description for the report resource.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Timestamp indicating the report resource effective start.</p>
    * @public
    */
-  periodStart?: Date;
+  periodStart?: Date | undefined;
 
   /**
    * <p>Timestamp indicating the report resource effective end.</p>
    * @public
    */
-  periodEnd?: Date;
+  periodEnd?: Date | undefined;
 
   /**
    * <p>Timestamp indicating when the report resource was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Timestamp indicating when the report resource was last modified.</p>
    * @public
    */
-  lastModifiedAt?: Date;
+  lastModifiedAt?: Date | undefined;
 
   /**
    * <p>Timestamp indicating when the report resource was deleted.</p>
    * @public
    */
-  deletedAt?: Date;
+  deletedAt?: Date | undefined;
 
   /**
    * <p>Current state of the report resource</p>
    * @public
    */
-  state?: PublishedState;
+  state?: PublishedState | undefined;
 
   /**
    * <p>ARN for the report resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Series for the report resource.</p>
    * @public
    */
-  series?: string;
+  series?: string | undefined;
 
   /**
    * <p>Category for the report resource.</p>
    * @public
    */
-  category?: string;
+  category?: string | undefined;
 
   /**
    * <p>Associated company name for the report resource.</p>
    * @public
    */
-  companyName?: string;
+  companyName?: string | undefined;
 
   /**
    * <p>Associated product name for the report resource.</p>
    * @public
    */
-  productName?: string;
+  productName?: string | undefined;
 
   /**
    * <p>Unique resource ARN for term resource.</p>
    * @public
    */
-  termArn?: string;
+  termArn?: string | undefined;
 
   /**
    * <p>Version for the report resource.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>Acceptance type for report.</p>
    * @public
    */
-  acceptanceType?: AcceptanceType;
+  acceptanceType?: AcceptanceType | undefined;
 
   /**
    * <p>Sequence number to enforce optimistic locking.</p>
    * @public
    */
-  sequenceNumber?: number;
+  sequenceNumber?: number | undefined;
 
   /**
    * <p>The current state of the document upload.</p>
    * @public
    */
-  uploadState?: UploadState;
+  uploadState?: UploadState | undefined;
 
   /**
    * <p>The message associated with the current upload state.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -595,7 +595,7 @@ export interface GetReportMetadataResponse {
    * <p>Report resource detail.</p>
    * @public
    */
-  reportDetails?: ReportDetail;
+  reportDetails?: ReportDetail | undefined;
 }
 
 /**
@@ -612,7 +612,7 @@ export interface GetTermForReportRequest {
    * <p>Version for the report resource.</p>
    * @public
    */
-  reportVersion?: number;
+  reportVersion?: number | undefined;
 }
 
 /**
@@ -623,13 +623,13 @@ export interface GetTermForReportResponse {
    * <p>Presigned S3 url to access the term content.</p>
    * @public
    */
-  documentPresignedUrl?: string;
+  documentPresignedUrl?: string | undefined;
 
   /**
    * <p>Unique token representing this request event.</p>
    * @public
    */
-  termToken?: string;
+  termToken?: string | undefined;
 }
 
 /**
@@ -640,13 +640,13 @@ export interface ListReportsRequest {
    * <p>Maximum number of resources to return in the paginated response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Pagination token to request the next page of resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -658,91 +658,91 @@ export interface ReportSummary {
    * <p>Unique resource ID for the report resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Name for the report resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Current state of the report resource.</p>
    * @public
    */
-  state?: PublishedState;
+  state?: PublishedState | undefined;
 
   /**
    * <p>ARN for the report resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Version for the report resource.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The current state of the document upload.</p>
    * @public
    */
-  uploadState?: UploadState;
+  uploadState?: UploadState | undefined;
 
   /**
    * <p>Description for the report resource.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Timestamp indicating the report resource effective start.</p>
    * @public
    */
-  periodStart?: Date;
+  periodStart?: Date | undefined;
 
   /**
    * <p>Timestamp indicating the report resource effective end.</p>
    * @public
    */
-  periodEnd?: Date;
+  periodEnd?: Date | undefined;
 
   /**
    * <p>Series for the report resource.</p>
    * @public
    */
-  series?: string;
+  series?: string | undefined;
 
   /**
    * <p>Category for the report resource.</p>
    * @public
    */
-  category?: string;
+  category?: string | undefined;
 
   /**
    * <p>Associated company name for the report resource.</p>
    * @public
    */
-  companyName?: string;
+  companyName?: string | undefined;
 
   /**
    * <p>Associated product name for the report resource.</p>
    * @public
    */
-  productName?: string;
+  productName?: string | undefined;
 
   /**
    * <p>The message associated with the current upload state.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>Acceptance type for report.</p>
    * @public
    */
-  acceptanceType?: AcceptanceType;
+  acceptanceType?: AcceptanceType | undefined;
 }
 
 /**
@@ -753,11 +753,11 @@ export interface ListReportsResponse {
    * <p>List of report resources.</p>
    * @public
    */
-  reports?: ReportSummary[];
+  reports?: ReportSummary[] | undefined;
 
   /**
    * <p>Pagination token to request the next page of resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }

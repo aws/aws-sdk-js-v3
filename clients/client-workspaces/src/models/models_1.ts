@@ -56,7 +56,7 @@ export interface StartRequest {
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 }
 
 /**
@@ -78,7 +78,7 @@ export interface StartWorkspacesResult {
    * <p>Information about the WorkSpaces that could not be started.</p>
    * @public
    */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
 }
 
 /**
@@ -106,7 +106,7 @@ export interface StopRequest {
    * <p>The identifier of the WorkSpace.</p>
    * @public
    */
-  WorkspaceId?: string;
+  WorkspaceId?: string | undefined;
 }
 
 /**
@@ -128,7 +128,7 @@ export interface StopWorkspacesResult {
    * <p>Information about the WorkSpaces that could not be stopped.</p>
    * @public
    */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface TerminateWorkspacesResult {
    * <p>Information about the WorkSpaces that could not be terminated.</p>
    * @public
    */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
 }
 
 /**
@@ -233,13 +233,13 @@ export interface UpdateConnectClientAddInRequest {
    * <p>The name of the client add-in.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The endpoint URL of the Amazon Connect client add-in.</p>
    * @public
    */
-  URL?: string;
+  URL?: string | undefined;
 }
 
 /**
@@ -299,13 +299,13 @@ export interface UpdateWorkspaceBundleRequest {
    * <p>The identifier of the bundle.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The identifier of the image.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 }
 
 /**
@@ -360,37 +360,37 @@ export interface UpdateWorkspacesPoolRequest {
    * <p>Describes the specified pool to update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The identifier of the bundle.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The identifier of the directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The desired capacity for the pool.</p>
    * @public
    */
-  Capacity?: Capacity;
+  Capacity?: Capacity | undefined;
 
   /**
    * <p>The persistent application settings for users in the pool.</p>
    * @public
    */
-  ApplicationSettings?: ApplicationSettingsRequest;
+  ApplicationSettings?: ApplicationSettingsRequest | undefined;
 
   /**
    * <p>Indicates the timeout settings of the specified pool.</p>
    * @public
    */
-  TimeoutSettings?: TimeoutSettings;
+  TimeoutSettings?: TimeoutSettings | undefined;
 }
 
 /**
@@ -401,5 +401,5 @@ export interface UpdateWorkspacesPoolResult {
    * <p>Describes the specified pool.</p>
    * @public
    */
-  WorkspacesPool?: WorkspacesPool;
+  WorkspacesPool?: WorkspacesPool | undefined;
 }

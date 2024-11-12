@@ -14,32 +14,32 @@ export interface Entity {
    * <p>The start time, in milliseconds, of the utterance that was identified as PII.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the utterance that was identified as PII.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>The category of information identified. The only category is <code>PII</code>.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>The type of PII identified. For example, <code>NAME</code> or
    *       <code>CREDIT_DEBIT_NUMBER</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The word or words identified as PII.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The confidence score associated with the identified PII entity in your audio.</p>
@@ -48,7 +48,7 @@ export interface Entity {
    *       media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -75,40 +75,40 @@ export interface Item {
    * <p>The start time, in milliseconds, of the transcribed item.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the transcribed item.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    * @public
    */
-  Type?: ItemType;
+  Type?: ItemType | undefined;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>Indicates whether the specified item matches a word in the vocabulary filter included in
    *       your request. If <code>true</code>, there is a vocabulary filter match.</p>
    * @public
    */
-  VocabularyFilterMatch?: boolean;
+  VocabularyFilterMatch?: boolean | undefined;
 
   /**
    * <p>If speaker partitioning is enabled, <code>Speaker</code> labels the speaker of the
    *       specified item.</p>
    * @public
    */
-  Speaker?: string;
+  Speaker?: string | undefined;
 
   /**
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
@@ -116,7 +116,7 @@ export interface Item {
    *       probability that the identified item correctly matches the item spoken in your media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>If partial result stabilization is enabled, <code>Stable</code> indicates whether the specified
@@ -124,7 +124,7 @@ export interface Item {
    *       (<code>false</code>).</p>
    * @public
    */
-  Stable?: boolean;
+  Stable?: boolean | undefined;
 }
 
 /**
@@ -137,20 +137,20 @@ export interface Alternative {
    * <p>Contains transcribed text.</p>
    * @public
    */
-  Transcript?: string;
+  Transcript?: string | undefined;
 
   /**
    * <p>Contains words, phrases, or punctuation marks in your transcription output.</p>
    * @public
    */
-  Items?: Item[];
+  Items?: Item[] | undefined;
 
   /**
    * <p>Contains entities identified as personally identifiable information (PII) in your transcription
    *       output.</p>
    * @public
    */
-  Entities?: Entity[];
+  Entities?: Entity[] | undefined;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface AudioEvent {
    *       maximum audio chunk size is 32 KB.</p>
    * @public
    */
-  AudioChunk?: Uint8Array;
+  AudioChunk?: Uint8Array | undefined;
 }
 
 /**
@@ -272,7 +272,7 @@ export interface PostCallAnalyticsSettings {
    *       enable content redaction (<code>ContentRedactionType</code>).</p>
    * @public
    */
-  ContentRedactionOutput?: ContentRedactionOutput;
+  ContentRedactionOutput?: ContentRedactionOutput | undefined;
 
   /**
    * <p>The KMS key you want to use to encrypt your Call Analytics post-call
@@ -316,7 +316,7 @@ export interface PostCallAnalyticsSettings {
    *       request must have permission to use the specified KMS key.</p>
    * @public
    */
-  OutputEncryptionKMSKeyId?: string;
+  OutputEncryptionKMSKeyId?: string | undefined;
 }
 
 /**
@@ -328,7 +328,7 @@ export interface ConfigurationEvent {
    * <p>Indicates which speaker is on which audio channel.</p>
    * @public
    */
-  ChannelDefinitions?: ChannelDefinition[];
+  ChannelDefinitions?: ChannelDefinition[] | undefined;
 
   /**
    * <p>Provides additional optional settings for your Call Analytics post-call request, including
@@ -339,7 +339,7 @@ export interface ConfigurationEvent {
    *       on this feature.</p>
    * @public
    */
-  PostCallAnalyticsSettings?: PostCallAnalyticsSettings;
+  PostCallAnalyticsSettings?: PostCallAnalyticsSettings | undefined;
 }
 
 /**
@@ -411,7 +411,7 @@ export namespace AudioStream {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -437,32 +437,32 @@ export interface CallAnalyticsEntity {
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the identified entity.</p>
    * @public
    */
-  BeginOffsetMillis?: number;
+  BeginOffsetMillis?: number | undefined;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the identified entity.</p>
    * @public
    */
-  EndOffsetMillis?: number;
+  EndOffsetMillis?: number | undefined;
 
   /**
    * <p>The category of information identified. For example, <code>PII</code>.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>The type of PII identified. For example, <code>NAME</code> or
    *       <code>CREDIT_DEBIT_NUMBER</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The word or words that represent the identified entity.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The confidence score associated with the identification of an entity in your transcript.</p>
@@ -471,7 +471,7 @@ export interface CallAnalyticsEntity {
    *       media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -484,26 +484,26 @@ export interface CallAnalyticsItem {
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the identified item.</p>
    * @public
    */
-  BeginOffsetMillis?: number;
+  BeginOffsetMillis?: number | undefined;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the identified item.</p>
    * @public
    */
-  EndOffsetMillis?: number;
+  EndOffsetMillis?: number | undefined;
 
   /**
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    * @public
    */
-  Type?: ItemType;
+  Type?: ItemType | undefined;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
@@ -511,14 +511,14 @@ export interface CallAnalyticsItem {
    *       probability that the identified item correctly matches the item spoken in your media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>Indicates whether the specified item matches a word in the vocabulary filter included in
    *       your Call Analytics request. If <code>true</code>, there is a vocabulary filter match.</p>
    * @public
    */
-  VocabularyFilterMatch?: boolean;
+  VocabularyFilterMatch?: boolean | undefined;
 
   /**
    * <p>If partial result stabilization is enabled, <code>Stable</code> indicates whether the specified
@@ -526,7 +526,7 @@ export interface CallAnalyticsItem {
    *       (<code>false</code>).</p>
    * @public
    */
-  Stable?: boolean;
+  Stable?: boolean | undefined;
 }
 
 /**
@@ -560,14 +560,14 @@ export interface TimestampRange {
    *       match.</p>
    * @public
    */
-  BeginOffsetMillis?: number;
+  BeginOffsetMillis?: number | undefined;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the category
    *       match.</p>
    * @public
    */
-  EndOffsetMillis?: number;
+  EndOffsetMillis?: number | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface PointsOfInterest {
    * <p>Contains the timestamp ranges (start time through end time) of matched categories and rules.</p>
    * @public
    */
-  TimestampRanges?: TimestampRange[];
+  TimestampRanges?: TimestampRange[] | undefined;
 }
 
 /**
@@ -592,13 +592,13 @@ export interface CategoryEvent {
    * <p>Lists the categories that were matched in your audio segment.</p>
    * @public
    */
-  MatchedCategories?: string[];
+  MatchedCategories?: string[] | undefined;
 
   /**
    * <p>Contains information about the matched categories, including category names and timestamps.</p>
    * @public
    */
-  MatchedDetails?: Record<string, PointsOfInterest>;
+  MatchedDetails?: Record<string, PointsOfInterest> | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface CategoryEvent {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -631,7 +631,7 @@ export class ConflictException extends __BaseException {
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -654,7 +654,7 @@ export class InternalFailureException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -676,7 +676,7 @@ export class LimitExceededException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -702,14 +702,14 @@ export interface CharacterOffsets {
    *       character associated with an issue or a category match in a segment transcript.</p>
    * @public
    */
-  Begin?: number;
+  Begin?: number | undefined;
 
   /**
    * <p>Provides the character count of the last character where a match is identified. For example, the last
    *       character associated with an issue or a category match in a segment transcript.</p>
    * @public
    */
-  End?: number;
+  End?: number | undefined;
 }
 
 /**
@@ -721,7 +721,7 @@ export interface IssueDetected {
    * <p>Provides the timestamps that identify when in an audio segment the specified issue occurs.</p>
    * @public
    */
-  CharacterOffsets?: CharacterOffsets;
+  CharacterOffsets?: CharacterOffsets | undefined;
 }
 
 /**
@@ -751,67 +751,67 @@ export interface UtteranceEvent {
    * <p>The unique identifier that is associated with the specified <code>UtteranceEvent</code>.</p>
    * @public
    */
-  UtteranceId?: string;
+  UtteranceId?: string | undefined;
 
   /**
    * <p>Indicates whether the segment in the <code>UtteranceEvent</code> is complete
    *       (<code>FALSE</code>) or partial (<code>TRUE</code>).</p>
    * @public
    */
-  IsPartial?: boolean;
+  IsPartial?: boolean | undefined;
 
   /**
    * <p>Provides the role of the speaker for each audio channel, either <code>CUSTOMER</code> or
    *       <code>AGENT</code>.</p>
    * @public
    */
-  ParticipantRole?: ParticipantRole;
+  ParticipantRole?: ParticipantRole | undefined;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the
    *       <code>UtteranceEvent</code>.</p>
    * @public
    */
-  BeginOffsetMillis?: number;
+  BeginOffsetMillis?: number | undefined;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the
    *       <code>UtteranceEvent</code>.</p>
    * @public
    */
-  EndOffsetMillis?: number;
+  EndOffsetMillis?: number | undefined;
 
   /**
    * <p>Contains transcribed text.</p>
    * @public
    */
-  Transcript?: string;
+  Transcript?: string | undefined;
 
   /**
    * <p>Contains words, phrases, or punctuation marks that are associated with the specified
    *       <code>UtteranceEvent</code>.</p>
    * @public
    */
-  Items?: CallAnalyticsItem[];
+  Items?: CallAnalyticsItem[] | undefined;
 
   /**
    * <p>Contains entities identified as personally identifiable information (PII) in your transcription
    *       output.</p>
    * @public
    */
-  Entities?: CallAnalyticsEntity[];
+  Entities?: CallAnalyticsEntity[] | undefined;
 
   /**
    * <p>Provides the sentiment that was detected in the specified segment.</p>
    * @public
    */
-  Sentiment?: Sentiment;
+  Sentiment?: Sentiment | undefined;
 
   /**
    * <p>Provides the issue that was detected in the specified segment.</p>
    * @public
    */
-  IssuesDetected?: IssueDetected[];
+  IssuesDetected?: IssueDetected[] | undefined;
 }
 
 /**
@@ -1088,14 +1088,14 @@ export interface LanguageWithScore {
    * <p>The language code of the identified language.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>The confidence score associated with the identified language code. Confidence scores are values
    *       between zero and one; larger values indicate a higher confidence in the identified language.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1124,25 +1124,25 @@ export interface MedicalEntity {
    * <p>The start time, in milliseconds, of the utterance that was identified as PHI.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the utterance that was identified as PHI.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>The category of information identified. The only category is <code>PHI</code>.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>The word or words identified as PHI.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The confidence score associated with the identified PHI entity in your audio.</p>
@@ -1151,7 +1151,7 @@ export interface MedicalEntity {
    *             media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 }
 
 /**
@@ -1164,26 +1164,26 @@ export interface MedicalItem {
    * <p>The start time, in milliseconds, of the transcribed item.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the transcribed item.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken
    *             words) and <code>PUNCTUATION</code>.</p>
    * @public
    */
-  Type?: ItemType;
+  Type?: ItemType | undefined;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
@@ -1192,14 +1192,14 @@ export interface MedicalItem {
    *             media.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>If speaker partitioning is enabled, <code>Speaker</code> labels the speaker of the
    *             specified item.</p>
    * @public
    */
-  Speaker?: string;
+  Speaker?: string | undefined;
 }
 
 /**
@@ -1213,20 +1213,20 @@ export interface MedicalAlternative {
    * <p>Contains transcribed text.</p>
    * @public
    */
-  Transcript?: string;
+  Transcript?: string | undefined;
 
   /**
    * <p>Contains words, phrases, or punctuation marks in your transcription output.</p>
    * @public
    */
-  Items?: MedicalItem[];
+  Items?: MedicalItem[] | undefined;
 
   /**
    * <p>Contains entities identified as personal health information (PHI) in your transcription
    *             output.</p>
    * @public
    */
-  Entities?: MedicalEntity[];
+  Entities?: MedicalEntity[] | undefined;
 }
 
 /**
@@ -1257,19 +1257,19 @@ export interface MedicalResult {
    * <p>Provides a unique identifier for the <code>Result</code>.</p>
    * @public
    */
-  ResultId?: string;
+  ResultId?: string | undefined;
 
   /**
    * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>Indicates if the segment is complete.</p>
@@ -1277,7 +1277,7 @@ export interface MedicalResult {
    *                 <code>IsPartial</code> is <code>false</code>, the segment is complete.</p>
    * @public
    */
-  IsPartial?: boolean;
+  IsPartial?: boolean | undefined;
 
   /**
    * <p>A list of possible alternative transcriptions for the input audio. Each alternative may
@@ -1285,13 +1285,13 @@ export interface MedicalResult {
    *             <code>Transcript</code>.</p>
    * @public
    */
-  Alternatives?: MedicalAlternative[];
+  Alternatives?: MedicalAlternative[] | undefined;
 
   /**
    * <p>Indicates the channel identified for the <code>Result</code>.</p>
    * @public
    */
-  ChannelId?: string;
+  ChannelId?: string | undefined;
 }
 
 /**
@@ -1311,7 +1311,7 @@ export interface MedicalTranscript {
    *             identification, and other transcription-related data.</p>
    * @public
    */
-  Results?: MedicalResult[];
+  Results?: MedicalResult[] | undefined;
 }
 
 /**
@@ -1329,7 +1329,7 @@ export interface MedicalTranscriptEvent {
    *             stabilization, language identification, and other transcription-related data.</p>
    * @public
    */
-  Transcript?: MedicalTranscript;
+  Transcript?: MedicalTranscript | undefined;
 }
 
 /**
@@ -1508,19 +1508,19 @@ export interface Result {
    * <p>Provides a unique identifier for the <code>Result</code>.</p>
    * @public
    */
-  ResultId?: string;
+  ResultId?: string | undefined;
 
   /**
    * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
    * @public
    */
-  StartTime?: number;
+  StartTime?: number | undefined;
 
   /**
    * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
    * @public
    */
-  EndTime?: number;
+  EndTime?: number | undefined;
 
   /**
    * <p>Indicates if the segment is complete.</p>
@@ -1528,26 +1528,26 @@ export interface Result {
    *         <code>IsPartial</code> is <code>false</code>, the segment is complete.</p>
    * @public
    */
-  IsPartial?: boolean;
+  IsPartial?: boolean | undefined;
 
   /**
    * <p>A list of possible alternative transcriptions for the input audio. Each alternative may contain
    *       one or more of <code>Items</code>, <code>Entities</code>, or <code>Transcript</code>.</p>
    * @public
    */
-  Alternatives?: Alternative[];
+  Alternatives?: Alternative[] | undefined;
 
   /**
    * <p>Indicates which audio channel is associated with the <code>Result</code>.</p>
    * @public
    */
-  ChannelId?: string;
+  ChannelId?: string | undefined;
 
   /**
    * <p>The language code that represents the language spoken in your audio stream.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>The language code of the dominant language identified in your stream.</p>
@@ -1555,7 +1555,7 @@ export interface Result {
    *       you may have more than one result.</p>
    * @public
    */
-  LanguageIdentification?: LanguageWithScore[];
+  LanguageIdentification?: LanguageWithScore[] | undefined;
 }
 
 /**
@@ -1638,14 +1638,14 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Specify a name for your Call Analytics transcription session. If you don't include this parameter
    *       in your request, Amazon Transcribe generates an ID and returns it in the response.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
@@ -1664,7 +1664,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       words</a>.</p>
    * @public
    */
-  VocabularyFilterName?: string;
+  VocabularyFilterName?: string | undefined;
 
   /**
    * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
@@ -1673,7 +1673,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    * @public
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod;
+  VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
    * <p>Specify the name of the custom language model that you want to use when processing your
@@ -1684,7 +1684,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
    * @public
    */
-  LanguageModelName?: string;
+  LanguageModelName?: string | undefined;
 
   /**
    * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce
@@ -1693,7 +1693,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *         stabilization</a>.</p>
    * @public
    */
-  EnablePartialResultsStabilization?: boolean;
+  EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
    * <p>Specify the level of stability to use when you enable partial results stabilization
@@ -1704,7 +1704,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       stabilization</a>.</p>
    * @public
    */
-  PartialResultsStability?: PartialResultsStability;
+  PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -1718,7 +1718,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       information</a>.</p>
    * @public
    */
-  ContentIdentificationType?: ContentIdentificationType;
+  ContentIdentificationType?: ContentIdentificationType | undefined;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -1731,7 +1731,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       information</a>.</p>
    * @public
    */
-  ContentRedactionType?: ContentRedactionType;
+  ContentRedactionType?: ContentRedactionType | undefined;
 
   /**
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
@@ -1750,7 +1750,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>
    * @public
    */
-  PiiEntityTypes?: string;
+  PiiEntityTypes?: string | undefined;
 }
 
 /**
@@ -1761,93 +1761,93 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * <p>Provides the identifier for your real-time Call Analytics request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Provides the language code that you specified in your Call Analytics request.</p>
    * @public
    */
-  LanguageCode?: CallAnalyticsLanguageCode;
+  LanguageCode?: CallAnalyticsLanguageCode | undefined;
 
   /**
    * <p>Provides the sample rate that you specified in your Call Analytics request.</p>
    * @public
    */
-  MediaSampleRateHertz?: number;
+  MediaSampleRateHertz?: number | undefined;
 
   /**
    * <p>Provides the media encoding you specified in your Call Analytics request.</p>
    * @public
    */
-  MediaEncoding?: MediaEncoding;
+  MediaEncoding?: MediaEncoding | undefined;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your Call Analytics request.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Provides the identifier for your Call Analytics transcription session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>Provides detailed information about your real-time Call Analytics session.</p>
    * @public
    */
-  CallAnalyticsTranscriptResultStream?: AsyncIterable<CallAnalyticsTranscriptResultStream>;
+  CallAnalyticsTranscriptResultStream?: AsyncIterable<CallAnalyticsTranscriptResultStream> | undefined;
 
   /**
    * <p>Provides the name of the custom vocabulary filter that you specified in your Call Analytics
    *       request.</p>
    * @public
    */
-  VocabularyFilterName?: string;
+  VocabularyFilterName?: string | undefined;
 
   /**
    * <p>Provides the vocabulary filtering method used in your Call Analytics transcription.</p>
    * @public
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod;
+  VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
    * <p>Provides the name of the custom language model that you specified in your Call Analytics
    *       request.</p>
    * @public
    */
-  LanguageModelName?: string;
+  LanguageModelName?: string | undefined;
 
   /**
    * <p>Shows whether partial results stabilization was enabled for your Call Analytics transcription.</p>
    * @public
    */
-  EnablePartialResultsStabilization?: boolean;
+  EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
    * <p>Provides the stabilization level used for your transcription.</p>
    * @public
    */
-  PartialResultsStability?: PartialResultsStability;
+  PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
    * <p>Shows whether content identification was enabled for your Call Analytics transcription.</p>
    * @public
    */
-  ContentIdentificationType?: ContentIdentificationType;
+  ContentIdentificationType?: ContentIdentificationType | undefined;
 
   /**
    * <p>Shows whether content redaction was enabled for your Call Analytics transcription.</p>
    * @public
    */
-  ContentRedactionType?: ContentRedactionType;
+  ContentRedactionType?: ContentRedactionType | undefined;
 
   /**
    * <p>Lists the PII entity types you specified in your Call Analytics request.</p>
    * @public
    */
-  PiiEntityTypes?: string;
+  PiiEntityTypes?: string | undefined;
 }
 
 /**
@@ -1909,7 +1909,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             transcription. Note that vocabulary names are case sensitive.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Specify the medical specialty contained in your audio.</p>
@@ -1931,7 +1931,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
    * @public
    */
-  ShowSpeakerLabel?: boolean;
+  ShowSpeakerLabel?: boolean | undefined;
 
   /**
    * <p>Specify a name for your transcription session. If you don't include this parameter in
@@ -1939,7 +1939,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             response.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
@@ -1960,7 +1960,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
    * @public
    */
-  EnableChannelIdentification?: boolean;
+  EnableChannelIdentification?: boolean | undefined;
 
   /**
    * <p>Specify the number of channels in your audio stream. This value must be
@@ -1970,7 +1970,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             include <code>EnableChannelIdentification</code>.</p>
    * @public
    */
-  NumberOfChannels?: number;
+  NumberOfChannels?: number | undefined;
 
   /**
    * <p>Labels all personal health information (PHI) identified in your transcript.</p>
@@ -1980,7 +1980,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             transcription</a>.</p>
    * @public
    */
-  ContentIdentificationType?: MedicalContentIdentificationType;
+  ContentIdentificationType?: MedicalContentIdentificationType | undefined;
 }
 
 /**
@@ -1991,80 +1991,80 @@ export interface StartMedicalStreamTranscriptionResponse {
    * <p>Provides the identifier for your streaming request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Provides the language code that you specified in your request. This must be
    *                 <code>en-US</code>.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>Provides the sample rate that you specified in your request.</p>
    * @public
    */
-  MediaSampleRateHertz?: number;
+  MediaSampleRateHertz?: number | undefined;
 
   /**
    * <p>Provides the media encoding you specified in your request.</p>
    * @public
    */
-  MediaEncoding?: MediaEncoding;
+  MediaEncoding?: MediaEncoding | undefined;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Provides the medical specialty that you specified in your request.</p>
    * @public
    */
-  Specialty?: Specialty;
+  Specialty?: Specialty | undefined;
 
   /**
    * <p>Provides the type of audio you specified in your request.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
    * @public
    */
-  ShowSpeakerLabel?: boolean;
+  ShowSpeakerLabel?: boolean | undefined;
 
   /**
    * <p>Provides the identifier for your transcription session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>Provides detailed information about your streaming session.</p>
    * @public
    */
-  TranscriptResultStream?: AsyncIterable<MedicalTranscriptResultStream>;
+  TranscriptResultStream?: AsyncIterable<MedicalTranscriptResultStream> | undefined;
 
   /**
    * <p>Shows whether channel identification was enabled for your transcription.</p>
    * @public
    */
-  EnableChannelIdentification?: boolean;
+  EnableChannelIdentification?: boolean | undefined;
 
   /**
    * <p>Provides the number of channels that you specified in your request.</p>
    * @public
    */
-  NumberOfChannels?: number;
+  NumberOfChannels?: number | undefined;
 
   /**
    * <p>Shows whether content identification was enabled for your transcription.</p>
    * @public
    */
-  ContentIdentificationType?: MedicalContentIdentificationType;
+  ContentIdentificationType?: MedicalContentIdentificationType | undefined;
 }
 
 /**
@@ -2080,7 +2080,7 @@ export interface StartStreamTranscriptionRequest {
    *         languages</a> table.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
@@ -2122,14 +2122,14 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Specify a name for your transcription session. If you don't include this parameter in your request,
    *       Amazon Transcribe generates an ID and returns it in the response.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
@@ -2154,7 +2154,7 @@ export interface StartStreamTranscriptionRequest {
    *       words</a>.</p>
    * @public
    */
-  VocabularyFilterName?: string;
+  VocabularyFilterName?: string | undefined;
 
   /**
    * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
@@ -2163,7 +2163,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    * @public
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod;
+  VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
@@ -2171,7 +2171,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
    * @public
    */
-  ShowSpeakerLabel?: boolean;
+  ShowSpeakerLabel?: boolean | undefined;
 
   /**
    * <p>Enables channel identification in multi-channel audio.</p>
@@ -2184,7 +2184,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
    * @public
    */
-  EnableChannelIdentification?: boolean;
+  EnableChannelIdentification?: boolean | undefined;
 
   /**
    * <p>Specify the number of channels in your audio stream. This value must be
@@ -2194,7 +2194,7 @@ export interface StartStreamTranscriptionRequest {
    *       include <code>EnableChannelIdentification</code>.</p>
    * @public
    */
-  NumberOfChannels?: number;
+  NumberOfChannels?: number | undefined;
 
   /**
    * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce
@@ -2203,7 +2203,7 @@ export interface StartStreamTranscriptionRequest {
    *       stabilization</a>.</p>
    * @public
    */
-  EnablePartialResultsStabilization?: boolean;
+  EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
    * <p>Specify the level of stability to use when you enable partial results stabilization
@@ -2214,7 +2214,7 @@ export interface StartStreamTranscriptionRequest {
    *       stabilization</a>.</p>
    * @public
    */
-  PartialResultsStability?: PartialResultsStability;
+  PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -2228,7 +2228,7 @@ export interface StartStreamTranscriptionRequest {
    *       information</a>.</p>
    * @public
    */
-  ContentIdentificationType?: ContentIdentificationType;
+  ContentIdentificationType?: ContentIdentificationType | undefined;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -2241,7 +2241,7 @@ export interface StartStreamTranscriptionRequest {
    *       information</a>.</p>
    * @public
    */
-  ContentRedactionType?: ContentRedactionType;
+  ContentRedactionType?: ContentRedactionType | undefined;
 
   /**
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
@@ -2260,7 +2260,7 @@ export interface StartStreamTranscriptionRequest {
    *       <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>
    * @public
    */
-  PiiEntityTypes?: string;
+  PiiEntityTypes?: string | undefined;
 
   /**
    * <p>Specify the name of the custom language model that you want to use when processing your
@@ -2271,7 +2271,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
    * @public
    */
-  LanguageModelName?: string;
+  LanguageModelName?: string | undefined;
 
   /**
    * <p>Enables automatic language identification for your transcription.</p>
@@ -2291,7 +2291,7 @@ export interface StartStreamTranscriptionRequest {
    *       redaction.</p>
    * @public
    */
-  IdentifyLanguage?: boolean;
+  IdentifyLanguage?: boolean | undefined;
 
   /**
    * <p>Specify two or more language codes that represent the languages you think may be present
@@ -2308,7 +2308,7 @@ export interface StartStreamTranscriptionRequest {
    *          </important>
    * @public
    */
-  LanguageOptions?: string;
+  LanguageOptions?: string | undefined;
 
   /**
    * <p>Specify a preferred language from the subset of languages codes you specified in
@@ -2317,7 +2317,7 @@ export interface StartStreamTranscriptionRequest {
    *         <code>LanguageOptions</code> in your request.</p>
    * @public
    */
-  PreferredLanguage?: LanguageCode;
+  PreferredLanguage?: LanguageCode | undefined;
 
   /**
    * <p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>
@@ -2326,7 +2326,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
    * @public
    */
-  IdentifyMultipleLanguages?: boolean;
+  IdentifyMultipleLanguages?: boolean | undefined;
 
   /**
    * <p>Specify the names of the custom vocabularies that you want to use when processing your
@@ -2342,7 +2342,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
    * @public
    */
-  VocabularyNames?: string;
+  VocabularyNames?: string | undefined;
 
   /**
    * <p>Specify the names of the custom vocabulary filters that you want to use when processing
@@ -2359,7 +2359,7 @@ export interface StartStreamTranscriptionRequest {
    *       words</a>.</p>
    * @public
    */
-  VocabularyFilterNames?: string;
+  VocabularyFilterNames?: string | undefined;
 }
 
 /**
@@ -2379,7 +2379,7 @@ export interface Transcript {
    *       transcription-related data.</p>
    * @public
    */
-  Results?: Result[];
+  Results?: Result[] | undefined;
 }
 
 /**
@@ -2397,7 +2397,7 @@ export interface TranscriptEvent {
    *       result stabilization, language identification, and other transcription-related data.</p>
    * @public
    */
-  Transcript?: Transcript;
+  Transcript?: Transcript | undefined;
 }
 
 /**
@@ -2552,148 +2552,148 @@ export interface StartStreamTranscriptionResponse {
    * <p>Provides the identifier for your streaming request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Provides the language code that you specified in your request.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>Provides the sample rate that you specified in your request.</p>
    * @public
    */
-  MediaSampleRateHertz?: number;
+  MediaSampleRateHertz?: number | undefined;
 
   /**
    * <p>Provides the media encoding you specified in your request.</p>
    * @public
    */
-  MediaEncoding?: MediaEncoding;
+  MediaEncoding?: MediaEncoding | undefined;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>Provides the identifier for your transcription session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>Provides detailed information about your streaming session.</p>
    * @public
    */
-  TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
+  TranscriptResultStream?: AsyncIterable<TranscriptResultStream> | undefined;
 
   /**
    * <p>Provides the name of the custom vocabulary filter that you specified in your
    *       request.</p>
    * @public
    */
-  VocabularyFilterName?: string;
+  VocabularyFilterName?: string | undefined;
 
   /**
    * <p>Provides the vocabulary filtering method used in your transcription.</p>
    * @public
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod;
+  VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
    * @public
    */
-  ShowSpeakerLabel?: boolean;
+  ShowSpeakerLabel?: boolean | undefined;
 
   /**
    * <p>Shows whether channel identification was enabled for your transcription.</p>
    * @public
    */
-  EnableChannelIdentification?: boolean;
+  EnableChannelIdentification?: boolean | undefined;
 
   /**
    * <p>Provides the number of channels that you specified in your request.</p>
    * @public
    */
-  NumberOfChannels?: number;
+  NumberOfChannels?: number | undefined;
 
   /**
    * <p>Shows whether partial results stabilization was enabled for your transcription.</p>
    * @public
    */
-  EnablePartialResultsStabilization?: boolean;
+  EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
    * <p>Provides the stabilization level used for your transcription.</p>
    * @public
    */
-  PartialResultsStability?: PartialResultsStability;
+  PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
    * <p>Shows whether content identification was enabled for your transcription.</p>
    * @public
    */
-  ContentIdentificationType?: ContentIdentificationType;
+  ContentIdentificationType?: ContentIdentificationType | undefined;
 
   /**
    * <p>Shows whether content redaction was enabled for your transcription.</p>
    * @public
    */
-  ContentRedactionType?: ContentRedactionType;
+  ContentRedactionType?: ContentRedactionType | undefined;
 
   /**
    * <p>Lists the PII entity types you specified in your request.</p>
    * @public
    */
-  PiiEntityTypes?: string;
+  PiiEntityTypes?: string | undefined;
 
   /**
    * <p>Provides the name of the custom language model that you specified in your request.</p>
    * @public
    */
-  LanguageModelName?: string;
+  LanguageModelName?: string | undefined;
 
   /**
    * <p>Shows whether automatic language identification was enabled for your
    *       transcription.</p>
    * @public
    */
-  IdentifyLanguage?: boolean;
+  IdentifyLanguage?: boolean | undefined;
 
   /**
    * <p>Provides the language codes that you specified in your request.</p>
    * @public
    */
-  LanguageOptions?: string;
+  LanguageOptions?: string | undefined;
 
   /**
    * <p>Provides the preferred language that you specified in your request.</p>
    * @public
    */
-  PreferredLanguage?: LanguageCode;
+  PreferredLanguage?: LanguageCode | undefined;
 
   /**
    * <p>Shows whether automatic multi-language identification was enabled for your transcription.</p>
    * @public
    */
-  IdentifyMultipleLanguages?: boolean;
+  IdentifyMultipleLanguages?: boolean | undefined;
 
   /**
    * <p>Provides the names of the custom vocabularies that you specified in your request.</p>
    * @public
    */
-  VocabularyNames?: string;
+  VocabularyNames?: string | undefined;
 
   /**
    * <p>Provides the names of the custom vocabulary filters that you specified in your
    *       request.</p>
    * @public
    */
-  VocabularyFilterNames?: string;
+  VocabularyFilterNames?: string | undefined;
 }
 
 /**

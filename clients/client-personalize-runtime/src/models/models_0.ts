@@ -14,13 +14,13 @@ export interface PredictedAction {
    * <p>The ID of the recommended action.</p>
    * @public
    */
-  actionId?: string;
+  actionId?: string | undefined;
 
   /**
    * <p>The score of the recommended action. For information about action scores, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html">How action recommendation scoring works</a>.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 }
 
 /**
@@ -31,19 +31,19 @@ export interface GetActionRecommendationsRequest {
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED_ACTIONS recipe.</p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 
   /**
    * <p>The user ID of the user to provide action recommendations for.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The number of results to return. The default is 5. The maximum is 100.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
@@ -51,7 +51,7 @@ export interface GetActionRecommendationsRequest {
    *          <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)
@@ -66,7 +66,7 @@ export interface GetActionRecommendationsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    * @public
    */
-  filterValues?: Record<string, string>;
+  filterValues?: Record<string, string> | undefined;
 }
 
 /**
@@ -79,13 +79,13 @@ export interface GetActionRecommendationsResponse {
    *       works</a>.</p>
    * @public
    */
-  actionList?: PredictedAction[];
+  actionList?: PredictedAction[] | undefined;
 
   /**
    * <p>The ID of the recommendation.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface GetPersonalizedRankingRequest {
    *       as the user's current location or device type.</p>
    * @public
    */
-  context?: Record<string, string>;
+  context?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user.
@@ -167,7 +167,7 @@ export interface GetPersonalizedRankingRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)
@@ -182,7 +182,7 @@ export interface GetPersonalizedRankingRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    * @public
    */
-  filterValues?: Record<string, string>;
+  filterValues?: Record<string, string> | undefined;
 
   /**
    * <p>If you enabled metadata in recommendations when you created or updated the campaign, specify metadata columns from your Items dataset to include
@@ -194,7 +194,7 @@ export interface GetPersonalizedRankingRequest {
    *     </p>
    * @public
    */
-  metadataColumns?: Record<string, string[]>;
+  metadataColumns?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -208,26 +208,26 @@ export interface PredictedItem {
    * <p>The recommended item ID.</p>
    * @public
    */
-  itemId?: string;
+  itemId?: string | undefined;
 
   /**
    * <p>A numeric representation of the model's certainty that the item will be the next user
    *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 
   /**
    * <p>The name of the promotion that included the predicted item.</p>
    * @public
    */
-  promotionName?: string;
+  promotionName?: string | undefined;
 
   /**
    * <p>Metadata about the item from your Items dataset.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>If you use User-Personalization-v2, a list of reasons for why the item was included in recommendations. Possible reasons include the following:</p>
@@ -253,7 +253,7 @@ export interface PredictedItem {
    *          </ul>
    * @public
    */
-  reason?: string[];
+  reason?: string[] | undefined;
 }
 
 /**
@@ -264,13 +264,13 @@ export interface GetPersonalizedRankingResponse {
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
    * @public
    */
-  personalizedRanking?: PredictedItem[];
+  personalizedRanking?: PredictedItem[] | undefined;
 
   /**
    * <p>The ID of the recommendation.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 }
 
 /**
@@ -282,20 +282,20 @@ export interface Promotion {
    * <p>The name of the promotion.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The percentage of recommended items to apply the promotion to.</p>
    * @public
    */
-  percentPromotedItems?: number;
+  percentPromotedItems?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the filter used by the promotion. This filter defines the criteria for promoted items. For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters">Promotion filters</a>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The values to use when promoting items.
@@ -310,7 +310,7 @@ export interface Promotion {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    * @public
    */
-  filterValues?: Record<string, string>;
+  filterValues?: Record<string, string> | undefined;
 }
 
 /**
@@ -321,28 +321,28 @@ export interface GetRecommendationsRequest {
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
    * @public
    */
-  campaignArn?: string;
+  campaignArn?: string | undefined;
 
   /**
    * <p>The item ID to provide recommendations for.</p>
    *          <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>
    * @public
    */
-  itemId?: string;
+  itemId?: string | undefined;
 
   /**
    * <p>The user ID to provide recommendations for.</p>
    *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The number of results to return. The default is 25. If you are including
    *       metadata in recommendations, the maximum is 50. Otherwise, the maximum is 500.</p>
    * @public
    */
-  numResults?: number;
+  numResults?: number | undefined;
 
   /**
    * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
@@ -350,7 +350,7 @@ export interface GetRecommendationsRequest {
    *       as the user's current location or device type.</p>
    * @public
    */
-  context?: Record<string, string>;
+  context?: Record<string, string> | undefined;
 
   /**
    * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
@@ -358,7 +358,7 @@ export interface GetRecommendationsRequest {
    *          <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>
    * @public
    */
-  filterArn?: string;
+  filterArn?: string | undefined;
 
   /**
    * <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)
@@ -373,21 +373,21 @@ export interface GetRecommendationsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    * @public
    */
-  filterValues?: Record<string, string>;
+  filterValues?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you
    *     created a Domain dataset group with a recommender for a domain use case.</p>
    * @public
    */
-  recommenderArn?: string;
+  recommenderArn?: string | undefined;
 
   /**
    * <p>The promotions to apply to the recommendation request.
    *       A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
    * @public
    */
-  promotions?: Promotion[];
+  promotions?: Promotion[] | undefined;
 
   /**
    * <p>If you enabled metadata in recommendations when you created or updated the campaign or recommender, specify the metadata columns from your Items dataset to include in item recommendations.
@@ -399,7 +399,7 @@ export interface GetRecommendationsRequest {
    *     </p>
    * @public
    */
-  metadataColumns?: Record<string, string[]>;
+  metadataColumns?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -411,13 +411,13 @@ export interface GetRecommendationsResponse {
    *       maximum of 500 items in the list.</p>
    * @public
    */
-  itemList?: PredictedItem[];
+  itemList?: PredictedItem[] | undefined;
 
   /**
    * <p>The ID of the recommendation.</p>
    * @public
    */
-  recommendationId?: string;
+  recommendationId?: string | undefined;
 }
 
 /**

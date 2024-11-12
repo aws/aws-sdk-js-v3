@@ -56,7 +56,7 @@ export interface ListVersionsRequest {
    *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you
@@ -64,7 +64,7 @@ export interface ListVersionsRequest {
    *    operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -78,7 +78,7 @@ export interface ListVersionsResponse {
    *    supports.</p>
    * @public
    */
-  Versions?: string[];
+  Versions?: string[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
@@ -86,7 +86,7 @@ export interface ListVersionsResponse {
    *    returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface ListVpcEndpointAccessRequest {
    *     <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface ListVpcEndpointsRequest {
    *    operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface ListVpcEndpointsForDomainRequest {
    *     <code>ListEndpointsForDomain</code> operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -220,7 +220,7 @@ export interface PurchaseReservedInstanceOfferingRequest {
    * <p>The number of OpenSearch instances to reserve.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 }
 
 /**
@@ -232,13 +232,13 @@ export interface PurchaseReservedInstanceOfferingResponse {
    * <p>The ID of the Reserved Instance offering that was purchased.</p>
    * @public
    */
-  ReservedInstanceId?: string;
+  ReservedInstanceId?: string | undefined;
 
   /**
    * <p>The customer-specified identifier used to track this reservation.</p>
    * @public
    */
-  ReservationName?: string;
+  ReservationName?: string | undefined;
 }
 
 /**
@@ -262,7 +262,7 @@ export interface RejectInboundConnectionResponse {
    * <p>Contains details about the rejected inbound connection.</p>
    * @public
    */
-  Connection?: InboundConnection;
+  Connection?: InboundConnection | undefined;
 }
 
 /**
@@ -298,13 +298,13 @@ export interface RevokeVpcEndpointAccessRequest {
    * <p>The account ID to revoke access from.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The service SP to revoke access from.</p>
    * @public
    */
-  Service?: AWSServicePrincipal;
+  Service?: AWSServicePrincipal | undefined;
 }
 
 /**
@@ -334,7 +334,7 @@ export interface StartDomainMaintenanceRequest {
    * <p>The ID of the data node.</p>
    * @public
    */
-  NodeId?: string;
+  NodeId?: string | undefined;
 }
 
 /**
@@ -346,7 +346,7 @@ export interface StartDomainMaintenanceResponse {
    * <p>The request ID of requested action.</p>
    * @public
    */
-  MaintenanceId?: string;
+  MaintenanceId?: string | undefined;
 }
 
 /**
@@ -400,14 +400,14 @@ export interface StartServiceSoftwareUpdateRequest {
    *    and <code>TIMESTAMP</code> if you do.</p>
    * @public
    */
-  ScheduleAt?: ScheduleAt;
+  ScheduleAt?: ScheduleAt | undefined;
 
   /**
    * <p>The Epoch timestamp when you want the service software update to start. You only need to
    *    specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
    * @public
    */
-  DesiredStartTime?: number;
+  DesiredStartTime?: number | undefined;
 }
 
 /**
@@ -420,7 +420,7 @@ export interface StartServiceSoftwareUpdateResponse {
    * <p>The current status of the OpenSearch Service software update.</p>
    * @public
    */
-  ServiceSoftwareOptions?: ServiceSoftwareOptions;
+  ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
 }
 
 /**
@@ -437,13 +437,13 @@ export interface UpdateApplicationRequest {
    * <p>Data sources to be associated with the OpenSearch Application.</p>
    * @public
    */
-  dataSources?: DataSource[];
+  dataSources?: DataSource[] | undefined;
 
   /**
    * <p>Configurations to be changed for the OpenSearch Application.</p>
    * @public
    */
-  appConfigs?: AppConfig[];
+  appConfigs?: AppConfig[] | undefined;
 }
 
 /**
@@ -454,13 +454,13 @@ export interface UpdateApplicationResponse {
    * <p>Unique identifier of the updated OpenSearch Application.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Name of the updated OpenSearch Application.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
@@ -468,37 +468,37 @@ export interface UpdateApplicationResponse {
    *   </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Data sources associated with the updated OpenSearch Application.</p>
    * @public
    */
-  dataSources?: DataSource[];
+  dataSources?: DataSource[] | undefined;
 
   /**
    * <p>IAM Identity Center settings for the updated OpenSearch Application.</p>
    * @public
    */
-  iamIdentityCenterOptions?: IamIdentityCenterOptions;
+  iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
    * <p>Configurations for the updated OpenSearch Application.</p>
    * @public
    */
-  appConfigs?: AppConfig[];
+  appConfigs?: AppConfig[] | undefined;
 
   /**
    * <p>Timestamp at which the OpenSearch Application was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Timestamp at which the OpenSearch Application was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -529,13 +529,13 @@ export interface UpdateDataSourceRequest {
    * <p>A new description of the data source.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the data source update.</p>
    * @public
    */
-  Status?: DataSourceStatus;
+  Status?: DataSourceStatus | undefined;
 }
 
 /**
@@ -547,7 +547,7 @@ export interface UpdateDataSourceResponse {
    * <p>A message associated with the updated data source.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -580,20 +580,20 @@ export interface UpdateDomainConfigRequest {
    *    number of EC2 instances.</p>
    * @public
    */
-  ClusterConfig?: ClusterConfig;
+  ClusterConfig?: ClusterConfig | undefined;
 
   /**
    * <p>The type and size of the EBS volume to attach to instances in the domain.</p>
    * @public
    */
-  EBSOptions?: EBSOptions;
+  EBSOptions?: EBSOptions | undefined;
 
   /**
    * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours.
    *   </p>
    * @public
    */
-  SnapshotOptions?: SnapshotOptions;
+  SnapshotOptions?: SnapshotOptions | undefined;
 
   /**
    * <p>Options to specify the subnets and security groups for a VPC endpoint. For more information,
@@ -601,13 +601,13 @@ export interface UpdateDomainConfigRequest {
    *     your Amazon OpenSearch Service domains using a VPC</a>.</p>
    * @public
    */
-  VPCOptions?: VPCOptions;
+  VPCOptions?: VPCOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
    * @public
    */
-  CognitoOptions?: CognitoOptions;
+  CognitoOptions?: CognitoOptions | undefined;
 
   /**
    * <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are
@@ -638,13 +638,13 @@ export interface UpdateDomainConfigRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
    * @public
    */
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
    * @public
    */
-  AccessPolicies?: string;
+  AccessPolicies?: string | undefined;
 
   /**
    * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across
@@ -653,50 +653,50 @@ export interface UpdateDomainConfigRequest {
    *   </p>
    * @public
    */
-  IPAddressType?: IPAddressType;
+  IPAddressType?: IPAddressType | undefined;
 
   /**
    * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
    * @public
    */
-  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
    * <p>Encryption at rest options for the domain.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
    * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
    *    traffic.</p>
    * @public
    */
-  DomainEndpointOptions?: DomainEndpointOptions;
+  DomainEndpointOptions?: DomainEndpointOptions | undefined;
 
   /**
    * <p>Node-to-node encryption options for the domain.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions | undefined;
 
   /**
    * <p>Options for fine-grained access control.</p>
    * @public
    */
-  AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
+  AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
 
   /**
    * <p>Container for IAM Identity Center Options settings.</p>
    * @public
    */
-  IdentityCenterOptions?: IdentityCenterOptionsInput;
+  IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;
 
   /**
    * <p>Options for Auto-Tune.</p>
    * @public
    */
-  AutoTuneOptions?: AutoTuneOptions;
+  AutoTuneOptions?: AutoTuneOptions | undefined;
 
   /**
    * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should
@@ -704,7 +704,7 @@ export interface UpdateDomainConfigRequest {
    *    determines what type of deployment the update will cause.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The type of dry run to perform.</p>
@@ -722,25 +722,25 @@ export interface UpdateDomainConfigRequest {
    *          </ul>
    * @public
    */
-  DryRunMode?: DryRunMode;
+  DryRunMode?: DryRunMode | undefined;
 
   /**
    * <p>Off-peak window options for the domain.</p>
    * @public
    */
-  OffPeakWindowOptions?: OffPeakWindowOptions;
+  OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
 
   /**
    * <p>Service software update options for the domain.</p>
    * @public
    */
-  SoftwareUpdateOptions?: SoftwareUpdateOptions;
+  SoftwareUpdateOptions?: SoftwareUpdateOptions | undefined;
 
   /**
    * <p>Options for all machine learning features for the specified domain.</p>
    * @public
    */
-  AIMLOptions?: AIMLOptionsInput;
+  AIMLOptions?: AIMLOptionsInput | undefined;
 }
 
 /**
@@ -759,13 +759,13 @@ export interface UpdateDomainConfigResponse {
    * <p>Results of the dry run performed in the update domain request.</p>
    * @public
    */
-  DryRunResults?: DryRunResults;
+  DryRunResults?: DryRunResults | undefined;
 
   /**
    * <p>The status of the dry run being performed on the domain, if any.</p>
    * @public
    */
-  DryRunProgressStatus?: DryRunProgressStatus;
+  DryRunProgressStatus?: DryRunProgressStatus | undefined;
 }
 
 /**
@@ -789,26 +789,26 @@ export interface UpdatePackageRequest {
    * <p>A new description of the package.</p>
    * @public
    */
-  PackageDescription?: string;
+  PackageDescription?: string | undefined;
 
   /**
    * <p>Commit message for the updated file, which is shown as part of
    *     <code>GetPackageVersionHistoryResponse</code>.</p>
    * @public
    */
-  CommitMessage?: string;
+  CommitMessage?: string | undefined;
 
   /**
    * <p>The updated configuration details for a package.</p>
    * @public
    */
-  PackageConfiguration?: PackageConfiguration;
+  PackageConfiguration?: PackageConfiguration | undefined;
 
   /**
    * <p>Encryption options for a package.</p>
    * @public
    */
-  PackageEncryptionOptions?: PackageEncryptionOptions;
+  PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
 }
 
 /**
@@ -820,7 +820,7 @@ export interface UpdatePackageResponse {
    * <p>Information about a package.</p>
    * @public
    */
-  PackageDetails?: PackageDetails;
+  PackageDetails?: PackageDetails | undefined;
 }
 
 /**
@@ -869,19 +869,19 @@ export interface UpdatePackageScopeResponse {
    * <p> ID of the package whose scope was updated.</p>
    * @public
    */
-  PackageID?: string;
+  PackageID?: string | undefined;
 
   /**
    * <p>The operation that was performed on the package scope.</p>
    * @public
    */
-  Operation?: PackageScopeOperationEnum;
+  Operation?: PackageScopeOperationEnum | undefined;
 
   /**
    * <p> List of users who have access to the package after the scope update.</p>
    * @public
    */
-  PackageUserList?: string[];
+  PackageUserList?: string[] | undefined;
 }
 
 /**
@@ -895,7 +895,7 @@ export class SlotNotAvailableException extends __BaseException {
    * <p>Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.</p>
    * @public
    */
-  SlotSuggestions?: number[];
+  SlotSuggestions?: number[] | undefined;
 
   /**
    * @internal
@@ -963,7 +963,7 @@ export interface UpdateScheduledActionRequest {
    *    parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
    * @public
    */
-  DesiredStartTime?: number;
+  DesiredStartTime?: number | undefined;
 }
 
 /**
@@ -974,7 +974,7 @@ export interface UpdateScheduledActionResponse {
    * <p>Information about the rescheduled action.</p>
    * @public
    */
-  ScheduledAction?: ScheduledAction;
+  ScheduledAction?: ScheduledAction | undefined;
 }
 
 /**
@@ -1028,7 +1028,7 @@ export interface UpgradeDomainRequest {
    *    actually perform the upgrade.</p>
    * @public
    */
-  PerformCheckOnly?: boolean;
+  PerformCheckOnly?: boolean | undefined;
 
   /**
    * <p>Only supports the <code>override_main_response_version</code> parameter and not other
@@ -1037,7 +1037,7 @@ export interface UpgradeDomainRequest {
    *    Elasticsearch OSS clients and plugins.</p>
    * @public
    */
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Record<string, string> | undefined;
 }
 
 /**
@@ -1049,37 +1049,37 @@ export interface UpgradeDomainResponse {
    * <p>The unique identifier of the domain upgrade.</p>
    * @public
    */
-  UpgradeId?: string;
+  UpgradeId?: string | undefined;
 
   /**
    * <p>The name of the domain that was upgraded.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>OpenSearch or Elasticsearch version that the domain was upgraded to.</p>
    * @public
    */
-  TargetVersion?: string;
+  TargetVersion?: string | undefined;
 
   /**
    * <p>When true, indicates that an upgrade eligibility check was performed.</p>
    * @public
    */
-  PerformCheckOnly?: boolean;
+  PerformCheckOnly?: boolean | undefined;
 
   /**
    * <p>The advanced options configuration for the domain.</p>
    * @public
    */
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Container for information about a configuration change happening on a domain.</p>
    * @public
    */
-  ChangeProgressDetails?: ChangeProgressDetails;
+  ChangeProgressDetails?: ChangeProgressDetails | undefined;
 }
 
 /**

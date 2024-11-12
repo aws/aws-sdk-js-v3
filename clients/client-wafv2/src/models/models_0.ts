@@ -131,7 +131,7 @@ export interface AllowAction {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomRequestHandling?: CustomRequestHandling;
+  CustomRequestHandling?: CustomRequestHandling | undefined;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface Body {
    *          </p>
    * @public
    */
-  OversizeHandling?: OversizeHandling;
+  OversizeHandling?: OversizeHandling | undefined;
 }
 
 /**
@@ -217,21 +217,21 @@ export interface CookieMatchPattern {
    * <p>Inspect all cookies. </p>
    * @public
    */
-  All?: All;
+  All?: All | undefined;
 
   /**
    * <p>Inspect only the cookies that have a key that matches one of the strings specified here.
    *       </p>
    * @public
    */
-  IncludedCookies?: string[];
+  IncludedCookies?: string[] | undefined;
 
   /**
    * <p>Inspect only the cookies whose keys don't match any of the strings specified here.
    *       </p>
    * @public
    */
-  ExcludedCookies?: string[];
+  ExcludedCookies?: string[] | undefined;
 }
 
 /**
@@ -355,21 +355,21 @@ export interface HeaderMatchPattern {
    * <p>Inspect all headers. </p>
    * @public
    */
-  All?: All;
+  All?: All | undefined;
 
   /**
    * <p>Inspect only the headers that have a key that matches one of the strings specified here.
    *       </p>
    * @public
    */
-  IncludedHeaders?: string[];
+  IncludedHeaders?: string[] | undefined;
 
   /**
    * <p>Inspect only the headers whose keys don't match any of the strings specified here.
    *       </p>
    * @public
    */
-  ExcludedHeaders?: string[];
+  ExcludedHeaders?: string[] | undefined;
 }
 
 /**
@@ -513,7 +513,7 @@ export interface JsonMatchPattern {
    *          both.</p>
    * @public
    */
-  All?: All;
+  All?: All | undefined;
 
   /**
    * <p>Match only the specified include paths. See also
@@ -531,7 +531,7 @@ export interface JsonMatchPattern {
    *          </note>
    * @public
    */
-  IncludedPaths?: string[];
+  IncludedPaths?: string[] | undefined;
 }
 
 /**
@@ -614,7 +614,7 @@ export interface JsonBody {
    *          </note>
    * @public
    */
-  InvalidFallbackBehavior?: BodyParsingFallbackBehavior;
+  InvalidFallbackBehavior?: BodyParsingFallbackBehavior | undefined;
 
   /**
    * <p>What WAF should do if the body is larger than WAF can inspect. </p>
@@ -653,7 +653,7 @@ export interface JsonBody {
    *          </p>
    * @public
    */
-  OversizeHandling?: OversizeHandling;
+  OversizeHandling?: OversizeHandling | undefined;
 }
 
 /**
@@ -772,7 +772,7 @@ export interface FieldToMatch {
    *             <code>FieldToMatch</code> setting. </p>
    * @public
    */
-  SingleHeader?: SingleHeader;
+  SingleHeader?: SingleHeader | undefined;
 
   /**
    * <p>Inspect a single query argument. Provide the name of the query argument to inspect, such
@@ -782,27 +782,27 @@ export interface FieldToMatch {
    *          </p>
    * @public
    */
-  SingleQueryArgument?: SingleQueryArgument;
+  SingleQueryArgument?: SingleQueryArgument | undefined;
 
   /**
    * <p>Inspect all query arguments. </p>
    * @public
    */
-  AllQueryArguments?: AllQueryArguments;
+  AllQueryArguments?: AllQueryArguments | undefined;
 
   /**
    * <p>Inspect the request URI path. This is the part of the web request that identifies a
    *          resource, for example, <code>/images/daily-ad.jpg</code>.</p>
    * @public
    */
-  UriPath?: UriPath;
+  UriPath?: UriPath | undefined;
 
   /**
    * <p>Inspect the query string. This is the part of a URL that appears after a <code>?</code>
    *          character, if any.</p>
    * @public
    */
-  QueryString?: QueryString;
+  QueryString?: QueryString | undefined;
 
   /**
    * <p>Inspect the request body as plain text. The request body immediately follows the request
@@ -824,14 +824,14 @@ export interface FieldToMatch {
    *          request bodies, see the <code>Body</code> object configuration. </p>
    * @public
    */
-  Body?: Body;
+  Body?: Body | undefined;
 
   /**
    * <p>Inspect the HTTP method. The method indicates the type of operation that the request is
    *          asking the origin to perform. </p>
    * @public
    */
-  Method?: Method;
+  Method?: Method | undefined;
 
   /**
    * <p>Inspect the request body as JSON. The request body immediately follows the request
@@ -853,7 +853,7 @@ export interface FieldToMatch {
    *          request bodies, see the <code>JsonBody</code> object configuration. </p>
    * @public
    */
-  JsonBody?: JsonBody;
+  JsonBody?: JsonBody | undefined;
 
   /**
    * <p>Inspect the request headers. You must configure scope and pattern matching filters in
@@ -866,7 +866,7 @@ export interface FieldToMatch {
    *          underlying host service. </p>
    * @public
    */
-  Headers?: Headers;
+  Headers?: Headers | undefined;
 
   /**
    * <p>Inspect the request cookies. You must configure scope and pattern matching filters in
@@ -879,7 +879,7 @@ export interface FieldToMatch {
    *          underlying host service. </p>
    * @public
    */
-  Cookies?: Cookies;
+  Cookies?: Cookies | undefined;
 
   /**
    * <p>Inspect a string containing the list of the request's header names, ordered as they appear in the web request
@@ -888,7 +888,7 @@ export interface FieldToMatch {
    *     WAF separates the header names in the string using colons and no added spaces, for example <code>host:user-agent:accept:authorization:referer</code>.</p>
    * @public
    */
-  HeaderOrder?: HeaderOrder;
+  HeaderOrder?: HeaderOrder | undefined;
 
   /**
    * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
@@ -906,7 +906,7 @@ export interface FieldToMatch {
    * 							specification, to match with any future requests that have the same TLS configuration.</p>
    * @public
    */
-  JA3Fingerprint?: JA3Fingerprint;
+  JA3Fingerprint?: JA3Fingerprint | undefined;
 }
 
 /**
@@ -1428,7 +1428,7 @@ export interface GeoMatchStatement {
    *          <p>When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.</p>
    * @public
    */
-  CountryCodes?: CountryCode[];
+  CountryCodes?: CountryCode[] | undefined;
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
@@ -1437,7 +1437,7 @@ export interface GeoMatchStatement {
    *          </note>
    * @public
    */
-  ForwardedIPConfig?: ForwardedIPConfig;
+  ForwardedIPConfig?: ForwardedIPConfig | undefined;
 }
 
 /**
@@ -1538,7 +1538,7 @@ export interface IPSetReferenceStatement {
    *          </note>
    * @public
    */
-  IPSetForwardedIPConfig?: IPSetForwardedIPConfig;
+  IPSetForwardedIPConfig?: IPSetForwardedIPConfig | undefined;
 }
 
 /**
@@ -1779,7 +1779,7 @@ export interface RequestInspectionACFP {
    *          </ul>
    * @public
    */
-  UsernameField?: UsernameField;
+  UsernameField?: UsernameField | undefined;
 
   /**
    * <p>The name of the field in the request payload that contains your customer's password. </p>
@@ -1802,7 +1802,7 @@ export interface RequestInspectionACFP {
    *          </ul>
    * @public
    */
-  PasswordField?: PasswordField;
+  PasswordField?: PasswordField | undefined;
 
   /**
    * <p>The name of the field in the request payload that contains your customer's email. </p>
@@ -1825,7 +1825,7 @@ export interface RequestInspectionACFP {
    *          </ul>
    * @public
    */
-  EmailField?: EmailField;
+  EmailField?: EmailField | undefined;
 
   /**
    * <p>The names of the fields in the request payload that contain your customer's primary phone number. </p>
@@ -1849,7 +1849,7 @@ export interface RequestInspectionACFP {
    *          </ul>
    * @public
    */
-  PhoneNumberFields?: PhoneNumberField[];
+  PhoneNumberFields?: PhoneNumberField[] | undefined;
 
   /**
    * <p>The names of the fields in the request payload that contain your customer's primary physical address. </p>
@@ -1873,7 +1873,7 @@ export interface RequestInspectionACFP {
    *          </ul>
    * @public
    */
-  AddressFields?: AddressField[];
+  AddressFields?: AddressField[] | undefined;
 }
 
 /**
@@ -2012,25 +2012,25 @@ export interface ResponseInspection {
    * <p>Configures inspection of the response status code for success and failure indicators. </p>
    * @public
    */
-  StatusCode?: ResponseInspectionStatusCode;
+  StatusCode?: ResponseInspectionStatusCode | undefined;
 
   /**
    * <p>Configures inspection of the response header for success and failure indicators. </p>
    * @public
    */
-  Header?: ResponseInspectionHeader;
+  Header?: ResponseInspectionHeader | undefined;
 
   /**
    * <p>Configures inspection of the response body for success and failure indicators. WAF can inspect the first 65,536 bytes (64 KB) of the response body. </p>
    * @public
    */
-  BodyContains?: ResponseInspectionBodyContains;
+  BodyContains?: ResponseInspectionBodyContains | undefined;
 
   /**
    * <p>Configures inspection of the response JSON for success and failure indicators. WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. </p>
    * @public
    */
-  Json?: ResponseInspectionJson;
+  Json?: ResponseInspectionJson | undefined;
 }
 
 /**
@@ -2086,13 +2086,13 @@ export interface AWSManagedRulesACFPRuleSet {
    *                and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time. </p>
    * @public
    */
-  ResponseInspection?: ResponseInspection;
+  ResponseInspection?: ResponseInspection | undefined;
 
   /**
    * <p>Allow the use of regular expressions in the registration page path and the account creation path. </p>
    * @public
    */
-  EnableRegexInPath?: boolean;
+  EnableRegexInPath?: boolean | undefined;
 }
 
 /**
@@ -2177,7 +2177,7 @@ export interface AWSManagedRulesATPRuleSet {
    * <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.  </p>
    * @public
    */
-  RequestInspection?: RequestInspection;
+  RequestInspection?: RequestInspection | undefined;
 
   /**
    * <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p>
@@ -2188,13 +2188,13 @@ export interface AWSManagedRulesATPRuleSet {
    *                and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
    * @public
    */
-  ResponseInspection?: ResponseInspection;
+  ResponseInspection?: ResponseInspection | undefined;
 
   /**
    * <p>Allow the use of regular expressions in the login page path. </p>
    * @public
    */
-  EnableRegexInPath?: boolean;
+  EnableRegexInPath?: boolean | undefined;
 }
 
 /**
@@ -2236,7 +2236,7 @@ export interface AWSManagedRulesBotControlRuleSet {
    *          </p>
    * @public
    */
-  EnableMachineLearning?: boolean;
+  EnableMachineLearning?: boolean | undefined;
 }
 
 /**
@@ -2266,7 +2266,7 @@ export interface ManagedRuleGroupConfig {
    *          </note>
    * @public
    */
-  LoginPath?: string;
+  LoginPath?: string | undefined;
 
   /**
    * @deprecated
@@ -2276,7 +2276,7 @@ export interface ManagedRuleGroupConfig {
    *          </note>
    * @public
    */
-  PayloadType?: PayloadType;
+  PayloadType?: PayloadType | undefined;
 
   /**
    * @deprecated
@@ -2286,7 +2286,7 @@ export interface ManagedRuleGroupConfig {
    *          </note>
    * @public
    */
-  UsernameField?: UsernameField;
+  UsernameField?: UsernameField | undefined;
 
   /**
    * @deprecated
@@ -2296,7 +2296,7 @@ export interface ManagedRuleGroupConfig {
    *          </note>
    * @public
    */
-  PasswordField?: PasswordField;
+  PasswordField?: PasswordField | undefined;
 
   /**
    * <p>Additional configuration for using the Bot Control managed rule group. Use this to specify the
@@ -2306,7 +2306,7 @@ export interface ManagedRuleGroupConfig {
    *                in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
-  AWSManagedRulesBotControlRuleSet?: AWSManagedRulesBotControlRuleSet;
+  AWSManagedRulesBotControlRuleSet?: AWSManagedRulesBotControlRuleSet | undefined;
 
   /**
    * <p>Additional configuration for using the account takeover prevention (ATP) managed rule group, <code>AWSManagedRulesATPRuleSet</code>.
@@ -2319,7 +2319,7 @@ export interface ManagedRuleGroupConfig {
    *                in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
-  AWSManagedRulesATPRuleSet?: AWSManagedRulesATPRuleSet;
+  AWSManagedRulesATPRuleSet?: AWSManagedRulesATPRuleSet | undefined;
 
   /**
    * <p>Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, <code>AWSManagedRulesACFPRuleSet</code>.
@@ -2331,7 +2331,7 @@ export interface ManagedRuleGroupConfig {
    *                in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
-  AWSManagedRulesACFPRuleSet?: AWSManagedRulesACFPRuleSet;
+  AWSManagedRulesACFPRuleSet?: AWSManagedRulesACFPRuleSet | undefined;
 }
 
 /**
@@ -2360,7 +2360,7 @@ export interface CustomResponse {
    *          key. </p>
    * @public
    */
-  CustomResponseBodyKey?: string;
+  CustomResponseBodyKey?: string | undefined;
 
   /**
    * <p>The HTTP headers to use in the response. You can specify any header name except for <code>content-type</code>. Duplicate header names are not allowed.</p>
@@ -2368,7 +2368,7 @@ export interface CustomResponse {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  ResponseHeaders?: CustomHTTPHeader[];
+  ResponseHeaders?: CustomHTTPHeader[] | undefined;
 }
 
 /**
@@ -2385,7 +2385,7 @@ export interface BlockAction {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponse?: CustomResponse;
+  CustomResponse?: CustomResponse | undefined;
 }
 
 /**
@@ -2427,7 +2427,7 @@ export interface CaptchaAction {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomRequestHandling?: CustomRequestHandling;
+  CustomRequestHandling?: CustomRequestHandling | undefined;
 }
 
 /**
@@ -2473,7 +2473,7 @@ export interface ChallengeAction {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomRequestHandling?: CustomRequestHandling;
+  CustomRequestHandling?: CustomRequestHandling | undefined;
 }
 
 /**
@@ -2490,7 +2490,7 @@ export interface CountAction {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomRequestHandling?: CustomRequestHandling;
+  CustomRequestHandling?: CustomRequestHandling | undefined;
 }
 
 /**
@@ -2503,31 +2503,31 @@ export interface RuleAction {
    * <p>Instructs WAF to block the web request.</p>
    * @public
    */
-  Block?: BlockAction;
+  Block?: BlockAction | undefined;
 
   /**
    * <p>Instructs WAF to allow the web request.</p>
    * @public
    */
-  Allow?: AllowAction;
+  Allow?: AllowAction | undefined;
 
   /**
    * <p>Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.</p>
    * @public
    */
-  Count?: CountAction;
+  Count?: CountAction | undefined;
 
   /**
    * <p>Instructs WAF to run a <code>CAPTCHA</code> check against the web request.</p>
    * @public
    */
-  Captcha?: CaptchaAction;
+  Captcha?: CaptchaAction | undefined;
 
   /**
    * <p>Instructs WAF to run a <code>Challenge</code> check against the web request.</p>
    * @public
    */
-  Challenge?: ChallengeAction;
+  Challenge?: ChallengeAction | undefined;
 }
 
 /**
@@ -2711,35 +2711,35 @@ export interface RateBasedStatementCustomKey {
    *       header as your custom key, then each value fully defines an aggregation instance. </p>
    * @public
    */
-  Header?: RateLimitHeader;
+  Header?: RateLimitHeader | undefined;
 
   /**
    * <p>Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single
    *     cookie as your custom key, then each value fully defines an aggregation instance. </p>
    * @public
    */
-  Cookie?: RateLimitCookie;
+  Cookie?: RateLimitCookie | undefined;
 
   /**
    * <p>Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you
    *       use a single query argument as your custom key, then each value fully defines an aggregation instance.  </p>
    * @public
    */
-  QueryArgument?: RateLimitQueryArgument;
+  QueryArgument?: RateLimitQueryArgument | undefined;
 
   /**
    * <p>Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the
    *     query string as your custom key, then each string fully defines an aggregation instance.  </p>
    * @public
    */
-  QueryString?: RateLimitQueryString;
+  QueryString?: RateLimitQueryString | undefined;
 
   /**
    * <p>Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method
    *     as your custom key, then each method fully defines an aggregation instance.  </p>
    * @public
    */
-  HTTPMethod?: RateLimitHTTPMethod;
+  HTTPMethod?: RateLimitHTTPMethod | undefined;
 
   /**
    * <p>Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.</p>
@@ -2748,7 +2748,7 @@ export interface RateBasedStatementCustomKey {
    *          <p>With this option, you must specify the header to use in the rate-based rule's <code>ForwardedIPConfig</code> property. </p>
    * @public
    */
-  ForwardedIP?: RateLimitForwardedIP;
+  ForwardedIP?: RateLimitForwardedIP | undefined;
 
   /**
    * <p>Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.</p>
@@ -2756,7 +2756,7 @@ export interface RateBasedStatementCustomKey {
    *        You can aggregate on only the IP address by specifying <code>IP</code> in your rate-based statement's <code>AggregateKeyType</code>. </p>
    * @public
    */
-  IP?: RateLimitIP;
+  IP?: RateLimitIP | undefined;
 
   /**
    * <p>Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.  </p>
@@ -2765,14 +2765,14 @@ export interface RateBasedStatementCustomKey {
    *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html">Label syntax and naming requirements</a> in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
-  LabelNamespace?: RateLimitLabelNamespace;
+  LabelNamespace?: RateLimitLabelNamespace | undefined;
 
   /**
    * <p>Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the
    *     URI path as your custom key, then each URI path fully defines an aggregation instance.  </p>
    * @public
    */
-  UriPath?: RateLimitUriPath;
+  UriPath?: RateLimitUriPath | undefined;
 }
 
 /**
@@ -2845,14 +2845,14 @@ export interface RuleGroupReferenceStatement {
    *          </note>
    * @public
    */
-  ExcludedRules?: ExcludedRule[];
+  ExcludedRules?: ExcludedRule[] | undefined;
 
   /**
    * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
    *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
    * @public
    */
-  RuleActionOverrides?: RuleActionOverride[];
+  RuleActionOverrides?: RuleActionOverride[] | undefined;
 }
 
 /**
@@ -2951,7 +2951,7 @@ export interface SqliMatchStatement {
    *          </p>
    * @public
    */
-  SensitivityLevel?: SensitivityLevel;
+  SensitivityLevel?: SensitivityLevel | undefined;
 }
 
 /**
@@ -2985,25 +2985,25 @@ export interface APIKeySummary {
    * <p>The token domains that are defined in this API key. </p>
    * @public
    */
-  TokenDomains?: string[];
+  TokenDomains?: string[] | undefined;
 
   /**
    * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
    * @public
    */
-  APIKey?: string;
+  APIKey?: string | undefined;
 
   /**
    * <p>The date and time that the key was created. </p>
    * @public
    */
-  CreationTimestamp?: Date;
+  CreationTimestamp?: Date | undefined;
 
   /**
    * <p>Internal value used by WAF to manage the key. </p>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 }
 
 /**
@@ -3087,7 +3087,7 @@ export interface AssociateWebACLResponse {}
 export class WAFInternalErrorException extends __BaseException {
   readonly name: "WAFInternalErrorException" = "WAFInternalErrorException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3109,7 +3109,7 @@ export class WAFInternalErrorException extends __BaseException {
 export class WAFInvalidOperationException extends __BaseException {
   readonly name: "WAFInvalidOperationException" = "WAFInvalidOperationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3235,19 +3235,19 @@ export class WAFInvalidParameterException extends __BaseException {
    * <p>The settings where the invalid parameter was found. </p>
    * @public
    */
-  Field?: ParameterExceptionField;
+  Field?: ParameterExceptionField | undefined;
 
   /**
    * <p>The invalid parameter that resulted in the exception. </p>
    * @public
    */
-  Parameter?: string;
+  Parameter?: string | undefined;
 
   /**
    * <p>Additional information about the exception.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 
   /**
    * @internal
@@ -3275,7 +3275,7 @@ export class WAFInvalidParameterException extends __BaseException {
 export class WAFNonexistentItemException extends __BaseException {
   readonly name: "WAFNonexistentItemException" = "WAFNonexistentItemException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3301,7 +3301,7 @@ export class WAFNonexistentItemException extends __BaseException {
 export class WAFUnavailableEntityException extends __BaseException {
   readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3380,7 +3380,7 @@ export interface AssociationConfig {
    *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    * @public
    */
-  RequestBody?: Partial<Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>>;
+  RequestBody?: Partial<Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>> | undefined;
 }
 
 /**
@@ -3409,7 +3409,7 @@ export interface CaptchaConfig {
    *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
    * @public
    */
-  ImmunityTimeProperty?: ImmunityTimeProperty;
+  ImmunityTimeProperty?: ImmunityTimeProperty | undefined;
 }
 
 /**
@@ -3423,7 +3423,7 @@ export interface ChallengeConfig {
    *          successfully responds to a challenge. </p>
    * @public
    */
-  ImmunityTimeProperty?: ImmunityTimeProperty;
+  ImmunityTimeProperty?: ImmunityTimeProperty | undefined;
 }
 
 /**
@@ -3455,13 +3455,13 @@ export interface OverrideAction {
    *          </note>
    * @public
    */
-  Count?: CountAction;
+  Count?: CountAction | undefined;
 
   /**
    * <p>Don't override the rule group evaluation result. This is the most common setting.</p>
    * @public
    */
-  None?: NoneAction;
+  None?: NoneAction | undefined;
 }
 
 /**
@@ -3538,7 +3538,7 @@ export interface CheckCapacityResponse {
    * <p>The capacity required by the rules and scope.</p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 }
 
 /**
@@ -3550,7 +3550,7 @@ export interface CheckCapacityResponse {
 export class WAFExpiredManagedRuleGroupVersionException extends __BaseException {
   readonly name: "WAFExpiredManagedRuleGroupVersionException" = "WAFExpiredManagedRuleGroupVersionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3573,7 +3573,7 @@ export class WAFExpiredManagedRuleGroupVersionException extends __BaseException 
 export class WAFInvalidResourceException extends __BaseException {
   readonly name: "WAFInvalidResourceException" = "WAFInvalidResourceException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3598,12 +3598,12 @@ export class WAFInvalidResourceException extends __BaseException {
 export class WAFLimitsExceededException extends __BaseException {
   readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>Source type for the exception. </p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
   /**
    * @internal
    */
@@ -3627,7 +3627,7 @@ export class WAFLimitsExceededException extends __BaseException {
 export class WAFSubscriptionNotFoundException extends __BaseException {
   readonly name: "WAFSubscriptionNotFoundException" = "WAFSubscriptionNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3679,7 +3679,7 @@ export interface CreateAPIKeyResponse {
    * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
    * @public
    */
-  APIKey?: string;
+  APIKey?: string | undefined;
 }
 
 /**
@@ -3755,7 +3755,7 @@ export interface CreateIPSetRequest {
    * <p>A description of the IP set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
@@ -3808,7 +3808,7 @@ export interface CreateIPSetRequest {
    * <p>An array of key:value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3820,31 +3820,31 @@ export interface IPSetSummary {
    * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A description of the IP set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -3855,7 +3855,7 @@ export interface CreateIPSetResponse {
    * <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
    * @public
    */
-  Summary?: IPSetSummary;
+  Summary?: IPSetSummary | undefined;
 }
 
 /**
@@ -3866,7 +3866,7 @@ export interface CreateIPSetResponse {
 export class WAFDuplicateItemException extends __BaseException {
   readonly name: "WAFDuplicateItemException" = "WAFDuplicateItemException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3890,7 +3890,7 @@ export class WAFDuplicateItemException extends __BaseException {
 export class WAFOptimisticLockException extends __BaseException {
   readonly name: "WAFOptimisticLockException" = "WAFOptimisticLockException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3912,7 +3912,7 @@ export class WAFOptimisticLockException extends __BaseException {
 export class WAFTagOperationException extends __BaseException {
   readonly name: "WAFTagOperationException" = "WAFTagOperationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3935,7 +3935,7 @@ export class WAFTagOperationException extends __BaseException {
 export class WAFTagOperationInternalErrorException extends __BaseException {
   readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3959,7 +3959,7 @@ export interface Regex {
    * <p>The string representing the regular expression.</p>
    * @public
    */
-  RegexString?: string;
+  RegexString?: string | undefined;
 }
 
 /**
@@ -3991,7 +3991,7 @@ export interface CreateRegexPatternSetRequest {
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Array of regular expression strings. </p>
@@ -4003,7 +4003,7 @@ export interface CreateRegexPatternSetRequest {
    * <p>An array of key:value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4015,31 +4015,31 @@ export interface RegexPatternSetSummary {
    * <p>The name of the data type instance. You cannot change the name after you create the instance.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -4050,7 +4050,7 @@ export interface CreateRegexPatternSetResponse {
    * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
    * @public
    */
-  Summary?: RegexPatternSetSummary;
+  Summary?: RegexPatternSetSummary | undefined;
 }
 
 /**
@@ -4102,31 +4102,31 @@ export interface RuleGroupSummary {
    * <p>The name of the data type instance. You cannot change the name after you create the instance.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A description of the rule group that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -4137,7 +4137,7 @@ export interface CreateRuleGroupResponse {
    * <p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
    * @public
    */
-  Summary?: RuleGroupSummary;
+  Summary?: RuleGroupSummary | undefined;
 }
 
 /**
@@ -4151,13 +4151,13 @@ export interface DefaultAction {
    * <p>Specifies that WAF should block requests by default. </p>
    * @public
    */
-  Block?: BlockAction;
+  Block?: BlockAction | undefined;
 
   /**
    * <p>Specifies that WAF should allow requests by default.</p>
    * @public
    */
-  Allow?: AllowAction;
+  Allow?: AllowAction | undefined;
 }
 
 /**
@@ -4169,31 +4169,31 @@ export interface WebACLSummary {
    * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A description of the web ACL that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -4204,7 +4204,7 @@ export interface CreateWebACLResponse {
    * <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>
    * @public
    */
-  Summary?: WebACLSummary;
+  Summary?: WebACLSummary | undefined;
 }
 
 /**
@@ -4224,7 +4224,7 @@ export interface CreateWebACLResponse {
 export class WAFConfigurationWarningException extends __BaseException {
   readonly name: "WAFConfigurationWarningException" = "WAFConfigurationWarningException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4295,7 +4295,7 @@ export interface DeleteFirewallManagerRuleGroupsResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  NextWebACLLockToken?: string;
+  NextWebACLLockToken?: string | undefined;
 }
 
 /**
@@ -4349,7 +4349,7 @@ export interface DeleteIPSetResponse {}
 export class WAFAssociatedItemException extends __BaseException {
   readonly name: "WAFAssociatedItemException" = "WAFAssociatedItemException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4407,7 +4407,7 @@ export interface DeleteLoggingConfigurationRequest {
    *          </p>
    * @public
    */
-  LogType?: LogType;
+  LogType?: LogType | undefined;
 
   /**
    * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
@@ -4418,7 +4418,7 @@ export interface DeleteLoggingConfigurationRequest {
    *          </p>
    * @public
    */
-  LogScope?: LogScope;
+  LogScope?: LogScope | undefined;
 }
 
 /**
@@ -4602,37 +4602,37 @@ export interface ManagedProductDescriptor {
    * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    * @public
    */
-  VendorName?: string;
+  VendorName?: string | undefined;
 
   /**
    * <p>The name of the managed rule group. For example, <code>AWSManagedRulesAnonymousIpList</code> or <code>AWSManagedRulesATPRuleSet</code>.</p>
    * @public
    */
-  ManagedRuleSetName?: string;
+  ManagedRuleSetName?: string | undefined;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>For Amazon Web Services Marketplace managed rule groups only, the link to the rule group product page. </p>
    * @public
    */
-  ProductLink?: string;
+  ProductLink?: string | undefined;
 
   /**
    * <p>The display name for the managed rule group. For example, <code>Anonymous IP list</code> or <code>Account takeover prevention</code>.</p>
    * @public
    */
-  ProductTitle?: string;
+  ProductTitle?: string | undefined;
 
   /**
    * <p>A short description of the managed rule group.</p>
    * @public
    */
-  ProductDescription?: string;
+  ProductDescription?: string | undefined;
 
   /**
    * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's used to provide notification of changes
@@ -4641,20 +4641,20 @@ export interface ManagedProductDescriptor {
    *          For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide</a>.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>Indicates whether the rule group is versioned. </p>
    * @public
    */
-  IsVersioningSupported?: boolean;
+  IsVersioningSupported?: boolean | undefined;
 
   /**
    * <p>Indicates whether the rule group provides an advanced set of protections, such as the the Amazon Web Services Managed Rules rule groups that
    *            are used for WAF intelligent threat mitigation.  </p>
    * @public
    */
-  IsAdvancedManagedRuleSet?: boolean;
+  IsAdvancedManagedRuleSet?: boolean | undefined;
 }
 
 /**
@@ -4665,7 +4665,7 @@ export interface DescribeAllManagedProductsResponse {
    * <p>High-level information for the Amazon Web Services Managed Rules rule groups and Amazon Web Services Marketplace managed rule groups. </p>
    * @public
    */
-  ManagedProducts?: ManagedProductDescriptor[];
+  ManagedProducts?: ManagedProductDescriptor[] | undefined;
 }
 
 /**
@@ -4702,7 +4702,7 @@ export interface DescribeManagedProductsByVendorResponse {
    * <p>High-level information for the managed rule groups owned by the specified vendor.  </p>
    * @public
    */
-  ManagedProducts?: ManagedProductDescriptor[];
+  ManagedProducts?: ManagedProductDescriptor[] | undefined;
 }
 
 /**
@@ -4741,7 +4741,7 @@ export interface DescribeManagedRuleGroupRequest {
    *          expiration. If you don't provide this, WAF uses the vendor's default version. </p>
    * @public
    */
-  VersionName?: string;
+  VersionName?: string | undefined;
 }
 
 /**
@@ -4766,7 +4766,7 @@ export interface LabelSummary {
    * <p>An individual label specification.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -4778,14 +4778,14 @@ export interface RuleSummary {
    * <p>The name of the rule. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The action that WAF should take on a web request when it matches a rule's
    *          statement. Settings at the web ACL level can override the rule action setting. </p>
    * @public
    */
-  Action?: RuleAction;
+  Action?: RuleAction | undefined;
 }
 
 /**
@@ -4796,7 +4796,7 @@ export interface DescribeManagedRuleGroupResponse {
    * <p>The managed rule group's version. </p>
    * @public
    */
-  VersionName?: string;
+  VersionName?: string | undefined;
 
   /**
    * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's used to provide notification of changes
@@ -4805,7 +4805,7 @@ export interface DescribeManagedRuleGroupResponse {
    *          For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide</a>.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
@@ -4819,13 +4819,13 @@ export interface DescribeManagedRuleGroupResponse {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Rules?: RuleSummary[];
+  Rules?: RuleSummary[] | undefined;
 
   /**
    * <p>The label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix. </p>
@@ -4844,19 +4844,19 @@ export interface DescribeManagedRuleGroupResponse {
    *          </ul>
    * @public
    */
-  LabelNamespace?: string;
+  LabelNamespace?: string | undefined;
 
   /**
    * <p>The labels that one or more rules in this rule group add to matching web requests. These labels are defined in the <code>RuleLabels</code> for a <a>Rule</a>.</p>
    * @public
    */
-  AvailableLabels?: LabelSummary[];
+  AvailableLabels?: LabelSummary[] | undefined;
 
   /**
    * <p>The labels that one or more rules in this rule group match against in label match statements. These labels are defined in a <code>LabelMatchStatement</code> specification, in the <a>Statement</a> definition of a rule.  </p>
    * @public
    */
-  ConsumedLabels?: LabelSummary[];
+  ConsumedLabels?: LabelSummary[] | undefined;
 }
 
 /**
@@ -4948,7 +4948,7 @@ export interface GenerateMobileSdkReleaseUrlResponse {
    * <p>The presigned download URL for the specified SDK release.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -4985,13 +4985,13 @@ export interface GetDecryptedAPIKeyResponse {
    * <p>The token domains that are defined in this API key. </p>
    * @public
    */
-  TokenDomains?: string[];
+  TokenDomains?: string[] | undefined;
 
   /**
    * <p>The date and time that the key was created. </p>
    * @public
    */
-  CreationTimestamp?: Date;
+  CreationTimestamp?: Date | undefined;
 }
 
 /**
@@ -5058,7 +5058,7 @@ export interface IPSet {
    * <p>A description of the IP set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
@@ -5116,13 +5116,13 @@ export interface GetIPSetResponse {
    * <p></p>
    * @public
    */
-  IPSet?: IPSet;
+  IPSet?: IPSet | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 }
 
 /**
@@ -5141,7 +5141,7 @@ export interface GetLoggingConfigurationRequest {
    *          </p>
    * @public
    */
-  LogType?: LogType;
+  LogType?: LogType | undefined;
 
   /**
    * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
@@ -5152,7 +5152,7 @@ export interface GetLoggingConfigurationRequest {
    *          </p>
    * @public
    */
-  LogScope?: LogScope;
+  LogScope?: LogScope | undefined;
 }
 
 /**
@@ -5192,14 +5192,14 @@ export interface Condition {
    * <p>A single action condition. This is the action setting that a log record must contain in order to meet the condition.</p>
    * @public
    */
-  ActionCondition?: ActionCondition;
+  ActionCondition?: ActionCondition | undefined;
 
   /**
    * <p>A single label name condition. This is the fully qualified label name that a log record must contain in order to meet the condition.
    *        Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.  </p>
    * @public
    */
-  LabelNameCondition?: LabelNameCondition;
+  LabelNameCondition?: LabelNameCondition | undefined;
 }
 
 /**
@@ -5332,7 +5332,7 @@ export interface LoggingConfiguration {
    *          </note>
    * @public
    */
-  RedactedFields?: FieldToMatch[];
+  RedactedFields?: FieldToMatch[] | undefined;
 
   /**
    * <p>Indicates whether the logging configuration was created by Firewall Manager, as part of an
@@ -5344,7 +5344,7 @@ export interface LoggingConfiguration {
    *        For either case, any corresponding logging configuration will indicate <code>ManagedByFirewallManager</code>.</p>
    * @public
    */
-  ManagedByFirewallManager?: boolean;
+  ManagedByFirewallManager?: boolean | undefined;
 
   /**
    * <p>Filtering that specifies which web requests are kept in the logs and which are dropped.
@@ -5352,7 +5352,7 @@ export interface LoggingConfiguration {
    *          matching rules during web ACL evaluation. </p>
    * @public
    */
-  LoggingFilter?: LoggingFilter;
+  LoggingFilter?: LoggingFilter | undefined;
 
   /**
    * <p>Used to distinguish between various logging options. Currently, there is one option.</p>
@@ -5360,7 +5360,7 @@ export interface LoggingConfiguration {
    *          </p>
    * @public
    */
-  LogType?: LogType;
+  LogType?: LogType | undefined;
 
   /**
    * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
@@ -5371,7 +5371,7 @@ export interface LoggingConfiguration {
    *          </p>
    * @public
    */
-  LogScope?: LogScope;
+  LogScope?: LogScope | undefined;
 }
 
 /**
@@ -5382,7 +5382,7 @@ export interface GetLoggingConfigurationResponse {
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
    * @public
    */
-  LoggingConfiguration?: LoggingConfiguration;
+  LoggingConfiguration?: LoggingConfiguration | undefined;
 }
 
 /**
@@ -5432,7 +5432,7 @@ export interface ManagedRuleSetVersion {
    *          published version of your managed rule group. </p>
    * @public
    */
-  AssociatedRuleGroupArn?: string;
+  AssociatedRuleGroupArn?: string | undefined;
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
@@ -5446,35 +5446,35 @@ export interface ManagedRuleSetVersion {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p>The amount of time you expect this version of your managed rule group to last, in days.
    *       </p>
    * @public
    */
-  ForecastedLifetime?: number;
+  ForecastedLifetime?: number | undefined;
 
   /**
    * <p>The time that you first published this version. </p>
    *          <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, "2016-09-27T14:50Z". </p>
    * @public
    */
-  PublishTimestamp?: Date;
+  PublishTimestamp?: Date | undefined;
 
   /**
    * <p>The last time that you updated this version. </p>
    *          <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, "2016-09-27T14:50Z". </p>
    * @public
    */
-  LastUpdateTimestamp?: Date;
+  LastUpdateTimestamp?: Date | undefined;
 
   /**
    * <p>The time that this version is set to expire.</p>
    *          <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, "2016-09-27T14:50Z". </p>
    * @public
    */
-  ExpiryTimestamp?: Date;
+  ExpiryTimestamp?: Date | undefined;
 }
 
 /**
@@ -5510,19 +5510,19 @@ export interface ManagedRuleSet {
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The versions of this managed rule set that are available for use by customers. </p>
    * @public
    */
-  PublishedVersions?: Record<string, ManagedRuleSetVersion>;
+  PublishedVersions?: Record<string, ManagedRuleSetVersion> | undefined;
 
   /**
    * <p>The version that you would like your customers to use.</p>
    * @public
    */
-  RecommendedVersion?: string;
+  RecommendedVersion?: string | undefined;
 
   /**
    * <p>The label namespace prefix for the managed rule groups that are offered to customers from this managed rule set. All labels that are added by rules in the managed rule group have this prefix. </p>
@@ -5541,7 +5541,7 @@ export interface ManagedRuleSet {
    *          </ul>
    * @public
    */
-  LabelNamespace?: string;
+  LabelNamespace?: string | undefined;
 }
 
 /**
@@ -5552,13 +5552,13 @@ export interface GetManagedRuleSetResponse {
    * <p>The managed rule set that you requested. </p>
    * @public
    */
-  ManagedRuleSet?: ManagedRuleSet;
+  ManagedRuleSet?: ManagedRuleSet | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 }
 
 /**
@@ -5590,25 +5590,25 @@ export interface MobileSdkRelease {
    * <p>The release version. </p>
    * @public
    */
-  ReleaseVersion?: string;
+  ReleaseVersion?: string | undefined;
 
   /**
    * <p>The timestamp of the release. </p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>Notes describing the release.</p>
    * @public
    */
-  ReleaseNotes?: string;
+  ReleaseNotes?: string | undefined;
 
   /**
    * <p>Tags that are associated with the release. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5619,7 +5619,7 @@ export interface GetMobileSdkReleaseResponse {
    * <p>Information for a specified SDK release, including release notes and tags.</p>
    * @public
    */
-  MobileSdkRelease?: MobileSdkRelease;
+  MobileSdkRelease?: MobileSdkRelease | undefined;
 }
 
 /**
@@ -5642,7 +5642,7 @@ export interface GetPermissionPolicyResponse {
    * <p>The IAM policy that is attached to the specified rule group.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -5681,7 +5681,7 @@ export interface GetRateBasedStatementManagedKeysRequest {
    *          when you have the rate-based rule nested inside a rule group. </p>
    * @public
    */
-  RuleGroupRuleName?: string;
+  RuleGroupRuleName?: string | undefined;
 
   /**
    * <p>The name of the rate-based rule to get the keys for. If you have the rule defined inside
@@ -5704,13 +5704,13 @@ export interface RateBasedStatementManagedKeysIPSet {
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    * @public
    */
-  IPAddressVersion?: IPAddressVersion;
+  IPAddressVersion?: IPAddressVersion | undefined;
 
   /**
    * <p>The IP addresses that are currently blocked.</p>
    * @public
    */
-  Addresses?: string[];
+  Addresses?: string[] | undefined;
 }
 
 /**
@@ -5721,13 +5721,13 @@ export interface GetRateBasedStatementManagedKeysResponse {
    * <p>The keys that are of Internet Protocol version 4 (IPv4). </p>
    * @public
    */
-  ManagedKeysIPV4?: RateBasedStatementManagedKeysIPSet;
+  ManagedKeysIPV4?: RateBasedStatementManagedKeysIPSet | undefined;
 
   /**
    * <p>The keys that are of Internet Protocol version 6 (IPv6). </p>
    * @public
    */
-  ManagedKeysIPV6?: RateBasedStatementManagedKeysIPSet;
+  ManagedKeysIPV6?: RateBasedStatementManagedKeysIPSet | undefined;
 }
 
 /**
@@ -5738,7 +5738,7 @@ export interface GetRateBasedStatementManagedKeysResponse {
 export class WAFUnsupportedAggregateKeyTypeException extends __BaseException {
   readonly name: "WAFUnsupportedAggregateKeyTypeException" = "WAFUnsupportedAggregateKeyTypeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5796,31 +5796,31 @@ export interface RegexPatternSet {
    * <p>The name of the set. You cannot change the name after you create the set.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The regular expression patterns in the set.</p>
    * @public
    */
-  RegularExpressionList?: Regex[];
+  RegularExpressionList?: Regex[] | undefined;
 }
 
 /**
@@ -5831,13 +5831,13 @@ export interface GetRegexPatternSetResponse {
    * <p></p>
    * @public
    */
-  RegexPatternSet?: RegexPatternSet;
+  RegexPatternSet?: RegexPatternSet | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 }
 
 /**
@@ -5848,7 +5848,7 @@ export interface GetRuleGroupRequest {
    * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
@@ -5863,19 +5863,19 @@ export interface GetRuleGroupRequest {
    *          </ul>
    * @public
    */
-  Scope?: Scope;
+  Scope?: Scope | undefined;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -5998,19 +5998,19 @@ export interface CaptchaResponse {
    *             Not Allowed</code>.</p>
    * @public
    */
-  ResponseCode?: number;
+  ResponseCode?: number | undefined;
 
   /**
    * <p>The time that the <code>CAPTCHA</code> was last solved for the supplied token. </p>
    * @public
    */
-  SolveTimestamp?: number;
+  SolveTimestamp?: number | undefined;
 
   /**
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    * @public
    */
-  FailureReason?: FailureReason;
+  FailureReason?: FailureReason | undefined;
 }
 
 /**
@@ -6023,19 +6023,19 @@ export interface ChallengeResponse {
    *          web request. If the token is missing, invalid, or expired, this code is <code>202 Request Accepted</code>.</p>
    * @public
    */
-  ResponseCode?: number;
+  ResponseCode?: number | undefined;
 
   /**
    * <p>The time that the challenge was last solved for the supplied token. </p>
    * @public
    */
-  SolveTimestamp?: number;
+  SolveTimestamp?: number | undefined;
 
   /**
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    * @public
    */
-  FailureReason?: FailureReason;
+  FailureReason?: FailureReason | undefined;
 }
 
 /**
@@ -6050,13 +6050,13 @@ export interface HTTPHeader {
    * <p>The name of the HTTP header.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the HTTP header.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6084,7 +6084,7 @@ export interface HTTPRequest {
    *          </ul>
    * @public
    */
-  ClientIP?: string;
+  ClientIP?: string | undefined;
 
   /**
    * <p>The two-letter country code for the country that the request originated from. For a
@@ -6092,34 +6092,34 @@ export interface HTTPRequest {
    *          alpha-2</a>.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>The URI path of the request, which identifies the resource, for example,
    *             <code>/images/daily-ad.jpg</code>.</p>
    * @public
    */
-  URI?: string;
+  URI?: string | undefined;
 
   /**
    * <p>The HTTP method specified in the sampled web request. </p>
    * @public
    */
-  Method?: string;
+  Method?: string | undefined;
 
   /**
    * <p>The HTTP version specified in the sampled web request, for example,
    *             <code>HTTP/1.1</code>.</p>
    * @public
    */
-  HTTPVersion?: string;
+  HTTPVersion?: string | undefined;
 
   /**
    * <p>A complex type that contains the name and value for each header in the sampled web
    *          request.</p>
    * @public
    */
-  Headers?: HTTPHeader[];
+  Headers?: HTTPHeader[] | undefined;
 }
 
 /**
@@ -6150,13 +6150,13 @@ export interface SampledHTTPRequest {
    *          format (in seconds).</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The action that WAF applied to the request.</p>
    * @public
    */
-  Action?: string;
+  Action?: string | undefined;
 
   /**
    * <p>The name of the <code>Rule</code> that the request matched. For managed rule groups, the
@@ -6166,20 +6166,20 @@ export interface SampledHTTPRequest {
    *          is absent. </p>
    * @public
    */
-  RuleNameWithinRuleGroup?: string;
+  RuleNameWithinRuleGroup?: string | undefined;
 
   /**
    * <p>Custom request headers inserted by WAF into the request, according to the custom
    *          request configuration for the matching rule action.</p>
    * @public
    */
-  RequestHeadersInserted?: HTTPHeader[];
+  RequestHeadersInserted?: HTTPHeader[] | undefined;
 
   /**
    * <p>The response code that was sent for the request.</p>
    * @public
    */
-  ResponseCodeSent?: number;
+  ResponseCodeSent?: number | undefined;
 
   /**
    * <p>Labels applied to the web request by matching rules. WAF applies fully qualified
@@ -6190,25 +6190,25 @@ export interface SampledHTTPRequest {
    *             <code>awswaf:managed:aws:managed-rule-set:header:encoding:utf8</code>. </p>
    * @public
    */
-  Labels?: Label[];
+  Labels?: Label[] | undefined;
 
   /**
    * <p>The <code>CAPTCHA</code> response for the request.</p>
    * @public
    */
-  CaptchaResponse?: CaptchaResponse;
+  CaptchaResponse?: CaptchaResponse | undefined;
 
   /**
    * <p>The <code>Challenge</code> response for the request.</p>
    * @public
    */
-  ChallengeResponse?: ChallengeResponse;
+  ChallengeResponse?: ChallengeResponse | undefined;
 
   /**
    * <p>Used only for rule group rules that have a rule action override in place in the web ACL. This is the action that the rule group rule is configured for, and not the action that was applied to the request. The action that WAF applied is the <code>Action</code> value. </p>
    * @public
    */
-  OverriddenAction?: string;
+  OverriddenAction?: string | undefined;
 }
 
 /**
@@ -6220,7 +6220,7 @@ export interface GetSampledRequestsResponse {
    *          sample.</p>
    * @public
    */
-  SampledRequests?: SampledHTTPRequest[];
+  SampledRequests?: SampledHTTPRequest[] | undefined;
 
   /**
    * <p>The total number of requests from which <code>GetSampledRequests</code> got a sample of
@@ -6229,7 +6229,7 @@ export interface GetSampledRequestsResponse {
    *          received during the specified time range.</p>
    * @public
    */
-  PopulationSize?: number;
+  PopulationSize?: number | undefined;
 
   /**
    * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the
@@ -6239,7 +6239,7 @@ export interface GetSampledRequestsResponse {
    *          Times are in Coordinated Universal Time (UTC) format.</p>
    * @public
    */
-  TimeWindow?: TimeWindow;
+  TimeWindow?: TimeWindow | undefined;
 }
 
 /**
@@ -6343,7 +6343,7 @@ export interface ListAPIKeysRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6351,7 +6351,7 @@ export interface ListAPIKeysRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6364,19 +6364,19 @@ export interface ListAPIKeysResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The array of key summaries. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  APIKeySummaries?: APIKeySummary[];
+  APIKeySummaries?: APIKeySummary[] | undefined;
 
   /**
    * <p>The CAPTCHA application integration URL, for use in your JavaScript implementation. </p>
    * @public
    */
-  ApplicationIntegrationURL?: string;
+  ApplicationIntegrationURL?: string | undefined;
 }
 
 /**
@@ -6404,7 +6404,7 @@ export interface ListAvailableManagedRuleGroupsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6412,7 +6412,7 @@ export interface ListAvailableManagedRuleGroupsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6424,26 +6424,26 @@ export interface ManagedRuleGroupSummary {
    * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    * @public
    */
-  VendorName?: string;
+  VendorName?: string | undefined;
 
   /**
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Indicates whether the managed rule group is versioned. If it is, you can retrieve the
    *          versions list by calling <a>ListAvailableManagedRuleGroupVersions</a>. </p>
    * @public
    */
-  VersioningSupported?: boolean;
+  VersioningSupported?: boolean | undefined;
 
   /**
    * <p>The description of the managed rule group, provided by Amazon Web Services Managed Rules or the Amazon Web Services Marketplace seller who manages it.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -6456,13 +6456,13 @@ export interface ListAvailableManagedRuleGroupsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Array of managed rule groups that you can use. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  ManagedRuleGroups?: ManagedRuleGroupSummary[];
+  ManagedRuleGroups?: ManagedRuleGroupSummary[] | undefined;
 }
 
 /**
@@ -6502,7 +6502,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6510,7 +6510,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6522,14 +6522,14 @@ export interface ManagedRuleGroupVersion {
    * <p>The version name. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The date and time that the managed rule group owner updated the rule group version
    *          information. </p>
    * @public
    */
-  LastUpdateTimestamp?: Date;
+  LastUpdateTimestamp?: Date | undefined;
 }
 
 /**
@@ -6542,19 +6542,19 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The versions that are currently available for the specified managed rule group. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  Versions?: ManagedRuleGroupVersion[];
+  Versions?: ManagedRuleGroupVersion[] | undefined;
 
   /**
    * <p>The name of the version that's currently set as the default. </p>
    * @public
    */
-  CurrentDefaultVersion?: string;
+  CurrentDefaultVersion?: string | undefined;
 }
 
 /**
@@ -6582,7 +6582,7 @@ export interface ListIPSetsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6590,7 +6590,7 @@ export interface ListIPSetsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6603,13 +6603,13 @@ export interface ListIPSetsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Array of IPSets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  IPSets?: IPSetSummary[];
+  IPSets?: IPSetSummary[] | undefined;
 }
 
 /**
@@ -6637,7 +6637,7 @@ export interface ListLoggingConfigurationsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6645,7 +6645,7 @@ export interface ListLoggingConfigurationsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
@@ -6656,7 +6656,7 @@ export interface ListLoggingConfigurationsRequest {
    *          </p>
    * @public
    */
-  LogScope?: LogScope;
+  LogScope?: LogScope | undefined;
 }
 
 /**
@@ -6667,7 +6667,7 @@ export interface ListLoggingConfigurationsResponse {
    * <p>Array of logging configurations. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  LoggingConfigurations?: LoggingConfiguration[];
+  LoggingConfigurations?: LoggingConfiguration[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -6675,7 +6675,7 @@ export interface ListLoggingConfigurationsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -6703,7 +6703,7 @@ export interface ListManagedRuleSetsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6711,7 +6711,7 @@ export interface ListManagedRuleSetsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6728,31 +6728,31 @@ export interface ManagedRuleSetSummary {
    *          <p>This name is assigned to the corresponding managed rule group, which your customers can access and use. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The label namespace prefix for the managed rule groups that are offered to customers from this managed rule set. All labels that are added by rules in the managed rule group have this prefix. </p>
@@ -6771,7 +6771,7 @@ export interface ManagedRuleSetSummary {
    *          </ul>
    * @public
    */
-  LabelNamespace?: string;
+  LabelNamespace?: string | undefined;
 }
 
 /**
@@ -6784,13 +6784,13 @@ export interface ListManagedRuleSetsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Your managed rule sets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  ManagedRuleSets?: ManagedRuleSetSummary[];
+  ManagedRuleSets?: ManagedRuleSetSummary[] | undefined;
 }
 
 /**
@@ -6809,7 +6809,7 @@ export interface ListMobileSdkReleasesRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6817,7 +6817,7 @@ export interface ListMobileSdkReleasesRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6829,13 +6829,13 @@ export interface ReleaseSummary {
    * <p>The release version. </p>
    * @public
    */
-  ReleaseVersion?: string;
+  ReleaseVersion?: string | undefined;
 
   /**
    * <p>The timestamp of the release. </p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -6846,7 +6846,7 @@ export interface ListMobileSdkReleasesResponse {
    * <p>The high level information for the available SDK releases. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  ReleaseSummaries?: ReleaseSummary[];
+  ReleaseSummaries?: ReleaseSummary[] | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -6854,7 +6854,7 @@ export interface ListMobileSdkReleasesResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -6882,7 +6882,7 @@ export interface ListRegexPatternSetsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6890,7 +6890,7 @@ export interface ListRegexPatternSetsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -6903,13 +6903,13 @@ export interface ListRegexPatternSetsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Array of regex pattern sets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  RegexPatternSets?: RegexPatternSetSummary[];
+  RegexPatternSets?: RegexPatternSetSummary[] | undefined;
 }
 
 /**
@@ -6950,7 +6950,7 @@ export interface ListResourcesForWebACLRequest {
    *          </p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 }
 
 /**
@@ -6961,7 +6961,7 @@ export interface ListResourcesForWebACLResponse {
    * <p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>
    * @public
    */
-  ResourceArns?: string[];
+  ResourceArns?: string[] | undefined;
 }
 
 /**
@@ -6989,7 +6989,7 @@ export interface ListRuleGroupsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -6997,7 +6997,7 @@ export interface ListRuleGroupsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -7010,13 +7010,13 @@ export interface ListRuleGroupsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Array of rule groups. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  RuleGroups?: RuleGroupSummary[];
+  RuleGroups?: RuleGroupSummary[] | undefined;
 }
 
 /**
@@ -7029,7 +7029,7 @@ export interface ListTagsForResourceRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -7037,7 +7037,7 @@ export interface ListTagsForResourceRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -7064,13 +7064,13 @@ export interface TagInfoForResource {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 
   /**
    * <p>The array of <a>Tag</a> objects defined for the resource. </p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -7083,13 +7083,13 @@ export interface ListTagsForResourceResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The collection of tagging definitions for the resource. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  TagInfoForResource?: TagInfoForResource;
+  TagInfoForResource?: TagInfoForResource | undefined;
 }
 
 /**
@@ -7117,7 +7117,7 @@ export interface ListWebACLsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you want WAF to return for this request. If more
@@ -7125,7 +7125,7 @@ export interface ListWebACLsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -7138,13 +7138,13 @@ export interface ListWebACLsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Array of web ACLs. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    * @public
    */
-  WebACLs?: WebACLSummary[];
+  WebACLs?: WebACLSummary[] | undefined;
 }
 
 /**
@@ -7166,7 +7166,7 @@ export interface PutLoggingConfigurationResponse {
    * <p></p>
    * @public
    */
-  LoggingConfiguration?: LoggingConfiguration;
+  LoggingConfiguration?: LoggingConfiguration | undefined;
 }
 
 /**
@@ -7178,7 +7178,7 @@ export interface PutLoggingConfigurationResponse {
 export class WAFLogDestinationPermissionIssueException extends __BaseException {
   readonly name: "WAFLogDestinationPermissionIssueException" = "WAFLogDestinationPermissionIssueException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7235,14 +7235,14 @@ export interface VersionToPublish {
    *          managed rule group version. </p>
    * @public
    */
-  AssociatedRuleGroupArn?: string;
+  AssociatedRuleGroupArn?: string | undefined;
 
   /**
    * <p>The amount of time the vendor expects this version of the managed rule group to last, in
    *          days. </p>
    * @public
    */
-  ForecastedLifetime?: number;
+  ForecastedLifetime?: number | undefined;
 }
 
 /**
@@ -7288,14 +7288,14 @@ export interface PutManagedRuleSetVersionsRequest {
    *          from among your version offerings. </p>
    * @public
    */
-  RecommendedVersion?: string;
+  RecommendedVersion?: string | undefined;
 
   /**
    * <p>The versions of the named managed rule group that you want to offer to your customers.
    *       </p>
    * @public
    */
-  VersionsToPublish?: Record<string, VersionToPublish>;
+  VersionsToPublish?: Record<string, VersionToPublish> | undefined;
 }
 
 /**
@@ -7306,7 +7306,7 @@ export interface PutManagedRuleSetVersionsResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7385,7 +7385,7 @@ export interface PutPermissionPolicyResponse {}
 export class WAFInvalidPermissionPolicyException extends __BaseException {
   readonly name: "WAFInvalidPermissionPolicyException" = "WAFInvalidPermissionPolicyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7479,7 +7479,7 @@ export interface UpdateIPSetRequest {
    * <p>A description of the IP set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
@@ -7537,7 +7537,7 @@ export interface UpdateIPSetResponse {
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7601,20 +7601,20 @@ export interface UpdateManagedRuleSetVersionExpiryDateResponse {
    * <p>The version that is set to expire. </p>
    * @public
    */
-  ExpiringVersion?: string;
+  ExpiringVersion?: string | undefined;
 
   /**
    * <p>The time that the version will expire. </p>
    *          <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, "2016-09-27T14:50Z". </p>
    * @public
    */
-  ExpiryTimestamp?: Date;
+  ExpiryTimestamp?: Date | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7652,7 +7652,7 @@ export interface UpdateRegexPatternSetRequest {
    * <p>A description of the set that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p></p>
@@ -7675,7 +7675,7 @@ export interface UpdateRegexPatternSetResponse {
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7686,7 +7686,7 @@ export interface UpdateRuleGroupResponse {
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7697,7 +7697,7 @@ export interface UpdateWebACLResponse {
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    * @public
    */
-  NextLockToken?: string;
+  NextLockToken?: string | undefined;
 }
 
 /**
@@ -7711,20 +7711,20 @@ export interface Statement {
    * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is called a string match statement.</p>
    * @public
    */
-  ByteMatchStatement?: ByteMatchStatement;
+  ByteMatchStatement?: ByteMatchStatement | undefined;
 
   /**
    * <p>A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it. </p>
    * @public
    */
-  SqliMatchStatement?: SqliMatchStatement;
+  SqliMatchStatement?: SqliMatchStatement | undefined;
 
   /**
    * <p>A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker
    * uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. </p>
    * @public
    */
-  XssMatchStatement?: XssMatchStatement;
+  XssMatchStatement?: XssMatchStatement | undefined;
 
   /**
    * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
@@ -7732,7 +7732,7 @@ export interface Statement {
    *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
    * @public
    */
-  SizeConstraintStatement?: SizeConstraintStatement;
+  SizeConstraintStatement?: SizeConstraintStatement | undefined;
 
   /**
    * <p>A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.</p>
@@ -7750,7 +7750,7 @@ export interface Statement {
    *          <p>For additional details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html">Geographic match rule statement</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    * @public
    */
-  GeoMatchStatement?: GeoMatchStatement;
+  GeoMatchStatement?: GeoMatchStatement | undefined;
 
   /**
    * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
@@ -7758,21 +7758,21 @@ export interface Statement {
    *       reference statement inside another rule group. You can only reference a rule group as a top-level statement within a rule that you define in a web ACL.</p>
    * @public
    */
-  RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
+  RuleGroupReferenceStatement?: RuleGroupReferenceStatement | undefined;
 
   /**
    * <p>A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an <a>IPSet</a> that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see <a>CreateIPSet</a>.</p>
    *          <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, WAF automatically updates all rules that reference it.</p>
    * @public
    */
-  IPSetReferenceStatement?: IPSetReferenceStatement;
+  IPSetReferenceStatement?: IPSetReferenceStatement | undefined;
 
   /**
    * <p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p>
    *          <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, WAF automatically updates all rules that reference it.</p>
    * @public
    */
-  RegexPatternSetReferenceStatement?: RegexPatternSetReferenceStatement;
+  RegexPatternSetReferenceStatement?: RegexPatternSetReferenceStatement | undefined;
 
   /**
    * <p>A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance. </p>
@@ -7846,25 +7846,25 @@ export interface Statement {
    *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
    * @public
    */
-  RateBasedStatement?: RateBasedStatement;
+  RateBasedStatement?: RateBasedStatement | undefined;
 
   /**
    * <p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>
    * @public
    */
-  AndStatement?: AndStatement;
+  AndStatement?: AndStatement | undefined;
 
   /**
    * <p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>
    * @public
    */
-  OrStatement?: OrStatement;
+  OrStatement?: OrStatement | undefined;
 
   /**
    * <p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>
    * @public
    */
-  NotStatement?: NotStatement;
+  NotStatement?: NotStatement | undefined;
 
   /**
    * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
@@ -7875,20 +7875,20 @@ export interface Statement {
    *          </note>
    * @public
    */
-  ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
+  ManagedRuleGroupStatement?: ManagedRuleGroupStatement | undefined;
 
   /**
    * <p>A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL. </p>
    *          <p>The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.  If you do not provide the fully qualified name in your label match string, WAF performs the search for labels that were added in the same context as the label match statement. </p>
    * @public
    */
-  LabelMatchStatement?: LabelMatchStatement;
+  LabelMatchStatement?: LabelMatchStatement | undefined;
 
   /**
    * <p>A rule statement used to search web request components for a match against a single regular expression. </p>
    * @public
    */
-  RegexMatchStatement?: RegexMatchStatement;
+  RegexMatchStatement?: RegexMatchStatement | undefined;
 }
 
 /**
@@ -7920,7 +7920,7 @@ export interface ManagedRuleGroupStatement {
    *          the managed rule group settings. </p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>Rules in the referenced rule group whose actions are set to <code>Count</code>. </p>
@@ -7929,7 +7929,7 @@ export interface ManagedRuleGroupStatement {
    *          </note>
    * @public
    */
-  ExcludedRules?: ExcludedRule[];
+  ExcludedRules?: ExcludedRule[] | undefined;
 
   /**
    * <p>An optional nested statement that narrows the scope of the web requests that are
@@ -7939,7 +7939,7 @@ export interface ManagedRuleGroupStatement {
    *          rule statement. </p>
    * @public
    */
-  ScopeDownStatement?: Statement;
+  ScopeDownStatement?: Statement | undefined;
 
   /**
    * <p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>
@@ -7958,14 +7958,14 @@ export interface ManagedRuleGroupStatement {
    *          </ul>
    * @public
    */
-  ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[];
+  ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[] | undefined;
 
   /**
    * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
    *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
    * @public
    */
-  RuleActionOverrides?: RuleActionOverride[];
+  RuleActionOverrides?: RuleActionOverride[] | undefined;
 }
 
 /**
@@ -8081,7 +8081,7 @@ export interface RateBasedStatement {
    *          <p>Default: <code>300</code> (5 minutes)</p>
    * @public
    */
-  EvaluationWindowSec?: number;
+  EvaluationWindowSec?: number | undefined;
 
   /**
    * <p>Setting that indicates how to aggregate the request counts. </p>
@@ -8130,7 +8130,7 @@ export interface RateBasedStatement {
    *          level, the same as you can for a rule statement. </p>
    * @public
    */
-  ScopeDownStatement?: Statement;
+  ScopeDownStatement?: Statement | undefined;
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
@@ -8140,13 +8140,13 @@ export interface RateBasedStatement {
    *          <p>This is required if you specify a forwarded IP in the rule's aggregate key settings. </p>
    * @public
    */
-  ForwardedIPConfig?: ForwardedIPConfig;
+  ForwardedIPConfig?: ForwardedIPConfig | undefined;
 
   /**
    * <p>Specifies the aggregate keys to use in a rate-base rule. </p>
    * @public
    */
-  CustomKeys?: RateBasedStatementCustomKey[];
+  CustomKeys?: RateBasedStatementCustomKey[] | undefined;
 }
 
 /**
@@ -8194,7 +8194,7 @@ export interface Rule {
    *          </ul>
    * @public
    */
-  Action?: RuleAction;
+  Action?: RuleAction | undefined;
 
   /**
    * <p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>
@@ -8205,7 +8205,7 @@ export interface Rule {
    *          </note>
    * @public
    */
-  OverrideAction?: OverrideAction;
+  OverrideAction?: OverrideAction | undefined;
 
   /**
    * <p>Labels to apply to web requests that match the rule match statement. WAF applies
@@ -8236,7 +8236,7 @@ export interface Rule {
    *       </p>
    * @public
    */
-  RuleLabels?: Label[];
+  RuleLabels?: Label[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8251,13 +8251,13 @@ export interface Rule {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. If you don't specify this, WAF uses the <code>CAPTCHA</code> configuration that's defined for the web ACL. </p>
    * @public
    */
-  CaptchaConfig?: CaptchaConfig;
+  CaptchaConfig?: CaptchaConfig | undefined;
 
   /**
    * <p>Specifies how WAF should handle <code>Challenge</code> evaluations. If you don't specify this, WAF uses the challenge configuration that's defined for the web ACL. </p>
    * @public
    */
-  ChallengeConfig?: ChallengeConfig;
+  ChallengeConfig?: ChallengeConfig | undefined;
 }
 
 /**
@@ -8295,13 +8295,13 @@ export interface FirewallManagerStatement {
    * <p>A statement used by Firewall Manager to run the rules that are defined in a managed rule group. This is managed by Firewall Manager for an Firewall Manager WAF policy.</p>
    * @public
    */
-  ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
+  ManagedRuleGroupStatement?: ManagedRuleGroupStatement | undefined;
 
   /**
    * <p>A statement used by Firewall Manager to run the rules that are defined in a rule group. This is managed by Firewall Manager for an Firewall Manager WAF policy.</p>
    * @public
    */
-  RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
+  RuleGroupReferenceStatement?: RuleGroupReferenceStatement | undefined;
 }
 
 /**
@@ -8421,7 +8421,7 @@ export interface CreateRuleGroupRequest {
    * <p>A description of the rule group that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8430,7 +8430,7 @@ export interface CreateRuleGroupRequest {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8442,7 +8442,7 @@ export interface CreateRuleGroupRequest {
    * <p>An array of key:value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p>
@@ -8453,7 +8453,7 @@ export interface CreateRuleGroupRequest {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 }
 
 /**
@@ -8491,7 +8491,7 @@ export interface CreateWebACLRequest {
    * <p>A description of the web ACL that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8500,7 +8500,7 @@ export interface CreateWebACLRequest {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8512,7 +8512,7 @@ export interface CreateWebACLRequest {
    * <p>An array of key:value pairs to associate with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
@@ -8523,20 +8523,20 @@ export interface CreateWebACLRequest {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    * @public
    */
-  CaptchaConfig?: CaptchaConfig;
+  CaptchaConfig?: CaptchaConfig | undefined;
 
   /**
    * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
    * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
    * @public
    */
-  ChallengeConfig?: ChallengeConfig;
+  ChallengeConfig?: ChallengeConfig | undefined;
 
   /**
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
@@ -8545,7 +8545,7 @@ export interface CreateWebACLRequest {
    *          <p>Public suffixes aren't allowed. For example, you can't use <code>gov.au</code> or <code>co.uk</code> as token domains.</p>
    * @public
    */
-  TokenDomains?: string[];
+  TokenDomains?: string[] | undefined;
 
   /**
    * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
@@ -8557,7 +8557,7 @@ export interface CreateWebACLRequest {
    *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    * @public
    */
-  AssociationConfig?: AssociationConfig;
+  AssociationConfig?: AssociationConfig | undefined;
 }
 
 /**
@@ -8604,7 +8604,7 @@ export interface RuleGroup {
    * <p>A description of the rule group that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8613,7 +8613,7 @@ export interface RuleGroup {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8639,7 +8639,7 @@ export interface RuleGroup {
    *          </ul>
    * @public
    */
-  LabelNamespace?: string;
+  LabelNamespace?: string | undefined;
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p>
@@ -8650,19 +8650,19 @@ export interface RuleGroup {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 
   /**
    * <p>The labels that one or more rules in this rule group add to matching web requests. These labels are defined in the <code>RuleLabels</code> for a <a>Rule</a>.</p>
    * @public
    */
-  AvailableLabels?: LabelSummary[];
+  AvailableLabels?: LabelSummary[] | undefined;
 
   /**
    * <p>The labels that one or more rules in this rule group match against in label match statements. These labels are defined in a <code>LabelMatchStatement</code> specification, in the <a>Statement</a> definition of a rule.  </p>
    * @public
    */
-  ConsumedLabels?: LabelSummary[];
+  ConsumedLabels?: LabelSummary[] | undefined;
 }
 
 /**
@@ -8700,7 +8700,7 @@ export interface UpdateRuleGroupRequest {
    * <p>A description of the rule group that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8709,7 +8709,7 @@ export interface UpdateRuleGroupRequest {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8732,7 +8732,7 @@ export interface UpdateRuleGroupRequest {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 }
 
 /**
@@ -8776,7 +8776,7 @@ export interface UpdateWebACLRequest {
    * <p>A description of the web ACL that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8785,7 +8785,7 @@ export interface UpdateWebACLRequest {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8808,20 +8808,20 @@ export interface UpdateWebACLRequest {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    * @public
    */
-  CaptchaConfig?: CaptchaConfig;
+  CaptchaConfig?: CaptchaConfig | undefined;
 
   /**
    * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
    * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
    * @public
    */
-  ChallengeConfig?: ChallengeConfig;
+  ChallengeConfig?: ChallengeConfig | undefined;
 
   /**
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
@@ -8830,7 +8830,7 @@ export interface UpdateWebACLRequest {
    *          <p>Public suffixes aren't allowed. For example, you can't use <code>gov.au</code> or <code>co.uk</code> as token domains.</p>
    * @public
    */
-  TokenDomains?: string[];
+  TokenDomains?: string[] | undefined;
 
   /**
    * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
@@ -8842,7 +8842,7 @@ export interface UpdateWebACLRequest {
    *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    * @public
    */
-  AssociationConfig?: AssociationConfig;
+  AssociationConfig?: AssociationConfig | undefined;
 }
 
 /**
@@ -8853,13 +8853,13 @@ export interface GetRuleGroupResponse {
    * <p></p>
    * @public
    */
-  RuleGroup?: RuleGroup;
+  RuleGroup?: RuleGroup | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 }
 
 /**
@@ -8898,7 +8898,7 @@ export interface WebACL {
    * <p>A description of the web ACL that helps with identification. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -8907,7 +8907,7 @@ export interface WebACL {
    *       </p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -8927,7 +8927,7 @@ export interface WebACL {
    *     in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p>The first set of rules for WAF to process in the web ACL. This is defined in an
@@ -8939,7 +8939,7 @@ export interface WebACL {
    *          order.</p>
    * @public
    */
-  PreProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[];
+  PreProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[] | undefined;
 
   /**
    * <p>The last set of rules for WAF to process in the web ACL. This is defined in an
@@ -8951,7 +8951,7 @@ export interface WebACL {
    *          order.</p>
    * @public
    */
-  PostProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[];
+  PostProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[] | undefined;
 
   /**
    * <p>Indicates whether this web ACL was created by Firewall Manager and is being managed by Firewall Manager. If true, then only Firewall Manager can
@@ -8959,7 +8959,7 @@ export interface WebACL {
    *            See also the properties <code>RetrofittedByFirewallManager</code>, <code>PreProcessFirewallManagerRuleGroups</code>, and <code>PostProcessFirewallManagerRuleGroups</code>. </p>
    * @public
    */
-  ManagedByFirewallManager?: boolean;
+  ManagedByFirewallManager?: boolean | undefined;
 
   /**
    * <p>The label namespace prefix for this web ACL. All labels added by rules in this web ACL have this prefix. </p>
@@ -8979,7 +8979,7 @@ export interface WebACL {
    *          </ul>
    * @public
    */
-  LabelNamespace?: string;
+  LabelNamespace?: string | undefined;
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
@@ -8990,26 +8990,26 @@ export interface WebACL {
    *      in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  CustomResponseBodies?: Record<string, CustomResponseBody>;
+  CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    * @public
    */
-  CaptchaConfig?: CaptchaConfig;
+  CaptchaConfig?: CaptchaConfig | undefined;
 
   /**
    * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
    * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
    * @public
    */
-  ChallengeConfig?: ChallengeConfig;
+  ChallengeConfig?: ChallengeConfig | undefined;
 
   /**
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
    * @public
    */
-  TokenDomains?: string[];
+  TokenDomains?: string[] | undefined;
 
   /**
    * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
@@ -9021,7 +9021,7 @@ export interface WebACL {
    *          <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
    * @public
    */
-  AssociationConfig?: AssociationConfig;
+  AssociationConfig?: AssociationConfig | undefined;
 
   /**
    * <p>Indicates whether this web ACL was created by a customer account and then retrofitted by Firewall Manager. If true, then the web ACL is currently being
@@ -9029,7 +9029,7 @@ export interface WebACL {
    *            See also the properties <code>ManagedByFirewallManager</code>, <code>PreProcessFirewallManagerRuleGroups</code>, and <code>PostProcessFirewallManagerRuleGroups</code>. </p>
    * @public
    */
-  RetrofittedByFirewallManager?: boolean;
+  RetrofittedByFirewallManager?: boolean | undefined;
 }
 
 /**
@@ -9041,7 +9041,7 @@ export interface GetWebACLForResourceResponse {
    *          WAF returns a null web ACL.</p>
    * @public
    */
-  WebACL?: WebACL;
+  WebACL?: WebACL | undefined;
 }
 
 /**
@@ -9053,18 +9053,18 @@ export interface GetWebACLResponse {
    *          update this web ACL or create a new one.</p>
    * @public
    */
-  WebACL?: WebACL;
+  WebACL?: WebACL | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    * @public
    */
-  LockToken?: string;
+  LockToken?: string | undefined;
 
   /**
    * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code> and the account creation fraud prevention managed rule group <code>AWSManagedRulesACFPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a>
    * in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
-  ApplicationIntegrationURL?: string;
+  ApplicationIntegrationURL?: string | undefined;
 }

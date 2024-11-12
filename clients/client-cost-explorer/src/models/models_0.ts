@@ -66,13 +66,13 @@ export interface Impact {
    *             spend. It is calculated as <code>TotalActualSpend - TotalExpectedSpend</code>.</p>
    * @public
    */
-  TotalImpact?: number;
+  TotalImpact?: number | undefined;
 
   /**
    * <p>The cumulative dollar amount that was actually spent during the anomaly.</p>
    * @public
    */
-  TotalActualSpend?: number;
+  TotalActualSpend?: number | undefined;
 
   /**
    * <p>The cumulative dollar amount that was expected to be spent during the anomaly. It is
@@ -80,7 +80,7 @@ export interface Impact {
    *             pattern based on historical data for a customer.</p>
    * @public
    */
-  TotalExpectedSpend?: number;
+  TotalExpectedSpend?: number | undefined;
 
   /**
    * <p>The cumulative percentage difference between the total actual spend and total expected
@@ -89,7 +89,7 @@ export interface Impact {
    *             be zero in situations such as when you start to use a service for the first time.</p>
    * @public
    */
-  TotalImpactPercentage?: number;
+  TotalImpactPercentage?: number | undefined;
 }
 
 /**
@@ -103,31 +103,31 @@ export interface RootCause {
    * <p>The Amazon Web Servicesservice name that's associated with the cost anomaly. </p>
    * @public
    */
-  Service?: string;
+  Service?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region that's associated with the cost anomaly. </p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The member account value that's associated with the cost anomaly. </p>
    * @public
    */
-  LinkedAccount?: string;
+  LinkedAccount?: string | undefined;
 
   /**
    * <p>The <code>UsageType</code> value that's associated with the cost anomaly. </p>
    * @public
    */
-  UsageType?: string;
+  UsageType?: string | undefined;
 
   /**
    * <p>The member account name value that's associated with the cost anomaly.</p>
    * @public
    */
-  LinkedAccountName?: string;
+  LinkedAccountName?: string | undefined;
 }
 
 /**
@@ -146,26 +146,26 @@ export interface Anomaly {
    * <p>The first day the anomaly is detected. </p>
    * @public
    */
-  AnomalyStartDate?: string;
+  AnomalyStartDate?: string | undefined;
 
   /**
    * <p>The last day the anomaly is detected. </p>
    * @public
    */
-  AnomalyEndDate?: string;
+  AnomalyEndDate?: string | undefined;
 
   /**
    * <p>The dimension for the anomaly (for example, an Amazon Web Servicesservice in a service
    *             monitor). </p>
    * @public
    */
-  DimensionValue?: string;
+  DimensionValue?: string | undefined;
 
   /**
    * <p>The list of identified root causes for the anomaly. </p>
    * @public
    */
-  RootCauses?: RootCause[];
+  RootCauses?: RootCause[] | undefined;
 
   /**
    * <p>The latest and maximum score for the anomaly. </p>
@@ -190,7 +190,7 @@ export interface Anomaly {
    * <p>The feedback value. </p>
    * @public
    */
-  Feedback?: AnomalyFeedbackType;
+  Feedback?: AnomalyFeedbackType | undefined;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface AnomalyDateInterval {
    * <p>The last date an anomaly was observed. </p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 }
 
 /**
@@ -260,13 +260,13 @@ export interface CostCategoryValues {
    * <p>The unique name of the Cost Category.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The specific value of the Cost Category.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p>The match options that you can use to filter your results. MatchOptions is only
@@ -275,7 +275,7 @@ export interface CostCategoryValues {
    *         </p>
    * @public
    */
-  MatchOptions?: MatchOption[];
+  MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
@@ -343,14 +343,14 @@ export interface DimensionValues {
    *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">AnomalySubscriptions</a>.</p>
    * @public
    */
-  Key?: Dimension;
+  Key?: Dimension | undefined;
 
   /**
    * <p>The metadata values that you can use to filter and group your results. You can use
    *                 <code>GetDimensionValues</code> to find specific values.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p>The match options that you can use to filter your results.</p>
@@ -362,7 +362,7 @@ export interface DimensionValues {
    *                 <code>CASE_SENSITIVE</code>.</p>
    * @public
    */
-  MatchOptions?: MatchOption[];
+  MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
@@ -381,13 +381,13 @@ export interface TagValues {
    * <p>The key for the tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The specific value of the tag.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p>The match options that you can use to filter your results. <code>MatchOptions</code>
@@ -396,7 +396,7 @@ export interface TagValues {
    *             <code>CASE_SENSITIVE</code>.</p>
    * @public
    */
-  MatchOptions?: MatchOption[];
+  MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
@@ -467,19 +467,19 @@ export interface Subscriber {
    *                 <code>Type</code>. </p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The notification delivery channel. </p>
    * @public
    */
-  Type?: SubscriberType;
+  Type?: SubscriberType | undefined;
 
   /**
    * <p>Indicates if the subscriber accepts the notifications. </p>
    * @public
    */
-  Status?: SubscriberStatus;
+  Status?: SubscriberStatus | undefined;
 }
 
 /**
@@ -542,7 +542,7 @@ export interface CreateAnomalyMonitorResponse {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -575,7 +575,7 @@ export interface CreateAnomalySubscriptionResponse {
 export class UnknownMonitorException extends __BaseException {
   readonly name: "UnknownMonitorException" = "UnknownMonitorException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -624,13 +624,13 @@ export interface CostCategoryInheritedValueDimension {
    *             value of the specified tag key.</p>
    * @public
    */
-  DimensionName?: CostCategoryInheritedValueDimensionName;
+  DimensionName?: CostCategoryInheritedValueDimensionName | undefined;
 
   /**
    * <p>The key to extract cost category values.</p>
    * @public
    */
-  DimensionKey?: string;
+  DimensionKey?: string | undefined;
 }
 
 /**
@@ -747,7 +747,7 @@ export interface CostCategorySplitChargeRule {
    *                 <code>FIXED</code> method. </p>
    * @public
    */
-  Parameters?: CostCategorySplitChargeRuleParameter[];
+  Parameters?: CostCategorySplitChargeRuleParameter[] | undefined;
 }
 
 /**
@@ -758,13 +758,13 @@ export interface CreateCostCategoryDefinitionResponse {
    * <p>The unique identifier for your newly created Cost Category. </p>
    * @public
    */
-  CostCategoryArn?: string;
+  CostCategoryArn?: string | undefined;
 
   /**
    * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
    * @public
    */
-  EffectiveStart?: string;
+  EffectiveStart?: string | undefined;
 }
 
 /**
@@ -775,7 +775,7 @@ export interface CreateCostCategoryDefinitionResponse {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -829,7 +829,7 @@ export interface DeleteAnomalySubscriptionResponse {}
 export class UnknownSubscriptionException extends __BaseException {
   readonly name: "UnknownSubscriptionException" = "UnknownSubscriptionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -863,14 +863,14 @@ export interface DeleteCostCategoryDefinitionResponse {
    * <p>The unique identifier for your Cost Category. </p>
    * @public
    */
-  CostCategoryArn?: string;
+  CostCategoryArn?: string | undefined;
 
   /**
    * <p>The effective end date of the Cost Category as a result of deleting it. No costs after
    *       this date is categorized by the deleted Cost Category. </p>
    * @public
    */
-  EffectiveEnd?: string;
+  EffectiveEnd?: string | undefined;
 }
 
 /**
@@ -880,8 +880,8 @@ export interface DeleteCostCategoryDefinitionResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  ResourceName?: string;
+  Message?: string | undefined;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -911,7 +911,7 @@ export interface DescribeCostCategoryDefinitionRequest {
    * <p>The date when the Cost Category was effective. </p>
    * @public
    */
-  EffectiveOn?: string;
+  EffectiveOn?: string | undefined;
 }
 
 /**
@@ -952,13 +952,13 @@ export interface CostCategoryProcessingStatus {
    * <p>The Cost Management product name of the applied status. </p>
    * @public
    */
-  Component?: CostCategoryStatusComponent;
+  Component?: CostCategoryStatusComponent | undefined;
 
   /**
    * <p>The process status for a specific cost category. </p>
    * @public
    */
-  Status?: CostCategoryStatus;
+  Status?: CostCategoryStatus | undefined;
 }
 
 /**
@@ -1000,7 +1000,7 @@ export interface TotalImpactFilter {
    * <p>The upper bound dollar value that's used in the filter. </p>
    * @public
    */
-  EndValue?: number;
+  EndValue?: number | undefined;
 }
 
 /**
@@ -1012,7 +1012,7 @@ export interface GetAnomaliesRequest {
    *       Resource Name (ARN). </p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>Assigns the start and end dates for retrieving cost anomalies. The returned anomaly object
@@ -1025,7 +1025,7 @@ export interface GetAnomaliesRequest {
    * <p>Filters anomaly results by the feedback field on the anomaly object. </p>
    * @public
    */
-  Feedback?: AnomalyFeedbackType;
+  Feedback?: AnomalyFeedbackType | undefined;
 
   /**
    * <p>Filters anomaly results by the total impact field on the anomaly object. For example, you
@@ -1033,20 +1033,20 @@ export interface GetAnomaliesRequest {
    *       dollar impact greater than 200. </p>
    * @public
    */
-  TotalImpact?: TotalImpactFilter;
+  TotalImpact?: TotalImpactFilter | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The number of entries a paginated response contains. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface GetAnomaliesResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -1074,7 +1074,7 @@ export interface GetAnomaliesResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1097,20 +1097,20 @@ export interface GetAnomalyMonitorsRequest {
    * <p>A list of cost anomaly monitor ARNs. </p>
    * @public
    */
-  MonitorArnList?: string[];
+  MonitorArnList?: string[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The number of entries that a paginated response contains. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1121,26 +1121,26 @@ export interface GetAnomalySubscriptionsRequest {
    * <p>A list of cost anomaly subscription ARNs. </p>
    * @public
    */
-  SubscriptionArnList?: string[];
+  SubscriptionArnList?: string[] | undefined;
 
   /**
    * <p>Cost anomaly monitor ARNs. </p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The number of entries a paginated response contains. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1150,7 +1150,7 @@ export interface GetAnomalySubscriptionsRequest {
 export class DataUnavailableException extends __BaseException {
   readonly name: "DataUnavailableException" = "DataUnavailableException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1196,7 +1196,7 @@ export interface GetApproximateUsageRecordsRequest {
    *       elements are returned.</p>
    * @public
    */
-  Services?: string[];
+  Services?: string[] | undefined;
 
   /**
    * <p>The service to evaluate for the usage records. You can choose resource-level data at daily
@@ -1237,19 +1237,19 @@ export interface GetApproximateUsageRecordsResponse {
    * <p>The service metadata for the service or services in the response.</p>
    * @public
    */
-  Services?: Record<string, number>;
+  Services?: Record<string, number> | undefined;
 
   /**
    * <p>The total number of usage records for all services in the services list.</p>
    * @public
    */
-  TotalRecords?: number;
+  TotalRecords?: number | undefined;
 
   /**
    * <p>The lookback period that's used for the estimation.</p>
    * @public
    */
-  LookbackPeriod?: DateInterval;
+  LookbackPeriod?: DateInterval | undefined;
 }
 
 /**
@@ -1259,7 +1259,7 @@ export interface GetApproximateUsageRecordsResponse {
 export class BillExpirationException extends __BaseException {
   readonly name: "BillExpirationException" = "BillExpirationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1299,13 +1299,13 @@ export interface GroupDefinition {
    * <p>The string that represents the type of group.</p>
    * @public
    */
-  Type?: GroupDefinitionType;
+  Type?: GroupDefinitionType | undefined;
 
   /**
    * <p>The string that represents a key for a specified group.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -1318,13 +1318,13 @@ export interface DimensionValuesWithAttributes {
    * <p>The value of a dimension with a specific attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1336,13 +1336,13 @@ export interface MetricValue {
    * <p>The actual number that represents the metric.</p>
    * @public
    */
-  Amount?: string;
+  Amount?: string | undefined;
 
   /**
    * <p>The unit that the metric is given in.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -1354,13 +1354,13 @@ export interface Group {
    * <p>The keys that are included in this group.</p>
    * @public
    */
-  Keys?: string[];
+  Keys?: string[] | undefined;
 
   /**
    * <p>The metrics that are included in this group.</p>
    * @public
    */
-  Metrics?: Record<string, MetricValue>;
+  Metrics?: Record<string, MetricValue> | undefined;
 }
 
 /**
@@ -1372,25 +1372,25 @@ export interface ResultByTime {
    * <p>The time period that the result covers.</p>
    * @public
    */
-  TimePeriod?: DateInterval;
+  TimePeriod?: DateInterval | undefined;
 
   /**
    * <p>The total amount of cost or usage accrued during the time period.</p>
    * @public
    */
-  Total?: Record<string, MetricValue>;
+  Total?: Record<string, MetricValue> | undefined;
 
   /**
    * <p>The groups that this time period includes.</p>
    * @public
    */
-  Groups?: Group[];
+  Groups?: Group[] | undefined;
 
   /**
    * <p>Determines whether the result is estimated.</p>
    * @public
    */
-  Estimated?: boolean;
+  Estimated?: boolean | undefined;
 }
 
 /**
@@ -1402,27 +1402,27 @@ export interface GetCostAndUsageResponse {
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code>
    *       parameters in the request.</p>
    * @public
    */
-  GroupDefinitions?: GroupDefinition[];
+  GroupDefinitions?: GroupDefinition[] | undefined;
 
   /**
    * <p>The time period that's covered by the results in the response.</p>
    * @public
    */
-  ResultsByTime?: ResultByTime[];
+  ResultsByTime?: ResultByTime[] | undefined;
 
   /**
    * <p>The attributes that apply to a specific dimension value. For example, if the value is a
    *       linked account, the attribute is that account name.</p>
    * @public
    */
-  DimensionValueAttributes?: DimensionValuesWithAttributes[];
+  DimensionValueAttributes?: DimensionValuesWithAttributes[] | undefined;
 }
 
 /**
@@ -1433,7 +1433,7 @@ export interface GetCostAndUsageResponse {
 export class RequestChangedException extends __BaseException {
   readonly name: "RequestChangedException" = "RequestChangedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1457,27 +1457,27 @@ export interface GetCostAndUsageWithResourcesResponse {
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code>
    *       parameters in the request.</p>
    * @public
    */
-  GroupDefinitions?: GroupDefinition[];
+  GroupDefinitions?: GroupDefinition[] | undefined;
 
   /**
    * <p>The time period that's covered by the results in the response.</p>
    * @public
    */
-  ResultsByTime?: ResultByTime[];
+  ResultsByTime?: ResultByTime[] | undefined;
 
   /**
    * <p>The attributes that apply to a specific dimension value. For example, if the value is a
    *       linked account, the attribute is that account name.</p>
    * @public
    */
-  DimensionValueAttributes?: DimensionValuesWithAttributes[];
+  DimensionValueAttributes?: DimensionValuesWithAttributes[] | undefined;
 }
 
 /**
@@ -1509,7 +1509,7 @@ export interface SortDefinition {
    * <p>The order that's used to sort the data.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -1521,13 +1521,13 @@ export interface GetCostCategoriesResponse {
    *       objects, provide the marker from the prior call in your next request.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The names of the Cost Categories.</p>
    * @public
    */
-  CostCategoryNames?: string[];
+  CostCategoryNames?: string[] | undefined;
 
   /**
    * <p>The Cost Category values.</p>
@@ -1535,7 +1535,7 @@ export interface GetCostCategoriesResponse {
    *         <code>CostCategoryValues</code> fields aren't returned. </p>
    * @public
    */
-  CostCategoryValues?: string[];
+  CostCategoryValues?: string[] | undefined;
 
   /**
    * <p>The number of objects that are returned.</p>
@@ -1578,25 +1578,25 @@ export interface ForecastResult {
    * <p>The period of time that the forecast covers.</p>
    * @public
    */
-  TimePeriod?: DateInterval;
+  TimePeriod?: DateInterval | undefined;
 
   /**
    * <p>The mean value of the forecast.</p>
    * @public
    */
-  MeanValue?: string;
+  MeanValue?: string | undefined;
 
   /**
    * <p>The lower limit for the prediction interval. </p>
    * @public
    */
-  PredictionIntervalLowerBound?: string;
+  PredictionIntervalLowerBound?: string | undefined;
 
   /**
    * <p>The upper limit for the prediction interval. </p>
    * @public
    */
-  PredictionIntervalUpperBound?: string;
+  PredictionIntervalUpperBound?: string | undefined;
 }
 
 /**
@@ -1607,14 +1607,14 @@ export interface GetCostForecastResponse {
    * <p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>
    * @public
    */
-  Total?: MetricValue;
+  Total?: MetricValue | undefined;
 
   /**
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list
    *       of days. For <code>MONTHLY</code> forecasts, this is a list of months.</p>
    * @public
    */
-  ForecastResultsByTime?: ForecastResult[];
+  ForecastResultsByTime?: ForecastResult[] | undefined;
 }
 
 /**
@@ -1788,7 +1788,7 @@ export interface GetDimensionValuesResponse {
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -1800,7 +1800,7 @@ export interface CoverageCost {
    * <p>How much an On-Demand Instance costs.</p>
    * @public
    */
-  OnDemandCost?: string;
+  OnDemandCost?: string | undefined;
 }
 
 /**
@@ -1812,25 +1812,25 @@ export interface CoverageHours {
    * <p>The number of instance running hours that On-Demand Instances covered.</p>
    * @public
    */
-  OnDemandHours?: string;
+  OnDemandHours?: string | undefined;
 
   /**
    * <p>The number of instance running hours that reservations covered.</p>
    * @public
    */
-  ReservedHours?: string;
+  ReservedHours?: string | undefined;
 
   /**
    * <p>The total instance usage, in hours.</p>
    * @public
    */
-  TotalRunningHours?: string;
+  TotalRunningHours?: string | undefined;
 
   /**
    * <p>The percentage of instance hours that a reservation covered.</p>
    * @public
    */
-  CoverageHoursPercentage?: string;
+  CoverageHoursPercentage?: string | undefined;
 }
 
 /**
@@ -1852,26 +1852,26 @@ export interface CoverageNormalizedUnits {
    *             reservation.</p>
    * @public
    */
-  OnDemandNormalizedUnits?: string;
+  OnDemandNormalizedUnits?: string | undefined;
 
   /**
    * <p>The number of normalized units that a reservation covers.</p>
    * @public
    */
-  ReservedNormalizedUnits?: string;
+  ReservedNormalizedUnits?: string | undefined;
 
   /**
    * <p>The total number of normalized units that you used.</p>
    * @public
    */
-  TotalRunningNormalizedUnits?: string;
+  TotalRunningNormalizedUnits?: string | undefined;
 
   /**
    * <p>The percentage of your used instance normalized units that a reservation
    *             covers.</p>
    * @public
    */
-  CoverageNormalizedUnitsPercentage?: string;
+  CoverageNormalizedUnitsPercentage?: string | undefined;
 }
 
 /**
@@ -1883,19 +1883,19 @@ export interface Coverage {
    * <p>The amount of instance usage that the reservation covered, in hours.</p>
    * @public
    */
-  CoverageHours?: CoverageHours;
+  CoverageHours?: CoverageHours | undefined;
 
   /**
    * <p>The amount of instance usage that the reservation covered, in normalized units.</p>
    * @public
    */
-  CoverageNormalizedUnits?: CoverageNormalizedUnits;
+  CoverageNormalizedUnits?: CoverageNormalizedUnits | undefined;
 
   /**
    * <p>The amount of cost that the reservation covered.</p>
    * @public
    */
-  CoverageCost?: CoverageCost;
+  CoverageCost?: CoverageCost | undefined;
 }
 
 /**
@@ -1907,13 +1907,13 @@ export interface ReservationCoverageGroup {
    * <p>The attributes for this group of reservations.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>How much instance usage this group of reservations covered.</p>
    * @public
    */
-  Coverage?: Coverage;
+  Coverage?: Coverage | undefined;
 }
 
 /**
@@ -1925,19 +1925,19 @@ export interface CoverageByTime {
    * <p>The period that this coverage was used over.</p>
    * @public
    */
-  TimePeriod?: DateInterval;
+  TimePeriod?: DateInterval | undefined;
 
   /**
    * <p>The groups of instances that the reservation covered.</p>
    * @public
    */
-  Groups?: ReservationCoverageGroup[];
+  Groups?: ReservationCoverageGroup[] | undefined;
 
   /**
    * <p>The total reservation coverage, in hours.</p>
    * @public
    */
-  Total?: Coverage;
+  Total?: Coverage | undefined;
 }
 
 /**
@@ -1954,14 +1954,14 @@ export interface GetReservationCoverageResponse {
    * <p>The total amount of instance usage that a reservation covered.</p>
    * @public
    */
-  Total?: Coverage;
+  Total?: Coverage | undefined;
 
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -2022,7 +2022,7 @@ export interface EC2Specification {
    *             reservations.</p>
    * @public
    */
-  OfferingClass?: OfferingClass;
+  OfferingClass?: OfferingClass | undefined;
 }
 
 /**
@@ -2035,7 +2035,7 @@ export interface ServiceSpecification {
    *             recommendations for.</p>
    * @public
    */
-  EC2Specification?: EC2Specification;
+  EC2Specification?: EC2Specification | undefined;
 }
 
 /**
@@ -2062,19 +2062,19 @@ export interface ReservationPurchaseRecommendationMetadata {
    * <p>The ID for the recommendation.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>The timestamp for when Amazon Web Services made the recommendation.</p>
    * @public
    */
-  GenerationTimestamp?: string;
+  GenerationTimestamp?: string | undefined;
 
   /**
    * <p>Additional metadata that might be applicable to the recommendation.</p>
    * @public
    */
-  AdditionalMetadata?: string;
+  AdditionalMetadata?: string | undefined;
 }
 
 /**
@@ -2087,50 +2087,50 @@ export interface EC2InstanceDetails {
    * <p>The instance family of the recommended reservation.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The type of instance that Amazon Web Services recommends.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The Availability Zone of the recommended reservation.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The platform of the recommended reservation. The platform is the specific combination
    *             of operating system, license model, and software on an instance.</p>
    * @public
    */
-  Platform?: string;
+  Platform?: string | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is dedicated or shared.</p>
    * @public
    */
-  Tenancy?: string;
+  Tenancy?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current-generation instance. </p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2143,37 +2143,37 @@ export interface ElastiCacheInstanceDetails {
    * <p>The instance family of the recommended reservation.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The type of node that Amazon Web Services recommends.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The description of the recommended reservation.</p>
    * @public
    */
-  ProductDescription?: string;
+  ProductDescription?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current generation instance.</p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2186,31 +2186,31 @@ export interface ESInstanceDetails {
    * <p>The class of instance that Amazon Web Services recommends.</p>
    * @public
    */
-  InstanceClass?: string;
+  InstanceClass?: string | undefined;
 
   /**
    * <p>The size of instance that Amazon Web Services recommends.</p>
    * @public
    */
-  InstanceSize?: string;
+  InstanceSize?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current-generation instance.</p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2223,31 +2223,31 @@ export interface MemoryDBInstanceDetails {
    * <p>The instance family of the recommended reservation.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The node type of the recommended reservation.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current generation instance.</p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2260,56 +2260,56 @@ export interface RDSInstanceDetails {
    * <p>The instance family of the recommended reservation.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The type of instance that Amazon Web Services recommends.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The database engine that the recommended reservation supports.</p>
    * @public
    */
-  DatabaseEngine?: string;
+  DatabaseEngine?: string | undefined;
 
   /**
    * <p>The database edition that the recommended reservation supports.</p>
    * @public
    */
-  DatabaseEdition?: string;
+  DatabaseEdition?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a reservation in a single Availability
    *             Zone or a reservation with a backup in a second Availability Zone.</p>
    * @public
    */
-  DeploymentOption?: string;
+  DeploymentOption?: string | undefined;
 
   /**
    * <p>The license model that the recommended reservation supports.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current-generation instance. </p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2322,31 +2322,31 @@ export interface RedshiftInstanceDetails {
    * <p>The instance family of the recommended reservation.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The type of node that Amazon Web Services recommends.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Determines whether the recommendation is for a current-generation instance.</p>
    * @public
    */
-  CurrentGeneration?: boolean;
+  CurrentGeneration?: boolean | undefined;
 
   /**
    * <p>Determines whether the recommended reservation is size flexible.</p>
    * @public
    */
-  SizeFlexEligible?: boolean;
+  SizeFlexEligible?: boolean | undefined;
 }
 
 /**
@@ -2360,41 +2360,41 @@ export interface InstanceDetails {
    *             purchase.</p>
    * @public
    */
-  EC2InstanceDetails?: EC2InstanceDetails;
+  EC2InstanceDetails?: EC2InstanceDetails | undefined;
 
   /**
    * <p>The Amazon RDS reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  RDSInstanceDetails?: RDSInstanceDetails;
+  RDSInstanceDetails?: RDSInstanceDetails | undefined;
 
   /**
    * <p>The Amazon Redshift reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  RedshiftInstanceDetails?: RedshiftInstanceDetails;
+  RedshiftInstanceDetails?: RedshiftInstanceDetails | undefined;
 
   /**
    * <p>The ElastiCache reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails;
+  ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails | undefined;
 
   /**
    * <p>The Amazon OpenSearch Service reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  ESInstanceDetails?: ESInstanceDetails;
+  ESInstanceDetails?: ESInstanceDetails | undefined;
 
   /**
    * <p>The MemoryDB reservations that Amazon Web Services recommends that you purchase.</p>
    * @public
    */
-  MemoryDBInstanceDetails?: MemoryDBInstanceDetails;
+  MemoryDBInstanceDetails?: MemoryDBInstanceDetails | undefined;
 }
 
 /**
@@ -2406,13 +2406,13 @@ export interface DynamoDBCapacityDetails {
    * <p>The capacity unit of the recommended reservation.</p>
    * @public
    */
-  CapacityUnits?: string;
+  CapacityUnits?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the recommended reservation.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -2425,7 +2425,7 @@ export interface ReservedCapacityDetails {
    * <p>The DynamoDB reservations that Amazon Web Services recommends that you purchase.</p>
    * @public
    */
-  DynamoDBCapacityDetails?: DynamoDBCapacityDetails;
+  DynamoDBCapacityDetails?: DynamoDBCapacityDetails | undefined;
 }
 
 /**
@@ -2437,27 +2437,27 @@ export interface ReservationPurchaseRecommendationDetail {
    * <p>The account that this Reserved Instance (RI) recommendation is for.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Details about the reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  InstanceDetails?: InstanceDetails;
+  InstanceDetails?: InstanceDetails | undefined;
 
   /**
    * <p>The number of instances that Amazon Web Services recommends that you purchase.</p>
    * @public
    */
-  RecommendedNumberOfInstancesToPurchase?: string;
+  RecommendedNumberOfInstancesToPurchase?: string | undefined;
 
   /**
    * <p>The number of normalized units that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  RecommendedNormalizedUnitsToPurchase?: string;
+  RecommendedNormalizedUnitsToPurchase?: string | undefined;
 
   /**
    * <p>The minimum number of instances that you used in an hour during the historical period.
@@ -2465,7 +2465,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  MinimumNumberOfInstancesUsedPerHour?: string;
+  MinimumNumberOfInstancesUsedPerHour?: string | undefined;
 
   /**
    * <p>The minimum number of normalized units that you used in an hour during the historical
@@ -2473,7 +2473,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  MinimumNormalizedUnitsUsedPerHour?: string;
+  MinimumNormalizedUnitsUsedPerHour?: string | undefined;
 
   /**
    * <p>The maximum number of instances that you used in an hour during the historical period.
@@ -2481,7 +2481,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  MaximumNumberOfInstancesUsedPerHour?: string;
+  MaximumNumberOfInstancesUsedPerHour?: string | undefined;
 
   /**
    * <p>The maximum number of normalized units that you used in an hour during the historical
@@ -2489,7 +2489,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  MaximumNormalizedUnitsUsedPerHour?: string;
+  MaximumNormalizedUnitsUsedPerHour?: string | undefined;
 
   /**
    * <p>The average number of instances that you used in an hour during the historical period.
@@ -2497,7 +2497,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  AverageNumberOfInstancesUsedPerHour?: string;
+  AverageNumberOfInstancesUsedPerHour?: string | undefined;
 
   /**
    * <p>The average number of normalized units that you used in an hour during the historical
@@ -2505,82 +2505,82 @@ export interface ReservationPurchaseRecommendationDetail {
    *             purchases.</p>
    * @public
    */
-  AverageNormalizedUnitsUsedPerHour?: string;
+  AverageNormalizedUnitsUsedPerHour?: string | undefined;
 
   /**
    * <p>The average utilization of your recommendations. Amazon Web Services uses this to
    *             calculate your recommended reservation purchases.</p>
    * @public
    */
-  AverageUtilization?: string;
+  AverageUtilization?: string | undefined;
 
   /**
    * <p>How long Amazon Web Services estimates that it takes for this recommendation to start
    *             saving you money, in months.</p>
    * @public
    */
-  EstimatedBreakEvenInMonths?: string;
+  EstimatedBreakEvenInMonths?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
    *             recommendation.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>How much Amazon Web Services estimates that this specific recommendation might save you
    *             in a month.</p>
    * @public
    */
-  EstimatedMonthlySavingsAmount?: string;
+  EstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>How much Amazon Web Services estimates that this specific recommendation might save you
    *             in a month, as a percentage of your overall costs.</p>
    * @public
    */
-  EstimatedMonthlySavingsPercentage?: string;
+  EstimatedMonthlySavingsPercentage?: string | undefined;
 
   /**
    * <p>How much Amazon Web Services estimates that you spend on On-Demand Instances in a
    *             month.</p>
    * @public
    */
-  EstimatedMonthlyOnDemandCost?: string;
+  EstimatedMonthlyOnDemandCost?: string | undefined;
 
   /**
    * <p>How much Amazon Web Services estimates that you might spend for all usage during the
    *             specified historical period if you had a reservation.</p>
    * @public
    */
-  EstimatedReservationCostForLookbackPeriod?: string;
+  EstimatedReservationCostForLookbackPeriod?: string | undefined;
 
   /**
    * <p>How much purchasing this recommendation costs you upfront.</p>
    * @public
    */
-  UpfrontCost?: string;
+  UpfrontCost?: string | undefined;
 
   /**
    * <p>How much purchasing this recommendation costs you on a monthly basis.</p>
    * @public
    */
-  RecurringStandardMonthlyCost?: string;
+  RecurringStandardMonthlyCost?: string | undefined;
 
   /**
    * <p>Details about the reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  ReservedCapacityDetails?: ReservedCapacityDetails;
+  ReservedCapacityDetails?: ReservedCapacityDetails | undefined;
 
   /**
    * <p>The number of reserved capacity units that Amazon Web Services recommends that you
    *             purchase.</p>
    * @public
    */
-  RecommendedNumberOfCapacityUnitsToPurchase?: string;
+  RecommendedNumberOfCapacityUnitsToPurchase?: string | undefined;
 
   /**
    * <p>The minimum number of provisioned capacity units that you used in an hour during the
@@ -2588,7 +2588,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             reservation purchases.</p>
    * @public
    */
-  MinimumNumberOfCapacityUnitsUsedPerHour?: string;
+  MinimumNumberOfCapacityUnitsUsedPerHour?: string | undefined;
 
   /**
    * <p>The maximum number of provisioned capacity units that you used in an hour during the
@@ -2596,7 +2596,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             reservation purchases.</p>
    * @public
    */
-  MaximumNumberOfCapacityUnitsUsedPerHour?: string;
+  MaximumNumberOfCapacityUnitsUsedPerHour?: string | undefined;
 
   /**
    * <p>The average number of provisioned capacity units that you used in an hour during the
@@ -2604,7 +2604,7 @@ export interface ReservationPurchaseRecommendationDetail {
    *             reservation purchases.</p>
    * @public
    */
-  AverageNumberOfCapacityUnitsUsedPerHour?: string;
+  AverageNumberOfCapacityUnitsUsedPerHour?: string | undefined;
 }
 
 /**
@@ -2619,20 +2619,20 @@ export interface ReservationPurchaseRecommendationSummary {
    *             you in a month.</p>
    * @public
    */
-  TotalEstimatedMonthlySavingsAmount?: string;
+  TotalEstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>The total amount that Amazon Web Services estimates that this recommendation could save
    *             you in a month, as a percentage of your costs.</p>
    * @public
    */
-  TotalEstimatedMonthlySavingsPercentage?: string;
+  TotalEstimatedMonthlySavingsPercentage?: string | undefined;
 
   /**
    * <p>The currency code used for this recommendation.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 }
 
 /**
@@ -2646,45 +2646,45 @@ export interface ReservationPurchaseRecommendation {
    *                 Amazon Web Services Organizations.</p>
    * @public
    */
-  AccountScope?: AccountScope;
+  AccountScope?: AccountScope | undefined;
 
   /**
    * <p>How many days of previous usage that Amazon Web Services considers when making this
    *             recommendation.</p>
    * @public
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays;
+  LookbackPeriodInDays?: LookbackPeriodInDays | undefined;
 
   /**
    * <p>The term of the reservation that you want recommendations for, in years.</p>
    * @public
    */
-  TermInYears?: TermInYears;
+  TermInYears?: TermInYears | undefined;
 
   /**
    * <p>The payment option for the reservation (for example, <code>AllUpfront</code> or
    *                 <code>NoUpfront</code>).</p>
    * @public
    */
-  PaymentOption?: PaymentOption;
+  PaymentOption?: PaymentOption | undefined;
 
   /**
    * <p>Hardware specifications for the service that you want recommendations for.</p>
    * @public
    */
-  ServiceSpecification?: ServiceSpecification;
+  ServiceSpecification?: ServiceSpecification | undefined;
 
   /**
    * <p>Details about the recommended purchases.</p>
    * @public
    */
-  RecommendationDetails?: ReservationPurchaseRecommendationDetail[];
+  RecommendationDetails?: ReservationPurchaseRecommendationDetail[] | undefined;
 
   /**
    * <p>A summary about the recommended purchase.</p>
    * @public
    */
-  RecommendationSummary?: ReservationPurchaseRecommendationSummary;
+  RecommendationSummary?: ReservationPurchaseRecommendationSummary | undefined;
 }
 
 /**
@@ -2696,19 +2696,19 @@ export interface GetReservationPurchaseRecommendationResponse {
    *       Cost Explorer generated this recommendation.</p>
    * @public
    */
-  Metadata?: ReservationPurchaseRecommendationMetadata;
+  Metadata?: ReservationPurchaseRecommendationMetadata | undefined;
 
   /**
    * <p>Recommendations for reservations to purchase.</p>
    * @public
    */
-  Recommendations?: ReservationPurchaseRecommendation[];
+  Recommendations?: ReservationPurchaseRecommendation[] | undefined;
 
   /**
    * <p>The pagination token for the next set of retrievable results.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -2720,7 +2720,7 @@ export interface ReservationAggregates {
    * <p>The percentage of reservation time that you used.</p>
    * @public
    */
-  UtilizationPercentage?: string;
+  UtilizationPercentage?: string | undefined;
 
   /**
    * <p>The percentage of Amazon EC2 reservation time that you used. It's converted to
@@ -2728,13 +2728,13 @@ export interface ReservationAggregates {
    *             November 11, 2017.</p>
    * @public
    */
-  UtilizationPercentageInUnits?: string;
+  UtilizationPercentageInUnits?: string | undefined;
 
   /**
    * <p>How many reservation hours that you purchased.</p>
    * @public
    */
-  PurchasedHours?: string;
+  PurchasedHours?: string | undefined;
 
   /**
    * <p>The number of Amazon EC2 reservation hours that you purchased. It's converted to
@@ -2742,13 +2742,13 @@ export interface ReservationAggregates {
    *             November 11, 2017.</p>
    * @public
    */
-  PurchasedUnits?: string;
+  PurchasedUnits?: string | undefined;
 
   /**
    * <p>The total number of reservation hours that you used.</p>
    * @public
    */
-  TotalActualHours?: string;
+  TotalActualHours?: string | undefined;
 
   /**
    * <p>The total number of Amazon EC2 reservation hours that you used. It's converted to
@@ -2756,13 +2756,13 @@ export interface ReservationAggregates {
    *             November 11, 2017.</p>
    * @public
    */
-  TotalActualUnits?: string;
+  TotalActualUnits?: string | undefined;
 
   /**
    * <p>The number of reservation hours that you didn't use.</p>
    * @public
    */
-  UnusedHours?: string;
+  UnusedHours?: string | undefined;
 
   /**
    * <p>The number of Amazon EC2 reservation hours that you didn't use. It's converted to
@@ -2770,13 +2770,13 @@ export interface ReservationAggregates {
    *             November 11, 2017.</p>
    * @public
    */
-  UnusedUnits?: string;
+  UnusedUnits?: string | undefined;
 
   /**
    * <p>How much your reservation costs if charged On-Demand rates.</p>
    * @public
    */
-  OnDemandCostOfRIHoursUsed?: string;
+  OnDemandCostOfRIHoursUsed?: string | undefined;
 
   /**
    * <p>How much you saved due to purchasing and utilizing reservation. Amazon Web Services
@@ -2784,51 +2784,51 @@ export interface ReservationAggregates {
    *                 <code>OnDemandCostOfRIHoursUsed</code>.</p>
    * @public
    */
-  NetRISavings?: string;
+  NetRISavings?: string | undefined;
 
   /**
    * <p>How much you might save if you use your entire reservation.</p>
    * @public
    */
-  TotalPotentialRISavings?: string;
+  TotalPotentialRISavings?: string | undefined;
 
   /**
    * <p>The upfront cost of your reservation. It's amortized over the reservation
    *             period.</p>
    * @public
    */
-  AmortizedUpfrontFee?: string;
+  AmortizedUpfrontFee?: string | undefined;
 
   /**
    * <p>The monthly cost of your reservation. It's amortized over the reservation
    *             period.</p>
    * @public
    */
-  AmortizedRecurringFee?: string;
+  AmortizedRecurringFee?: string | undefined;
 
   /**
    * <p>The total cost of your reservation. It's amortized over the reservation period.</p>
    * @public
    */
-  TotalAmortizedFee?: string;
+  TotalAmortizedFee?: string | undefined;
 
   /**
    * <p>The cost of unused hours for your reservation.</p>
    * @public
    */
-  RICostForUnusedHours?: string;
+  RICostForUnusedHours?: string | undefined;
 
   /**
    * <p>The realized savings because of purchasing and using a reservation.</p>
    * @public
    */
-  RealizedSavings?: string;
+  RealizedSavings?: string | undefined;
 
   /**
    * <p>The unrealized savings because of purchasing and using a reservation.</p>
    * @public
    */
-  UnrealizedSavings?: string;
+  UnrealizedSavings?: string | undefined;
 }
 
 /**
@@ -2840,25 +2840,25 @@ export interface ReservationUtilizationGroup {
    * <p>The key for a specific reservation attribute.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of a specific reservation attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The attributes for this group of reservations.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>How much you used this group of reservations.</p>
    * @public
    */
-  Utilization?: ReservationAggregates;
+  Utilization?: ReservationAggregates | undefined;
 }
 
 /**
@@ -2870,19 +2870,19 @@ export interface UtilizationByTime {
    * <p>The period of time that this utilization was used for.</p>
    * @public
    */
-  TimePeriod?: DateInterval;
+  TimePeriod?: DateInterval | undefined;
 
   /**
    * <p>The groups that this utilization result uses.</p>
    * @public
    */
-  Groups?: ReservationUtilizationGroup[];
+  Groups?: ReservationUtilizationGroup[] | undefined;
 
   /**
    * <p>The total number of reservation hours that were used.</p>
    * @public
    */
-  Total?: ReservationAggregates;
+  Total?: ReservationAggregates | undefined;
 }
 
 /**
@@ -2899,14 +2899,14 @@ export interface GetReservationUtilizationResponse {
    * <p>The total amount of time that you used your Reserved Instances (RIs).</p>
    * @public
    */
-  Total?: ReservationAggregates;
+  Total?: ReservationAggregates | undefined;
 
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -2958,26 +2958,26 @@ export interface RightsizingRecommendationMetadata {
    * <p>The ID for the recommendation.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>The timestamp for when Amazon Web Services made the recommendation.</p>
    * @public
    */
-  GenerationTimestamp?: string;
+  GenerationTimestamp?: string | undefined;
 
   /**
    * <p>The number of days of previous usage that Amazon Web Services considers when making the
    *             recommendation.</p>
    * @public
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays;
+  LookbackPeriodInDays?: LookbackPeriodInDays | undefined;
 
   /**
    * <p>Additional metadata that might be applicable to the recommendation.</p>
    * @public
    */
-  AdditionalMetadata?: string;
+  AdditionalMetadata?: string | undefined;
 }
 
 /**
@@ -2989,57 +2989,57 @@ export interface EC2ResourceDetails {
    * <p>The hourly public On-Demand rate for the instance type.</p>
    * @public
    */
-  HourlyOnDemandRate?: string;
+  HourlyOnDemandRate?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services instance.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The platform of the Amazon Web Services instance. The platform is the specific
    *             combination of operating system, license model, and software on an instance.</p>
    * @public
    */
-  Platform?: string;
+  Platform?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the instance.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The SKU of the product.</p>
    * @public
    */
-  Sku?: string;
+  Sku?: string | undefined;
 
   /**
    * <p>The memory capacity of the Amazon Web Services instance.</p>
    * @public
    */
-  Memory?: string;
+  Memory?: string | undefined;
 
   /**
    * <p>The network performance capacity of the Amazon Web Services instance.</p>
    * @public
    */
-  NetworkPerformance?: string;
+  NetworkPerformance?: string | undefined;
 
   /**
    * <p>The disk storage of the Amazon Web Services instance. This doesn't include EBS
    *             storage.</p>
    * @public
    */
-  Storage?: string;
+  Storage?: string | undefined;
 
   /**
    * <p>The number of VCPU cores in the Amazon Web Services instance type.</p>
    * @public
    */
-  Vcpu?: string;
+  Vcpu?: string | undefined;
 }
 
 /**
@@ -3051,7 +3051,7 @@ export interface ResourceDetails {
    * <p>Details for the Amazon EC2 resource.</p>
    * @public
    */
-  EC2ResourceDetails?: EC2ResourceDetails;
+  EC2ResourceDetails?: EC2ResourceDetails | undefined;
 }
 
 /**
@@ -3064,25 +3064,25 @@ export interface DiskResourceUtilization {
    * <p>The maximum number of read operations per second. </p>
    * @public
    */
-  DiskReadOpsPerSecond?: string;
+  DiskReadOpsPerSecond?: string | undefined;
 
   /**
    * <p>The maximum number of write operations per second. </p>
    * @public
    */
-  DiskWriteOpsPerSecond?: string;
+  DiskWriteOpsPerSecond?: string | undefined;
 
   /**
    * <p>The maximum read throughput operations per second. </p>
    * @public
    */
-  DiskReadBytesPerSecond?: string;
+  DiskReadBytesPerSecond?: string | undefined;
 
   /**
    * <p>The maximum write throughput operations per second. </p>
    * @public
    */
-  DiskWriteBytesPerSecond?: string;
+  DiskWriteBytesPerSecond?: string | undefined;
 }
 
 /**
@@ -3095,25 +3095,25 @@ export interface EBSResourceUtilization {
    * <p>The maximum number of read operations per second. </p>
    * @public
    */
-  EbsReadOpsPerSecond?: string;
+  EbsReadOpsPerSecond?: string | undefined;
 
   /**
    * <p>The maximum number of write operations per second. </p>
    * @public
    */
-  EbsWriteOpsPerSecond?: string;
+  EbsWriteOpsPerSecond?: string | undefined;
 
   /**
    * <p>The maximum size of read operations per second </p>
    * @public
    */
-  EbsReadBytesPerSecond?: string;
+  EbsReadBytesPerSecond?: string | undefined;
 
   /**
    * <p>The maximum size of write operations per second. </p>
    * @public
    */
-  EbsWriteBytesPerSecond?: string;
+  EbsWriteBytesPerSecond?: string | undefined;
 }
 
 /**
@@ -3126,26 +3126,26 @@ export interface NetworkResourceUtilization {
    * <p>The network inbound throughput utilization measured in Bytes per second (Bps). </p>
    * @public
    */
-  NetworkInBytesPerSecond?: string;
+  NetworkInBytesPerSecond?: string | undefined;
 
   /**
    * <p>The network outbound throughput utilization measured in Bytes per second (Bps).
    *         </p>
    * @public
    */
-  NetworkOutBytesPerSecond?: string;
+  NetworkOutBytesPerSecond?: string | undefined;
 
   /**
    * <p>The network inbound packets that are measured in packets per second. </p>
    * @public
    */
-  NetworkPacketsInPerSecond?: string;
+  NetworkPacketsInPerSecond?: string | undefined;
 
   /**
    * <p>The network outbound packets that are measured in packets per second. </p>
    * @public
    */
-  NetworkPacketsOutPerSecond?: string;
+  NetworkPacketsOutPerSecond?: string | undefined;
 }
 
 /**
@@ -3157,41 +3157,41 @@ export interface EC2ResourceUtilization {
    * <p>The maximum observed or expected CPU utilization of the instance.</p>
    * @public
    */
-  MaxCpuUtilizationPercentage?: string;
+  MaxCpuUtilizationPercentage?: string | undefined;
 
   /**
    * <p>The maximum observed or expected memory utilization of the instance.</p>
    * @public
    */
-  MaxMemoryUtilizationPercentage?: string;
+  MaxMemoryUtilizationPercentage?: string | undefined;
 
   /**
    * <p>The maximum observed or expected storage utilization of the instance. This doesn't
    *             include EBS storage.</p>
    * @public
    */
-  MaxStorageUtilizationPercentage?: string;
+  MaxStorageUtilizationPercentage?: string | undefined;
 
   /**
    * <p>The EBS field that contains a list of EBS metrics that are associated with the current
    *             instance. </p>
    * @public
    */
-  EBSResourceUtilization?: EBSResourceUtilization;
+  EBSResourceUtilization?: EBSResourceUtilization | undefined;
 
   /**
    * <p>The field that contains a list of disk (local storage) metrics that are associated
    *             with the current instance. </p>
    * @public
    */
-  DiskResourceUtilization?: DiskResourceUtilization;
+  DiskResourceUtilization?: DiskResourceUtilization | undefined;
 
   /**
    * <p>The network field that contains a list of network metrics that are associated with the
    *             current instance. </p>
    * @public
    */
-  NetworkResourceUtilization?: NetworkResourceUtilization;
+  NetworkResourceUtilization?: NetworkResourceUtilization | undefined;
 }
 
 /**
@@ -3203,7 +3203,7 @@ export interface ResourceUtilization {
    * <p>The utilization of current Amazon EC2 instance. </p>
    * @public
    */
-  EC2ResourceUtilization?: EC2ResourceUtilization;
+  EC2ResourceUtilization?: EC2ResourceUtilization | undefined;
 }
 
 /**
@@ -3215,70 +3215,70 @@ export interface CurrentInstance {
    * <p>Resource ID of the current instance.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The name that you given an instance. This field shows as blank if you haven't given
    *             the instance a name.</p>
    * @public
    */
-  InstanceName?: string;
+  InstanceName?: string | undefined;
 
   /**
    * <p>Cost allocation resource tags that are applied to the instance.</p>
    * @public
    */
-  Tags?: TagValues[];
+  Tags?: TagValues[] | undefined;
 
   /**
    * <p>Details about the resource and utilization.</p>
    * @public
    */
-  ResourceDetails?: ResourceDetails;
+  ResourceDetails?: ResourceDetails | undefined;
 
   /**
    * <p>Utilization information of the current instance during the lookback period.</p>
    * @public
    */
-  ResourceUtilization?: ResourceUtilization;
+  ResourceUtilization?: ResourceUtilization | undefined;
 
   /**
    * <p>The number of hours during the lookback period that's covered by reservations.</p>
    * @public
    */
-  ReservationCoveredHoursInLookbackPeriod?: string;
+  ReservationCoveredHoursInLookbackPeriod?: string | undefined;
 
   /**
    * <p>The number of hours during the lookback period that's covered by Savings Plans.</p>
    * @public
    */
-  SavingsPlansCoveredHoursInLookbackPeriod?: string;
+  SavingsPlansCoveredHoursInLookbackPeriod?: string | undefined;
 
   /**
    * <p>The number of hours during the lookback period that's billed at On-Demand
    *             rates.</p>
    * @public
    */
-  OnDemandHoursInLookbackPeriod?: string;
+  OnDemandHoursInLookbackPeriod?: string | undefined;
 
   /**
    * <p>The total number of hours that the instance ran during the lookback period.</p>
    * @public
    */
-  TotalRunningHoursInLookbackPeriod?: string;
+  TotalRunningHoursInLookbackPeriod?: string | undefined;
 
   /**
    * <p>The current On-Demand cost of operating this instance on a monthly basis.</p>
    * @public
    */
-  MonthlyCost?: string;
+  MonthlyCost?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
    *             instance.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 }
 
 /**
@@ -3335,46 +3335,46 @@ export interface TargetInstance {
    * <p>The expected cost to operate this instance type on a monthly basis.</p>
    * @public
    */
-  EstimatedMonthlyCost?: string;
+  EstimatedMonthlyCost?: string | undefined;
 
   /**
    * <p>The estimated savings that result from modification, on a monthly basis.</p>
    * @public
    */
-  EstimatedMonthlySavings?: string;
+  EstimatedMonthlySavings?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
    *             instance.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>Determines whether this recommendation is the defaulted Amazon Web Services
    *             recommendation.</p>
    * @public
    */
-  DefaultTargetInstance?: boolean;
+  DefaultTargetInstance?: boolean | undefined;
 
   /**
    * <p>Details on the target instance type. </p>
    * @public
    */
-  ResourceDetails?: ResourceDetails;
+  ResourceDetails?: ResourceDetails | undefined;
 
   /**
    * <p>The expected utilization metrics for target instance type.</p>
    * @public
    */
-  ExpectedResourceUtilization?: ResourceUtilization;
+  ExpectedResourceUtilization?: ResourceUtilization | undefined;
 
   /**
    * <p>Explains the actions that you might need to take to successfully migrate your
    *             workloads from the current instance type to the recommended instance type. </p>
    * @public
    */
-  PlatformDifferences?: PlatformDifference[];
+  PlatformDifferences?: PlatformDifference[] | undefined;
 }
 
 /**
@@ -3387,7 +3387,7 @@ export interface ModifyRecommendationDetail {
    *             recommendation.</p>
    * @public
    */
-  TargetInstances?: TargetInstance[];
+  TargetInstances?: TargetInstance[] | undefined;
 }
 
 /**
@@ -3413,14 +3413,14 @@ export interface TerminateRecommendationDetail {
    * <p>The estimated savings that result from modification, on a monthly basis.</p>
    * @public
    */
-  EstimatedMonthlySavings?: string;
+  EstimatedMonthlySavings?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
    *             instance.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 }
 
 /**
@@ -3432,39 +3432,39 @@ export interface RightsizingRecommendation {
    * <p>The account that this recommendation is for.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Context
    *             regarding the current instance.</p>
    * @public
    */
-  CurrentInstance?: CurrentInstance;
+  CurrentInstance?: CurrentInstance | undefined;
 
   /**
    * <p>A recommendation to either terminate or modify the resource.</p>
    * @public
    */
-  RightsizingType?: RightsizingType;
+  RightsizingType?: RightsizingType | undefined;
 
   /**
    * <p>The details for the modification recommendations. </p>
    * @public
    */
-  ModifyRecommendationDetail?: ModifyRecommendationDetail;
+  ModifyRecommendationDetail?: ModifyRecommendationDetail | undefined;
 
   /**
    * <p>The details for termination recommendations.</p>
    * @public
    */
-  TerminateRecommendationDetail?: TerminateRecommendationDetail;
+  TerminateRecommendationDetail?: TerminateRecommendationDetail | undefined;
 
   /**
    * <p>The list of possible reasons why the recommendation is generated, such as under- or
    *             over-utilization of specific metrics (for example, CPU, Memory, Network). </p>
    * @public
    */
-  FindingReasonCodes?: FindingReasonCode[];
+  FindingReasonCodes?: FindingReasonCode[] | undefined;
 }
 
 /**
@@ -3476,26 +3476,26 @@ export interface RightsizingRecommendationSummary {
    * <p>The total number of instance recommendations.</p>
    * @public
    */
-  TotalRecommendationCount?: string;
+  TotalRecommendationCount?: string | undefined;
 
   /**
    * <p>The estimated total savings resulting from modifications, on a monthly basis.</p>
    * @public
    */
-  EstimatedTotalMonthlySavingsAmount?: string;
+  EstimatedTotalMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the savings.</p>
    * @public
    */
-  SavingsCurrencyCode?: string;
+  SavingsCurrencyCode?: string | undefined;
 
   /**
    * <p> The savings percentage based on the recommended modifications. It's relative to the
    *             total On-Demand costs that are associated with these instances.</p>
    * @public
    */
-  SavingsPercentage?: string;
+  SavingsPercentage?: string | undefined;
 }
 
 /**
@@ -3506,25 +3506,25 @@ export interface GetRightsizingRecommendationResponse {
    * <p>Information regarding this specific recommendation set.</p>
    * @public
    */
-  Metadata?: RightsizingRecommendationMetadata;
+  Metadata?: RightsizingRecommendationMetadata | undefined;
 
   /**
    * <p>Summary of this recommendation set.</p>
    * @public
    */
-  Summary?: RightsizingRecommendationSummary;
+  Summary?: RightsizingRecommendationSummary | undefined;
 
   /**
    * <p>Recommendations to rightsize resources.</p>
    * @public
    */
-  RightsizingRecommendations?: RightsizingRecommendation[];
+  RightsizingRecommendations?: RightsizingRecommendation[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>You can use Configuration to customize recommendations across two attributes. You can
@@ -3534,7 +3534,7 @@ export interface GetRightsizingRecommendationResponse {
    *       or neither. </p>
    * @public
    */
-  Configuration?: RightsizingRecommendationConfiguration;
+  Configuration?: RightsizingRecommendationConfiguration | undefined;
 }
 
 /**
@@ -3558,33 +3558,33 @@ export interface RecommendationDetailHourlyMetrics {
    * <p>The period of time that you want the usage and costs for.</p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
    *             Plan, over the length of the lookback period.</p>
    * @public
    */
-  EstimatedOnDemandCost?: string;
+  EstimatedOnDemandCost?: string | undefined;
 
   /**
    * <p>The current amount of Savings Plans eligible usage that the Savings Plan
    *             covered.</p>
    * @public
    */
-  CurrentCoverage?: string;
+  CurrentCoverage?: string | undefined;
 
   /**
    * <p>The estimated coverage amount based on the recommended Savings Plan.</p>
    * @public
    */
-  EstimatedCoverage?: string;
+  EstimatedCoverage?: string | undefined;
 
   /**
    * <p>The estimated utilization for the recommended Savings Plan.</p>
    * @public
    */
-  EstimatedNewCommitmentUtilization?: string;
+  EstimatedNewCommitmentUtilization?: string | undefined;
 }
 
 /**
@@ -3614,189 +3614,189 @@ export interface RecommendationDetailData {
    *             individual member accounts only.</p>
    * @public
    */
-  AccountScope?: AccountScope;
+  AccountScope?: AccountScope | undefined;
 
   /**
    * <p>How many days of previous usage that Amazon Web Services considers when making this
    *             recommendation.</p>
    * @public
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays;
+  LookbackPeriodInDays?: LookbackPeriodInDays | undefined;
 
   /**
    * <p>The requested Savings Plan recommendation type.</p>
    * @public
    */
-  SavingsPlansType?: SupportedSavingsPlansType;
+  SavingsPlansType?: SupportedSavingsPlansType | undefined;
 
   /**
    * <p>The term of the commitment in years.</p>
    * @public
    */
-  TermInYears?: TermInYears;
+  TermInYears?: TermInYears | undefined;
 
   /**
    * <p>The payment option for the commitment (for example, All Upfront or No Upfront).</p>
    * @public
    */
-  PaymentOption?: PaymentOption;
+  PaymentOption?: PaymentOption | undefined;
 
   /**
    * <p>The AccountID that the recommendation is generated for.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to generate the recommendation and
    *             present potential savings.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>The instance family of the recommended Savings Plan.</p>
    * @public
    */
-  InstanceFamily?: string;
+  InstanceFamily?: string | undefined;
 
   /**
    * <p>The region the recommendation is generated for.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The unique ID that's used to distinguish Savings Plans from one another.</p>
    * @public
    */
-  OfferingId?: string;
+  OfferingId?: string | undefined;
 
   /**
    * <p>The period of time that you want the usage and costs for.</p>
    * @public
    */
-  GenerationTimestamp?: string;
+  GenerationTimestamp?: string | undefined;
 
   /**
    * <p>The period of time that you want the usage and costs for.</p>
    * @public
    */
-  LatestUsageTimestamp?: string;
+  LatestUsageTimestamp?: string | undefined;
 
   /**
    * <p>The average value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentAverageHourlyOnDemandSpend?: string;
+  CurrentAverageHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>The highest value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentMaximumHourlyOnDemandSpend?: string;
+  CurrentMaximumHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>The lowest value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentMinimumHourlyOnDemandSpend?: string;
+  CurrentMinimumHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>The estimated utilization of the recommended Savings Plan.</p>
    * @public
    */
-  EstimatedAverageUtilization?: string;
+  EstimatedAverageUtilization?: string | undefined;
 
   /**
    * <p>The estimated monthly savings amount based on the recommended Savings Plan.</p>
    * @public
    */
-  EstimatedMonthlySavingsAmount?: string;
+  EstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
    *             Plan, over the length of the lookback period.</p>
    * @public
    */
-  EstimatedOnDemandCost?: string;
+  EstimatedOnDemandCost?: string | undefined;
 
   /**
    * <p>The estimated On-Demand costs you expect with no additional commitment, based on your
    *             usage of the selected time period and the Savings Plan you own.</p>
    * @public
    */
-  EstimatedOnDemandCostWithCurrentCommitment?: string;
+  EstimatedOnDemandCostWithCurrentCommitment?: string | undefined;
 
   /**
    * <p>The estimated return on investment that's based on the recommended Savings Plan that
    *             you purchased. This is calculated as estimatedSavingsAmount/estimatedSPCost*100.</p>
    * @public
    */
-  EstimatedROI?: string;
+  EstimatedROI?: string | undefined;
 
   /**
    * <p>The cost of the recommended Savings Plan over the length of the lookback
    *             period.</p>
    * @public
    */
-  EstimatedSPCost?: string;
+  EstimatedSPCost?: string | undefined;
 
   /**
    * <p>The estimated savings amount that's based on the recommended Savings Plan over the
    *             length of the lookback period.</p>
    * @public
    */
-  EstimatedSavingsAmount?: string;
+  EstimatedSavingsAmount?: string | undefined;
 
   /**
    * <p>The estimated savings percentage relative to the total cost of applicable On-Demand
    *             usage over the lookback period.</p>
    * @public
    */
-  EstimatedSavingsPercentage?: string;
+  EstimatedSavingsPercentage?: string | undefined;
 
   /**
    * <p>The existing hourly commitment for the Savings Plan type.</p>
    * @public
    */
-  ExistingHourlyCommitment?: string;
+  ExistingHourlyCommitment?: string | undefined;
 
   /**
    * <p>The recommended hourly commitment level for the Savings Plan type and the
    *             configuration that's based on the usage during the lookback period.</p>
    * @public
    */
-  HourlyCommitmentToPurchase?: string;
+  HourlyCommitmentToPurchase?: string | undefined;
 
   /**
    * <p>The upfront cost of the recommended Savings Plan, based on the selected payment
    *             option.</p>
    * @public
    */
-  UpfrontCost?: string;
+  UpfrontCost?: string | undefined;
 
   /**
    * <p>The average value of hourly coverage over the lookback period.</p>
    * @public
    */
-  CurrentAverageCoverage?: string;
+  CurrentAverageCoverage?: string | undefined;
 
   /**
    * <p>The estimated coverage of the recommended Savings Plan.</p>
    * @public
    */
-  EstimatedAverageCoverage?: string;
+  EstimatedAverageCoverage?: string | undefined;
 
   /**
    * <p>The related hourly cost, coverage, and utilization metrics over the lookback
    *             period.</p>
    * @public
    */
-  MetricsOverLookbackPeriod?: RecommendationDetailHourlyMetrics[];
+  MetricsOverLookbackPeriod?: RecommendationDetailHourlyMetrics[] | undefined;
 }
 
 /**
@@ -3807,13 +3807,13 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsResponse {
    * <p>The ID that is associated with the Savings Plan recommendation.</p>
    * @public
    */
-  RecommendationDetailId?: string;
+  RecommendationDetailId?: string | undefined;
 
   /**
    * <p>Contains detailed information about a specific Savings Plan recommendation.</p>
    * @public
    */
-  RecommendationDetailData?: RecommendationDetailData;
+  RecommendationDetailData?: RecommendationDetailData | undefined;
 }
 
 /**
@@ -3826,27 +3826,27 @@ export interface SavingsPlansCoverageData {
    * <p>The amount of your Amazon Web Services usage that's covered by a Savings Plans.</p>
    * @public
    */
-  SpendCoveredBySavingsPlans?: string;
+  SpendCoveredBySavingsPlans?: string | undefined;
 
   /**
    * <p>The cost of your Amazon Web Services usage at the public On-Demand rate.</p>
    * @public
    */
-  OnDemandCost?: string;
+  OnDemandCost?: string | undefined;
 
   /**
    * <p>The total cost of your Amazon Web Services usage, regardless of your purchase
    *             option.</p>
    * @public
    */
-  TotalCost?: string;
+  TotalCost?: string | undefined;
 
   /**
    * <p>The percentage of your existing Savings Plans covered usage, divided by all of your
    *             eligible Savings Plans usage in an account (or set of accounts).</p>
    * @public
    */
-  CoveragePercentage?: string;
+  CoveragePercentage?: string | undefined;
 }
 
 /**
@@ -3859,19 +3859,19 @@ export interface SavingsPlansCoverage {
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The amount of Savings Plans eligible usage that the Savings Plans covered.</p>
    * @public
    */
-  Coverage?: SavingsPlansCoverageData;
+  Coverage?: SavingsPlansCoverageData | undefined;
 
   /**
    * <p>The time period of the request. </p>
    * @public
    */
-  TimePeriod?: DateInterval;
+  TimePeriod?: DateInterval | undefined;
 }
 
 /**
@@ -3889,7 +3889,7 @@ export interface GetSavingsPlansCoverageResponse {
    *       the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3901,19 +3901,19 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
    * <p>The unique identifier for the recommendation set.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>The timestamp that shows when the recommendations were generated.</p>
    * @public
    */
-  GenerationTimestamp?: string;
+  GenerationTimestamp?: string | undefined;
 
   /**
    * <p>Additional metadata that might be applicable to the recommendation.</p>
    * @public
    */
-  AdditionalMetadata?: string;
+  AdditionalMetadata?: string | undefined;
 }
 
 /**
@@ -3925,19 +3925,19 @@ export interface SavingsPlansDetails {
    * <p>A collection of Amazon Web Services resources in a geographic area. Each Amazon Web Services Region is isolated and independent of the other Regions.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>A group of instance types that Savings Plans applies to.</p>
    * @public
    */
-  InstanceFamily?: string;
+  InstanceFamily?: string | undefined;
 
   /**
    * <p>The unique ID that's used to distinguish Savings Plans from one another.</p>
    * @public
    */
-  OfferingId?: string;
+  OfferingId?: string | undefined;
 }
 
 /**
@@ -3949,20 +3949,20 @@ export interface SavingsPlansPurchaseRecommendationDetail {
    * <p>Details for your recommended Savings Plans.</p>
    * @public
    */
-  SavingsPlansDetails?: SavingsPlansDetails;
+  SavingsPlansDetails?: SavingsPlansDetails | undefined;
 
   /**
    * <p>The <code>AccountID</code> the recommendation is generated for.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The upfront cost of the recommended Savings Plans, based on the selected payment
    *             option.</p>
    * @public
    */
-  UpfrontCost?: string;
+  UpfrontCost?: string | undefined;
 
   /**
    * <p>The estimated return on investment that's based on the recommended Savings Plans that
@@ -3970,95 +3970,95 @@ export interface SavingsPlansPurchaseRecommendationDetail {
    *                 <code>estimatedSPCost</code>*100.</p>
    * @public
    */
-  EstimatedROI?: string;
+  EstimatedROI?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to generate the recommendations and
    *             present potential savings.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>The cost of the recommended Savings Plans over the length of the lookback
    *             period.</p>
    * @public
    */
-  EstimatedSPCost?: string;
+  EstimatedSPCost?: string | undefined;
 
   /**
    * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
    *             Plans, over the length of the lookback period.</p>
    * @public
    */
-  EstimatedOnDemandCost?: string;
+  EstimatedOnDemandCost?: string | undefined;
 
   /**
    * <p> The estimated On-Demand costs you expect with no additional commitment, based on your
    *             usage of the selected time period and the Savings Plans you own. </p>
    * @public
    */
-  EstimatedOnDemandCostWithCurrentCommitment?: string;
+  EstimatedOnDemandCostWithCurrentCommitment?: string | undefined;
 
   /**
    * <p>The estimated savings amount that's based on the recommended Savings Plans over the
    *             length of the lookback period.</p>
    * @public
    */
-  EstimatedSavingsAmount?: string;
+  EstimatedSavingsAmount?: string | undefined;
 
   /**
    * <p>The estimated savings percentage relative to the total cost of applicable On-Demand
    *             usage over the lookback period.</p>
    * @public
    */
-  EstimatedSavingsPercentage?: string;
+  EstimatedSavingsPercentage?: string | undefined;
 
   /**
    * <p>The recommended hourly commitment level for the Savings Plans type and the
    *             configuration that's based on the usage during the lookback period.</p>
    * @public
    */
-  HourlyCommitmentToPurchase?: string;
+  HourlyCommitmentToPurchase?: string | undefined;
 
   /**
    * <p>The estimated utilization of the recommended Savings Plans.</p>
    * @public
    */
-  EstimatedAverageUtilization?: string;
+  EstimatedAverageUtilization?: string | undefined;
 
   /**
    * <p>The estimated monthly savings amount based on the recommended Savings Plans.</p>
    * @public
    */
-  EstimatedMonthlySavingsAmount?: string;
+  EstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>The lowest value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentMinimumHourlyOnDemandSpend?: string;
+  CurrentMinimumHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>The highest value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentMaximumHourlyOnDemandSpend?: string;
+  CurrentMaximumHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>The average value of hourly On-Demand spend over the lookback period of the applicable
    *             usage type.</p>
    * @public
    */
-  CurrentAverageHourlyOnDemandSpend?: string;
+  CurrentAverageHourlyOnDemandSpend?: string | undefined;
 
   /**
    * <p>Contains detailed information about a specific Savings Plan recommendation.</p>
    * @public
    */
-  RecommendationDetailId?: string;
+  RecommendationDetailId?: string | undefined;
 }
 
 /**
@@ -4071,14 +4071,14 @@ export interface SavingsPlansPurchaseRecommendationSummary {
    *             estimated savings.</p>
    * @public
    */
-  EstimatedROI?: string;
+  EstimatedROI?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to generate the recommendations and
    *             present potential savings.</p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>The estimated total cost of the usage after purchasing the recommended Savings Plans.
@@ -4086,41 +4086,41 @@ export interface SavingsPlansPurchaseRecommendationSummary {
    *             usage.</p>
    * @public
    */
-  EstimatedTotalCost?: string;
+  EstimatedTotalCost?: string | undefined;
 
   /**
    * <p>The current total on demand spend of the applicable usage types over the lookback
    *             period.</p>
    * @public
    */
-  CurrentOnDemandSpend?: string;
+  CurrentOnDemandSpend?: string | undefined;
 
   /**
    * <p>The estimated total savings over the lookback period, based on the purchase of the
    *             recommended Savings Plans.</p>
    * @public
    */
-  EstimatedSavingsAmount?: string;
+  EstimatedSavingsAmount?: string | undefined;
 
   /**
    * <p>The aggregate number of Savings Plans recommendations that exist for your
    *             account.</p>
    * @public
    */
-  TotalRecommendationCount?: string;
+  TotalRecommendationCount?: string | undefined;
 
   /**
    * <p>The recommended Savings Plans cost on a daily (24 hourly) basis.</p>
    * @public
    */
-  DailyCommitmentToPurchase?: string;
+  DailyCommitmentToPurchase?: string | undefined;
 
   /**
    * <p>The recommended hourly commitment that's based on the recommendation
    *             parameters.</p>
    * @public
    */
-  HourlyCommitmentToPurchase?: string;
+  HourlyCommitmentToPurchase?: string | undefined;
 
   /**
    * <p>The estimated savings relative to the total cost of On-Demand usage, over the lookback
@@ -4128,21 +4128,21 @@ export interface SavingsPlansPurchaseRecommendationSummary {
    *                 <code>CurrentOnDemandSpend</code>*100.</p>
    * @public
    */
-  EstimatedSavingsPercentage?: string;
+  EstimatedSavingsPercentage?: string | undefined;
 
   /**
    * <p>The estimated monthly savings amount that's based on the recommended Savings Plans
    *             purchase.</p>
    * @public
    */
-  EstimatedMonthlySavingsAmount?: string;
+  EstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
    * <p>The estimated On-Demand costs you expect with no additional commitment. It's based on
    *             your usage of the selected time period and the Savings Plans you own. </p>
    * @public
    */
-  EstimatedOnDemandCostWithCurrentCommitment?: string;
+  EstimatedOnDemandCostWithCurrentCommitment?: string | undefined;
 }
 
 /**
@@ -4158,45 +4158,45 @@ export interface SavingsPlansPurchaseRecommendation {
    *             recommendations are calculated for individual member accounts only.</p>
    * @public
    */
-  AccountScope?: AccountScope;
+  AccountScope?: AccountScope | undefined;
 
   /**
    * <p>The requested Savings Plans recommendation type.</p>
    * @public
    */
-  SavingsPlansType?: SupportedSavingsPlansType;
+  SavingsPlansType?: SupportedSavingsPlansType | undefined;
 
   /**
    * <p>The Savings Plans recommendation term in years. It's used to generate the
    *             recommendation.</p>
    * @public
    */
-  TermInYears?: TermInYears;
+  TermInYears?: TermInYears | undefined;
 
   /**
    * <p>The payment option that's used to generate the recommendation.</p>
    * @public
    */
-  PaymentOption?: PaymentOption;
+  PaymentOption?: PaymentOption | undefined;
 
   /**
    * <p>The lookback period in days that's used to generate the recommendation.</p>
    * @public
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays;
+  LookbackPeriodInDays?: LookbackPeriodInDays | undefined;
 
   /**
    * <p>Details for the Savings Plans that we recommend that you purchase to cover existing
    *             Savings Plans eligible workloads.</p>
    * @public
    */
-  SavingsPlansPurchaseRecommendationDetails?: SavingsPlansPurchaseRecommendationDetail[];
+  SavingsPlansPurchaseRecommendationDetails?: SavingsPlansPurchaseRecommendationDetail[] | undefined;
 
   /**
    * <p>Summary metrics for your Savings Plans Recommendations. </p>
    * @public
    */
-  SavingsPlansPurchaseRecommendationSummary?: SavingsPlansPurchaseRecommendationSummary;
+  SavingsPlansPurchaseRecommendationSummary?: SavingsPlansPurchaseRecommendationSummary | undefined;
 }
 
 /**
@@ -4207,21 +4207,21 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
    * <p>Information that regards this specific recommendation set.</p>
    * @public
    */
-  Metadata?: SavingsPlansPurchaseRecommendationMetadata;
+  Metadata?: SavingsPlansPurchaseRecommendationMetadata | undefined;
 
   /**
    * <p>Contains your request parameters, Savings Plan Recommendations Summary, and
    *       Details.</p>
    * @public
    */
-  SavingsPlansPurchaseRecommendation?: SavingsPlansPurchaseRecommendation;
+  SavingsPlansPurchaseRecommendation?: SavingsPlansPurchaseRecommendation | undefined;
 
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -4235,21 +4235,21 @@ export interface SavingsPlansAmortizedCommitment {
    *                 <code>Partial</code> or a <code>NoUpfront</code>.</p>
    * @public
    */
-  AmortizedRecurringCommitment?: string;
+  AmortizedRecurringCommitment?: string | undefined;
 
   /**
    * <p>The amortized amount of your Savings Plans commitment that was purchased with an
    *                 <code>Upfront</code> or <code>PartialUpfront</code> Savings Plans.</p>
    * @public
    */
-  AmortizedUpfrontCommitment?: string;
+  AmortizedUpfrontCommitment?: string | undefined;
 
   /**
    * <p>The total amortized amount of your Savings Plans commitment, regardless of your
    *             Savings Plans purchase method. </p>
    * @public
    */
-  TotalAmortizedCommitment?: string;
+  TotalAmortizedCommitment?: string | undefined;
 }
 
 /**
@@ -4263,14 +4263,14 @@ export interface SavingsPlansSavings {
    *             Plans, when compared to the On-Demand equivalent of the same usage.</p>
    * @public
    */
-  NetSavings?: string;
+  NetSavings?: string | undefined;
 
   /**
    * <p>How much the amount that the usage would have cost if it was accrued at the On-Demand
    *             rate.</p>
    * @public
    */
-  OnDemandCostEquivalent?: string;
+  OnDemandCostEquivalent?: string | undefined;
 }
 
 /**
@@ -4283,28 +4283,28 @@ export interface SavingsPlansUtilization {
    *             set of accounts).</p>
    * @public
    */
-  TotalCommitment?: string;
+  TotalCommitment?: string | undefined;
 
   /**
    * <p>The amount of your Savings Plans commitment that was consumed from Savings Plans
    *             eligible usage in a specific period.</p>
    * @public
    */
-  UsedCommitment?: string;
+  UsedCommitment?: string | undefined;
 
   /**
    * <p>The amount of your Savings Plans commitment that wasn't consumed from Savings Plans
    *             eligible usage in a specific period.</p>
    * @public
    */
-  UnusedCommitment?: string;
+  UnusedCommitment?: string | undefined;
 
   /**
    * <p>The amount of <code>UsedCommitment</code> divided by the <code>TotalCommitment</code>
    *             for your Savings Plans.</p>
    * @public
    */
-  UtilizationPercentage?: string;
+  UtilizationPercentage?: string | undefined;
 }
 
 /**
@@ -4331,14 +4331,14 @@ export interface SavingsPlansUtilizationByTime {
    *             Savings Plans when considering the utilization rate.</p>
    * @public
    */
-  Savings?: SavingsPlansSavings;
+  Savings?: SavingsPlansSavings | undefined;
 
   /**
    * <p>The total amortized commitment for a Savings Plans. This includes the sum of the
    *             upfront and recurring Savings Plans fees.</p>
    * @public
    */
-  AmortizedCommitment?: SavingsPlansAmortizedCommitment;
+  AmortizedCommitment?: SavingsPlansAmortizedCommitment | undefined;
 }
 
 /**
@@ -4359,14 +4359,14 @@ export interface SavingsPlansUtilizationAggregates {
    *             Savings Plans when considering the utilization rate.</p>
    * @public
    */
-  Savings?: SavingsPlansSavings;
+  Savings?: SavingsPlansSavings | undefined;
 
   /**
    * <p>The total amortized commitment for a Savings Plans. This includes the sum of the
    *             upfront and recurring Savings Plans fees.</p>
    * @public
    */
-  AmortizedCommitment?: SavingsPlansAmortizedCommitment;
+  AmortizedCommitment?: SavingsPlansAmortizedCommitment | undefined;
 }
 
 /**
@@ -4378,7 +4378,7 @@ export interface GetSavingsPlansUtilizationResponse {
    *       date ranges.</p>
    * @public
    */
-  SavingsPlansUtilizationsByTime?: SavingsPlansUtilizationByTime[];
+  SavingsPlansUtilizationsByTime?: SavingsPlansUtilizationByTime[] | undefined;
 
   /**
    * <p>The total amount of cost/commitment that you used your Savings Plans, regardless of date
@@ -4415,20 +4415,20 @@ export interface SavingsPlansUtilizationDetail {
    * <p>The unique Amazon Resource Name (ARN) for a particular Savings Plan.</p>
    * @public
    */
-  SavingsPlanArn?: string;
+  SavingsPlanArn?: string | undefined;
 
   /**
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>A ratio of your effectiveness of using existing Savings Plans to apply to workloads
    *             that are Savings Plans eligible.</p>
    * @public
    */
-  Utilization?: SavingsPlansUtilization;
+  Utilization?: SavingsPlansUtilization | undefined;
 
   /**
    * <p>The amount saved by using existing Savings Plans. Savings returns both net savings
@@ -4436,14 +4436,14 @@ export interface SavingsPlansUtilizationDetail {
    *             when considering the utilization rate.</p>
    * @public
    */
-  Savings?: SavingsPlansSavings;
+  Savings?: SavingsPlansSavings | undefined;
 
   /**
    * <p>The total amortized commitment for a Savings Plans. Includes the sum of the upfront
    *             and recurring Savings Plans fees.</p>
    * @public
    */
-  AmortizedCommitment?: SavingsPlansAmortizedCommitment;
+  AmortizedCommitment?: SavingsPlansAmortizedCommitment | undefined;
 }
 
 /**
@@ -4461,7 +4461,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
    * <p>The total Savings Plans utilization, regardless of time period.</p>
    * @public
    */
-  Total?: SavingsPlansUtilizationAggregates;
+  Total?: SavingsPlansUtilizationAggregates | undefined;
 
   /**
    * <p>The time period of the request. </p>
@@ -4474,7 +4474,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
    *       the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4486,7 +4486,7 @@ export interface GetTagsResponse {
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The tags that match your request.</p>
@@ -4515,14 +4515,14 @@ export interface GetUsageForecastResponse {
    * <p>How much you're forecasted to use over the forecast period.</p>
    * @public
    */
-  Total?: MetricValue;
+  Total?: MetricValue | undefined;
 
   /**
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a
    *       list of days. For <code>MONTHLY</code> forecasts, this is a list of months.</p>
    * @public
    */
-  ForecastResultsByTime?: ForecastResult[];
+  ForecastResultsByTime?: ForecastResult[] | undefined;
 }
 
 /**
@@ -4534,7 +4534,7 @@ export interface GetUsageForecastResponse {
 export class UnresolvableUsageUnitException extends __BaseException {
   readonly name: "UnresolvableUsageUnitException" = "UnresolvableUsageUnitException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4559,7 +4559,7 @@ export interface ListCostAllocationTagBackfillHistoryRequest {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -4567,7 +4567,7 @@ export interface ListCostAllocationTagBackfillHistoryRequest {
    *     </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4598,7 +4598,7 @@ export interface CostAllocationTagBackfillRequest {
    *         </p>
    * @public
    */
-  BackfillFrom?: string;
+  BackfillFrom?: string | undefined;
 
   /**
    * <p>
@@ -4606,7 +4606,7 @@ export interface CostAllocationTagBackfillRequest {
    *         </p>
    * @public
    */
-  RequestedAt?: string;
+  RequestedAt?: string | undefined;
 
   /**
    * <p>
@@ -4614,7 +4614,7 @@ export interface CostAllocationTagBackfillRequest {
    *         </p>
    * @public
    */
-  CompletedAt?: string;
+  CompletedAt?: string | undefined;
 
   /**
    * <p>
@@ -4622,7 +4622,7 @@ export interface CostAllocationTagBackfillRequest {
    *         </p>
    * @public
    */
-  BackfillStatus?: CostAllocationTagBackfillStatus;
+  BackfillStatus?: CostAllocationTagBackfillStatus | undefined;
 
   /**
    * <p>
@@ -4630,7 +4630,7 @@ export interface CostAllocationTagBackfillRequest {
    *         </p>
    * @public
    */
-  LastUpdatedAt?: string;
+  LastUpdatedAt?: string | undefined;
 }
 
 /**
@@ -4643,7 +4643,7 @@ export interface ListCostAllocationTagBackfillHistoryResponse {
    *     </p>
    * @public
    */
-  BackfillRequests?: CostAllocationTagBackfillRequest[];
+  BackfillRequests?: CostAllocationTagBackfillRequest[] | undefined;
 
   /**
    * <p>
@@ -4651,7 +4651,7 @@ export interface ListCostAllocationTagBackfillHistoryResponse {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4690,13 +4690,13 @@ export interface ListCostAllocationTagsRequest {
    * <p>The status of cost allocation tag keys that are returned for this request. </p>
    * @public
    */
-  Status?: CostAllocationTagStatus;
+  Status?: CostAllocationTagStatus | undefined;
 
   /**
    * <p>The list of cost allocation tag keys that are returned for this request. </p>
    * @public
    */
-  TagKeys?: string[];
+  TagKeys?: string[] | undefined;
 
   /**
    * <p>The type of <code>CostAllocationTag</code> object that are returned for this request. The
@@ -4706,21 +4706,21 @@ export interface ListCostAllocationTagsRequest {
    *     </p>
    * @public
    */
-  Type?: CostAllocationTagType;
+  Type?: CostAllocationTagType | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects that are returned for this request. By default, the request
    *       returns 100 results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4755,13 +4755,13 @@ export interface CostAllocationTag {
    * <p>The last date that the tag was either activated or deactivated.</p>
    * @public
    */
-  LastUpdatedDate?: string;
+  LastUpdatedDate?: string | undefined;
 
   /**
    * <p>The last month that the tag was used on an Amazon Web Services resource.</p>
    * @public
    */
-  LastUsedDate?: string;
+  LastUsedDate?: string | undefined;
 }
 
 /**
@@ -4772,14 +4772,14 @@ export interface ListCostAllocationTagsResponse {
    * <p>A list of cost allocation tags that includes the detailed metadata for each one. </p>
    * @public
    */
-  CostAllocationTags?: CostAllocationTag[];
+  CostAllocationTags?: CostAllocationTag[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4790,20 +4790,20 @@ export interface ListCostCategoryDefinitionsRequest {
    * <p>The date when the Cost Category was effective. </p>
    * @public
    */
-  EffectiveOn?: string;
+  EffectiveOn?: string | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of entries a paginated response contains. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4818,51 +4818,51 @@ export interface CostCategoryReference {
    * <p>The unique identifier for your Cost Category. </p>
    * @public
    */
-  CostCategoryArn?: string;
+  CostCategoryArn?: string | undefined;
 
   /**
    * <p>The unique name of the Cost Category.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Cost Category's effective start date.</p>
    * @public
    */
-  EffectiveStart?: string;
+  EffectiveStart?: string | undefined;
 
   /**
    * <p>The Cost Category's effective end date.</p>
    * @public
    */
-  EffectiveEnd?: string;
+  EffectiveEnd?: string | undefined;
 
   /**
    * <p>The number of rules that are associated with a specific Cost Category. </p>
    * @public
    */
-  NumberOfRules?: number;
+  NumberOfRules?: number | undefined;
 
   /**
    * <p>The list of processing statuses for Cost Management products for a specific cost
    *             category. </p>
    * @public
    */
-  ProcessingStatus?: CostCategoryProcessingStatus[];
+  ProcessingStatus?: CostCategoryProcessingStatus[] | undefined;
 
   /**
    * <p>A list of unique cost category values in a specific cost category. </p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p>The
    *             default value for the cost category.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 }
 
 /**
@@ -4874,14 +4874,14 @@ export interface ListCostCategoryDefinitionsResponse {
    *       Category. </p>
    * @public
    */
-  CostCategoryReferences?: CostCategoryReference[];
+  CostCategoryReferences?: CostCategoryReference[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4907,25 +4907,25 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
    * <p>The status of the recommendation generation.</p>
    * @public
    */
-  GenerationStatus?: GenerationStatus;
+  GenerationStatus?: GenerationStatus | undefined;
 
   /**
    * <p>The IDs for each specific recommendation.</p>
    * @public
    */
-  RecommendationIds?: string[];
+  RecommendationIds?: string[] | undefined;
 
   /**
    * <p>The number of recommendations that you want returned in a single response object.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -4937,33 +4937,33 @@ export interface GenerationSummary {
    * <p>Indicates the ID for this specific recommendation.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>Indicates whether the recommendation generation succeeded, is processing, or
    *             failed.</p>
    * @public
    */
-  GenerationStatus?: GenerationStatus;
+  GenerationStatus?: GenerationStatus | undefined;
 
   /**
    * <p>Indicates the start time of the recommendation generation.</p>
    * @public
    */
-  GenerationStartedTime?: string;
+  GenerationStartedTime?: string | undefined;
 
   /**
    * <p>Indicates the completion time of the recommendation generation.</p>
    * @public
    */
-  GenerationCompletionTime?: string;
+  GenerationCompletionTime?: string | undefined;
 
   /**
    * <p>Indicates the estimated time for when the recommendation generation will
    *             complete.</p>
    * @public
    */
-  EstimatedCompletionTime?: string;
+  EstimatedCompletionTime?: string | undefined;
 }
 
 /**
@@ -4974,13 +4974,13 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationResponse {
    * <p>The list of historical recommendation generations.</p>
    * @public
    */
-  GenerationSummaryList?: GenerationSummary[];
+  GenerationSummaryList?: GenerationSummary[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5003,7 +5003,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tag key value pairs that are associated with the resource. </p>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -5044,7 +5044,7 @@ export interface ProvideAnomalyFeedbackResponse {
 export class BackfillLimitExceededException extends __BaseException {
   readonly name: "BackfillLimitExceededException" = "BackfillLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5081,7 +5081,7 @@ export interface StartCostAllocationTagBackfillResponse {
    *     </p>
    * @public
    */
-  BackfillRequest?: CostAllocationTagBackfillRequest;
+  BackfillRequest?: CostAllocationTagBackfillRequest | undefined;
 }
 
 /**
@@ -5091,7 +5091,7 @@ export interface StartCostAllocationTagBackfillResponse {
 export class GenerationExistsException extends __BaseException {
   readonly name: "GenerationExistsException" = "GenerationExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5119,19 +5119,19 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationResponse {
    * <p>The ID for this specific recommendation.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>The start time of the recommendation generation.</p>
    * @public
    */
-  GenerationStartedTime?: string;
+  GenerationStartedTime?: string | undefined;
 
   /**
    * <p>The estimated time for when the recommendation generation will complete.</p>
    * @public
    */
-  EstimatedCompletionTime?: string;
+  EstimatedCompletionTime?: string | undefined;
 }
 
 /**
@@ -5195,8 +5195,8 @@ export interface TagResourceResponse {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  ResourceName?: string;
+  Message?: string | undefined;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -5253,7 +5253,7 @@ export interface UpdateAnomalyMonitorRequest {
    * <p>The new name for the cost anomaly monitor. </p>
    * @public
    */
-  MonitorName?: string;
+  MonitorName?: string | undefined;
 }
 
 /**
@@ -5319,19 +5319,19 @@ export interface UpdateCostAllocationTagsStatusError {
    * <p>The key for the cost allocation tag. </p>
    * @public
    */
-  TagKey?: string;
+  TagKey?: string | undefined;
 
   /**
    * <p>An error code representing why the action failed on this entry. </p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A message explaining why the action failed on this entry. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -5344,7 +5344,7 @@ export interface UpdateCostAllocationTagsStatusResponse {
    *       returns. </p>
    * @public
    */
-  Errors?: UpdateCostAllocationTagsStatusError[];
+  Errors?: UpdateCostAllocationTagsStatusError[] | undefined;
 }
 
 /**
@@ -5355,13 +5355,13 @@ export interface UpdateCostCategoryDefinitionResponse {
    * <p>The unique identifier for your Cost Category. </p>
    * @public
    */
-  CostCategoryArn?: string;
+  CostCategoryArn?: string | undefined;
 
   /**
    * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
    * @public
    */
-  EffectiveStart?: string;
+  EffectiveStart?: string | undefined;
 }
 
 /**
@@ -5494,37 +5494,37 @@ export interface Expression {
    * <p>Return results that match either <code>Dimension</code> object.</p>
    * @public
    */
-  Or?: Expression[];
+  Or?: Expression[] | undefined;
 
   /**
    * <p>Return results that match both <code>Dimension</code> objects.</p>
    * @public
    */
-  And?: Expression[];
+  And?: Expression[] | undefined;
 
   /**
    * <p>Return results that don't match a <code>Dimension</code> object.</p>
    * @public
    */
-  Not?: Expression;
+  Not?: Expression | undefined;
 
   /**
    * <p>The specific <code>Dimension</code> to use for <code>Expression</code>.</p>
    * @public
    */
-  Dimensions?: DimensionValues;
+  Dimensions?: DimensionValues | undefined;
 
   /**
    * <p>The specific <code>Tag</code> to use for <code>Expression</code>.</p>
    * @public
    */
-  Tags?: TagValues;
+  Tags?: TagValues | undefined;
 
   /**
    * <p>The filter that's based on <code>CostCategory</code> values.</p>
    * @public
    */
-  CostCategories?: CostCategoryValues;
+  CostCategories?: CostCategoryValues | undefined;
 }
 
 /**
@@ -5538,7 +5538,7 @@ export interface AnomalyMonitor {
    * <p>The Amazon Resource Name (ARN) value. </p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The name of the monitor. </p>
@@ -5550,19 +5550,19 @@ export interface AnomalyMonitor {
    * <p>The date when the monitor was created. </p>
    * @public
    */
-  CreationDate?: string;
+  CreationDate?: string | undefined;
 
   /**
    * <p>The date when the monitor was last updated. </p>
    * @public
    */
-  LastUpdatedDate?: string;
+  LastUpdatedDate?: string | undefined;
 
   /**
    * <p>The date when the monitor last evaluated for anomalies. </p>
    * @public
    */
-  LastEvaluatedDate?: string;
+  LastEvaluatedDate?: string | undefined;
 
   /**
    * <p>The possible type values. </p>
@@ -5574,7 +5574,7 @@ export interface AnomalyMonitor {
    * <p>The dimensions to evaluate. </p>
    * @public
    */
-  MonitorDimension?: MonitorDimension;
+  MonitorDimension?: MonitorDimension | undefined;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -5701,13 +5701,13 @@ export interface AnomalyMonitor {
    *          </note>
    * @public
    */
-  MonitorSpecification?: Expression;
+  MonitorSpecification?: Expression | undefined;
 
   /**
    * <p>The value for evaluated dimensions. </p>
    * @public
    */
-  DimensionalValueCount?: number;
+  DimensionalValueCount?: number | undefined;
 }
 
 /**
@@ -5733,13 +5733,13 @@ export interface AnomalySubscription {
    * <p>The <code>AnomalySubscription</code> Amazon Resource Name (ARN). </p>
    * @public
    */
-  SubscriptionArn?: string;
+  SubscriptionArn?: string | undefined;
 
   /**
    * <p>Your unique account identifier. </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>A list of cost anomaly monitors. </p>
@@ -5767,7 +5767,7 @@ export interface AnomalySubscription {
    *             specify both.</p>
    * @public
    */
-  Threshold?: number;
+  Threshold?: number | undefined;
 
   /**
    * <p>The frequency that anomaly notifications are sent. Notifications are sent either over
@@ -5831,7 +5831,7 @@ export interface AnomalySubscription {
    *          </ul>
    * @public
    */
-  ThresholdExpression?: Expression;
+  ThresholdExpression?: Expression | undefined;
 }
 
 /**
@@ -5845,7 +5845,7 @@ export interface CostCategoryRule {
    *             default value for the cost category.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
@@ -5861,14 +5861,14 @@ export interface CostCategoryRule {
    *                 Guide</i>.</p>
    * @public
    */
-  Rule?: Expression;
+  Rule?: Expression | undefined;
 
   /**
    * <p>The value the line item is categorized as if the line item contains the matched
    *             dimension.</p>
    * @public
    */
-  InheritedValue?: CostCategoryInheritedValueDimension;
+  InheritedValue?: CostCategoryInheritedValueDimension | undefined;
 
   /**
    * <p>You can define the <code>CostCategoryRule</code> rule type as either
@@ -5881,7 +5881,7 @@ export interface CostCategoryRule {
    *             specify the tag key to use.</p>
    * @public
    */
-  Type?: CostCategoryRuleType;
+  Type?: CostCategoryRuleType | undefined;
 }
 
 /**
@@ -5920,7 +5920,7 @@ export interface GetCostAndUsageRequest {
    *         <code>CASE_SENSITIVE</code>.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>Which metrics are returned in the query. For more information about blended and
@@ -5956,14 +5956,14 @@ export interface GetCostAndUsageRequest {
    *       tag values, including empty strings.</p>
    * @public
    */
-  GroupBy?: GroupDefinition[];
+  GroupBy?: GroupDefinition[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6029,21 +6029,21 @@ export interface GetCostAndUsageWithResourcesRequest {
    *       requests.</p>
    * @public
    */
-  Metrics?: string[];
+  Metrics?: string[] | undefined;
 
   /**
    * <p>You can group Amazon Web Services costs using up to two different groups:
    *         <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>.</p>
    * @public
    */
-  GroupBy?: GroupDefinition[];
+  GroupBy?: GroupDefinition[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6058,7 +6058,7 @@ export interface GetCostCategoriesRequest {
    *       values that match the <code>SearchString</code> pattern.</p>
    * @public
    */
-  SearchString?: string;
+  SearchString?: string | undefined;
 
   /**
    * <p>The time period of the request. </p>
@@ -6070,7 +6070,7 @@ export interface GetCostCategoriesRequest {
    * <p>The unique name of the Cost Category.</p>
    * @public
    */
-  CostCategoryName?: string;
+  CostCategoryName?: string | undefined;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -6197,7 +6197,7 @@ export interface GetCostCategoriesRequest {
    *          </note>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The value that you sort the data by.</p>
@@ -6245,7 +6245,7 @@ export interface GetCostCategoriesRequest {
    *         <code>SearchString</code> key values aren't supported.</p>
    * @public
    */
-  SortBy?: SortDefinition[];
+  SortBy?: SortDefinition[] | undefined;
 
   /**
    * <p>This field is only used when the <code>SortBy</code> value is provided in the
@@ -6256,14 +6256,14 @@ export interface GetCostCategoriesRequest {
    *          <p>For <code>GetCostCategories</code>, MaxResults has an upper quota of 1000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the number of objects that are still available for retrieval exceeds the quota, Amazon Web Services returns a NextPageToken value in the response. To retrieve the next batch of
    *       objects, provide the NextPageToken from the previous call in your next request.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6434,7 +6434,7 @@ export interface GetCostForecastRequest {
    *          </ul>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>Cost Explorer always returns the mean forecast as a single point. You can request a
@@ -6443,7 +6443,7 @@ export interface GetCostForecastRequest {
    *       prediction interval. Higher confidence levels result in wider prediction intervals.</p>
    * @public
    */
-  PredictionIntervalLevel?: number;
+  PredictionIntervalLevel?: number | undefined;
 }
 
 /**
@@ -6454,7 +6454,7 @@ export interface GetDimensionValuesRequest {
    * <p>The value that you want to search the filter values for.</p>
    * @public
    */
-  SearchString?: string;
+  SearchString?: string | undefined;
 
   /**
    * <p>The start date and end date for retrieving the dimension values. The start date is
@@ -6654,7 +6654,7 @@ export interface GetDimensionValuesRequest {
    *          </ul>
    * @public
    */
-  Context?: Context;
+  Context?: Context | undefined;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -6781,7 +6781,7 @@ export interface GetDimensionValuesRequest {
    *          </note>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -6830,7 +6830,7 @@ export interface GetDimensionValuesRequest {
    *         <code>NextPageToken</code> and <code>SearchString</code> aren't supported.</p>
    * @public
    */
-  SortBy?: SortDefinition[];
+  SortBy?: SortDefinition[] | undefined;
 
   /**
    * <p>This field is only used when SortBy is provided in the request. The maximum number of
@@ -6839,14 +6839,14 @@ export interface GetDimensionValuesRequest {
    *          <p>For <code>GetDimensionValues</code>, MaxResults has an upper limit of 1000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6906,7 +6906,7 @@ export interface GetReservationCoverageRequest {
    *          </ul>
    * @public
    */
-  GroupBy?: GroupDefinition[];
+  GroupBy?: GroupDefinition[] | undefined;
 
   /**
    * <p>The granularity of the Amazon Web Services cost data for the reservation. Valid values
@@ -6918,7 +6918,7 @@ export interface GetReservationCoverageRequest {
    *         <code>MONTHLY</code> granularities.</p>
    * @public
    */
-  Granularity?: Granularity;
+  Granularity?: Granularity | undefined;
 
   /**
    * <p>Filters utilization data by dimensions. You can filter by the following
@@ -6971,7 +6971,7 @@ export interface GetReservationCoverageRequest {
    *          <p>Cost category is also supported.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The measurement that you want your reservation coverage reported in.</p>
@@ -6979,14 +6979,14 @@ export interface GetReservationCoverageRequest {
    *       multiple values in a request.</p>
    * @public
    */
-  Metrics?: string[];
+  Metrics?: string[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The value by which you want to sort the data.</p>
@@ -7047,7 +7047,7 @@ export interface GetReservationCoverageRequest {
    *         <code>DESCENDING</code>.</p>
    * @public
    */
-  SortBy?: SortDefinition;
+  SortBy?: SortDefinition | undefined;
 
   /**
    * <p>The maximum number of objects that you returned for this request. If more objects are
@@ -7055,7 +7055,7 @@ export interface GetReservationCoverageRequest {
    *       in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7066,7 +7066,7 @@ export interface GetReservationPurchaseRecommendationRequest {
    * <p>The account ID that's associated with the recommendation. </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The specific service that you want recommendations for.</p>
@@ -7199,7 +7199,7 @@ export interface GetReservationPurchaseRecommendationRequest {
    *          </note>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The account scope that you want your recommendations for. Amazon Web Services
@@ -7208,47 +7208,47 @@ export interface GetReservationPurchaseRecommendationRequest {
    *       calculated for individual member accounts only.</p>
    * @public
    */
-  AccountScope?: AccountScope;
+  AccountScope?: AccountScope | undefined;
 
   /**
    * <p>The number of previous days that you want Amazon Web Services to consider when it
    *       calculates your recommendations.</p>
    * @public
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays;
+  LookbackPeriodInDays?: LookbackPeriodInDays | undefined;
 
   /**
    * <p>The reservation term that you want recommendations for.</p>
    * @public
    */
-  TermInYears?: TermInYears;
+  TermInYears?: TermInYears | undefined;
 
   /**
    * <p>The reservation purchase option that you want recommendations for.</p>
    * @public
    */
-  PaymentOption?: PaymentOption;
+  PaymentOption?: PaymentOption | undefined;
 
   /**
    * <p>The hardware specifications for the service instances that you want recommendations
    *       for, such as standard or convertible Amazon EC2 instances.</p>
    * @public
    */
-  ServiceSpecification?: ServiceSpecification;
+  ServiceSpecification?: ServiceSpecification | undefined;
 
   /**
    * <p>The number of recommendations that you want returned in a single response
    *       object.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to
    *       retrieve.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7269,7 +7269,7 @@ export interface GetReservationUtilizationRequest {
    * <p>Groups only by <code>SUBSCRIPTION_ID</code>. Metadata is included.</p>
    * @public
    */
-  GroupBy?: GroupDefinition[];
+  GroupBy?: GroupDefinition[] | undefined;
 
   /**
    * <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If
@@ -7281,7 +7281,7 @@ export interface GetReservationUtilizationRequest {
    *         <code>MONTHLY</code> granularities.</p>
    * @public
    */
-  Granularity?: Granularity;
+  Granularity?: Granularity | undefined;
 
   /**
    * <p>Filters utilization data by dimensions. You can filter by the following
@@ -7328,7 +7328,7 @@ export interface GetReservationUtilizationRequest {
    *       they are OR'd together.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -7424,14 +7424,14 @@ export interface GetReservationUtilizationRequest {
    *         <code>DESCENDING</code>.</p>
    * @public
    */
-  SortBy?: SortDefinition;
+  SortBy?: SortDefinition | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects that you returned for this request. If more objects are
@@ -7439,7 +7439,7 @@ export interface GetReservationUtilizationRequest {
    *       in a subsequent call to get the next batch of objects.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7571,7 +7571,7 @@ export interface GetRightsizingRecommendationRequest {
    *          </note>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>You can use Configuration to customize recommendations across two attributes. You can
@@ -7581,7 +7581,7 @@ export interface GetRightsizingRecommendationRequest {
    *       or neither. </p>
    * @public
    */
-  Configuration?: RightsizingRecommendationConfiguration;
+  Configuration?: RightsizingRecommendationConfiguration | undefined;
 
   /**
    * <p>The specific service that you want recommendations for. The only valid value for
@@ -7594,14 +7594,14 @@ export interface GetRightsizingRecommendationRequest {
    * <p>The number of recommendations that you want returned in a single response object.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to
    *       retrieve.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7621,7 +7621,7 @@ export interface GetSavingsPlansCoverageRequest {
    *         <code>REGION</code>, or <code>SERVICE</code>.</p>
    * @public
    */
-  GroupBy?: GroupDefinition[];
+  GroupBy?: GroupDefinition[] | undefined;
 
   /**
    * <p>The granularity of the Amazon Web Services cost data for your Savings Plans.
@@ -7630,7 +7630,7 @@ export interface GetSavingsPlansCoverageRequest {
    *         <code>MONTHLY</code> granularities.</p>
    * @public
    */
-  Granularity?: Granularity;
+  Granularity?: Granularity | undefined;
 
   /**
    * <p>Filters Savings Plans coverage data by dimensions. You can filter data for Savings Plans
@@ -7664,28 +7664,28 @@ export interface GetSavingsPlansCoverageRequest {
    *          <p>Cost category is also supported.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The measurement that you want your Savings Plans coverage reported in. The only valid
    *       value is <code>SpendCoveredBySavingsPlans</code>.</p>
    * @public
    */
-  Metrics?: string[];
+  Metrics?: string[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to be returned in a response. The default is <code>20</code>, with a
    *       minimum value of <code>1</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -7731,7 +7731,7 @@ export interface GetSavingsPlansCoverageRequest {
    *         <code>DESCENDING</code>.</p>
    * @public
    */
-  SortBy?: SortDefinition;
+  SortBy?: SortDefinition | undefined;
 }
 
 /**
@@ -7763,20 +7763,20 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    *       individual member accounts only.</p>
    * @public
    */
-  AccountScope?: AccountScope;
+  AccountScope?: AccountScope | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>The number of recommendations that you want returned in a single response object.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The lookback period that's used to generate the recommendation.</p>
@@ -7797,7 +7797,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    *         <code>OR</code> operators are not supported.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 }
 
 /**
@@ -7847,27 +7847,27 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The data type.</p>
    * @public
    */
-  DataType?: SavingsPlansDataType[];
+  DataType?: SavingsPlansDataType[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to be returned in a response. The default is <code>20</code>, with a
    *       minimum value of <code>1</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -7913,7 +7913,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *         <code>DESCENDING</code>.</p>
    * @public
    */
-  SortBy?: SortDefinition;
+  SortBy?: SortDefinition | undefined;
 }
 
 /**
@@ -7935,7 +7935,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *         <code>MONTHLY</code> granularities.</p>
    * @public
    */
-  Granularity?: Granularity;
+  Granularity?: Granularity | undefined;
 
   /**
    * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You
@@ -7977,7 +7977,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -8013,7 +8013,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *         <code>DESCENDING</code>.</p>
    * @public
    */
-  SortBy?: SortDefinition;
+  SortBy?: SortDefinition | undefined;
 }
 
 /**
@@ -8024,7 +8024,7 @@ export interface GetTagsRequest {
    * <p>The value that you want to search for.</p>
    * @public
    */
-  SearchString?: string;
+  SearchString?: string | undefined;
 
   /**
    * <p>The start and end dates for retrieving the dimension values. The start date is
@@ -8040,7 +8040,7 @@ export interface GetTagsRequest {
    * <p>The key of the tag that you want to return values for.</p>
    * @public
    */
-  TagKey?: string;
+  TagKey?: string | undefined;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -8167,7 +8167,7 @@ export interface GetTagsRequest {
    *          </note>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>The value that you want to sort the data by.</p>
@@ -8215,7 +8215,7 @@ export interface GetTagsRequest {
    *       aren't supported.</p>
    * @public
    */
-  SortBy?: SortDefinition[];
+  SortBy?: SortDefinition[] | undefined;
 
   /**
    * <p>This field is only used when SortBy is provided in the request. The maximum number of
@@ -8224,14 +8224,14 @@ export interface GetTagsRequest {
    *          <p>For <code>GetTags</code>, MaxResults has an upper quota of 1000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -8396,7 +8396,7 @@ export interface GetUsageForecastRequest {
    *          </ul>
    * @public
    */
-  Filter?: Expression;
+  Filter?: Expression | undefined;
 
   /**
    * <p>Amazon Web Services Cost Explorer always returns the mean forecast as a single point.
@@ -8406,7 +8406,7 @@ export interface GetUsageForecastRequest {
    *       intervals.</p>
    * @public
    */
-  PredictionIntervalLevel?: number;
+  PredictionIntervalLevel?: number | undefined;
 }
 
 /**
@@ -8429,31 +8429,31 @@ export interface UpdateAnomalySubscriptionRequest {
    *          <p>You can specify either Threshold or ThresholdExpression, but not both.</p>
    * @public
    */
-  Threshold?: number;
+  Threshold?: number | undefined;
 
   /**
    * <p>The update to the frequency value that subscribers receive notifications. </p>
    * @public
    */
-  Frequency?: AnomalySubscriptionFrequency;
+  Frequency?: AnomalySubscriptionFrequency | undefined;
 
   /**
    * <p>A list of cost anomaly monitor ARNs. </p>
    * @public
    */
-  MonitorArnList?: string[];
+  MonitorArnList?: string[] | undefined;
 
   /**
    * <p>The update to the subscriber list. </p>
    * @public
    */
-  Subscribers?: Subscriber[];
+  Subscribers?: Subscriber[] | undefined;
 
   /**
    * <p>The new name of the subscription. </p>
    * @public
    */
-  SubscriptionName?: string;
+  SubscriptionName?: string | undefined;
 
   /**
    * <p>The update to the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
@@ -8496,7 +8496,7 @@ export interface UpdateAnomalySubscriptionRequest {
    *          </ul>
    * @public
    */
-  ThresholdExpression?: Expression;
+  ThresholdExpression?: Expression | undefined;
 }
 
 /**
@@ -8545,7 +8545,7 @@ export interface CreateAnomalyMonitorRequest {
    *          </ul>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -8594,7 +8594,7 @@ export interface CreateAnomalySubscriptionRequest {
    *          </ul>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -8619,7 +8619,7 @@ export interface CostCategory {
    * <p>The effective end date of your Cost Category.</p>
    * @public
    */
-  EffectiveEnd?: string;
+  EffectiveEnd?: string | undefined;
 
   /**
    * <p>The unique name of the Cost Category.</p>
@@ -8646,21 +8646,21 @@ export interface CostCategory {
    *             Category values. </p>
    * @public
    */
-  SplitChargeRules?: CostCategorySplitChargeRule[];
+  SplitChargeRules?: CostCategorySplitChargeRule[] | undefined;
 
   /**
    * <p>The list of processing statuses for Cost Management products for a specific cost
    *             category. </p>
    * @public
    */
-  ProcessingStatus?: CostCategoryProcessingStatus[];
+  ProcessingStatus?: CostCategoryProcessingStatus[] | undefined;
 
   /**
    * <p>The
    *             default value for the cost category.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 }
 
 /**
@@ -8677,7 +8677,7 @@ export interface CreateCostCategoryDefinitionRequest {
    * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
    * @public
    */
-  EffectiveStart?: string;
+  EffectiveStart?: string | undefined;
 
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
@@ -8696,14 +8696,14 @@ export interface CreateCostCategoryDefinitionRequest {
    *             default value for the cost category.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p> The split charge rules used to allocate your charges between your Cost Category values.
    *     </p>
    * @public
    */
-  SplitChargeRules?: CostCategorySplitChargeRule[];
+  SplitChargeRules?: CostCategorySplitChargeRule[] | undefined;
 
   /**
    * <p>An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html">
@@ -8741,7 +8741,7 @@ export interface CreateCostCategoryDefinitionRequest {
    *          </ul>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -8760,7 +8760,7 @@ export interface GetAnomalyMonitorsResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -8779,7 +8779,7 @@ export interface GetAnomalySubscriptionsResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -8796,7 +8796,7 @@ export interface UpdateCostCategoryDefinitionRequest {
    * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
    * @public
    */
-  EffectiveStart?: string;
+  EffectiveStart?: string | undefined;
 
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
@@ -8817,14 +8817,14 @@ export interface UpdateCostCategoryDefinitionRequest {
    *             default value for the cost category.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p> The split charge rules used to allocate your charges between your Cost Category values.
    *     </p>
    * @public
    */
-  SplitChargeRules?: CostCategorySplitChargeRule[];
+  SplitChargeRules?: CostCategorySplitChargeRule[] | undefined;
 }
 
 /**
@@ -8836,5 +8836,5 @@ export interface DescribeCostCategoryDefinitionResponse {
    *             for the <code>CostCategory</code> object.</p>
    * @public
    */
-  CostCategory?: CostCategory;
+  CostCategory?: CostCategory | undefined;
 }

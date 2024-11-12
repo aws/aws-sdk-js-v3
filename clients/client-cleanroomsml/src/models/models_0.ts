@@ -55,19 +55,19 @@ export interface ListAudienceExportJobsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
    * @public
    */
-  audienceGenerationJobArn?: string;
+  audienceGenerationJobArn?: string | undefined;
 }
 
 /**
@@ -129,13 +129,13 @@ export interface StatusDetails {
    * <p>The status code that was returned. The status code is intended for programmatic error handling. Clean Rooms ML will not change the status code for existing error conditions.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>The error message that was returned. The message is intended for human consumption and can change at any time. Use the <code>statusCode</code> for programmatic error handling.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface AudienceExportJobSummary {
    * <p>The description of the audience export job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the audience export job.</p>
@@ -189,13 +189,13 @@ export interface AudienceExportJobSummary {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The Amazon S3 bucket where the audience export is stored.</p>
    * @public
    */
-  outputLocation?: string;
+  outputLocation?: string | undefined;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface ListAudienceExportJobsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The audience export jobs that match the request.</p>
@@ -321,7 +321,7 @@ export interface StartAudienceExportJobRequest {
    * <p>The description of the audience export job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -361,7 +361,7 @@ export interface RelevanceMetric {
    * <p>The relevance score of the generated audience.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 }
 
 /**
@@ -380,7 +380,7 @@ export interface AudienceQualityMetrics {
    *       </p>
    * @public
    */
-  recallMetric?: number;
+  recallMetric?: number | undefined;
 }
 
 /**
@@ -392,20 +392,20 @@ export interface ProtectedQuerySQLParameters {
    * <p>The query string to be submitted.</p>
    * @public
    */
-  queryString?: string;
+  queryString?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) associated with the analysis template within a
    *          collaboration.</p>
    * @public
    */
-  analysisTemplateArn?: string;
+  analysisTemplateArn?: string | undefined;
 
   /**
    * <p>The protected query SQL parameters.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -426,7 +426,7 @@ export interface AudienceGenerationJobDataSource {
    *          </p>
    * @public
    */
-  dataSource?: S3ConfigMap;
+  dataSource?: S3ConfigMap | undefined;
 
   /**
    * <p>The ARN of the IAM role that can read the Amazon S3 bucket where the seed audience is stored.</p>
@@ -438,7 +438,7 @@ export interface AudienceGenerationJobDataSource {
    * <p>The protected SQL query parameters.</p>
    * @public
    */
-  sqlParameters?: ProtectedQuerySQLParameters;
+  sqlParameters?: ProtectedQuerySQLParameters | undefined;
 }
 
 /**
@@ -493,7 +493,7 @@ export interface GetAudienceGenerationJobResponse {
    * <p>The description of the audience generation job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the audience generation job.</p>
@@ -505,7 +505,7 @@ export interface GetAudienceGenerationJobResponse {
    * <p>Details about the status of the audience generation job.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the configured audience model used for this audience generation job.</p>
@@ -517,43 +517,43 @@ export interface GetAudienceGenerationJobResponse {
    * <p>The seed audience that was used for this audience generation job. This field will be null if the account calling the API is the account that started this audience generation job. </p>
    * @public
    */
-  seedAudience?: AudienceGenerationJobDataSource;
+  seedAudience?: AudienceGenerationJobDataSource | undefined;
 
   /**
    * <p>Configure whether the seed users are included in the output audience. By default, Clean Rooms ML removes seed users from the output audience. If you specify <code>TRUE</code>, the seed users will appear first in the output. Clean Rooms ML does not explicitly reveal whether a user was in the seed, but the recipient of the audience will know that the first <code>minimumSeedSize</code> count of users are from the seed.</p>
    * @public
    */
-  includeSeedInOutput?: boolean;
+  includeSeedInOutput?: boolean | undefined;
 
   /**
    * <p>The identifier of the collaboration that this audience generation job is associated with.</p>
    * @public
    */
-  collaborationId?: string;
+  collaborationId?: string | undefined;
 
   /**
    * <p>The relevance scores for different audience sizes and the recall score of the generated audience. </p>
    * @public
    */
-  metrics?: AudienceQualityMetrics;
+  metrics?: AudienceQualityMetrics | undefined;
 
   /**
    * <p>The AWS account that started this audience generation job.</p>
    * @public
    */
-  startedBy?: string;
+  startedBy?: string | undefined;
 
   /**
    * <p>The tags that are associated to this audience generation job.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The unique identifier of the protected query for this audience generation job.</p>
    * @public
    */
-  protectedQueryIdentifier?: string;
+  protectedQueryIdentifier?: string | undefined;
 }
 
 /**
@@ -564,25 +564,25 @@ export interface ListAudienceGenerationJobsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.</p>
    * @public
    */
-  configuredAudienceModelArn?: string;
+  configuredAudienceModelArn?: string | undefined;
 
   /**
    * <p>The identifier of the collaboration that contains the audience generation jobs that you are interested in.</p>
    * @public
    */
-  collaborationId?: string;
+  collaborationId?: string | undefined;
 }
 
 /**
@@ -618,7 +618,7 @@ export interface AudienceGenerationJobSummary {
    * <p>The description of the audience generation job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the audience generation job.</p>
@@ -636,13 +636,13 @@ export interface AudienceGenerationJobSummary {
    * <p>The identifier of the collaboration that contains this audience generation job.</p>
    * @public
    */
-  collaborationId?: string;
+  collaborationId?: string | undefined;
 
   /**
    * <p>The AWS Account that submitted the job.</p>
    * @public
    */
-  startedBy?: string;
+  startedBy?: string | undefined;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface ListAudienceGenerationJobsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The audience generation jobs that match the request.</p>
@@ -688,19 +688,19 @@ export interface StartAudienceGenerationJobRequest {
    * <p>Whether the seed audience is included in the audience generation output.</p>
    * @public
    */
-  includeSeedInOutput?: boolean;
+  includeSeedInOutput?: boolean | undefined;
 
   /**
    * <p>The identifier of the collaboration that contains the audience generation job.</p>
    * @public
    */
-  collaborationId?: string;
+  collaborationId?: string | undefined;
 
   /**
    * <p>The description of the audience generation job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -730,7 +730,7 @@ export interface StartAudienceGenerationJobRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -752,13 +752,13 @@ export interface CreateAudienceModelRequest {
    * <p>The start date and time of the training window.</p>
    * @public
    */
-  trainingDataStartTime?: Date;
+  trainingDataStartTime?: Date | undefined;
 
   /**
    * <p>The end date and time of the training window.</p>
    * @public
    */
-  trainingDataEndTime?: Date;
+  trainingDataEndTime?: Date | undefined;
 
   /**
    * <p>The name of the audience model resource.</p>
@@ -776,7 +776,7 @@ export interface CreateAudienceModelRequest {
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -806,13 +806,13 @@ export interface CreateAudienceModelRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description of the audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -887,13 +887,13 @@ export interface GetAudienceModelResponse {
    * <p>The start date specified for the training window.</p>
    * @public
    */
-  trainingDataStartTime?: Date;
+  trainingDataStartTime?: Date | undefined;
 
   /**
    * <p>The end date specified for the training window.</p>
    * @public
    */
-  trainingDataEndTime?: Date;
+  trainingDataEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the audience model.</p>
@@ -923,25 +923,25 @@ export interface GetAudienceModelResponse {
    * <p>Details about the status of the audience model.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The KMS key ARN used for the audience model.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The tags that are assigned to the audience model.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description of the audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -952,13 +952,13 @@ export interface ListAudienceModelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1006,7 +1006,7 @@ export interface AudienceModelSummary {
    * <p>The description of the audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1017,7 +1017,7 @@ export interface ListAudienceModelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The audience models that match the request.</p>
@@ -1119,7 +1119,7 @@ export interface CreateConfiguredAudienceModelRequest {
    * <p>The description of the configured audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Whether audience metrics are shared.</p>
@@ -1131,7 +1131,7 @@ export interface CreateConfiguredAudienceModelRequest {
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.</p>
    * @public
    */
-  minMatchingSeedSize?: number;
+  minMatchingSeedSize?: number | undefined;
 
   /**
    * <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
@@ -1139,7 +1139,7 @@ export interface CreateConfiguredAudienceModelRequest {
    *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
    * @public
    */
-  audienceSizeConfig?: AudienceSizeConfig;
+  audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -1169,14 +1169,14 @@ export interface CreateConfiguredAudienceModelRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p>
    *          <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
    * @public
    */
-  childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
+  childResourceTagOnCreatePolicy?: TagOnCreatePolicy | undefined;
 }
 
 /**
@@ -1270,7 +1270,7 @@ export interface GetConfiguredAudienceModelResponse {
    * <p>The description of the configured audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the configured audience model.</p>
@@ -1288,7 +1288,7 @@ export interface GetConfiguredAudienceModelResponse {
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
    * @public
    */
-  minMatchingSeedSize?: number;
+  minMatchingSeedSize?: number | undefined;
 
   /**
    * <p>The list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
@@ -1296,19 +1296,19 @@ export interface GetConfiguredAudienceModelResponse {
    *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
    * @public
    */
-  audienceSizeConfig?: AudienceSizeConfig;
+  audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
    * <p>The tags that are associated to this configured audience model.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Provides the <code>childResourceTagOnCreatePolicy</code> that was used for this configured audience model.</p>
    * @public
    */
-  childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
+  childResourceTagOnCreatePolicy?: TagOnCreatePolicy | undefined;
 }
 
 /**
@@ -1319,13 +1319,13 @@ export interface ListConfiguredAudienceModelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1367,7 +1367,7 @@ export interface ConfiguredAudienceModelSummary {
    * <p>The description of the configured audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
@@ -1390,7 +1390,7 @@ export interface ListConfiguredAudienceModelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The configured audience models.</p>
@@ -1413,37 +1413,37 @@ export interface UpdateConfiguredAudienceModelRequest {
    * <p>The new output configuration.</p>
    * @public
    */
-  outputConfig?: ConfiguredAudienceModelOutputConfig;
+  outputConfig?: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the new audience model that you want to use.</p>
    * @public
    */
-  audienceModelArn?: string;
+  audienceModelArn?: string | undefined;
 
   /**
    * <p>The new value for whether to share audience metrics.</p>
    * @public
    */
-  sharedAudienceMetrics?: SharedAudienceMetrics[];
+  sharedAudienceMetrics?: SharedAudienceMetrics[] | undefined;
 
   /**
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
    * @public
    */
-  minMatchingSeedSize?: number;
+  minMatchingSeedSize?: number | undefined;
 
   /**
    * <p>The new audience size configuration.</p>
    * @public
    */
-  audienceSizeConfig?: AudienceSizeConfig;
+  audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
    * <p>The new description of the configured audience model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1536,13 +1536,13 @@ export interface PutConfiguredAudienceModelPolicyRequest {
    * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
    * @public
    */
-  previousPolicyHash?: string;
+  previousPolicyHash?: string | undefined;
 
   /**
    * <p>Use this to prevent unexpected concurrent modification of the policy.</p>
    * @public
    */
-  policyExistenceCondition?: PolicyExistenceCondition;
+  policyExistenceCondition?: PolicyExistenceCondition | undefined;
 }
 
 /**
@@ -1607,19 +1607,19 @@ export interface ContainerConfig {
    * <p>The entrypoint script for a Docker container used to run a training job. This script takes precedence over the default train processing instructions. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Sagemaker runs your training image</a>.</p>
    * @public
    */
-  entrypoint?: string[];
+  entrypoint?: string[] | undefined;
 
   /**
    * <p>The arguments for a container used to run a training job. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Sagemaker runs your training image</a>.</p>
    * @public
    */
-  arguments?: string[];
+  arguments?: string[] | undefined;
 
   /**
    * <p>A list of metric definition objects. Each object specifies the metric name and regular expressions used to parse algorithm logs. Amazon Web Services Clean Rooms ML publishes each metric to all members' Amazon CloudWatch using IAM role configured in <a>PutMLConfiguration</a>.</p>
    * @public
    */
-  metricDefinitions?: MetricDefinition[];
+  metricDefinitions?: MetricDefinition[] | undefined;
 }
 
 /**
@@ -1636,7 +1636,7 @@ export interface CreateConfiguredModelAlgorithmRequest {
    * <p>The description of the configured model algorithm.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that is used to access the repository.</p>
@@ -1648,13 +1648,13 @@ export interface CreateConfiguredModelAlgorithmRequest {
    * <p>Configuration information for the training container, including entrypoints and arguments.</p>
    * @public
    */
-  trainingContainerConfig?: ContainerConfig;
+  trainingContainerConfig?: ContainerConfig | undefined;
 
   /**
    * <p>Configuration information for the inference container that is used when you run an inference job on a configured model algorithm.</p>
    * @public
    */
-  inferenceContainerConfig?: InferenceContainerConfig;
+  inferenceContainerConfig?: InferenceContainerConfig | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -1684,13 +1684,13 @@ export interface CreateConfiguredModelAlgorithmRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model algorithm and associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1758,13 +1758,13 @@ export interface GetConfiguredModelAlgorithmResponse {
    * <p>The configuration information of the training container for the configured model algorithm.</p>
    * @public
    */
-  trainingContainerConfig?: ContainerConfig;
+  trainingContainerConfig?: ContainerConfig | undefined;
 
   /**
    * <p>Configuration information for the inference container.</p>
    * @public
    */
-  inferenceContainerConfig?: InferenceContainerConfig;
+  inferenceContainerConfig?: InferenceContainerConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role that was used to create the configured model algorithm.</p>
@@ -1776,7 +1776,7 @@ export interface GetConfiguredModelAlgorithmResponse {
    * <p>The description of the configured model algorithm.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -1806,13 +1806,13 @@ export interface GetConfiguredModelAlgorithmResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model and associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1823,13 +1823,13 @@ export interface ListConfiguredModelAlgorithmsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1865,7 +1865,7 @@ export interface ConfiguredModelAlgorithmSummary {
    * <p>The description of the configured model algorithm.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1876,7 +1876,7 @@ export interface ListConfiguredModelAlgorithmsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of configured model algorithms.</p>
@@ -1964,7 +1964,7 @@ export interface LogsConfigurationPolicy {
    * <p>A regular expression pattern that is used to parse the logs and return information that matches the pattern.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 }
 
 /**
@@ -2008,13 +2008,13 @@ export interface TrainedModelInferenceJobsConfigurationPolicy {
    * <p>The logs container for the trained model inference job.</p>
    * @public
    */
-  containerLogs?: LogsConfigurationPolicy[];
+  containerLogs?: LogsConfigurationPolicy[] | undefined;
 
   /**
    * <p>The maximum allowed size of the output of the trained model inference job.</p>
    * @public
    */
-  maxOutputSize?: TrainedModelInferenceMaxOutputSize;
+  maxOutputSize?: TrainedModelInferenceMaxOutputSize | undefined;
 }
 
 /**
@@ -2054,13 +2054,13 @@ export interface TrainedModelsConfigurationPolicy {
    * <p>The container for the logs of the trained model.</p>
    * @public
    */
-  containerLogs?: LogsConfigurationPolicy[];
+  containerLogs?: LogsConfigurationPolicy[] | undefined;
 
   /**
    * <p>The container for the metrics of the trained model.</p>
    * @public
    */
-  containerMetrics?: MetricsConfigurationPolicy;
+  containerMetrics?: MetricsConfigurationPolicy | undefined;
 }
 
 /**
@@ -2072,19 +2072,19 @@ export interface PrivacyConfigurationPolicies {
    * <p>Specifies who will receive the trained models.</p>
    * @public
    */
-  trainedModels?: TrainedModelsConfigurationPolicy;
+  trainedModels?: TrainedModelsConfigurationPolicy | undefined;
 
   /**
    * <p>Specifies who will receive the trained model export.</p>
    * @public
    */
-  trainedModelExports?: TrainedModelExportsConfigurationPolicy;
+  trainedModelExports?: TrainedModelExportsConfigurationPolicy | undefined;
 
   /**
    * <p>Specifies who will receive the trained model inference jobs.</p>
    * @public
    */
-  trainedModelInferenceJobs?: TrainedModelInferenceJobsConfigurationPolicy;
+  trainedModelInferenceJobs?: TrainedModelInferenceJobsConfigurationPolicy | undefined;
 }
 
 /**
@@ -2125,13 +2125,13 @@ export interface CreateConfiguredModelAlgorithmAssociationRequest {
    * <p>The description of the configured model algorithm association.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies the privacy configuration information for the configured model algorithm association. This information includes the maximum data size that can be exported.</p>
    * @public
    */
-  privacyConfiguration?: PrivacyConfiguration;
+  privacyConfiguration?: PrivacyConfiguration | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -2161,7 +2161,7 @@ export interface CreateConfiguredModelAlgorithmAssociationRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2259,7 +2259,7 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationResponse {
    * <p>The description of the configured model algorithm association.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The account ID of the member that created the configured model algorithm association.</p>
@@ -2271,7 +2271,7 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationResponse {
    * <p>Information about the privacy configuration for a configured model algorithm association.</p>
    * @public
    */
-  privacyConfiguration?: PrivacyConfiguration;
+  privacyConfiguration?: PrivacyConfiguration | undefined;
 }
 
 /**
@@ -2341,13 +2341,13 @@ export interface GetConfiguredModelAlgorithmAssociationResponse {
    * <p>The privacy configuration information for the configured model algorithm association.</p>
    * @public
    */
-  privacyConfiguration?: PrivacyConfiguration;
+  privacyConfiguration?: PrivacyConfiguration | undefined;
 
   /**
    * <p>The description of the configured model algorithm association.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -2377,7 +2377,7 @@ export interface GetConfiguredModelAlgorithmAssociationResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2388,13 +2388,13 @@ export interface ListConfiguredModelAlgorithmAssociationsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The membership ID of the member that created the configured model algorithm associations you are interested in.</p>
@@ -2442,7 +2442,7 @@ export interface ConfiguredModelAlgorithmAssociationSummary {
    * <p>The description of the configured model algorithm association.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The membership ID of the member that created the configured model algorithm association.</p>
@@ -2465,7 +2465,7 @@ export interface ListConfiguredModelAlgorithmAssociationsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of configured model algorithm associations.</p>
@@ -2482,13 +2482,13 @@ export interface ListCollaborationConfiguredModelAlgorithmAssociationsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the configured model algorithm associations that you are interested in.</p>
@@ -2530,7 +2530,7 @@ export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
    * <p>The description of the configured model algorithm association.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The membership ID of the member that created the configured model algorithm association.</p>
@@ -2565,7 +2565,7 @@ export interface ListCollaborationConfiguredModelAlgorithmAssociationsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The configured model algorithm associations that belong to this collaboration.</p>
@@ -2584,13 +2584,13 @@ export interface ListCollaborationMLInputChannelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the ML input channels that you want to list.</p>
@@ -2682,7 +2682,7 @@ export interface CollaborationMLInputChannelSummary {
    * <p>The description of the ML input channel.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2693,7 +2693,7 @@ export interface ListCollaborationMLInputChannelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of ML input channels that you wanted.</p>
@@ -2710,13 +2710,13 @@ export interface ListCollaborationTrainedModelExportJobsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the trained model export jobs that you are interested in.</p>
@@ -2811,13 +2811,13 @@ export interface CollaborationTrainedModelExportJobSummary {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The account ID of the member that created the trained model.</p>
@@ -2852,7 +2852,7 @@ export interface ListCollaborationTrainedModelExportJobsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The exports jobs that exist for the requested trained model in the requested collaboration.</p>
@@ -2869,13 +2869,13 @@ export interface ListCollaborationTrainedModelInferenceJobsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the trained model inference jobs that you are interested in.</p>
@@ -2887,7 +2887,7 @@ export interface ListCollaborationTrainedModelInferenceJobsRequest {
    * <p>The Amazon Resource Name (ARN) of the trained model that was used to create the trained model inference jobs that you are interested in.</p>
    * @public
    */
-  trainedModelArn?: string;
+  trainedModelArn?: string | undefined;
 }
 
 /**
@@ -2939,7 +2939,7 @@ export interface InferenceOutputConfiguration {
    * <p>The MIME type used to specify the output data.</p>
    * @public
    */
-  accept?: string;
+  accept?: string | undefined;
 
   /**
    * <p>Defines the members that can receive inference output.</p>
@@ -2984,7 +2984,7 @@ export interface CollaborationTrainedModelInferenceJobSummary {
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.</p>
    * @public
    */
-  configuredModelAlgorithmAssociationArn?: string;
+  configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
    * <p>The membership ID of the membership that contains the trained model inference job.</p>
@@ -3026,31 +3026,31 @@ export interface CollaborationTrainedModelInferenceJobSummary {
    * <p>The description of the trained model inference job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>the trained model inference job metrics status.</p>
    * @public
    */
-  metricsStatus?: MetricsStatus;
+  metricsStatus?: MetricsStatus | undefined;
 
   /**
    * <p>Details about the metrics status for trained model inference job.</p>
    * @public
    */
-  metricsStatusDetails?: string;
+  metricsStatusDetails?: string | undefined;
 
   /**
    * <p>The trained model inference job logs status.</p>
    * @public
    */
-  logsStatus?: LogsStatus;
+  logsStatus?: LogsStatus | undefined;
 
   /**
    * <p>Details about the logs status for the trained model inference job.</p>
    * @public
    */
-  logsStatusDetails?: string;
+  logsStatusDetails?: string | undefined;
 
   /**
    * <p>The time at which the trained model inference job was created.</p>
@@ -3079,7 +3079,7 @@ export interface ListCollaborationTrainedModelInferenceJobsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The trained model inference jobs that you are interested in.</p>
@@ -3096,13 +3096,13 @@ export interface ListCollaborationTrainedModelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the trained models you are interested in.</p>
@@ -3167,7 +3167,7 @@ export interface CollaborationTrainedModelSummary {
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The membership ID of the member that created the trained model.</p>
@@ -3208,7 +3208,7 @@ export interface ListCollaborationTrainedModelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The trained models in the collaboration that you requested.</p>
@@ -3282,7 +3282,7 @@ export interface MLOutputConfiguration {
    * <p>The Amazon S3 location where exported model artifacts are stored.</p>
    * @public
    */
-  destination?: Destination;
+  destination?: Destination | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service access role that is used to store the model artifacts.</p>
@@ -3360,13 +3360,13 @@ export interface WorkerComputeConfiguration {
    * <p>The instance type of the compute workers that are used.</p>
    * @public
    */
-  type?: WorkerComputeType;
+  type?: WorkerComputeType | undefined;
 
   /**
    * <p>The number of compute workers that are used.</p>
    * @public
    */
-  number?: number;
+  number?: number | undefined;
 }
 
 /**
@@ -3422,7 +3422,7 @@ export interface ProtectedQueryInputParameters {
    * <p>Provides configuration information for the workers that will perform the protected query.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 }
 
 /**
@@ -3523,13 +3523,13 @@ export interface CreateMLInputChannelRequest {
    * <p>The description of the ML input channel.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that is used to access the input channel.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -3559,7 +3559,7 @@ export interface CreateMLInputChannelRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3669,7 +3669,7 @@ export interface GetCollaborationMLInputChannelResponse {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The number of days to retain the data for the ML input channel.</p>
@@ -3681,13 +3681,13 @@ export interface GetCollaborationMLInputChannelResponse {
    * <p>The number of records in the ML input channel.</p>
    * @public
    */
-  numberOfRecords?: number;
+  numberOfRecords?: number | undefined;
 
   /**
    * <p>The description of the ML input channel.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3745,7 +3745,7 @@ export interface GetMLInputChannelResponse {
    * <p>The ID of the protected query that was used to create the ML input channel.</p>
    * @public
    */
-  protectedQueryIdentifier?: string;
+  protectedQueryIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
@@ -3775,7 +3775,7 @@ export interface GetMLInputChannelResponse {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The number of days to keep the data in the ML input channel.</p>
@@ -3787,31 +3787,31 @@ export interface GetMLInputChannelResponse {
    * <p>The number of records in the ML input channel.</p>
    * @public
    */
-  numberOfRecords?: number;
+  numberOfRecords?: number | undefined;
 
   /**
    * <p>The number of files in the ML input channel.</p>
    * @public
    */
-  numberOfFiles?: number;
+  numberOfFiles?: number | undefined;
 
   /**
    * <p>The size, in GB, of the ML input channel.</p>
    * @public
    */
-  sizeInGb?: number;
+  sizeInGb?: number | undefined;
 
   /**
    * <p>The description of the ML input channel.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that was used to create the ML input channel.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -3841,7 +3841,7 @@ export interface GetMLInputChannelResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3852,13 +3852,13 @@ export interface ListMLInputChannelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of ML input channels to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The membership ID of the membership that contains the ML input channels that you want to list.</p>
@@ -3912,7 +3912,7 @@ export interface MLInputChannelSummary {
    * <p>The ID of the protected query that was used to create the ML input channel.</p>
    * @public
    */
-  protectedQueryIdentifier?: string;
+  protectedQueryIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
@@ -3930,7 +3930,7 @@ export interface MLInputChannelSummary {
    * <p>The description of the ML input channel.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3941,7 +3941,7 @@ export interface ListMLInputChannelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of ML input channels that you wanted.</p>
@@ -4141,7 +4141,7 @@ export interface ResourceConfig {
    * <p>The number of resources that are used to train the model.</p>
    * @public
    */
-  instanceCount?: number;
+  instanceCount?: number | undefined;
 
   /**
    * <p>The instance type that is used to train the model.</p>
@@ -4165,7 +4165,7 @@ export interface StoppingCondition {
    * <p>The maximum amount of time, in seconds, that model training can run before it is terminated.</p>
    * @public
    */
-  maxRuntimeInSeconds?: number;
+  maxRuntimeInSeconds?: number | undefined;
 }
 
 /**
@@ -4194,13 +4194,13 @@ export interface CreateTrainedModelRequest {
    * <p>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process.</p>
    * @public
    */
-  hyperparameters?: Record<string, string>;
+  hyperparameters?: Record<string, string> | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
    * @public
    */
-  environment?: Record<string, string>;
+  environment?: Record<string, string> | undefined;
 
   /**
    * <p>Information about the EC2 resources that are used to train this model.</p>
@@ -4212,7 +4212,7 @@ export interface CreateTrainedModelRequest {
    * <p>The criteria that is used to stop model training.</p>
    * @public
    */
-  stoppingCondition?: StoppingCondition;
+  stoppingCondition?: StoppingCondition | undefined;
 
   /**
    * <p>Defines the data channels that are used as input for the trained model request.</p>
@@ -4224,13 +4224,13 @@ export interface CreateTrainedModelRequest {
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -4260,7 +4260,7 @@ export interface CreateTrainedModelRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4340,7 +4340,7 @@ export interface GetCollaborationTrainedModelResponse {
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the trained model.</p>
@@ -4352,7 +4352,7 @@ export interface GetCollaborationTrainedModelResponse {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create this trained model.</p>
@@ -4364,43 +4364,43 @@ export interface GetCollaborationTrainedModelResponse {
    * <p>The EC2 resource configuration that was used to train this model.</p>
    * @public
    */
-  resourceConfig?: ResourceConfig;
+  resourceConfig?: ResourceConfig | undefined;
 
   /**
    * <p>The stopping condition that determined when model training ended.</p>
    * @public
    */
-  stoppingCondition?: StoppingCondition;
+  stoppingCondition?: StoppingCondition | undefined;
 
   /**
    * <p>The status of the model metrics.</p>
    * @public
    */
-  metricsStatus?: MetricsStatus;
+  metricsStatus?: MetricsStatus | undefined;
 
   /**
    * <p>Details about the status information for the model metrics.</p>
    * @public
    */
-  metricsStatusDetails?: string;
+  metricsStatusDetails?: string | undefined;
 
   /**
    * <p>Status information for the logs.</p>
    * @public
    */
-  logsStatus?: LogsStatus;
+  logsStatus?: LogsStatus | undefined;
 
   /**
    * <p>Details about the status information for the logs.</p>
    * @public
    */
-  logsStatusDetails?: string;
+  logsStatusDetails?: string | undefined;
 
   /**
    * <p>Information about the training container image.</p>
    * @public
    */
-  trainingContainerImageDigest?: string;
+  trainingContainerImageDigest?: string | undefined;
 
   /**
    * <p>The time at which the trained model was created.</p>
@@ -4470,7 +4470,7 @@ export interface GetTrainedModelResponse {
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the trained model.</p>
@@ -4482,7 +4482,7 @@ export interface GetTrainedModelResponse {
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create the trained model.</p>
@@ -4494,43 +4494,43 @@ export interface GetTrainedModelResponse {
    * <p>The EC2 resource configuration that was used to create the trained model.</p>
    * @public
    */
-  resourceConfig?: ResourceConfig;
+  resourceConfig?: ResourceConfig | undefined;
 
   /**
    * <p>The stopping condition that was used to terminate model training.</p>
    * @public
    */
-  stoppingCondition?: StoppingCondition;
+  stoppingCondition?: StoppingCondition | undefined;
 
   /**
    * <p>The status of the model metrics.</p>
    * @public
    */
-  metricsStatus?: MetricsStatus;
+  metricsStatus?: MetricsStatus | undefined;
 
   /**
    * <p>Details about the metrics status for the trained model.</p>
    * @public
    */
-  metricsStatusDetails?: string;
+  metricsStatusDetails?: string | undefined;
 
   /**
    * <p>The logs status for the trained model.</p>
    * @public
    */
-  logsStatus?: LogsStatus;
+  logsStatus?: LogsStatus | undefined;
 
   /**
    * <p>Details about the logs status for the trained model.</p>
    * @public
    */
-  logsStatusDetails?: string;
+  logsStatusDetails?: string | undefined;
 
   /**
    * <p>Information about the training image container.</p>
    * @public
    */
-  trainingContainerImageDigest?: string;
+  trainingContainerImageDigest?: string | undefined;
 
   /**
    * <p>The time at which the trained model was created.</p>
@@ -4548,19 +4548,19 @@ export interface GetTrainedModelResponse {
    * <p>The hyperparameters that were used to create the trained model.</p>
    * @public
    */
-  hyperparameters?: Record<string, string>;
+  hyperparameters?: Record<string, string> | undefined;
 
   /**
    * <p>The EC2 environment that was used to create the trained model.</p>
    * @public
    */
-  environment?: Record<string, string>;
+  environment?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -4590,7 +4590,7 @@ export interface GetTrainedModelResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The data channels that were used for the trained model.</p>
@@ -4607,13 +4607,13 @@ export interface ListTrainedModelsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The membership ID of the member that created the trained models you are interested in.</p>
@@ -4655,7 +4655,7 @@ export interface TrainedModelSummary {
    * <p>The description of the trained model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The membership ID of the member that created the trained model.</p>
@@ -4690,7 +4690,7 @@ export interface ListTrainedModelsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of trained models.</p>
@@ -4731,7 +4731,7 @@ export interface StartTrainedModelExportJobRequest {
    * <p>The description of the trained model export job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -4777,7 +4777,7 @@ export interface InferenceContainerExecutionParameters {
    * <p>The maximum size of the inference container payload, specified in MB. </p>
    * @public
    */
-  maxPayloadInMB?: number;
+  maxPayloadInMB?: number | undefined;
 }
 
 /**
@@ -4913,7 +4913,7 @@ export interface InferenceResourceConfig {
    * <p>The number of instances to use.</p>
    * @public
    */
-  instanceCount?: number;
+  instanceCount?: number | undefined;
 }
 
 /**
@@ -4942,7 +4942,7 @@ export interface GetTrainedModelInferenceJobResponse {
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used for the trained model inference job.</p>
    * @public
    */
-  configuredModelAlgorithmAssociationArn?: string;
+  configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
    * <p>The name of the trained model inference job.</p>
@@ -4990,61 +4990,61 @@ export interface GetTrainedModelInferenceJobResponse {
    * <p>The execution parameters for the model inference job container.</p>
    * @public
    */
-  containerExecutionParameters?: InferenceContainerExecutionParameters;
+  containerExecutionParameters?: InferenceContainerExecutionParameters | undefined;
 
   /**
    * <p>Details about the status of a resource.</p>
    * @public
    */
-  statusDetails?: StatusDetails;
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>The description of the trained model inference job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information about the training container image.</p>
    * @public
    */
-  inferenceContainerImageDigest?: string;
+  inferenceContainerImageDigest?: string | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
    * @public
    */
-  environment?: Record<string, string>;
+  environment?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The metrics status for the trained model inference job.</p>
    * @public
    */
-  metricsStatus?: MetricsStatus;
+  metricsStatus?: MetricsStatus | undefined;
 
   /**
    * <p>Details about the metrics status for the trained model inference job.</p>
    * @public
    */
-  metricsStatusDetails?: string;
+  metricsStatusDetails?: string | undefined;
 
   /**
    * <p>The logs status for the trained model inference job.</p>
    * @public
    */
-  logsStatus?: LogsStatus;
+  logsStatus?: LogsStatus | undefined;
 
   /**
    * <p>Details about the logs status for the trained model inference job.</p>
    * @public
    */
-  logsStatusDetails?: string;
+  logsStatusDetails?: string | undefined;
 
   /**
    * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -5074,7 +5074,7 @@ export interface GetTrainedModelInferenceJobResponse {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5085,13 +5085,13 @@ export interface ListTrainedModelInferenceJobsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The membership </p>
@@ -5103,7 +5103,7 @@ export interface ListTrainedModelInferenceJobsRequest {
    * <p>The Amazon Resource Name (ARN) of a trained model that was used to create the trained model inference jobs that you are interested in.</p>
    * @public
    */
-  trainedModelArn?: string;
+  trainedModelArn?: string | undefined;
 }
 
 /**
@@ -5121,7 +5121,7 @@ export interface TrainedModelInferenceJobSummary {
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.</p>
    * @public
    */
-  configuredModelAlgorithmAssociationArn?: string;
+  configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
    * <p>The membership ID of the membership that contains the trained model inference job.</p>
@@ -5163,31 +5163,31 @@ export interface TrainedModelInferenceJobSummary {
    * <p>The description of the trained model inference job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The metric status of the trained model inference job.</p>
    * @public
    */
-  metricsStatus?: MetricsStatus;
+  metricsStatus?: MetricsStatus | undefined;
 
   /**
    * <p>Details about the metrics status for the trained model inference job.</p>
    * @public
    */
-  metricsStatusDetails?: string;
+  metricsStatusDetails?: string | undefined;
 
   /**
    * <p>The log status of the trained model inference job.</p>
    * @public
    */
-  logsStatus?: LogsStatus;
+  logsStatus?: LogsStatus | undefined;
 
   /**
    * <p>Details about the log status for the trained model inference job.</p>
    * @public
    */
-  logsStatusDetails?: string;
+  logsStatusDetails?: string | undefined;
 
   /**
    * <p>The time at which the trained model inference job was created.</p>
@@ -5210,7 +5210,7 @@ export interface ListTrainedModelInferenceJobsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Returns the requested trained model inference jobs.</p>
@@ -5245,7 +5245,7 @@ export interface StartTrainedModelInferenceJobRequest {
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model inference job.</p>
    * @public
    */
-  configuredModelAlgorithmAssociationArn?: string;
+  configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
    * <p>Defines the resource configuration for the trained model inference job.</p>
@@ -5269,25 +5269,25 @@ export interface StartTrainedModelInferenceJobRequest {
    * <p>The description of the trained model inference job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The execution parameters for the container.</p>
    * @public
    */
-  containerExecutionParameters?: InferenceContainerExecutionParameters;
+  containerExecutionParameters?: InferenceContainerExecutionParameters | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
    * @public
    */
-  environment?: Record<string, string>;
+  environment?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -5317,7 +5317,7 @@ export interface StartTrainedModelInferenceJobRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5352,7 +5352,7 @@ export interface GlueDataSource {
    * <p>The Glue catalog that contains the training data.</p>
    * @public
    */
-  catalogId?: string;
+  catalogId?: string | undefined;
 }
 
 /**
@@ -5502,13 +5502,13 @@ export interface CreateTrainingDatasetRequest {
    *          </ul>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description of the training dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5607,13 +5607,13 @@ export interface GetTrainingDatasetResponse {
    * <p>The tags that are assigned to this training dataset.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description of the training dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5624,13 +5624,13 @@ export interface ListTrainingDatasetsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum size of the results that is returned per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5672,7 +5672,7 @@ export interface TrainingDatasetSummary {
    * <p>The description of the training dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5683,7 +5683,7 @@ export interface ListTrainingDatasetsResponse {
    * <p>The token value used to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The training datasets that match the request.</p>

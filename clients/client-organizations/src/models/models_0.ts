@@ -115,7 +115,7 @@ export type HandshakeState = (typeof HandshakeState)[keyof typeof HandshakeState
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -154,8 +154,8 @@ export type AccessDeniedForDependencyExceptionReason =
 export class AccessDeniedForDependencyException extends __BaseException {
   readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Reason?: AccessDeniedForDependencyExceptionReason;
+  Message?: string | undefined;
+  Reason?: AccessDeniedForDependencyExceptionReason | undefined;
   /**
    * @internal
    */
@@ -179,7 +179,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
 export class AWSOrganizationsNotInUseException extends __BaseException {
   readonly name: "AWSOrganizationsNotInUseException" = "AWSOrganizationsNotInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -202,7 +202,7 @@ export class AWSOrganizationsNotInUseException extends __BaseException {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -225,7 +225,7 @@ export class ConcurrentModificationException extends __BaseException {
 export class HandshakeAlreadyInStateException extends __BaseException {
   readonly name: "HandshakeAlreadyInStateException" = "HandshakeAlreadyInStateException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -327,8 +327,8 @@ export type HandshakeConstraintViolationExceptionReason =
 export class HandshakeConstraintViolationException extends __BaseException {
   readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Reason?: HandshakeConstraintViolationExceptionReason;
+  Message?: string | undefined;
+  Reason?: HandshakeConstraintViolationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -351,7 +351,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
 export class HandshakeNotFoundException extends __BaseException {
   readonly name: "HandshakeNotFoundException" = "HandshakeNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -375,7 +375,7 @@ export class HandshakeNotFoundException extends __BaseException {
 export class InvalidHandshakeTransitionException extends __BaseException {
   readonly name: "InvalidHandshakeTransitionException" = "InvalidHandshakeTransitionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -539,8 +539,8 @@ export type InvalidInputExceptionReason =
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Reason?: InvalidInputExceptionReason;
+  Message?: string | undefined;
+  Reason?: InvalidInputExceptionReason | undefined;
   /**
    * @internal
    */
@@ -564,7 +564,7 @@ export class InvalidInputException extends __BaseException {
 export class ServiceException extends __BaseException {
   readonly name: "ServiceException" = "ServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -589,8 +589,8 @@ export class ServiceException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  Type?: string;
-  Message?: string;
+  Type?: string | undefined;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -647,7 +647,7 @@ export interface Account {
    *     digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the account.</p>
@@ -655,7 +655,7 @@ export interface Account {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The email address associated with the Amazon Web Services account.</p>
@@ -663,7 +663,7 @@ export interface Account {
    *             standard internet email address.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 
   /**
    * <p>The friendly name of the account.</p>
@@ -672,25 +672,25 @@ export interface Account {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the account in the organization.</p>
    * @public
    */
-  Status?: AccountStatus;
+  Status?: AccountStatus | undefined;
 
   /**
    * <p>The method by which the account joined the organization.</p>
    * @public
    */
-  JoinedMethod?: AccountJoinedMethod;
+  JoinedMethod?: AccountJoinedMethod | undefined;
 
   /**
    * <p>The date the account became a part of the organization.</p>
    * @public
    */
-  JoinedTimestamp?: Date;
+  JoinedTimestamp?: Date | undefined;
 }
 
 /**
@@ -700,7 +700,7 @@ export interface Account {
 export class AccountAlreadyClosedException extends __BaseException {
   readonly name: "AccountAlreadyClosedException" = "AccountAlreadyClosedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -723,7 +723,7 @@ export class AccountAlreadyClosedException extends __BaseException {
 export class AccountAlreadyRegisteredException extends __BaseException {
   readonly name: "AccountAlreadyRegisteredException" = "AccountAlreadyRegisteredException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -747,7 +747,7 @@ export class AccountAlreadyRegisteredException extends __BaseException {
 export class AccountNotFoundException extends __BaseException {
   readonly name: "AccountNotFoundException" = "AccountNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -769,7 +769,7 @@ export class AccountNotFoundException extends __BaseException {
 export class AccountNotRegisteredException extends __BaseException {
   readonly name: "AccountNotRegisteredException" = "AccountNotRegisteredException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -794,7 +794,7 @@ export class AccountNotRegisteredException extends __BaseException {
 export class AccountOwnerNotVerifiedException extends __BaseException {
   readonly name: "AccountOwnerNotVerifiedException" = "AccountOwnerNotVerifiedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -817,7 +817,7 @@ export class AccountOwnerNotVerifiedException extends __BaseException {
 export class AlreadyInOrganizationException extends __BaseException {
   readonly name: "AlreadyInOrganizationException" = "AlreadyInOrganizationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1122,8 +1122,8 @@ export type ConstraintViolationExceptionReason =
 export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Reason?: ConstraintViolationExceptionReason;
+  Message?: string | undefined;
+  Reason?: ConstraintViolationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -1146,7 +1146,7 @@ export class ConstraintViolationException extends __BaseException {
 export class DuplicatePolicyAttachmentException extends __BaseException {
   readonly name: "DuplicatePolicyAttachmentException" = "DuplicatePolicyAttachmentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1169,7 +1169,7 @@ export class DuplicatePolicyAttachmentException extends __BaseException {
 export class PolicyChangesInProgressException extends __BaseException {
   readonly name: "PolicyChangesInProgressException" = "PolicyChangesInProgressException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1191,7 +1191,7 @@ export class PolicyChangesInProgressException extends __BaseException {
 export class PolicyNotFoundException extends __BaseException {
   readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1216,7 +1216,7 @@ export class PolicyNotFoundException extends __BaseException {
 export class PolicyTypeNotEnabledException extends __BaseException {
   readonly name: "PolicyTypeNotEnabledException" = "PolicyTypeNotEnabledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1239,7 +1239,7 @@ export class PolicyTypeNotEnabledException extends __BaseException {
 export class TargetNotFoundException extends __BaseException {
   readonly name: "TargetNotFoundException" = "TargetNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1261,7 +1261,7 @@ export class TargetNotFoundException extends __BaseException {
 export class UnsupportedAPIEndpointException extends __BaseException {
   readonly name: "UnsupportedAPIEndpointException" = "UnsupportedAPIEndpointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1310,7 +1310,7 @@ export interface CloseAccountRequest {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1451,7 +1451,7 @@ export interface CreateAccountRequest {
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>If set to <code>ALLOW</code>, the new account enables IAM users to access account
@@ -1465,7 +1465,7 @@ export interface CreateAccountRequest {
    *             the new account.</p>
    * @public
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling;
+  IamUserAccessToBilling?: IAMUserAccessToBilling | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the newly created account. For each tag in
@@ -1480,7 +1480,7 @@ export interface CreateAccountRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1539,31 +1539,31 @@ export interface CreateAccountStatus {
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The account name given to the account when it was created.</p>
    * @public
    */
-  AccountName?: string;
+  AccountName?: string | undefined;
 
   /**
    * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
    * @public
    */
-  State?: CreateAccountState;
+  State?: CreateAccountState | undefined;
 
   /**
    * <p>The date and time that the request was made for the account creation.</p>
    * @public
    */
-  RequestedTimestamp?: Date;
+  RequestedTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time that the account was created and the request completed.</p>
    * @public
    */
-  CompletedTimestamp?: Date;
+  CompletedTimestamp?: Date | undefined;
 
   /**
    * <p>If the account was created successfully, the unique identifier (ID) of the new
@@ -1572,14 +1572,14 @@ export interface CreateAccountStatus {
    *     digits.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>If the account was created successfully, the unique identifier (ID) of the new account
    *             in the Amazon Web Services GovCloud (US) Region.</p>
    * @public
    */
-  GovCloudAccountId?: string;
+  GovCloudAccountId?: string | undefined;
 
   /**
    * <p>If the request failed, a description of the reason for the failure.</p>
@@ -1649,7 +1649,7 @@ export interface CreateAccountStatus {
    *          </ul>
    * @public
    */
-  FailureReason?: CreateAccountFailureReason;
+  FailureReason?: CreateAccountFailureReason | undefined;
 }
 
 /**
@@ -1666,7 +1666,7 @@ export interface CreateAccountResponse {
    *                 <i>Organizations User Guide</i>.</p>
    * @public
    */
-  CreateAccountStatus?: CreateAccountStatus;
+  CreateAccountStatus?: CreateAccountStatus | undefined;
 }
 
 /**
@@ -1678,7 +1678,7 @@ export interface CreateAccountResponse {
 export class FinalizingOrganizationException extends __BaseException {
   readonly name: "FinalizingOrganizationException" = "FinalizingOrganizationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1778,7 +1778,7 @@ export interface CreateGovCloudAccountRequest {
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables
@@ -1792,7 +1792,7 @@ export interface CreateGovCloudAccountRequest {
    *             the new account.</p>
    * @public
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling;
+  IamUserAccessToBilling?: IAMUserAccessToBilling | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the newly created account. These tags are
@@ -1810,7 +1810,7 @@ export interface CreateGovCloudAccountRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1822,7 +1822,7 @@ export interface CreateGovCloudAccountResponse {
    *             GovCloud (US) account in an organization.</p>
    * @public
    */
-  CreateAccountStatus?: CreateAccountStatus;
+  CreateAccountStatus?: CreateAccountStatus | undefined;
 }
 
 /**
@@ -1867,7 +1867,7 @@ export interface CreateOrganizationRequest {
    *          </ul>
    * @public
    */
-  FeatureSet?: OrganizationFeatureSet;
+  FeatureSet?: OrganizationFeatureSet | undefined;
 }
 
 /**
@@ -1911,7 +1911,7 @@ export interface PolicyTypeSummary {
    * <p>The name of the policy type.</p>
    * @public
    */
-  Type?: PolicyType;
+  Type?: PolicyType | undefined;
 
   /**
    * <p>The status of the policy type as it relates to the associated root. To attach a policy
@@ -1919,7 +1919,7 @@ export interface PolicyTypeSummary {
    *             available in the organization and enabled for that root.</p>
    * @public
    */
-  Status?: PolicyTypeStatus;
+  Status?: PolicyTypeStatus | undefined;
 }
 
 /**
@@ -1935,7 +1935,7 @@ export interface Organization {
    *     followed by from 10 to 32 lowercase letters or digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an organization.</p>
@@ -1943,7 +1943,7 @@ export interface Organization {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Specifies the functionality that currently is available to the organization. If set to
@@ -1953,7 +1953,7 @@ export interface Organization {
    *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
    * @public
    */
-  FeatureSet?: OrganizationFeatureSet;
+  FeatureSet?: OrganizationFeatureSet | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the management
@@ -1962,7 +1962,7 @@ export interface Organization {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  MasterAccountArn?: string;
+  MasterAccountArn?: string | undefined;
 
   /**
    * <p>The unique identifier (ID) of the management account of an organization.</p>
@@ -1970,14 +1970,14 @@ export interface Organization {
    *     digits.</p>
    * @public
    */
-  MasterAccountId?: string;
+  MasterAccountId?: string | undefined;
 
   /**
    * <p>The email address that is associated with the Amazon Web Services account that is designated as the
    *             management account for the organization.</p>
    * @public
    */
-  MasterAccountEmail?: string;
+  MasterAccountEmail?: string | undefined;
 
   /**
    * <important>
@@ -1988,7 +1988,7 @@ export interface Organization {
    *             use the <a>ListRoots</a> operation instead.</p>
    * @public
    */
-  AvailablePolicyTypes?: PolicyTypeSummary[];
+  AvailablePolicyTypes?: PolicyTypeSummary[] | undefined;
 }
 
 /**
@@ -1999,7 +1999,7 @@ export interface CreateOrganizationResponse {
    * <p>A structure that contains details about the newly created organization.</p>
    * @public
    */
-  Organization?: Organization;
+  Organization?: Organization | undefined;
 }
 
 /**
@@ -2046,7 +2046,7 @@ export interface CreateOrganizationalUnitRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2064,7 +2064,7 @@ export interface OrganizationalUnit {
    *     or digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of this OU.</p>
@@ -2072,7 +2072,7 @@ export interface OrganizationalUnit {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The friendly name of this OU.</p>
@@ -2081,7 +2081,7 @@ export interface OrganizationalUnit {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -2092,7 +2092,7 @@ export interface CreateOrganizationalUnitResponse {
    * <p>A structure that contains details about the newly created OU.</p>
    * @public
    */
-  OrganizationalUnit?: OrganizationalUnit;
+  OrganizationalUnit?: OrganizationalUnit | undefined;
 }
 
 /**
@@ -2102,7 +2102,7 @@ export interface CreateOrganizationalUnitResponse {
 export class DuplicateOrganizationalUnitException extends __BaseException {
   readonly name: "DuplicateOrganizationalUnitException" = "DuplicateOrganizationalUnitException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2124,7 +2124,7 @@ export class DuplicateOrganizationalUnitException extends __BaseException {
 export class ParentNotFoundException extends __BaseException {
   readonly name: "ParentNotFoundException" = "ParentNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2213,7 +2213,7 @@ export interface CreatePolicyRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2228,7 +2228,7 @@ export interface PolicySummary {
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
@@ -2236,7 +2236,7 @@ export interface PolicySummary {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The friendly name of the policy.</p>
@@ -2245,19 +2245,19 @@ export interface PolicySummary {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of policy.</p>
    * @public
    */
-  Type?: PolicyType;
+  Type?: PolicyType | undefined;
 
   /**
    * <p>A boolean value that indicates whether the specified policy is an Amazon Web Services managed
@@ -2265,7 +2265,7 @@ export interface PolicySummary {
    *             cannot edit it.</p>
    * @public
    */
-  AwsManaged?: boolean;
+  AwsManaged?: boolean | undefined;
 }
 
 /**
@@ -2279,13 +2279,13 @@ export interface Policy {
    * <p>A structure that contains additional details about the policy.</p>
    * @public
    */
-  PolicySummary?: PolicySummary;
+  PolicySummary?: PolicySummary | undefined;
 
   /**
    * <p>The text content of the policy.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 }
 
 /**
@@ -2296,7 +2296,7 @@ export interface CreatePolicyResponse {
    * <p>A structure that contains details about the newly created policy.</p>
    * @public
    */
-  Policy?: Policy;
+  Policy?: Policy | undefined;
 }
 
 /**
@@ -2306,7 +2306,7 @@ export interface CreatePolicyResponse {
 export class DuplicatePolicyException extends __BaseException {
   readonly name: "DuplicatePolicyException" = "DuplicatePolicyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2331,7 +2331,7 @@ export class DuplicatePolicyException extends __BaseException {
 export class MalformedPolicyDocumentException extends __BaseException {
   readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2356,7 +2356,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
   readonly name: "PolicyTypeNotAvailableForOrganizationException" = "PolicyTypeNotAvailableForOrganizationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2393,7 +2393,7 @@ export interface DeclineHandshakeRequest {
 export class OrganizationNotEmptyException extends __BaseException {
   readonly name: "OrganizationNotEmptyException" = "OrganizationNotEmptyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2432,7 +2432,7 @@ export interface DeleteOrganizationalUnitRequest {
 export class OrganizationalUnitNotEmptyException extends __BaseException {
   readonly name: "OrganizationalUnitNotEmptyException" = "OrganizationalUnitNotEmptyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2455,7 +2455,7 @@ export class OrganizationalUnitNotEmptyException extends __BaseException {
 export class OrganizationalUnitNotFoundException extends __BaseException {
   readonly name: "OrganizationalUnitNotFoundException" = "OrganizationalUnitNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2493,7 +2493,7 @@ export interface DeletePolicyRequest {
 export class PolicyInUseException extends __BaseException {
   readonly name: "PolicyInUseException" = "PolicyInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2515,7 +2515,7 @@ export class PolicyInUseException extends __BaseException {
 export class ResourcePolicyNotFoundException extends __BaseException {
   readonly name: "ResourcePolicyNotFoundException" = "ResourcePolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2575,7 +2575,7 @@ export interface DescribeAccountResponse {
    * <p>A structure that contains information about the requested account.</p>
    * @public
    */
-  Account?: Account;
+  Account?: Account | undefined;
 }
 
 /**
@@ -2586,7 +2586,7 @@ export interface DescribeAccountResponse {
 export class CreateAccountStatusNotFoundException extends __BaseException {
   readonly name: "CreateAccountStatusNotFoundException" = "CreateAccountStatusNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2624,7 +2624,7 @@ export interface DescribeCreateAccountStatusResponse {
    * <p>A structure that contains the current status of an account creation request.</p>
    * @public
    */
-  CreateAccountStatus?: CreateAccountStatus;
+  CreateAccountStatus?: CreateAccountStatus | undefined;
 }
 
 /**
@@ -2682,7 +2682,7 @@ export interface DescribeEffectivePolicyRequest {
    *             the target is not supported.</p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 }
 
 /**
@@ -2696,25 +2696,25 @@ export interface EffectivePolicy {
    * <p>The text content of the policy.</p>
    * @public
    */
-  PolicyContent?: string;
+  PolicyContent?: string | undefined;
 
   /**
    * <p>The time of the last update to this policy.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The account ID of the policy target. </p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>The policy type.</p>
    * @public
    */
-  PolicyType?: EffectivePolicyType;
+  PolicyType?: EffectivePolicyType | undefined;
 }
 
 /**
@@ -2725,7 +2725,7 @@ export interface DescribeEffectivePolicyResponse {
    * <p>The contents of the effective policy.</p>
    * @public
    */
-  EffectivePolicy?: EffectivePolicy;
+  EffectivePolicy?: EffectivePolicy | undefined;
 }
 
 /**
@@ -2738,7 +2738,7 @@ export interface DescribeEffectivePolicyResponse {
 export class EffectivePolicyNotFoundException extends __BaseException {
   readonly name: "EffectivePolicyNotFoundException" = "EffectivePolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2785,7 +2785,7 @@ export interface DescribeOrganizationResponse {
    *          </important>
    * @public
    */
-  Organization?: Organization;
+  Organization?: Organization | undefined;
 }
 
 /**
@@ -2813,7 +2813,7 @@ export interface DescribeOrganizationalUnitResponse {
    * <p>A structure that contains details about the specified OU.</p>
    * @public
    */
-  OrganizationalUnit?: OrganizationalUnit;
+  OrganizationalUnit?: OrganizationalUnit | undefined;
 }
 
 /**
@@ -2839,7 +2839,7 @@ export interface DescribePolicyResponse {
    * <p>A structure that contains details about the specified policy.</p>
    * @public
    */
-  Policy?: Policy;
+  Policy?: Policy | undefined;
 }
 
 /**
@@ -2851,13 +2851,13 @@ export interface ResourcePolicySummary {
    * <p>The unique identifier (ID) of the resource policy.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource policy.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2869,13 +2869,13 @@ export interface ResourcePolicy {
    * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
    * @public
    */
-  ResourcePolicySummary?: ResourcePolicySummary;
+  ResourcePolicySummary?: ResourcePolicySummary | undefined;
 
   /**
    * <p>The policy text of the resource policy.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 }
 
 /**
@@ -2886,7 +2886,7 @@ export interface DescribeResourcePolicyResponse {
    * <p>A structure that contains details about the resource policy.</p>
    * @public
    */
-  ResourcePolicy?: ResourcePolicy;
+  ResourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -2938,7 +2938,7 @@ export interface DetachPolicyRequest {
 export class PolicyNotAttachedException extends __BaseException {
   readonly name: "PolicyNotAttachedException" = "PolicyNotAttachedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3029,7 +3029,7 @@ export interface Root {
    *     from 4 to 32 lowercase letters or digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the root.</p>
@@ -3037,7 +3037,7 @@ export interface Root {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The friendly name of the root.</p>
@@ -3046,7 +3046,7 @@ export interface Root {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The types of policies that are currently enabled for the root and therefore can be
@@ -3058,7 +3058,7 @@ export interface Root {
    *          </note>
    * @public
    */
-  PolicyTypes?: PolicyTypeSummary[];
+  PolicyTypes?: PolicyTypeSummary[] | undefined;
 }
 
 /**
@@ -3069,7 +3069,7 @@ export interface DisablePolicyTypeResponse {
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    * @public
    */
-  Root?: Root;
+  Root?: Root | undefined;
 }
 
 /**
@@ -3079,7 +3079,7 @@ export interface DisablePolicyTypeResponse {
 export class RootNotFoundException extends __BaseException {
   readonly name: "RootNotFoundException" = "RootNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3169,7 +3169,7 @@ export interface EnablePolicyTypeResponse {
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    * @public
    */
-  Root?: Root;
+  Root?: Root | undefined;
 }
 
 /**
@@ -3179,7 +3179,7 @@ export interface EnablePolicyTypeResponse {
 export class PolicyTypeAlreadyEnabledException extends __BaseException {
   readonly name: "PolicyTypeAlreadyEnabledException" = "PolicyTypeAlreadyEnabledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3205,7 +3205,7 @@ export class PolicyTypeAlreadyEnabledException extends __BaseException {
 export class DuplicateHandshakeException extends __BaseException {
   readonly name: "DuplicateHandshakeException" = "DuplicateHandshakeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3253,7 +3253,7 @@ export interface InviteAccountToOrganizationRequest {
    *             recipient account owner.</p>
    * @public
    */
-  Notes?: string;
+  Notes?: string | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the account when it becomes a member of the
@@ -3278,7 +3278,7 @@ export interface InviteAccountToOrganizationRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3290,7 +3290,7 @@ export interface InviteAccountToOrganizationRequest {
 export class MasterCannotLeaveOrganizationException extends __BaseException {
   readonly name: "MasterCannotLeaveOrganizationException" = "MasterCannotLeaveOrganizationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3317,7 +3317,7 @@ export interface ListAccountsRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3330,7 +3330,7 @@ export interface ListAccountsRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3341,7 +3341,7 @@ export interface ListAccountsResponse {
    * <p>A list of objects in the organization.</p>
    * @public
    */
-  Accounts?: Account[];
+  Accounts?: Account[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3350,7 +3350,7 @@ export interface ListAccountsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3372,7 +3372,7 @@ export interface ListAccountsForParentRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3385,7 +3385,7 @@ export interface ListAccountsForParentRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3396,7 +3396,7 @@ export interface ListAccountsForParentResponse {
    * <p>A list of the accounts in the specified root or OU.</p>
    * @public
    */
-  Accounts?: Account[];
+  Accounts?: Account[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3405,7 +3405,7 @@ export interface ListAccountsForParentResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3420,7 +3420,7 @@ export interface ListAWSServiceAccessForOrganizationRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3433,7 +3433,7 @@ export interface ListAWSServiceAccessForOrganizationRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3448,13 +3448,13 @@ export interface EnabledServicePrincipal {
    *                <i>servicename</i>.amazonaws.com</code>.</p>
    * @public
    */
-  ServicePrincipal?: string;
+  ServicePrincipal?: string | undefined;
 
   /**
    * <p>The date that the service principal was enabled for integration with Organizations.</p>
    * @public
    */
-  DateEnabled?: Date;
+  DateEnabled?: Date | undefined;
 }
 
 /**
@@ -3467,7 +3467,7 @@ export interface ListAWSServiceAccessForOrganizationResponse {
    *             that it was enabled for integration with Organizations.</p>
    * @public
    */
-  EnabledServicePrincipals?: EnabledServicePrincipal[];
+  EnabledServicePrincipals?: EnabledServicePrincipal[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3476,7 +3476,7 @@ export interface ListAWSServiceAccessForOrganizationResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3533,7 +3533,7 @@ export interface ListChildrenRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3546,7 +3546,7 @@ export interface ListChildrenRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3573,13 +3573,13 @@ export interface Child {
    *          </ul>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The type of this child entity.</p>
    * @public
    */
-  Type?: ChildType;
+  Type?: ChildType | undefined;
 }
 
 /**
@@ -3590,7 +3590,7 @@ export interface ListChildrenResponse {
    * <p>The list of children of the specified parent container.</p>
    * @public
    */
-  Children?: Child[];
+  Children?: Child[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3599,7 +3599,7 @@ export interface ListChildrenResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3611,7 +3611,7 @@ export interface ListCreateAccountStatusRequest {
    *             isn't present, all requests are included in the response.</p>
    * @public
    */
-  States?: CreateAccountState[];
+  States?: CreateAccountState[] | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3621,7 +3621,7 @@ export interface ListCreateAccountStatusRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3634,7 +3634,7 @@ export interface ListCreateAccountStatusRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3647,7 +3647,7 @@ export interface ListCreateAccountStatusResponse {
    *             created.</p>
    * @public
    */
-  CreateAccountStatuses?: CreateAccountStatus[];
+  CreateAccountStatuses?: CreateAccountStatus[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3656,7 +3656,7 @@ export interface ListCreateAccountStatusResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3670,7 +3670,7 @@ export interface ListDelegatedAdministratorsRequest {
    *             administrators for all services in your organization.</p>
    * @public
    */
-  ServicePrincipal?: string;
+  ServicePrincipal?: string | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3680,7 +3680,7 @@ export interface ListDelegatedAdministratorsRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3693,7 +3693,7 @@ export interface ListDelegatedAdministratorsRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3705,52 +3705,52 @@ export interface DelegatedAdministrator {
    * <p>The unique identifier (ID) of the delegated administrator's account.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the delegated administrator's account.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The email address that is associated with the delegated administrator's Amazon Web Services
    *             account.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 
   /**
    * <p>The friendly name of the delegated administrator's account.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the delegated administrator's account in the organization.</p>
    * @public
    */
-  Status?: AccountStatus;
+  Status?: AccountStatus | undefined;
 
   /**
    * <p>The method by which the delegated administrator's account joined the
    *             organization.</p>
    * @public
    */
-  JoinedMethod?: AccountJoinedMethod;
+  JoinedMethod?: AccountJoinedMethod | undefined;
 
   /**
    * <p>The date when the delegated administrator's account became a part of the
    *             organization.</p>
    * @public
    */
-  JoinedTimestamp?: Date;
+  JoinedTimestamp?: Date | undefined;
 
   /**
    * <p>The date when the account was made a delegated administrator.</p>
    * @public
    */
-  DelegationEnabledDate?: Date;
+  DelegationEnabledDate?: Date | undefined;
 }
 
 /**
@@ -3761,7 +3761,7 @@ export interface ListDelegatedAdministratorsResponse {
    * <p>The list of delegated administrators in your organization.</p>
    * @public
    */
-  DelegatedAdministrators?: DelegatedAdministrator[];
+  DelegatedAdministrators?: DelegatedAdministrator[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3770,7 +3770,7 @@ export interface ListDelegatedAdministratorsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3791,7 +3791,7 @@ export interface ListDelegatedServicesForAccountRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3804,7 +3804,7 @@ export interface ListDelegatedServicesForAccountRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3820,13 +3820,13 @@ export interface DelegatedService {
    *                <i>servicename</i>.amazonaws.com</code>.</p>
    * @public
    */
-  ServicePrincipal?: string;
+  ServicePrincipal?: string | undefined;
 
   /**
    * <p>The date that the account became a delegated administrator for this service. </p>
    * @public
    */
-  DelegationEnabledDate?: Date;
+  DelegationEnabledDate?: Date | undefined;
 }
 
 /**
@@ -3837,7 +3837,7 @@ export interface ListDelegatedServicesForAccountResponse {
    * <p>The services for which the account is a delegated administrator.</p>
    * @public
    */
-  DelegatedServices?: DelegatedService[];
+  DelegatedServices?: DelegatedService[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -3846,7 +3846,7 @@ export interface ListDelegatedServicesForAccountResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3861,7 +3861,7 @@ export interface HandshakeFilter {
    *                 <code>ParentHandshakeId</code>.</p>
    * @public
    */
-  ActionType?: ActionType;
+  ActionType?: ActionType | undefined;
 
   /**
    * <p>Specifies the parent handshake. Only used for handshake types that are a child of
@@ -3872,7 +3872,7 @@ export interface HandshakeFilter {
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
    */
-  ParentHandshakeId?: string;
+  ParentHandshakeId?: string | undefined;
 }
 
 /**
@@ -3889,7 +3889,7 @@ export interface ListHandshakesForAccountRequest {
    *             handshakes that were generated by that parent request.</p>
    * @public
    */
-  Filter?: HandshakeFilter;
+  Filter?: HandshakeFilter | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3899,7 +3899,7 @@ export interface ListHandshakesForAccountRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3912,7 +3912,7 @@ export interface ListHandshakesForAccountRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3929,7 +3929,7 @@ export interface ListHandshakesForOrganizationRequest {
    *             the handshakes that were generated by that parent request.</p>
    * @public
    */
-  Filter?: HandshakeFilter;
+  Filter?: HandshakeFilter | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3939,7 +3939,7 @@ export interface ListHandshakesForOrganizationRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -3952,7 +3952,7 @@ export interface ListHandshakesForOrganizationRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3988,7 +3988,7 @@ export interface ListOrganizationalUnitsForParentRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4001,7 +4001,7 @@ export interface ListOrganizationalUnitsForParentRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4012,7 +4012,7 @@ export interface ListOrganizationalUnitsForParentResponse {
    * <p>A list of the OUs in the specified root or parent OU.</p>
    * @public
    */
-  OrganizationalUnits?: OrganizationalUnit[];
+  OrganizationalUnits?: OrganizationalUnit[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4021,7 +4021,7 @@ export interface ListOrganizationalUnitsForParentResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4032,7 +4032,7 @@ export interface ListOrganizationalUnitsForParentResponse {
 export class ChildNotFoundException extends __BaseException {
   readonly name: "ChildNotFoundException" = "ChildNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4081,7 +4081,7 @@ export interface ListParentsRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4094,7 +4094,7 @@ export interface ListParentsRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4136,13 +4136,13 @@ export interface Parent {
    *          </ul>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The type of the parent entity.</p>
    * @public
    */
-  Type?: ParentType;
+  Type?: ParentType | undefined;
 }
 
 /**
@@ -4153,7 +4153,7 @@ export interface ListParentsResponse {
    * <p>A list of parents for the specified child account or OU.</p>
    * @public
    */
-  Parents?: Parent[];
+  Parents?: Parent[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4162,7 +4162,7 @@ export interface ListParentsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4211,7 +4211,7 @@ export interface ListPoliciesRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4224,7 +4224,7 @@ export interface ListPoliciesRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4236,7 +4236,7 @@ export interface ListPoliciesResponse {
    *             doesn't include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.</p>
    * @public
    */
-  Policies?: PolicySummary[];
+  Policies?: PolicySummary[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4245,7 +4245,7 @@ export interface ListPoliciesResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4320,7 +4320,7 @@ export interface ListPoliciesForTargetRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4333,7 +4333,7 @@ export interface ListPoliciesForTargetRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4344,7 +4344,7 @@ export interface ListPoliciesForTargetResponse {
    * <p>The list of policies that match the criteria in the request.</p>
    * @public
    */
-  Policies?: PolicySummary[];
+  Policies?: PolicySummary[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4353,7 +4353,7 @@ export interface ListPoliciesForTargetResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4368,7 +4368,7 @@ export interface ListRootsRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4381,7 +4381,7 @@ export interface ListRootsRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4392,7 +4392,7 @@ export interface ListRootsResponse {
    * <p>A list of roots that are defined in an organization.</p>
    * @public
    */
-  Roots?: Root[];
+  Roots?: Root[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4401,7 +4401,7 @@ export interface ListRootsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4446,7 +4446,7 @@ export interface ListTagsForResourceRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4457,7 +4457,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags that are assigned to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4466,7 +4466,7 @@ export interface ListTagsForResourceResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4489,7 +4489,7 @@ export interface ListTargetsForPolicyRequest {
    *     from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -4502,7 +4502,7 @@ export interface ListTargetsForPolicyRequest {
    *     that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4548,7 +4548,7 @@ export interface PolicyTargetSummary {
    *          </ul>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy target.</p>
@@ -4556,7 +4556,7 @@ export interface PolicyTargetSummary {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The friendly name of the policy target.</p>
@@ -4565,13 +4565,13 @@ export interface PolicyTargetSummary {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of the policy target.</p>
    * @public
    */
-  Type?: TargetType;
+  Type?: TargetType | undefined;
 }
 
 /**
@@ -4583,7 +4583,7 @@ export interface ListTargetsForPolicyResponse {
    *             which the specified policy is attached.</p>
    * @public
    */
-  Targets?: PolicyTargetSummary[];
+  Targets?: PolicyTargetSummary[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -4592,7 +4592,7 @@ export interface ListTargetsForPolicyResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4603,7 +4603,7 @@ export interface ListTargetsForPolicyResponse {
 export class DestinationParentNotFoundException extends __BaseException {
   readonly name: "DestinationParentNotFoundException" = "DestinationParentNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4625,7 +4625,7 @@ export class DestinationParentNotFoundException extends __BaseException {
 export class DuplicateAccountException extends __BaseException {
   readonly name: "DuplicateAccountException" = "DuplicateAccountException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4705,7 +4705,7 @@ export interface MoveAccountRequest {
 export class SourceParentNotFoundException extends __BaseException {
   readonly name: "SourceParentNotFoundException" = "SourceParentNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4747,7 +4747,7 @@ export interface PutResourcePolicyRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4758,7 +4758,7 @@ export interface PutResourcePolicyResponse {
    * <p>A structure that contains details about the resource policy.</p>
    * @public
    */
-  ResourcePolicy?: ResourcePolicy;
+  ResourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -4904,7 +4904,7 @@ export interface UpdateOrganizationalUnitRequest {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -4916,7 +4916,7 @@ export interface UpdateOrganizationalUnitResponse {
    *             name.</p>
    * @public
    */
-  OrganizationalUnit?: OrganizationalUnit;
+  OrganizationalUnit?: OrganizationalUnit | undefined;
 }
 
 /**
@@ -4938,13 +4938,13 @@ export interface UpdatePolicyRequest {
    *     character range.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If provided, the new description for the policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
@@ -4955,7 +4955,7 @@ export interface UpdatePolicyRequest {
    *             <i>Organizations User Guide</i>.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 }
 
 /**
@@ -4967,7 +4967,7 @@ export interface UpdatePolicyResponse {
    *             changes.</p>
    * @public
    */
-  Policy?: Policy;
+  Policy?: Policy | undefined;
 }
 
 /**
@@ -4980,7 +4980,7 @@ export interface HandshakeResource {
    *             value string must match the requirements of the specified type.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The type of information being passed, specifying how the value is to be interpreted by
@@ -5017,14 +5017,14 @@ export interface HandshakeResource {
    *          </ul>
    * @public
    */
-  Type?: HandshakeResourceType;
+  Type?: HandshakeResourceType | undefined;
 
   /**
    * <p>When needed, contains an additional array of <code>HandshakeResource</code>
    *             objects.</p>
    * @public
    */
-  Resources?: HandshakeResource[];
+  Resources?: HandshakeResource[] | undefined;
 }
 
 /**
@@ -5047,7 +5047,7 @@ export interface Handshake {
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a handshake.</p>
@@ -5055,13 +5055,13 @@ export interface Handshake {
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Information about the two accounts that are participating in the handshake.</p>
    * @public
    */
-  Parties?: HandshakeParty[];
+  Parties?: HandshakeParty[] | undefined;
 
   /**
    * <p>The current state of the handshake. Use the state to trace the flow of the handshake
@@ -5105,13 +5105,13 @@ export interface Handshake {
    *          </ul>
    * @public
    */
-  State?: HandshakeState;
+  State?: HandshakeState | undefined;
 
   /**
    * <p>The date and time that the handshake request was made.</p>
    * @public
    */
-  RequestedTimestamp?: Date;
+  RequestedTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time that the handshake expires. If the recipient of the handshake
@@ -5119,7 +5119,7 @@ export interface Handshake {
    *             inactive and is no longer valid.</p>
    * @public
    */
-  ExpirationTimestamp?: Date;
+  ExpirationTimestamp?: Date | undefined;
 
   /**
    * <p>The type of handshake, indicating what action occurs when the recipient accepts the
@@ -5151,13 +5151,13 @@ export interface Handshake {
    *          </ul>
    * @public
    */
-  Action?: ActionType;
+  Action?: ActionType | undefined;
 
   /**
    * <p>Additional information that is needed to process the handshake.</p>
    * @public
    */
-  Resources?: HandshakeResource[];
+  Resources?: HandshakeResource[] | undefined;
 }
 
 /**
@@ -5168,7 +5168,7 @@ export interface AcceptHandshakeResponse {
    * <p>A structure that contains details about the accepted handshake.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5179,7 +5179,7 @@ export interface CancelHandshakeResponse {
    * <p>A structure that contains details about the handshake that you canceled.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5191,7 +5191,7 @@ export interface DeclineHandshakeResponse {
    *             to show the value <code>DECLINED</code>.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5202,7 +5202,7 @@ export interface DescribeHandshakeResponse {
    * <p>A structure that contains information about the specified handshake.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5214,7 +5214,7 @@ export interface EnableAllFeaturesResponse {
    *             to enable all features in the organization.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5226,7 +5226,7 @@ export interface InviteAccountToOrganizationResponse {
    *             invitation request.</p>
    * @public
    */
-  Handshake?: Handshake;
+  Handshake?: Handshake | undefined;
 }
 
 /**
@@ -5238,7 +5238,7 @@ export interface ListHandshakesForAccountResponse {
    *             handshakes that is associated with the specified account.</p>
    * @public
    */
-  Handshakes?: Handshake[];
+  Handshakes?: Handshake[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -5247,7 +5247,7 @@ export interface ListHandshakesForAccountResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5259,7 +5259,7 @@ export interface ListHandshakesForOrganizationResponse {
    *             handshakes that are associated with an organization.</p>
    * @public
    */
-  Handshakes?: Handshake[];
+  Handshakes?: Handshake[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -5268,7 +5268,7 @@ export interface ListHandshakesForOrganizationResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

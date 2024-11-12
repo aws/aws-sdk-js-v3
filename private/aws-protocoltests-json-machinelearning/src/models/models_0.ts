@@ -9,7 +9,7 @@ import { MachineLearningServiceException as __BaseException } from "./MachineLea
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  code?: number;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -30,7 +30,7 @@ export class InternalServerException extends __BaseException {
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  code?: number;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -51,7 +51,7 @@ export class InvalidInputException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  code?: number;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -111,17 +111,17 @@ export type DetailsAttributes = (typeof DetailsAttributes)[keyof typeof DetailsA
  * @public
  */
 export interface Prediction {
-  predictedLabel?: string;
-  predictedValue?: number;
-  predictedScores?: Record<string, number>;
-  details?: Partial<Record<DetailsAttributes, string>>;
+  predictedLabel?: string | undefined;
+  predictedValue?: number | undefined;
+  predictedScores?: Record<string, number> | undefined;
+  details?: Partial<Record<DetailsAttributes, string>> | undefined;
 }
 
 /**
  * @public
  */
 export interface PredictOutput {
-  Prediction?: Prediction;
+  Prediction?: Prediction | undefined;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface PredictOutput {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  code?: number;
+  code?: number | undefined;
   /**
    * @internal
    */

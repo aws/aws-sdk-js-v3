@@ -10,7 +10,7 @@ import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from 
 export class AccessForbidden extends __BaseException {
   readonly name: "AccessForbidden" = "AccessForbidden";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -63,7 +63,7 @@ export interface BatchGetRecordIdentifier {
    *          the Features are returned.</p>
    * @public
    */
-  FeatureNames?: string[];
+  FeatureNames?: string[] | undefined;
 }
 
 /**
@@ -85,7 +85,7 @@ export interface BatchGetRecordRequest {
    *          null.</p>
    * @public
    */
-  ExpirationTimeResponse?: ExpirationTimeResponse;
+  ExpirationTimeResponse?: ExpirationTimeResponse | undefined;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface FeatureValue {
    *          represents all three types as a string.</p>
    * @public
    */
-  ValueAsString?: string;
+  ValueAsString?: string | undefined;
 
   /**
    * <p>The list of values in string format associated with a feature. Used when your
@@ -150,7 +150,7 @@ export interface FeatureValue {
    *          types as a string.</p>
    * @public
    */
-  ValueAsStringList?: string[];
+  ValueAsStringList?: string[] | undefined;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface BatchGetRecordResultDetail {
    * <p>The <code>ExpiresAt</code> ISO string of the requested record.</p>
    * @public
    */
-  ExpiresAt?: string;
+  ExpiresAt?: string | undefined;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface BatchGetRecordResponse {
 export class InternalFailure extends __BaseException {
   readonly name: "InternalFailure" = "InternalFailure";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -237,7 +237,7 @@ export class InternalFailure extends __BaseException {
 export class ServiceUnavailable extends __BaseException {
   readonly name: "ServiceUnavailable" = "ServiceUnavailable";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -259,7 +259,7 @@ export class ServiceUnavailable extends __BaseException {
 export class ValidationError extends __BaseException {
   readonly name: "ValidationError" = "ValidationError";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -333,14 +333,14 @@ export interface DeleteRecordRequest {
    *             <code>FeatureGroup</code>.</p>
    * @public
    */
-  TargetStores?: TargetStore[];
+  TargetStores?: TargetStore[] | undefined;
 
   /**
    * <p>The name of the deletion mode for deleting the record. By default, the deletion mode is
    *          set to <code>SoftDelete</code>.</p>
    * @public
    */
-  DeletionMode?: DeletionMode;
+  DeletionMode?: DeletionMode | undefined;
 }
 
 /**
@@ -366,7 +366,7 @@ export interface GetRecordRequest {
    *          the Features are returned.</p>
    * @public
    */
-  FeatureNames?: string[];
+  FeatureNames?: string[] | undefined;
 
   /**
    * <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
@@ -374,7 +374,7 @@ export interface GetRecordRequest {
    *          null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</p>
    * @public
    */
-  ExpirationTimeResponse?: ExpirationTimeResponse;
+  ExpirationTimeResponse?: ExpirationTimeResponse | undefined;
 }
 
 /**
@@ -385,13 +385,13 @@ export interface GetRecordResponse {
    * <p>The record you requested. A list of <code>FeatureValues</code>.</p>
    * @public
    */
-  Record?: FeatureValue[];
+  Record?: FeatureValue[] | undefined;
 
   /**
    * <p>The <code>ExpiresAt</code> ISO string of the requested record.</p>
    * @public
    */
-  ExpiresAt?: string;
+  ExpiresAt?: string | undefined;
 }
 
 /**
@@ -401,7 +401,7 @@ export interface GetRecordResponse {
 export class ResourceNotFound extends __BaseException {
   readonly name: "ResourceNotFound" = "ResourceNotFound";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -489,7 +489,7 @@ export interface PutRecordRequest {
    *          record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
    * @public
    */
-  TargetStores?: TargetStore[];
+  TargetStores?: TargetStore[] | undefined;
 
   /**
    * <p>Time to live duration, where the record is hard deleted after the expiration time is
@@ -497,5 +497,5 @@ export interface PutRecordRequest {
    *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
    * @public
    */
-  TtlDuration?: TtlDuration;
+  TtlDuration?: TtlDuration | undefined;
 }

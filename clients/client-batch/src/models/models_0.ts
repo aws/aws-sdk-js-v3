@@ -26,7 +26,7 @@ export interface ArrayProperties {
    * <p>The size of the array job.</p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 }
 
 /**
@@ -39,20 +39,20 @@ export interface ArrayPropertiesDetail {
    *    is returned for parent array jobs.</p>
    * @public
    */
-  statusSummary?: Record<string, number>;
+  statusSummary?: Record<string, number> | undefined;
 
   /**
    * <p>The size of the array job. This parameter is returned for parent array jobs.</p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 
   /**
    * <p>The job index within the array that's associated with this job. This parameter is returned
    *    for array job children.</p>
    * @public
    */
-  index?: number;
+  index?: number | undefined;
 }
 
 /**
@@ -64,14 +64,14 @@ export interface ArrayPropertiesSummary {
    * <p>The size of the array job. This parameter is returned for parent array jobs.</p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 
   /**
    * <p>The job index within the array that's associated with this job. This parameter is returned
    *    for children of array jobs.</p>
    * @public
    */
-  index?: number;
+  index?: number | undefined;
 }
 
 /**
@@ -98,19 +98,19 @@ export interface NetworkInterface {
    * <p>The attachment ID for the network interface.</p>
    * @public
    */
-  attachmentId?: string;
+  attachmentId?: string | undefined;
 
   /**
    * <p>The private IPv6 address for the network interface.</p>
    * @public
    */
-  ipv6Address?: string;
+  ipv6Address?: string | undefined;
 
   /**
    * <p>The private IPv4 address for the network interface.</p>
    * @public
    */
-  privateIpv4Address?: string;
+  privateIpv4Address?: string | undefined;
 }
 
 /**
@@ -122,27 +122,27 @@ export interface AttemptContainerDetail {
    * <p>The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.</p>
    * @public
    */
-  containerInstanceArn?: string;
+  containerInstanceArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon ECS task that's associated with the job attempt. Each container
    *    attempt receives a task ARN when they reach the <code>STARTING</code> status.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>The exit code for the job attempt. A non-zero exit code is considered failed.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The name of the CloudWatch Logs log stream that's associated with the container. The log
@@ -150,13 +150,13 @@ export interface AttemptContainerDetail {
    *    stream name when they reach the <code>RUNNING</code> status.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The network interfaces that are associated with the job attempt.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 }
 
 /**
@@ -168,20 +168,20 @@ export interface AttemptTaskContainerDetails {
    * <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>The name of a container.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A short (255 max characters) string that's easy to understand and provides additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log
@@ -189,13 +189,13 @@ export interface AttemptTaskContainerDetails {
    *    when they reach the <code>RUNNING</code> status.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The network interfaces that are associated with the job attempt.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 }
 
 /**
@@ -207,19 +207,19 @@ export interface AttemptEcsTaskDetails {
    * <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
    * @public
    */
-  containerInstanceArn?: string;
+  containerInstanceArn?: string | undefined;
 
   /**
    * <p>The ARN of the Amazon ECS task.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
    * @public
    */
-  containers?: AttemptTaskContainerDetails[];
+  containers?: AttemptTaskContainerDetails[] | undefined;
 }
 
 /**
@@ -231,14 +231,14 @@ export interface AttemptDetail {
    * <p>The details for the container in this job attempt.</p>
    * @public
    */
-  container?: AttemptContainerDetail;
+  container?: AttemptContainerDetail | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt
    *    transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state).</p>
    * @public
    */
-  startedAt?: number;
+  startedAt?: number | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt
@@ -246,21 +246,21 @@ export interface AttemptDetail {
    *     <code>SUCCEEDED</code> or <code>FAILED</code>).</p>
    * @public
    */
-  stoppedAt?: number;
+  stoppedAt?: number | undefined;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
    *    job attempt.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The properties for a task definition that describes the container and volume definitions of
    *    an Amazon ECS task.</p>
    * @public
    */
-  taskProperties?: AttemptEcsTaskDetails[];
+  taskProperties?: AttemptEcsTaskDetails[] | undefined;
 }
 
 /**
@@ -440,14 +440,14 @@ export interface Ec2Configuration {
    *          </note>
    * @public
    */
-  imageIdOverride?: string;
+  imageIdOverride?: string | undefined;
 
   /**
    * <p>The Kubernetes version for the compute environment. If you don't specify a value, the latest
    *    version that Batch supports is used.</p>
    * @public
    */
-  imageKubernetesVersion?: string;
+  imageKubernetesVersion?: string | undefined;
 }
 
 /**
@@ -473,7 +473,7 @@ export interface LaunchTemplateSpecificationOverride {
    *             <b>Note:</b> If you specify the <code>launchTemplateId</code> you can't specify the <code>launchTemplateName</code> as well.</p>
    * @public
    */
-  launchTemplateId?: string;
+  launchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
@@ -481,7 +481,7 @@ export interface LaunchTemplateSpecificationOverride {
    *             <b>Note:</b> If you specify the <code>launchTemplateName</code> you can't specify the <code>launchTemplateId</code> as well.</p>
    * @public
    */
-  launchTemplateName?: string;
+  launchTemplateName?: string | undefined;
 
   /**
    * <p>The version number of the launch template,
@@ -504,7 +504,7 @@ export interface LaunchTemplateSpecificationOverride {
    *          </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The instance type or family that this this override launch template should be applied to.</p>
@@ -531,7 +531,7 @@ export interface LaunchTemplateSpecificationOverride {
    *          </ul>
    * @public
    */
-  targetInstanceTypes?: string[];
+  targetInstanceTypes?: string[] | undefined;
 }
 
 /**
@@ -552,13 +552,13 @@ export interface LaunchTemplateSpecification {
    * <p>The ID of the launch template.</p>
    * @public
    */
-  launchTemplateId?: string;
+  launchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
    * @public
    */
-  launchTemplateName?: string;
+  launchTemplateName?: string | undefined;
 
   /**
    * <p>The version number of the launch template,
@@ -582,7 +582,7 @@ export interface LaunchTemplateSpecification {
    *          </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>A launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not both.</p>
@@ -592,7 +592,7 @@ export interface LaunchTemplateSpecification {
    *          </note>
    * @public
    */
-  overrides?: LaunchTemplateSpecificationOverride[];
+  overrides?: LaunchTemplateSpecificationOverride[] | undefined;
 }
 
 /**
@@ -680,7 +680,7 @@ export interface ComputeResource {
    *     <code>maxvCpus</code> by more than a single instance.</p>
    * @public
    */
-  allocationStrategy?: CRAllocationStrategy;
+  allocationStrategy?: CRAllocationStrategy | undefined;
 
   /**
    * <p>The minimum number of
@@ -693,7 +693,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  minvCpus?: number;
+  minvCpus?: number | undefined;
 
   /**
    * <p>The maximum number of
@@ -722,7 +722,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  desiredvCpus?: number;
+  desiredvCpus?: number | undefined;
 
   /**
    * <p>The instances types that can be launched. You can specify instance families to launch any
@@ -745,7 +745,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * @deprecated
@@ -766,7 +766,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 
   /**
    * <p>The VPC subnets where the compute resources are launched. These subnets must be within the
@@ -795,7 +795,7 @@ export interface ComputeResource {
    *     <code>launchTemplate</code>, the values in <code>securityGroupIds</code> are used.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 key pair that's used for instances launched in the compute environment. You can
@@ -805,7 +805,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  ec2KeyPair?: string;
+  ec2KeyPair?: string | undefined;
 
   /**
    * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. This
@@ -821,7 +821,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  instanceRole?: string;
+  instanceRole?: string | undefined;
 
   /**
    * <p>Key-value pair tags to be applied to Amazon EC2 resources that are launched in the compute
@@ -837,7 +837,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit
@@ -851,7 +851,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  placementGroup?: string;
+  placementGroup?: string | undefined;
 
   /**
    * <p>The maximum percentage that a Spot Instance price can be when compared with the On-Demand
@@ -866,7 +866,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  bidPercentage?: number;
+  bidPercentage?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a <code>SPOT</code> compute
@@ -885,7 +885,7 @@ export interface ComputeResource {
    *          </important>
    * @public
    */
-  spotIamFleetRole?: string;
+  spotIamFleetRole?: string | undefined;
 
   /**
    * <p>The launch template to use for your compute resources. Any other compute resource parameters
@@ -898,7 +898,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  launchTemplate?: LaunchTemplateSpecification;
+  launchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>Provides information that's used to select Amazon Machine Images (AMIs) for Amazon EC2 instances
@@ -910,7 +910,7 @@ export interface ComputeResource {
    *          </note>
    * @public
    */
-  ec2Configuration?: Ec2Configuration[];
+  ec2Configuration?: Ec2Configuration[] | undefined;
 }
 
 /**
@@ -1009,7 +1009,7 @@ export interface CreateComputeEnvironmentRequest {
    *       instance.</p>
    * @public
    */
-  state?: CEState;
+  state?: CEState | undefined;
 
   /**
    * <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only
@@ -1021,7 +1021,7 @@ export interface CreateComputeEnvironmentRequest {
    *          </note>
    * @public
    */
-  unmanagedvCpus?: number;
+  unmanagedvCpus?: number | undefined;
 
   /**
    * <p>Details about the compute resources managed by the compute environment. This parameter is
@@ -1029,7 +1029,7 @@ export interface CreateComputeEnvironmentRequest {
    *       in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  computeResources?: ComputeResource;
+  computeResources?: ComputeResource | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services
@@ -1055,7 +1055,7 @@ export interface CreateComputeEnvironmentRequest {
    *          </note>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>The tags that you apply to the compute environment to help you categorize and organize
@@ -1066,19 +1066,19 @@ export interface CreateComputeEnvironmentRequest {
    *       resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The details for the Amazon EKS cluster that supports the compute environment.</p>
    * @public
    */
-  eksConfiguration?: EksConfiguration;
+  eksConfiguration?: EksConfiguration | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  context?: string;
+  context?: string | undefined;
 }
 
 /**
@@ -1090,13 +1090,13 @@ export interface CreateComputeEnvironmentResponse {
    *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    * @public
    */
-  computeEnvironmentName?: string;
+  computeEnvironmentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    * @public
    */
-  computeEnvironmentArn?: string;
+  computeEnvironmentArn?: string | undefined;
 }
 
 /**
@@ -1222,7 +1222,7 @@ export interface CreateJobQueueRequest {
    *       queue, but jobs already in the queue can finish.</p>
    * @public
    */
-  state?: JQState;
+  state?: JQState | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. Job queues that don't have a scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a scheduling policy, it can be replaced but can't be removed.</p>
@@ -1234,7 +1234,7 @@ export interface CreateJobQueueRequest {
    *          <p>A job queue without a scheduling policy is scheduled as a FIFO job queue and can't have a scheduling policy added. Jobs queues with a scheduling policy can have a maximum of 500 active fair share identifiers. When the limit has been reached, submissions of any jobs that add a new fair share identifier fail.</p>
    * @public
    */
-  schedulingPolicyArn?: string;
+  schedulingPolicyArn?: string | undefined;
 
   /**
    * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer
@@ -1271,13 +1271,13 @@ export interface CreateJobQueueRequest {
    *       in <i>Batch User Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
    * @public
    */
-  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[] | undefined;
 }
 
 /**
@@ -1324,7 +1324,7 @@ export interface ShareAttributes {
    *          <p>The smallest supported value is 0.0001, and the largest supported value is 999.9999.</p>
    * @public
    */
-  weightFactor?: number;
+  weightFactor?: number | undefined;
 }
 
 /**
@@ -1339,7 +1339,7 @@ export interface FairsharePolicy {
    *    maximum supported value is 604800 (1 week).</p>
    * @public
    */
-  shareDecaySeconds?: number;
+  shareDecaySeconds?: number | undefined;
 
   /**
    * <p>A value used to reserve some of the available maximum vCPU for fair share identifiers that
@@ -1360,7 +1360,7 @@ export interface FairsharePolicy {
    *          <p>The minimum value is 0 and the maximum value is 99.</p>
    * @public
    */
-  computeReservation?: number;
+  computeReservation?: number | undefined;
 
   /**
    * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the fair
@@ -1368,7 +1368,7 @@ export interface FairsharePolicy {
    *    default weight of <code>1.0</code>.</p>
    * @public
    */
-  shareDistribution?: ShareAttributes[];
+  shareDistribution?: ShareAttributes[] | undefined;
 }
 
 /**
@@ -1387,7 +1387,7 @@ export interface CreateSchedulingPolicyRequest {
    * <p>The fair share policy of the scheduling policy.</p>
    * @public
    */
-  fairsharePolicy?: FairsharePolicy;
+  fairsharePolicy?: FairsharePolicy | undefined;
 
   /**
    * <p>The tags that you apply to the scheduling policy to help you categorize and organize your
@@ -1396,7 +1396,7 @@ export interface CreateSchedulingPolicyRequest {
    *          <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1497,7 +1497,7 @@ export interface DescribeComputeEnvironmentsRequest {
    * <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
    * @public
    */
-  computeEnvironments?: string[];
+  computeEnvironments?: string[] | undefined;
 
   /**
    * <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code>
@@ -1511,7 +1511,7 @@ export interface DescribeComputeEnvironmentsRequest {
    *       applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -1525,7 +1525,7 @@ export interface DescribeComputeEnvironmentsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1572,14 +1572,14 @@ export interface UpdatePolicy {
    *    infrastructure is updated. The default value is <code>false</code>.</p>
    * @public
    */
-  terminateJobsOnUpdate?: boolean;
+  terminateJobsOnUpdate?: boolean | undefined;
 
   /**
    * <p>Specifies the job timeout (in minutes) when the compute environment infrastructure is
    *    updated. The default value is 30.</p>
    * @public
    */
-  jobExecutionTimeoutMinutes?: number;
+  jobExecutionTimeoutMinutes?: number | undefined;
 }
 
 /**
@@ -1604,26 +1604,26 @@ export interface ComputeEnvironmentDetail {
    * <p>The maximum number of VCPUs expected to be used for an unmanaged compute environment.</p>
    * @public
    */
-  unmanagedvCpus?: number;
+  unmanagedvCpus?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster that the compute environment uses.</p>
    * @public
    */
-  ecsClusterArn?: string;
+  ecsClusterArn?: string | undefined;
 
   /**
    * <p>The tags applied to the compute environment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For
    *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  type?: CEType;
+  type?: CEType | undefined;
 
   /**
    * <p>The state of the compute environment. The valid values are <code>ENABLED</code> or
@@ -1648,28 +1648,28 @@ export interface ComputeEnvironmentDetail {
    *    instance.</p>
    * @public
    */
-  state?: CEState;
+  state?: CEState | undefined;
 
   /**
    * <p>The current status of the compute environment (for example, <code>CREATING</code> or
    *     <code>VALID</code>).</p>
    * @public
    */
-  status?: CEStatus;
+  status?: CEStatus | undefined;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
    *    compute environment.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The compute resources defined for the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in
    *    the <i>Batch User Guide</i>.</p>
    * @public
    */
-  computeResources?: ComputeResource;
+  computeResources?: ComputeResource | undefined;
 
   /**
    * <p>The service role that's associated with the compute environment that allows Batch to make
@@ -1677,7 +1677,7 @@ export interface ComputeEnvironmentDetail {
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>Specifies the infrastructure update policy for the compute environment. For more information
@@ -1685,33 +1685,33 @@ export interface ComputeEnvironmentDetail {
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  updatePolicy?: UpdatePolicy;
+  updatePolicy?: UpdatePolicy | undefined;
 
   /**
    * <p>The configuration for the Amazon EKS cluster that supports the Batch compute environment. Only
    *    specify this parameter if the <code>containerOrchestrationType</code> is <code>EKS</code>.</p>
    * @public
    */
-  eksConfiguration?: EksConfiguration;
+  eksConfiguration?: EksConfiguration | undefined;
 
   /**
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    * @public
    */
-  containerOrchestrationType?: OrchestrationType;
+  containerOrchestrationType?: OrchestrationType | undefined;
 
   /**
    * <p>Unique identifier for the compute environment.</p>
    * @public
    */
-  uuid?: string;
+  uuid?: string | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  context?: string;
+  context?: string | undefined;
 }
 
 /**
@@ -1722,7 +1722,7 @@ export interface DescribeComputeEnvironmentsResponse {
    * <p>The list of compute environments.</p>
    * @public
    */
-  computeEnvironments?: ComputeEnvironmentDetail[];
+  computeEnvironments?: ComputeEnvironmentDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -1732,7 +1732,7 @@ export interface DescribeComputeEnvironmentsResponse {
    *       are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1748,7 +1748,7 @@ export interface DescribeJobDefinitionsRequest {
    *       parameter can't be used with other parameters.</p>
    * @public
    */
-  jobDefinitions?: string[];
+  jobDefinitions?: string[] | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated
@@ -1761,19 +1761,19 @@ export interface DescribeJobDefinitionsRequest {
    *       a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of the job definition to describe.</p>
    * @public
    */
-  jobDefinitionName?: string;
+  jobDefinitionName?: string | undefined;
 
   /**
    * <p>The status used to filter job definitions.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -1787,7 +1787,7 @@ export interface DescribeJobDefinitionsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1800,14 +1800,14 @@ export interface KeyValuePair {
    *    environment variable.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The value of the key-value pair. For environment variables, this is the value of the
    *    environment variable.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1839,7 +1839,7 @@ export interface FargatePlatformConfiguration {
    *     platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  platformVersion?: string;
+  platformVersion?: string | undefined;
 }
 
 /**
@@ -1877,7 +1877,7 @@ export interface Device {
    *     <code>hostPath</code> value is used.</p>
    * @public
    */
-  containerPath?: string;
+  containerPath?: string | undefined;
 
   /**
    * <p>The explicit permissions to provide to the container for the device. By default, the
@@ -1885,7 +1885,7 @@ export interface Device {
    *    the device.</p>
    * @public
    */
-  permissions?: DeviceCgroupPermission[];
+  permissions?: DeviceCgroupPermission[] | undefined;
 }
 
 /**
@@ -1923,7 +1923,7 @@ export interface Tmpfs {
    *     "<code>nr_blocks</code>" | "<code>mpol</code>"</p>
    * @public
    */
-  mountOptions?: string[];
+  mountOptions?: string[] | undefined;
 }
 
 /**
@@ -1943,7 +1943,7 @@ export interface LinuxParameters {
    *          </note>
    * @public
    */
-  devices?: Device[];
+  devices?: Device[] | undefined;
 
   /**
    * <p>If true, run an <code>init</code> process inside the container that forwards signals and
@@ -1953,7 +1953,7 @@ export interface LinuxParameters {
    *          </p>
    * @public
    */
-  initProcessEnabled?: boolean;
+  initProcessEnabled?: boolean | undefined;
 
   /**
    * <p>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter maps to
@@ -1965,7 +1965,7 @@ export interface LinuxParameters {
    *          </note>
    * @public
    */
-  sharedMemorySize?: number;
+  sharedMemorySize?: number | undefined;
 
   /**
    * <p>The container path, mount options, and size (in MiB) of the <code>tmpfs</code> mount. This
@@ -1977,7 +1977,7 @@ export interface LinuxParameters {
    *          </note>
    * @public
    */
-  tmpfs?: Tmpfs[];
+  tmpfs?: Tmpfs[] | undefined;
 
   /**
    * <p>The total amount of swap memory (in MiB) a container can use. This parameter is translated
@@ -1996,7 +1996,7 @@ export interface LinuxParameters {
    *          </note>
    * @public
    */
-  maxSwap?: number;
+  maxSwap?: number | undefined;
 
   /**
    * <p>You can use this parameter to tune a container's memory swappiness behavior. A
@@ -2038,7 +2038,7 @@ export interface LinuxParameters {
    *          </note>
    * @public
    */
-  swappiness?: number;
+  swappiness?: number | undefined;
 }
 
 /**
@@ -2178,14 +2178,14 @@ export interface LogConfiguration {
    *          </p>
    * @public
    */
-  options?: Record<string, string>;
+  options?: Record<string, string> | undefined;
 
   /**
    * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive
    *     data</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  secretOptions?: Secret[];
+  secretOptions?: Secret[] | undefined;
 }
 
 /**
@@ -2200,20 +2200,20 @@ export interface MountPoint {
    * <p>The path on the container where the host volume is mounted.</p>
    * @public
    */
-  containerPath?: string;
+  containerPath?: string | undefined;
 
   /**
    * <p>If this value is <code>true</code>, the container has read-only access to the volume.
    *    Otherwise, the container can write to the volume. The default value is <code>false</code>.</p>
    * @public
    */
-  readOnly?: boolean;
+  readOnly?: boolean | undefined;
 
   /**
    * <p>The name of the volume to mount.</p>
    * @public
    */
-  sourceVolume?: string;
+  sourceVolume?: string | undefined;
 }
 
 /**
@@ -2230,7 +2230,7 @@ export interface NetworkConfiguration {
    *     <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
    * @public
    */
-  assignPublicIp?: AssignPublicIp;
+  assignPublicIp?: AssignPublicIp | undefined;
 }
 
 /**
@@ -2480,7 +2480,7 @@ export interface RuntimePlatform {
    *          </note>
    * @public
    */
-  operatingSystemFamily?: string;
+  operatingSystemFamily?: string | undefined;
 
   /**
    * <p> The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
@@ -2499,7 +2499,7 @@ export interface RuntimePlatform {
    *          </note>
    * @public
    */
-  cpuArchitecture?: string;
+  cpuArchitecture?: string | undefined;
 }
 
 /**
@@ -2561,7 +2561,7 @@ export interface EFSAuthorizationConfig {
    *     with Amazon EFS access points</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
    * @public
    */
-  accessPointId?: string;
+  accessPointId?: string | undefined;
 
   /**
    * <p>Whether or not to use the Batch job IAM role defined in a job definition when mounting the
@@ -2573,7 +2573,7 @@ export interface EFSAuthorizationConfig {
    *    specified.</p>
    * @public
    */
-  iam?: EFSAuthorizationConfigIAM;
+  iam?: EFSAuthorizationConfigIAM | undefined;
 }
 
 /**
@@ -2615,7 +2615,7 @@ export interface EFSVolumeConfiguration {
    *          </important>
    * @public
    */
-  rootDirectory?: string;
+  rootDirectory?: string | undefined;
 
   /**
    * <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and
@@ -2624,7 +2624,7 @@ export interface EFSVolumeConfiguration {
    *    information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
    * @public
    */
-  transitEncryption?: EFSTransitEncryption;
+  transitEncryption?: EFSTransitEncryption | undefined;
 
   /**
    * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If
@@ -2633,13 +2633,13 @@ export interface EFSVolumeConfiguration {
    *     <i>Amazon Elastic File System User Guide</i>.</p>
    * @public
    */
-  transitEncryptionPort?: number;
+  transitEncryptionPort?: number | undefined;
 
   /**
    * <p>The authorization configuration details for the Amazon EFS file system.</p>
    * @public
    */
-  authorizationConfig?: EFSAuthorizationConfig;
+  authorizationConfig?: EFSAuthorizationConfig | undefined;
 }
 
 /**
@@ -2663,7 +2663,7 @@ export interface Host {
    *          </note>
    * @public
    */
-  sourcePath?: string;
+  sourcePath?: string | undefined;
 }
 
 /**
@@ -2682,7 +2682,7 @@ export interface Volume {
    *          </note>
    * @public
    */
-  host?: Host;
+  host?: Host | undefined;
 
   /**
    * <p>The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters,
@@ -2690,7 +2690,7 @@ export interface Volume {
    *     <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs
@@ -2698,7 +2698,7 @@ export interface Volume {
    *     <code>1.4.0</code>.</p>
    * @public
    */
-  efsVolumeConfiguration?: EFSVolumeConfiguration;
+  efsVolumeConfiguration?: EFSVolumeConfiguration | undefined;
 }
 
 /**
@@ -2752,7 +2752,7 @@ export interface ContainerProperties {
    *          </ul>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * @deprecated
@@ -2768,7 +2768,7 @@ export interface ContainerProperties {
    *    least once for each node.</p>
    * @public
    */
-  vcpus?: number;
+  vcpus?: number | undefined;
 
   /**
    * @deprecated
@@ -2781,7 +2781,7 @@ export interface ContainerProperties {
    *    specified in several places. It must be specified for each node at least once.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the
@@ -2790,7 +2790,7 @@ export interface ContainerProperties {
    *     <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more
@@ -2798,7 +2798,7 @@ export interface ContainerProperties {
    *     <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  jobRoleArn?: string;
+  jobRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate
@@ -2806,13 +2806,13 @@ export interface ContainerProperties {
    *    in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>A list of data volumes used in a job.</p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in
@@ -2828,7 +2828,7 @@ export interface ContainerProperties {
    *          </note>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>The mount points for data volumes in your container. This parameter maps to
@@ -2837,7 +2837,7 @@ export interface ContainerProperties {
    *    run</a>.</p>
    * @public
    */
-  mountPoints?: MountPoint[];
+  mountPoints?: MountPoint[] | undefined;
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
@@ -2846,7 +2846,7 @@ export interface ContainerProperties {
    *     <code>--read-only</code> option to <code>docker run</code>.</p>
    * @public
    */
-  readonlyRootFilesystem?: boolean;
+  readonlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>When this parameter is true, the container is given elevated permissions on the host
@@ -2859,7 +2859,7 @@ export interface ContainerProperties {
    *          </note>
    * @public
    */
-  privileged?: boolean;
+  privileged?: boolean | undefined;
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. This parameter maps to
@@ -2872,7 +2872,7 @@ export interface ContainerProperties {
    *          </note>
    * @public
    */
-  ulimits?: Ulimit[];
+  ulimits?: Ulimit[] | undefined;
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in the
@@ -2880,7 +2880,7 @@ export interface ContainerProperties {
    *    option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    * @public
    */
-  user?: string;
+  user?: string | undefined;
 
   /**
    * <p>The instance type to use for a multi-node parallel job. All node groups in a multi-node
@@ -2891,21 +2891,21 @@ export interface ContainerProperties {
    *          </note>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. The supported resources include
    *     <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as details for device
    *    mappings.</p>
    * @public
    */
-  linuxParameters?: LinuxParameters;
+  linuxParameters?: LinuxParameters | undefined;
 
   /**
    * <p>The log configuration specification for the container.</p>
@@ -2934,28 +2934,28 @@ export interface ContainerProperties {
    *          </note>
    * @public
    */
-  logConfiguration?: LogConfiguration;
+  logConfiguration?: LogConfiguration | undefined;
 
   /**
    * <p>The secrets for the container. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive data</a> in the
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  secrets?: Secret[];
+  secrets?: Secret[] | undefined;
 
   /**
    * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  networkConfiguration?: NetworkConfiguration;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  fargatePlatformConfiguration?: FargatePlatformConfiguration;
+  fargatePlatformConfiguration?: FargatePlatformConfiguration | undefined;
 
   /**
    * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand
@@ -2963,20 +2963,20 @@ export interface ContainerProperties {
    *    Fargate.</p>
    * @public
    */
-  ephemeralStorage?: EphemeralStorage;
+  ephemeralStorage?: EphemeralStorage | undefined;
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
    *    Fargate.</p>
    * @public
    */
-  runtimePlatform?: RuntimePlatform;
+  runtimePlatform?: RuntimePlatform | undefined;
 
   /**
    * <p>The private repository authentication credentials to use.</p>
    * @public
    */
-  repositoryCredentials?: RepositoryCredentials;
+  repositoryCredentials?: RepositoryCredentials | undefined;
 }
 
 /**
@@ -2988,7 +2988,7 @@ export interface TaskContainerDependency {
    * <p>A unique identifier for the container.</p>
    * @public
    */
-  containerName?: string;
+  containerName?: string | undefined;
 
   /**
    * <p>The dependency condition of the container. The following are the available conditions and
@@ -3016,7 +3016,7 @@ export interface TaskContainerDependency {
    *          </ul>
    * @public
    */
-  condition?: string;
+  condition?: string | undefined;
 }
 
 /**
@@ -3034,13 +3034,13 @@ export interface TaskContainerProperties {
    *     CMD</a>.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>A list of containers that this container depends on.</p>
    * @public
    */
-  dependsOn?: TaskContainerDependency[];
+  dependsOn?: TaskContainerDependency[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to Env inthe <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
@@ -3056,7 +3056,7 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>If the essential parameter of a container is marked as <code>true</code>, and that container
@@ -3071,7 +3071,7 @@ export interface TaskContainerProperties {
    *     Architecture</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  essential?: boolean;
+  essential?: boolean | undefined;
 
   /**
    * <p>The image used to start a container. This string is passed directly to the Docker daemon. By
@@ -3093,7 +3093,7 @@ export interface TaskContainerProperties {
    *    capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
    * @public
    */
-  linuxParameters?: LinuxParameters;
+  linuxParameters?: LinuxParameters | undefined;
 
   /**
    * <p>The log configuration specification for the container.</p>
@@ -3127,7 +3127,7 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  logConfiguration?: LogConfiguration;
+  logConfiguration?: LogConfiguration | undefined;
 
   /**
    * <p>The mount points for data volumes in your container.</p>
@@ -3140,14 +3140,14 @@ export interface TaskContainerProperties {
    *    and mount point can't be across drives.</p>
    * @public
    */
-  mountPoints?: MountPoint[];
+  mountPoints?: MountPoint[] | undefined;
 
   /**
    * <p>The name of a container. The name can be used as a unique identifier to target your
    *     <code>dependsOn</code> and <code>Overrides</code> objects. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the
@@ -3161,7 +3161,7 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  privileged?: boolean;
+  privileged?: boolean | undefined;
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
@@ -3174,27 +3174,27 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  readonlyRootFilesystem?: boolean;
+  readonlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>The private repository authentication credentials to use.</p>
    * @public
    */
-  repositoryCredentials?: RepositoryCredentials;
+  repositoryCredentials?: RepositoryCredentials | undefined;
 
   /**
    * <p>The type and amount of a resource to assign to a container. The only supported resource is a
    *    GPU.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 
   /**
    * <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying Sensitive
    *     Data</a> in the Amazon Elastic Container Service Developer Guide.</p>
    * @public
    */
-  secrets?: Secret[];
+  secrets?: Secret[] | undefined;
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is
@@ -3218,7 +3218,7 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  ulimits?: Ulimit[];
+  ulimits?: Ulimit[] | undefined;
 
   /**
    * <p>The user to use inside the container. This parameter maps to User in the Create a container
@@ -3266,7 +3266,7 @@ export interface TaskContainerProperties {
    *          </note>
    * @public
    */
-  user?: string;
+  user?: string | undefined;
 }
 
 /**
@@ -3288,7 +3288,7 @@ export interface EcsTaskProperties {
    *    Fargate.</p>
    * @public
    */
-  ephemeralStorage?: EphemeralStorage;
+  ephemeralStorage?: EphemeralStorage | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate
@@ -3296,7 +3296,7 @@ export interface EcsTaskProperties {
    *    in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>The Fargate platform version where the jobs are running. A platform version is specified
@@ -3306,7 +3306,7 @@ export interface EcsTaskProperties {
    *     platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  platformVersion?: string;
+  platformVersion?: string | undefined;
 
   /**
    * <p>The IPC resource namespace to use for the containers in the task. The valid values are
@@ -3323,7 +3323,7 @@ export interface EcsTaskProperties {
    *    the Docker run reference.</p>
    * @public
    */
-  ipcMode?: string;
+  ipcMode?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that's associated with the Amazon ECS task.</p>
@@ -3332,7 +3332,7 @@ export interface EcsTaskProperties {
    *          </note>
    * @public
    */
-  taskRoleArn?: string;
+  taskRoleArn?: string | undefined;
 
   /**
    * <p>The process namespace to use for the containers in the task. The valid values are
@@ -3348,27 +3348,27 @@ export interface EcsTaskProperties {
    *    information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the Docker run reference.</p>
    * @public
    */
-  pidMode?: string;
+  pidMode?: string | undefined;
 
   /**
    * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  networkConfiguration?: NetworkConfiguration;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
    *    Fargate.</p>
    * @public
    */
-  runtimePlatform?: RuntimePlatform;
+  runtimePlatform?: RuntimePlatform | undefined;
 
   /**
    * <p>A list of volumes that are associated with the job.</p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 }
 
 /**
@@ -3401,7 +3401,7 @@ export interface EksContainerEnvironmentVariable {
    * <p>The value of the environment variable.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -3450,7 +3450,7 @@ export interface EksContainerResourceRequirements {
    *          </dl>
    * @public
    */
-  limits?: Record<string, string>;
+  limits?: Record<string, string> | undefined;
 
   /**
    * <p>The type and quantity of the resources to request for the container. The values vary based
@@ -3490,7 +3490,7 @@ export interface EksContainerResourceRequirements {
    *          </dl>
    * @public
    */
-  requests?: Record<string, string>;
+  requests?: Record<string, string> | undefined;
 }
 
 /**
@@ -3509,7 +3509,7 @@ export interface EksContainerSecurityContext {
    *    documentation</i>.</p>
    * @public
    */
-  runAsUser?: number;
+  runAsUser?: number | undefined;
 
   /**
    * <p>When this parameter is specified, the container is run as the specified group ID
@@ -3520,7 +3520,7 @@ export interface EksContainerSecurityContext {
    *    documentation</i>.</p>
    * @public
    */
-  runAsGroup?: number;
+  runAsGroup?: number | undefined;
 
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated permissions on the
@@ -3530,14 +3530,14 @@ export interface EksContainerSecurityContext {
    *     pod security policies</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  privileged?: boolean;
+  privileged?: boolean | undefined;
 
   /**
    * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent
    *    process. The default value is <code>false</code>.</p>
    * @public
    */
-  allowPrivilegeEscalation?: boolean;
+  allowPrivilegeEscalation?: boolean | undefined;
 
   /**
    * <p>When this parameter is <code>true</code>, the container is given read-only access to its
@@ -3546,7 +3546,7 @@ export interface EksContainerSecurityContext {
    *     documentation</i>.</p>
    * @public
    */
-  readOnlyRootFilesystem?: boolean;
+  readOnlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>When this parameter is specified, the container is run as a user with a <code>uid</code>
@@ -3556,7 +3556,7 @@ export interface EksContainerSecurityContext {
    *    documentation</i>.</p>
    * @public
    */
-  runAsNonRoot?: boolean;
+  runAsNonRoot?: boolean | undefined;
 }
 
 /**
@@ -3570,20 +3570,20 @@ export interface EksContainerVolumeMount {
    *    pod.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The path on the container where the volume is mounted.</p>
    * @public
    */
-  mountPath?: string;
+  mountPath?: string | undefined;
 
   /**
    * <p>If this value is <code>true</code>, the container has read-only access to the volume.
    *    Otherwise, the container can write to the volume. The default value is <code>false</code>.</p>
    * @public
    */
-  readOnly?: boolean;
+  readOnly?: boolean | undefined;
 }
 
 /**
@@ -3598,7 +3598,7 @@ export interface EksContainer {
    *     "<code>Default</code>" is used. Each container in a pod must have a unique name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Docker image used to start the container.</p>
@@ -3614,7 +3614,7 @@ export interface EksContainer {
    *     images</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  imagePullPolicy?: string;
+  imagePullPolicy?: string | undefined;
 
   /**
    * <p>The entrypoint for the container. This isn't run within a shell. If this isn't specified,
@@ -3629,7 +3629,7 @@ export interface EksContainer {
    *    information, see <a href="https://docs.docker.com/engine/reference/builder/#entrypoint">ENTRYPOINT</a> in the <i>Dockerfile reference</i> and <a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/">Define a command and arguments for a container</a> and <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint">Entrypoint</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>An array of arguments to the entrypoint. If this isn't specified, the <code>CMD</code> of
@@ -3645,7 +3645,7 @@ export interface EksContainer {
    *     documentation</i>.</p>
    * @public
    */
-  args?: string[];
+  args?: string[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container.</p>
@@ -3655,7 +3655,7 @@ export interface EksContainer {
    *          </note>
    * @public
    */
-  env?: EksContainerEnvironmentVariable[];
+  env?: EksContainerEnvironmentVariable[] | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. The supported resources include
@@ -3664,7 +3664,7 @@ export interface EksContainer {
    *     documentation</i>.</p>
    * @public
    */
-  resources?: EksContainerResourceRequirements;
+  resources?: EksContainerResourceRequirements | undefined;
 
   /**
    * <p>The volume mounts for the container. Batch supports <code>emptyDir</code>,
@@ -3672,7 +3672,7 @@ export interface EksContainer {
    *    and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  volumeMounts?: EksContainerVolumeMount[];
+  volumeMounts?: EksContainerVolumeMount[] | undefined;
 
   /**
    * <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a
@@ -3680,7 +3680,7 @@ export interface EksContainer {
    *     documentation</i>.</p>
    * @public
    */
-  securityContext?: EksContainerSecurityContext;
+  securityContext?: EksContainerSecurityContext | undefined;
 }
 
 /**
@@ -3712,7 +3712,7 @@ export interface EksMetadata {
    *    unique for a given object.</p>
    * @public
    */
-  labels?: Record<string, string>;
+  labels?: Record<string, string> | undefined;
 }
 
 /**
@@ -3745,13 +3745,13 @@ export interface EksEmptyDir {
    *          </dl>
    * @public
    */
-  medium?: string;
+  medium?: string | undefined;
 
   /**
    * <p>The maximum size of the volume. By default, there's no maximum size defined.</p>
    * @public
    */
-  sizeLimit?: string;
+  sizeLimit?: string | undefined;
 }
 
 /**
@@ -3765,7 +3765,7 @@ export interface EksHostPath {
    * <p>The path of the file or directory on the host to mount into containers on the pod.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 }
 
 /**
@@ -3786,7 +3786,7 @@ export interface EksSecret {
    * <p>Specifies whether the secret or the secret's keys must be defined.</p>
    * @public
    */
-  optional?: boolean;
+  optional?: boolean | undefined;
 }
 
 /**
@@ -3807,7 +3807,7 @@ export interface EksVolume {
    *    in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  hostPath?: EksHostPath;
+  hostPath?: EksHostPath | undefined;
 
   /**
    * <p>Specifies the configuration of a Kubernetes <code>emptyDir</code> volume. For more information,
@@ -3815,7 +3815,7 @@ export interface EksVolume {
    *    in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  emptyDir?: EksEmptyDir;
+  emptyDir?: EksEmptyDir | undefined;
 
   /**
    * <p>Specifies the configuration of a Kubernetes <code>secret</code> volume. For more information, see
@@ -3823,7 +3823,7 @@ export interface EksVolume {
    *     <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  secret?: EksSecret;
+  secret?: EksSecret | undefined;
 }
 
 /**
@@ -3839,7 +3839,7 @@ export interface EksPodProperties {
    *    documentation</i>.</p>
    * @public
    */
-  serviceAccountName?: string;
+  serviceAccountName?: string | undefined;
 
   /**
    * <p>Indicates if the pod uses the hosts' network IP address. The default value is
@@ -3850,7 +3850,7 @@ export interface EksPodProperties {
    *    in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  hostNetwork?: boolean;
+  hostNetwork?: boolean | undefined;
 
   /**
    * <p>The DNS policy for the pod. The default value is <code>ClusterFirst</code>. If the
@@ -3863,7 +3863,7 @@ export interface EksPodProperties {
    *          </p>
    * @public
    */
-  dnsPolicy?: string;
+  dnsPolicy?: string | undefined;
 
   /**
    * <p>References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain
@@ -3872,7 +3872,7 @@ export interface EksPodProperties {
    *             <code>ImagePullSecret$name</code> is required when this object is used.</p>
    * @public
    */
-  imagePullSecrets?: ImagePullSecret[];
+  imagePullSecrets?: ImagePullSecret[] | undefined;
 
   /**
    * <p>The properties of the container that's used on the Amazon EKS pod.</p>
@@ -3881,7 +3881,7 @@ export interface EksPodProperties {
    *          </note>
    * @public
    */
-  containers?: EksContainer[];
+  containers?: EksContainer[] | undefined;
 
   /**
    * <p>These containers run before application containers, always runs to completion, and must
@@ -3894,13 +3894,13 @@ export interface EksPodProperties {
    *          </note>
    * @public
    */
-  initContainers?: EksContainer[];
+  initContainers?: EksContainer[] | undefined;
 
   /**
    * <p>Specifies the volumes for a job definition that uses Amazon EKS resources.</p>
    * @public
    */
-  volumes?: EksVolume[];
+  volumes?: EksVolume[] | undefined;
 
   /**
    * <p>Metadata about the
@@ -3910,7 +3910,7 @@ export interface EksPodProperties {
    *    documentation</i>.</p>
    * @public
    */
-  metadata?: EksMetadata;
+  metadata?: EksMetadata | undefined;
 
   /**
    * <p>Indicates if the processes in a container are shared, or visible, to other containers in the
@@ -3918,7 +3918,7 @@ export interface EksPodProperties {
    *     Process Namespace between Containers in a Pod</a>.</p>
    * @public
    */
-  shareProcessNamespace?: boolean;
+  shareProcessNamespace?: boolean | undefined;
 }
 
 /**
@@ -3930,7 +3930,7 @@ export interface EksProperties {
    * <p>The properties for the Kubernetes pod resources of a job.</p>
    * @public
    */
-  podProperties?: EksPodProperties;
+  podProperties?: EksPodProperties | undefined;
 }
 
 /**
@@ -3955,7 +3955,7 @@ export interface NodeRangeProperty {
    * <p>The container details for the node range.</p>
    * @public
    */
-  container?: ContainerProperties;
+  container?: ContainerProperties | undefined;
 
   /**
    * <p>The instance types of the underlying host infrastructure of a multi-node parallel
@@ -3966,20 +3966,20 @@ export interface NodeRangeProperty {
    *          </note>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * <p>This is an object that represents the properties of the node range for a multi-node parallel
    *    job.</p>
    * @public
    */
-  ecsProperties?: EcsProperties;
+  ecsProperties?: EcsProperties | undefined;
 
   /**
    * <p>This is an object that represents the properties of the node range for a multi-node parallel job.</p>
    * @public
    */
-  eksProperties?: EksProperties;
+  eksProperties?: EksProperties | undefined;
 }
 
 /**
@@ -4056,7 +4056,7 @@ export interface EvaluateOnExit {
    *    match.</p>
    * @public
    */
-  onStatusReason?: string;
+  onStatusReason?: string | undefined;
 
   /**
    * <p>Contains a glob pattern to match against the <code>Reason</code> returned for a job. The
@@ -4065,7 +4065,7 @@ export interface EvaluateOnExit {
    *    that only the start of the string needs to be an exact match.</p>
    * @public
    */
-  onReason?: string;
+  onReason?: string | undefined;
 
   /**
    * <p>Contains a glob pattern to match against the decimal representation of the
@@ -4075,7 +4075,7 @@ export interface EvaluateOnExit {
    *          <p>The string can contain up to 512 characters.</p>
    * @public
    */
-  onExitCode?: string;
+  onExitCode?: string | undefined;
 
   /**
    * <p>Specifies the action to take if all of the specified conditions
@@ -4098,7 +4098,7 @@ export interface RetryStrategy {
    *    retried on failure the same number of attempts as the value.</p>
    * @public
    */
-  attempts?: number;
+  attempts?: number | undefined;
 
   /**
    * <p>Array of up to 5 objects that specify the conditions where jobs are retried or failed. If
@@ -4106,7 +4106,7 @@ export interface RetryStrategy {
    *    none of the listed conditions match, then the job is retried.</p>
    * @public
    */
-  evaluateOnExit?: EvaluateOnExit[];
+  evaluateOnExit?: EvaluateOnExit[] | undefined;
 }
 
 /**
@@ -4123,7 +4123,7 @@ export interface JobTimeout {
    *    individual nodes.</p>
    * @public
    */
-  attemptDurationSeconds?: number;
+  attemptDurationSeconds?: number | undefined;
 }
 
 /**
@@ -4153,7 +4153,7 @@ export interface JobDefinition {
    * <p>The status of the job definition.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The type of job definition. It's either <code>container</code> or <code>multinode</code>. If
@@ -4170,7 +4170,7 @@ export interface JobDefinition {
    *    scheduling priority.</p>
    * @public
    */
-  schedulingPriority?: number;
+  schedulingPriority?: number | undefined;
 
   /**
    * <p>Default parameters or parameter substitution placeholders that are set in the job
@@ -4180,14 +4180,14 @@ export interface JobDefinition {
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The retry strategy to use for failed jobs that are submitted with this job
    *    definition.</p>
    * @public
    */
-  retryStrategy?: RetryStrategy;
+  retryStrategy?: RetryStrategy | undefined;
 
   /**
    * <p>An object with properties specific to Amazon ECS-based jobs. When
@@ -4195,14 +4195,14 @@ export interface JobDefinition {
    *     <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
    * @public
    */
-  containerProperties?: ContainerProperties;
+  containerProperties?: ContainerProperties | undefined;
 
   /**
    * <p>The timeout time for jobs that are submitted with this job definition. After the amount of
    *    time you specify passes, Batch terminates your jobs if they aren't finished.</p>
    * @public
    */
-  timeout?: JobTimeout;
+  timeout?: JobTimeout | undefined;
 
   /**
    * <p>An object with properties that are specific to multi-node parallel jobs. When
@@ -4215,13 +4215,13 @@ export interface JobDefinition {
    *          </note>
    * @public
    */
-  nodeProperties?: NodeProperties;
+  nodeProperties?: NodeProperties | undefined;
 
   /**
    * <p>The tags that are applied to the job definition.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the corresponding
@@ -4231,7 +4231,7 @@ export interface JobDefinition {
    *    is over 50, the job is moved to the <code>FAILED</code> state.</p>
    * @public
    */
-  propagateTags?: boolean;
+  propagateTags?: boolean | undefined;
 
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
@@ -4239,7 +4239,7 @@ export interface JobDefinition {
    *    <code>FARGATE</code>.</p>
    * @public
    */
-  platformCapabilities?: PlatformCapability[];
+  platformCapabilities?: PlatformCapability[] | undefined;
 
   /**
    * <p>An object that contains the properties for the Amazon ECS resources of a job.When
@@ -4248,7 +4248,7 @@ export interface JobDefinition {
    *    <code>nodeProperties</code>.</p>
    * @public
    */
-  ecsProperties?: EcsProperties;
+  ecsProperties?: EcsProperties | undefined;
 
   /**
    * <p>An object with properties that are specific to Amazon EKS-based jobs. When
@@ -4257,14 +4257,14 @@ export interface JobDefinition {
    *    <code>nodeProperties</code>.</p>
    * @public
    */
-  eksProperties?: EksProperties;
+  eksProperties?: EksProperties | undefined;
 
   /**
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    * @public
    */
-  containerOrchestrationType?: OrchestrationType;
+  containerOrchestrationType?: OrchestrationType | undefined;
 }
 
 /**
@@ -4275,7 +4275,7 @@ export interface DescribeJobDefinitionsResponse {
    * <p>The list of job definitions.</p>
    * @public
    */
-  jobDefinitions?: JobDefinition[];
+  jobDefinitions?: JobDefinition[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4285,7 +4285,7 @@ export interface DescribeJobDefinitionsResponse {
    *       no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4297,7 +4297,7 @@ export interface DescribeJobQueuesRequest {
    * <p>A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.</p>
    * @public
    */
-  jobQueues?: string[];
+  jobQueues?: string[] | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>DescribeJobQueues</code> in paginated
@@ -4310,7 +4310,7 @@ export interface DescribeJobQueuesRequest {
    *         <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -4324,7 +4324,7 @@ export interface DescribeJobQueuesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4378,21 +4378,21 @@ export interface JobQueueDetail {
    *     <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
    * @public
    */
-  schedulingPolicyArn?: string;
+  schedulingPolicyArn?: string | undefined;
 
   /**
    * <p>The status of the job queue (for example, <code>CREATING</code> or
    *    <code>VALID</code>).</p>
    * @public
    */
-  status?: JQStatus;
+  status?: JQStatus | undefined;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
    *    job queue.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of <code>10</code> is given scheduling preference over a job queue with a priority value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and Fargate compute environments can't be mixed.</p>
@@ -4412,13 +4412,13 @@ export interface JobQueueDetail {
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
    * @public
    */
-  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[] | undefined;
 }
 
 /**
@@ -4429,7 +4429,7 @@ export interface DescribeJobQueuesResponse {
    * <p>The list of job queues.</p>
    * @public
    */
-  jobQueues?: JobQueueDetail[];
+  jobQueues?: JobQueueDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code>
@@ -4438,7 +4438,7 @@ export interface DescribeJobQueuesResponse {
    *       value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4462,7 +4462,7 @@ export interface ContainerDetail {
    * <p>The image used to start the container.</p>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * <p>The number of vCPUs reserved for the container. For jobs that run on Amazon EC2 resources, you
@@ -4480,7 +4480,7 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  vcpus?: number;
+  vcpus?: number | undefined;
 
   /**
    * <p>For jobs running on Amazon EC2 resources that didn't specify memory requirements using
@@ -4488,19 +4488,19 @@ export interface ContainerDetail {
    *    jobs, including all run on Fargate resources, see <code>resourceRequirements</code>.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The command that's passed to the container.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that's associated with the job when run.</p>
    * @public
    */
-  jobRoleArn?: string;
+  jobRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the
@@ -4510,13 +4510,13 @@ export interface ContainerDetail {
    *     role</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>A list of volumes that are associated with the job.</p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container.</p>
@@ -4526,13 +4526,13 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>The mount points for data volumes in your container.</p>
    * @public
    */
-  mountPoints?: MountPoint[];
+  mountPoints?: MountPoint[] | undefined;
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
@@ -4544,7 +4544,7 @@ export interface ContainerDetail {
    *             </a>.</p>
    * @public
    */
-  readonlyRootFilesystem?: boolean;
+  readonlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>A list of <code>ulimit</code> values to set in the container. This parameter maps to
@@ -4556,7 +4556,7 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  ulimits?: Ulimit[];
+  ulimits?: Ulimit[] | undefined;
 
   /**
    * <p>When this parameter is true, the container is given elevated permissions on the host
@@ -4568,7 +4568,7 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  privileged?: boolean;
+  privileged?: boolean | undefined;
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in the
@@ -4576,33 +4576,33 @@ export interface ContainerDetail {
    *    option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    * @public
    */
-  user?: string;
+  user?: string | undefined;
 
   /**
    * <p>The exit code returned upon completion.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container instance that the container is running on.</p>
    * @public
    */
-  containerInstanceArn?: string;
+  containerInstanceArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon ECS task that's associated with the container job. Each container
    *    attempt receives a task ARN when they reach the <code>STARTING</code> status.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log group for
@@ -4610,7 +4610,7 @@ export interface ContainerDetail {
    *    when they reach the <code>RUNNING</code> status.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The instance type of the underlying host infrastructure of a multi-node parallel job.</p>
@@ -4619,27 +4619,27 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>The network interfaces that are associated with the job.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. The supported resources include
    *     <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as details for device
    *    mappings.</p>
    * @public
    */
-  linuxParameters?: LinuxParameters;
+  linuxParameters?: LinuxParameters | undefined;
 
   /**
    * <p>The log configuration specification for the container.</p>
@@ -4670,28 +4670,28 @@ export interface ContainerDetail {
    *          </note>
    * @public
    */
-  logConfiguration?: LogConfiguration;
+  logConfiguration?: LogConfiguration | undefined;
 
   /**
    * <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive data</a> in the
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  secrets?: Secret[];
+  secrets?: Secret[] | undefined;
 
   /**
    * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  networkConfiguration?: NetworkConfiguration;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  fargatePlatformConfiguration?: FargatePlatformConfiguration;
+  fargatePlatformConfiguration?: FargatePlatformConfiguration | undefined;
 
   /**
    * <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the
@@ -4699,20 +4699,20 @@ export interface ContainerDetail {
    *    Fargate.</p>
    * @public
    */
-  ephemeralStorage?: EphemeralStorage;
+  ephemeralStorage?: EphemeralStorage | undefined;
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
    *    Fargate.</p>
    * @public
    */
-  runtimePlatform?: RuntimePlatform;
+  runtimePlatform?: RuntimePlatform | undefined;
 
   /**
    * <p>The private repository authentication credentials to use.</p>
    * @public
    */
-  repositoryCredentials?: RepositoryCredentials;
+  repositoryCredentials?: RepositoryCredentials | undefined;
 }
 
 /**
@@ -4724,13 +4724,13 @@ export interface JobDependency {
    * <p>The job ID of the Batch job that's associated with this dependency.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The type of the job dependency.</p>
    * @public
    */
-  type?: ArrayJobDependency;
+  type?: ArrayJobDependency | undefined;
 }
 
 /**
@@ -4745,13 +4745,13 @@ export interface TaskContainerDetails {
    *     <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>A list of containers that this container depends on.</p>
    * @public
    */
-  dependsOn?: TaskContainerDependency[];
+  dependsOn?: TaskContainerDependency[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in
@@ -4763,7 +4763,7 @@ export interface TaskContainerDetails {
    *          </important>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>If the essential parameter of a container is marked as <code>true</code>, and that container
@@ -4778,7 +4778,7 @@ export interface TaskContainerDetails {
    *     Architecture</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  essential?: boolean;
+  essential?: boolean | undefined;
 
   /**
    * <p>The image used to start a container. This string is passed directly to the Docker daemon. By
@@ -4793,7 +4793,7 @@ export interface TaskContainerDetails {
    *             </a>.</p>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as Linux kernel
@@ -4803,7 +4803,7 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  linuxParameters?: LinuxParameters;
+  linuxParameters?: LinuxParameters | undefined;
 
   /**
    * <p>The log configuration specification for the container.</p>
@@ -4837,7 +4837,7 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  logConfiguration?: LogConfiguration;
+  logConfiguration?: LogConfiguration | undefined;
 
   /**
    * <p>The mount points for data volumes in your container.</p>
@@ -4850,13 +4850,13 @@ export interface TaskContainerDetails {
    *    and mount point can't be across drives.</p>
    * @public
    */
-  mountPoints?: MountPoint[];
+  mountPoints?: MountPoint[] | undefined;
 
   /**
    * <p>The name of a container.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the
@@ -4870,7 +4870,7 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  privileged?: boolean;
+  privileged?: boolean | undefined;
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
@@ -4883,27 +4883,27 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  readonlyRootFilesystem?: boolean;
+  readonlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>The private repository authentication credentials to use.</p>
    * @public
    */
-  repositoryCredentials?: RepositoryCredentials;
+  repositoryCredentials?: RepositoryCredentials | undefined;
 
   /**
    * <p>The type and amount of a resource to assign to a container. The only supported resource is a
    *    GPU.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 
   /**
    * <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying Sensitive
    *     Data</a> in the Amazon Elastic Container Service Developer Guide.</p>
    * @public
    */
-  secrets?: Secret[];
+  secrets?: Secret[] | undefined;
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is
@@ -4927,7 +4927,7 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  ulimits?: Ulimit[];
+  ulimits?: Ulimit[] | undefined;
 
   /**
    * <p>The user to use inside the container. This parameter maps to User in the Create a container
@@ -4980,20 +4980,20 @@ export interface TaskContainerDetails {
    *          </note>
    * @public
    */
-  user?: string;
+  user?: string | undefined;
 
   /**
    * <p>The exit code returned upon completion.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The name of the CloudWatch Logs log stream that's associated with the container. The log group for
@@ -5001,13 +5001,13 @@ export interface TaskContainerDetails {
    *    the <code>RUNNING</code> status. </p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The network interfaces that are associated with the job.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 }
 
 /**
@@ -5020,25 +5020,25 @@ export interface EcsTaskDetails {
    * <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
    * @public
    */
-  containers?: TaskContainerDetails[];
+  containers?: TaskContainerDetails[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
    * @public
    */
-  containerInstanceArn?: string;
+  containerInstanceArn?: string | undefined;
 
   /**
    * <p>The ARN of the Amazon ECS task.</p>
    * @public
    */
-  taskArn?: string;
+  taskArn?: string | undefined;
 
   /**
    * <p>The amount of ephemeral storage allocated for the task.</p>
    * @public
    */
-  ephemeralStorage?: EphemeralStorage;
+  ephemeralStorage?: EphemeralStorage | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see
@@ -5046,19 +5046,19 @@ export interface EcsTaskDetails {
    *     role</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>The Fargate platform version where the jobs are running.</p>
    * @public
    */
-  platformVersion?: string;
+  platformVersion?: string | undefined;
 
   /**
    * <p>The IPC resource namespace to use for the containers in the task.</p>
    * @public
    */
-  ipcMode?: string;
+  ipcMode?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more
@@ -5069,33 +5069,33 @@ export interface EcsTaskDetails {
    *          </note>
    * @public
    */
-  taskRoleArn?: string;
+  taskRoleArn?: string | undefined;
 
   /**
    * <p>The process namespace to use for the containers in the task.</p>
    * @public
    */
-  pidMode?: string;
+  pidMode?: string | undefined;
 
   /**
    * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are
    *    running on Amazon EC2 resources must not specify this parameter.</p>
    * @public
    */
-  networkConfiguration?: NetworkConfiguration;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
    *    Fargate.</p>
    * @public
    */
-  runtimePlatform?: RuntimePlatform;
+  runtimePlatform?: RuntimePlatform | undefined;
 
   /**
    * <p>A list of data volumes used in a job.</p>
    * @public
    */
-  volumes?: Volume[];
+  volumes?: Volume[] | undefined;
 }
 
 /**
@@ -5107,7 +5107,7 @@ export interface EcsPropertiesDetail {
    * <p>The properties for the Amazon ECS task definition of a job.</p>
    * @public
    */
-  taskProperties?: EcsTaskDetails[];
+  taskProperties?: EcsTaskDetails[] | undefined;
 }
 
 /**
@@ -5120,27 +5120,27 @@ export interface EksAttemptContainerDetail {
    * <p>The name of a container.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID for the container.</p>
    * @public
    */
-  containerID?: string;
+  containerID?: string | undefined;
 
   /**
    * <p>The exit code returned for the job attempt. A non-zero exit code is considered
    *    failed.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -5153,44 +5153,44 @@ export interface EksAttemptDetail {
    * <p>The details for the final status of the containers for this job attempt.</p>
    * @public
    */
-  containers?: EksAttemptContainerDetail[];
+  containers?: EksAttemptContainerDetail[] | undefined;
 
   /**
    * <p>The details for the init containers.</p>
    * @public
    */
-  initContainers?: EksAttemptContainerDetail[];
+  initContainers?: EksAttemptContainerDetail[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster.</p>
    * @public
    */
-  eksClusterArn?: string;
+  eksClusterArn?: string | undefined;
 
   /**
    * <p>The name of the pod for this job attempt.</p>
    * @public
    */
-  podName?: string;
+  podName?: string | undefined;
 
   /**
    * <p>The namespace of the Amazon EKS cluster that the pod exists in.</p>
    * @public
    */
-  podNamespace?: string;
+  podNamespace?: string | undefined;
 
   /**
    * <p>The name of the node for this job attempt.</p>
    * @public
    */
-  nodeName?: string;
+  nodeName?: string | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt
    *    transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state).</p>
    * @public
    */
-  startedAt?: number;
+  startedAt?: number | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the attempt was stopped. This happens when the
@@ -5198,14 +5198,14 @@ export interface EksAttemptDetail {
    *     <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
    * @public
    */
-  stoppedAt?: number;
+  stoppedAt?: number | undefined;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
    *    job attempt.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -5219,13 +5219,13 @@ export interface EksContainerDetail {
    *     "<code>Default</code>" is used. Each container in a pod must have a unique name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Docker image used to start the container.</p>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * <p>The image pull policy for the container. Supported values are <code>Always</code>,
@@ -5235,13 +5235,13 @@ export interface EksContainerDetail {
    *     images</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  imagePullPolicy?: string;
+  imagePullPolicy?: string | undefined;
 
   /**
    * <p>The entrypoint for the container. For more information, see <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint">Entrypoint</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>An array of arguments to the entrypoint. If this isn't specified, the <code>CMD</code> of
@@ -5257,7 +5257,7 @@ export interface EksContainerDetail {
    *     documentation</i>.</p>
    * @public
    */
-  args?: string[];
+  args?: string[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container.</p>
@@ -5267,7 +5267,7 @@ export interface EksContainerDetail {
    *          </note>
    * @public
    */
-  env?: EksContainerEnvironmentVariable[];
+  env?: EksContainerEnvironmentVariable[] | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. The supported resources include
@@ -5276,21 +5276,21 @@ export interface EksContainerDetail {
    *     documentation</i>.</p>
    * @public
    */
-  resources?: EksContainerResourceRequirements;
+  resources?: EksContainerResourceRequirements | undefined;
 
   /**
    * <p>The exit code returned for the job attempt. A non-zero exit code is considered
    *    failed.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short human-readable string to provide additional details for a running or stopped
    *    container. It can be up to 255 characters long.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The volume mounts for the container. Batch supports <code>emptyDir</code>,
@@ -5298,7 +5298,7 @@ export interface EksContainerDetail {
    *    and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  volumeMounts?: EksContainerVolumeMount[];
+  volumeMounts?: EksContainerVolumeMount[] | undefined;
 
   /**
    * <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a
@@ -5306,7 +5306,7 @@ export interface EksContainerDetail {
    *     documentation</i>.</p>
    * @public
    */
-  securityContext?: EksContainerSecurityContext;
+  securityContext?: EksContainerSecurityContext | undefined;
 }
 
 /**
@@ -5322,7 +5322,7 @@ export interface EksPodPropertiesDetail {
    *    documentation</i>.</p>
    * @public
    */
-  serviceAccountName?: string;
+  serviceAccountName?: string | undefined;
 
   /**
    * <p>Indicates if the pod uses the hosts' network IP address. The default value is
@@ -5333,7 +5333,7 @@ export interface EksPodPropertiesDetail {
    *    in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  hostNetwork?: boolean;
+  hostNetwork?: boolean | undefined;
 
   /**
    * <p>The DNS policy for the pod. The default value is <code>ClusterFirst</code>. If the
@@ -5350,45 +5350,45 @@ export interface EksPodPropertiesDetail {
    *          </p>
    * @public
    */
-  dnsPolicy?: string;
+  dnsPolicy?: string | undefined;
 
   /**
    * <p>Displays the reference pointer to the Kubernetes secret resource. These secrets help to gain
    *    access to pull an images from a private registry.</p>
    * @public
    */
-  imagePullSecrets?: ImagePullSecret[];
+  imagePullSecrets?: ImagePullSecret[] | undefined;
 
   /**
    * <p>The properties of the container that's used on the Amazon EKS pod.</p>
    * @public
    */
-  containers?: EksContainerDetail[];
+  containers?: EksContainerDetail[] | undefined;
 
   /**
    * <p>The container registered with the Amazon EKS Connector agent and persists the registration
    *    information in the Kubernetes backend data store.</p>
    * @public
    */
-  initContainers?: EksContainerDetail[];
+  initContainers?: EksContainerDetail[] | undefined;
 
   /**
    * <p>Specifies the volumes for a job definition using Amazon EKS resources.</p>
    * @public
    */
-  volumes?: EksVolume[];
+  volumes?: EksVolume[] | undefined;
 
   /**
    * <p>The name of the pod for this job.</p>
    * @public
    */
-  podName?: string;
+  podName?: string | undefined;
 
   /**
    * <p>The name of the node for this job.</p>
    * @public
    */
-  nodeName?: string;
+  nodeName?: string | undefined;
 
   /**
    * <p>Describes and uniquely identifies Kubernetes resources. For example, the compute environment that
@@ -5396,7 +5396,7 @@ export interface EksPodPropertiesDetail {
    *     <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  metadata?: EksMetadata;
+  metadata?: EksMetadata | undefined;
 
   /**
    * <p>Indicates if the processes in a container are shared, or visible, to other containers in the
@@ -5404,7 +5404,7 @@ export interface EksPodPropertiesDetail {
    *     Process Namespace between Containers in a Pod</a>.</p>
    * @public
    */
-  shareProcessNamespace?: boolean;
+  shareProcessNamespace?: boolean | undefined;
 }
 
 /**
@@ -5416,7 +5416,7 @@ export interface EksPropertiesDetail {
    * <p>The properties for the Kubernetes pod resources of a job.</p>
    * @public
    */
-  podProperties?: EksPodPropertiesDetail;
+  podProperties?: EksPodPropertiesDetail | undefined;
 }
 
 /**
@@ -5429,13 +5429,13 @@ export interface NodeDetails {
    *    available on the node with the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>
    * @public
    */
-  nodeIndex?: number;
+  nodeIndex?: number | undefined;
 
   /**
    * <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>
    * @public
    */
-  isMainNode?: boolean;
+  isMainNode?: boolean | undefined;
 }
 
 /**
@@ -5466,7 +5466,7 @@ export interface JobDetail {
    * <p>The Amazon Resource Name (ARN) of the job.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The job name.</p>
@@ -5501,7 +5501,7 @@ export interface JobDetail {
    * <p>The share identifier for the job.</p>
    * @public
    */
-  shareIdentifier?: string;
+  shareIdentifier?: string | undefined;
 
   /**
    * <p>The scheduling policy of the job definition. This only affects jobs in job queues with a
@@ -5509,13 +5509,13 @@ export interface JobDetail {
    *    scheduling priority.</p>
    * @public
    */
-  schedulingPriority?: number;
+  schedulingPriority?: number | undefined;
 
   /**
    * <p>A list of job attempts that are associated with this job.</p>
    * @public
    */
-  attempts?: AttemptDetail[];
+  attempts?: AttemptDetail[] | undefined;
 
   /**
    * <p>A short, human-readable string to provide more details for the current status of the
@@ -5544,7 +5544,7 @@ export interface JobDetail {
    *          </ul>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and
@@ -5554,13 +5554,13 @@ export interface JobDetail {
    *    state.</p>
    * @public
    */
-  createdAt?: number;
+  createdAt?: number | undefined;
 
   /**
    * <p>The retry strategy to use for this job if an attempt fails.</p>
    * @public
    */
-  retryStrategy?: RetryStrategy;
+  retryStrategy?: RetryStrategy | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the job was started. More specifically, it's
@@ -5576,13 +5576,13 @@ export interface JobDetail {
    *     <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
    * @public
    */
-  stoppedAt?: number;
+  stoppedAt?: number | undefined;
 
   /**
    * <p>A list of job IDs that this job depends on.</p>
    * @public
    */
-  dependsOn?: JobDependency[];
+  dependsOn?: JobDependency[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job definition that this job uses.</p>
@@ -5595,21 +5595,21 @@ export interface JobDetail {
    *    placeholders or override any corresponding parameter defaults from the job definition.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>An object that represents the details for the container that's associated with the job. If
    *    the details are for a multiple-container job, this object will be empty. </p>
    * @public
    */
-  container?: ContainerDetail;
+  container?: ContainerDetail | undefined;
 
   /**
    * <p>An object that represents the details of a node that's associated with a multi-node parallel
    *    job.</p>
    * @public
    */
-  nodeDetails?: NodeDetails;
+  nodeDetails?: NodeDetails | undefined;
 
   /**
    * <p>An object that represents the node properties of a multi-node parallel job.</p>
@@ -5618,25 +5618,25 @@ export interface JobDetail {
    *          </note>
    * @public
    */
-  nodeProperties?: NodeProperties;
+  nodeProperties?: NodeProperties | undefined;
 
   /**
    * <p>The array properties of the job, if it's an array job.</p>
    * @public
    */
-  arrayProperties?: ArrayPropertiesDetail;
+  arrayProperties?: ArrayPropertiesDetail | undefined;
 
   /**
    * <p>The timeout configuration for the job.</p>
    * @public
    */
-  timeout?: JobTimeout;
+  timeout?: JobTimeout | undefined;
 
   /**
    * <p>The tags that are applied to the job.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the corresponding
@@ -5646,7 +5646,7 @@ export interface JobDetail {
    *    is over 50, the job is moved to the <code>FAILED</code> state.</p>
    * @public
    */
-  propagateTags?: boolean;
+  propagateTags?: boolean | undefined;
 
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
@@ -5654,37 +5654,37 @@ export interface JobDetail {
    *    <code>FARGATE</code>.</p>
    * @public
    */
-  platformCapabilities?: PlatformCapability[];
+  platformCapabilities?: PlatformCapability[] | undefined;
 
   /**
    * <p>An object with various properties that are specific to Amazon EKS based jobs. </p>
    * @public
    */
-  eksProperties?: EksPropertiesDetail;
+  eksProperties?: EksPropertiesDetail | undefined;
 
   /**
    * <p>A list of job attempts that are associated with this job.</p>
    * @public
    */
-  eksAttempts?: EksAttemptDetail[];
+  eksAttempts?: EksAttemptDetail[] | undefined;
 
   /**
    * <p>An object with properties that are specific to Amazon ECS-based jobs. </p>
    * @public
    */
-  ecsProperties?: EcsPropertiesDetail;
+  ecsProperties?: EcsPropertiesDetail | undefined;
 
   /**
    * <p>Indicates whether the job is canceled.</p>
    * @public
    */
-  isCancelled?: boolean;
+  isCancelled?: boolean | undefined;
 
   /**
    * <p>Indicates whether the job is terminated.</p>
    * @public
    */
-  isTerminated?: boolean;
+  isTerminated?: boolean | undefined;
 }
 
 /**
@@ -5695,7 +5695,7 @@ export interface DescribeJobsResponse {
    * <p>The list of jobs.</p>
    * @public
    */
-  jobs?: JobDetail[];
+  jobs?: JobDetail[] | undefined;
 }
 
 /**
@@ -5733,7 +5733,7 @@ export interface SchedulingPolicyDetail {
    * <p>The fair share policy for the scheduling policy.</p>
    * @public
    */
-  fairsharePolicy?: FairsharePolicy;
+  fairsharePolicy?: FairsharePolicy | undefined;
 
   /**
    * <p>The tags that you apply to the scheduling policy to categorize and organize your resources.
@@ -5741,7 +5741,7 @@ export interface SchedulingPolicyDetail {
    *     <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5752,7 +5752,7 @@ export interface DescribeSchedulingPoliciesResponse {
    * <p>The list of scheduling policies.</p>
    * @public
    */
-  schedulingPolicies?: SchedulingPolicyDetail[];
+  schedulingPolicies?: SchedulingPolicyDetail[] | undefined;
 }
 
 /**
@@ -5775,13 +5775,13 @@ export interface FrontOfQueueJobSummary {
    * <p>The ARN for a job in a named job queue.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when the job transitioned to its current position in the job queue.</p>
    * @public
    */
-  earliestTimeAtPosition?: number;
+  earliestTimeAtPosition?: number | undefined;
 }
 
 /**
@@ -5793,13 +5793,13 @@ export interface FrontOfQueueDetail {
    * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
-  jobs?: FrontOfQueueJobSummary[];
+  jobs?: FrontOfQueueJobSummary[] | undefined;
 
   /**
    * <p>The Unix timestamp (in milliseconds) for when each of the first 100 <code>RUNNABLE</code> jobs were last updated. </p>
    * @public
    */
-  lastUpdatedAt?: number;
+  lastUpdatedAt?: number | undefined;
 }
 
 /**
@@ -5810,7 +5810,7 @@ export interface GetJobQueueSnapshotResponse {
    * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
-  frontOfQueue?: FrontOfQueueDetail;
+  frontOfQueue?: FrontOfQueueDetail | undefined;
 }
 
 /**
@@ -5823,13 +5823,13 @@ export interface KeyValuesPair {
    * <p>The name of the filter. Filter names are case sensitive.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The filter values.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -5841,21 +5841,21 @@ export interface ListJobsRequest {
    * <p>The name or full Amazon Resource Name (ARN) of the job queue used to list jobs.</p>
    * @public
    */
-  jobQueue?: string;
+  jobQueue?: string | undefined;
 
   /**
    * <p>The job ID for an array job. Specifying an array job ID with this parameter lists all
    *       child jobs from within the specified array.</p>
    * @public
    */
-  arrayJobId?: string;
+  arrayJobId?: string | undefined;
 
   /**
    * <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with
    *       this parameter lists all nodes that are associated with the specified job.</p>
    * @public
    */
-  multiNodeJobId?: string;
+  multiNodeJobId?: string | undefined;
 
   /**
    * <p>The job status used to filter jobs in the specified queue. If the <code>filters</code>
@@ -5864,7 +5864,7 @@ export interface ListJobsRequest {
    *       returned.</p>
    * @public
    */
-  jobStatus?: JobStatus;
+  jobStatus?: JobStatus | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListJobs</code> in a paginated output. When this parameter is used, <code>ListJobs</code> returns up to <code>maxResults</code> results in a single page and a <code>nextToken</code> response element, if applicable. The remaining results of the initial request can be seen by sending another <code>ListJobs</code> request with the returned <code>nextToken</code> value.</p>
@@ -5886,7 +5886,7 @@ export interface ListJobsRequest {
    *          </ul>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListJobs</code>
@@ -5900,7 +5900,7 @@ export interface ListJobsRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The filter to apply to the query. Only one filter can be used at a time. When the filter
@@ -5948,7 +5948,7 @@ export interface ListJobsRequest {
    *          </dl>
    * @public
    */
-  filters?: KeyValuesPair[];
+  filters?: KeyValuesPair[] | undefined;
 }
 
 /**
@@ -5960,14 +5960,14 @@ export interface ContainerSummary {
    * <p>The exit code to return upon completion.</p>
    * @public
    */
-  exitCode?: number;
+  exitCode?: number | undefined;
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details for a
    *    running or stopped container.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -5980,20 +5980,20 @@ export interface NodePropertiesSummary {
    * <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>
    * @public
    */
-  isMainNode?: boolean;
+  isMainNode?: boolean | undefined;
 
   /**
    * <p>The number of nodes that are associated with a multi-node parallel job.</p>
    * @public
    */
-  numNodes?: number;
+  numNodes?: number | undefined;
 
   /**
    * <p>The node index for the node. Node index numbering begins at zero. This index is also
    *    available on the node with the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>
    * @public
    */
-  nodeIndex?: number;
+  nodeIndex?: number | undefined;
 }
 
 /**
@@ -6005,7 +6005,7 @@ export interface JobSummary {
    * <p>The Amazon Resource Name (ARN) of the job.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The job ID.</p>
@@ -6027,27 +6027,27 @@ export interface JobSummary {
    *    entered the <code>PENDING</code> state.</p>
    * @public
    */
-  createdAt?: number;
+  createdAt?: number | undefined;
 
   /**
    * <p>The current status for the job.</p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>A short, human-readable string to provide more details for the current status of the
    *    job.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Unix timestamp for when the job was started. More specifically, it's when the job
    *    transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
    * @public
    */
-  startedAt?: number;
+  startedAt?: number | undefined;
 
   /**
    * <p>The Unix timestamp for when the job was stopped. More specifically, it's when the job
@@ -6055,20 +6055,20 @@ export interface JobSummary {
    *     <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
    * @public
    */
-  stoppedAt?: number;
+  stoppedAt?: number | undefined;
 
   /**
    * <p>An object that represents the details of the container that's associated with the
    *    job.</p>
    * @public
    */
-  container?: ContainerSummary;
+  container?: ContainerSummary | undefined;
 
   /**
    * <p>The array properties of the job, if it's an array job.</p>
    * @public
    */
-  arrayProperties?: ArrayPropertiesSummary;
+  arrayProperties?: ArrayPropertiesSummary | undefined;
 
   /**
    * <p>The node properties for a single node in a job summary list.</p>
@@ -6077,13 +6077,13 @@ export interface JobSummary {
    *          </note>
    * @public
    */
-  nodeProperties?: NodePropertiesSummary;
+  nodeProperties?: NodePropertiesSummary | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job definition.</p>
    * @public
    */
-  jobDefinition?: string;
+  jobDefinition?: string | undefined;
 }
 
 /**
@@ -6103,7 +6103,7 @@ export interface ListJobsResponse {
    *       are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6122,7 +6122,7 @@ export interface ListSchedulingPoliciesRequest {
    *         <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value that's returned from a previous paginated
@@ -6136,7 +6136,7 @@ export interface ListSchedulingPoliciesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6160,7 +6160,7 @@ export interface ListSchedulingPoliciesResponse {
    * <p>A list of scheduling policies that match the request.</p>
    * @public
    */
-  schedulingPolicies?: SchedulingPolicyListingDetail[];
+  schedulingPolicies?: SchedulingPolicyListingDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -6170,7 +6170,7 @@ export interface ListSchedulingPoliciesResponse {
    *       no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6194,7 +6194,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6248,7 +6248,7 @@ export interface RegisterJobDefinitionRequest {
    *       any corresponding parameter defaults from the job definition.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The scheduling priority for jobs that are submitted with this job definition. This only
@@ -6257,7 +6257,7 @@ export interface RegisterJobDefinitionRequest {
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    * @public
    */
-  schedulingPriority?: number;
+  schedulingPriority?: number | undefined;
 
   /**
    * <p>An object with properties specific to Amazon ECS-based single-node container-based jobs. If the
@@ -6270,7 +6270,7 @@ export interface RegisterJobDefinitionRequest {
    *          </note>
    * @public
    */
-  containerProperties?: ContainerProperties;
+  containerProperties?: ContainerProperties | undefined;
 
   /**
    * <p>An object with properties specific to multi-node parallel jobs. If you specify node
@@ -6286,7 +6286,7 @@ export interface RegisterJobDefinitionRequest {
    *          </note>
    * @public
    */
-  nodeProperties?: NodeProperties;
+  nodeProperties?: NodeProperties | undefined;
 
   /**
    * <p>The retry strategy to use for failed jobs that are submitted with this job definition. Any
@@ -6294,7 +6294,7 @@ export interface RegisterJobDefinitionRequest {
    *       retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.</p>
    * @public
    */
-  retryStrategy?: RetryStrategy;
+  retryStrategy?: RetryStrategy | undefined;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the
@@ -6308,7 +6308,7 @@ export interface RegisterJobDefinitionRequest {
    *          </note>
    * @public
    */
-  propagateTags?: boolean;
+  propagateTags?: boolean | undefined;
 
   /**
    * <p>The timeout configuration for jobs that are submitted with this job definition, after
@@ -6319,7 +6319,7 @@ export interface RegisterJobDefinitionRequest {
    *         <i>Batch User Guide</i>.</p>
    * @public
    */
-  timeout?: JobTimeout;
+  timeout?: JobTimeout | undefined;
 
   /**
    * <p>The tags that you apply to the job definition to help you categorize and organize your
@@ -6327,7 +6327,7 @@ export interface RegisterJobDefinitionRequest {
    *         <i>Batch User Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
@@ -6339,21 +6339,21 @@ export interface RegisterJobDefinitionRequest {
    *          </note>
    * @public
    */
-  platformCapabilities?: PlatformCapability[];
+  platformCapabilities?: PlatformCapability[] | undefined;
 
   /**
    * <p>An object with properties that are specific to Amazon EKS-based jobs. This must not be
    *       specified for Amazon ECS based job definitions.</p>
    * @public
    */
-  eksProperties?: EksProperties;
+  eksProperties?: EksProperties | undefined;
 
   /**
    * <p>An object with properties that are specific to Amazon ECS-based jobs. This must not be
    *       specified for Amazon EKS-based job definitions.</p>
    * @public
    */
-  ecsProperties?: EcsProperties;
+  ecsProperties?: EcsProperties | undefined;
 }
 
 /**
@@ -6401,7 +6401,7 @@ export interface ContainerOverrides {
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  vcpus?: number;
+  vcpus?: number | undefined;
 
   /**
    * @deprecated
@@ -6418,7 +6418,7 @@ export interface ContainerOverrides {
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The command to send to the container that overrides the default command from the Docker
@@ -6428,7 +6428,7 @@ export interface ContainerOverrides {
    *          </note>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>The instance type to use for a multi-node parallel job.</p>
@@ -6438,7 +6438,7 @@ export interface ContainerOverrides {
    *          </note>
    * @public
    */
-  instanceType?: string;
+  instanceType?: string | undefined;
 
   /**
    * <p>The environment variables to send to the container. You can add new environment variables,
@@ -6450,7 +6450,7 @@ export interface ContainerOverrides {
    *          </note>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. This overrides the settings in
@@ -6458,7 +6458,7 @@ export interface ContainerOverrides {
    *     <code>VCPU</code>.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 }
 
 /**
@@ -6476,7 +6476,7 @@ export interface TaskContainerOverrides {
    *          </note>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>The environment variables to send to the container. You can add new environment variables,
@@ -6488,14 +6488,14 @@ export interface TaskContainerOverrides {
    *          </note>
    * @public
    */
-  environment?: KeyValuePair[];
+  environment?: KeyValuePair[] | undefined;
 
   /**
    * <p>A pointer to the container that you want to override. The container's name provides a unique
    *    identifier for the container being used.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. This overrides the settings in
@@ -6503,7 +6503,7 @@ export interface TaskContainerOverrides {
    *     <code>VCPU</code>.</p>
    * @public
    */
-  resourceRequirements?: ResourceRequirement[];
+  resourceRequirements?: ResourceRequirement[] | undefined;
 }
 
 /**
@@ -6515,7 +6515,7 @@ export interface TaskPropertiesOverride {
    * <p>The overrides for the container definition of a job.</p>
    * @public
    */
-  containers?: TaskContainerOverrides[];
+  containers?: TaskContainerOverrides[] | undefined;
 }
 
 /**
@@ -6530,7 +6530,7 @@ export interface EcsPropertiesOverride {
    *          </note>
    * @public
    */
-  taskProperties?: TaskPropertiesOverride[];
+  taskProperties?: TaskPropertiesOverride[] | undefined;
 }
 
 /**
@@ -6544,20 +6544,20 @@ export interface EksContainerOverride {
    *    name that you wish to override.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The override of the Docker image that's used to start the container.</p>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * <p>The command to send to the container that overrides the default command from the Docker
    *    image or the job definition.</p>
    * @public
    */
-  command?: string[];
+  command?: string[] | undefined;
 
   /**
    * <p>The arguments to the entrypoint to send to the container that overrides the default
@@ -6566,7 +6566,7 @@ export interface EksContainerOverride {
    *     documentation</i>.</p>
    * @public
    */
-  args?: string[];
+  args?: string[] | undefined;
 
   /**
    * <p>The environment variables to send to the container. You can add new environment variables,
@@ -6578,7 +6578,7 @@ export interface EksContainerOverride {
    *          </note>
    * @public
    */
-  env?: EksContainerEnvironmentVariable[];
+  env?: EksContainerEnvironmentVariable[] | undefined;
 
   /**
    * <p>The type and amount of resources to assign to a container. These override the settings in
@@ -6588,7 +6588,7 @@ export interface EksContainerOverride {
    *    documentation</i>.</p>
    * @public
    */
-  resources?: EksContainerResourceRequirements;
+  resources?: EksContainerResourceRequirements | undefined;
 }
 
 /**
@@ -6600,7 +6600,7 @@ export interface EksPodPropertiesOverride {
    * <p>The overrides for the container that's used on the Amazon EKS pod.</p>
    * @public
    */
-  containers?: EksContainerOverride[];
+  containers?: EksContainerOverride[] | undefined;
 
   /**
    * <p>The overrides for the <code>initContainers</code> defined in the Amazon EKS pod. These containers run before
@@ -6610,14 +6610,14 @@ export interface EksPodPropertiesOverride {
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
    * @public
    */
-  initContainers?: EksContainerOverride[];
+  initContainers?: EksContainerOverride[] | undefined;
 
   /**
    * <p>Metadata about the
    *    overrides for the container that's used on the Amazon EKS pod.</p>
    * @public
    */
-  metadata?: EksMetadata;
+  metadata?: EksMetadata | undefined;
 }
 
 /**
@@ -6629,7 +6629,7 @@ export interface EksPropertiesOverride {
    * <p>The overrides for the Kubernetes pod resources of a job.</p>
    * @public
    */
-  podProperties?: EksPodPropertiesOverride;
+  podProperties?: EksPodPropertiesOverride | undefined;
 }
 
 /**
@@ -6652,27 +6652,27 @@ export interface NodePropertyOverride {
    * <p>The overrides that are sent to a node range.</p>
    * @public
    */
-  containerOverrides?: ContainerOverrides;
+  containerOverrides?: ContainerOverrides | undefined;
 
   /**
    * <p>An object that contains the properties that you want to replace for the existing Amazon ECS
    *    resources of a job.</p>
    * @public
    */
-  ecsPropertiesOverride?: EcsPropertiesOverride;
+  ecsPropertiesOverride?: EcsPropertiesOverride | undefined;
 
   /**
    * <p>An object that contains the instance types that you want to replace for the existing
    *    resources of a job.</p>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
    * @public
    */
-  eksPropertiesOverride?: EksPropertiesOverride;
+  eksPropertiesOverride?: EksPropertiesOverride | undefined;
 }
 
 /**
@@ -6705,13 +6705,13 @@ export interface NodeOverrides {
    *          </ul>
    * @public
    */
-  numNodes?: number;
+  numNodes?: number | undefined;
 
   /**
    * <p>The node property overrides for the job.</p>
    * @public
    */
-  nodePropertyOverrides?: NodePropertyOverride[];
+  nodePropertyOverrides?: NodePropertyOverride[] | undefined;
 }
 
 /**
@@ -6742,7 +6742,7 @@ export interface SubmitJobRequest {
    *       (*).</p>
    * @public
    */
-  shareIdentifier?: string;
+  shareIdentifier?: string | undefined;
 
   /**
    * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair
@@ -6754,7 +6754,7 @@ export interface SubmitJobRequest {
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    * @public
    */
-  schedulingPriorityOverride?: number;
+  schedulingPriorityOverride?: number | undefined;
 
   /**
    * <p>The array properties for the submitted job, such as the size of the array. The array size
@@ -6762,7 +6762,7 @@ export interface SubmitJobRequest {
    *       job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html">Array Jobs</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  arrayProperties?: ArrayProperties;
+  arrayProperties?: ArrayProperties | undefined;
 
   /**
    * <p>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can
@@ -6773,7 +6773,7 @@ export interface SubmitJobRequest {
    *       before it can begin.</p>
    * @public
    */
-  dependsOn?: JobDependency[];
+  dependsOn?: JobDependency[] | undefined;
 
   /**
    * <p>The job definition used by this job. This value can be one of
@@ -6796,7 +6796,7 @@ export interface SubmitJobRequest {
    *       from the job definition.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>An object with properties that override the defaults for the job definition that specify
@@ -6807,7 +6807,7 @@ export interface SubmitJobRequest {
    *         <code>environment</code> override.</p>
    * @public
    */
-  containerOverrides?: ContainerOverrides;
+  containerOverrides?: ContainerOverrides | undefined;
 
   /**
    * <p>A list of node overrides in JSON format that specify the node range to target and the
@@ -6818,7 +6818,7 @@ export interface SubmitJobRequest {
    *          </note>
    * @public
    */
-  nodeOverrides?: NodeOverrides;
+  nodeOverrides?: NodeOverrides | undefined;
 
   /**
    * <p>The retry strategy to use for failed jobs from this <a>SubmitJob</a> operation.
@@ -6826,7 +6826,7 @@ export interface SubmitJobRequest {
    *       definition.</p>
    * @public
    */
-  retryStrategy?: RetryStrategy;
+  retryStrategy?: RetryStrategy | undefined;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the
@@ -6837,7 +6837,7 @@ export interface SubmitJobRequest {
    *       specified, this overrides the tag propagation setting in the job definition.</p>
    * @public
    */
-  propagateTags?: boolean;
+  propagateTags?: boolean | undefined;
 
   /**
    * <p>The timeout configuration for this <a>SubmitJob</a> operation. You can specify
@@ -6849,7 +6849,7 @@ export interface SubmitJobRequest {
    *         <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  timeout?: JobTimeout;
+  timeout?: JobTimeout | undefined;
 
   /**
    * <p>The tags that you apply to the job request to help you categorize and organize your
@@ -6857,19 +6857,19 @@ export interface SubmitJobRequest {
    *         Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>An object, with properties that override defaults for the job definition, can only be specified for jobs that are run on Amazon EKS resources.</p>
    * @public
    */
-  eksPropertiesOverride?: EksPropertiesOverride;
+  eksPropertiesOverride?: EksPropertiesOverride | undefined;
 
   /**
    * <p>An object, with properties that override defaults for the job definition, can only be specified for jobs that are run on Amazon ECS resources.</p>
    * @public
    */
-  ecsPropertiesOverride?: EcsPropertiesOverride;
+  ecsPropertiesOverride?: EcsPropertiesOverride | undefined;
 }
 
 /**
@@ -6880,7 +6880,7 @@ export interface SubmitJobResponse {
    * <p>The Amazon Resource Name (ARN) for the job.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The name of the job.</p>
@@ -7002,7 +7002,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  minvCpus?: number;
+  minvCpus?: number | undefined;
 
   /**
    * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
@@ -7016,7 +7016,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  maxvCpus?: number;
+  maxvCpus?: number | undefined;
 
   /**
    * <p>The desired number of
@@ -7039,7 +7039,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  desiredvCpus?: number;
+  desiredvCpus?: number | undefined;
 
   /**
    * <p>The VPC subnets where the compute resources are launched. Fargate compute resources can
@@ -7061,7 +7061,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 security groups that are associated with instances launched in the compute
@@ -7074,7 +7074,7 @@ export interface ComputeResourceUpdate {
    *     environments</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The allocation strategy to use for the compute resource if there's not enough instances of
@@ -7119,7 +7119,7 @@ export interface ComputeResourceUpdate {
    *     <code>maxvCpus</code> by more than a single instance.</p>
    * @public
    */
-  allocationStrategy?: CRUpdateAllocationStrategy;
+  allocationStrategy?: CRUpdateAllocationStrategy | undefined;
 
   /**
    * <p>The instances types that can be launched. You can specify instance families to launch any
@@ -7145,7 +7145,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  instanceTypes?: string[];
+  instanceTypes?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 key pair that's used for instances launched in the compute environment. You can
@@ -7159,7 +7159,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  ec2KeyPair?: string;
+  ec2KeyPair?: string | undefined;
 
   /**
    * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
@@ -7179,7 +7179,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  instanceRole?: string;
+  instanceRole?: string | undefined;
 
   /**
    * <p>Key-value pair tags to be applied to Amazon EC2 resources that are launched in the compute
@@ -7196,7 +7196,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit
@@ -7213,7 +7213,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  placementGroup?: string;
+  placementGroup?: string | undefined;
 
   /**
    * <p>The maximum percentage that a Spot Instance price can be when compared with the On-Demand
@@ -7230,7 +7230,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  bidPercentage?: number;
+  bidPercentage?: number | undefined;
 
   /**
    * <p>The updated launch template to use for your compute resources. You must specify either the
@@ -7250,7 +7250,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  launchTemplate?: LaunchTemplateSpecification;
+  launchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the
@@ -7266,7 +7266,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  ec2Configuration?: Ec2Configuration[];
+  ec2Configuration?: Ec2Configuration[] | undefined;
 
   /**
    * <p>Specifies whether the AMI ID is updated to the latest one that's supported by Batch when
@@ -7285,7 +7285,7 @@ export interface ComputeResourceUpdate {
    *     <i>Batch User Guide</i>.</p>
    * @public
    */
-  updateToLatestImageVersion?: boolean;
+  updateToLatestImageVersion?: boolean | undefined;
 
   /**
    * <p>The type of compute environment: <code>EC2</code>, <code>SPOT</code>, <code>FARGATE</code>,
@@ -7299,7 +7299,7 @@ export interface ComputeResourceUpdate {
    *     environments</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
-  type?: CRType;
+  type?: CRType | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
@@ -7322,7 +7322,7 @@ export interface ComputeResourceUpdate {
    *          </note>
    * @public
    */
-  imageId?: string;
+  imageId?: string | undefined;
 }
 
 /**
@@ -7360,7 +7360,7 @@ export interface UpdateComputeEnvironmentRequest {
    *       instance.</p>
    * @public
    */
-  state?: CEState;
+  state?: CEState | undefined;
 
   /**
    * <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment.
@@ -7369,7 +7369,7 @@ export interface UpdateComputeEnvironmentRequest {
    *       parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</p>
    * @public
    */
-  unmanagedvCpus?: number;
+  unmanagedvCpus?: number | undefined;
 
   /**
    * <p>Details of the compute resources managed by the compute environment. Required for a
@@ -7377,7 +7377,7 @@ export interface UpdateComputeEnvironmentRequest {
    *         <i>Batch User Guide</i>.</p>
    * @public
    */
-  computeResources?: ComputeResourceUpdate;
+  computeResources?: ComputeResourceUpdate | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services
@@ -7402,7 +7402,7 @@ export interface UpdateComputeEnvironmentRequest {
    *          </note>
    * @public
    */
-  serviceRole?: string;
+  serviceRole?: string | undefined;
 
   /**
    * <p>Specifies the updated infrastructure update policy for the compute environment. For more
@@ -7410,13 +7410,13 @@ export interface UpdateComputeEnvironmentRequest {
    *       the <i>Batch User Guide</i>.</p>
    * @public
    */
-  updatePolicy?: UpdatePolicy;
+  updatePolicy?: UpdatePolicy | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  context?: string;
+  context?: string | undefined;
 }
 
 /**
@@ -7428,13 +7428,13 @@ export interface UpdateComputeEnvironmentResponse {
    *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    * @public
    */
-  computeEnvironmentName?: string;
+  computeEnvironmentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    * @public
    */
-  computeEnvironmentArn?: string;
+  computeEnvironmentArn?: string | undefined;
 }
 
 /**
@@ -7454,7 +7454,7 @@ export interface UpdateJobQueueRequest {
    *       new jobs can't be added to the queue, but jobs already in the queue can finish.</p>
    * @public
    */
-  state?: JQState;
+  state?: JQState | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is created, the fair share
@@ -7465,7 +7465,7 @@ export interface UpdateJobQueueRequest {
    *         <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
    * @public
    */
-  schedulingPolicyArn?: string;
+  schedulingPolicyArn?: string | undefined;
 
   /**
    * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer
@@ -7477,7 +7477,7 @@ export interface UpdateJobQueueRequest {
    *         <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>Details the set of compute environments mapped to a job queue and their order relative to
@@ -7493,13 +7493,13 @@ export interface UpdateJobQueueRequest {
    *          </note>
    * @public
    */
-  computeEnvironmentOrder?: ComputeEnvironmentOrder[];
+  computeEnvironmentOrder?: ComputeEnvironmentOrder[] | undefined;
 
   /**
    * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
    * @public
    */
-  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[] | undefined;
 }
 
 /**
@@ -7510,13 +7510,13 @@ export interface UpdateJobQueueResponse {
    * <p>The name of the job queue.</p>
    * @public
    */
-  jobQueueName?: string;
+  jobQueueName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
    * @public
    */
-  jobQueueArn?: string;
+  jobQueueArn?: string | undefined;
 }
 
 /**
@@ -7534,7 +7534,7 @@ export interface UpdateSchedulingPolicyRequest {
    * <p>The fair share policy.</p>
    * @public
    */
-  fairsharePolicy?: FairsharePolicy;
+  fairsharePolicy?: FairsharePolicy | undefined;
 }
 
 /**

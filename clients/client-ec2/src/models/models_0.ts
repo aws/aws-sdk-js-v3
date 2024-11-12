@@ -12,14 +12,14 @@ export interface AcceleratorCount {
    *          limit.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>The maximum number of accelerators. If this parameter is not specified, there is no
    *          maximum limit.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -34,7 +34,7 @@ export interface AcceleratorCountRequest {
    *          parameter.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>The maximum number of accelerators. To specify no maximum limit, omit this
@@ -42,7 +42,7 @@ export interface AcceleratorCountRequest {
    *          <code>0</code>.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -96,14 +96,14 @@ export interface AcceleratorTotalMemoryMiB {
    *          there is no minimum limit.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>The maximum amount of accelerator memory, in MiB. If this parameter is not specified,
    *          there is no maximum limit.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -116,14 +116,14 @@ export interface AcceleratorTotalMemoryMiBRequest {
    *          parameter.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this
    *          parameter.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -252,14 +252,14 @@ export interface Tag {
    *          May not begin with <code>aws:</code>.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the tag.</p>
    *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -278,13 +278,13 @@ export interface TagSpecification {
    * <p>The type of resource to tag on creation.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 
   /**
    * <p>The tags to apply to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -303,7 +303,7 @@ export interface AcceptAddressTransferRequest {
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -311,7 +311,7 @@ export interface AcceptAddressTransferRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -338,19 +338,19 @@ export interface AddressTransfer {
    * <p>The Elastic IP address being transferred.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>The allocation ID of an Elastic IP address.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
    * @public
    */
-  TransferAccountId?: string;
+  TransferAccountId?: string | undefined;
 
   /**
    * <p>The timestamp when the Elastic IP address transfer expired. When the source account starts
@@ -358,19 +358,19 @@ export interface AddressTransfer {
    *       complete the transfer, or the Elastic IP address will return to its original owner.</p>
    * @public
    */
-  TransferOfferExpirationTimestamp?: Date;
+  TransferOfferExpirationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the Elastic IP address transfer was accepted.</p>
    * @public
    */
-  TransferOfferAcceptedTimestamp?: Date;
+  TransferOfferAcceptedTimestamp?: Date | undefined;
 
   /**
    * <p>The Elastic IP address transfer status.</p>
    * @public
    */
-  AddressTransferStatus?: AddressTransferStatus;
+  AddressTransferStatus?: AddressTransferStatus | undefined;
 }
 
 /**
@@ -381,7 +381,7 @@ export interface AcceptAddressTransferResult {
    * <p>An Elastic IP address transfer.</p>
    * @public
    */
-  AddressTransfer?: AddressTransfer;
+  AddressTransfer?: AddressTransfer | undefined;
 }
 
 /**
@@ -392,7 +392,7 @@ export interface AcceptCapacityReservationBillingOwnershipRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the Capacity Reservation for which to accept the request.</p>
@@ -409,7 +409,7 @@ export interface AcceptCapacityReservationBillingOwnershipResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface TargetConfigurationRequest {
    *       be specified in a request</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The Convertible Reserved Instance offering ID.</p>
@@ -442,7 +442,7 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
    *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible
@@ -456,7 +456,7 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
    *             current Convertible Reserved Instances.</p>
    * @public
    */
-  TargetConfigurations?: TargetConfigurationRequest[];
+  TargetConfigurations?: TargetConfigurationRequest[] | undefined;
 }
 
 /**
@@ -468,7 +468,7 @@ export interface AcceptReservedInstancesExchangeQuoteResult {
    * <p>The ID of the successful exchange.</p>
    * @public
    */
-  ExchangeId?: string;
+  ExchangeId?: string | undefined;
 }
 
 /**
@@ -479,19 +479,19 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
    * <p>The ID of the transit gateway multicast domain.</p>
    * @public
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -499,7 +499,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -550,13 +550,13 @@ export interface SubnetAssociation {
    * <p>The ID of the subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The state of the subnet association.</p>
    * @public
    */
-  State?: TransitGatewayMulitcastDomainAssociationState;
+  State?: TransitGatewayMulitcastDomainAssociationState | undefined;
 }
 
 /**
@@ -568,37 +568,37 @@ export interface TransitGatewayMulticastDomainAssociations {
    * <p>The ID of the transit gateway multicast domain.</p>
    * @public
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of resource, for example a VPC attachment.</p>
    * @public
    */
-  ResourceType?: TransitGatewayAttachmentResourceType;
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
 
   /**
    * <p> The ID of the Amazon Web Services account that owns the resource.</p>
    * @public
    */
-  ResourceOwnerId?: string;
+  ResourceOwnerId?: string | undefined;
 
   /**
    * <p>The subnets associated with the multicast domain.</p>
    * @public
    */
-  Subnets?: SubnetAssociation[];
+  Subnets?: SubnetAssociation[] | undefined;
 }
 
 /**
@@ -609,7 +609,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
    * <p>Information about the multicast domain associations.</p>
    * @public
    */
-  Associations?: TransitGatewayMulticastDomainAssociations;
+  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
 }
 
 /**
@@ -628,7 +628,7 @@ export interface AcceptTransitGatewayPeeringAttachmentRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -640,25 +640,25 @@ export interface PeeringTgwInfo {
    * <p>The ID of the transit gateway.</p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>The ID of the core network where the transit gateway peer is located.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The Region of the transit gateway.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface TransitGatewayPeeringAttachmentOptions {
    * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
    * @public
    */
-  DynamicRouting?: DynamicRoutingValue;
+  DynamicRouting?: DynamicRoutingValue | undefined;
 }
 
 /**
@@ -722,13 +722,13 @@ export interface PeeringAttachmentStatus {
    * <p>The status code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The status message, if applicable.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -740,55 +740,55 @@ export interface TransitGatewayPeeringAttachment {
    * <p>The ID of the transit gateway peering attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the accepter transit gateway attachment.</p>
    * @public
    */
-  AccepterTransitGatewayAttachmentId?: string;
+  AccepterTransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>Information about the requester transit gateway.</p>
    * @public
    */
-  RequesterTgwInfo?: PeeringTgwInfo;
+  RequesterTgwInfo?: PeeringTgwInfo | undefined;
 
   /**
    * <p>Information about the accepter transit gateway.</p>
    * @public
    */
-  AccepterTgwInfo?: PeeringTgwInfo;
+  AccepterTgwInfo?: PeeringTgwInfo | undefined;
 
   /**
    * <p>Details about the transit gateway peering attachment.</p>
    * @public
    */
-  Options?: TransitGatewayPeeringAttachmentOptions;
+  Options?: TransitGatewayPeeringAttachmentOptions | undefined;
 
   /**
    * <p>The status of the transit gateway peering attachment.</p>
    * @public
    */
-  Status?: PeeringAttachmentStatus;
+  Status?: PeeringAttachmentStatus | undefined;
 
   /**
    * <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    * @public
    */
-  State?: TransitGatewayAttachmentState;
+  State?: TransitGatewayAttachmentState | undefined;
 
   /**
    * <p>The time the transit gateway peering attachment was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The tags for the transit gateway peering attachment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -799,7 +799,7 @@ export interface AcceptTransitGatewayPeeringAttachmentResult {
    * <p>The transit gateway peering attachment.</p>
    * @public
    */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment | undefined;
 }
 
 /**
@@ -818,7 +818,7 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -887,7 +887,7 @@ export interface TransitGatewayVpcAttachmentOptions {
    * <p>Indicates whether DNS support is enabled.</p>
    * @public
    */
-  DnsSupport?: DnsSupportValue;
+  DnsSupport?: DnsSupportValue | undefined;
 
   /**
    * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.</p>
@@ -895,19 +895,19 @@ export interface TransitGatewayVpcAttachmentOptions {
    *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
-  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
 
   /**
    * <p>Indicates whether IPv6 support is disabled.</p>
    * @public
    */
-  Ipv6Support?: Ipv6SupportValue;
+  Ipv6Support?: Ipv6SupportValue | undefined;
 
   /**
    * <p>Indicates whether appliance mode support is enabled.</p>
    * @public
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue;
+  ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
 }
 
 /**
@@ -919,55 +919,55 @@ export interface TransitGatewayVpcAttachment {
    * <p>The ID of the attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway.</p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    * @public
    */
-  VpcOwnerId?: string;
+  VpcOwnerId?: string | undefined;
 
   /**
    * <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    * @public
    */
-  State?: TransitGatewayAttachmentState;
+  State?: TransitGatewayAttachmentState | undefined;
 
   /**
    * <p>The IDs of the subnets.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The VPC attachment options.</p>
    * @public
    */
-  Options?: TransitGatewayVpcAttachmentOptions;
+  Options?: TransitGatewayVpcAttachmentOptions | undefined;
 
   /**
    * <p>The tags for the VPC attachment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -978,7 +978,7 @@ export interface AcceptTransitGatewayVpcAttachmentResult {
    * <p>The VPC attachment.</p>
    * @public
    */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
 }
 
 /**
@@ -991,7 +991,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the VPC endpoint service.</p>
@@ -1015,13 +1015,13 @@ export interface UnsuccessfulItemError {
    * <p>The error code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The error message accompanying the error code.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1033,13 +1033,13 @@ export interface UnsuccessfulItem {
    * <p>Information about the error.</p>
    * @public
    */
-  Error?: UnsuccessfulItemError;
+  Error?: UnsuccessfulItemError | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 }
 
 /**
@@ -1051,7 +1051,7 @@ export interface AcceptVpcEndpointConnectionsResult {
    *             applicable.</p>
    * @public
    */
-  Unsuccessful?: UnsuccessfulItem[];
+  Unsuccessful?: UnsuccessfulItem[] | undefined;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface AcceptVpcPeeringConnectionRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
@@ -1083,7 +1083,7 @@ export interface CidrBlock {
    * <p>The IPv4 CIDR block.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 }
 
 /**
@@ -1095,7 +1095,7 @@ export interface Ipv6CidrBlock {
    * <p>The IPv6 CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 }
 
 /**
@@ -1108,19 +1108,19 @@ export interface VpcPeeringConnectionOptionsDescription {
    *         when queried from instances in a peer VPC.</p>
    * @public
    */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
+  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
 
   /**
    * <p>Deprecated.</p>
    * @public
    */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
 
   /**
    * <p>Deprecated.</p>
    * @public
    */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
 }
 
 /**
@@ -1132,43 +1132,43 @@ export interface VpcPeeringConnectionVpcInfo {
    * <p>The IPv4 CIDR block for the VPC.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>The IPv6 CIDR block for the VPC.</p>
    * @public
    */
-  Ipv6CidrBlockSet?: Ipv6CidrBlock[];
+  Ipv6CidrBlockSet?: Ipv6CidrBlock[] | undefined;
 
   /**
    * <p>Information about the IPv4 CIDR blocks for the VPC.</p>
    * @public
    */
-  CidrBlockSet?: CidrBlock[];
+  CidrBlockSet?: CidrBlock[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Information about the VPC peering connection options for the accepter or requester VPC.</p>
    * @public
    */
-  PeeringOptions?: VpcPeeringConnectionOptionsDescription;
+  PeeringOptions?: VpcPeeringConnectionOptionsDescription | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The Region in which the VPC is located.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -1202,13 +1202,13 @@ export interface VpcPeeringConnectionStateReason {
    * <p>The status of the VPC peering connection.</p>
    * @public
    */
-  Code?: VpcPeeringConnectionStateReasonCode;
+  Code?: VpcPeeringConnectionStateReasonCode | undefined;
 
   /**
    * <p>A message that provides more information about the status, if applicable.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1220,37 +1220,37 @@ export interface VpcPeeringConnection {
    * <p>Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.</p>
    * @public
    */
-  AccepterVpcInfo?: VpcPeeringConnectionVpcInfo;
+  AccepterVpcInfo?: VpcPeeringConnectionVpcInfo | undefined;
 
   /**
    * <p>The time that an unaccepted VPC peering connection will expire.</p>
    * @public
    */
-  ExpirationTime?: Date;
+  ExpirationTime?: Date | undefined;
 
   /**
    * <p>Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.</p>
    * @public
    */
-  RequesterVpcInfo?: VpcPeeringConnectionVpcInfo;
+  RequesterVpcInfo?: VpcPeeringConnectionVpcInfo | undefined;
 
   /**
    * <p>The status of the VPC peering connection.</p>
    * @public
    */
-  Status?: VpcPeeringConnectionStateReason;
+  Status?: VpcPeeringConnectionStateReason | undefined;
 
   /**
    * <p>Any tags assigned to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the VPC peering connection.</p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface AcceptVpcPeeringConnectionResult {
    * <p>Information about the VPC peering connection.</p>
    * @public
    */
-  VpcPeeringConnection?: VpcPeeringConnection;
+  VpcPeeringConnection?: VpcPeeringConnection | undefined;
 }
 
 /**
@@ -1273,13 +1273,13 @@ export interface PortRange {
    * <p>The first port in the range.</p>
    * @public
    */
-  From?: number;
+  From?: number | undefined;
 
   /**
    * <p>The last port in the range.</p>
    * @public
    */
-  To?: number;
+  To?: number | undefined;
 }
 
 /**
@@ -1291,37 +1291,37 @@ export interface AnalysisAclRule {
    * <p>The IPv4 address range, in CIDR notation.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>Indicates whether the rule is an outbound rule.</p>
    * @public
    */
-  Egress?: boolean;
+  Egress?: boolean | undefined;
 
   /**
    * <p>The range of ports.</p>
    * @public
    */
-  PortRange?: PortRange;
+  PortRange?: PortRange | undefined;
 
   /**
    * <p>The protocol.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>Indicates whether to allow or deny traffic that matches the rule.</p>
    * @public
    */
-  RuleAction?: string;
+  RuleAction?: string | undefined;
 
   /**
    * <p>The rule number.</p>
    * @public
    */
-  RuleNumber?: number;
+  RuleNumber?: number | undefined;
 }
 
 /**
@@ -1333,19 +1333,19 @@ export interface AnalysisComponent {
    * <p>The ID of the component.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the component.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the analysis component.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1357,13 +1357,13 @@ export interface RuleOption {
    * <p>The Suricata keyword.</p>
    * @public
    */
-  Keyword?: string;
+  Keyword?: string | undefined;
 
   /**
    * <p>The settings for the keyword.</p>
    * @public
    */
-  Settings?: string[];
+  Settings?: string[] | undefined;
 }
 
 /**
@@ -1375,13 +1375,13 @@ export interface RuleGroupRuleOptionsPair {
    * <p>The ARN of the rule group.</p>
    * @public
    */
-  RuleGroupArn?: string;
+  RuleGroupArn?: string | undefined;
 
   /**
    * <p>The rule options.</p>
    * @public
    */
-  RuleOptions?: RuleOption[];
+  RuleOptions?: RuleOption[] | undefined;
 }
 
 /**
@@ -1393,13 +1393,13 @@ export interface RuleGroupTypePair {
    * <p>The ARN of the rule group.</p>
    * @public
    */
-  RuleGroupArn?: string;
+  RuleGroupArn?: string | undefined;
 
   /**
    * <p>The rule group type. The possible values are <code>Domain List</code> and <code>Suricata</code>.</p>
    * @public
    */
-  RuleGroupType?: string;
+  RuleGroupType?: string | undefined;
 }
 
 /**
@@ -1411,49 +1411,49 @@ export interface AdditionalDetail {
    * <p>The additional detail code.</p>
    * @public
    */
-  AdditionalDetailType?: string;
+  AdditionalDetailType?: string | undefined;
 
   /**
    * <p>The path component.</p>
    * @public
    */
-  Component?: AnalysisComponent;
+  Component?: AnalysisComponent | undefined;
 
   /**
    * <p>The VPC endpoint service.</p>
    * @public
    */
-  VpcEndpointService?: AnalysisComponent;
+  VpcEndpointService?: AnalysisComponent | undefined;
 
   /**
    * <p>The rule options.</p>
    * @public
    */
-  RuleOptions?: RuleOption[];
+  RuleOptions?: RuleOption[] | undefined;
 
   /**
    * <p>The rule group type.</p>
    * @public
    */
-  RuleGroupTypePairs?: RuleGroupTypePair[];
+  RuleGroupTypePairs?: RuleGroupTypePair[] | undefined;
 
   /**
    * <p>The rule options.</p>
    * @public
    */
-  RuleGroupRuleOptionsPairs?: RuleGroupRuleOptionsPair[];
+  RuleGroupRuleOptionsPairs?: RuleGroupRuleOptionsPair[] | undefined;
 
   /**
    * <p>The name of the VPC endpoint service.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>The load balancers.</p>
    * @public
    */
-  LoadBalancers?: AnalysisComponent[];
+  LoadBalancers?: AnalysisComponent[] | undefined;
 }
 
 /**
@@ -1465,13 +1465,13 @@ export interface AnalysisLoadBalancerListener {
    * <p>The port on which the load balancer is listening.</p>
    * @public
    */
-  LoadBalancerPort?: number;
+  LoadBalancerPort?: number | undefined;
 
   /**
    * <p>[Classic Load Balancers] The back-end port for the listener.</p>
    * @public
    */
-  InstancePort?: number;
+  InstancePort?: number | undefined;
 }
 
 /**
@@ -1483,50 +1483,50 @@ export interface FirewallStatefulRule {
    * <p>The ARN of the stateful rule group.</p>
    * @public
    */
-  RuleGroupArn?: string;
+  RuleGroupArn?: string | undefined;
 
   /**
    * <p>The source IP addresses, in CIDR notation.</p>
    * @public
    */
-  Sources?: string[];
+  Sources?: string[] | undefined;
 
   /**
    * <p>The destination IP addresses, in CIDR notation.</p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p>The source ports.</p>
    * @public
    */
-  SourcePorts?: PortRange[];
+  SourcePorts?: PortRange[] | undefined;
 
   /**
    * <p>The destination ports.</p>
    * @public
    */
-  DestinationPorts?: PortRange[];
+  DestinationPorts?: PortRange[] | undefined;
 
   /**
    * <p>The protocol.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
    *          <code>alert</code>.</p>
    * @public
    */
-  RuleAction?: string;
+  RuleAction?: string | undefined;
 
   /**
    * <p>The direction. The possible values are <code>FORWARD</code> and <code>ANY</code>.</p>
    * @public
    */
-  Direction?: string;
+  Direction?: string | undefined;
 }
 
 /**
@@ -1538,50 +1538,50 @@ export interface FirewallStatelessRule {
    * <p>The ARN of the stateless rule group.</p>
    * @public
    */
-  RuleGroupArn?: string;
+  RuleGroupArn?: string | undefined;
 
   /**
    * <p>The source IP addresses, in CIDR notation.</p>
    * @public
    */
-  Sources?: string[];
+  Sources?: string[] | undefined;
 
   /**
    * <p>The destination IP addresses, in CIDR notation.</p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p>The source ports.</p>
    * @public
    */
-  SourcePorts?: PortRange[];
+  SourcePorts?: PortRange[] | undefined;
 
   /**
    * <p>The destination ports.</p>
    * @public
    */
-  DestinationPorts?: PortRange[];
+  DestinationPorts?: PortRange[] | undefined;
 
   /**
    * <p>The protocols.</p>
    * @public
    */
-  Protocols?: number[];
+  Protocols?: number[] | undefined;
 
   /**
    * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
    *          <code>forward_to_site</code>.</p>
    * @public
    */
-  RuleAction?: string;
+  RuleAction?: string | undefined;
 
   /**
    * <p>The rule priority.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 }
 
 /**
@@ -1593,25 +1593,25 @@ export interface AnalysisLoadBalancerTarget {
    * <p>The IP address.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The Availability Zone.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>Information about the instance.</p>
    * @public
    */
-  Instance?: AnalysisComponent;
+  Instance?: AnalysisComponent | undefined;
 
   /**
    * <p>The port on which the target is listening.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 }
 
 /**
@@ -1623,43 +1623,43 @@ export interface AnalysisRouteTableRoute {
    * <p>The destination IPv4 address, in CIDR notation.</p>
    * @public
    */
-  DestinationCidr?: string;
+  DestinationCidr?: string | undefined;
 
   /**
    * <p>The prefix of the Amazon Web Services service.</p>
    * @public
    */
-  DestinationPrefixListId?: string;
+  DestinationPrefixListId?: string | undefined;
 
   /**
    * <p>The ID of an egress-only internet gateway.</p>
    * @public
    */
-  EgressOnlyInternetGatewayId?: string;
+  EgressOnlyInternetGatewayId?: string | undefined;
 
   /**
    * <p>The ID of the gateway, such as an internet gateway or virtual private gateway.</p>
    * @public
    */
-  GatewayId?: string;
+  GatewayId?: string | undefined;
 
   /**
    * <p>The ID of the instance, such as a NAT instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The ID of a NAT gateway.</p>
    * @public
    */
-  NatGatewayId?: string;
+  NatGatewayId?: string | undefined;
 
   /**
    * <p>The ID of a network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>Describes how the route was created. The following are the possible values:</p>
@@ -1676,19 +1676,19 @@ export interface AnalysisRouteTableRoute {
    *          </ul>
    * @public
    */
-  Origin?: string;
+  Origin?: string | undefined;
 
   /**
    * <p>The ID of a transit gateway.</p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>The ID of a VPC peering connection.</p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 
   /**
    * <p>The state. The following are the possible values:</p>
@@ -1702,25 +1702,25 @@ export interface AnalysisRouteTableRoute {
    *          </ul>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The ID of a carrier gateway.</p>
    * @public
    */
-  CarrierGatewayId?: string;
+  CarrierGatewayId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a core network.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>The ID of a local gateway.</p>
    * @public
    */
-  LocalGatewayId?: string;
+  LocalGatewayId?: string | undefined;
 }
 
 /**
@@ -1732,7 +1732,7 @@ export interface AnalysisSecurityGroupRule {
    * <p>The IPv4 address range, in CIDR notation.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The direction. The following are the possible values:</p>
@@ -1746,31 +1746,31 @@ export interface AnalysisSecurityGroupRule {
    *          </ul>
    * @public
    */
-  Direction?: string;
+  Direction?: string | undefined;
 
   /**
    * <p>The security group ID.</p>
    * @public
    */
-  SecurityGroupId?: string;
+  SecurityGroupId?: string | undefined;
 
   /**
    * <p>The port range.</p>
    * @public
    */
-  PortRange?: PortRange;
+  PortRange?: PortRange | undefined;
 
   /**
    * <p>The prefix list ID.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 
   /**
    * <p>The protocol name.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 }
 
 /**
@@ -1782,13 +1782,13 @@ export interface TransitGatewayRouteTableRoute {
    * <p>The CIDR block used for destination matches.</p>
    * @public
    */
-  DestinationCidr?: string;
+  DestinationCidr?: string | undefined;
 
   /**
    * <p>The state of the route.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The route origin. The following are the possible values:</p>
@@ -1802,31 +1802,31 @@ export interface TransitGatewayRouteTableRoute {
    *          </ul>
    * @public
    */
-  RouteOrigin?: string;
+  RouteOrigin?: string | undefined;
 
   /**
    * <p>The ID of the prefix list.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 
   /**
    * <p>The ID of the route attachment.</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the resource for the route attachment.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The resource type for the route attachment.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -1838,67 +1838,67 @@ export interface Explanation {
    * <p>The network ACL.</p>
    * @public
    */
-  Acl?: AnalysisComponent;
+  Acl?: AnalysisComponent | undefined;
 
   /**
    * <p>The network ACL rule.</p>
    * @public
    */
-  AclRule?: AnalysisAclRule;
+  AclRule?: AnalysisAclRule | undefined;
 
   /**
    * <p>The IPv4 address, in CIDR notation.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The IPv4 addresses, in CIDR notation.</p>
    * @public
    */
-  Addresses?: string[];
+  Addresses?: string[] | undefined;
 
   /**
    * <p>The resource to which the component is attached.</p>
    * @public
    */
-  AttachedTo?: AnalysisComponent;
+  AttachedTo?: AnalysisComponent | undefined;
 
   /**
    * <p>The Availability Zones.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The CIDR ranges.</p>
    * @public
    */
-  Cidrs?: string[];
+  Cidrs?: string[] | undefined;
 
   /**
    * <p>The component.</p>
    * @public
    */
-  Component?: AnalysisComponent;
+  Component?: AnalysisComponent | undefined;
 
   /**
    * <p>The customer gateway.</p>
    * @public
    */
-  CustomerGateway?: AnalysisComponent;
+  CustomerGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The destination.</p>
    * @public
    */
-  Destination?: AnalysisComponent;
+  Destination?: AnalysisComponent | undefined;
 
   /**
    * <p>The destination VPC.</p>
    * @public
    */
-  DestinationVpc?: AnalysisComponent;
+  DestinationVpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The direction. The following are the possible values:</p>
@@ -1912,253 +1912,253 @@ export interface Explanation {
    *          </ul>
    * @public
    */
-  Direction?: string;
+  Direction?: string | undefined;
 
   /**
    * <p>The explanation code.</p>
    * @public
    */
-  ExplanationCode?: string;
+  ExplanationCode?: string | undefined;
 
   /**
    * <p>The route table.</p>
    * @public
    */
-  IngressRouteTable?: AnalysisComponent;
+  IngressRouteTable?: AnalysisComponent | undefined;
 
   /**
    * <p>The internet gateway.</p>
    * @public
    */
-  InternetGateway?: AnalysisComponent;
+  InternetGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    * @public
    */
-  LoadBalancerArn?: string;
+  LoadBalancerArn?: string | undefined;
 
   /**
    * <p>The listener for a Classic Load Balancer.</p>
    * @public
    */
-  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
+  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener | undefined;
 
   /**
    * <p>The listener port of the load balancer.</p>
    * @public
    */
-  LoadBalancerListenerPort?: number;
+  LoadBalancerListenerPort?: number | undefined;
 
   /**
    * <p>The target.</p>
    * @public
    */
-  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
+  LoadBalancerTarget?: AnalysisLoadBalancerTarget | undefined;
 
   /**
    * <p>The target group.</p>
    * @public
    */
-  LoadBalancerTargetGroup?: AnalysisComponent;
+  LoadBalancerTargetGroup?: AnalysisComponent | undefined;
 
   /**
    * <p>The target groups.</p>
    * @public
    */
-  LoadBalancerTargetGroups?: AnalysisComponent[];
+  LoadBalancerTargetGroups?: AnalysisComponent[] | undefined;
 
   /**
    * <p>The target port.</p>
    * @public
    */
-  LoadBalancerTargetPort?: number;
+  LoadBalancerTargetPort?: number | undefined;
 
   /**
    * <p>The load balancer listener.</p>
    * @public
    */
-  ElasticLoadBalancerListener?: AnalysisComponent;
+  ElasticLoadBalancerListener?: AnalysisComponent | undefined;
 
   /**
    * <p>The missing component.</p>
    * @public
    */
-  MissingComponent?: string;
+  MissingComponent?: string | undefined;
 
   /**
    * <p>The NAT gateway.</p>
    * @public
    */
-  NatGateway?: AnalysisComponent;
+  NatGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The network interface.</p>
    * @public
    */
-  NetworkInterface?: AnalysisComponent;
+  NetworkInterface?: AnalysisComponent | undefined;
 
   /**
    * <p>The packet field.</p>
    * @public
    */
-  PacketField?: string;
+  PacketField?: string | undefined;
 
   /**
    * <p>The VPC peering connection.</p>
    * @public
    */
-  VpcPeeringConnection?: AnalysisComponent;
+  VpcPeeringConnection?: AnalysisComponent | undefined;
 
   /**
    * <p>The port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The port ranges.</p>
    * @public
    */
-  PortRanges?: PortRange[];
+  PortRanges?: PortRange[] | undefined;
 
   /**
    * <p>The prefix list.</p>
    * @public
    */
-  PrefixList?: AnalysisComponent;
+  PrefixList?: AnalysisComponent | undefined;
 
   /**
    * <p>The protocols.</p>
    * @public
    */
-  Protocols?: string[];
+  Protocols?: string[] | undefined;
 
   /**
    * <p>The route table route.</p>
    * @public
    */
-  RouteTableRoute?: AnalysisRouteTableRoute;
+  RouteTableRoute?: AnalysisRouteTableRoute | undefined;
 
   /**
    * <p>The route table.</p>
    * @public
    */
-  RouteTable?: AnalysisComponent;
+  RouteTable?: AnalysisComponent | undefined;
 
   /**
    * <p>The security group.</p>
    * @public
    */
-  SecurityGroup?: AnalysisComponent;
+  SecurityGroup?: AnalysisComponent | undefined;
 
   /**
    * <p>The security group rule.</p>
    * @public
    */
-  SecurityGroupRule?: AnalysisSecurityGroupRule;
+  SecurityGroupRule?: AnalysisSecurityGroupRule | undefined;
 
   /**
    * <p>The security groups.</p>
    * @public
    */
-  SecurityGroups?: AnalysisComponent[];
+  SecurityGroups?: AnalysisComponent[] | undefined;
 
   /**
    * <p>The source VPC.</p>
    * @public
    */
-  SourceVpc?: AnalysisComponent;
+  SourceVpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The state.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The subnet.</p>
    * @public
    */
-  Subnet?: AnalysisComponent;
+  Subnet?: AnalysisComponent | undefined;
 
   /**
    * <p>The route table for the subnet.</p>
    * @public
    */
-  SubnetRouteTable?: AnalysisComponent;
+  SubnetRouteTable?: AnalysisComponent | undefined;
 
   /**
    * <p>The component VPC.</p>
    * @public
    */
-  Vpc?: AnalysisComponent;
+  Vpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The VPC endpoint.</p>
    * @public
    */
-  VpcEndpoint?: AnalysisComponent;
+  VpcEndpoint?: AnalysisComponent | undefined;
 
   /**
    * <p>The VPN connection.</p>
    * @public
    */
-  VpnConnection?: AnalysisComponent;
+  VpnConnection?: AnalysisComponent | undefined;
 
   /**
    * <p>The VPN gateway.</p>
    * @public
    */
-  VpnGateway?: AnalysisComponent;
+  VpnGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The transit gateway.</p>
    * @public
    */
-  TransitGateway?: AnalysisComponent;
+  TransitGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The transit gateway route table.</p>
    * @public
    */
-  TransitGatewayRouteTable?: AnalysisComponent;
+  TransitGatewayRouteTable?: AnalysisComponent | undefined;
 
   /**
    * <p>The transit gateway route table route.</p>
    * @public
    */
-  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute | undefined;
 
   /**
    * <p>The transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachment?: AnalysisComponent;
+  TransitGatewayAttachment?: AnalysisComponent | undefined;
 
   /**
    * <p>The Amazon Web Services account for the component.</p>
    * @public
    */
-  ComponentAccount?: string;
+  ComponentAccount?: string | undefined;
 
   /**
    * <p>The Region for the component.</p>
    * @public
    */
-  ComponentRegion?: string;
+  ComponentRegion?: string | undefined;
 
   /**
    * <p>The Network Firewall stateless rule.</p>
    * @public
    */
-  FirewallStatelessRule?: FirewallStatelessRule;
+  FirewallStatelessRule?: FirewallStatelessRule | undefined;
 
   /**
    * <p>The Network Firewall stateful rule.</p>
    * @public
    */
-  FirewallStatefulRule?: FirewallStatefulRule;
+  FirewallStatefulRule?: FirewallStatefulRule | undefined;
 }
 
 /**
@@ -2171,31 +2171,31 @@ export interface AnalysisPacketHeader {
    * <p>The destination addresses.</p>
    * @public
    */
-  DestinationAddresses?: string[];
+  DestinationAddresses?: string[] | undefined;
 
   /**
    * <p>The destination port ranges.</p>
    * @public
    */
-  DestinationPortRanges?: PortRange[];
+  DestinationPortRanges?: PortRange[] | undefined;
 
   /**
    * <p>The protocol.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The source addresses.</p>
    * @public
    */
-  SourceAddresses?: string[];
+  SourceAddresses?: string[] | undefined;
 
   /**
    * <p>The source port ranges.</p>
    * @public
    */
-  SourcePortRanges?: PortRange[];
+  SourcePortRanges?: PortRange[] | undefined;
 }
 
 /**
@@ -2207,121 +2207,121 @@ export interface PathComponent {
    * <p>The sequence number.</p>
    * @public
    */
-  SequenceNumber?: number;
+  SequenceNumber?: number | undefined;
 
   /**
    * <p>The network ACL rule.</p>
    * @public
    */
-  AclRule?: AnalysisAclRule;
+  AclRule?: AnalysisAclRule | undefined;
 
   /**
    * <p>The resource to which the path component is attached.</p>
    * @public
    */
-  AttachedTo?: AnalysisComponent;
+  AttachedTo?: AnalysisComponent | undefined;
 
   /**
    * <p>The component.</p>
    * @public
    */
-  Component?: AnalysisComponent;
+  Component?: AnalysisComponent | undefined;
 
   /**
    * <p>The destination VPC.</p>
    * @public
    */
-  DestinationVpc?: AnalysisComponent;
+  DestinationVpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The outbound header.</p>
    * @public
    */
-  OutboundHeader?: AnalysisPacketHeader;
+  OutboundHeader?: AnalysisPacketHeader | undefined;
 
   /**
    * <p>The inbound header.</p>
    * @public
    */
-  InboundHeader?: AnalysisPacketHeader;
+  InboundHeader?: AnalysisPacketHeader | undefined;
 
   /**
    * <p>The route table route.</p>
    * @public
    */
-  RouteTableRoute?: AnalysisRouteTableRoute;
+  RouteTableRoute?: AnalysisRouteTableRoute | undefined;
 
   /**
    * <p>The security group rule.</p>
    * @public
    */
-  SecurityGroupRule?: AnalysisSecurityGroupRule;
+  SecurityGroupRule?: AnalysisSecurityGroupRule | undefined;
 
   /**
    * <p>The source VPC.</p>
    * @public
    */
-  SourceVpc?: AnalysisComponent;
+  SourceVpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The subnet.</p>
    * @public
    */
-  Subnet?: AnalysisComponent;
+  Subnet?: AnalysisComponent | undefined;
 
   /**
    * <p>The component VPC.</p>
    * @public
    */
-  Vpc?: AnalysisComponent;
+  Vpc?: AnalysisComponent | undefined;
 
   /**
    * <p>The additional details.</p>
    * @public
    */
-  AdditionalDetails?: AdditionalDetail[];
+  AdditionalDetails?: AdditionalDetail[] | undefined;
 
   /**
    * <p>The transit gateway.</p>
    * @public
    */
-  TransitGateway?: AnalysisComponent;
+  TransitGateway?: AnalysisComponent | undefined;
 
   /**
    * <p>The route in a transit gateway route table.</p>
    * @public
    */
-  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute | undefined;
 
   /**
    * <p>The explanation codes.</p>
    * @public
    */
-  Explanations?: Explanation[];
+  Explanations?: Explanation[] | undefined;
 
   /**
    * <p>The load balancer listener.</p>
    * @public
    */
-  ElasticLoadBalancerListener?: AnalysisComponent;
+  ElasticLoadBalancerListener?: AnalysisComponent | undefined;
 
   /**
    * <p>The Network Firewall stateless rule.</p>
    * @public
    */
-  FirewallStatelessRule?: FirewallStatelessRule;
+  FirewallStatelessRule?: FirewallStatelessRule | undefined;
 
   /**
    * <p>The Network Firewall stateful rule.</p>
    * @public
    */
-  FirewallStatefulRule?: FirewallStatefulRule;
+  FirewallStatefulRule?: FirewallStatefulRule | undefined;
 
   /**
    * <p>The name of the VPC endpoint service.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 }
 
 /**
@@ -2333,25 +2333,25 @@ export interface AccessScopeAnalysisFinding {
    * <p>The ID of the Network Access Scope analysis.</p>
    * @public
    */
-  NetworkInsightsAccessScopeAnalysisId?: string;
+  NetworkInsightsAccessScopeAnalysisId?: string | undefined;
 
   /**
    * <p>The ID of the Network Access Scope.</p>
    * @public
    */
-  NetworkInsightsAccessScopeId?: string;
+  NetworkInsightsAccessScopeId?: string | undefined;
 
   /**
    * <p>The ID of the finding.</p>
    * @public
    */
-  FindingId?: string;
+  FindingId?: string | undefined;
 
   /**
    * <p>The finding components.</p>
    * @public
    */
-  FindingComponents?: PathComponent[];
+  FindingComponents?: PathComponent[] | undefined;
 }
 
 /**
@@ -2377,43 +2377,43 @@ export interface PacketHeaderStatement {
    * <p>The source addresses.</p>
    * @public
    */
-  SourceAddresses?: string[];
+  SourceAddresses?: string[] | undefined;
 
   /**
    * <p>The destination addresses.</p>
    * @public
    */
-  DestinationAddresses?: string[];
+  DestinationAddresses?: string[] | undefined;
 
   /**
    * <p>The source ports.</p>
    * @public
    */
-  SourcePorts?: string[];
+  SourcePorts?: string[] | undefined;
 
   /**
    * <p>The destination ports.</p>
    * @public
    */
-  DestinationPorts?: string[];
+  DestinationPorts?: string[] | undefined;
 
   /**
    * <p>The source prefix lists.</p>
    * @public
    */
-  SourcePrefixLists?: string[];
+  SourcePrefixLists?: string[] | undefined;
 
   /**
    * <p>The destination prefix lists.</p>
    * @public
    */
-  DestinationPrefixLists?: string[];
+  DestinationPrefixLists?: string[] | undefined;
 
   /**
    * <p>The protocols.</p>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 }
 
 /**
@@ -2425,13 +2425,13 @@ export interface ResourceStatement {
    * <p>The resources.</p>
    * @public
    */
-  Resources?: string[];
+  Resources?: string[] | undefined;
 
   /**
    * <p>The resource types.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -2443,13 +2443,13 @@ export interface PathStatement {
    * <p>The packet header statement.</p>
    * @public
    */
-  PacketHeaderStatement?: PacketHeaderStatement;
+  PacketHeaderStatement?: PacketHeaderStatement | undefined;
 
   /**
    * <p>The resource statement.</p>
    * @public
    */
-  ResourceStatement?: ResourceStatement;
+  ResourceStatement?: ResourceStatement | undefined;
 }
 
 /**
@@ -2461,7 +2461,7 @@ export interface ThroughResourcesStatement {
    * <p>The resource statement.</p>
    * @public
    */
-  ResourceStatement?: ResourceStatement;
+  ResourceStatement?: ResourceStatement | undefined;
 }
 
 /**
@@ -2473,19 +2473,19 @@ export interface AccessScopePath {
    * <p>The source.</p>
    * @public
    */
-  Source?: PathStatement;
+  Source?: PathStatement | undefined;
 
   /**
    * <p>The destination.</p>
    * @public
    */
-  Destination?: PathStatement;
+  Destination?: PathStatement | undefined;
 
   /**
    * <p>The through resources.</p>
    * @public
    */
-  ThroughResources?: ThroughResourcesStatement[];
+  ThroughResources?: ThroughResourcesStatement[] | undefined;
 }
 
 /**
@@ -2497,43 +2497,43 @@ export interface PacketHeaderStatementRequest {
    * <p>The source addresses.</p>
    * @public
    */
-  SourceAddresses?: string[];
+  SourceAddresses?: string[] | undefined;
 
   /**
    * <p>The destination addresses.</p>
    * @public
    */
-  DestinationAddresses?: string[];
+  DestinationAddresses?: string[] | undefined;
 
   /**
    * <p>The source ports.</p>
    * @public
    */
-  SourcePorts?: string[];
+  SourcePorts?: string[] | undefined;
 
   /**
    * <p>The destination ports.</p>
    * @public
    */
-  DestinationPorts?: string[];
+  DestinationPorts?: string[] | undefined;
 
   /**
    * <p>The source prefix lists.</p>
    * @public
    */
-  SourcePrefixLists?: string[];
+  SourcePrefixLists?: string[] | undefined;
 
   /**
    * <p>The destination prefix lists.</p>
    * @public
    */
-  DestinationPrefixLists?: string[];
+  DestinationPrefixLists?: string[] | undefined;
 
   /**
    * <p>The protocols.</p>
    * @public
    */
-  Protocols?: Protocol[];
+  Protocols?: Protocol[] | undefined;
 }
 
 /**
@@ -2545,13 +2545,13 @@ export interface ResourceStatementRequest {
    * <p>The resources.</p>
    * @public
    */
-  Resources?: string[];
+  Resources?: string[] | undefined;
 
   /**
    * <p>The resource types.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -2563,13 +2563,13 @@ export interface PathStatementRequest {
    * <p>The packet header statement.</p>
    * @public
    */
-  PacketHeaderStatement?: PacketHeaderStatementRequest;
+  PacketHeaderStatement?: PacketHeaderStatementRequest | undefined;
 
   /**
    * <p>The resource statement.</p>
    * @public
    */
-  ResourceStatement?: ResourceStatementRequest;
+  ResourceStatement?: ResourceStatementRequest | undefined;
 }
 
 /**
@@ -2581,7 +2581,7 @@ export interface ThroughResourcesStatementRequest {
    * <p>The resource statement.</p>
    * @public
    */
-  ResourceStatement?: ResourceStatementRequest;
+  ResourceStatement?: ResourceStatementRequest | undefined;
 }
 
 /**
@@ -2593,19 +2593,19 @@ export interface AccessScopePathRequest {
    * <p>The source.</p>
    * @public
    */
-  Source?: PathStatementRequest;
+  Source?: PathStatementRequest | undefined;
 
   /**
    * <p>The destination.</p>
    * @public
    */
-  Destination?: PathStatementRequest;
+  Destination?: PathStatementRequest | undefined;
 
   /**
    * <p>The through resources.</p>
    * @public
    */
-  ThroughResources?: ThroughResourcesStatementRequest[];
+  ThroughResources?: ThroughResourcesStatementRequest[] | undefined;
 }
 
 /**
@@ -2617,7 +2617,7 @@ export interface AccountAttributeValue {
    * <p>The value of the attribute.</p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -2629,13 +2629,13 @@ export interface AccountAttribute {
    * <p>The name of the account attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The values for the account attribute.</p>
    * @public
    */
-  AttributeValues?: AccountAttributeValue[];
+  AttributeValues?: AccountAttributeValue[] | undefined;
 }
 
 /**
@@ -2675,19 +2675,19 @@ export interface ActiveInstance {
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The instance type.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The ID of the Spot Instance request.</p>
    * @public
    */
-  SpotInstanceRequestId?: string;
+  SpotInstanceRequestId?: string | undefined;
 
   /**
    * <p>The health status of the instance. If the status of either the instance status check
@@ -2695,7 +2695,7 @@ export interface ActiveInstance {
    *             is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
    * @public
    */
-  InstanceHealth?: InstanceHealthStatus;
+  InstanceHealth?: InstanceHealthStatus | undefined;
 }
 
 /**
@@ -2741,25 +2741,25 @@ export interface AddedPrincipal {
    * <p>The type of principal.</p>
    * @public
    */
-  PrincipalType?: PrincipalType;
+  PrincipalType?: PrincipalType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    * @public
    */
-  Principal?: string;
+  Principal?: string | undefined;
 
   /**
    * <p>The ID of the service permission.</p>
    * @public
    */
-  ServicePermissionId?: string;
+  ServicePermissionId?: string | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 }
 
 /**
@@ -2773,7 +2773,7 @@ export interface AddIpamOperatingRegion {
    * <p>The name of the operating Region.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 }
 
 /**
@@ -2792,7 +2792,7 @@ export interface AddPrefixListEntry {
    *          <p>Constraints: Up to 255 characters in length.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -2818,87 +2818,87 @@ export interface Address {
    * <p>The ID representing the allocation of the address.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The ID representing the association of the address with an instance.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The network (<code>vpc</code>).</p>
    * @public
    */
-  Domain?: DomainType;
+  Domain?: DomainType | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the network interface.</p>
    * @public
    */
-  NetworkInterfaceOwnerId?: string;
+  NetworkInterfaceOwnerId?: string | undefined;
 
   /**
    * <p>The private IP address associated with the Elastic IP address.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 
   /**
    * <p>Any tags assigned to the Elastic IP address.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of an address pool.</p>
    * @public
    */
-  PublicIpv4Pool?: string;
+  PublicIpv4Pool?: string | undefined;
 
   /**
    * <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from
    *       which Amazon Web Services advertises IP addresses.</p>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The customer-owned IP address.</p>
    * @public
    */
-  CustomerOwnedIp?: string;
+  CustomerOwnedIp?: string | undefined;
 
   /**
    * <p>The ID of the customer-owned address pool.</p>
    * @public
    */
-  CustomerOwnedIpv4Pool?: string;
+  CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
    * <p>The carrier IP address associated. This option is only available for network interfaces
    *       which  reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
    * @public
    */
-  CarrierIp?: string;
+  CarrierIp?: string | undefined;
 
   /**
    * <p>The ID of the instance that the address is associated with (if any).</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The Elastic IP address.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 }
 
 /**
@@ -2910,19 +2910,19 @@ export interface PtrUpdateStatus {
    * <p>The value for the PTR record update.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The status of the PTR record update.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The reason for the PTR record update.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -2934,25 +2934,25 @@ export interface AddressAttribute {
    * <p>The public IP address.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>[EC2-VPC] The allocation ID.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The pointer (PTR) record for the IP address.</p>
    * @public
    */
-  PtrRecord?: string;
+  PtrRecord?: string | undefined;
 
   /**
    * <p>The updated PTR record for the IP address.</p>
    * @public
    */
-  PtrRecordUpdate?: PtrUpdateStatus;
+  PtrRecordUpdate?: PtrUpdateStatus | undefined;
 }
 
 /**
@@ -2997,7 +2997,7 @@ export interface AdvertiseByoipCidrRequest {
    * <p>The public 2-byte or 4-byte ASN that you want to advertise.</p>
    * @public
    */
-  Asn?: string;
+  Asn?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3005,7 +3005,7 @@ export interface AdvertiseByoipCidrRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
@@ -3026,7 +3026,7 @@ export interface AdvertiseByoipCidrRequest {
    *          </note>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 }
 
 /**
@@ -3056,25 +3056,25 @@ export interface AsnAssociation {
    * <p>The association's ASN.</p>
    * @public
    */
-  Asn?: string;
+  Asn?: string | undefined;
 
   /**
    * <p>The association's CIDR.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The association's status message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The association's state.</p>
    * @public
    */
-  State?: AsnAssociationState;
+  State?: AsnAssociationState | undefined;
 }
 
 /**
@@ -3107,25 +3107,25 @@ export interface ByoipCidr {
    * <p>The address range, in CIDR notation.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The description of the address range.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The BYOIP CIDR associations with ASNs.</p>
    * @public
    */
-  AsnAssociations?: AsnAssociation[];
+  AsnAssociations?: AsnAssociation[] | undefined;
 
   /**
    * <p>Upon success, contains the ID of the address pool. Otherwise, contains an error message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The state of the address range.</p>
@@ -3165,7 +3165,7 @@ export interface ByoipCidr {
    *          </ul>
    * @public
    */
-  State?: ByoipCidrState;
+  State?: ByoipCidrState | undefined;
 
   /**
    * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
@@ -3186,7 +3186,7 @@ export interface ByoipCidr {
    *          </note>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 }
 
 /**
@@ -3197,7 +3197,7 @@ export interface AdvertiseByoipCidrResult {
    * <p>Information about the address range.</p>
    * @public
    */
-  ByoipCidr?: ByoipCidr;
+  ByoipCidr?: ByoipCidr | undefined;
 }
 
 /**
@@ -3222,20 +3222,20 @@ export interface AllocateAddressRequest {
    * <p>The network (<code>vpc</code>).</p>
    * @public
    */
-  Domain?: DomainType;
+  Domain?: DomainType | undefined;
 
   /**
    * <p>The Elastic IP address to recover or an IPv4 address from an address pool.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
    *        To specify a specific address from the address pool, use the <code>Address</code> parameter instead.</p>
    * @public
    */
-  PublicIpv4Pool?: string;
+  PublicIpv4Pool?: string | undefined;
 
   /**
    * <p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services
@@ -3243,7 +3243,7 @@ export interface AllocateAddressRequest {
    *       addresses cannot move between network border groups.</p>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The ID of a customer-owned address pool. Use this parameter to let Amazon EC2
@@ -3251,19 +3251,19 @@ export interface AllocateAddressRequest {
    *         address from the address pool.</p>
    * @public
    */
-  CustomerOwnedIpv4Pool?: string;
+  CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
    * <p>The tags to assign to the Elastic IP address.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html">Allocate sequential Elastic IP addresses from an IPAM pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    * @public
    */
-  IpamPoolId?: string;
+  IpamPoolId?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3271,7 +3271,7 @@ export interface AllocateAddressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3282,51 +3282,51 @@ export interface AllocateAddressResult {
    * <p>The ID that represents the allocation of the Elastic IP address.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The ID of an address pool.</p>
    * @public
    */
-  PublicIpv4Pool?: string;
+  PublicIpv4Pool?: string | undefined;
 
   /**
    * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
    *       IP addresses.</p>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The network (<code>vpc</code>).</p>
    * @public
    */
-  Domain?: DomainType;
+  Domain?: DomainType | undefined;
 
   /**
    * <p>The customer-owned IP address.</p>
    * @public
    */
-  CustomerOwnedIp?: string;
+  CustomerOwnedIp?: string | undefined;
 
   /**
    * <p>The ID of the customer-owned address pool.</p>
    * @public
    */
-  CustomerOwnedIpv4Pool?: string;
+  CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
    * <p>The carrier IP address. This option is only available for network interfaces that reside
    *       in a subnet in a Wavelength Zone.</p>
    * @public
    */
-  CarrierIp?: string;
+  CarrierIp?: string | undefined;
 
   /**
    * <p>The Elastic IP address.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 }
 
 /**
@@ -3384,13 +3384,13 @@ export interface AllocateHostsRequest {
    *             specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    * @public
    */
-  InstanceFamily?: string;
+  InstanceFamily?: string | undefined;
 
   /**
    * <p>The tags to apply to the Dedicated Host during creation.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host
@@ -3400,7 +3400,7 @@ export interface AllocateHostsRequest {
    *          </p>
    * @public
    */
-  HostRecovery?: HostRecovery;
+  HostRecovery?: HostRecovery | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
@@ -3409,7 +3409,7 @@ export interface AllocateHostsRequest {
    *          <p>If you are allocating the Dedicated Host in a Region, omit this parameter.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
@@ -3417,7 +3417,7 @@ export interface AllocateHostsRequest {
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
-  HostMaintenance?: HostMaintenance;
+  HostMaintenance?: HostMaintenance | undefined;
 
   /**
    * <p>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting
@@ -3439,7 +3439,7 @@ export interface AllocateHostsRequest {
    *          </ul>
    * @public
    */
-  AssetIds?: string[];
+  AssetIds?: string[] | undefined;
 
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that match its
@@ -3450,13 +3450,13 @@ export interface AllocateHostsRequest {
    *          </p>
    * @public
    */
-  AutoPlacement?: AutoPlacement;
+  AutoPlacement?: AutoPlacement | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
@@ -3467,7 +3467,7 @@ export interface AllocateHostsRequest {
    *             same request.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are
@@ -3478,7 +3478,7 @@ export interface AllocateHostsRequest {
    *             <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
    * @public
    */
-  Quantity?: number;
+  Quantity?: number | undefined;
 
   /**
    * <p>The Availability Zone in which to allocate the Dedicated Host.</p>
@@ -3497,7 +3497,7 @@ export interface AllocateHostsResult {
    *             specific host.</p>
    * @public
    */
-  HostIds?: string[];
+  HostIds?: string[] | undefined;
 }
 
 /**
@@ -3510,7 +3510,7 @@ export interface AllocateIpamPoolCidrRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the IPAM pool from which you would like to allocate a CIDR.</p>
@@ -3531,7 +3531,7 @@ export interface AllocateIpamPoolCidrRequest {
    *          <p>Possible values: Any available IPv4 or IPv6 CIDR.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:</p>
@@ -3546,37 +3546,37 @@ export interface AllocateIpamPoolCidrRequest {
    *          <p>Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.</p>
    * @public
    */
-  NetmaskLength?: number;
+  NetmaskLength?: number | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A description for the allocation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A preview of the next available CIDR in a pool.</p>
    * @public
    */
-  PreviewNextCidr?: boolean;
+  PreviewNextCidr?: boolean | undefined;
 
   /**
    * <p>Include a particular CIDR range that can be returned by the pool. Allowed CIDRs are only allowed if using netmask length for allocation.</p>
    * @public
    */
-  AllowedCidrs?: string[];
+  AllowedCidrs?: string[] | undefined;
 
   /**
    * <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
    * @public
    */
-  DisallowedCidrs?: string[];
+  DisallowedCidrs?: string[] | undefined;
 }
 
 /**
@@ -3608,43 +3608,43 @@ export interface IpamPoolAllocation {
    *          refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The ID of an allocation.</p>
    * @public
    */
-  IpamPoolAllocationId?: string;
+  IpamPoolAllocationId?: string | undefined;
 
   /**
    * <p>A description of the pool allocation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource.</p>
    * @public
    */
-  ResourceType?: IpamPoolAllocationResourceType;
+  ResourceType?: IpamPoolAllocationResourceType | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the resource.</p>
    * @public
    */
-  ResourceRegion?: string;
+  ResourceRegion?: string | undefined;
 
   /**
    * <p>The owner of the resource.</p>
    * @public
    */
-  ResourceOwner?: string;
+  ResourceOwner?: string | undefined;
 }
 
 /**
@@ -3655,7 +3655,7 @@ export interface AllocateIpamPoolCidrResult {
    * <p>Information about the allocation created.</p>
    * @public
    */
-  IpamPoolAllocation?: IpamPoolAllocation;
+  IpamPoolAllocation?: IpamPoolAllocation | undefined;
 }
 
 /**
@@ -3715,31 +3715,31 @@ export interface AllowedPrincipal {
    * <p>The type of principal.</p>
    * @public
    */
-  PrincipalType?: PrincipalType;
+  PrincipalType?: PrincipalType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    * @public
    */
-  Principal?: string;
+  Principal?: string | undefined;
 
   /**
    * <p>The ID of the service permission.</p>
    * @public
    */
-  ServicePermissionId?: string;
+  ServicePermissionId?: string | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 }
 
 /**
@@ -3766,13 +3766,13 @@ export interface AlternatePathHint {
    * <p>The ID of the component.</p>
    * @public
    */
-  ComponentId?: string;
+  ComponentId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the component.</p>
    * @public
    */
-  ComponentArn?: string;
+  ComponentArn?: string | undefined;
 }
 
 /**
@@ -3802,7 +3802,7 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3813,7 +3813,7 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
    * <p>The IDs of the applied security groups.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -3826,13 +3826,13 @@ export interface AssignIpv6AddressesRequest {
    *             option.</p>
    * @public
    */
-  Ipv6PrefixCount?: number;
+  Ipv6PrefixCount?: number | undefined;
 
   /**
    * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    * @public
    */
-  Ipv6Prefixes?: string[];
+  Ipv6Prefixes?: string[] | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -3844,7 +3844,7 @@ export interface AssignIpv6AddressesRequest {
    * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    * @public
    */
-  Ipv6Addresses?: string[];
+  Ipv6Addresses?: string[] | undefined;
 
   /**
    * <p>The number of additional IPv6 addresses to assign to the network interface.
@@ -3854,7 +3854,7 @@ export interface AssignIpv6AddressesRequest {
    *     		can't use this option if specifying specific IPv6 addresses.</p>
    * @public
    */
-  Ipv6AddressCount?: number;
+  Ipv6AddressCount?: number | undefined;
 }
 
 /**
@@ -3866,19 +3866,19 @@ export interface AssignIpv6AddressesResult {
    *         	that were assigned to the network interface before the request are not included.</p>
    * @public
    */
-  AssignedIpv6Addresses?: string[];
+  AssignedIpv6Addresses?: string[] | undefined;
 
   /**
    * <p>The IPv6 prefixes that are assigned to the network interface.</p>
    * @public
    */
-  AssignedIpv6Prefixes?: string[];
+  AssignedIpv6Prefixes?: string[] | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 }
 
 /**
@@ -3890,13 +3890,13 @@ export interface AssignPrivateIpAddressesRequest {
    * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    * @public
    */
-  Ipv4Prefixes?: string[];
+  Ipv4Prefixes?: string[] | undefined;
 
   /**
    * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
    * @public
    */
-  Ipv4PrefixCount?: number;
+  Ipv4PrefixCount?: number | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -3909,19 +3909,19 @@ export interface AssignPrivateIpAddressesRequest {
    *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    * @public
    */
-  PrivateIpAddresses?: string[];
+  PrivateIpAddresses?: string[] | undefined;
 
   /**
    * <p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>
    * @public
    */
-  SecondaryPrivateIpAddressCount?: number;
+  SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
    * <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
    * @public
    */
-  AllowReassignment?: boolean;
+  AllowReassignment?: boolean | undefined;
 }
 
 /**
@@ -3935,7 +3935,7 @@ export interface Ipv4PrefixSpecification {
    *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
-  Ipv4Prefix?: string;
+  Ipv4Prefix?: string | undefined;
 }
 
 /**
@@ -3947,7 +3947,7 @@ export interface AssignedPrivateIpAddress {
    * <p>The private IP address assigned to the network interface.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 }
 
 /**
@@ -3958,19 +3958,19 @@ export interface AssignPrivateIpAddressesResult {
    * <p>The ID of the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The private IP addresses assigned to the network interface.</p>
    * @public
    */
-  AssignedPrivateIpAddresses?: AssignedPrivateIpAddress[];
+  AssignedPrivateIpAddresses?: AssignedPrivateIpAddress[] | undefined;
 
   /**
    * <p>The IPv4 prefixes that are assigned to the network interface.</p>
    * @public
    */
-  AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
+  AssignedIpv4Prefixes?: Ipv4PrefixSpecification[] | undefined;
 }
 
 /**
@@ -3987,13 +3987,13 @@ export interface AssignPrivateNatGatewayAddressRequest {
    * <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
    * @public
    */
-  PrivateIpAddresses?: string[];
+  PrivateIpAddresses?: string[] | undefined;
 
   /**
    * <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
    * @public
    */
-  PrivateIpAddressCount?: number;
+  PrivateIpAddressCount?: number | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4001,7 +4001,7 @@ export interface AssignPrivateNatGatewayAddressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4031,49 +4031,49 @@ export interface NatGatewayAddress {
    * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The ID of the network interface associated with the NAT gateway.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The private IP address associated with the NAT gateway.</p>
    * @public
    */
-  PrivateIp?: string;
+  PrivateIp?: string | undefined;
 
   /**
    * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>[Public NAT gateway only] The association ID of the Elastic IP address that's associated with the NAT gateway.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>Defines if the IP address is the primary address.</p>
    * @public
    */
-  IsPrimary?: boolean;
+  IsPrimary?: boolean | undefined;
 
   /**
    * <p>The address failure message.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>The address status.</p>
    * @public
    */
-  Status?: NatGatewayAddressStatus;
+  Status?: NatGatewayAddressStatus | undefined;
 }
 
 /**
@@ -4084,13 +4084,13 @@ export interface AssignPrivateNatGatewayAddressResult {
    * <p>The ID of the NAT gateway.</p>
    * @public
    */
-  NatGatewayId?: string;
+  NatGatewayId?: string | undefined;
 
   /**
    * <p>NAT gateway IP addresses.</p>
    * @public
    */
-  NatGatewayAddresses?: NatGatewayAddress[];
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
 }
 
 /**
@@ -4101,20 +4101,20 @@ export interface AssociateAddressRequest {
    * <p>The allocation ID. This is required.</p>
    * @public
    */
-  AllocationId?: string;
+  AllocationId?: string | undefined;
 
   /**
    * <p>The ID of the instance. The instance must have exactly one attached network interface.
    *       You can specify either the instance ID or the network interface ID, but not both.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>Deprecated.</p>
    * @public
    */
-  PublicIp?: string;
+  PublicIp?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4122,26 +4122,26 @@ export interface AssociateAddressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p>
    *          <p>You can specify either the instance ID or the network interface ID, but not both. </p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 
   /**
    * <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
    * @public
    */
-  AllowReassociation?: boolean;
+  AllowReassociation?: boolean | undefined;
 }
 
 /**
@@ -4152,7 +4152,7 @@ export interface AssociateAddressResult {
    * <p>The ID that represents the association of the Elastic IP address with an instance.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 }
 
 /**
@@ -4163,7 +4163,7 @@ export interface AssociateCapacityReservationBillingOwnerRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -4186,7 +4186,7 @@ export interface AssociateCapacityReservationBillingOwnerResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 }
 
 /**
@@ -4210,13 +4210,13 @@ export interface AssociateClientVpnTargetNetworkRequest {
    * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4245,13 +4245,13 @@ export interface AssociationStatus {
    * <p>The state of the target network association.</p>
    * @public
    */
-  Code?: AssociationStatusCode;
+  Code?: AssociationStatusCode | undefined;
 
   /**
    * <p>A message about the status of the target network association, if applicable.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -4262,13 +4262,13 @@ export interface AssociateClientVpnTargetNetworkResult {
    * <p>The unique ID of the target network association.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The current state of the target network association.</p>
    * @public
    */
-  Status?: AssociationStatus;
+  Status?: AssociationStatus | undefined;
 }
 
 /**
@@ -4294,7 +4294,7 @@ export interface AssociateDhcpOptionsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4318,7 +4318,7 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4329,20 +4329,20 @@ export interface AssociateEnclaveCertificateIamRoleResult {
    * <p>The name of the Amazon S3 bucket to which the certificate was uploaded.</p>
    * @public
    */
-  CertificateS3BucketName?: string;
+  CertificateS3BucketName?: string | undefined;
 
   /**
    * <p>The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored. The
    * 			object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>.</p>
    * @public
    */
-  CertificateS3ObjectKey?: string;
+  CertificateS3ObjectKey?: string | undefined;
 
   /**
    * <p>The ID of the KMS key used to encrypt the private key of the certificate.</p>
    * @public
    */
-  EncryptionKmsKeyId?: string;
+  EncryptionKmsKeyId?: string | undefined;
 }
 
 /**
@@ -4354,13 +4354,13 @@ export interface IamInstanceProfileSpecification {
    * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the instance profile.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -4389,13 +4389,13 @@ export interface IamInstanceProfile {
    * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the instance profile.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -4424,31 +4424,31 @@ export interface IamInstanceProfileAssociation {
    * <p>The ID of the association.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The IAM instance profile.</p>
    * @public
    */
-  IamInstanceProfile?: IamInstanceProfile;
+  IamInstanceProfile?: IamInstanceProfile | undefined;
 
   /**
    * <p>The state of the association.</p>
    * @public
    */
-  State?: IamInstanceProfileAssociationState;
+  State?: IamInstanceProfileAssociationState | undefined;
 
   /**
    * <p>The time the IAM instance profile was associated with the instance.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -4459,7 +4459,7 @@ export interface AssociateIamInstanceProfileResult {
    * <p>Information about the IAM instance profile association.</p>
    * @public
    */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
 }
 
 /**
@@ -4475,20 +4475,20 @@ export interface InstanceEventWindowAssociationRequest {
    *          Host ID parameter.</p>
    * @public
    */
-  InstanceIds?: string[];
+  InstanceIds?: string[] | undefined;
 
   /**
    * <p>The instance tags to associate with the event window. Any instances associated with the
    *          tags will be associated with the event window.</p>
    * @public
    */
-  InstanceTags?: Tag[];
+  InstanceTags?: Tag[] | undefined;
 
   /**
    * <p>The IDs of the Dedicated Hosts to associate with the event window.</p>
    * @public
    */
-  DedicatedHostIds?: string[];
+  DedicatedHostIds?: string[] | undefined;
 }
 
 /**
@@ -4501,7 +4501,7 @@ export interface AssociateInstanceEventWindowRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the event window.</p>
@@ -4525,20 +4525,20 @@ export interface InstanceEventWindowAssociationTarget {
    * <p>The IDs of the instances associated with the event window.</p>
    * @public
    */
-  InstanceIds?: string[];
+  InstanceIds?: string[] | undefined;
 
   /**
    * <p>The instance tags associated with the event window. Any instances associated with the tags
    *          will be associated with the event window.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The IDs of the Dedicated Hosts associated with the event window.</p>
    * @public
    */
-  DedicatedHostIds?: string[];
+  DedicatedHostIds?: string[] | undefined;
 }
 
 /**
@@ -4585,25 +4585,25 @@ export interface InstanceEventWindowTimeRange {
    * <p>The day on which the time range begins.</p>
    * @public
    */
-  StartWeekDay?: WeekDay;
+  StartWeekDay?: WeekDay | undefined;
 
   /**
    * <p>The hour when the time range begins.</p>
    * @public
    */
-  StartHour?: number;
+  StartHour?: number | undefined;
 
   /**
    * <p>The day on which the time range ends.</p>
    * @public
    */
-  EndWeekDay?: WeekDay;
+  EndWeekDay?: WeekDay | undefined;
 
   /**
    * <p>The hour when the time range ends.</p>
    * @public
    */
-  EndHour?: number;
+  EndHour?: number | undefined;
 }
 
 /**
@@ -4615,43 +4615,43 @@ export interface InstanceEventWindow {
    * <p>The ID of the event window.</p>
    * @public
    */
-  InstanceEventWindowId?: string;
+  InstanceEventWindowId?: string | undefined;
 
   /**
    * <p>One or more time ranges defined for the event window.</p>
    * @public
    */
-  TimeRanges?: InstanceEventWindowTimeRange[];
+  TimeRanges?: InstanceEventWindowTimeRange[] | undefined;
 
   /**
    * <p>The name of the event window.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The cron expression defined for the event window.</p>
    * @public
    */
-  CronExpression?: string;
+  CronExpression?: string | undefined;
 
   /**
    * <p>One or more targets associated with the event window.</p>
    * @public
    */
-  AssociationTarget?: InstanceEventWindowAssociationTarget;
+  AssociationTarget?: InstanceEventWindowAssociationTarget | undefined;
 
   /**
    * <p>The current state of the event window.</p>
    * @public
    */
-  State?: InstanceEventWindowState;
+  State?: InstanceEventWindowState | undefined;
 
   /**
    * <p>The instance tags associated with the event window.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4662,7 +4662,7 @@ export interface AssociateInstanceEventWindowResult {
    * <p>Information about the event window.</p>
    * @public
    */
-  InstanceEventWindow?: InstanceEventWindow;
+  InstanceEventWindow?: InstanceEventWindow | undefined;
 }
 
 /**
@@ -4675,7 +4675,7 @@ export interface AssociateIpamByoasnRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>A public 2-byte or 4-byte ASN.</p>
@@ -4698,7 +4698,7 @@ export interface AssociateIpamByoasnResult {
    * <p>The ASN and BYOIP CIDR association.</p>
    * @public
    */
-  AsnAssociation?: AsnAssociation;
+  AsnAssociation?: AsnAssociation | undefined;
 }
 
 /**
@@ -4711,7 +4711,7 @@ export interface AssociateIpamResourceDiscoveryRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>An IPAM ID.</p>
@@ -4729,13 +4729,13 @@ export interface AssociateIpamResourceDiscoveryRequest {
    * <p>Tag specifications.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>A client token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -4784,49 +4784,49 @@ export interface IpamResourceDiscoveryAssociation {
    * <p>The Amazon Web Services account ID of the resource discovery owner.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The resource discovery association ID.</p>
    * @public
    */
-  IpamResourceDiscoveryAssociationId?: string;
+  IpamResourceDiscoveryAssociationId?: string | undefined;
 
   /**
    * <p>The resource discovery association Amazon Resource Name (ARN).</p>
    * @public
    */
-  IpamResourceDiscoveryAssociationArn?: string;
+  IpamResourceDiscoveryAssociationArn?: string | undefined;
 
   /**
    * <p>The resource discovery ID.</p>
    * @public
    */
-  IpamResourceDiscoveryId?: string;
+  IpamResourceDiscoveryId?: string | undefined;
 
   /**
    * <p>The IPAM ID.</p>
    * @public
    */
-  IpamId?: string;
+  IpamId?: string | undefined;
 
   /**
    * <p>The IPAM ARN.</p>
    * @public
    */
-  IpamArn?: string;
+  IpamArn?: string | undefined;
 
   /**
    * <p>The IPAM home Region.</p>
    * @public
    */
-  IpamRegion?: string;
+  IpamRegion?: string | undefined;
 
   /**
    * <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
    * @public
    */
-  IsDefault?: boolean;
+  IsDefault?: boolean | undefined;
 
   /**
    * <p>The resource discovery status.</p>
@@ -4844,7 +4844,7 @@ export interface IpamResourceDiscoveryAssociation {
    *          </ul>
    * @public
    */
-  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus;
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | undefined;
 
   /**
    * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
@@ -4888,13 +4888,13 @@ export interface IpamResourceDiscoveryAssociation {
    *          </ul>
    * @public
    */
-  State?: IpamResourceDiscoveryAssociationState;
+  State?: IpamResourceDiscoveryAssociationState | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4905,7 +4905,7 @@ export interface AssociateIpamResourceDiscoveryResult {
    * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
    * @public
    */
-  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation | undefined;
 }
 
 /**
@@ -4928,7 +4928,7 @@ export interface AssociateNatGatewayAddressRequest {
    * <p>The private IPv4 addresses that you want to assign to the NAT gateway.</p>
    * @public
    */
-  PrivateIpAddresses?: string[];
+  PrivateIpAddresses?: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4936,7 +4936,7 @@ export interface AssociateNatGatewayAddressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4947,13 +4947,13 @@ export interface AssociateNatGatewayAddressResult {
    * <p>The ID of the NAT gateway.</p>
    * @public
    */
-  NatGatewayId?: string;
+  NatGatewayId?: string | undefined;
 
   /**
    * <p>The IP addresses.</p>
    * @public
    */
-  NatGatewayAddresses?: NatGatewayAddress[];
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
 }
 
 /**
@@ -4964,7 +4964,7 @@ export interface AssociateRouteTableRequest {
    * <p>The ID of the internet gateway or virtual private gateway.</p>
    * @public
    */
-  GatewayId?: string;
+  GatewayId?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4972,13 +4972,13 @@ export interface AssociateRouteTableRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The ID of the route table.</p>
@@ -5014,13 +5014,13 @@ export interface RouteTableAssociationState {
    * <p>The state of the association.</p>
    * @public
    */
-  State?: RouteTableAssociationStateCode;
+  State?: RouteTableAssociationStateCode | undefined;
 
   /**
    * <p>The status message, if applicable.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -5032,13 +5032,13 @@ export interface AssociateRouteTableResult {
    * 			table.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The state of the association.</p>
    * @public
    */
-  AssociationState?: RouteTableAssociationState;
+  AssociationState?: RouteTableAssociationState | undefined;
 }
 
 /**
@@ -5063,7 +5063,7 @@ export interface AssociateSecurityGroupVpcRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5093,7 +5093,7 @@ export interface AssociateSecurityGroupVpcResult {
    * <p>The state of the association.</p>
    * @public
    */
-  State?: SecurityGroupVpcAssociationState;
+  State?: SecurityGroupVpcAssociationState | undefined;
 }
 
 /**
@@ -5104,13 +5104,13 @@ export interface AssociateSubnetCidrBlockRequest {
    * <p>An IPv6 IPAM pool ID.</p>
    * @public
    */
-  Ipv6IpamPoolId?: string;
+  Ipv6IpamPoolId?: string | undefined;
 
   /**
    * <p>An IPv6 netmask length.</p>
    * @public
    */
-  Ipv6NetmaskLength?: number;
+  Ipv6NetmaskLength?: number | undefined;
 
   /**
    * <p>The ID of your subnet.</p>
@@ -5122,7 +5122,7 @@ export interface AssociateSubnetCidrBlockRequest {
    * <p>The IPv6 CIDR block for your subnet.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 }
 
 /**
@@ -5181,13 +5181,13 @@ export interface SubnetCidrBlockState {
    * <p>The state of a CIDR block.</p>
    * @public
    */
-  State?: SubnetCidrBlockStateCode;
+  State?: SubnetCidrBlockStateCode | undefined;
 
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -5199,31 +5199,31 @@ export interface SubnetIpv6CidrBlockAssociation {
    * <p>The ID of the association.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The IPv6 CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 
   /**
    * <p>The state of the CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlockState?: SubnetCidrBlockState;
+  Ipv6CidrBlockState?: SubnetCidrBlockState | undefined;
 
   /**
    * <p>Public IPv6 addresses are those advertised on the internet from Amazon Web Services. Private IP addresses are not and cannot be advertised on the internet from Amazon Web Services.</p>
    * @public
    */
-  Ipv6AddressAttribute?: Ipv6AddressAttribute;
+  Ipv6AddressAttribute?: Ipv6AddressAttribute | undefined;
 
   /**
    * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
    * @public
    */
-  IpSource?: IpSource;
+  IpSource?: IpSource | undefined;
 }
 
 /**
@@ -5234,13 +5234,13 @@ export interface AssociateSubnetCidrBlockResult {
    * <p>Information about the IPv6 association.</p>
    * @public
    */
-  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
+  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
 
   /**
    * <p>The ID of the subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -5271,7 +5271,7 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5282,7 +5282,7 @@ export interface AssociateTransitGatewayMulticastDomainResult {
    * <p>Information about the transit gateway multicast domain associations.</p>
    * @public
    */
-  Associations?: TransitGatewayMulticastDomainAssociations;
+  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
 }
 
 /**
@@ -5307,7 +5307,7 @@ export interface AssociateTransitGatewayPolicyTableRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5336,31 +5336,31 @@ export interface TransitGatewayPolicyTableAssociation {
    * <p>The ID of the transit gateway policy table.</p>
    * @public
    */
-  TransitGatewayPolicyTableId?: string;
+  TransitGatewayPolicyTableId?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The resource ID of the transit gateway attachment.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The resource type for the transit gateway policy table association.</p>
    * @public
    */
-  ResourceType?: TransitGatewayAttachmentResourceType;
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
 
   /**
    * <p>The state of the transit gateway policy table association.</p>
    * @public
    */
-  State?: TransitGatewayAssociationState;
+  State?: TransitGatewayAssociationState | undefined;
 }
 
 /**
@@ -5371,7 +5371,7 @@ export interface AssociateTransitGatewayPolicyTableResult {
    * <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
    * @public
    */
-  Association?: TransitGatewayPolicyTableAssociation;
+  Association?: TransitGatewayPolicyTableAssociation | undefined;
 }
 
 /**
@@ -5396,7 +5396,7 @@ export interface AssociateTransitGatewayRouteTableRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5408,31 +5408,31 @@ export interface TransitGatewayAssociation {
    * <p>The ID of the transit gateway route table.</p>
    * @public
    */
-  TransitGatewayRouteTableId?: string;
+  TransitGatewayRouteTableId?: string | undefined;
 
   /**
    * <p>The ID of the attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    * @public
    */
-  ResourceType?: TransitGatewayAttachmentResourceType;
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
 
   /**
    * <p>The state of the association.</p>
    * @public
    */
-  State?: TransitGatewayAssociationState;
+  State?: TransitGatewayAssociationState | undefined;
 }
 
 /**
@@ -5443,7 +5443,7 @@ export interface AssociateTransitGatewayRouteTableResult {
    * <p>The ID of the association.</p>
    * @public
    */
-  Association?: TransitGatewayAssociation;
+  Association?: TransitGatewayAssociation | undefined;
 }
 
 /**
@@ -5466,13 +5466,13 @@ export interface AssociateTrunkInterfaceRequest {
    * <p>The ID of the VLAN. This applies to the VLAN protocol.</p>
    * @public
    */
-  VlanId?: number;
+  VlanId?: number | undefined;
 
   /**
    * <p>The application key. This applies to the GRE protocol.</p>
    * @public
    */
-  GreKey?: number;
+  GreKey?: number | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5480,7 +5480,7 @@ export interface AssociateTrunkInterfaceRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5488,7 +5488,7 @@ export interface AssociateTrunkInterfaceRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5514,43 +5514,43 @@ export interface TrunkInterfaceAssociation {
    * <p>The ID of the association.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The ID of the branch network interface.</p>
    * @public
    */
-  BranchInterfaceId?: string;
+  BranchInterfaceId?: string | undefined;
 
   /**
    * <p>The ID of the trunk network interface.</p>
    * @public
    */
-  TrunkInterfaceId?: string;
+  TrunkInterfaceId?: string | undefined;
 
   /**
    * <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
    * @public
    */
-  InterfaceProtocol?: InterfaceProtocolType;
+  InterfaceProtocol?: InterfaceProtocolType | undefined;
 
   /**
    * <p>The ID of the VLAN when you use the VLAN protocol.</p>
    * @public
    */
-  VlanId?: number;
+  VlanId?: number | undefined;
 
   /**
    * <p>The application key when you use the GRE protocol.</p>
    * @public
    */
-  GreKey?: number;
+  GreKey?: number | undefined;
 
   /**
    * <p>The tags for the trunk interface association.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5561,7 +5561,7 @@ export interface AssociateTrunkInterfaceResult {
    * <p>Information about the association between the trunk network interface and branch network interface.</p>
    * @public
    */
-  InterfaceAssociation?: TrunkInterfaceAssociation;
+  InterfaceAssociation?: TrunkInterfaceAssociation | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5569,7 +5569,7 @@ export interface AssociateTrunkInterfaceResult {
    *                 idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -5580,7 +5580,7 @@ export interface AssociateVpcCidrBlockRequest {
    * <p>An IPv4 CIDR block to associate with the VPC.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
@@ -5589,45 +5589,45 @@ export interface AssociateVpcCidrBlockRequest {
    *          <p> You can have one IPv6 CIDR block association per network border group.</p>
    * @public
    */
-  Ipv6CidrBlockNetworkBorderGroup?: string;
+  Ipv6CidrBlockNetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
    * @public
    */
-  Ipv6Pool?: string;
+  Ipv6Pool?: string | undefined;
 
   /**
    * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
    *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 
   /**
    * <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    * @public
    */
-  Ipv4IpamPoolId?: string;
+  Ipv4IpamPoolId?: string | undefined;
 
   /**
    * <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    * @public
    */
-  Ipv4NetmaskLength?: number;
+  Ipv4NetmaskLength?: number | undefined;
 
   /**
    * <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    * @public
    */
-  Ipv6IpamPoolId?: string;
+  Ipv6IpamPoolId?: string | undefined;
 
   /**
    * <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
    * @public
    */
-  Ipv6NetmaskLength?: number;
+  Ipv6NetmaskLength?: number | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -5640,7 +5640,7 @@ export interface AssociateVpcCidrBlockRequest {
    *             cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
    * @public
    */
-  AmazonProvidedIpv6CidrBlock?: boolean;
+  AmazonProvidedIpv6CidrBlock?: boolean | undefined;
 }
 
 /**
@@ -5670,13 +5670,13 @@ export interface VpcCidrBlockState {
    * <p>The state of the CIDR block.</p>
    * @public
    */
-  State?: VpcCidrBlockStateCode;
+  State?: VpcCidrBlockStateCode | undefined;
 
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -5688,19 +5688,19 @@ export interface VpcCidrBlockAssociation {
    * <p>The association ID for the IPv4 CIDR block.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The IPv4 CIDR block.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>Information about the state of the CIDR block.</p>
    * @public
    */
-  CidrBlockState?: VpcCidrBlockState;
+  CidrBlockState?: VpcCidrBlockState | undefined;
 }
 
 /**
@@ -5712,44 +5712,44 @@ export interface VpcIpv6CidrBlockAssociation {
    * <p>The association ID for the IPv6 CIDR block.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The IPv6 CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlock?: string;
+  Ipv6CidrBlock?: string | undefined;
 
   /**
    * <p>Information about the state of the CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlockState?: VpcCidrBlockState;
+  Ipv6CidrBlockState?: VpcCidrBlockState | undefined;
 
   /**
    * <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from
    *       which Amazon Web Services advertises IP addresses, for example, <code>us-east-1-wl1-bos-wlz-1</code>.</p>
    * @public
    */
-  NetworkBorderGroup?: string;
+  NetworkBorderGroup?: string | undefined;
 
   /**
    * <p>The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>
    * @public
    */
-  Ipv6Pool?: string;
+  Ipv6Pool?: string | undefined;
 
   /**
    * <p>Public IPv6 addresses are those advertised on the internet from Amazon Web Services. Private IP addresses are not and cannot be advertised on the internet from Amazon Web Services.</p>
    * @public
    */
-  Ipv6AddressAttribute?: Ipv6AddressAttribute;
+  Ipv6AddressAttribute?: Ipv6AddressAttribute | undefined;
 
   /**
    * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
    * @public
    */
-  IpSource?: IpSource;
+  IpSource?: IpSource | undefined;
 }
 
 /**
@@ -5760,19 +5760,19 @@ export interface AssociateVpcCidrBlockResult {
    * <p>Information about the IPv6 CIDR block association.</p>
    * @public
    */
-  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
+  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation | undefined;
 
   /**
    * <p>Information about the IPv4 CIDR block association.</p>
    * @public
    */
-  CidrBlockAssociation?: VpcCidrBlockAssociation;
+  CidrBlockAssociation?: VpcCidrBlockAssociation | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -5785,7 +5785,7 @@ export interface AttachClassicLinkVpcRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the EC2-Classic instance.</p>
@@ -5814,7 +5814,7 @@ export interface AttachClassicLinkVpcResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 }
 
 /**
@@ -5827,7 +5827,7 @@ export interface AttachInternetGatewayRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the internet gateway.</p>
@@ -5856,7 +5856,7 @@ export interface EnaSrdUdpSpecification {
    * 			you must first enable ENA Express.</p>
    * @public
    */
-  EnaSrdUdpEnabled?: boolean;
+  EnaSrdUdpEnabled?: boolean | undefined;
 }
 
 /**
@@ -5875,13 +5875,13 @@ export interface EnaSrdSpecification {
    * <p>Indicates whether ENA Express is enabled for the network interface.</p>
    * @public
    */
-  EnaSrdEnabled?: boolean;
+  EnaSrdEnabled?: boolean | undefined;
 
   /**
    * <p>Configures ENA Express for UDP network traffic.</p>
    * @public
    */
-  EnaSrdUdpSpecification?: EnaSrdUdpSpecification;
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecification | undefined;
 }
 
 /**
@@ -5895,13 +5895,13 @@ export interface AttachNetworkInterfaceRequest {
    *             The default is network card index 0.</p>
    * @public
    */
-  NetworkCardIndex?: number;
+  NetworkCardIndex?: number | undefined;
 
   /**
    * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
    * @public
    */
-  EnaSrdSpecification?: EnaSrdSpecification;
+  EnaSrdSpecification?: EnaSrdSpecification | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5909,7 +5909,7 @@ export interface AttachNetworkInterfaceRequest {
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -5939,13 +5939,13 @@ export interface AttachNetworkInterfaceResult {
    * <p>The ID of the network interface attachment.</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>The index of the network card.</p>
    * @public
    */
-  NetworkCardIndex?: number;
+  NetworkCardIndex?: number | undefined;
 }
 
 /**
@@ -5969,7 +5969,7 @@ export interface AttachVerifiedAccessTrustProviderRequest {
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5977,7 +5977,7 @@ export interface AttachVerifiedAccessTrustProviderRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6032,31 +6032,31 @@ export interface VerifiedAccessTrustProviderCondensed {
    * <p>The ID of the trust provider.</p>
    * @public
    */
-  VerifiedAccessTrustProviderId?: string;
+  VerifiedAccessTrustProviderId?: string | undefined;
 
   /**
    * <p>The description of trust provider.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of trust provider (user- or device-based).</p>
    * @public
    */
-  TrustProviderType?: TrustProviderType;
+  TrustProviderType?: TrustProviderType | undefined;
 
   /**
    * <p>The type of user-based trust provider.</p>
    * @public
    */
-  UserTrustProviderType?: UserTrustProviderType;
+  UserTrustProviderType?: UserTrustProviderType | undefined;
 
   /**
    * <p>The type of device-based trust provider.</p>
    * @public
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType;
+  DeviceTrustProviderType?: DeviceTrustProviderType | undefined;
 }
 
 /**
@@ -6068,43 +6068,43 @@ export interface VerifiedAccessInstance {
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
    * @public
    */
-  VerifiedAccessInstanceId?: string;
+  VerifiedAccessInstanceId?: string | undefined;
 
   /**
    * <p>A description for the Amazon Web Services Verified Access instance.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
    * @public
    */
-  VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[];
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[] | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The last updated time.</p>
    * @public
    */
-  LastUpdatedTime?: string;
+  LastUpdatedTime?: string | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
    * @public
    */
-  FipsEnabled?: boolean;
+  FipsEnabled?: boolean | undefined;
 }
 
 /**
@@ -6116,7 +6116,7 @@ export interface DeviceOptions {
    * <p>The ID of the tenant application with the device-identity provider.</p>
    * @public
    */
-  TenantId?: string;
+  TenantId?: string | undefined;
 
   /**
    * <p>
@@ -6124,7 +6124,7 @@ export interface DeviceOptions {
    *       </p>
    * @public
    */
-  PublicSigningKeyUrl?: string;
+  PublicSigningKeyUrl?: string | undefined;
 }
 
 /**
@@ -6137,43 +6137,43 @@ export interface OidcOptions {
    * <p>The OIDC issuer.</p>
    * @public
    */
-  Issuer?: string;
+  Issuer?: string | undefined;
 
   /**
    * <p>The OIDC authorization endpoint.</p>
    * @public
    */
-  AuthorizationEndpoint?: string;
+  AuthorizationEndpoint?: string | undefined;
 
   /**
    * <p>The OIDC token endpoint.</p>
    * @public
    */
-  TokenEndpoint?: string;
+  TokenEndpoint?: string | undefined;
 
   /**
    * <p>The OIDC user info endpoint.</p>
    * @public
    */
-  UserInfoEndpoint?: string;
+  UserInfoEndpoint?: string | undefined;
 
   /**
    * <p>The client identifier.</p>
    * @public
    */
-  ClientId?: string;
+  ClientId?: string | undefined;
 
   /**
    * <p>The client secret.</p>
    * @public
    */
-  ClientSecret?: string;
+  ClientSecret?: string | undefined;
 
   /**
    * <p>The OpenID Connect (OIDC) scope specified.</p>
    * @public
    */
-  Scope?: string;
+  Scope?: string | undefined;
 }
 
 /**
@@ -6187,13 +6187,13 @@ export interface VerifiedAccessSseSpecificationResponse {
    *          </p>
    * @public
    */
-  CustomerManagedKeyEnabled?: boolean;
+  CustomerManagedKeyEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the KMS key.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -6205,73 +6205,73 @@ export interface VerifiedAccessTrustProvider {
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
    * @public
    */
-  VerifiedAccessTrustProviderId?: string;
+  VerifiedAccessTrustProviderId?: string | undefined;
 
   /**
    * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of Verified Access trust provider.</p>
    * @public
    */
-  TrustProviderType?: TrustProviderType;
+  TrustProviderType?: TrustProviderType | undefined;
 
   /**
    * <p>The type of user-based trust provider.</p>
    * @public
    */
-  UserTrustProviderType?: UserTrustProviderType;
+  UserTrustProviderType?: UserTrustProviderType | undefined;
 
   /**
    * <p>The type of device-based trust provider.</p>
    * @public
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType;
+  DeviceTrustProviderType?: DeviceTrustProviderType | undefined;
 
   /**
    * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
    * @public
    */
-  OidcOptions?: OidcOptions;
+  OidcOptions?: OidcOptions | undefined;
 
   /**
    * <p>The options for device-identity trust provider.</p>
    * @public
    */
-  DeviceOptions?: DeviceOptions;
+  DeviceOptions?: DeviceOptions | undefined;
 
   /**
    * <p>The identifier to be used when working with policy rules.</p>
    * @public
    */
-  PolicyReferenceName?: string;
+  PolicyReferenceName?: string | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The last updated time.</p>
    * @public
    */
-  LastUpdatedTime?: string;
+  LastUpdatedTime?: string | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The options in use for server side encryption.</p>
    * @public
    */
-  SseSpecification?: VerifiedAccessSseSpecificationResponse;
+  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
 }
 
 /**
@@ -6282,13 +6282,13 @@ export interface AttachVerifiedAccessTrustProviderResult {
    * <p>Details about the Verified Access trust provider.</p>
    * @public
    */
-  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
 
   /**
    * <p>Details about the Verified Access instance.</p>
    * @public
    */
-  VerifiedAccessInstance?: VerifiedAccessInstance;
+  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
 }
 
 /**
@@ -6320,7 +6320,7 @@ export interface AttachVolumeRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6349,14 +6349,14 @@ export interface VolumeAttachment {
    * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
    * @public
    */
-  DeleteOnTermination?: boolean;
+  DeleteOnTermination?: boolean | undefined;
 
   /**
    * <p>The ARN of the Amazon ECS or Fargate task
    *       to which the volume is attached.</p>
    * @public
    */
-  AssociatedResource?: string;
+  AssociatedResource?: string | undefined;
 
   /**
    * <p>The service principal of Amazon Web Services service that owns the underlying
@@ -6365,13 +6365,13 @@ export interface VolumeAttachment {
    *       Fargate tasks.</p>
    * @public
    */
-  InstanceOwningService?: string;
+  InstanceOwningService?: string | undefined;
 
   /**
    * <p>The ID of the volume.</p>
    * @public
    */
-  VolumeId?: string;
+  VolumeId?: string | undefined;
 
   /**
    * <p>The ID of the instance.</p>
@@ -6379,7 +6379,7 @@ export interface VolumeAttachment {
    *       returns <code>null</code>.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The device name.</p>
@@ -6387,19 +6387,19 @@ export interface VolumeAttachment {
    *       returns <code>null</code>.</p>
    * @public
    */
-  Device?: string;
+  Device?: string | undefined;
 
   /**
    * <p>The attachment state of the volume.</p>
    * @public
    */
-  State?: VolumeAttachmentState;
+  State?: VolumeAttachmentState | undefined;
 
   /**
    * <p>The time stamp when the attachment initiated.</p>
    * @public
    */
-  AttachTime?: Date;
+  AttachTime?: Date | undefined;
 }
 
 /**
@@ -6426,7 +6426,7 @@ export interface AttachVpnGatewayRequest {
    *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6454,13 +6454,13 @@ export interface VpcAttachment {
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The current state of the attachment.</p>
    * @public
    */
-  State?: AttachmentStatus;
+  State?: AttachmentStatus | undefined;
 }
 
 /**
@@ -6472,7 +6472,7 @@ export interface AttachVpnGatewayResult {
    * <p>Information about the attachment.</p>
    * @public
    */
-  VpcAttachment?: VpcAttachment;
+  VpcAttachment?: VpcAttachment | undefined;
 }
 
 /**
@@ -6495,7 +6495,7 @@ export interface AuthorizeClientVpnIngressRequest {
    * <p>The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group. Required if <code>AuthorizeAllGroups</code> is <code>false</code> or not specified.</p>
    * @public
    */
-  AccessGroupId?: string;
+  AccessGroupId?: string | undefined;
 
   /**
    * <p>Indicates whether to grant access to all clients. Specify <code>true</code> to grant all
@@ -6503,26 +6503,26 @@ export interface AuthorizeClientVpnIngressRequest {
    *             to <code>true</code> if <code>AccessGroupId</code> is not specified.</p>
    * @public
    */
-  AuthorizeAllGroups?: boolean;
+  AuthorizeAllGroups?: boolean | undefined;
 
   /**
    * <p>A brief description of the authorization rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
    * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6551,13 +6551,13 @@ export interface ClientVpnAuthorizationRuleStatus {
    * <p>The state of the authorization rule.</p>
    * @public
    */
-  Code?: ClientVpnAuthorizationRuleStatusCode;
+  Code?: ClientVpnAuthorizationRuleStatusCode | undefined;
 
   /**
    * <p>A message about the status of the authorization rule, if applicable.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -6568,7 +6568,7 @@ export interface AuthorizeClientVpnIngressResult {
    * <p>The current state of the authorization rule.</p>
    * @public
    */
-  Status?: ClientVpnAuthorizationRuleStatus;
+  Status?: ClientVpnAuthorizationRuleStatus | undefined;
 }
 
 /**
@@ -6582,14 +6582,14 @@ export interface IpRange {
    *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IPv4 address range. You can either specify a CIDR block or a source security group,
    *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 }
 
 /**
@@ -6603,14 +6603,14 @@ export interface Ipv6Range {
    *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IPv6 address range. You can either specify a CIDR block or a source security group,
    *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
    * @public
    */
-  CidrIpv6?: string;
+  CidrIpv6?: string | undefined;
 }
 
 /**
@@ -6624,13 +6624,13 @@ export interface PrefixListId {
    *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the prefix.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 }
 
 /**
@@ -6645,7 +6645,7 @@ export interface UserIdGroupPair {
    *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of an Amazon Web Services account.</p>
@@ -6654,7 +6654,7 @@ export interface UserIdGroupPair {
    *             this value is not returned.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>[Default VPC] The name of the security group. For a security group in a nondefault VPC,
@@ -6663,31 +6663,31 @@ export interface UserIdGroupPair {
    *             referenced security group is deleted.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The ID of the VPC for the referenced security group, if applicable.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The ID of the VPC peering connection, if applicable.</p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 
   /**
    * <p>The status of a VPC peering connection, if applicable.</p>
    * @public
    */
-  PeeringStatus?: string;
+  PeeringStatus?: string | undefined;
 }
 
 /**
@@ -6706,14 +6706,14 @@ export interface IpPermission {
    *         the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</p>
    * @public
    */
-  IpProtocol?: string;
+  IpProtocol?: string | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
    *         If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
@@ -6721,31 +6721,31 @@ export interface IpPermission {
    *           If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 
   /**
    * <p>The security group and Amazon Web Services account ID pairs.</p>
    * @public
    */
-  UserIdGroupPairs?: UserIdGroupPair[];
+  UserIdGroupPairs?: UserIdGroupPair[] | undefined;
 
   /**
    * <p>The IPv4 address ranges.</p>
    * @public
    */
-  IpRanges?: IpRange[];
+  IpRanges?: IpRange[] | undefined;
 
   /**
    * <p>The IPv6 address ranges.</p>
    * @public
    */
-  Ipv6Ranges?: Ipv6Range[];
+  Ipv6Ranges?: Ipv6Range[] | undefined;
 
   /**
    * <p>The prefix list IDs.</p>
    * @public
    */
-  PrefixListIds?: PrefixListId[];
+  PrefixListIds?: PrefixListId[] | undefined;
 }
 
 /**
@@ -6756,7 +6756,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
    * <p>The tags applied to the security group rule.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6764,7 +6764,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the security group.</p>
@@ -6776,43 +6776,43 @@ export interface AuthorizeSecurityGroupEgressRequest {
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  SourceSecurityGroupName?: string;
+  SourceSecurityGroupName?: string | undefined;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  SourceSecurityGroupOwnerId?: string;
+  SourceSecurityGroupOwnerId?: string | undefined;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  IpProtocol?: string;
+  IpProtocol?: string | undefined;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 
   /**
    * <p>The permissions for the security group rules.</p>
    * @public
    */
-  IpPermissions?: IpPermission[];
+  IpPermissions?: IpPermission[] | undefined;
 }
 
 /**
@@ -6824,31 +6824,31 @@ export interface ReferencedSecurityGroup {
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The status of a VPC peering connection, if applicable.</p>
    * @public
    */
-  PeeringStatus?: string;
+  PeeringStatus?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The ID of the VPC peering connection (if applicable).</p>
    * @public
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
@@ -6860,25 +6860,25 @@ export interface SecurityGroupRule {
    * <p>The ID of the security group rule.</p>
    * @public
    */
-  SecurityGroupRuleId?: string;
+  SecurityGroupRuleId?: string | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the security group. </p>
    * @public
    */
-  GroupOwnerId?: string;
+  GroupOwnerId?: string | undefined;
 
   /**
    * <p>Indicates whether the security group rule is an outbound rule.</p>
    * @public
    */
-  IsEgress?: boolean;
+  IsEgress?: boolean | undefined;
 
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
@@ -6886,14 +6886,14 @@ export interface SecurityGroupRule {
    *          <p>Use <code>-1</code> to specify all protocols.</p>
    * @public
    */
-  IpProtocol?: string;
+  IpProtocol?: string | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
    *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
@@ -6901,49 +6901,49 @@ export interface SecurityGroupRule {
    *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 
   /**
    * <p>The IPv4 CIDR range.</p>
    * @public
    */
-  CidrIpv4?: string;
+  CidrIpv4?: string | undefined;
 
   /**
    * <p>The IPv6 CIDR range.</p>
    * @public
    */
-  CidrIpv6?: string;
+  CidrIpv6?: string | undefined;
 
   /**
    * <p>The ID of the prefix list.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 
   /**
    * <p>Describes the security group that is referenced in the rule.</p>
    * @public
    */
-  ReferencedGroupInfo?: ReferencedSecurityGroup;
+  ReferencedGroupInfo?: ReferencedSecurityGroup | undefined;
 
   /**
    * <p>The security group rule description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags applied to the security group rule.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ARN of the security group rule.</p>
    * @public
    */
-  SecurityGroupRuleArn?: string;
+  SecurityGroupRuleArn?: string | undefined;
 }
 
 /**
@@ -6954,13 +6954,13 @@ export interface AuthorizeSecurityGroupEgressResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 
   /**
    * <p>Information about the outbound (egress) security group rules that were added.</p>
    * @public
    */
-  SecurityGroupRules?: SecurityGroupRule[];
+  SecurityGroupRules?: SecurityGroupRule[] | undefined;
 }
 
 /**
@@ -6973,7 +6973,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
@@ -6981,13 +6981,13 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>[Default VPC] The name of the security group. For security groups for a default VPC
@@ -6995,13 +6995,13 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          a nondefault VPC, you must specify the ID of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The permissions for the security group rules.</p>
    * @public
    */
-  IpPermissions?: IpPermission[];
+  IpPermissions?: IpPermission[] | undefined;
 
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
@@ -7012,7 +7012,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    * @public
    */
-  IpProtocol?: string;
+  IpProtocol?: string | undefined;
 
   /**
    * <p>[Default VPC] The name of the source security group.</p>
@@ -7020,7 +7020,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *              and port range, specify a set of IP permissions instead.</p>
    * @public
    */
-  SourceSecurityGroupName?: string;
+  SourceSecurityGroupName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID for the source security group, if the source security group is
@@ -7029,7 +7029,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          and port range, use IP permissions instead.</p>
    * @public
    */
-  SourceSecurityGroupOwnerId?: string;
+  SourceSecurityGroupOwnerId?: string | undefined;
 
   /**
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
@@ -7038,13 +7038,13 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 
   /**
    * <p>The tags applied to the security group rule.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7052,7 +7052,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7063,13 +7063,13 @@ export interface AuthorizeSecurityGroupIngressResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 
   /**
    * <p>Information about the inbound (ingress) security group rules that were added.</p>
    * @public
    */
-  SecurityGroupRules?: SecurityGroupRule[];
+  SecurityGroupRules?: SecurityGroupRule[] | undefined;
 }
 
 /**
@@ -7084,31 +7084,31 @@ export interface S3Storage {
    *            Guide</i>.</p>
    * @public
    */
-  AWSAccessKeyId?: string;
+  AWSAccessKeyId?: string | undefined;
 
   /**
    * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>The beginning of the file name of the AMI.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.</p>
    * @public
    */
-  UploadPolicy?: Uint8Array;
+  UploadPolicy?: Uint8Array | undefined;
 
   /**
    * <p>The signature of the JSON document.</p>
    * @public
    */
-  UploadPolicySignature?: string;
+  UploadPolicySignature?: string | undefined;
 }
 
 /**
@@ -7120,7 +7120,7 @@ export interface Storage {
    * <p>An Amazon S3 storage location.</p>
    * @public
    */
-  S3?: S3Storage;
+  S3?: S3Storage | undefined;
 }
 
 /**
@@ -7147,7 +7147,7 @@ export interface BundleInstanceRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7159,13 +7159,13 @@ export interface BundleTaskError {
    * <p>The error code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -7196,49 +7196,49 @@ export interface BundleTask {
    * <p>The ID of the instance associated with this bundle task.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The ID of the bundle task.</p>
    * @public
    */
-  BundleId?: string;
+  BundleId?: string | undefined;
 
   /**
    * <p>The state of the task.</p>
    * @public
    */
-  State?: BundleTaskState;
+  State?: BundleTaskState | undefined;
 
   /**
    * <p>The time this task started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time of the most recent update for the task.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 
   /**
    * <p>The Amazon S3 storage locations.</p>
    * @public
    */
-  Storage?: Storage;
+  Storage?: Storage | undefined;
 
   /**
    * <p>The level of task completion, as a percent (for example, 20%).</p>
    * @public
    */
-  Progress?: string;
+  Progress?: string | undefined;
 
   /**
    * <p>If the task fails, a description of the error.</p>
    * @public
    */
-  BundleTaskError?: BundleTaskError;
+  BundleTaskError?: BundleTaskError | undefined;
 }
 
 /**
@@ -7250,7 +7250,7 @@ export interface BundleInstanceResult {
    * <p>Information about the bundle task.</p>
    * @public
    */
-  BundleTask?: BundleTask;
+  BundleTask?: BundleTask | undefined;
 }
 
 /**
@@ -7270,7 +7270,7 @@ export interface CancelBundleTaskRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7282,7 +7282,7 @@ export interface CancelBundleTaskResult {
    * <p>Information about the bundle task.</p>
    * @public
    */
-  BundleTask?: BundleTask;
+  BundleTask?: BundleTask | undefined;
 }
 
 /**
@@ -7299,7 +7299,7 @@ export interface CancelCapacityReservationRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7310,7 +7310,7 @@ export interface CancelCapacityReservationResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 }
 
 /**
@@ -7321,7 +7321,7 @@ export interface CancelCapacityReservationFleetsRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The IDs of the Capacity Reservation Fleets to cancel.</p>
@@ -7339,13 +7339,13 @@ export interface CancelCapacityReservationFleetError {
    * <p>The error code.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -7357,13 +7357,13 @@ export interface FailedCapacityReservationFleetCancellationResult {
    * <p>The ID of the Capacity Reservation Fleet that could not be cancelled.</p>
    * @public
    */
-  CapacityReservationFleetId?: string;
+  CapacityReservationFleetId?: string | undefined;
 
   /**
    * <p>Information about the Capacity Reservation Fleet cancellation error.</p>
    * @public
    */
-  CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError;
+  CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError | undefined;
 }
 
 /**
@@ -7397,19 +7397,19 @@ export interface CapacityReservationFleetCancellationState {
    * <p>The current state of the Capacity Reservation Fleet.</p>
    * @public
    */
-  CurrentFleetState?: CapacityReservationFleetState;
+  CurrentFleetState?: CapacityReservationFleetState | undefined;
 
   /**
    * <p>The previous state of the Capacity Reservation Fleet.</p>
    * @public
    */
-  PreviousFleetState?: CapacityReservationFleetState;
+  PreviousFleetState?: CapacityReservationFleetState | undefined;
 
   /**
    * <p>The ID of the Capacity Reservation Fleet that was successfully cancelled.</p>
    * @public
    */
-  CapacityReservationFleetId?: string;
+  CapacityReservationFleetId?: string | undefined;
 }
 
 /**
@@ -7420,13 +7420,13 @@ export interface CancelCapacityReservationFleetsResult {
    * <p>Information about the Capacity Reservation Fleets that were successfully cancelled.</p>
    * @public
    */
-  SuccessfulFleetCancellations?: CapacityReservationFleetCancellationState[];
+  SuccessfulFleetCancellations?: CapacityReservationFleetCancellationState[] | undefined;
 
   /**
    * <p>Information about the Capacity Reservation Fleets that could not be cancelled.</p>
    * @public
    */
-  FailedFleetCancellations?: FailedCapacityReservationFleetCancellationResult[];
+  FailedFleetCancellations?: FailedCapacityReservationFleetCancellationResult[] | undefined;
 }
 
 /**
@@ -7439,7 +7439,7 @@ export interface CancelConversionRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the conversion task.</p>
@@ -7451,7 +7451,7 @@ export interface CancelConversionRequest {
    * <p>The reason for canceling the conversion task.</p>
    * @public
    */
-  ReasonMessage?: string;
+  ReasonMessage?: string | undefined;
 }
 
 /**
@@ -7482,7 +7482,7 @@ export interface CancelImageLaunchPermissionRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7493,7 +7493,7 @@ export interface CancelImageLaunchPermissionResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 }
 
 /**
@@ -7504,7 +7504,7 @@ export interface CancelImportTaskRequest {
    * <p>The reason for canceling the task.</p>
    * @public
    */
-  CancelReason?: string;
+  CancelReason?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7512,13 +7512,13 @@ export interface CancelImportTaskRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the import image or import snapshot task to be canceled.</p>
    * @public
    */
-  ImportTaskId?: string;
+  ImportTaskId?: string | undefined;
 }
 
 /**
@@ -7529,19 +7529,19 @@ export interface CancelImportTaskResult {
    * <p>The ID of the task being canceled.</p>
    * @public
    */
-  ImportTaskId?: string;
+  ImportTaskId?: string | undefined;
 
   /**
    * <p>The current state of the task being canceled.</p>
    * @public
    */
-  PreviousState?: string;
+  PreviousState?: string | undefined;
 
   /**
    * <p>The current state of the task being canceled.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -7581,13 +7581,13 @@ export interface InstanceCount {
    * <p>The number of listed Reserved Instances in the state specified by the <code>state</code>.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The states of the listed Reserved Instances.</p>
    * @public
    */
-  State?: ListingState;
+  State?: ListingState | undefined;
 }
 
 /**
@@ -7613,26 +7613,26 @@ export interface PriceSchedule {
    *          <p>A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 
   /**
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    * @public
    */
-  CurrencyCode?: CurrencyCodeValues;
+  CurrencyCode?: CurrencyCodeValues | undefined;
 
   /**
    * <p>The fixed price for the term.</p>
    * @public
    */
-  Price?: number;
+  Price?: number | undefined;
 
   /**
    * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
    * @public
    */
-  Term?: number;
+  Term?: number | undefined;
 }
 
 /**
@@ -7661,61 +7661,61 @@ export interface ReservedInstancesListing {
    * 			idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The time the listing was created.</p>
    * @public
    */
-  CreateDate?: Date;
+  CreateDate?: Date | undefined;
 
   /**
    * <p>The number of instances in this state.</p>
    * @public
    */
-  InstanceCounts?: InstanceCount[];
+  InstanceCounts?: InstanceCount[] | undefined;
 
   /**
    * <p>The price of the Reserved Instance listing.</p>
    * @public
    */
-  PriceSchedules?: PriceSchedule[];
+  PriceSchedules?: PriceSchedule[] | undefined;
 
   /**
    * <p>The ID of the Reserved Instance.</p>
    * @public
    */
-  ReservedInstancesId?: string;
+  ReservedInstancesId?: string | undefined;
 
   /**
    * <p>The ID of the Reserved Instance listing.</p>
    * @public
    */
-  ReservedInstancesListingId?: string;
+  ReservedInstancesListingId?: string | undefined;
 
   /**
    * <p>The status of the Reserved Instance listing.</p>
    * @public
    */
-  Status?: ListingStatus;
+  Status?: ListingStatus | undefined;
 
   /**
    * <p>The reason for the current status of the Reserved Instance listing. The response can be blank.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Any tags assigned to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The last modified timestamp of the listing.</p>
    * @public
    */
-  UpdateDate?: Date;
+  UpdateDate?: Date | undefined;
 }
 
 /**
@@ -7727,7 +7727,7 @@ export interface CancelReservedInstancesListingResult {
    * <p>The Reserved Instance listing.</p>
    * @public
    */
-  ReservedInstancesListings?: ReservedInstancesListing[];
+  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
 }
 
 /**
@@ -7741,7 +7741,7 @@ export interface CancelSpotFleetRequestsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The IDs of the Spot Fleet requests.</p>
@@ -7788,19 +7788,19 @@ export interface CancelSpotFleetRequestsSuccessItem {
    * <p>The current state of the Spot Fleet request.</p>
    * @public
    */
-  CurrentSpotFleetRequestState?: BatchState;
+  CurrentSpotFleetRequestState?: BatchState | undefined;
 
   /**
    * <p>The previous state of the Spot Fleet request.</p>
    * @public
    */
-  PreviousSpotFleetRequestState?: BatchState;
+  PreviousSpotFleetRequestState?: BatchState | undefined;
 
   /**
    * <p>The ID of the Spot Fleet request.</p>
    * @public
    */
-  SpotFleetRequestId?: string;
+  SpotFleetRequestId?: string | undefined;
 }
 
 /**
@@ -7828,13 +7828,13 @@ export interface CancelSpotFleetRequestsError {
    * <p>The error code.</p>
    * @public
    */
-  Code?: CancelBatchErrorCode;
+  Code?: CancelBatchErrorCode | undefined;
 
   /**
    * <p>The description for the error code.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -7846,13 +7846,13 @@ export interface CancelSpotFleetRequestsErrorItem {
    * <p>The error.</p>
    * @public
    */
-  Error?: CancelSpotFleetRequestsError;
+  Error?: CancelSpotFleetRequestsError | undefined;
 
   /**
    * <p>The ID of the Spot Fleet request.</p>
    * @public
    */
-  SpotFleetRequestId?: string;
+  SpotFleetRequestId?: string | undefined;
 }
 
 /**
@@ -7864,13 +7864,13 @@ export interface CancelSpotFleetRequestsResponse {
    * <p>Information about the Spot Fleet requests that are successfully canceled.</p>
    * @public
    */
-  SuccessfulFleetRequests?: CancelSpotFleetRequestsSuccessItem[];
+  SuccessfulFleetRequests?: CancelSpotFleetRequestsSuccessItem[] | undefined;
 
   /**
    * <p>Information about the Spot Fleet requests that are not successfully canceled.</p>
    * @public
    */
-  UnsuccessfulFleetRequests?: CancelSpotFleetRequestsErrorItem[];
+  UnsuccessfulFleetRequests?: CancelSpotFleetRequestsErrorItem[] | undefined;
 }
 
 /**
@@ -7885,7 +7885,7 @@ export interface CancelSpotInstanceRequestsRequest {
    *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The IDs of the Spot Instance requests.</p>
@@ -7921,13 +7921,13 @@ export interface CancelledSpotInstanceRequest {
    * <p>The ID of the Spot Instance request.</p>
    * @public
    */
-  SpotInstanceRequestId?: string;
+  SpotInstanceRequestId?: string | undefined;
 
   /**
    * <p>The state of the Spot Instance request.</p>
    * @public
    */
-  State?: CancelSpotInstanceRequestState;
+  State?: CancelSpotInstanceRequestState | undefined;
 }
 
 /**
@@ -7939,7 +7939,7 @@ export interface CancelSpotInstanceRequestsResult {
    * <p>The Spot Instance requests.</p>
    * @public
    */
-  CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
+  CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[] | undefined;
 }
 
 /**
@@ -7964,7 +7964,7 @@ export interface ConfirmProductInstanceRequest {
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -7976,14 +7976,14 @@ export interface ConfirmProductInstanceResult {
    *             code is owned by the requester and associated with the specified instance.</p>
    * @public
    */
-  Return?: boolean;
+  Return?: boolean | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the instance owner. This is only present if the
    *             product code is attached to the instance.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 }
 
 /**
@@ -7996,7 +7996,7 @@ export interface CopyFpgaImageRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The ID of the source AFI.</p>
@@ -8008,13 +8008,13 @@ export interface CopyFpgaImageRequest {
    * <p>The description for the new AFI.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name for the new AFI. The default is the name of the source AFI.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Region that contains the source AFI.</p>
@@ -8027,7 +8027,7 @@ export interface CopyFpgaImageRequest {
    *       	For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -8038,7 +8038,7 @@ export interface CopyFpgaImageResult {
    * <p>The ID of the new AFI.</p>
    * @public
    */
-  FpgaImageId?: string;
+  FpgaImageId?: string | undefined;
 }
 
 /**
@@ -8052,13 +8052,13 @@ export interface CopyImageRequest {
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A description for the new AMI in the destination Region.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
@@ -8068,7 +8068,7 @@ export interface CopyImageRequest {
    *         EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
@@ -8095,7 +8095,7 @@ export interface CopyImageRequest {
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The name of the new AMI in the destination Region.</p>
@@ -8125,7 +8125,7 @@ export interface CopyImageRequest {
    *         Region to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
-  DestinationOutpostArn?: string;
+  DestinationOutpostArn?: string | undefined;
 
   /**
    * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
@@ -8142,7 +8142,7 @@ export interface CopyImageRequest {
    *          <p>Default: Your user-defined AMI tags are not copied.</p>
    * @public
    */
-  CopyImageTags?: boolean;
+  CopyImageTags?: boolean | undefined;
 
   /**
    * <p>The tags to apply to the new AMI and new snapshots. You can tag the AMI, the snapshots, or
@@ -8161,7 +8161,7 @@ export interface CopyImageRequest {
    *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8169,7 +8169,7 @@ export interface CopyImageRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -8181,7 +8181,7 @@ export interface CopyImageResult {
    * <p>The ID of the new AMI.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 }
 
 /**
@@ -8192,7 +8192,7 @@ export interface CopySnapshotRequest {
    * <p>A description for the EBS snapshot.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
@@ -8205,7 +8205,7 @@ export interface CopySnapshotRequest {
    *   		<i>Amazon EBS User Guide</i>.</p>
    * @public
    */
-  DestinationOutpostArn?: string;
+  DestinationOutpostArn?: string | undefined;
 
   /**
    * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
@@ -8217,7 +8217,7 @@ export interface CopySnapshotRequest {
    *       configuration file.</p>
    * @public
    */
-  DestinationRegion?: string;
+  DestinationRegion?: string | undefined;
 
   /**
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
@@ -8227,7 +8227,7 @@ export interface CopySnapshotRequest {
    *       <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The identifier of the KMS key to use for Amazon EBS encryption.
@@ -8252,7 +8252,7 @@ export interface CopySnapshotRequest {
    *       the action can appear to complete, but eventually fails.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a
@@ -8270,7 +8270,7 @@ export interface CopySnapshotRequest {
    *       asynchronously, and the snapshot will move to an <code>error</code> state.</p>
    * @public
    */
-  PresignedUrl?: string;
+  PresignedUrl?: string | undefined;
 
   /**
    * <p>The ID of the Region that contains the snapshot to be copied.</p>
@@ -8288,7 +8288,7 @@ export interface CopySnapshotRequest {
    * <p>The tags to apply to the new snapshot.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8296,7 +8296,7 @@ export interface CopySnapshotRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -8307,13 +8307,13 @@ export interface CopySnapshotResult {
    * <p>Any tags applied to the new snapshot.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the new snapshot.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 }
 
 /**
@@ -8397,7 +8397,7 @@ export interface CreateCapacityReservationRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -8415,13 +8415,13 @@ export interface CreateCapacityReservationRequest {
    * <p>The Availability Zone in which to create the Capacity Reservation.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The ID of the Availability Zone in which to create the Capacity Reservation.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
@@ -8437,7 +8437,7 @@ export interface CreateCapacityReservationRequest {
    *          </ul>
    * @public
    */
-  Tenancy?: CapacityReservationTenancy;
+  Tenancy?: CapacityReservationTenancy | undefined;
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
@@ -8453,7 +8453,7 @@ export interface CreateCapacityReservationRequest {
    * 			Additional usage charges apply when using an EBS- optimized instance.</p>
    * @public
    */
-  EbsOptimized?: boolean;
+  EbsOptimized?: boolean | undefined;
 
   /**
    * <p>
@@ -8461,7 +8461,7 @@ export interface CreateCapacityReservationRequest {
    *          </p>
    * @public
    */
-  EphemeralStorage?: boolean;
+  EphemeralStorage?: boolean | undefined;
 
   /**
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
@@ -8474,7 +8474,7 @@ export interface CreateCapacityReservationRequest {
    * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
@@ -8495,7 +8495,7 @@ export interface CreateCapacityReservationRequest {
    *          </ul>
    * @public
    */
-  EndDateType?: EndDateType;
+  EndDateType?: EndDateType | undefined;
 
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
@@ -8518,25 +8518,25 @@ export interface CreateCapacityReservationRequest {
    *          </p>
    * @public
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria;
+  InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
 
   /**
    * <p>The tags to apply to the Capacity Reservation during launch.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
@@ -8546,7 +8546,7 @@ export interface CreateCapacityReservationRequest {
    * 			<i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
-  PlacementGroupArn?: string;
+  PlacementGroupArn?: string | undefined;
 }
 
 /**
@@ -8559,14 +8559,14 @@ export interface CapacityAllocation {
    * 			in use by instances that are running in the Capacity Reservation.</p>
    * @public
    */
-  AllocationType?: AllocationType;
+  AllocationType?: AllocationType | undefined;
 
   /**
    * <p>The amount of instance capacity associated with the usage. For example a value of
    * 			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 }
 
 /**

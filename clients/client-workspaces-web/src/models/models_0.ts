@@ -68,13 +68,13 @@ export class ConflictException extends __BaseException {
    * <p>Identifier of the resource affected.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Type of the resource affected.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -102,7 +102,7 @@ export class InternalServerException extends __BaseException {
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -129,13 +129,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>Hypothetical identifier of the resource affected.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>Hypothetical type of the resource affected.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -163,19 +163,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The originating service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The originating quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -238,13 +238,13 @@ export class ValidationException extends __BaseException {
    * <p>Reason the request failed validation</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The field that caused the error.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -471,19 +471,19 @@ export interface CreateBrowserSettingsRequest {
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The custom managed key of the browser settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>Additional encryption context of the browser settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
@@ -501,7 +501,7 @@ export interface CreateBrowserSettingsRequest {
    *       </p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -526,25 +526,25 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>Identifier of the resource affected.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p> Type of the resource affected.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The originating service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The originating quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -607,27 +607,27 @@ export interface BrowserSettings {
    * <p>A list of web portal ARNs that this browser settings is associated with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
    * @public
    */
-  browserPolicy?: string;
+  browserPolicy?: string | undefined;
 
   /**
    * <p>The customer managed key used to encrypt sensitive information in the browser
    *          settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the browser settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 }
 
 /**
@@ -638,7 +638,7 @@ export interface GetBrowserSettingsResponse {
    * <p>The browser settings.</p>
    * @public
    */
-  browserSettings?: BrowserSettings;
+  browserSettings?: BrowserSettings | undefined;
 }
 
 /**
@@ -650,13 +650,13 @@ export interface ListBrowserSettingsRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -679,14 +679,14 @@ export interface ListBrowserSettingsResponse {
    * <p>The browser settings.</p>
    * @public
    */
-  browserSettings?: BrowserSettingsSummary[];
+  browserSettings?: BrowserSettingsSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -704,7 +704,7 @@ export interface UpdateBrowserSettingsRequest {
    *          streaming sessions. </p>
    * @public
    */
-  browserPolicy?: string;
+  browserPolicy?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -715,7 +715,7 @@ export interface UpdateBrowserSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -791,43 +791,43 @@ export interface Session {
    * <p>The ARN of the web portal.</p>
    * @public
    */
-  portalArn?: string;
+  portalArn?: string | undefined;
 
   /**
    * <p>The ID of the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The username of the session.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p>The IP address of the client.</p>
    * @public
    */
-  clientIpAddresses?: string[];
+  clientIpAddresses?: string[] | undefined;
 
   /**
    * <p>The status of the session.</p>
    * @public
    */
-  status?: SessionStatus;
+  status?: SessionStatus | undefined;
 
   /**
    * <p>The start time of the session.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time of the session.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface GetSessionResponse {
    * <p>The sessions in a list.</p>
    * @public
    */
-  session?: Session;
+  session?: Session | undefined;
 }
 
 /**
@@ -1063,13 +1063,13 @@ export interface CreateIdentityProviderRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags to add to the identity provider resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1125,13 +1125,13 @@ export interface IdentityProvider {
    * <p>The identity provider name.</p>
    * @public
    */
-  identityProviderName?: string;
+  identityProviderName?: string | undefined;
 
   /**
    * <p>The identity provider type.</p>
    * @public
    */
-  identityProviderType?: IdentityProviderType;
+  identityProviderType?: IdentityProviderType | undefined;
 
   /**
    * <p>The identity provider details. The following list describes the provider detail keys for
@@ -1304,7 +1304,7 @@ export interface IdentityProvider {
    *          </ul>
    * @public
    */
-  identityProviderDetails?: Record<string, string>;
+  identityProviderDetails?: Record<string, string> | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface GetIdentityProviderResponse {
    * <p>The identity provider.</p>
    * @public
    */
-  identityProvider?: IdentityProvider;
+  identityProvider?: IdentityProvider | undefined;
 }
 
 /**
@@ -1327,13 +1327,13 @@ export interface ListIdentityProvidersRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The ARN of the web portal.</p>
@@ -1357,13 +1357,13 @@ export interface IdentityProviderSummary {
    * <p>The identity provider name.</p>
    * @public
    */
-  identityProviderName?: string;
+  identityProviderName?: string | undefined;
 
   /**
    * <p>The identity provider type.</p>
    * @public
    */
-  identityProviderType?: IdentityProviderType;
+  identityProviderType?: IdentityProviderType | undefined;
 }
 
 /**
@@ -1375,13 +1375,13 @@ export interface ListIdentityProvidersResponse {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The identity providers.</p>
    * @public
    */
-  identityProviders?: IdentityProviderSummary[];
+  identityProviders?: IdentityProviderSummary[] | undefined;
 }
 
 /**
@@ -1398,13 +1398,13 @@ export interface UpdateIdentityProviderRequest {
    * <p>The name of the identity provider.</p>
    * @public
    */
-  identityProviderName?: string;
+  identityProviderName?: string | undefined;
 
   /**
    * <p>The type of the identity provider.</p>
    * @public
    */
-  identityProviderType?: IdentityProviderType;
+  identityProviderType?: IdentityProviderType | undefined;
 
   /**
    * <p>The details of the identity provider. The following list describes the provider detail
@@ -1577,7 +1577,7 @@ export interface UpdateIdentityProviderRequest {
    *          </ul>
    * @public
    */
-  identityProviderDetails?: Record<string, string>;
+  identityProviderDetails?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1588,7 +1588,7 @@ export interface UpdateIdentityProviderRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1617,7 +1617,7 @@ export interface IpRule {
    * <p>The description of the IP rule.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1628,31 +1628,31 @@ export interface CreateIpAccessSettingsRequest {
    * <p>The display name of the IP access settings.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the IP access settings.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags to add to the IP access settings resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The custom managed key of the IP access settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>Additional encryption context of the IP access settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>The IP rules of the IP access settings.</p>
@@ -1669,7 +1669,7 @@ export interface CreateIpAccessSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1726,44 +1726,44 @@ export interface IpAccessSettings {
    *          with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>The IP rules of the IP access settings.</p>
    * @public
    */
-  ipRules?: IpRule[];
+  ipRules?: IpRule[] | undefined;
 
   /**
    * <p> The display name of the IP access settings.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the IP access settings.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The creation date timestamp of the IP access settings.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The customer managed key used to encrypt sensitive information in the IP access
    *          settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the IP access settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 }
 
 /**
@@ -1774,7 +1774,7 @@ export interface GetIpAccessSettingsResponse {
    * <p>The IP access settings.</p>
    * @public
    */
-  ipAccessSettings?: IpAccessSettings;
+  ipAccessSettings?: IpAccessSettings | undefined;
 }
 
 /**
@@ -1786,13 +1786,13 @@ export interface ListIpAccessSettingsRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1810,19 +1810,19 @@ export interface IpAccessSettingsSummary {
    * <p>The display name of the IP access settings.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the IP access settings.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The creation date timestamp of the IP access settings.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -1833,14 +1833,14 @@ export interface ListIpAccessSettingsResponse {
    * <p>The IP access settings.</p>
    * @public
    */
-  ipAccessSettings?: IpAccessSettingsSummary[];
+  ipAccessSettings?: IpAccessSettingsSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1857,19 +1857,19 @@ export interface UpdateIpAccessSettingsRequest {
    * <p>The display name of the IP access settings.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the IP access settings.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The updated IP rules of the IP access settings.</p>
    * @public
    */
-  ipRules?: IpRule[];
+  ipRules?: IpRule[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1880,7 +1880,7 @@ export interface UpdateIpAccessSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1922,38 +1922,38 @@ export interface ListSessionsRequest {
    * <p>The username of the session.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p>The ID of the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The method in which the returned sessions should be sorted.</p>
    * @public
    */
-  sortBy?: SessionSortBy;
+  sortBy?: SessionSortBy | undefined;
 
   /**
    * <p>The status of the session.</p>
    * @public
    */
-  status?: SessionStatus;
+  status?: SessionStatus | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1965,37 +1965,37 @@ export interface SessionSummary {
    * <p>The ARN of the web portal.</p>
    * @public
    */
-  portalArn?: string;
+  portalArn?: string | undefined;
 
   /**
    * <p>The ID of the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The username of the session.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p>The status of the session.</p>
    * @public
    */
-  status?: SessionStatus;
+  status?: SessionStatus | undefined;
 
   /**
    * <p>The start time of the session.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time of the session.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -2013,7 +2013,7 @@ export interface ListSessionsResponse {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2035,7 +2035,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags of the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2066,7 +2066,7 @@ export interface CreateNetworkSettingsRequest {
    * <p>The tags to add to the network settings resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2077,7 +2077,7 @@ export interface CreateNetworkSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2135,27 +2135,27 @@ export interface NetworkSettings {
    * <p>A list of web portal ARNs that this network settings is associated with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>The VPC that streaming instances will connect to.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The subnets in which network interfaces are created to connect streaming instances to
    *          your VPC. At least two of these subnets must be in different availability zones.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>One or more security groups used to control access from streaming instances to your VPC.
    *       </p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -2166,7 +2166,7 @@ export interface GetNetworkSettingsResponse {
    * <p>The network settings.</p>
    * @public
    */
-  networkSettings?: NetworkSettings;
+  networkSettings?: NetworkSettings | undefined;
 }
 
 /**
@@ -2178,13 +2178,13 @@ export interface ListNetworkSettingsRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2202,7 +2202,7 @@ export interface NetworkSettingsSummary {
    * <p>The VPC ID of the network settings.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 }
 
 /**
@@ -2213,14 +2213,14 @@ export interface ListNetworkSettingsResponse {
    * <p>The network settings.</p>
    * @public
    */
-  networkSettings?: NetworkSettingsSummary[];
+  networkSettings?: NetworkSettingsSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2237,21 +2237,21 @@ export interface UpdateNetworkSettingsRequest {
    * <p>The VPC that streaming instances will connect to.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The subnets in which network interfaces are created to connect streaming instances to
    *          your VPC. At least two of these subnets must be in different availability zones.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>One or more security groups used to control access from streaming instances to your
    *          VPC.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2262,7 +2262,7 @@ export interface UpdateNetworkSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2313,25 +2313,25 @@ export interface CreatePortalRequest {
    *          portal.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The tags to add to the web portal. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The customer managed key of the web portal.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the portal.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2342,7 +2342,7 @@ export interface CreatePortalRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The type of authentication integration points used when signing into the web portal.
@@ -2358,19 +2358,19 @@ export interface CreatePortalRequest {
    *          portal, can be configured in the IAM Identity Center.</p>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>The type and resources of the underlying instance.</p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The maximum number of concurrent sessions for the portal.</p>
    * @public
    */
-  maxConcurrentSessions?: number;
+  maxConcurrentSessions?: number | undefined;
 }
 
 /**
@@ -2557,75 +2557,75 @@ export interface Portal {
    * <p>The renderer that is used in streaming sessions.</p>
    * @public
    */
-  rendererType?: RendererType;
+  rendererType?: RendererType | undefined;
 
   /**
    * <p>The browser that users see when using a streaming session.</p>
    * @public
    */
-  browserType?: BrowserType;
+  browserType?: BrowserType | undefined;
 
   /**
    * <p>The status of the web portal.</p>
    * @public
    */
-  portalStatus?: PortalStatus;
+  portalStatus?: PortalStatus | undefined;
 
   /**
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    * @public
    */
-  portalEndpoint?: string;
+  portalEndpoint?: string | undefined;
 
   /**
    * <p>The name of the web portal.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The creation date of the web portal.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The ARN of the browser settings that is associated with this web portal.</p>
    * @public
    */
-  browserSettingsArn?: string;
+  browserSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the user settings that is associated with the web portal.</p>
    * @public
    */
-  userSettingsArn?: string;
+  userSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    * @public
    */
-  networkSettingsArn?: string;
+  networkSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the trust store that is associated with the web portal.</p>
    * @public
    */
-  trustStoreArn?: string;
+  trustStoreArn?: string | undefined;
 
   /**
    * <p>A message that explains why the web portal is in its current status.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The ARN of the user access logging settings that is associated with the web
    *          portal.</p>
    * @public
    */
-  userAccessLoggingSettingsArn?: string;
+  userAccessLoggingSettingsArn?: string | undefined;
 
   /**
    * <p>The type of authentication integration points used when signing into the web portal.
@@ -2641,37 +2641,37 @@ export interface Portal {
    *          portal, can be configured in the IAM Identity Center.</p>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>The ARN of the IP access settings.</p>
    * @public
    */
-  ipAccessSettingsArn?: string;
+  ipAccessSettingsArn?: string | undefined;
 
   /**
    * <p>The customer managed key used to encrypt sensitive information in the portal.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the portal.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>The type and resources of the underlying instance.</p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The maximum number of concurrent sessions for the portal.</p>
    * @public
    */
-  maxConcurrentSessions?: number;
+  maxConcurrentSessions?: number | undefined;
 }
 
 /**
@@ -2682,7 +2682,7 @@ export interface GetPortalResponse {
    * <p>The web portal.</p>
    * @public
    */
-  portal?: Portal;
+  portal?: Portal | undefined;
 }
 
 /**
@@ -2710,7 +2710,7 @@ export interface GetPortalServiceProviderMetadataResponse {
    * <p>The service provider SAML metadata.</p>
    * @public
    */
-  serviceProviderSamlMetadata?: string;
+  serviceProviderSamlMetadata?: string | undefined;
 }
 
 /**
@@ -2722,13 +2722,13 @@ export interface ListPortalsRequest {
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2746,69 +2746,69 @@ export interface PortalSummary {
    * <p>The renderer that is used in streaming sessions.</p>
    * @public
    */
-  rendererType?: RendererType;
+  rendererType?: RendererType | undefined;
 
   /**
    * <p>The browser type of the web portal.</p>
    * @public
    */
-  browserType?: BrowserType;
+  browserType?: BrowserType | undefined;
 
   /**
    * <p>The status of the web portal.</p>
    * @public
    */
-  portalStatus?: PortalStatus;
+  portalStatus?: PortalStatus | undefined;
 
   /**
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    * @public
    */
-  portalEndpoint?: string;
+  portalEndpoint?: string | undefined;
 
   /**
    * <p>The name of the web portal.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The creation date of the web portal.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The ARN of the browser settings that is associated with the web portal.</p>
    * @public
    */
-  browserSettingsArn?: string;
+  browserSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the user settings that is associated with the web portal.</p>
    * @public
    */
-  userSettingsArn?: string;
+  userSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    * @public
    */
-  networkSettingsArn?: string;
+  networkSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the trust that is associated with this web portal.</p>
    * @public
    */
-  trustStoreArn?: string;
+  trustStoreArn?: string | undefined;
 
   /**
    * <p>The ARN of the user access logging settings that is associated with the web
    *          portal.</p>
    * @public
    */
-  userAccessLoggingSettingsArn?: string;
+  userAccessLoggingSettingsArn?: string | undefined;
 
   /**
    * <p>The type of authentication integration points used when signing into the web portal.
@@ -2824,25 +2824,25 @@ export interface PortalSummary {
    *          portal, can be configured in the IAM Identity Center.</p>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>The ARN of the IP access settings.</p>
    * @public
    */
-  ipAccessSettingsArn?: string;
+  ipAccessSettingsArn?: string | undefined;
 
   /**
    * <p>The type and resources of the underlying instance.</p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The maximum number of concurrent sessions for the portal.</p>
    * @public
    */
-  maxConcurrentSessions?: number;
+  maxConcurrentSessions?: number | undefined;
 }
 
 /**
@@ -2853,14 +2853,14 @@ export interface ListPortalsResponse {
    * <p>The portals in the list.</p>
    * @public
    */
-  portals?: PortalSummary[];
+  portals?: PortalSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2878,7 +2878,7 @@ export interface UpdatePortalRequest {
    *          portal.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The type of authentication integration points used when signing into the web portal.
@@ -2894,19 +2894,19 @@ export interface UpdatePortalRequest {
    *          portal, can be configured in the IAM Identity Center.</p>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>The type and resources of the underlying instance.</p>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 
   /**
    * <p>The maximum number of concurrent sessions for the portal.</p>
    * @public
    */
-  maxConcurrentSessions?: number;
+  maxConcurrentSessions?: number | undefined;
 }
 
 /**
@@ -2917,7 +2917,7 @@ export interface UpdatePortalResponse {
    * <p>The web portal.</p>
    * @public
    */
-  portal?: Portal;
+  portal?: Portal | undefined;
 }
 
 /**
@@ -2945,7 +2945,7 @@ export interface TagResourceRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2964,7 +2964,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>Name of the resource affected.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -2989,31 +2989,31 @@ export interface CertificateSummary {
    * <p>A hexadecimal identifier for the certificate.</p>
    * @public
    */
-  thumbprint?: string;
+  thumbprint?: string | undefined;
 
   /**
    * <p>The entity the certificate belongs to.</p>
    * @public
    */
-  subject?: string;
+  subject?: string | undefined;
 
   /**
    * <p>The entity that issued the certificate.</p>
    * @public
    */
-  issuer?: string;
+  issuer?: string | undefined;
 
   /**
    * <p>The certificate is not valid before this date.</p>
    * @public
    */
-  notValidBefore?: Date;
+  notValidBefore?: Date | undefined;
 
   /**
    * <p>The certificate is not valid after this date.</p>
    * @public
    */
-  notValidAfter?: Date;
+  notValidAfter?: Date | undefined;
 }
 
 /**
@@ -3030,7 +3030,7 @@ export interface CreateTrustStoreRequest {
    * <p>The tags to add to the trust store. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3041,7 +3041,7 @@ export interface CreateTrustStoreRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3095,7 +3095,7 @@ export interface TrustStore {
    * <p>A list of web portal ARNs that this trust store is associated with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>The ARN of the trust store.</p>
@@ -3112,7 +3112,7 @@ export interface GetTrustStoreResponse {
    * <p>The trust store.</p>
    * @public
    */
-  trustStore?: TrustStore;
+  trustStore?: TrustStore | undefined;
 }
 
 /**
@@ -3141,37 +3141,37 @@ export interface Certificate {
    * <p>A hexadecimal identifier for the certificate.</p>
    * @public
    */
-  thumbprint?: string;
+  thumbprint?: string | undefined;
 
   /**
    * <p>The entity the certificate belongs to.</p>
    * @public
    */
-  subject?: string;
+  subject?: string | undefined;
 
   /**
    * <p>The entity that issued the certificate.</p>
    * @public
    */
-  issuer?: string;
+  issuer?: string | undefined;
 
   /**
    * <p>The certificate is not valid before this date.</p>
    * @public
    */
-  notValidBefore?: Date;
+  notValidBefore?: Date | undefined;
 
   /**
    * <p>The certificate is not valid after this date.</p>
    * @public
    */
-  notValidAfter?: Date;
+  notValidAfter?: Date | undefined;
 
   /**
    * <p>The body of the certificate.</p>
    * @public
    */
-  body?: Uint8Array;
+  body?: Uint8Array | undefined;
 }
 
 /**
@@ -3188,7 +3188,7 @@ export interface GetTrustStoreCertificateResponse {
    * <p>The certificate of the trust store certificate.</p>
    * @public
    */
-  certificate?: Certificate;
+  certificate?: Certificate | undefined;
 }
 
 /**
@@ -3206,13 +3206,13 @@ export interface ListTrustStoreCertificatesRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3223,7 +3223,7 @@ export interface ListTrustStoreCertificatesResponse {
    * <p>The certificate list.</p>
    * @public
    */
-  certificateList?: CertificateSummary[];
+  certificateList?: CertificateSummary[] | undefined;
 
   /**
    * <p>The ARN of the trust store.</p>
@@ -3236,7 +3236,7 @@ export interface ListTrustStoreCertificatesResponse {
    *          operation.&gt;</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3248,13 +3248,13 @@ export interface ListTrustStoresRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3266,7 +3266,7 @@ export interface TrustStoreSummary {
    * <p>The ARN of the trust store.</p>
    * @public
    */
-  trustStoreArn?: string;
+  trustStoreArn?: string | undefined;
 }
 
 /**
@@ -3277,14 +3277,14 @@ export interface ListTrustStoresResponse {
    * <p>The trust stores.</p>
    * @public
    */
-  trustStores?: TrustStoreSummary[];
+  trustStores?: TrustStoreSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3301,13 +3301,13 @@ export interface UpdateTrustStoreRequest {
    * <p>A list of CA certificates to add to the trust store.</p>
    * @public
    */
-  certificatesToAdd?: Uint8Array[];
+  certificatesToAdd?: Uint8Array[] | undefined;
 
   /**
    * <p>A list of CA certificates to delete from a trust store.</p>
    * @public
    */
-  certificatesToDelete?: string[];
+  certificatesToDelete?: string[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3318,7 +3318,7 @@ export interface UpdateTrustStoreRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3368,7 +3368,7 @@ export interface CreateUserAccessLoggingSettingsRequest {
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3379,7 +3379,7 @@ export interface CreateUserAccessLoggingSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3436,13 +3436,13 @@ export interface UserAccessLoggingSettings {
    *          with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>The ARN of the Kinesis stream.</p>
    * @public
    */
-  kinesisStreamArn?: string;
+  kinesisStreamArn?: string | undefined;
 }
 
 /**
@@ -3453,7 +3453,7 @@ export interface GetUserAccessLoggingSettingsResponse {
    * <p>The user access logging settings.</p>
    * @public
    */
-  userAccessLoggingSettings?: UserAccessLoggingSettings;
+  userAccessLoggingSettings?: UserAccessLoggingSettings | undefined;
 }
 
 /**
@@ -3465,13 +3465,13 @@ export interface ListUserAccessLoggingSettingsRequest {
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3489,7 +3489,7 @@ export interface UserAccessLoggingSettingsSummary {
    * <p>The ARN of the Kinesis stream.</p>
    * @public
    */
-  kinesisStreamArn?: string;
+  kinesisStreamArn?: string | undefined;
 }
 
 /**
@@ -3500,14 +3500,14 @@ export interface ListUserAccessLoggingSettingsResponse {
    * <p>The user access logging settings.</p>
    * @public
    */
-  userAccessLoggingSettings?: UserAccessLoggingSettingsSummary[];
+  userAccessLoggingSettings?: UserAccessLoggingSettingsSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3524,7 +3524,7 @@ export interface UpdateUserAccessLoggingSettingsRequest {
    * <p>The ARN of the Kinesis stream.</p>
    * @public
    */
-  kinesisStreamArn?: string;
+  kinesisStreamArn?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3535,7 +3535,7 @@ export interface UpdateUserAccessLoggingSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3564,13 +3564,13 @@ export interface CookieSpecification {
    * <p>The name of the cookie.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The path of the cookie.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 }
 
 /**
@@ -3591,7 +3591,7 @@ export interface CookieSynchronizationConfiguration {
    *          browser.</p>
    * @public
    */
-  blocklist?: CookieSpecification[];
+  blocklist?: CookieSpecification[] | undefined;
 }
 
 /**
@@ -3650,21 +3650,21 @@ export interface CreateUserSettingsRequest {
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The amount of time that a streaming session remains active after users
    *          disconnect.</p>
    * @public
    */
-  disconnectTimeoutInMinutes?: number;
+  disconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from
    *          their streaming session and the disconnect timeout interval begins.</p>
    * @public
    */
-  idleDisconnectTimeoutInMinutes?: number;
+  idleDisconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3675,34 +3675,34 @@ export interface CreateUserSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The configuration that specifies which cookies should be synchronized from the end
    *          user's local browser to the remote browser.</p>
    * @public
    */
-  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration | undefined;
 
   /**
    * <p>The customer managed key used to encrypt sensitive information in the user
    *          settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the user settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether the user can use deep links that open automatically when connecting to
    *          a session.</p>
    * @public
    */
-  deepLinkAllowed?: EnabledType;
+  deepLinkAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -3760,82 +3760,82 @@ export interface UserSettings {
    * <p>A list of web portal ARNs that this user settings is associated with.</p>
    * @public
    */
-  associatedPortalArns?: string[];
+  associatedPortalArns?: string[] | undefined;
 
   /**
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    * @public
    */
-  copyAllowed?: EnabledType;
+  copyAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    * @public
    */
-  pasteAllowed?: EnabledType;
+  pasteAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    * @public
    */
-  downloadAllowed?: EnabledType;
+  downloadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    * @public
    */
-  uploadAllowed?: EnabledType;
+  uploadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    * @public
    */
-  printAllowed?: EnabledType;
+  printAllowed?: EnabledType | undefined;
 
   /**
    * <p>The amount of time that a streaming session remains active after users
    *          disconnect.</p>
    * @public
    */
-  disconnectTimeoutInMinutes?: number;
+  disconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from
    *          their streaming session and the disconnect timeout interval begins.</p>
    * @public
    */
-  idleDisconnectTimeoutInMinutes?: number;
+  idleDisconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The configuration that specifies which cookies should be synchronized from the end
    *          user's local browser to the remote browser.</p>
    * @public
    */
-  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration | undefined;
 
   /**
    * <p>The customer managed key used to encrypt sensitive information in the user
    *          settings.</p>
    * @public
    */
-  customerManagedKey?: string;
+  customerManagedKey?: string | undefined;
 
   /**
    * <p>The additional encryption context of the user settings.</p>
    * @public
    */
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether the user can use deep links that open automatically when connecting to
    *          a session.</p>
    * @public
    */
-  deepLinkAllowed?: EnabledType;
+  deepLinkAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -3846,7 +3846,7 @@ export interface GetUserSettingsResponse {
    * <p>The user settings.</p>
    * @public
    */
-  userSettings?: UserSettings;
+  userSettings?: UserSettings | undefined;
 }
 
 /**
@@ -3858,13 +3858,13 @@ export interface ListUserSettingsRequest {
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3883,62 +3883,62 @@ export interface UserSettingsSummary {
    *          device.</p>
    * @public
    */
-  copyAllowed?: EnabledType;
+  copyAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    * @public
    */
-  pasteAllowed?: EnabledType;
+  pasteAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    * @public
    */
-  downloadAllowed?: EnabledType;
+  downloadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    * @public
    */
-  uploadAllowed?: EnabledType;
+  uploadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    * @public
    */
-  printAllowed?: EnabledType;
+  printAllowed?: EnabledType | undefined;
 
   /**
    * <p>The amount of time that a streaming session remains active after users
    *          disconnect.</p>
    * @public
    */
-  disconnectTimeoutInMinutes?: number;
+  disconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from
    *          their streaming session and the disconnect timeout interval begins.</p>
    * @public
    */
-  idleDisconnectTimeoutInMinutes?: number;
+  idleDisconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The configuration that specifies which cookies should be synchronized from the end
    *          user's local browser to the remote browser.</p>
    * @public
    */
-  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration | undefined;
 
   /**
    * <p>Specifies whether the user can use deep links that open automatically when connecting to
    *          a session.</p>
    * @public
    */
-  deepLinkAllowed?: EnabledType;
+  deepLinkAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -3949,14 +3949,14 @@ export interface ListUserSettingsResponse {
    * <p>The user settings.</p>
    * @public
    */
-  userSettings?: UserSettingsSummary[];
+  userSettings?: UserSettingsSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3974,48 +3974,48 @@ export interface UpdateUserSettingsRequest {
    *          device.</p>
    * @public
    */
-  copyAllowed?: EnabledType;
+  copyAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    * @public
    */
-  pasteAllowed?: EnabledType;
+  pasteAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    * @public
    */
-  downloadAllowed?: EnabledType;
+  downloadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    * @public
    */
-  uploadAllowed?: EnabledType;
+  uploadAllowed?: EnabledType | undefined;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    * @public
    */
-  printAllowed?: EnabledType;
+  printAllowed?: EnabledType | undefined;
 
   /**
    * <p>The amount of time that a streaming session remains active after users
    *          disconnect.</p>
    * @public
    */
-  disconnectTimeoutInMinutes?: number;
+  disconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from
    *          their streaming session and the disconnect timeout interval begins.</p>
    * @public
    */
-  idleDisconnectTimeoutInMinutes?: number;
+  idleDisconnectTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4026,7 +4026,7 @@ export interface UpdateUserSettingsRequest {
    *          SDK.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The configuration that specifies which cookies should be synchronized from the end
@@ -4034,14 +4034,14 @@ export interface UpdateUserSettingsRequest {
    *          <p>If the allowlist and blocklist are empty, the configuration becomes null.</p>
    * @public
    */
-  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+  cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration | undefined;
 
   /**
    * <p>Specifies whether the user can use deep links that open automatically when connecting to
    *          a session.</p>
    * @public
    */
-  deepLinkAllowed?: EnabledType;
+  deepLinkAllowed?: EnabledType | undefined;
 }
 
 /**

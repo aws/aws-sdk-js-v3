@@ -61,7 +61,7 @@ export class CloudHsmInternalException extends __BaseException {
    * <p>Indicates if the action can be retried.</p>
    * @public
    */
-  retryable?: boolean;
+  retryable?: boolean | undefined;
 
   /**
    * @internal
@@ -88,7 +88,7 @@ export class CloudHsmServiceException extends __BaseException {
    * <p>Indicates if the action can be retried.</p>
    * @public
    */
-  retryable?: boolean;
+  retryable?: boolean | undefined;
 
   /**
    * @internal
@@ -115,7 +115,7 @@ export class InvalidRequestException extends __BaseException {
    * <p>Indicates if the action can be retried.</p>
    * @public
    */
-  retryable?: boolean;
+  retryable?: boolean | undefined;
 
   /**
    * @internal
@@ -166,7 +166,7 @@ export interface CreateHapgResponse {
    * <p>The ARN of the high-availability partition group.</p>
    * @public
    */
-  HapgArn?: string;
+  HapgArn?: string | undefined;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface CreateHsmRequest {
    *       range of the subnet.</p>
    * @public
    */
-  EniIp?: string;
+  EniIp?: string | undefined;
 
   /**
    * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
@@ -218,7 +218,7 @@ export interface CreateHsmRequest {
    * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
    * @public
    */
-  ExternalId?: string;
+  ExternalId?: string | undefined;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -243,14 +243,14 @@ export interface CreateHsmRequest {
    *       same token will be ignored.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one
    *       syslog monitoring server.</p>
    * @public
    */
-  SyslogIp?: string;
+  SyslogIp?: string | undefined;
 }
 
 /**
@@ -262,7 +262,7 @@ export interface CreateHsmResponse {
    * <p>The ARN of the HSM.</p>
    * @public
    */
-  HsmArn?: string;
+  HsmArn?: string | undefined;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface CreateLunaClientRequest {
    * <p>The label for the client.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used
@@ -293,7 +293,7 @@ export interface CreateLunaClientResponse {
    * <p>The ARN of the client.</p>
    * @public
    */
-  ClientArn?: string;
+  ClientArn?: string | undefined;
 }
 
 /**
@@ -402,56 +402,56 @@ export interface DescribeHapgResponse {
    * <p>The ARN of the high-availability partition group.</p>
    * @public
    */
-  HapgArn?: string;
+  HapgArn?: string | undefined;
 
   /**
    * <p>The serial number of the high-availability partition group.</p>
    * @public
    */
-  HapgSerial?: string;
+  HapgSerial?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  HsmsLastActionFailed?: string[];
+  HsmsLastActionFailed?: string[] | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  HsmsPendingDeletion?: string[];
+  HsmsPendingDeletion?: string[] | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  HsmsPendingRegistration?: string[];
+  HsmsPendingRegistration?: string[] | undefined;
 
   /**
    * <p>The label for the high-availability partition group.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The date and time the high-availability partition group was last modified.</p>
    * @public
    */
-  LastModifiedTimestamp?: string;
+  LastModifiedTimestamp?: string | undefined;
 
   /**
    * <p>The list of partition serial numbers that belong to the high-availability partition
    *       group.</p>
    * @public
    */
-  PartitionSerialList?: string[];
+  PartitionSerialList?: string[] | undefined;
 
   /**
    * <p>The state of the high-availability partition group.</p>
    * @public
    */
-  State?: CloudHsmObjectState;
+  State?: CloudHsmObjectState | undefined;
 }
 
 /**
@@ -464,14 +464,14 @@ export interface DescribeHsmRequest {
    *       parameter must be specified.</p>
    * @public
    */
-  HsmArn?: string;
+  HsmArn?: string | undefined;
 
   /**
    * <p>The serial number of the HSM. Either the <code>HsmArn</code> or the
    *         <code>HsmSerialNumber</code> parameter must be specified.</p>
    * @public
    */
-  HsmSerialNumber?: string;
+  HsmSerialNumber?: string | undefined;
 }
 
 /**
@@ -502,37 +502,37 @@ export interface DescribeHsmResponse {
    * <p>The ARN of the HSM.</p>
    * @public
    */
-  HsmArn?: string;
+  HsmArn?: string | undefined;
 
   /**
    * <p>The status of the HSM.</p>
    * @public
    */
-  Status?: HsmStatus;
+  Status?: HsmStatus | undefined;
 
   /**
    * <p>Contains additional information about the status of the HSM.</p>
    * @public
    */
-  StatusDetails?: string;
+  StatusDetails?: string | undefined;
 
   /**
    * <p>The Availability Zone that the HSM is in.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>
    * @public
    */
-  EniId?: string;
+  EniId?: string | undefined;
 
   /**
    * <p>The IP address assigned to the HSM's ENI.</p>
    * @public
    */
-  EniIp?: string;
+  EniIp?: string | undefined;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -550,91 +550,91 @@ export interface DescribeHsmResponse {
    *          </ul>
    * @public
    */
-  SubscriptionType?: SubscriptionType;
+  SubscriptionType?: SubscriptionType | undefined;
 
   /**
    * <p>The subscription start date.</p>
    * @public
    */
-  SubscriptionStartDate?: string;
+  SubscriptionStartDate?: string | undefined;
 
   /**
    * <p>The subscription end date.</p>
    * @public
    */
-  SubscriptionEndDate?: string;
+  SubscriptionEndDate?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that the HSM is in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The identifier of the subnet that the HSM is in.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role assigned to the HSM.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>The serial number of the HSM.</p>
    * @public
    */
-  SerialNumber?: string;
+  SerialNumber?: string | undefined;
 
   /**
    * <p>The name of the HSM vendor.</p>
    * @public
    */
-  VendorName?: string;
+  VendorName?: string | undefined;
 
   /**
    * <p>The HSM model type.</p>
    * @public
    */
-  HsmType?: string;
+  HsmType?: string | undefined;
 
   /**
    * <p>The HSM software version.</p>
    * @public
    */
-  SoftwareVersion?: string;
+  SoftwareVersion?: string | undefined;
 
   /**
    * <p>The public SSH key.</p>
    * @public
    */
-  SshPublicKey?: string;
+  SshPublicKey?: string | undefined;
 
   /**
    * <p>The date and time that the SSH key was last updated.</p>
    * @public
    */
-  SshKeyLastUpdated?: string;
+  SshKeyLastUpdated?: string | undefined;
 
   /**
    * <p>The URI of the certificate server.</p>
    * @public
    */
-  ServerCertUri?: string;
+  ServerCertUri?: string | undefined;
 
   /**
    * <p>The date and time that the server certificate was last updated.</p>
    * @public
    */
-  ServerCertLastUpdated?: string;
+  ServerCertLastUpdated?: string | undefined;
 
   /**
    * <p>The list of partitions on the HSM.</p>
    * @public
    */
-  Partitions?: string[];
+  Partitions?: string[] | undefined;
 }
 
 /**
@@ -645,13 +645,13 @@ export interface DescribeLunaClientRequest {
    * <p>The ARN of the client.</p>
    * @public
    */
-  ClientArn?: string;
+  ClientArn?: string | undefined;
 
   /**
    * <p>The certificate fingerprint.</p>
    * @public
    */
-  CertificateFingerprint?: string;
+  CertificateFingerprint?: string | undefined;
 }
 
 /**
@@ -662,31 +662,31 @@ export interface DescribeLunaClientResponse {
    * <p>The ARN of the client.</p>
    * @public
    */
-  ClientArn?: string;
+  ClientArn?: string | undefined;
 
   /**
    * <p>The certificate installed on the HSMs used by this client.</p>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * <p>The certificate fingerprint.</p>
    * @public
    */
-  CertificateFingerprint?: string;
+  CertificateFingerprint?: string | undefined;
 
   /**
    * <p>The date and time the client was last modified.</p>
    * @public
    */
-  LastModifiedTimestamp?: string;
+  LastModifiedTimestamp?: string | undefined;
 
   /**
    * <p>The label of the client.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 }
 
 /**
@@ -721,19 +721,19 @@ export interface GetConfigResponse {
    * <p>The type of credentials.</p>
    * @public
    */
-  ConfigType?: string;
+  ConfigType?: string | undefined;
 
   /**
    * <p>The chrystoki.conf configuration file.</p>
    * @public
    */
-  ConfigFile?: string;
+  ConfigFile?: string | undefined;
 
   /**
    * <p>The certificate file containing the server.pem files of the HSMs.</p>
    * @public
    */
-  ConfigCred?: string;
+  ConfigCred?: string | undefined;
 }
 
 /**
@@ -750,7 +750,7 @@ export interface ListAvailableZonesResponse {
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
    * @public
    */
-  AZList?: string[];
+  AZList?: string[] | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface ListHapgsRequest {
    *       null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -780,7 +780,7 @@ export interface ListHapgsResponse {
    *       retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -792,7 +792,7 @@ export interface ListHsmsRequest {
    *       null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -804,14 +804,14 @@ export interface ListHsmsResponse {
    * <p>The list of ARNs that identify the HSMs.</p>
    * @public
    */
-  HsmList?: string[];
+  HsmList?: string[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value to <code>ListHsms</code> to
    *       retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -823,7 +823,7 @@ export interface ListLunaClientsRequest {
    *       Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -841,7 +841,7 @@ export interface ListLunaClientsResponse {
    *       retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -880,14 +880,14 @@ export interface ModifyHapgRequest {
    * <p>The new label for the high-availability partition group.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The list of partition serial numbers to make members of the high-availability partition
    *       group.</p>
    * @public
    */
-  PartitionSerialList?: string[];
+  PartitionSerialList?: string[] | undefined;
 }
 
 /**
@@ -898,7 +898,7 @@ export interface ModifyHapgResponse {
    * <p>The ARN of the high-availability partition group.</p>
    * @public
    */
-  HapgArn?: string;
+  HapgArn?: string | undefined;
 }
 
 /**
@@ -917,7 +917,7 @@ export interface ModifyHsmRequest {
    *       Availability Zone as the current subnet.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The new IP address for the elastic network interface (ENI) attached to the
@@ -926,26 +926,26 @@ export interface ModifyHsmRequest {
    *       address will be randomly chosen from the CIDR range of the new subnet.</p>
    * @public
    */
-  EniIp?: string;
+  EniIp?: string | undefined;
 
   /**
    * <p>The new IAM role ARN.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>The new external ID.</p>
    * @public
    */
-  ExternalId?: string;
+  ExternalId?: string | undefined;
 
   /**
    * <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports
    *       one syslog monitoring server.</p>
    * @public
    */
-  SyslogIp?: string;
+  SyslogIp?: string | undefined;
 }
 
 /**
@@ -957,7 +957,7 @@ export interface ModifyHsmResponse {
    * <p>The ARN of the HSM.</p>
    * @public
    */
-  HsmArn?: string;
+  HsmArn?: string | undefined;
 }
 
 /**
@@ -985,7 +985,7 @@ export interface ModifyLunaClientResponse {
    * <p>The ARN of the client.</p>
    * @public
    */
-  ClientArn?: string;
+  ClientArn?: string | undefined;
 }
 
 /**

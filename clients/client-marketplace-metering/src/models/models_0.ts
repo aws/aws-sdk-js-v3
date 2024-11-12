@@ -42,7 +42,7 @@ export interface UsageAllocation {
    *             this parameter can be left out.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -81,7 +81,7 @@ export interface UsageRecord {
    *             Defaults to <code>0</code> if not specified.</p>
    * @public
    */
-  Quantity?: number;
+  Quantity?: number | undefined;
 
   /**
    * <p>The set of <code>UsageAllocations</code> to submit. The sum of all
@@ -89,7 +89,7 @@ export interface UsageRecord {
    *                 <code>UsageRecord</code>.</p>
    * @public
    */
-  UsageAllocations?: UsageAllocation[];
+  UsageAllocations?: UsageAllocation[] | undefined;
 }
 
 /**
@@ -139,14 +139,14 @@ export interface UsageRecordResult {
    *             request.</p>
    * @public
    */
-  UsageRecord?: UsageRecord;
+  UsageRecord?: UsageRecord | undefined;
 
   /**
    * <p>The <code>MeteringRecordId</code> is a unique identifier for this metering
    *             event.</p>
    * @public
    */
-  MeteringRecordId?: string;
+  MeteringRecordId?: string | undefined;
 
   /**
    * <p>The <code>UsageRecordResult</code>
@@ -188,7 +188,7 @@ export interface UsageRecordResult {
    *          </ul>
    * @public
    */
-  Status?: UsageRecordResultStatus;
+  Status?: UsageRecordResultStatus | undefined;
 }
 
 /**
@@ -203,7 +203,7 @@ export interface BatchMeterUsageResult {
    *             Invalid records should be fixed before being resubmitted.</p>
    * @public
    */
-  Results?: UsageRecordResult[];
+  Results?: UsageRecordResult[] | undefined;
 
   /**
    * <p>Contains all <code>UsageRecords</code> that were not processed by
@@ -212,7 +212,7 @@ export interface BatchMeterUsageResult {
    *             list as input in the <code>BatchMeterUsageRequest</code>.</p>
    * @public
    */
-  UnprocessedRecords?: UsageRecord[];
+  UnprocessedRecords?: UsageRecord[] | undefined;
 }
 
 /**
@@ -499,7 +499,7 @@ export interface MeterUsageRequest {
    * <p>Consumption value for the hour. Defaults to <code>0</code> if not specified.</p>
    * @public
    */
-  UsageQuantity?: number;
+  UsageQuantity?: number | undefined;
 
   /**
    * <p>Checks whether you have the permissions required for the action, but does not make the
@@ -508,7 +508,7 @@ export interface MeterUsageRequest {
    *             if not specified.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The set of <code>UsageAllocations</code> to submit.</p>
@@ -518,7 +518,7 @@ export interface MeterUsageRequest {
    *             tags).</p>
    * @public
    */
-  UsageAllocations?: UsageAllocation[];
+  UsageAllocations?: UsageAllocation[] | undefined;
 }
 
 /**
@@ -529,7 +529,7 @@ export interface MeterUsageResult {
    * <p>Metering record id.</p>
    * @public
    */
-  MeteringRecordId?: string;
+  MeteringRecordId?: string | undefined;
 }
 
 /**
@@ -618,7 +618,7 @@ export interface RegisterUsageRequest {
    *             guard against replay attacks.</p>
    * @public
    */
-  Nonce?: string;
+  Nonce?: string | undefined;
 }
 
 /**
@@ -629,13 +629,13 @@ export interface RegisterUsageResult {
    * <p>(Optional) Only included when public key version has expired</p>
    * @public
    */
-  PublicKeyRotationTimestamp?: Date;
+  PublicKeyRotationTimestamp?: Date | undefined;
 
   /**
    * <p>JWT Token</p>
    * @public
    */
-  Signature?: string;
+  Signature?: string | undefined;
 }
 
 /**
@@ -715,7 +715,7 @@ export interface ResolveCustomerResult {
    *                 <code>CustomerIdentifiers</code> for each <code>UsageRecord</code>.</p>
    * @public
    */
-  CustomerIdentifier?: string;
+  CustomerIdentifier?: string | undefined;
 
   /**
    * <p>The product code is returned to confirm that the buyer is registering for your
@@ -723,12 +723,12 @@ export interface ResolveCustomerResult {
    *             code.</p>
    * @public
    */
-  ProductCode?: string;
+  ProductCode?: string | undefined;
 
   /**
    * <p>The <code>CustomerAWSAccountId</code> provides the AWS account ID associated with the
    *                 <code>CustomerIdentifier</code> for the individual customer.</p>
    * @public
    */
-  CustomerAWSAccountId?: string;
+  CustomerAWSAccountId?: string | undefined;
 }

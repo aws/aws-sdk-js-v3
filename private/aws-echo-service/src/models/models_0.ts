@@ -7,14 +7,14 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
  * @public
  */
 export interface EchoInput {
-  string?: string;
+  string?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface EchoOutput {
-  string?: string;
+  string?: string | undefined;
 }
 
 /**
@@ -48,5 +48,5 @@ export interface LengthInput {
  * @public
  */
 export interface LengthOutput {
-  length?: number;
+  length?: number | undefined;
 }

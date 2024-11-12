@@ -74,14 +74,14 @@ export interface LogPublishingOptions {
    * <p>Whether logs should be published.</p>
    * @public
    */
-  IsLoggingEnabled?: boolean;
+  IsLoggingEnabled?: boolean | undefined;
 
   /**
    * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This
    *    parameter is required if <code>IsLoggingEnabled</code> is set to <code>true</code>.</p>
    * @public
    */
-  CloudWatchLogDestination?: CloudWatchLogDestination;
+  CloudWatchLogDestination?: CloudWatchLogDestination | undefined;
 }
 
 /**
@@ -120,7 +120,7 @@ export interface VpcAttachmentOptions {
    * <p>The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 }
 
 /**
@@ -153,19 +153,19 @@ export interface VpcOptions {
    * <p>A list of security groups associated with the VPC endpoint.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>Options for attaching a VPC to a pipeline.</p>
    * @public
    */
-  VpcAttachmentOptions?: VpcAttachmentOptions;
+  VpcAttachmentOptions?: VpcAttachmentOptions | undefined;
 
   /**
    * <p>Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.</p>
    * @public
    */
-  VpcEndpointManagement?: VpcEndpointManagement;
+  VpcEndpointManagement?: VpcEndpointManagement | undefined;
 }
 
 /**
@@ -203,32 +203,32 @@ export interface CreatePipelineRequest {
    * <p>Key-value pairs to configure log publishing.</p>
    * @public
    */
-  LogPublishingOptions?: LogPublishingOptions;
+  LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
    * <p>Container for the values required to configure VPC access for the pipeline. If you don't specify
    *    these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p>
    * @public
    */
-  VpcOptions?: VpcOptions;
+  VpcOptions?: VpcOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
    * @public
    */
-  BufferOptions?: BufferOptions;
+  BufferOptions?: BufferOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
    * <p>List of tags to add to the pipeline upon creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -240,13 +240,13 @@ export interface PipelineDestination {
    * <p>The name of the service receiving data from the pipeline.</p>
    * @public
    */
-  ServiceName?: string;
+  ServiceName?: string | undefined;
 
   /**
    * <p>The endpoint receiving data from the pipeline.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 }
 
 /**
@@ -271,13 +271,13 @@ export interface ServiceVpcEndpoint {
    * <p>The name of the service for which a VPC endpoint was created.</p>
    * @public
    */
-  ServiceName?: VpcEndpointServiceName;
+  ServiceName?: VpcEndpointServiceName | undefined;
 
   /**
    * <p>The unique identifier of the VPC endpoint that was created.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface PipelineStatusReason {
    * <p>A description of why a pipeline has a certain status.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -324,20 +324,20 @@ export interface VpcEndpoint {
    * <p>The unique identifier of the endpoint.</p>
    * @public
    */
-  VpcEndpointId?: string;
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>The ID for your VPC. Amazon Web Services PrivateLink generates this value when you create a
    *    VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Information about the VPC, including associated subnets and security groups.</p>
    * @public
    */
-  VpcOptions?: VpcOptions;
+  VpcOptions?: VpcOptions | undefined;
 }
 
 /**
@@ -349,110 +349,110 @@ export interface Pipeline {
    * <p>The name of the pipeline.</p>
    * @public
    */
-  PipelineName?: string;
+  PipelineName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 
   /**
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
    * @public
    */
-  MinUnits?: number;
+  MinUnits?: number | undefined;
 
   /**
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
    * @public
    */
-  MaxUnits?: number;
+  MaxUnits?: number | undefined;
 
   /**
    * <p>The current status of the pipeline.</p>
    * @public
    */
-  Status?: PipelineStatus;
+  Status?: PipelineStatus | undefined;
 
   /**
    * <p>The reason for the current status of the pipeline.</p>
    * @public
    */
-  StatusReason?: PipelineStatusReason;
+  StatusReason?: PipelineStatusReason | undefined;
 
   /**
    * <p>The Data Prepper pipeline configuration in YAML format.</p>
    * @public
    */
-  PipelineConfigurationBody?: string;
+  PipelineConfigurationBody?: string | undefined;
 
   /**
    * <p>The date and time when the pipeline was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time when the pipeline was last updated.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The ingestion endpoints for the pipeline, which you can send data to.</p>
    * @public
    */
-  IngestEndpointUrls?: string[];
+  IngestEndpointUrls?: string[] | undefined;
 
   /**
    * <p>Key-value pairs that represent log publishing settings.</p>
    * @public
    */
-  LogPublishingOptions?: LogPublishingOptions;
+  LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
    * <p>The VPC interface endpoints that have access to the pipeline.</p>
    * @public
    */
-  VpcEndpoints?: VpcEndpoint[];
+  VpcEndpoints?: VpcEndpoint[] | undefined;
 
   /**
    * <p>Options that specify the configuration of a persistent buffer.
    *    To configure how OpenSearch Ingestion encrypts this data, set the <code>EncryptionAtRestOptions</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering">Persistent buffering</a>.</p>
    * @public
    */
-  BufferOptions?: BufferOptions;
+  BufferOptions?: BufferOptions | undefined;
 
   /**
    * <p>Options to control how OpenSearch encrypts buffer data.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
    * <p>The VPC endpoint service name for the pipeline.</p>
    * @public
    */
-  VpcEndpointService?: string;
+  VpcEndpointService?: string | undefined;
 
   /**
    * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other Amazon Web Services services.</p>
    * @public
    */
-  ServiceVpcEndpoints?: ServiceVpcEndpoint[];
+  ServiceVpcEndpoints?: ServiceVpcEndpoint[] | undefined;
 
   /**
    * <p>Destinations to which the pipeline writes data.</p>
    * @public
    */
-  Destinations?: PipelineDestination[];
+  Destinations?: PipelineDestination[] | undefined;
 
   /**
    * <p>A list of tags associated with the given pipeline.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -463,7 +463,7 @@ export interface CreatePipelineResponse {
    * <p>Container for information about the created pipeline.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -642,7 +642,7 @@ export interface GetPipelineResponse {
    * <p>Detailed information about the requested pipeline.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -659,7 +659,7 @@ export interface GetPipelineBlueprintRequest {
    * <p>The format format of the blueprint to retrieve.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -671,37 +671,37 @@ export interface PipelineBlueprint {
    * <p>The name of the blueprint.</p>
    * @public
    */
-  BlueprintName?: string;
+  BlueprintName?: string | undefined;
 
   /**
    * <p>The YAML configuration of the blueprint.</p>
    * @public
    */
-  PipelineConfigurationBody?: string;
+  PipelineConfigurationBody?: string | undefined;
 
   /**
    * <p>The display name of the blueprint.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>A description of the blueprint.</p>
    * @public
    */
-  DisplayDescription?: string;
+  DisplayDescription?: string | undefined;
 
   /**
    * <p>The name of the service that the blueprint is associated with.</p>
    * @public
    */
-  Service?: string;
+  Service?: string | undefined;
 
   /**
    * <p>The use case that the blueprint relates to.</p>
    * @public
    */
-  UseCase?: string;
+  UseCase?: string | undefined;
 }
 
 /**
@@ -712,13 +712,13 @@ export interface GetPipelineBlueprintResponse {
    * <p>The requested blueprint in YAML format.</p>
    * @public
    */
-  Blueprint?: PipelineBlueprint;
+  Blueprint?: PipelineBlueprint | undefined;
 
   /**
    * <p>The format of the blueprint.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -758,25 +758,25 @@ export interface ChangeProgressStage {
    * <p>The name of the stage.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current status of the stage that the change is in.</p>
    * @public
    */
-  Status?: ChangeProgressStageStatuses;
+  Status?: ChangeProgressStageStatuses | undefined;
 
   /**
    * <p>A description of the stage.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The most recent updated timestamp of the stage.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -804,25 +804,25 @@ export interface ChangeProgressStatus {
    * <p>The time at which the configuration change is made on the pipeline.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The overall status of the pipeline configuration change.</p>
    * @public
    */
-  Status?: ChangeProgressStatuses;
+  Status?: ChangeProgressStatuses | undefined;
 
   /**
    * <p>The total number of stages required for the pipeline configuration change.</p>
    * @public
    */
-  TotalNumberOfStages?: number;
+  TotalNumberOfStages?: number | undefined;
 
   /**
    * <p>Information about the stages that the pipeline is going through to perform the configuration change.</p>
    * @public
    */
-  ChangeProgressStages?: ChangeProgressStage[];
+  ChangeProgressStages?: ChangeProgressStage[] | undefined;
 }
 
 /**
@@ -833,7 +833,7 @@ export interface GetPipelineChangeProgressResponse {
    * <p>The current status of the change happening on the pipeline.</p>
    * @public
    */
-  ChangeProgressStatuses?: ChangeProgressStatus[];
+  ChangeProgressStatuses?: ChangeProgressStatus[] | undefined;
 }
 
 /**
@@ -870,31 +870,31 @@ export interface PipelineBlueprintSummary {
    * <p>The name of the blueprint.</p>
    * @public
    */
-  BlueprintName?: string;
+  BlueprintName?: string | undefined;
 
   /**
    * <p>The display name of the blueprint.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>A description of the blueprint.</p>
    * @public
    */
-  DisplayDescription?: string;
+  DisplayDescription?: string | undefined;
 
   /**
    * <p>The name of the service that the blueprint is associated with.</p>
    * @public
    */
-  Service?: string;
+  Service?: string | undefined;
 
   /**
    * <p>The use case that the blueprint relates to.</p>
    * @public
    */
-  UseCase?: string;
+  UseCase?: string | undefined;
 }
 
 /**
@@ -905,7 +905,7 @@ export interface ListPipelineBlueprintsResponse {
    * <p>A list of available blueprints for Data Prepper.</p>
    * @public
    */
-  Blueprints?: PipelineBlueprintSummary[];
+  Blueprints?: PipelineBlueprintSummary[] | undefined;
 }
 
 /**
@@ -917,7 +917,7 @@ export interface ListPipelinesRequest {
    *    <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you
@@ -925,7 +925,7 @@ export interface ListPipelinesRequest {
    *    operations, which returns results in the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -937,61 +937,61 @@ export interface PipelineSummary {
    * <p>The current status of the pipeline.</p>
    * @public
    */
-  Status?: PipelineStatus;
+  Status?: PipelineStatus | undefined;
 
   /**
    * <p>Information about a pipeline's current status.</p>
    * @public
    */
-  StatusReason?: PipelineStatusReason;
+  StatusReason?: PipelineStatusReason | undefined;
 
   /**
    * <p>The name of the pipeline.</p>
    * @public
    */
-  PipelineName?: string;
+  PipelineName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 
   /**
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
    * @public
    */
-  MinUnits?: number;
+  MinUnits?: number | undefined;
 
   /**
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
    * @public
    */
-  MaxUnits?: number;
+  MaxUnits?: number | undefined;
 
   /**
    * <p>The date and time when the pipeline was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time when the pipeline was last updated.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>A list of destinations to which the pipeline writes data.</p>
    * @public
    */
-  Destinations?: PipelineDestination[];
+  Destinations?: PipelineDestination[] | undefined;
 
   /**
    * <p>A list of tags associated with the given pipeline.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1004,13 +1004,13 @@ export interface ListPipelinesResponse {
    *    the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of all existing Data Prepper pipelines.</p>
    * @public
    */
-  Pipelines?: PipelineSummary[];
+  Pipelines?: PipelineSummary[] | undefined;
 }
 
 /**
@@ -1032,7 +1032,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags associated with the given pipeline.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1054,7 +1054,7 @@ export interface StartPipelineResponse {
    * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -1076,7 +1076,7 @@ export interface StopPipelineResponse {
    * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -1137,13 +1137,13 @@ export interface UpdatePipelineRequest {
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
    * @public
    */
-  MinUnits?: number;
+  MinUnits?: number | undefined;
 
   /**
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs)</p>
    * @public
    */
-  MaxUnits?: number;
+  MaxUnits?: number | undefined;
 
   /**
    * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
@@ -1151,25 +1151,25 @@ export interface UpdatePipelineRequest {
    *    be escaped with <code>\n</code>.</p>
    * @public
    */
-  PipelineConfigurationBody?: string;
+  PipelineConfigurationBody?: string | undefined;
 
   /**
    * <p>Key-value pairs to configure log publishing.</p>
    * @public
    */
-  LogPublishingOptions?: LogPublishingOptions;
+  LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
    * @public
    */
-  BufferOptions?: BufferOptions;
+  BufferOptions?: BufferOptions | undefined;
 
   /**
    * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
    * @public
    */
-  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 }
 
 /**
@@ -1180,7 +1180,7 @@ export interface UpdatePipelineResponse {
    * <p>Container for information about the updated pipeline.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 }
 
 /**
@@ -1206,7 +1206,7 @@ export interface ValidationMessage {
    * <p>The validation message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1217,11 +1217,11 @@ export interface ValidatePipelineResponse {
    * <p>A boolean indicating whether or not the pipeline configuration is valid.</p>
    * @public
    */
-  isValid?: boolean;
+  isValid?: boolean | undefined;
 
   /**
    * <p>A list of errors if the configuration is invalid.</p>
    * @public
    */
-  Errors?: ValidationMessage[];
+  Errors?: ValidationMessage[] | undefined;
 }

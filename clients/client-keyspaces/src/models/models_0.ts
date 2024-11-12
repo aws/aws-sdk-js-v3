@@ -35,21 +35,21 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          scale in the table lower than its minimum capacity.</p>
    * @public
    */
-  disableScaleIn?: boolean;
+  disableScaleIn?: boolean | undefined;
 
   /**
    * <p>Specifies a <code>scale-in</code> cool down period.</p>
    *          <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
    * @public
    */
-  scaleInCooldown?: number;
+  scaleInCooldown?: number | undefined;
 
   /**
    * <p>Specifies a scale out cool down period.</p>
    *          <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
    * @public
    */
-  scaleOutCooldown?: number;
+  scaleOutCooldown?: number | undefined;
 
   /**
    * <p>Specifies the target value for the target tracking auto scaling policy.</p>
@@ -74,7 +74,7 @@ export interface AutoScalingPolicy {
    *          when it falls below the target. A <code>double</code> between 20 and 90.</p>
    * @public
    */
-  targetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
+  targetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
 }
 
 /**
@@ -144,21 +144,21 @@ export interface AutoScalingSettings {
    * <p>This optional parameter enables auto scaling for the table if set to <code>false</code>.</p>
    * @public
    */
-  autoScalingDisabled?: boolean;
+  autoScalingDisabled?: boolean | undefined;
 
   /**
    * <p>The minimum level of throughput the table should always be ready to support. The value must be between 1
    *          and the max throughput per second quota for your account (40,000 by default).</p>
    * @public
    */
-  minimumUnits?: number;
+  minimumUnits?: number | undefined;
 
   /**
    * <p>Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1
    *          and the max throughput per second quota for your account (40,000 by default).</p>
    * @public
    */
-  maximumUnits?: number;
+  maximumUnits?: number | undefined;
 
   /**
    * <p>Amazon Keyspaces supports the <code>target tracking</code> auto scaling policy. With this policy, Amazon Keyspaces auto scaling
@@ -166,7 +166,7 @@ export interface AutoScalingSettings {
    *       define the target value as a percentage between 20 and 90.</p>
    * @public
    */
-  scalingPolicy?: AutoScalingPolicy;
+  scalingPolicy?: AutoScalingPolicy | undefined;
 }
 
 /**
@@ -178,13 +178,13 @@ export interface AutoScalingSpecification {
    * <p>The auto scaling settings for the table's write capacity.</p>
    * @public
    */
-  writeCapacityAutoScaling?: AutoScalingSettings;
+  writeCapacityAutoScaling?: AutoScalingSettings | undefined;
 
   /**
    * <p>The auto scaling settings for the table's read capacity.</p>
    * @public
    */
-  readCapacityAutoScaling?: AutoScalingSettings;
+  readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
@@ -243,14 +243,14 @@ export interface CapacitySpecification {
    *             <code>(RCUs)</code>.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    * @public
    */
-  writeCapacityUnits?: number;
+  writeCapacityUnits?: number | undefined;
 }
 
 /**
@@ -295,20 +295,20 @@ export interface CapacitySpecificationSummary {
    *             <code>(RCUs)</code>.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    * @public
    */
-  writeCapacityUnits?: number;
+  writeCapacityUnits?: number | undefined;
 
   /**
    * <p>The timestamp of the last operation that changed the provisioned throughput capacity of a table.</p>
    * @public
    */
-  lastUpdateToPayPerRequestTimestamp?: Date;
+  lastUpdateToPayPerRequestTimestamp?: Date | undefined;
 }
 
 /**
@@ -469,7 +469,7 @@ export interface ReplicationSpecification {
    *       </p>
    * @public
    */
-  regionList?: string[];
+  regionList?: string[] | undefined;
 }
 
 /**
@@ -512,7 +512,7 @@ export interface CreateKeyspaceRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -533,7 +533,7 @@ export interface CreateKeyspaceRequest {
    *          </ul>
    * @public
    */
-  replicationSpecification?: ReplicationSpecification;
+  replicationSpecification?: ReplicationSpecification | undefined;
 }
 
 /**
@@ -665,7 +665,7 @@ export interface EncryptionSpecification {
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</p>
    * @public
    */
-  kmsKeyIdentifier?: string;
+  kmsKeyIdentifier?: string | undefined;
 }
 
 /**
@@ -738,14 +738,14 @@ export interface ReplicaSpecification {
    * <p>The provisioned read capacity units for the multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  readCapacityUnits?: number;
+  readCapacityUnits?: number | undefined;
 
   /**
    * <p>The read capacity auto scaling settings for the multi-Region
    *          table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  readCapacityAutoScaling?: AutoScalingSettings;
+  readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
@@ -795,13 +795,13 @@ export interface SchemaDefinition {
    * <p>The columns that are part of the clustering key of the table.</p>
    * @public
    */
-  clusteringKeys?: ClusteringKey[];
+  clusteringKeys?: ClusteringKey[] | undefined;
 
   /**
    * <p>The columns that have been defined as <code>STATIC</code>. Static columns store values that are shared by all rows in the same partition.</p>
    * @public
    */
-  staticColumns?: StaticColumn[];
+  staticColumns?: StaticColumn[] | undefined;
 }
 
 /**
@@ -914,7 +914,7 @@ export interface CreateTableRequest {
    * <p>This parameter allows to enter a description of the table.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 
   /**
    * <p>Specifies the read/write throughput capacity mode for the table. The options are:</p>
@@ -935,7 +935,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecification;
+  capacitySpecification?: CapacitySpecification | undefined;
 
   /**
    * <p>Specifies how the encryption key for encryption at rest is managed for the table.
@@ -957,7 +957,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>Specifies if <code>pointInTimeRecovery</code> is enabled or disabled for the
@@ -980,7 +980,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecovery;
+  pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
    * <p>Enables Time to Live custom settings for the
@@ -1004,7 +1004,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live setting in seconds for the
@@ -1013,7 +1013,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>A list of key-value pair tags to be
@@ -1022,7 +1022,7 @@ export interface CreateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -1038,7 +1038,7 @@ export interface CreateTableRequest {
    *          <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>The optional auto scaling settings for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity
@@ -1049,7 +1049,7 @@ export interface CreateTableRequest {
    *          <p>By default, auto scaling is disabled for a table. </p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The optional Amazon Web Services Region specific settings of a multi-Region table.
@@ -1073,7 +1073,7 @@ export interface CreateTableRequest {
    *          </ul>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**
@@ -1099,7 +1099,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource could't be found.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * @internal
@@ -1322,7 +1322,7 @@ export interface GetKeyspaceResponse {
    *       </p>
    * @public
    */
-  replicationRegions?: string[];
+  replicationRegions?: string[] | undefined;
 }
 
 /**
@@ -1357,7 +1357,7 @@ export interface PointInTimeRecoverySummary {
    * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
    * @public
    */
-  earliestRestorableTimestamp?: Date;
+  earliestRestorableTimestamp?: Date | undefined;
 }
 
 /**
@@ -1392,13 +1392,13 @@ export interface ReplicaSpecificationSummary {
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The status of the multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  status?: TableStatus;
+  status?: TableStatus | undefined;
 
   /**
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
@@ -1416,7 +1416,7 @@ export interface ReplicaSpecificationSummary {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecificationSummary;
+  capacitySpecification?: CapacitySpecificationSummary | undefined;
 }
 
 /**
@@ -1445,19 +1445,19 @@ export interface GetTableResponse {
    * <p>The creation timestamp of the specified table.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The current status of the specified table.</p>
    * @public
    */
-  status?: TableStatus;
+  status?: TableStatus | undefined;
 
   /**
    * <p>The schema definition of the specified table.</p>
    * @public
    */
-  schemaDefinition?: SchemaDefinition;
+  schemaDefinition?: SchemaDefinition | undefined;
 
   /**
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
@@ -1475,50 +1475,50 @@ export interface GetTableResponse {
    *          </ul>
    * @public
    */
-  capacitySpecification?: CapacitySpecificationSummary;
+  capacitySpecification?: CapacitySpecificationSummary | undefined;
 
   /**
    * <p>The encryption settings of the specified table.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>The point-in-time recovery status of the specified table.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecoverySummary;
+  pointInTimeRecovery?: PointInTimeRecoverySummary | undefined;
 
   /**
    * <p>The custom Time to Live settings of the specified table.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live settings in seconds of the specified table.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>The the description of the specified table.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 
   /**
    * <p>
    *          The client-side timestamps setting of the table.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>Returns the Amazon Web Services Region specific settings of all Regions a multi-Region table is replicated in.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecificationSummary[];
+  replicaSpecifications?: ReplicaSpecificationSummary[] | undefined;
 }
 
 /**
@@ -1547,13 +1547,13 @@ export interface ReplicaAutoScalingSpecification {
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The auto scaling settings for a multi-Region table in the specified Amazon Web Services Region.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 }
 
 /**
@@ -1582,13 +1582,13 @@ export interface GetTableAutoScalingSettingsResponse {
    * <p>The auto scaling settings of the table.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The Amazon Web Services Region specific settings of a multi-Region table. Returns the settings for all Regions the table is replicated in.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaAutoScalingSpecification[];
+  replicaSpecifications?: ReplicaAutoScalingSpecification[] | undefined;
 }
 
 /**
@@ -1654,7 +1654,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  fieldDefinitions?: FieldDefinition[];
+  fieldDefinitions?: FieldDefinition[] | undefined;
 
   /**
    * <p>
@@ -1662,7 +1662,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  lastModifiedTimestamp?: Date;
+  lastModifiedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -1670,7 +1670,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  status?: TypeStatus;
+  status?: TypeStatus | undefined;
 
   /**
    * <p>
@@ -1678,7 +1678,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  directReferringTables?: string[];
+  directReferringTables?: string[] | undefined;
 
   /**
    * <p>
@@ -1686,7 +1686,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  directParentTypes?: string[];
+  directParentTypes?: string[] | undefined;
 
   /**
    * <p>
@@ -1694,7 +1694,7 @@ export interface GetTypeResponse {
    *       </p>
    * @public
    */
-  maxNestingDepth?: number;
+  maxNestingDepth?: number | undefined;
 
   /**
    * <p>
@@ -1713,7 +1713,7 @@ export interface ListKeyspacesRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of keyspaces to return in the output. If the total number of keyspaces available
@@ -1721,7 +1721,7 @@ export interface ListKeyspacesRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1756,7 +1756,7 @@ export interface KeyspaceSummary {
    *       </p>
    * @public
    */
-  replicationRegions?: string[];
+  replicationRegions?: string[] | undefined;
 }
 
 /**
@@ -1767,7 +1767,7 @@ export interface ListKeyspacesResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of keyspaces.</p>
@@ -1784,7 +1784,7 @@ export interface ListTablesRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of tables to return in the output. If the total number of tables available
@@ -1792,7 +1792,7 @@ export interface ListTablesRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of the keyspace.</p>
@@ -1833,13 +1833,13 @@ export interface ListTablesResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of tables.</p>
    * @public
    */
-  tables?: TableSummary[];
+  tables?: TableSummary[] | undefined;
 }
 
 /**
@@ -1856,7 +1856,7 @@ export interface ListTagsForResourceRequest {
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The total number of tags to return in the output. If the total number of tags available
@@ -1864,7 +1864,7 @@ export interface ListTagsForResourceRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1875,13 +1875,13 @@ export interface ListTagsForResourceResponse {
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1894,7 +1894,7 @@ export interface ListTypesRequest {
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -1904,7 +1904,7 @@ export interface ListTypesRequest {
    *       </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -1925,7 +1925,7 @@ export interface ListTypesResponse {
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -1968,7 +1968,7 @@ export interface RestoreTableRequest {
    * <p>The restore timestamp in ISO 8601 format.</p>
    * @public
    */
-  restoreTimestamp?: Date;
+  restoreTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the read/write throughput capacity mode for the target table. The options are:</p>
@@ -1989,7 +1989,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecificationOverride?: CapacitySpecification;
+  capacitySpecificationOverride?: CapacitySpecification | undefined;
 
   /**
    * <p>Specifies the encryption settings for the target table. You can choose one of the following KMS key (KMS key):</p>
@@ -2010,7 +2010,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecificationOverride?: EncryptionSpecification;
+  encryptionSpecificationOverride?: EncryptionSpecification | undefined;
 
   /**
    * <p>Specifies the <code>pointInTimeRecovery</code> settings for the target
@@ -2032,7 +2032,7 @@ export interface RestoreTableRequest {
    *                Guide</i>.</p>
    * @public
    */
-  pointInTimeRecoveryOverride?: PointInTimeRecovery;
+  pointInTimeRecoveryOverride?: PointInTimeRecovery | undefined;
 
   /**
    * <p>A list of key-value pair tags to be
@@ -2041,7 +2041,7 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  tagsOverride?: Tag[];
+  tagsOverride?: Tag[] | undefined;
 
   /**
    * <p>The optional auto scaling settings for the restored table in provisioned capacity mode.
@@ -2053,13 +2053,13 @@ export interface RestoreTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The optional Region specific settings of a multi-Regional table.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**
@@ -2150,7 +2150,7 @@ export interface UpdateTableRequest {
    *          </ul>
    * @public
    */
-  addColumns?: ColumnDefinition[];
+  addColumns?: ColumnDefinition[] | undefined;
 
   /**
    * <p>Modifies the read/write throughput capacity mode for the table. The options are:</p>
@@ -2170,7 +2170,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  capacitySpecification?: CapacitySpecification;
+  capacitySpecification?: CapacitySpecification | undefined;
 
   /**
    * <p>Modifies the encryption settings of the table. You can choose one of the following KMS key (KMS key):</p>
@@ -2191,7 +2191,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  encryptionSpecification?: EncryptionSpecification;
+  encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
    * <p>Modifies the <code>pointInTimeRecovery</code> settings of the table. The options are:</p>
@@ -2212,7 +2212,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  pointInTimeRecovery?: PointInTimeRecovery;
+  pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
    * <p>Modifies Time to Live custom settings for the table. The options are:</p>
@@ -2235,7 +2235,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  ttl?: TimeToLive;
+  ttl?: TimeToLive | undefined;
 
   /**
    * <p>The default Time to Live setting in seconds for the table.</p>
@@ -2243,7 +2243,7 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  defaultTimeToLive?: number;
+  defaultTimeToLive?: number | undefined;
 
   /**
    * <p>Enables client-side timestamps for the table. By default, the setting is disabled. You can enable
@@ -2258,7 +2258,7 @@ export interface UpdateTableRequest {
    *          <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
    * @public
    */
-  clientSideTimestamps?: ClientSideTimestamps;
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
    * <p>The optional auto scaling settings to update for a table in provisioned capacity mode.
@@ -2272,13 +2272,13 @@ export interface UpdateTableRequest {
    *             Guide</i>.</p>
    * @public
    */
-  autoScalingSpecification?: AutoScalingSpecification;
+  autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
    * <p>The Region specific settings of a multi-Regional table.</p>
    * @public
    */
-  replicaSpecifications?: ReplicaSpecification[];
+  replicaSpecifications?: ReplicaSpecification[] | undefined;
 }
 
 /**

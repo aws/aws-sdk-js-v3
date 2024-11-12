@@ -26,21 +26,21 @@ export interface TLSCertificateConfiguration {
    *          <code>Custom</code>.</p>
    * @public
    */
-  certificateProviderType?: CertificateProviderType;
+  certificateProviderType?: CertificateProviderType | undefined;
 
   /**
    * <p>Secrets Manager ARN that contains the public TLS certificate contents, used for
    *          communication between the user job and the system job.</p>
    * @public
    */
-  publicCertificateSecretArn?: string;
+  publicCertificateSecretArn?: string | undefined;
 
   /**
    * <p>Secrets Manager ARN that contains the private TLS certificate contents, used for
    *          communication between the user job and the system job.</p>
    * @public
    */
-  privateCertificateSecretArn?: string;
+  privateCertificateSecretArn?: string | undefined;
 }
 
 /**
@@ -52,7 +52,7 @@ export interface InTransitEncryptionConfiguration {
    * <p>TLS certificate-related configuration input for the security configuration.</p>
    * @public
    */
-  tlsCertificateConfiguration?: TLSCertificateConfiguration;
+  tlsCertificateConfiguration?: TLSCertificateConfiguration | undefined;
 }
 
 /**
@@ -64,7 +64,7 @@ export interface EncryptionConfiguration {
    * <p>In-transit encryption-related input for the security configuration.</p>
    * @public
    */
-  inTransitEncryptionConfiguration?: InTransitEncryptionConfiguration;
+  inTransitEncryptionConfiguration?: InTransitEncryptionConfiguration | undefined;
 }
 
 /**
@@ -76,13 +76,13 @@ export interface SecureNamespaceInfo {
    * <p>The ID of the Amazon EKS cluster where Amazon EMR on EKS jobs run.</p>
    * @public
    */
-  clusterId?: string;
+  clusterId?: string | undefined;
 
   /**
    * <p>The namespace of the Amazon EKS cluster where the system jobs run.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 }
 
 /**
@@ -95,13 +95,13 @@ export interface LakeFormationConfiguration {
    * <p>The session tag to authorize Amazon EMR on EKS for API calls to Lake Formation.</p>
    * @public
    */
-  authorizedSessionTagValue?: string;
+  authorizedSessionTagValue?: string | undefined;
 
   /**
    * <p>The namespace input of the system job.</p>
    * @public
    */
-  secureNamespaceInfo?: SecureNamespaceInfo;
+  secureNamespaceInfo?: SecureNamespaceInfo | undefined;
 
   /**
    * <p>The query engine IAM role ARN that is tied to the secure Spark job. The
@@ -109,7 +109,7 @@ export interface LakeFormationConfiguration {
    *          the Lake Formation calls.</p>
    * @public
    */
-  queryEngineRoleArn?: string;
+  queryEngineRoleArn?: string | undefined;
 }
 
 /**
@@ -122,13 +122,13 @@ export interface AuthorizationConfiguration {
    *          configuration.</p>
    * @public
    */
-  lakeFormationConfiguration?: LakeFormationConfiguration;
+  lakeFormationConfiguration?: LakeFormationConfiguration | undefined;
 
   /**
    * <p>Encryption-related configuration input for the security configuration.</p>
    * @public
    */
-  encryptionConfiguration?: EncryptionConfiguration;
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -156,13 +156,13 @@ export interface CancelJobRunResponse {
    * <p>The output contains the ID of the cancelled job run.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The output contains the virtual cluster ID for which the job run is cancelled.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 }
 
 /**
@@ -216,13 +216,13 @@ export interface ParametricCloudWatchMonitoringConfiguration {
    * <p> The name of the log group for log publishing.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p> The specified name prefix for log streams.</p>
    * @public
    */
-  logStreamNamePrefix?: string;
+  logStreamNamePrefix?: string | undefined;
 }
 
 /**
@@ -236,7 +236,7 @@ export interface ParametricS3MonitoringConfiguration {
    * <p>Amazon S3 destination URI for log publishing.</p>
    * @public
    */
-  logUri?: string;
+  logUri?: string | undefined;
 }
 
 /**
@@ -249,19 +249,19 @@ export interface ParametricMonitoringConfiguration {
    * <p> Monitoring configurations for the persistent application UI.</p>
    * @public
    */
-  persistentAppUI?: string;
+  persistentAppUI?: string | undefined;
 
   /**
    * <p> Monitoring configurations for CloudWatch.</p>
    * @public
    */
-  cloudWatchMonitoringConfiguration?: ParametricCloudWatchMonitoringConfiguration;
+  cloudWatchMonitoringConfiguration?: ParametricCloudWatchMonitoringConfiguration | undefined;
 
   /**
    * <p> Amazon S3 configuration for monitoring log publishing.</p>
    * @public
    */
-  s3MonitoringConfiguration?: ParametricS3MonitoringConfiguration;
+  s3MonitoringConfiguration?: ParametricS3MonitoringConfiguration | undefined;
 }
 
 /**
@@ -273,13 +273,13 @@ export interface SparkSqlJobDriver {
    * <p>The SQL file to be executed.</p>
    * @public
    */
-  entryPoint?: string;
+  entryPoint?: string | undefined;
 
   /**
    * <p>The Spark parameters to be included in the Spark SQL command.</p>
    * @public
    */
-  sparkSqlParameters?: string;
+  sparkSqlParameters?: string | undefined;
 }
 
 /**
@@ -297,13 +297,13 @@ export interface SparkSubmitJobDriver {
    * <p>The arguments for job application.</p>
    * @public
    */
-  entryPointArguments?: string[];
+  entryPointArguments?: string[] | undefined;
 
   /**
    * <p>The Spark submit parameters that are used for job runs.</p>
    * @public
    */
-  sparkSubmitParameters?: string;
+  sparkSubmitParameters?: string | undefined;
 }
 
 /**
@@ -316,13 +316,13 @@ export interface JobDriver {
    * <p>The job driver parameters specified for spark submit.</p>
    * @public
    */
-  sparkSubmitJobDriver?: SparkSubmitJobDriver;
+  sparkSubmitJobDriver?: SparkSubmitJobDriver | undefined;
 
   /**
    * <p>The job driver for job type.</p>
    * @public
    */
-  sparkSqlJobDriver?: SparkSqlJobDriver;
+  sparkSqlJobDriver?: SparkSqlJobDriver | undefined;
 }
 
 /**
@@ -348,13 +348,13 @@ export interface TemplateParameterConfiguration {
    * <p>The type of the job template parameter. Allowed values are: ‘STRING’, ‘NUMBER’.</p>
    * @public
    */
-  type?: TemplateParameterDataType;
+  type?: TemplateParameterDataType | undefined;
 
   /**
    * <p>The default value for the job template parameter.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -365,25 +365,25 @@ export interface CreateJobTemplateResponse {
    * <p>This output display the created job template ID.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>This output displays the name of the created job template.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>This output display the ARN of the created job template.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>This output displays the date and time when the job template was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface CloudWatchMonitoringConfiguration {
    * <p>The specified name prefix for log streams.</p>
    * @public
    */
-  logStreamNamePrefix?: string;
+  logStreamNamePrefix?: string | undefined;
 }
 
 /**
@@ -479,25 +479,25 @@ export interface MonitoringConfiguration {
    * <p>Monitoring configurations for the persistent application UI. </p>
    * @public
    */
-  persistentAppUI?: PersistentAppUI;
+  persistentAppUI?: PersistentAppUI | undefined;
 
   /**
    * <p>Monitoring configurations for CloudWatch.</p>
    * @public
    */
-  cloudWatchMonitoringConfiguration?: CloudWatchMonitoringConfiguration;
+  cloudWatchMonitoringConfiguration?: CloudWatchMonitoringConfiguration | undefined;
 
   /**
    * <p>Amazon S3 configuration for monitoring log publishing.</p>
    * @public
    */
-  s3MonitoringConfiguration?: S3MonitoringConfiguration;
+  s3MonitoringConfiguration?: S3MonitoringConfiguration | undefined;
 
   /**
    * <p>Enable or disable container log rotation.</p>
    * @public
    */
-  containerLogRotationConfiguration?: ContainerLogRotationConfiguration;
+  containerLogRotationConfiguration?: ContainerLogRotationConfiguration | undefined;
 }
 
 /**
@@ -508,25 +508,25 @@ export interface CreateManagedEndpointResponse {
    * <p>The output contains the ID of the managed endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The output contains the name of the managed endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The output contains the ARN of the managed endpoint.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The output contains the ID of the virtual cluster.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 }
 
 /**
@@ -538,7 +538,7 @@ export interface SecurityConfigurationData {
    * <p>Authorization-related configuration input for the security configuration.</p>
    * @public
    */
-  authorizationConfiguration?: AuthorizationConfiguration;
+  authorizationConfiguration?: AuthorizationConfiguration | undefined;
 }
 
 /**
@@ -549,7 +549,7 @@ export interface CreateSecurityConfigurationRequest {
    * <p>The client idempotency token to use when creating the security configuration.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the security configuration.</p>
@@ -567,7 +567,7 @@ export interface CreateSecurityConfigurationRequest {
    * <p>The tags to add to the security configuration.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -578,19 +578,19 @@ export interface CreateSecurityConfigurationResponse {
    * <p>The ID of the security configuration.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the security configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -602,7 +602,7 @@ export interface EksInfo {
    * <p>The namespaces of the Amazon EKS cluster.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 }
 
 /**
@@ -678,7 +678,7 @@ export interface ContainerProvider {
    * <p>The information about the container cluster.</p>
    * @public
    */
-  info?: ContainerInfo;
+  info?: ContainerInfo | undefined;
 }
 
 /**
@@ -701,19 +701,19 @@ export interface CreateVirtualClusterRequest {
    * <p>The client token of the virtual cluster.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags assigned to the virtual cluster.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The ID of the security configuration.</p>
    * @public
    */
-  securityConfigurationId?: string;
+  securityConfigurationId?: string | undefined;
 }
 
 /**
@@ -724,19 +724,19 @@ export interface CreateVirtualClusterResponse {
    * <p>This output contains the virtual cluster ID.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>This output contains the name of the virtual cluster.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>This output contains the ARN of virtual cluster.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -778,7 +778,7 @@ export interface DeleteJobTemplateResponse {
    * <p>This output contains the ID of the job template that was deleted.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -806,13 +806,13 @@ export interface DeleteManagedEndpointResponse {
    * <p>The output displays the ID of the managed endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The output displays the ID of the endpoint's virtual cluster.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 }
 
 /**
@@ -834,7 +834,7 @@ export interface DeleteVirtualClusterResponse {
    * <p>This output contains the ID of the virtual cluster that will be deleted. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -950,13 +950,13 @@ export interface Certificate {
    * <p>The ARN of the certificate generated for managed endpoint.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The base64 encoded PEM certificate data generated for managed endpoint.</p>
    * @public
    */
-  certificateData?: string;
+  certificateData?: string | undefined;
 }
 
 /**
@@ -999,43 +999,43 @@ export interface SecurityConfiguration {
    * <p>The ID of the security configuration.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the security configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time that the job run was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the job run.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>Security configuration inputs for the request.</p>
    * @public
    */
-  securityConfigurationData?: SecurityConfigurationData;
+  securityConfigurationData?: SecurityConfigurationData | undefined;
 
   /**
    * <p>The tags to assign to the security configuration.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1046,7 +1046,7 @@ export interface DescribeSecurityConfigurationResponse {
    * <p>Details of the security configuration.</p>
    * @public
    */
-  securityConfiguration?: SecurityConfiguration;
+  securityConfiguration?: SecurityConfiguration | undefined;
 }
 
 /**
@@ -1090,49 +1090,49 @@ export interface VirtualCluster {
    * <p>The ID of the virtual cluster.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the virtual cluster.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the virtual cluster.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The state of the virtual cluster.</p>
    * @public
    */
-  state?: VirtualClusterState;
+  state?: VirtualClusterState | undefined;
 
   /**
    * <p>The container provider of the virtual cluster.</p>
    * @public
    */
-  containerProvider?: ContainerProvider;
+  containerProvider?: ContainerProvider | undefined;
 
   /**
    * <p>The date and time when the virtual cluster is created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The assigned tags of the virtual cluster.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The ID of the security configuration.</p>
    * @public
    */
-  securityConfigurationId?: string;
+  securityConfigurationId?: string | undefined;
 }
 
 /**
@@ -1143,7 +1143,7 @@ export interface DescribeVirtualClusterResponse {
    * <p>This output displays information about the specified virtual cluster.</p>
    * @public
    */
-  virtualCluster?: VirtualCluster;
+  virtualCluster?: VirtualCluster | undefined;
 }
 
 /**
@@ -1180,19 +1180,19 @@ export interface GetManagedEndpointSessionCredentialsRequest {
    *          minutes and the maximum is 12 hours.</p>
    * @public
    */
-  durationInSeconds?: number;
+  durationInSeconds?: number | undefined;
 
   /**
    * <p>String identifier used to separate sections of the execution logs uploaded to S3.</p>
    * @public
    */
-  logContext?: string;
+  logContext?: string | undefined;
 
   /**
    * <p>The client idempotency token of the job run request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1241,19 +1241,19 @@ export interface GetManagedEndpointSessionCredentialsResponse {
    * <p>The identifier of the session token returned.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The structure containing the session credentials.</p>
    * @public
    */
-  credentials?: Credentials;
+  credentials?: Credentials | undefined;
 
   /**
    * <p>The date and time when the session token will expire.</p>
    * @public
    */
-  expiresAt?: Date;
+  expiresAt?: Date | undefined;
 }
 
 /**
@@ -1290,37 +1290,37 @@ export interface ListJobRunsRequest {
    * <p>The date and time before which the job runs were submitted.</p>
    * @public
    */
-  createdBefore?: Date;
+  createdBefore?: Date | undefined;
 
   /**
    * <p>The date and time after which the job runs were submitted.</p>
    * @public
    */
-  createdAfter?: Date;
+  createdAfter?: Date | undefined;
 
   /**
    * <p>The name of the job run.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The states of the job run.</p>
    * @public
    */
-  states?: JobRunState[];
+  states?: JobRunState[] | undefined;
 
   /**
    * <p>The maximum number of job runs that can be listed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of job runs to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1331,25 +1331,25 @@ export interface ListJobTemplatesRequest {
    * <p>The date and time after which the job templates were created.</p>
    * @public
    */
-  createdAfter?: Date;
+  createdAfter?: Date | undefined;
 
   /**
    * <p> The date and time before which the job templates were created.</p>
    * @public
    */
-  createdBefore?: Date;
+  createdBefore?: Date | undefined;
 
   /**
    * <p> The maximum number of job templates that can be listed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p> The token for the next set of job templates to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1366,37 +1366,37 @@ export interface ListManagedEndpointsRequest {
    * <p>The date and time before which the endpoints are created.</p>
    * @public
    */
-  createdBefore?: Date;
+  createdBefore?: Date | undefined;
 
   /**
    * <p> The date and time after which the endpoints are created.</p>
    * @public
    */
-  createdAfter?: Date;
+  createdAfter?: Date | undefined;
 
   /**
    * <p>The types of the managed endpoints.</p>
    * @public
    */
-  types?: string[];
+  types?: string[] | undefined;
 
   /**
    * <p>The states of the managed endpoints.</p>
    * @public
    */
-  states?: EndpointState[];
+  states?: EndpointState[] | undefined;
 
   /**
    * <p>The maximum number of managed endpoints that can be listed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p> The token for the next set of managed endpoints to return. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1407,25 +1407,25 @@ export interface ListSecurityConfigurationsRequest {
    * <p>The date and time after which the security configuration was created.</p>
    * @public
    */
-  createdAfter?: Date;
+  createdAfter?: Date | undefined;
 
   /**
    * <p>The date and time before which the security configuration was created.</p>
    * @public
    */
-  createdBefore?: Date;
+  createdBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of security configurations the operation can list.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of security configurations to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1436,13 +1436,13 @@ export interface ListSecurityConfigurationsResponse {
    * <p>The list of returned security configurations.</p>
    * @public
    */
-  securityConfigurations?: SecurityConfiguration[];
+  securityConfigurations?: SecurityConfiguration[] | undefined;
 
   /**
    * <p>The token for the next set of security configurations to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1464,7 +1464,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags assigned to resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1475,44 +1475,44 @@ export interface ListVirtualClustersRequest {
    * <p>The container provider ID of the virtual cluster.</p>
    * @public
    */
-  containerProviderId?: string;
+  containerProviderId?: string | undefined;
 
   /**
    * <p>The container provider type of the virtual cluster. Amazon EKS is the only
    *          supported type as of now.</p>
    * @public
    */
-  containerProviderType?: ContainerProviderType;
+  containerProviderType?: ContainerProviderType | undefined;
 
   /**
    * <p>The date and time after which the virtual clusters are created.</p>
    * @public
    */
-  createdAfter?: Date;
+  createdAfter?: Date | undefined;
 
   /**
    * <p>The date and time before which the virtual clusters are created.</p>
    * @public
    */
-  createdBefore?: Date;
+  createdBefore?: Date | undefined;
 
   /**
    * <p>The states of the requested virtual clusters.</p>
    * @public
    */
-  states?: VirtualClusterState[];
+  states?: VirtualClusterState[] | undefined;
 
   /**
    * <p>The maximum number of virtual clusters that can be listed.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of virtual clusters to return. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optional Boolean that specifies whether the operation should return the
@@ -1520,7 +1520,7 @@ export interface ListVirtualClustersRequest {
    *       the operation returns all applicable virtual clusters.</p>
    * @public
    */
-  eksAccessEntryIntegrated?: boolean;
+  eksAccessEntryIntegrated?: boolean | undefined;
 }
 
 /**
@@ -1531,13 +1531,13 @@ export interface ListVirtualClustersResponse {
    * <p>This output lists the specified virtual clusters.</p>
    * @public
    */
-  virtualClusters?: VirtualCluster[];
+  virtualClusters?: VirtualCluster[] | undefined;
 
   /**
    * <p>This output displays the token for the next set of virtual clusters.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1548,25 +1548,25 @@ export interface StartJobRunResponse {
    * <p>This output displays the started job run ID.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>This output displays the name of the started job run.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>This output lists the ARN of job run.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>This output displays the virtual cluster ID for which the job run was submitted.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 }
 
 /**
@@ -1632,13 +1632,13 @@ export interface Configuration {
    * <p>A set of properties specified within a configuration classification.</p>
    * @public
    */
-  properties?: Record<string, string>;
+  properties?: Record<string, string> | undefined;
 
   /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
    * @public
    */
-  configurations?: Configuration[];
+  configurations?: Configuration[] | undefined;
 }
 
 /**
@@ -1650,13 +1650,13 @@ export interface ConfigurationOverrides {
    * <p>The configurations for the application running by the job run. </p>
    * @public
    */
-  applicationConfiguration?: Configuration[];
+  applicationConfiguration?: Configuration[] | undefined;
 
   /**
    * <p>The configurations for monitoring.</p>
    * @public
    */
-  monitoringConfiguration?: MonitoringConfiguration;
+  monitoringConfiguration?: MonitoringConfiguration | undefined;
 }
 
 /**
@@ -1669,13 +1669,13 @@ export interface ParametricConfigurationOverrides {
    * <p> The configurations for the application running by the job run.</p>
    * @public
    */
-  applicationConfiguration?: Configuration[];
+  applicationConfiguration?: Configuration[] | undefined;
 
   /**
    * <p> The configurations for monitoring. </p>
    * @public
    */
-  monitoringConfiguration?: ParametricMonitoringConfiguration;
+  monitoringConfiguration?: ParametricMonitoringConfiguration | undefined;
 }
 
 /**
@@ -1719,25 +1719,25 @@ export interface CreateManagedEndpointRequest {
    *          deprecation and will be removed in future releases.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The configuration settings that will be used to override existing configurations.</p>
    * @public
    */
-  configurationOverrides?: ConfigurationOverrides;
+  configurationOverrides?: ConfigurationOverrides | undefined;
 
   /**
    * <p>The client idempotency token for this create call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags of the managed endpoint. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1749,49 +1749,49 @@ export interface Endpoint {
    * <p>The ID of the endpoint.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ARN of the endpoint.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the endpoint's virtual cluster.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 
   /**
    * <p>The type of the endpoint.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The state of the endpoint.</p>
    * @public
    */
-  state?: EndpointState;
+  state?: EndpointState | undefined;
 
   /**
    * <p>The EMR release version to be used for the endpoint.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>The execution role ARN of the endpoint.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * @deprecated
@@ -1800,63 +1800,63 @@ export interface Endpoint {
    *          in future.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The certificate generated by emr control plane on customer behalf to secure the managed
    *          endpoint.</p>
    * @public
    */
-  certificateAuthority?: Certificate;
+  certificateAuthority?: Certificate | undefined;
 
   /**
    * <p>The configuration settings that are used to override existing configurations for
    *          endpoints.</p>
    * @public
    */
-  configurationOverrides?: ConfigurationOverrides;
+  configurationOverrides?: ConfigurationOverrides | undefined;
 
   /**
    * <p>The server URL of the endpoint.</p>
    * @public
    */
-  serverUrl?: string;
+  serverUrl?: string | undefined;
 
   /**
    * <p>The date and time when the endpoint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The security group configuration of the endpoint. </p>
    * @public
    */
-  securityGroup?: string;
+  securityGroup?: string | undefined;
 
   /**
    * <p>The subnet IDs of the endpoint. </p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p> Additional details of the endpoint state. </p>
    * @public
    */
-  stateDetails?: string;
+  stateDetails?: string | undefined;
 
   /**
    * <p> The reasons why the endpoint has failed. </p>
    * @public
    */
-  failureReason?: FailureReason;
+  failureReason?: FailureReason | undefined;
 
   /**
    * <p>The tags of the endpoint. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1869,109 +1869,109 @@ export interface JobRun {
    * <p>The ID of the job run.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the job run.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the job run's virtual cluster.</p>
    * @public
    */
-  virtualClusterId?: string;
+  virtualClusterId?: string | undefined;
 
   /**
    * <p>The ARN of job run.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The state of the job run. </p>
    * @public
    */
-  state?: JobRunState;
+  state?: JobRunState | undefined;
 
   /**
    * <p>The client token used to start a job run.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The execution role ARN of the job run.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>The release version of Amazon EMR.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>The configuration settings that are used to override default configuration.</p>
    * @public
    */
-  configurationOverrides?: ConfigurationOverrides;
+  configurationOverrides?: ConfigurationOverrides | undefined;
 
   /**
    * <p>Parameters of job driver for the job run.</p>
    * @public
    */
-  jobDriver?: JobDriver;
+  jobDriver?: JobDriver | undefined;
 
   /**
    * <p>The date and time when the job run was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the job run.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The date and time when the job run has finished.</p>
    * @public
    */
-  finishedAt?: Date;
+  finishedAt?: Date | undefined;
 
   /**
    * <p>Additional details of the job run state.</p>
    * @public
    */
-  stateDetails?: string;
+  stateDetails?: string | undefined;
 
   /**
    * <p>The reasons why the job run has failed.</p>
    * @public
    */
-  failureReason?: FailureReason;
+  failureReason?: FailureReason | undefined;
 
   /**
    * <p>The assigned tags of the job run.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration of the retry policy that the job runs on.</p>
    * @public
    */
-  retryPolicyConfiguration?: RetryPolicyConfiguration;
+  retryPolicyConfiguration?: RetryPolicyConfiguration | undefined;
 
   /**
    * <p>The current status of the retry policy executed on the job.</p>
    * @public
    */
-  retryPolicyExecution?: RetryPolicyExecution;
+  retryPolicyExecution?: RetryPolicyExecution | undefined;
 }
 
 /**
@@ -1996,7 +1996,7 @@ export interface JobTemplateData {
    * <p> The configuration settings that are used to override defaults configuration.</p>
    * @public
    */
-  configurationOverrides?: ParametricConfigurationOverrides;
+  configurationOverrides?: ParametricConfigurationOverrides | undefined;
 
   /**
    * <p>Specify the driver that the job runs on. Exactly one of the two available job drivers is
@@ -2009,13 +2009,13 @@ export interface JobTemplateData {
    * <p>The configuration of parameters existing in the job template.</p>
    * @public
    */
-  parameterConfiguration?: Record<string, TemplateParameterConfiguration>;
+  parameterConfiguration?: Record<string, TemplateParameterConfiguration> | undefined;
 
   /**
    * <p>The tags assigned to jobs started using the job template.</p>
    * @public
    */
-  jobTags?: Record<string, string>;
+  jobTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2026,7 +2026,7 @@ export interface StartJobRunRequest {
    * <p>The name of the job run.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The virtual cluster ID for which the job run request is submitted.</p>
@@ -2038,55 +2038,55 @@ export interface StartJobRunRequest {
    * <p>The client idempotency token of the job run request. </p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The execution role ARN for the job run.</p>
    * @public
    */
-  executionRoleArn?: string;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon EMR release version to use for the job run.</p>
    * @public
    */
-  releaseLabel?: string;
+  releaseLabel?: string | undefined;
 
   /**
    * <p>The job driver for the job run.</p>
    * @public
    */
-  jobDriver?: JobDriver;
+  jobDriver?: JobDriver | undefined;
 
   /**
    * <p>The configuration overrides for the job run.</p>
    * @public
    */
-  configurationOverrides?: ConfigurationOverrides;
+  configurationOverrides?: ConfigurationOverrides | undefined;
 
   /**
    * <p>The tags assigned to job runs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The job template ID to be used to start the job run.</p>
    * @public
    */
-  jobTemplateId?: string;
+  jobTemplateId?: string | undefined;
 
   /**
    * <p>The values of job template parameters to start a job run.</p>
    * @public
    */
-  jobTemplateParameters?: Record<string, string>;
+  jobTemplateParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The retry policy configuration for the job run.</p>
    * @public
    */
-  retryPolicyConfiguration?: RetryPolicyConfiguration;
+  retryPolicyConfiguration?: RetryPolicyConfiguration | undefined;
 }
 
 /**
@@ -2103,7 +2103,7 @@ export interface CreateJobTemplateRequest {
    * <p>The client token of the job template.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The job template data which holds values of StartJobRun API request.</p>
@@ -2115,13 +2115,13 @@ export interface CreateJobTemplateRequest {
    * <p>The tags that are associated with the job template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The KMS key ARN used to encrypt the job template.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -2132,7 +2132,7 @@ export interface DescribeJobRunResponse {
    * <p>The output displays information about a job run.</p>
    * @public
    */
-  jobRun?: JobRun;
+  jobRun?: JobRun | undefined;
 }
 
 /**
@@ -2143,7 +2143,7 @@ export interface DescribeManagedEndpointResponse {
    * <p>This output displays information about a managed endpoint.</p>
    * @public
    */
-  endpoint?: Endpoint;
+  endpoint?: Endpoint | undefined;
 }
 
 /**
@@ -2158,37 +2158,37 @@ export interface JobTemplate {
    * <p>The name of the job template.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the job template.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The ARN of the job template.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The date and time when the job template was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The user who created the job template.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The tags assigned to the job template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The job template data which holds values of StartJobRun API request.</p>
@@ -2200,13 +2200,13 @@ export interface JobTemplate {
    * <p> The KMS key ARN used to encrypt the job template.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The error message in case the decryption of job template fails.</p>
    * @public
    */
-  decryptionError?: string;
+  decryptionError?: string | undefined;
 }
 
 /**
@@ -2217,7 +2217,7 @@ export interface DescribeJobTemplateResponse {
    * <p>This output displays information about the specified job template.</p>
    * @public
    */
-  jobTemplate?: JobTemplate;
+  jobTemplate?: JobTemplate | undefined;
 }
 
 /**
@@ -2228,13 +2228,13 @@ export interface ListJobRunsResponse {
    * <p>This output lists information about the specified job runs.</p>
    * @public
    */
-  jobRuns?: JobRun[];
+  jobRuns?: JobRun[] | undefined;
 
   /**
    * <p>This output displays the token for the next set of job runs.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2245,13 +2245,13 @@ export interface ListManagedEndpointsResponse {
    * <p>The managed endpoints to be listed.</p>
    * @public
    */
-  endpoints?: Endpoint[];
+  endpoints?: Endpoint[] | undefined;
 
   /**
    * <p> The token for the next set of endpoints to return. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2262,13 +2262,13 @@ export interface ListJobTemplatesResponse {
    * <p>This output lists information about the specified job templates.</p>
    * @public
    */
-  templates?: JobTemplate[];
+  templates?: JobTemplate[] | undefined;
 
   /**
    * <p> This output displays the token for the next set of job templates.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**

@@ -119,25 +119,25 @@ export interface CreateSlackChannelConfigurationRequest {
    * <p>The name of the Slack channel that you configure for the Amazon Web Services Support App.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is created or reopened.</p>
    * @public
    */
-  notifyOnCreateOrReopenCase?: boolean;
+  notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case has a new correspondence.</p>
    * @public
    */
-  notifyOnAddCorrespondenceToCase?: boolean;
+  notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is resolved.</p>
    * @public
    */
-  notifyOnResolveCase?: boolean;
+  notifyOnResolveCase?: boolean | undefined;
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
@@ -347,7 +347,7 @@ export interface GetAccountAliasResult {
    * <p>An alias or short name for an Amazon Web Services account.</p>
    * @public
    */
-  accountAlias?: string;
+  accountAlias?: string | undefined;
 }
 
 /**
@@ -360,7 +360,7 @@ export interface ListSlackChannelConfigurationsRequest {
    * When the API returns the last set of results, the response doesn't include a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -386,31 +386,31 @@ export interface SlackChannelConfiguration {
    *       Amazon Web Services account.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is created or reopened.</p>
    * @public
    */
-  notifyOnCreateOrReopenCase?: boolean;
+  notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case has a new correspondence.</p>
    * @public
    */
-  notifyOnAddCorrespondenceToCase?: boolean;
+  notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is resolved.</p>
    * @public
    */
-  notifyOnResolveCase?: boolean;
+  notifyOnResolveCase?: boolean | undefined;
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
    * @public
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel;
+  notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -418,7 +418,7 @@ export interface SlackChannelConfiguration {
    * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    * @public
    */
-  channelRoleArn?: string;
+  channelRoleArn?: string | undefined;
 }
 
 /**
@@ -430,7 +430,7 @@ export interface ListSlackChannelConfigurationsResult {
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The configurations for a Slack channel.</p>
@@ -449,7 +449,7 @@ export interface ListSlackWorkspaceConfigurationsRequest {
    * When the API returns the last set of results, the response doesn't include a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -468,14 +468,14 @@ export interface SlackWorkspaceConfiguration {
    * <p>The name of the Slack workspace.</p>
    * @public
    */
-  teamName?: string;
+  teamName?: string | undefined;
 
   /**
    * <p>Whether to allow member accounts to authorize Slack workspaces. Member accounts must be
    *       part of an organization in Organizations.</p>
    * @public
    */
-  allowOrganizationMemberAccount?: boolean;
+  allowOrganizationMemberAccount?: boolean | undefined;
 }
 
 /**
@@ -487,13 +487,13 @@ export interface ListSlackWorkspaceConfigurationsResult {
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The configurations for a Slack workspace.</p>
    * @public
    */
-  slackWorkspaceConfigurations?: SlackWorkspaceConfiguration[];
+  slackWorkspaceConfigurations?: SlackWorkspaceConfiguration[] | undefined;
 }
 
 /**
@@ -533,20 +533,20 @@ export interface RegisterSlackWorkspaceForOrganizationResult {
    * <code>T012ABCDEFG</code>.</p>
    * @public
    */
-  teamId?: string;
+  teamId?: string | undefined;
 
   /**
    * <p>The name of the Slack workspace.</p>
    * @public
    */
-  teamName?: string;
+  teamName?: string | undefined;
 
   /**
    * <p>Whether the Amazon Web Services account is a management or member account that's part of an organization
    *       in Organizations.</p>
    * @public
    */
-  accountType?: AccountType;
+  accountType?: AccountType | undefined;
 }
 
 /**
@@ -570,25 +570,25 @@ export interface UpdateSlackChannelConfigurationRequest {
    * <p>The Slack channel name that you want to update.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is created or reopened.</p>
    * @public
    */
-  notifyOnCreateOrReopenCase?: boolean;
+  notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case has a new correspondence.</p>
    * @public
    */
-  notifyOnAddCorrespondenceToCase?: boolean;
+  notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is resolved.</p>
    * @public
    */
-  notifyOnResolveCase?: boolean;
+  notifyOnResolveCase?: boolean | undefined;
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
@@ -636,7 +636,7 @@ export interface UpdateSlackChannelConfigurationRequest {
    *          </note>
    * @public
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel;
+  notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -644,7 +644,7 @@ export interface UpdateSlackChannelConfigurationRequest {
    * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    * @public
    */
-  channelRoleArn?: string;
+  channelRoleArn?: string | undefined;
 }
 
 /**
@@ -656,43 +656,43 @@ export interface UpdateSlackChannelConfigurationResult {
    * <code>T012ABCDEFG</code>.</p>
    * @public
    */
-  teamId?: string;
+  teamId?: string | undefined;
 
   /**
    * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
    * @public
    */
-  channelId?: string;
+  channelId?: string | undefined;
 
   /**
    * <p>The name of the Slack channel that you configure for the Amazon Web Services Support App.</p>
    * @public
    */
-  channelName?: string;
+  channelName?: string | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is created or reopened.</p>
    * @public
    */
-  notifyOnCreateOrReopenCase?: boolean;
+  notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case has a new correspondence.</p>
    * @public
    */
-  notifyOnAddCorrespondenceToCase?: boolean;
+  notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
    * <p>Whether you want to get notified when a support case is resolved.</p>
    * @public
    */
-  notifyOnResolveCase?: boolean;
+  notifyOnResolveCase?: boolean | undefined;
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
    * @public
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel;
+  notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -700,5 +700,5 @@ export interface UpdateSlackChannelConfigurationResult {
    * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    * @public
    */
-  channelRoleArn?: string;
+  channelRoleArn?: string | undefined;
 }

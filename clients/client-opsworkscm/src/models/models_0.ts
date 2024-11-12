@@ -28,7 +28,7 @@ export interface AccountAttribute {
    *          </ul>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -36,7 +36,7 @@ export interface AccountAttribute {
    *     </p>
    * @public
    */
-  Maximum?: number;
+  Maximum?: number | undefined;
 
   /**
    * <p>
@@ -44,7 +44,7 @@ export interface AccountAttribute {
    *     </p>
    * @public
    */
-  Used?: number;
+  Used?: number | undefined;
 }
 
 /**
@@ -58,14 +58,14 @@ export interface EngineAttribute {
    *     </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the engine attribute.
    *     </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface AssociateNodeResponse {
    *     </p>
    * @public
    */
-  NodeAssociationStatusToken?: string;
+  NodeAssociationStatusToken?: string | undefined;
 }
 
 /**
@@ -147,7 +147,7 @@ export class InvalidStateException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -175,7 +175,7 @@ export class ResourceNotFoundException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -203,7 +203,7 @@ export class ValidationException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -259,7 +259,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  BackupArn?: string;
+  BackupArn?: string | undefined;
 
   /**
    * <p>
@@ -267,7 +267,7 @@ export interface Backup {
    *          </p>
    * @public
    */
-  BackupId?: string;
+  BackupId?: string | undefined;
 
   /**
    * <p>
@@ -275,7 +275,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  BackupType?: BackupType;
+  BackupType?: BackupType | undefined;
 
   /**
    * <p>
@@ -283,7 +283,7 @@ export interface Backup {
    *          </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -291,7 +291,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -299,7 +299,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>
@@ -307,7 +307,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  EngineModel?: string;
+  EngineModel?: string | undefined;
 
   /**
    * <p>
@@ -315,7 +315,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>
@@ -324,7 +324,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  InstanceProfileArn?: string;
+  InstanceProfileArn?: string | undefined;
 
   /**
    * <p>
@@ -332,7 +332,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>
@@ -340,7 +340,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  KeyPair?: string;
+  KeyPair?: string | undefined;
 
   /**
    * <p>
@@ -348,7 +348,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>
@@ -356,7 +356,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * @deprecated
@@ -366,7 +366,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  S3DataSize?: number;
+  S3DataSize?: number | undefined;
 
   /**
    * @deprecated
@@ -376,7 +376,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  S3DataUrl?: string;
+  S3DataUrl?: string | undefined;
 
   /**
    * <p>
@@ -384,7 +384,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  S3LogUrl?: string;
+  S3LogUrl?: string | undefined;
 
   /**
    * <p>
@@ -392,7 +392,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>
@@ -400,7 +400,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>
@@ -408,14 +408,14 @@ export interface Backup {
    *     </p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>The status of a backup while in progress.
    *     </p>
    * @public
    */
-  Status?: BackupStatus;
+  Status?: BackupStatus | undefined;
 
   /**
    * <p>
@@ -423,7 +423,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  StatusDescription?: string;
+  StatusDescription?: string | undefined;
 
   /**
    * <p>
@@ -431,7 +431,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>
@@ -439,7 +439,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  ToolsVersion?: string;
+  ToolsVersion?: string | undefined;
 
   /**
    * <p>
@@ -447,7 +447,7 @@ export interface Backup {
    *     </p>
    * @public
    */
-  UserArn?: string;
+  UserArn?: string | undefined;
 }
 
 /**
@@ -491,7 +491,7 @@ export interface CreateBackupRequest {
    *     </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>
@@ -516,7 +516,7 @@ export interface CreateBackupRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -527,7 +527,7 @@ export interface CreateBackupResponse {
    * <p>Backup created by request.</p>
    * @public
    */
-  Backup?: Backup;
+  Backup?: Backup | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export class LimitExceededException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -568,7 +568,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  AssociatePublicIpAddress?: boolean;
+  AssociatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom
@@ -577,7 +577,7 @@ export interface CreateServerRequest {
    *       and <code>CustomPrivateKey</code>.</p>
    * @public
    */
-  CustomDomain?: string;
+  CustomDomain?: string | undefined;
 
   /**
    * <p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a
@@ -602,14 +602,14 @@ export interface CreateServerRequest {
    *          </ul>
    * @public
    */
-  CustomCertificate?: string;
+  CustomCertificate?: string | undefined;
 
   /**
    * <p>A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase.
    *       If you specify a custom private key, you must also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</p>
    * @public
    */
-  CustomPrivateKey?: string;
+  CustomPrivateKey?: string | undefined;
 
   /**
    * <p>
@@ -617,7 +617,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  DisableAutomatedBackup?: boolean;
+  DisableAutomatedBackup?: boolean | undefined;
 
   /**
    * <p>
@@ -633,7 +633,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  EngineModel?: string;
+  EngineModel?: string | undefined;
 
   /**
    * <p>
@@ -642,7 +642,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Optional engine attributes on a specified server.
@@ -691,7 +691,7 @@ export interface CreateServerRequest {
    *          </ul>
    * @public
    */
-  EngineAttributes?: EngineAttribute[];
+  EngineAttributes?: EngineAttribute[] | undefined;
 
   /**
    * <p>
@@ -700,7 +700,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  BackupRetentionCount?: number;
+  BackupRetentionCount?: number | undefined;
 
   /**
    * <p>
@@ -738,7 +738,7 @@ export interface CreateServerRequest {
    *       </p>
    * @public
    */
-  KeyPair?: string;
+  KeyPair?: string | undefined;
 
   /**
    * <p>
@@ -753,7 +753,7 @@ export interface CreateServerRequest {
    *     </p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>
@@ -780,7 +780,7 @@ export interface CreateServerRequest {
    *             <code>Mon:08:00</code>, which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>
@@ -793,7 +793,7 @@ export interface CreateServerRequest {
    *     </p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>
@@ -820,7 +820,7 @@ export interface CreateServerRequest {
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>
@@ -845,7 +845,7 @@ export interface CreateServerRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -853,7 +853,7 @@ export interface CreateServerRequest {
    *     </p>
    * @public
    */
-  BackupId?: string;
+  BackupId?: string | undefined;
 }
 
 /**
@@ -906,49 +906,49 @@ export interface Server {
    *     </p>
    * @public
    */
-  AssociatePublicIpAddress?: boolean;
+  AssociatePublicIpAddress?: boolean | undefined;
 
   /**
    * <p>The number of automated backups to keep.
    *     </p>
    * @public
    */
-  BackupRetentionCount?: number;
+  BackupRetentionCount?: number | undefined;
 
   /**
    * <p>The name of the server.
    *     </p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The ARN of the CloudFormation stack that was used to create the server.
    *     </p>
    * @public
    */
-  CloudFormationStackArn?: string;
+  CloudFormationStackArn?: string | undefined;
 
   /**
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>.
    *       You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.</p>
    * @public
    */
-  CustomDomain?: string;
+  CustomDomain?: string | undefined;
 
   /**
    * <p>Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
    *     </p>
    * @public
    */
-  DisableAutomatedBackup?: boolean;
+  DisableAutomatedBackup?: boolean | undefined;
 
   /**
    * <p>
@@ -957,21 +957,21 @@ export interface Server {
    *     </p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The engine type of the server. Valid values in this release include <code>ChefAutomate</code> and <code>Puppet</code>.
    *     </p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *     </p>
    * @public
    */
-  EngineModel?: string;
+  EngineModel?: string | undefined;
 
   /**
    * <p>The response of a createServer() request returns the master
@@ -1015,7 +1015,7 @@ export interface Server {
    *          </ul>
    * @public
    */
-  EngineAttributes?: EngineAttribute[];
+  EngineAttributes?: EngineAttribute[] | undefined;
 
   /**
    * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is
@@ -1023,14 +1023,14 @@ export interface Server {
    *     </p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The instance profile ARN of the server.
    *     </p>
    * @public
    */
-  InstanceProfileArn?: string;
+  InstanceProfileArn?: string | undefined;
 
   /**
    * <p>
@@ -1038,35 +1038,35 @@ export interface Server {
    *     </p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The key pair associated with the server.
    *     </p>
    * @public
    */
-  KeyPair?: string;
+  KeyPair?: string | undefined;
 
   /**
    * <p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.
    *     </p>
    * @public
    */
-  MaintenanceStatus?: MaintenanceStatus;
+  MaintenanceStatus?: MaintenanceStatus | undefined;
 
   /**
    * <p>The preferred maintenance period specified for the server.
    *     </p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The preferred backup period specified for the server.
    *     </p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>
@@ -1075,14 +1075,14 @@ export interface Server {
    *     </p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The service role ARN used to create the server.
    *     </p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>
@@ -1091,7 +1091,7 @@ export interface Server {
    *     </p>
    * @public
    */
-  Status?: ServerStatus;
+  Status?: ServerStatus | undefined;
 
   /**
    * <p>
@@ -1100,7 +1100,7 @@ export interface Server {
    *     </p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>
@@ -1108,14 +1108,14 @@ export interface Server {
    *     </p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The ARN of the server.
    *     </p>
    * @public
    */
-  ServerArn?: string;
+  ServerArn?: string | undefined;
 }
 
 /**
@@ -1127,7 +1127,7 @@ export interface CreateServerResponse {
    *     </p>
    * @public
    */
-  Server?: Server;
+  Server?: Server | undefined;
 }
 
 /**
@@ -1143,7 +1143,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1207,7 +1207,7 @@ export interface DescribeAccountAttributesResponse {
    *     </p>
    * @public
    */
-  Attributes?: AccountAttribute[];
+  Attributes?: AccountAttribute[] | undefined;
 }
 
 /**
@@ -1219,26 +1219,26 @@ export interface DescribeBackupsRequest {
    *     </p>
    * @public
    */
-  BackupId?: string;
+  BackupId?: string | undefined;
 
   /**
    * <p>Returns backups for the server with the specified ServerName.
    *     </p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1250,13 +1250,13 @@ export interface DescribeBackupsResponse {
    *     </p>
    * @public
    */
-  Backups?: Backup[];
+  Backups?: Backup[] | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1272,7 +1272,7 @@ export class InvalidNextTokenException extends __BaseException {
    *     </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1308,7 +1308,7 @@ export interface DescribeEventsRequest {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>To receive a paginated response, use this parameter to specify the maximum number
@@ -1318,7 +1318,7 @@ export interface DescribeEventsRequest {
    *     </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1332,26 +1332,26 @@ export interface ServerEvent {
    *     </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The name of the server on or for which the event occurred.
    *     </p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>A human-readable informational or status message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon S3 URL of the event's log file.</p>
    * @public
    */
-  LogUrl?: string;
+  LogUrl?: string | undefined;
 }
 
 /**
@@ -1363,7 +1363,7 @@ export interface DescribeEventsResponse {
    *     </p>
    * @public
    */
-  ServerEvents?: ServerEvent[];
+  ServerEvents?: ServerEvent[] | undefined;
 
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
@@ -1376,7 +1376,7 @@ export interface DescribeEventsResponse {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1442,7 +1442,7 @@ export interface DescribeNodeAssociationStatusResponse {
    *          </ul>
    * @public
    */
-  NodeAssociationStatus?: NodeAssociationStatus;
+  NodeAssociationStatus?: NodeAssociationStatus | undefined;
 
   /**
    * <p>Attributes specific to the node association.
@@ -1450,7 +1450,7 @@ export interface DescribeNodeAssociationStatusResponse {
    *     </p>
    * @public
    */
-  EngineAttributes?: EngineAttribute[];
+  EngineAttributes?: EngineAttribute[] | undefined;
 }
 
 /**
@@ -1461,21 +1461,21 @@ export interface DescribeServersRequest {
    * <p>Describes the server with the specified ServerName.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1507,14 +1507,14 @@ export interface DescribeServersResponse {
    *          </ul>
    * @public
    */
-  Servers?: Server[];
+  Servers?: Server[] | undefined;
 
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1552,7 +1552,7 @@ export interface DisassociateNodeRequest {
    *          </ul>
    * @public
    */
-  EngineAttributes?: EngineAttribute[];
+  EngineAttributes?: EngineAttribute[] | undefined;
 }
 
 /**
@@ -1566,7 +1566,7 @@ export interface DisassociateNodeResponse {
    *     </p>
    * @public
    */
-  NodeAssociationStatusToken?: string;
+  NodeAssociationStatusToken?: string | undefined;
 }
 
 /**
@@ -1615,7 +1615,7 @@ export interface ExportServerEngineAttributeRequest {
    *          </ul>
    * @public
    */
-  InputAttributes?: EngineAttribute[];
+  InputAttributes?: EngineAttribute[] | undefined;
 }
 
 /**
@@ -1626,13 +1626,13 @@ export interface ExportServerEngineAttributeResponse {
    * <p>The requested engine attribute pair with attribute name and value.</p>
    * @public
    */
-  EngineAttribute?: EngineAttribute;
+  EngineAttribute?: EngineAttribute | undefined;
 
   /**
    * <p>The server name used in the request.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 }
 
 /**
@@ -1656,7 +1656,7 @@ export interface ListTagsForResourceRequest {
    *         your previous results causes an <code>InvalidNextTokenException</code> to occur.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>To receive a paginated response, use this parameter to specify the maximum number
@@ -1665,7 +1665,7 @@ export interface ListTagsForResourceRequest {
    *         request parameter to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1676,13 +1676,13 @@ export interface ListTagsForResourceResponse {
    * <p>Tags that have been applied to the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1710,7 +1710,7 @@ export interface RestoreServerRequest {
    *     </p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p> The name of the key pair to set on the new EC2 instance. This can be helpful
@@ -1718,7 +1718,7 @@ export interface RestoreServerRequest {
    *     </p>
    * @public
    */
-  KeyPair?: string;
+  KeyPair?: string | undefined;
 }
 
 /**
@@ -1730,7 +1730,7 @@ export interface RestoreServerResponse {
    *     </p>
    * @public
    */
-  Server?: Server;
+  Server?: Server | undefined;
 }
 
 /**
@@ -1760,7 +1760,7 @@ export interface StartMaintenanceRequest {
    *          </ul>
    * @public
    */
-  EngineAttributes?: EngineAttribute[];
+  EngineAttributes?: EngineAttribute[] | undefined;
 }
 
 /**
@@ -1772,7 +1772,7 @@ export interface StartMaintenanceResponse {
    *     </p>
    * @public
    */
-  Server?: Server;
+  Server?: Server | undefined;
 }
 
 /**
@@ -1849,14 +1849,14 @@ export interface UpdateServerRequest {
    *     </p>
    * @public
    */
-  DisableAutomatedBackup?: boolean;
+  DisableAutomatedBackup?: boolean | undefined;
 
   /**
    * <p>Sets the number of automated backups that you want to keep.
    *       </p>
    * @public
    */
-  BackupRetentionCount?: number;
+  BackupRetentionCount?: number | undefined;
 
   /**
    * <p>The name of the server to update.
@@ -1875,7 +1875,7 @@ export interface UpdateServerRequest {
    *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>
@@ -1887,7 +1887,7 @@ export interface UpdateServerRequest {
    *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 }
 
 /**
@@ -1899,7 +1899,7 @@ export interface UpdateServerResponse {
    *     </p>
    * @public
    */
-  Server?: Server;
+  Server?: Server | undefined;
 }
 
 /**
@@ -1925,7 +1925,7 @@ export interface UpdateServerEngineAttributesRequest {
    *     </p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -1937,7 +1937,7 @@ export interface UpdateServerEngineAttributesResponse {
    *     </p>
    * @public
    */
-  Server?: Server;
+  Server?: Server | undefined;
 }
 
 /**

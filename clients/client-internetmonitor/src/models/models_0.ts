@@ -45,7 +45,7 @@ export interface AvailabilityMeasurement {
    * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  ExperienceScore?: number;
+  ExperienceScore?: number | undefined;
 
   /**
    * <p>The impact on total traffic that a health event has, in increased latency or reduced availability. This is the
@@ -55,7 +55,7 @@ export interface AvailabilityMeasurement {
    * 			Guide.</p>
    * @public
    */
-  PercentOfTotalTrafficImpacted?: number;
+  PercentOfTotalTrafficImpacted?: number | undefined;
 
   /**
    * <p>The percentage of impact caused by a health event for client location traffic globally.</p>
@@ -63,7 +63,7 @@ export interface AvailabilityMeasurement {
    * 			Guide.</p>
    * @public
    */
-  PercentOfClientLocationImpacted?: number;
+  PercentOfClientLocationImpacted?: number | undefined;
 }
 
 /**
@@ -114,7 +114,7 @@ export interface ClientLocation {
    * 			(including the United States). For United Kingdom, it maps to a country (England, Scotland, Wales) or province (Northern Ireland).</p>
    * @public
    */
-  Subdivision?: string;
+  Subdivision?: string | undefined;
 
   /**
    * <p>The metro area where the health event is located.</p>
@@ -123,7 +123,7 @@ export interface ClientLocation {
    * 			authority, council area, and so on.</p>
    * @public
    */
-  Metro?: string;
+  Metro?: string | undefined;
 
   /**
    * <p>The name of the city where the internet event is located.</p>
@@ -196,13 +196,13 @@ export interface LocalHealthEventsConfig {
    * 		or <code>DISABLED</code>.</p>
    * @public
    */
-  Status?: LocalHealthEventsConfigStatus;
+  Status?: LocalHealthEventsConfigStatus | undefined;
 
   /**
    * <p>The health event threshold percentage set for a local health score.</p>
    * @public
    */
-  HealthScoreThreshold?: number;
+  HealthScoreThreshold?: number | undefined;
 
   /**
    * <p>The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a
@@ -210,7 +210,7 @@ export interface LocalHealthEventsConfig {
    *          <p>If you don't set a minimum traffic impact threshold, the default value is 0.1%.</p>
    * @public
    */
-  MinTrafficImpact?: number;
+  MinTrafficImpact?: number | undefined;
 }
 
 /**
@@ -233,25 +233,25 @@ export interface HealthEventsConfig {
    * <p>The health event threshold percentage set for availability scores.</p>
    * @public
    */
-  AvailabilityScoreThreshold?: number;
+  AvailabilityScoreThreshold?: number | undefined;
 
   /**
    * <p>The health event threshold percentage set for performance scores.</p>
    * @public
    */
-  PerformanceScoreThreshold?: number;
+  PerformanceScoreThreshold?: number | undefined;
 
   /**
    * <p>The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.</p>
    * @public
    */
-  AvailabilityLocalHealthEventsConfig?: LocalHealthEventsConfig;
+  AvailabilityLocalHealthEventsConfig?: LocalHealthEventsConfig | undefined;
 
   /**
    * <p>The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.</p>
    * @public
    */
-  PerformanceLocalHealthEventsConfig?: LocalHealthEventsConfig;
+  PerformanceLocalHealthEventsConfig?: LocalHealthEventsConfig | undefined;
 }
 
 /**
@@ -279,19 +279,19 @@ export interface S3Config {
    * <p>The Amazon S3 bucket name.</p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket prefix.</p>
    * @public
    */
-  BucketPrefix?: string;
+  BucketPrefix?: string | undefined;
 
   /**
    * <p>The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket.</p>
    * @public
    */
-  LogDeliveryStatus?: LogDeliveryStatus;
+  LogDeliveryStatus?: LogDeliveryStatus | undefined;
 }
 
 /**
@@ -305,7 +305,7 @@ export interface InternetMeasurementsLogDelivery {
    * 			whether you choose to deliver internet measurements to S3 logs.</p>
    * @public
    */
-  S3Config?: S3Config;
+  S3Config?: S3Config | undefined;
 }
 
 /**
@@ -329,20 +329,20 @@ export interface CreateMonitorInput {
    *          </note>
    * @public
    */
-  Resources?: string[];
+  Resources?: string[] | undefined;
 
   /**
    * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for
    * 			other API requests.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The tags for a monitor. You can add a maximum of 50 tags in Internet Monitor.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your
@@ -352,13 +352,13 @@ export interface CreateMonitorInput {
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  MaxCityNetworksToMonitor?: number;
+  MaxCityNetworksToMonitor?: number | undefined;
 
   /**
    * <p>Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
    * @public
    */
-  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery | undefined;
 
   /**
    * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks
@@ -367,7 +367,7 @@ export interface CreateMonitorInput {
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  TrafficPercentageToMonitor?: number;
+  TrafficPercentageToMonitor?: number | undefined;
 
   /**
    * <p>Defines the threshold percentages and other configuration information for when Amazon CloudWatch Internet Monitor creates a health event. Internet Monitor creates a
@@ -378,7 +378,7 @@ export interface CreateMonitorInput {
    * 			Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  HealthEventsConfig?: HealthEventsConfig;
+  HealthEventsConfig?: HealthEventsConfig | undefined;
 }
 
 /**
@@ -549,13 +549,13 @@ export interface FilterParameter {
    * 			that was returned by the specific query that you used to create the repository.</p>
    * @public
    */
-  Field?: string;
+  Field?: string | undefined;
 
   /**
    * <p>The operator to use with the filter field and a value, such as <code>not_equals</code>.</p>
    * @public
    */
-  Operator?: Operator;
+  Operator?: Operator | undefined;
 
   /**
    * <p>One or more values to be used, together with the specified operator, to filter data for a query.
@@ -563,7 +563,7 @@ export interface FilterParameter {
    * 			commas.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface GetHealthEventInput {
    * 			observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  LinkedAccountId?: string;
+  LinkedAccountId?: string | undefined;
 }
 
 /**
@@ -659,19 +659,19 @@ export interface RoundTripTime {
    * <p>RTT at the 50th percentile (p50).</p>
    * @public
    */
-  P50?: number;
+  P50?: number | undefined;
 
   /**
    * <p>RTT at the 90th percentile (p90). </p>
    * @public
    */
-  P90?: number;
+  P90?: number | undefined;
 
   /**
    * <p>RTT at the 95th percentile (p95). </p>
    * @public
    */
-  P95?: number;
+  P95?: number | undefined;
 }
 
 /**
@@ -696,7 +696,7 @@ export interface PerformanceMeasurement {
    * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  ExperienceScore?: number;
+  ExperienceScore?: number | undefined;
 
   /**
    * <p>The impact on total traffic that a health event has, in increased latency or reduced availability. This is the
@@ -706,7 +706,7 @@ export interface PerformanceMeasurement {
    * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  PercentOfTotalTrafficImpacted?: number;
+  PercentOfTotalTrafficImpacted?: number | undefined;
 
   /**
    * <p>How much performance impact was caused by a health event at a client location. For performance, this is the percentage of how much latency increased
@@ -715,7 +715,7 @@ export interface PerformanceMeasurement {
    * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  PercentOfClientLocationImpacted?: number;
+  PercentOfClientLocationImpacted?: number | undefined;
 
   /**
    * <p>This is the percentage of how much round-trip time increased during the event compared to typical round-trip time for your application for traffic. </p>
@@ -723,7 +723,7 @@ export interface PerformanceMeasurement {
    * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  RoundTripTime?: RoundTripTime;
+  RoundTripTime?: RoundTripTime | undefined;
 }
 
 /**
@@ -742,7 +742,7 @@ export interface InternetHealth {
    * 			scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  Availability?: AvailabilityMeasurement;
+  Availability?: AvailabilityMeasurement | undefined;
 
   /**
    * <p>Performance in Internet Monitor represents the estimated percentage of traffic that is not seeing a performance drop. For example, a performance score of 99% for
@@ -751,7 +751,7 @@ export interface InternetHealth {
    * 			scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  Performance?: PerformanceMeasurement;
+  Performance?: PerformanceMeasurement | undefined;
 }
 
 /**
@@ -800,7 +800,7 @@ export interface ImpactedLocation {
    * 				Scotland, Wales) or province (Northern Ireland).</p>
    * @public
    */
-  Subdivision?: string;
+  Subdivision?: string | undefined;
 
   /**
    * <p>The metro area where the health event is located.</p>
@@ -809,45 +809,45 @@ export interface ImpactedLocation {
    *    		a county, a London borough, a unitary authority, council area, and so on.</p>
    * @public
    */
-  Metro?: string;
+  Metro?: string | undefined;
 
   /**
    * <p>The name of the city where the health event is located.</p>
    * @public
    */
-  City?: string;
+  City?: string | undefined;
 
   /**
    * <p>The latitude where the health event is located.</p>
    * @public
    */
-  Latitude?: number;
+  Latitude?: number | undefined;
 
   /**
    * <p>The longitude where the health event is located.</p>
    * @public
    */
-  Longitude?: number;
+  Longitude?: number | undefined;
 
   /**
    * <p>The country code where the health event is located. The ISO 3166-2 codes for the
    *    		country is provided, when available. </p>
    * @public
    */
-  CountryCode?: string;
+  CountryCode?: string | undefined;
 
   /**
    * <p>The subdivision code where the health event is located. The ISO 3166-2 codes for
    * 			country subdivisions is provided, when available. </p>
    * @public
    */
-  SubdivisionCode?: string;
+  SubdivisionCode?: string | undefined;
 
   /**
    * <p>The service location where the health event is located.</p>
    * @public
    */
-  ServiceLocation?: string;
+  ServiceLocation?: string | undefined;
 
   /**
    * <p>The status of the health event at an impacted location.</p>
@@ -860,19 +860,19 @@ export interface ImpactedLocation {
    *       	or internet issues. Internet issues are typically a problem with a network provider, like an internet service provider (ISP).</p>
    * @public
    */
-  CausedBy?: NetworkImpairment;
+  CausedBy?: NetworkImpairment | undefined;
 
   /**
    * <p>The calculated health at a specific location.</p>
    * @public
    */
-  InternetHealth?: InternetHealth;
+  InternetHealth?: InternetHealth | undefined;
 
   /**
    * <p>The IPv4 prefixes at the client location that was impacted by the health event.</p>
    * @public
    */
-  Ipv4Prefixes?: string[];
+  Ipv4Prefixes?: string[] | undefined;
 }
 
 /**
@@ -917,13 +917,13 @@ export interface GetHealthEventOutput {
    * <p>The time when a health event was resolved. If the health event is still active, the end time is not set.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>The time when a health event was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time when a health event was last updated or recalculated.</p>
@@ -949,7 +949,7 @@ export interface GetHealthEventOutput {
    * 			client location to the Amazon Web Services location using this client network.</p>
    * @public
    */
-  PercentOfTotalTrafficImpacted?: number;
+  PercentOfTotalTrafficImpacted?: number | undefined;
 
   /**
    * <p>The type of impairment of a specific health event.</p>
@@ -962,7 +962,7 @@ export interface GetHealthEventOutput {
    * 			when Internet Monitor creates a health event when there's an internet issue that affects your application end users.</p>
    * @public
    */
-  HealthScoreThreshold?: number;
+  HealthScoreThreshold?: number | undefined;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface GetInternetEventOutput {
    * <p>The time when the internet event ended. If the event hasn't ended yet, this value is empty.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>The impacted location, such as a city, where clients access Amazon Web Services application resources.</p>
@@ -1068,7 +1068,7 @@ export interface GetMonitorInput {
    * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  LinkedAccountId?: string;
+  LinkedAccountId?: string | undefined;
 }
 
 /**
@@ -1134,19 +1134,19 @@ export interface GetMonitorOutput {
    * <p>The health of the data processing for the monitor.</p>
    * @public
    */
-  ProcessingStatus?: MonitorProcessingStatusCode;
+  ProcessingStatus?: MonitorProcessingStatusCode | undefined;
 
   /**
    * <p>Additional information about the health of the data processing for the monitor.</p>
    * @public
    */
-  ProcessingStatusInfo?: string;
+  ProcessingStatusInfo?: string | undefined;
 
   /**
    * <p>The tags that have been added to monitor.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your
@@ -1156,13 +1156,13 @@ export interface GetMonitorOutput {
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  MaxCityNetworksToMonitor?: number;
+  MaxCityNetworksToMonitor?: number | undefined;
 
   /**
    * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
    * @public
    */
-  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery | undefined;
 
   /**
    * <p>The percentage of the internet-facing traffic for your application to monitor with this monitor. If you set a city-networks
@@ -1171,7 +1171,7 @@ export interface GetMonitorOutput {
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  TrafficPercentageToMonitor?: number;
+  TrafficPercentageToMonitor?: number | undefined;
 
   /**
    * <p>The list of health event threshold configurations. The threshold percentage for a health score determines, along with other configuration
@@ -1180,7 +1180,7 @@ export interface GetMonitorOutput {
    * 			Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  HealthEventsConfig?: HealthEventsConfig;
+  HealthEventsConfig?: HealthEventsConfig | undefined;
 }
 
 /**
@@ -1204,13 +1204,13 @@ export interface GetQueryResultsInput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of query results that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1223,14 +1223,14 @@ export interface QueryField {
    * <p>The name of a field to query your application's Amazon CloudWatch Internet Monitor data for, such as <code>availability_score</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The data type for a query field, which must correspond to the field you're defining for <code>QueryField</code>. For example, if the query
    * 			field name is <code>availability_score</code>, the data type is <code>float</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface GetQueryResultsOutput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1332,13 +1332,13 @@ export interface HealthEvent {
    * <p>The time when a health event ended. If the health event is still active, then the end time is not set.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>When the health event was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>When the health event was last updated.</p>
@@ -1364,7 +1364,7 @@ export interface HealthEvent {
    * 			client location to the Amazon Web Services location using this client network.</p>
    * @public
    */
-  PercentOfTotalTrafficImpacted?: number;
+  PercentOfTotalTrafficImpacted?: number | undefined;
 
   /**
    * <p>The type of impairment for a health event.</p>
@@ -1376,7 +1376,7 @@ export interface HealthEvent {
    * <p>The value of the threshold percentage for performance or availability that was configured when Amazon CloudWatch Internet Monitor created the health event.</p>
    * @public
    */
-  HealthScoreThreshold?: number;
+  HealthScoreThreshold?: number | undefined;
 }
 
 /**
@@ -1393,31 +1393,31 @@ export interface ListHealthEventsInput {
    * <p>The time when a health event started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time when a health event ended. If the health event is still ongoing, then the end time is not set.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of health event objects that you want to return with this call. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The status of a health event.</p>
    * @public
    */
-  EventStatus?: HealthEventStatus;
+  EventStatus?: HealthEventStatus | undefined;
 
   /**
    * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
@@ -1426,7 +1426,7 @@ export interface ListHealthEventsInput {
    * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  LinkedAccountId?: string;
+  LinkedAccountId?: string | undefined;
 }
 
 /**
@@ -1443,7 +1443,7 @@ export interface ListHealthEventsOutput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1475,37 +1475,37 @@ export interface ListInternetEventsInput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of query results that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The start time of the time window that you want to get a list of internet events for.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time of the time window that you want to get a list of internet events for.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of an internet event.</p>
    * @public
    */
-  EventStatus?: string;
+  EventStatus?: string | undefined;
 
   /**
    * <p>The type of network impairment.</p>
    * @public
    */
-  EventType?: string;
+  EventType?: string | undefined;
 }
 
 /**
@@ -1539,7 +1539,7 @@ export interface InternetEventSummary {
    * 		is empty.</p>
    * @public
    */
-  EndedAt?: Date;
+  EndedAt?: Date | undefined;
 
   /**
    * <p>The impacted location, such as a city, that Amazon Web Services clients access application resources from.</p>
@@ -1574,7 +1574,7 @@ export interface ListInternetEventsOutput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1596,7 +1596,7 @@ export interface ListTagsForResourceOutput {
    * <p>Tags for a resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1650,13 +1650,13 @@ export interface ListMonitorsInput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of monitor objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The status of a monitor. This includes the status of the data processing for the monitor and the status of the monitor itself.</p>
@@ -1664,7 +1664,7 @@ export interface ListMonitorsInput {
    * 				Monitor</a>.</p>
    * @public
    */
-  MonitorStatus?: string;
+  MonitorStatus?: string | undefined;
 
   /**
    * <p>A boolean option that you can set to <code>TRUE</code> to include monitors for linked accounts in a list of
@@ -1674,7 +1674,7 @@ export interface ListMonitorsInput {
    * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  IncludeLinkedAccounts?: boolean;
+  IncludeLinkedAccounts?: boolean | undefined;
 }
 
 /**
@@ -1704,7 +1704,7 @@ export interface Monitor {
    * <p>The health of data processing for the monitor.</p>
    * @public
    */
-  ProcessingStatus?: MonitorProcessingStatusCode;
+  ProcessingStatus?: MonitorProcessingStatusCode | undefined;
 }
 
 /**
@@ -1721,7 +1721,7 @@ export interface ListMonitorsOutput {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1808,7 +1808,7 @@ export interface StartQueryInput {
    * 			in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  FilterParameters?: FilterParameter[];
+  FilterParameters?: FilterParameter[] | undefined;
 
   /**
    * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
@@ -1817,7 +1817,7 @@ export interface StartQueryInput {
    * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
-  LinkedAccountId?: string;
+  LinkedAccountId?: string | undefined;
 }
 
 /**
@@ -1894,27 +1894,27 @@ export interface UpdateMonitorInput {
    *          </note>
    * @public
    */
-  ResourcesToAdd?: string[];
+  ResourcesToAdd?: string[] | undefined;
 
   /**
    * <p>The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs).</p>
    * @public
    */
-  ResourcesToRemove?: string[];
+  ResourcesToRemove?: string[] | undefined;
 
   /**
    * <p>The status for a monitor. The accepted values for <code>Status</code> with the <code>UpdateMonitor</code> API call are the following: <code>ACTIVE</code> and
    * 			<code>INACTIVE</code>. The following values are <i>not</i> accepted: <code>PENDING</code>, and <code>ERROR</code>.</p>
    * @public
    */
-  Status?: MonitorConfigState;
+  Status?: MonitorConfigState | undefined;
 
   /**
    * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. You should not reuse the same client
    * 			token for other API requests.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The maximum number of city-networks to monitor for your application. A city-network is the location (city) where clients access your
@@ -1922,13 +1922,13 @@ export interface UpdateMonitorInput {
    * 			through. Setting this limit can help control billing costs.</p>
    * @public
    */
-  MaxCityNetworksToMonitor?: number;
+  MaxCityNetworksToMonitor?: number | undefined;
 
   /**
    * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
    * @public
    */
-  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery | undefined;
 
   /**
    * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks
@@ -1937,7 +1937,7 @@ export interface UpdateMonitorInput {
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  TrafficPercentageToMonitor?: number;
+  TrafficPercentageToMonitor?: number | undefined;
 
   /**
    * <p>The list of health score thresholds. A threshold percentage for health scores, along with other configuration information,
@@ -1946,7 +1946,7 @@ export interface UpdateMonitorInput {
    * 			Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
-  HealthEventsConfig?: HealthEventsConfig;
+  HealthEventsConfig?: HealthEventsConfig | undefined;
 }
 
 /**

@@ -10,8 +10,8 @@ import { RekognitionStreamingServiceException as __BaseException } from "./Rekog
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -71,69 +71,69 @@ export interface ChallengeConfig {
    * <p>Threshold for face detection done using blaze face.</p>
    * @public
    */
-  BlazeFaceDetectionThreshold?: number;
+  BlazeFaceDetectionThreshold?: number | undefined;
 
   /**
    * <p>Threshold for the minimum distance that face can be from the camera before face oval
    *       match challenge starts.</p>
    * @public
    */
-  FaceDistanceThresholdMin?: number;
+  FaceDistanceThresholdMin?: number | undefined;
 
   /**
    * <p>Threshold for face distance threshold face liveness challenge.</p>
    * @public
    */
-  FaceDistanceThreshold?: number;
+  FaceDistanceThreshold?: number | undefined;
 
   /**
    * <p>Threshold for the maximum distance that face can be from the camera before face oval
    *       match challenge starts.</p>
    * @public
    */
-  FaceDistanceThresholdMax?: number;
+  FaceDistanceThresholdMax?: number | undefined;
 
   /**
    * <p>Threshold for face oval match using IoU (Intersection over Union).</p>
    * @public
    */
-  OvalIouThreshold?: number;
+  OvalIouThreshold?: number | undefined;
 
   /**
    * <p>Height to width ratio of oval used for face oval match.</p>
    * @public
    */
-  OvalHeightWidthRatio?: number;
+  OvalHeightWidthRatio?: number | undefined;
 
   /**
    * <p>Threshold for width during oval IOU (Intersection over Union) match.</p>
    * @public
    */
-  OvalIouWidthThreshold?: number;
+  OvalIouWidthThreshold?: number | undefined;
 
   /**
    * <p>Threshold for height during oval IOU (Intersection over Union) match.</p>
    * @public
    */
-  OvalIouHeightThreshold?: number;
+  OvalIouHeightThreshold?: number | undefined;
 
   /**
    * <p>Threshold for width during face IOU (Intersection over Union) match.</p>
    * @public
    */
-  FaceIouWidthThreshold?: number;
+  FaceIouWidthThreshold?: number | undefined;
 
   /**
    * <p> Threshold for height during face IOU (Intersection over Union) match.</p>
    * @public
    */
-  FaceIouHeightThreshold?: number;
+  FaceIouHeightThreshold?: number | undefined;
 
   /**
    * <p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>
    * @public
    */
-  OvalFitTimeout?: number;
+  OvalFitTimeout?: number | undefined;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface ColorDisplayed {
    * <p>The previous color displayed on screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255). </p>
    * @public
    */
-  PreviousColor?: FreshnessColor;
+  PreviousColor?: FreshnessColor | undefined;
 
   /**
    * <p>The order in which the current color was displayed on the screen.</p>
@@ -242,13 +242,13 @@ export interface FaceMovementAndLightClientChallenge {
    * <p>Epoch timestamp indicating start of video recording.</p>
    * @public
    */
-  VideoStartTimestamp?: number;
+  VideoStartTimestamp?: number | undefined;
 
   /**
    * <p>Epoch timestamp indicating end of video recording.</p>
    * @public
    */
-  VideoEndTimestamp?: number;
+  VideoEndTimestamp?: number | undefined;
 
   /**
    * <p>Contains the bounding box of the initial face position for the user on the device screen.
@@ -256,7 +256,7 @@ export interface FaceMovementAndLightClientChallenge {
    *       Liveness detection.</p>
    * @public
    */
-  InitialFace?: InitialFace;
+  InitialFace?: InitialFace | undefined;
 
   /**
    * <p>Contains the face position bounding box for the user on the device's screen, set at the
@@ -266,13 +266,13 @@ export interface FaceMovementAndLightClientChallenge {
    *       was detected in this position.</p>
    * @public
    */
-  TargetFace?: TargetFace;
+  TargetFace?: TargetFace | undefined;
 
   /**
    * <p>Contains information regarding SequenceNumber, CurrentColor, PreviousColor, and CurrentColorStartTimestamp for a challenge.</p>
    * @public
    */
-  ColorDisplayed?: ColorDisplayed;
+  ColorDisplayed?: ColorDisplayed | undefined;
 }
 
 /**
@@ -446,8 +446,8 @@ export interface FaceMovementAndLightServerChallenge {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -472,13 +472,13 @@ export interface VideoEvent {
    * <p>The video chunk for a video event.</p>
    * @public
    */
-  VideoChunk?: Uint8Array;
+  VideoChunk?: Uint8Array | undefined;
 
   /**
    * <p>Milisecond timestamp for a video chunk in a video event.</p>
    * @public
    */
-  TimestampMillis?: number;
+  TimestampMillis?: number | undefined;
 }
 
 /**
@@ -607,8 +607,8 @@ export interface ServerSessionInformationEvent {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -631,8 +631,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -656,8 +656,8 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -684,8 +684,8 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -872,8 +872,8 @@ export namespace LivenessResponseStream {
 export class SessionNotFoundException extends __BaseException {
   readonly name: "SessionNotFoundException" = "SessionNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -924,7 +924,7 @@ export interface StartFaceLivenessSessionRequest {
    * <p>Information regarding the request stream for a Face Liveness session.</p>
    * @public
    */
-  LivenessRequestStream?: AsyncIterable<LivenessRequestStream>;
+  LivenessRequestStream?: AsyncIterable<LivenessRequestStream> | undefined;
 }
 
 /**
@@ -941,7 +941,7 @@ export interface StartFaceLivenessSessionResponse {
    * <p>Information regarding the response stream for a Face Liveness session.</p>
    * @public
    */
-  LivenessResponseStream?: AsyncIterable<LivenessResponseStream>;
+  LivenessResponseStream?: AsyncIterable<LivenessResponseStream> | undefined;
 }
 
 /**

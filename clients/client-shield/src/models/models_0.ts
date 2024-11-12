@@ -73,14 +73,14 @@ export interface ResponseAction {
    *          <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>
    * @public
    */
-  Block?: BlockAction;
+  Block?: BlockAction | undefined;
 
   /**
    * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
    *          <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>
    * @public
    */
-  Count?: CountAction;
+  Count?: CountAction | undefined;
 }
 
 /**
@@ -219,13 +219,13 @@ export class InvalidParameterException extends __BaseException {
    * <p>Additional information about the exception.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>Fields that caused the exception.</p>
    * @public
    */
-  fields?: ValidationExceptionField[];
+  fields?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -253,13 +253,13 @@ export class LimitsExceededException extends __BaseException {
    * <p>The type of limit that would be exceeded.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The threshold that would be exceeded.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * @internal
@@ -328,7 +328,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>Type of resource.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -418,13 +418,13 @@ export interface EmergencyContact {
    * <p>The phone number for the contact.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>Additional notes regarding the contact. </p>
    * @public
    */
-  ContactNotes?: string;
+  ContactNotes?: string | undefined;
 }
 
 /**
@@ -456,37 +456,37 @@ export interface SummarizedCounter {
    * <p>The counter name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The maximum value of the counter for a specified time period.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>The average value of the counter for a specified time period.</p>
    * @public
    */
-  Average?: number;
+  Average?: number | undefined;
 
   /**
    * <p>The total of counter values for a specified time period.</p>
    * @public
    */
-  Sum?: number;
+  Sum?: number | undefined;
 
   /**
    * <p>The number of counters for a specified time period.</p>
    * @public
    */
-  N?: number;
+  N?: number | undefined;
 
   /**
    * <p>The unit of the counters.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -532,13 +532,13 @@ export interface Contributor {
    * <p>The name of the contributor. The type of name that you'll find here depends on the <code>AttackPropertyIdentifier</code> setting in the <code>AttackProperty</code> where this contributor is defined. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -571,7 +571,7 @@ export interface AttackProperty {
    *                in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  AttackLayer?: AttackLayer;
+  AttackLayer?: AttackLayer | undefined;
 
   /**
    * <p>Defines the Shield event property information that is provided. The
@@ -579,26 +579,26 @@ export interface AttackProperty {
    *          values are valid only for WordPress reflective pingback events.</p>
    * @public
    */
-  AttackPropertyIdentifier?: AttackPropertyIdentifier;
+  AttackPropertyIdentifier?: AttackPropertyIdentifier | undefined;
 
   /**
    * <p>Contributor objects for the top five contributors to a Shield event. A contributor is a source of traffic that Shield Advanced identifies as responsible for some or all of an event.</p>
    * @public
    */
-  TopContributors?: Contributor[];
+  TopContributors?: Contributor[] | undefined;
 
   /**
    * <p>The unit used for the <code>Contributor</code>
    *             <code>Value</code> property. </p>
    * @public
    */
-  Unit?: Unit;
+  Unit?: Unit | undefined;
 
   /**
    * <p>The total contributions made to this Shield event by all contributors.</p>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface Mitigation {
    * <p>The name of the mitigation taken for this attack.</p>
    * @public
    */
-  MitigationName?: string;
+  MitigationName?: string | undefined;
 }
 
 /**
@@ -628,7 +628,7 @@ export interface SummarizedAttackVector {
    * <p>The list of counters that describe the details of the attack.</p>
    * @public
    */
-  VectorCounters?: SummarizedCounter[];
+  VectorCounters?: SummarizedCounter[] | undefined;
 }
 
 /**
@@ -654,25 +654,25 @@ export interface SubResourceSummary {
    * <p>The <code>SubResource</code> type.</p>
    * @public
    */
-  Type?: SubResourceType;
+  Type?: SubResourceType | undefined;
 
   /**
    * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The list of attack types and associated counters.</p>
    * @public
    */
-  AttackVectors?: SummarizedAttackVector[];
+  AttackVectors?: SummarizedAttackVector[] | undefined;
 
   /**
    * <p>The counters that describe the details of the attack.</p>
    * @public
    */
-  Counters?: SummarizedCounter[];
+  Counters?: SummarizedCounter[] | undefined;
 }
 
 /**
@@ -684,37 +684,37 @@ export interface AttackDetail {
    * <p>The unique identifier (ID) of the attack.</p>
    * @public
    */
-  AttackId?: string;
+  AttackId?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>If applicable, additional detail about the resource being attacked, for example, IP address or URL.</p>
    * @public
    */
-  SubResources?: SubResourceSummary[];
+  SubResources?: SubResourceSummary[] | undefined;
 
   /**
    * <p>The time the attack started, in Unix time in seconds. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time the attack ended, in Unix time in seconds. </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>List of counters that describe the attack for the specified time period.</p>
    * @public
    */
-  AttackCounters?: SummarizedCounter[];
+  AttackCounters?: SummarizedCounter[] | undefined;
 
   /**
    * <p>The array of objects that provide details of the Shield event. </p>
@@ -724,13 +724,13 @@ export interface AttackDetail {
    *                in the <i>WAF Developer Guide</i>. </p>
    * @public
    */
-  AttackProperties?: AttackProperty[];
+  AttackProperties?: AttackProperty[] | undefined;
 
   /**
    * <p>List of mitigation actions taken for the attack.</p>
    * @public
    */
-  Mitigations?: Mitigation[];
+  Mitigations?: Mitigation[] | undefined;
 }
 
 /**
@@ -754,19 +754,19 @@ export interface AttackVolume {
    * <p>A statistics object that uses bits per second as the unit. This is included for network level attacks. </p>
    * @public
    */
-  BitsPerSecond?: AttackVolumeStatistics;
+  BitsPerSecond?: AttackVolumeStatistics | undefined;
 
   /**
    * <p>A statistics object that uses packets per second as the unit. This is included for network level attacks. </p>
    * @public
    */
-  PacketsPerSecond?: AttackVolumeStatistics;
+  PacketsPerSecond?: AttackVolumeStatistics | undefined;
 
   /**
    * <p>A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.</p>
    * @public
    */
-  RequestsPerSecond?: AttackVolumeStatistics;
+  RequestsPerSecond?: AttackVolumeStatistics | undefined;
 }
 
 /**
@@ -778,7 +778,7 @@ export interface AttackStatisticsDataItem {
    * <p>Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty.</p>
    * @public
    */
-  AttackVolume?: AttackVolume;
+  AttackVolume?: AttackVolume | undefined;
 
   /**
    * <p>The number of attacks detected during the time period. This is always present, but might be zero. </p>
@@ -864,31 +864,31 @@ export interface AttackSummary {
    * <p>The unique identifier (ID) of the attack.</p>
    * @public
    */
-  AttackId?: string;
+  AttackId?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The start time of the attack, in Unix time in seconds. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time of the attack, in Unix time in seconds. </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The list of attacks for a specified time period.</p>
    * @public
    */
-  AttackVectors?: AttackVectorDescription[];
+  AttackVectors?: AttackVectorDescription[] | undefined;
 }
 
 /**
@@ -914,13 +914,13 @@ export interface Tag {
    * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -976,7 +976,7 @@ export interface CreateProtectionRequest {
    * <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -987,7 +987,7 @@ export interface CreateProtectionResponse {
    * <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
    * @public
    */
-  ProtectionId?: string;
+  ProtectionId?: string | undefined;
 }
 
 /**
@@ -1001,7 +1001,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
    * <p>The type of resource that already exists.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * @internal
@@ -1103,19 +1103,19 @@ export interface CreateProtectionGroupRequest {
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    * @public
    */
-  ResourceType?: ProtectedResourceType;
+  ResourceType?: ProtectedResourceType | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    * @public
    */
-  Members?: string[];
+  Members?: string[] | undefined;
 
   /**
    * <p>One or more tag key-value pairs for the protection group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1215,7 +1215,7 @@ export interface DescribeAttackResponse {
    * <p>The attack that you requested. </p>
    * @public
    */
-  Attack?: AttackDetail;
+  Attack?: AttackDetail | undefined;
 }
 
 /**
@@ -1232,13 +1232,13 @@ export interface TimeRange {
    * <p>The start time, in Unix time in seconds. </p>
    * @public
    */
-  FromInclusive?: Date;
+  FromInclusive?: Date | undefined;
 
   /**
    * <p>The end time, in Unix time in seconds. </p>
    * @public
    */
-  ToExclusive?: Date;
+  ToExclusive?: Date | undefined;
 }
 
 /**
@@ -1271,13 +1271,13 @@ export interface DescribeDRTAccessResponse {
    * <p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The list of Amazon S3 buckets accessed by the SRT.</p>
    * @public
    */
-  LogBucketList?: string[];
+  LogBucketList?: string[] | undefined;
 }
 
 /**
@@ -1293,7 +1293,7 @@ export interface DescribeEmergencyContactSettingsResponse {
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
    * @public
    */
-  EmergencyContactList?: EmergencyContact[];
+  EmergencyContactList?: EmergencyContact[] | undefined;
 }
 
 /**
@@ -1305,14 +1305,14 @@ export interface DescribeProtectionRequest {
    *            You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
    * @public
    */
-  ProtectionId?: string;
+  ProtectionId?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the protected Amazon Web Services resource.
    *            You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -1324,31 +1324,31 @@ export interface Protection {
    * <p>The unique identifier (ID) of the protection.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the protection. For example, <code>My CloudFront distributions</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the Amazon Web Services resource that is protected.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    * @public
    */
-  HealthCheckIds?: string[];
+  HealthCheckIds?: string[] | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the protection.</p>
    * @public
    */
-  ProtectionArn?: string;
+  ProtectionArn?: string | undefined;
 
   /**
    * <p>The automatic application layer DDoS mitigation settings for the protection.
@@ -1356,7 +1356,7 @@ export interface Protection {
    *        manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>
    * @public
    */
-  ApplicationLayerAutomaticResponseConfiguration?: ApplicationLayerAutomaticResponseConfiguration;
+  ApplicationLayerAutomaticResponseConfiguration?: ApplicationLayerAutomaticResponseConfiguration | undefined;
 }
 
 /**
@@ -1367,7 +1367,7 @@ export interface DescribeProtectionResponse {
    * <p>The <a>Protection</a> that you requested. </p>
    * @public
    */
-  Protection?: Protection;
+  Protection?: Protection | undefined;
 }
 
 /**
@@ -1420,7 +1420,7 @@ export interface ProtectionGroup {
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    * @public
    */
-  ResourceType?: ProtectedResourceType;
+  ResourceType?: ProtectedResourceType | undefined;
 
   /**
    * <p>The ARNs (Amazon Resource Names) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
@@ -1432,7 +1432,7 @@ export interface ProtectionGroup {
    * <p>The ARN (Amazon Resource Name) of the protection group.</p>
    * @public
    */
-  ProtectionGroupArn?: string;
+  ProtectionGroupArn?: string | undefined;
 }
 
 /**
@@ -1460,13 +1460,13 @@ export interface Limit {
    * <p>The type of protection.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -1565,32 +1565,32 @@ export interface Subscription {
    * <p>The start time of the subscription, in Unix time in seconds. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time your subscription will end.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The length, in seconds, of the Shield Advanced subscription for the account.</p>
    * @public
    */
-  TimeCommitmentInSeconds?: number;
+  TimeCommitmentInSeconds?: number | undefined;
 
   /**
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    * @public
    */
-  AutoRenew?: AutoRenew;
+  AutoRenew?: AutoRenew | undefined;
 
   /**
    * <p>Specifies how many protections of a given type you can create.</p>
    * @public
    */
-  Limits?: Limit[];
+  Limits?: Limit[] | undefined;
 
   /**
    * <p>If <code>ENABLED</code>, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
@@ -1598,7 +1598,7 @@ export interface Subscription {
    *          <p>If <code>DISABLED</code>, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
    * @public
    */
-  ProactiveEngagementStatus?: ProactiveEngagementStatus;
+  ProactiveEngagementStatus?: ProactiveEngagementStatus | undefined;
 
   /**
    * <p>Limits settings for your subscription. </p>
@@ -1610,7 +1610,7 @@ export interface Subscription {
    * <p>The ARN (Amazon Resource Name) of the subscription.</p>
    * @public
    */
-  SubscriptionArn?: string;
+  SubscriptionArn?: string | undefined;
 }
 
 /**
@@ -1621,7 +1621,7 @@ export interface DescribeSubscriptionResponse {
    * <p>The Shield Advanced subscription details for an account.</p>
    * @public
    */
-  Subscription?: Subscription;
+  Subscription?: Subscription | undefined;
 }
 
 /**
@@ -1771,21 +1771,21 @@ export interface ListAttacksRequest {
    *          blank, all applicable resources for this account will be included.</p>
    * @public
    */
-  ResourceArns?: string[];
+  ResourceArns?: string[] | undefined;
 
   /**
    * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,
    *            but you can provide the time in any valid <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">timestamp format</a> setting.  </p>
    * @public
    */
-  StartTime?: TimeRange;
+  StartTime?: TimeRange | undefined;
 
   /**
    * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,
    *            but you can provide the time in any valid <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">timestamp format</a> setting.  </p>
    * @public
    */
-  EndTime?: TimeRange;
+  EndTime?: TimeRange | undefined;
 
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -1797,7 +1797,7 @@ export interface ListAttacksRequest {
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
@@ -1806,7 +1806,7 @@ export interface ListAttacksRequest {
    *          <p>The default setting is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1817,7 +1817,7 @@ export interface ListAttacksResponse {
    * <p>The attack information for the specified time range.</p>
    * @public
    */
-  AttackSummaries?: AttackSummary[];
+  AttackSummaries?: AttackSummary[] | undefined;
 
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -1828,7 +1828,7 @@ export interface ListAttacksResponse {
    *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1860,25 +1860,25 @@ export interface InclusionProtectionGroupFilters {
    * <p>The ID of the protection group that you want to retrieve.  </p>
    * @public
    */
-  ProtectionGroupIds?: string[];
+  ProtectionGroupIds?: string[] | undefined;
 
   /**
    * <p>The pattern specification of the protection groups that you want to retrieve.  </p>
    * @public
    */
-  Patterns?: ProtectionGroupPattern[];
+  Patterns?: ProtectionGroupPattern[] | undefined;
 
   /**
    * <p>The resource type configuration of the protection groups that you want to retrieve. In the protection group configuration, you specify the resource type when you set the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </p>
    * @public
    */
-  ResourceTypes?: ProtectedResourceType[];
+  ResourceTypes?: ProtectedResourceType[] | undefined;
 
   /**
    * <p>The aggregation setting of the protection groups that you want to retrieve.  </p>
    * @public
    */
-  Aggregations?: ProtectionGroupAggregation[];
+  Aggregations?: ProtectionGroupAggregation[] | undefined;
 }
 
 /**
@@ -1895,7 +1895,7 @@ export interface ListProtectionGroupsRequest {
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
@@ -1904,13 +1904,13 @@ export interface ListProtectionGroupsRequest {
    *          <p>The default setting is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with specific pattern or aggregation settings. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>
    * @public
    */
-  InclusionFilters?: InclusionProtectionGroupFilters;
+  InclusionFilters?: InclusionProtectionGroupFilters | undefined;
 }
 
 /**
@@ -1932,7 +1932,7 @@ export interface ListProtectionGroupsResponse {
    *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1944,19 +1944,19 @@ export interface InclusionProtectionFilters {
    * <p>The ARN (Amazon Resource Name) of the resource whose protection you want to retrieve.  </p>
    * @public
    */
-  ResourceArns?: string[];
+  ResourceArns?: string[] | undefined;
 
   /**
    * <p>The name of the protection that you want to retrieve.  </p>
    * @public
    */
-  ProtectionNames?: string[];
+  ProtectionNames?: string[] | undefined;
 
   /**
    * <p>The type of protected resource whose protections you want to retrieve.  </p>
    * @public
    */
-  ResourceTypes?: ProtectedResourceType[];
+  ResourceTypes?: ProtectedResourceType[] | undefined;
 }
 
 /**
@@ -1973,7 +1973,7 @@ export interface ListProtectionsRequest {
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
@@ -1982,13 +1982,13 @@ export interface ListProtectionsRequest {
    *          <p>The default setting is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>
    * @public
    */
-  InclusionFilters?: InclusionProtectionFilters;
+  InclusionFilters?: InclusionProtectionFilters | undefined;
 }
 
 /**
@@ -1999,7 +1999,7 @@ export interface ListProtectionsResponse {
    * <p>The array of enabled <a>Protection</a> objects.</p>
    * @public
    */
-  Protections?: Protection[];
+  Protections?: Protection[] | undefined;
 
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -2010,7 +2010,7 @@ export interface ListProtectionsResponse {
    *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2033,7 +2033,7 @@ export interface ListResourcesInProtectionGroupRequest {
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
@@ -2042,7 +2042,7 @@ export interface ListResourcesInProtectionGroupRequest {
    *          <p>The default setting is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2064,7 +2064,7 @@ export interface ListResourcesInProtectionGroupResponse {
    *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2086,7 +2086,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2166,7 +2166,7 @@ export interface UpdateEmergencyContactSettingsRequest {
    *          <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
    * @public
    */
-  EmergencyContactList?: EmergencyContact[];
+  EmergencyContactList?: EmergencyContact[] | undefined;
 }
 
 /**
@@ -2212,13 +2212,13 @@ export interface UpdateProtectionGroupRequest {
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    * @public
    */
-  ResourceType?: ProtectedResourceType;
+  ResourceType?: ProtectedResourceType | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    * @public
    */
-  Members?: string[];
+  Members?: string[] | undefined;
 }
 
 /**
@@ -2234,7 +2234,7 @@ export interface UpdateSubscriptionRequest {
    * <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    * @public
    */
-  AutoRenew?: AutoRenew;
+  AutoRenew?: AutoRenew | undefined;
 }
 
 /**

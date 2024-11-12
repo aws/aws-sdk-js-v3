@@ -10,7 +10,7 @@ import { SSMQuickSetupServiceException as __BaseException } from "./SSMQuickSetu
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -47,27 +47,27 @@ export interface ConfigurationDefinition {
    * <p>The version of the Quick Setup type used.</p>
    * @public
    */
-  TypeVersion?: string;
+  TypeVersion?: string | undefined;
 
   /**
    * <p>The name of the IAM role used to deploy local
    *                   configurations.</p>
    * @public
    */
-  LocalDeploymentExecutionRoleName?: string;
+  LocalDeploymentExecutionRoleName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role used to administrate local configuration
    *                   deployments.</p>
    * @public
    */
-  LocalDeploymentAdministrationRoleArn?: string;
+  LocalDeploymentAdministrationRoleArn?: string | undefined;
 
   /**
    * <p>The ID of the configuration definition.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -1470,21 +1470,21 @@ export interface ConfigurationDefinitionInput {
    * <p>The version of the Quick Setup type to use.</p>
    * @public
    */
-  TypeVersion?: string;
+  TypeVersion?: string | undefined;
 
   /**
    * <p>The name of the IAM role used to deploy local
    *                   configurations.</p>
    * @public
    */
-  LocalDeploymentExecutionRoleName?: string;
+  LocalDeploymentExecutionRoleName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role used to administrate local configuration
    *                   deployments.</p>
    * @public
    */
-  LocalDeploymentAdministrationRoleArn?: string;
+  LocalDeploymentAdministrationRoleArn?: string | undefined;
 }
 
 /**
@@ -1496,26 +1496,26 @@ export interface ConfigurationDefinitionSummary {
    * <p>The ID of the configuration definition.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The type of the Quick Setup configuration used by the configuration
    *                   definition.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The version of the Quick Setup type used by the configuration definition.</p>
    * @public
    */
-  TypeVersion?: string;
+  TypeVersion?: string | undefined;
 
   /**
    * <p>The common parameters and values for the configuration definition.</p>
    * @public
    */
-  FirstClassParameters?: Record<string, string>;
+  FirstClassParameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -1569,13 +1569,13 @@ export interface StatusSummary {
    * <p>The current status.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>When applicable, returns an informational message relevant to the current status and status type of the status summary object. We don't recommend implementing parsing logic around this value since the messages returned can vary in format.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The datetime stamp when the status was last updated.</p>
@@ -1587,7 +1587,7 @@ export interface StatusSummary {
    * <p>Details about the status.</p>
    * @public
    */
-  StatusDetails?: Record<string, string>;
+  StatusDetails?: Record<string, string> | undefined;
 }
 
 /**
@@ -1605,13 +1605,13 @@ export interface ConfigurationManagerSummary {
    * <p>The description of the configuration.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the configuration</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Summaries of the state of the configuration manager. These summaries include an
@@ -1620,13 +1620,13 @@ export interface ConfigurationManagerSummary {
    *                   drift statuses, health checks, and more.</p>
    * @public
    */
-  StatusSummaries?: StatusSummary[];
+  StatusSummaries?: StatusSummary[] | undefined;
 
   /**
    * <p>A summary of the Quick Setup configuration definition.</p>
    * @public
    */
-  ConfigurationDefinitionSummaries?: ConfigurationDefinitionSummary[];
+  ConfigurationDefinitionSummaries?: ConfigurationDefinitionSummary[] | undefined;
 }
 
 /**
@@ -1636,7 +1636,7 @@ export interface ConfigurationManagerSummary {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1659,13 +1659,13 @@ export interface CreateConfigurationManagerInput {
    * <p>A name for the configuration manager.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the configuration manager.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The definition of the Quick Setup configuration that the configuration manager
@@ -1678,7 +1678,7 @@ export interface CreateConfigurationManagerInput {
    * <p>Key-value pairs of metadata to assign to the configuration manager.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1700,7 +1700,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1746,7 +1746,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1779,7 +1779,7 @@ export interface DeleteConfigurationManagerInput {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1837,44 +1837,44 @@ export interface GetConfigurationManagerOutput {
    * <p>The description of the configuration manager.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the configuration manager.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The datetime stamp when the configuration manager was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The datetime stamp when the configuration manager was last updated.</p>
    * @public
    */
-  LastModifiedAt?: Date;
+  LastModifiedAt?: Date | undefined;
 
   /**
    * <p>A summary of the state of the configuration manager. This includes deployment
    *                   statuses, association statuses, drift statuses, health checks, and more.</p>
    * @public
    */
-  StatusSummaries?: StatusSummary[];
+  StatusSummaries?: StatusSummary[] | undefined;
 
   /**
    * <p>The configuration definitions association with the configuration manager.</p>
    * @public
    */
-  ConfigurationDefinitions?: ConfigurationDefinition[];
+  ConfigurationDefinitions?: ConfigurationDefinition[] | undefined;
 
   /**
    * <p>Key-value pairs of metadata to assign to the configuration manager.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1886,7 +1886,7 @@ export interface ServiceSettings {
    * <p>The IAM role used to enable Explorer.</p>
    * @public
    */
-  ExplorerEnablingRoleArn?: string;
+  ExplorerEnablingRoleArn?: string | undefined;
 }
 
 /**
@@ -1897,7 +1897,7 @@ export interface GetServiceSettingsOutput {
    * <p>Returns details about the settings for Quick Setup in the requesting Amazon Web Services account and Amazon Web Services Region.</p>
    * @public
    */
-  ServiceSettings?: ServiceSettings;
+  ServiceSettings?: ServiceSettings | undefined;
 }
 
 /**
@@ -1908,20 +1908,20 @@ export interface ListConfigurationManagersInput {
    * <p>The token to use when requesting a specific set of items from a list.</p>
    * @public
    */
-  StartingToken?: string;
+  StartingToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of configuration managers that are returned by the
    *                   request.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>Filters the results returned by the request.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -1932,14 +1932,14 @@ export interface ListConfigurationManagersOutput {
    * <p>The configuration managers returned by the request.</p>
    * @public
    */
-  ConfigurationManagersList?: ConfigurationManagerSummary[];
+  ConfigurationManagersList?: ConfigurationManagerSummary[] | undefined;
 
   /**
    * <p>The token to use when requesting the next set of configuration managers. If there
    *                   are no additional operations to return, the string is empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1951,13 +1951,13 @@ export interface QuickSetupTypeOutput {
    * <p>The type of the Quick Setup configuration.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The latest version number of the configuration.</p>
    * @public
    */
-  LatestVersion?: string;
+  LatestVersion?: string | undefined;
 }
 
 /**
@@ -1968,7 +1968,7 @@ export interface ListQuickSetupTypesOutput {
    * <p>An array of Quick Setup types.</p>
    * @public
    */
-  QuickSetupTypeList?: QuickSetupTypeOutput[];
+  QuickSetupTypeList?: QuickSetupTypeOutput[] | undefined;
 }
 
 /**
@@ -1991,13 +1991,13 @@ export interface TagEntry {
    * <p>The key for the tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value for the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2008,7 +2008,7 @@ export interface ListTagsForResourceResponse {
    * <p>Key-value pairs of metadata assigned to the resource.</p>
    * @public
    */
-  Tags?: TagEntry[];
+  Tags?: TagEntry[] | undefined;
 }
 
 /**
@@ -2066,27 +2066,27 @@ export interface UpdateConfigurationDefinitionInput {
    * <p>The version of the Quick Setup type to use.</p>
    * @public
    */
-  TypeVersion?: string;
+  TypeVersion?: string | undefined;
 
   /**
    * <p>The parameters for the configuration definition type.</p>
    * @public
    */
-  Parameters?: Record<string, string>;
+  Parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the IAM role used to deploy local
    *                   configurations.</p>
    * @public
    */
-  LocalDeploymentExecutionRoleName?: string;
+  LocalDeploymentExecutionRoleName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role used to administrate local configuration
    *                   deployments.</p>
    * @public
    */
-  LocalDeploymentAdministrationRoleArn?: string;
+  LocalDeploymentAdministrationRoleArn?: string | undefined;
 }
 
 /**
@@ -2103,13 +2103,13 @@ export interface UpdateConfigurationManagerInput {
    * <p>A name for the configuration manager.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the configuration manager.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -2120,7 +2120,7 @@ export interface UpdateServiceSettingsInput {
    * <p>The IAM role used to enable Explorer.</p>
    * @public
    */
-  ExplorerEnablingRoleArn?: string;
+  ExplorerEnablingRoleArn?: string | undefined;
 }
 
 /**

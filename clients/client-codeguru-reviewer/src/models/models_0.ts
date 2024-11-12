@@ -10,7 +10,7 @@ import { CodeGuruReviewerServiceException as __BaseException } from "./CodeGuruR
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -73,7 +73,7 @@ export interface KMSKeyDetails {
    * <p>The ID of the Amazon Web Services KMS key that is associated with a repository association.</p>
    * @public
    */
-  KMSKeyId?: string;
+  KMSKeyId?: string | undefined;
 
   /**
    * <p>The encryption option for a repository association. It is either owned by Amazon Web Services Key
@@ -81,7 +81,7 @@ export interface KMSKeyDetails {
    *             (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    * @public
    */
-  EncryptionOption?: EncryptionOption;
+  EncryptionOption?: EncryptionOption | undefined;
 }
 
 /**
@@ -155,25 +155,25 @@ export interface Repository {
    * <p>Information about an Amazon Web Services CodeCommit repository.</p>
    * @public
    */
-  CodeCommit?: CodeCommitRepository;
+  CodeCommit?: CodeCommitRepository | undefined;
 
   /**
    * <p> Information about a Bitbucket repository. </p>
    * @public
    */
-  Bitbucket?: ThirdPartySourceRepository;
+  Bitbucket?: ThirdPartySourceRepository | undefined;
 
   /**
    * <p>Information about a GitHub Enterprise Server repository.</p>
    * @public
    */
-  GitHubEnterpriseServer?: ThirdPartySourceRepository;
+  GitHubEnterpriseServer?: ThirdPartySourceRepository | undefined;
 
   /**
    * <p>Information about a repository in an S3 bucket.</p>
    * @public
    */
-  S3Bucket?: S3Repository;
+  S3Bucket?: S3Repository | undefined;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface AssociateRepositoryRequest {
    *          associations if there are failures and retries.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
@@ -210,7 +210,7 @@ export interface AssociateRepositoryRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
@@ -227,7 +227,7 @@ export interface AssociateRepositoryRequest {
    *          </ul>
    * @public
    */
-  KMSKeyDetails?: KMSKeyDetails;
+  KMSKeyDetails?: KMSKeyDetails | undefined;
 }
 
 /**
@@ -277,7 +277,7 @@ export interface CodeArtifacts {
    *             Guide</i>.</p>
    * @public
    */
-  BuildArtifactsObjectKey?: string;
+  BuildArtifactsObjectKey?: string | undefined;
 }
 
 /**
@@ -291,7 +291,7 @@ export interface S3RepositoryDetails {
    * <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with <code>codeguru-reviewer-</code>. </p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>A <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the
@@ -299,7 +299,7 @@ export interface S3RepositoryDetails {
    *          .jar or .class files.</p>
    * @public
    */
-  CodeArtifacts?: CodeArtifacts;
+  CodeArtifacts?: CodeArtifacts | undefined;
 }
 
 /**
@@ -329,25 +329,25 @@ export interface RepositoryAssociation {
    * <p>The ID of the repository association.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    * @public
    */
-  AssociationArn?: string;
+  AssociationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a> in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</p>
    * @public
    */
-  ConnectionArn?: string;
+  ConnectionArn?: string | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
@@ -355,13 +355,13 @@ export interface RepositoryAssociation {
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The provider type of the repository association.</p>
    * @public
    */
-  ProviderType?: ProviderType;
+  ProviderType?: ProviderType | undefined;
 
   /**
    * <p>The state of the repository association.</p>
@@ -402,27 +402,27 @@ export interface RepositoryAssociation {
    *          </ul>
    * @public
    */
-  State?: RepositoryAssociationState;
+  State?: RepositoryAssociationState | undefined;
 
   /**
    * <p>A description of why the repository association is in the current state.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the repository association was last
    *          updated.</p>
    * @public
    */
-  LastUpdatedTimeStamp?: Date;
+  LastUpdatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the repository association was
    *          created.</p>
    * @public
    */
-  CreatedTimeStamp?: Date;
+  CreatedTimeStamp?: Date | undefined;
 
   /**
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
@@ -439,7 +439,7 @@ export interface RepositoryAssociation {
    *          </ul>
    * @public
    */
-  KMSKeyDetails?: KMSKeyDetails;
+  KMSKeyDetails?: KMSKeyDetails | undefined;
 
   /**
    * <p>Specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object that contains
@@ -447,7 +447,7 @@ export interface RepositoryAssociation {
    *          contains .jar or .class files.</p>
    * @public
    */
-  S3RepositoryDetails?: S3RepositoryDetails;
+  S3RepositoryDetails?: S3RepositoryDetails | undefined;
 }
 
 /**
@@ -458,7 +458,7 @@ export interface AssociateRepositoryResponse {
    * <p>Information about the repository association.</p>
    * @public
    */
-  RepositoryAssociation?: RepositoryAssociation;
+  RepositoryAssociation?: RepositoryAssociation | undefined;
 
   /**
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
@@ -477,7 +477,7 @@ export interface AssociateRepositoryResponse {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -489,7 +489,7 @@ export interface AssociateRepositoryResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -511,7 +511,7 @@ export class ConflictException extends __BaseException {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -533,7 +533,7 @@ export class InternalServerException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -555,7 +555,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -617,20 +617,20 @@ export interface CommitDiffSourceCodeType {
    *          a pull request code review.</p>
    * @public
    */
-  SourceCommit?: string;
+  SourceCommit?: string | undefined;
 
   /**
    * <p>The SHA of the destination commit used to generate a commit diff. This field is required
    *          for a pull request code review.</p>
    * @public
    */
-  DestinationCommit?: string;
+  DestinationCommit?: string | undefined;
 
   /**
    * <p>The SHA of the merge base of a commit.</p>
    * @public
    */
-  MergeBaseCommit?: string;
+  MergeBaseCommit?: string | undefined;
 }
 
 /**
@@ -645,13 +645,13 @@ export interface EventInfo {
    *          </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The state of an event. The state might be open, closed, or another state.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -679,7 +679,7 @@ export interface RequestMetadata {
    * <p>The ID of the request. This is required for a pull request code review.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>An identifier, such as a name or account ID, that is associated with the requester. The
@@ -687,13 +687,13 @@ export interface RequestMetadata {
    *          event request.</p>
    * @public
    */
-  Requester?: string;
+  Requester?: string | undefined;
 
   /**
    * <p>Information about the event associated with a code review.</p>
    * @public
    */
-  EventInfo?: EventInfo;
+  EventInfo?: EventInfo | undefined;
 
   /**
    * <p>The name of the repository vendor used to upload code to an S3 bucket for a CI/CD code
@@ -703,7 +703,7 @@ export interface RequestMetadata {
    *          is GitHub. For more information, see the definition for <code>ProviderType</code> in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</p>
    * @public
    */
-  VendorName?: VendorName;
+  VendorName?: VendorName | undefined;
 }
 
 /**
@@ -724,7 +724,7 @@ export interface S3BucketRepository {
    * <p>An <code>S3RepositoryDetails</code> object that specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3 object keys for a source code .zip file and for a build artifacts .zip file.</p>
    * @public
    */
-  Details?: S3RepositoryDetails;
+  Details?: S3RepositoryDetails | undefined;
 }
 
 /**
@@ -737,14 +737,14 @@ export interface SourceCodeType {
    *          associated repository.</p>
    * @public
    */
-  CommitDiff?: CommitDiffSourceCodeType;
+  CommitDiff?: CommitDiffSourceCodeType | undefined;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies the tip of a branch in an associated
    *          repository.</p>
    * @public
    */
-  RepositoryHead?: RepositoryHeadSourceCodeType;
+  RepositoryHead?: RepositoryHeadSourceCodeType | undefined;
 
   /**
    * <p>A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that
@@ -752,13 +752,13 @@ export interface SourceCodeType {
    *          repository.</p>
    * @public
    */
-  BranchDiff?: BranchDiffSourceCodeType;
+  BranchDiff?: BranchDiffSourceCodeType | undefined;
 
   /**
    * <p>Information about an associated repository in an S3 bucket that includes its name and an <code>S3RepositoryDetails</code> object. The <code>S3RepositoryDetails</code> object includes the name of an S3 bucket, an S3 key for a source code .zip file, and an S3 key for a build artifacts .zip file. <code>S3BucketRepository</code> is required in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> for <code>S3BucketRepository</code> based code reviews.</p>
    * @public
    */
-  S3BucketRepository?: S3BucketRepository;
+  S3BucketRepository?: S3BucketRepository | undefined;
 
   /**
    * <p>Metadata that is associated with a code review. This applies to any type of code review
@@ -767,7 +767,7 @@ export interface SourceCodeType {
    *          pull request.</p>
    * @public
    */
-  RequestMetadata?: RequestMetadata;
+  RequestMetadata?: RequestMetadata | undefined;
 }
 
 /**
@@ -781,13 +781,13 @@ export interface RepositoryAnalysis {
    *          repository.</p>
    * @public
    */
-  RepositoryHead?: RepositoryHeadSourceCodeType;
+  RepositoryHead?: RepositoryHeadSourceCodeType | undefined;
 
   /**
    * <p>Specifies the source code that is analyzed in a code review.</p>
    * @public
    */
-  SourceCodeType?: SourceCodeType;
+  SourceCodeType?: SourceCodeType | undefined;
 }
 
 /**
@@ -820,7 +820,7 @@ export interface CodeReviewType {
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    * @public
    */
-  AnalysisTypes?: AnalysisType[];
+  AnalysisTypes?: AnalysisType[] | undefined;
 }
 
 /**
@@ -854,7 +854,7 @@ export interface CreateCodeReviewRequest {
    *          if there are failures and retries.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface Metrics {
    *          blank lines.</p>
    * @public
    */
-  MeteredLinesOfCodeCount?: number;
+  MeteredLinesOfCodeCount?: number | undefined;
 
   /**
    * <p>
@@ -895,13 +895,13 @@ export interface Metrics {
    *          such as comments and blank lines. </p>
    * @public
    */
-  SuppressedLinesOfCodeCount?: number;
+  SuppressedLinesOfCodeCount?: number | undefined;
 
   /**
    * <p>Total number of recommendations found in the code review.</p>
    * @public
    */
-  FindingsCount?: number;
+  FindingsCount?: number | undefined;
 }
 
 /**
@@ -944,20 +944,20 @@ export interface CodeReview {
    * <p>The name of the code review.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    * @public
    */
-  CodeReviewArn?: string;
+  CodeReviewArn?: string | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
@@ -965,14 +965,14 @@ export interface CodeReview {
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The type of repository that contains the reviewed code (for example, GitHub or
    *          Bitbucket).</p>
    * @public
    */
-  ProviderType?: ProviderType;
+  ProviderType?: ProviderType | undefined;
 
   /**
    * <p>The valid code review states are:</p>
@@ -996,63 +996,63 @@ export interface CodeReview {
    *          </ul>
    * @public
    */
-  State?: JobState;
+  State?: JobState | undefined;
 
   /**
    * <p>The reason for the state of the code review.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the code review was created.</p>
    * @public
    */
-  CreatedTimeStamp?: Date;
+  CreatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the code review was last updated.</p>
    * @public
    */
-  LastUpdatedTimeStamp?: Date;
+  LastUpdatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The type of code review.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p>The pull request ID for the code review.</p>
    * @public
    */
-  PullRequestId?: string;
+  PullRequestId?: string | undefined;
 
   /**
    * <p>The type of the source code for the code review.</p>
    * @public
    */
-  SourceCodeType?: SourceCodeType;
+  SourceCodeType?: SourceCodeType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> that contains the reviewed source code. You can retrieve
    *          associated repository ARNs by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    * @public
    */
-  AssociationArn?: string;
+  AssociationArn?: string | undefined;
 
   /**
    * <p>The statistics from the code review.</p>
    * @public
    */
-  Metrics?: Metrics;
+  Metrics?: Metrics | undefined;
 
   /**
    * <p>The types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    * @public
    */
-  AnalysisTypes?: AnalysisType[];
+  AnalysisTypes?: AnalysisType[] | undefined;
 
   /**
    * <p>The state of the <code>aws-codeguru-reviewer.yml</code> configuration file that allows
@@ -1060,7 +1060,7 @@ export interface CodeReview {
    *          with errors at the root directory of your repository.</p>
    * @public
    */
-  ConfigFileState?: ConfigFileState;
+  ConfigFileState?: ConfigFileState | undefined;
 }
 
 /**
@@ -1072,7 +1072,7 @@ export interface CreateCodeReviewResponse {
    *          contains the reviewed code.</p>
    * @public
    */
-  CodeReview?: CodeReview;
+  CodeReview?: CodeReview | undefined;
 }
 
 /**
@@ -1082,7 +1082,7 @@ export interface CreateCodeReviewResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1117,7 +1117,7 @@ export interface DescribeCodeReviewResponse {
    * <p>Information about the code review.</p>
    * @public
    */
-  CodeReview?: CodeReview;
+  CodeReview?: CodeReview | undefined;
 }
 
 /**
@@ -1147,7 +1147,7 @@ export interface DescribeRecommendationFeedbackRequest {
    *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 }
 
 /**
@@ -1174,21 +1174,21 @@ export interface RecommendationFeedback {
    *       </p>
    * @public
    */
-  CodeReviewArn?: string;
+  CodeReviewArn?: string | undefined;
 
   /**
    * <p>The recommendation ID that can be used to track the provided recommendations. Later on
    *          it can be used to collect the feedback.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. You can send an
    *          empty list to clear off all your feedback.</p>
    * @public
    */
-  Reactions?: Reaction[];
+  Reactions?: Reaction[] | undefined;
 
   /**
    * <p>The ID of the user that made the API call.</p>
@@ -1198,19 +1198,19 @@ export interface RecommendationFeedback {
    *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The time at which the feedback was created.</p>
    * @public
    */
-  CreatedTimeStamp?: Date;
+  CreatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The time at which the feedback was last updated.</p>
    * @public
    */
-  LastUpdatedTimeStamp?: Date;
+  LastUpdatedTimeStamp?: Date | undefined;
 }
 
 /**
@@ -1221,7 +1221,7 @@ export interface DescribeRecommendationFeedbackResponse {
    * <p>The recommendation feedback given by the user.</p>
    * @public
    */
-  RecommendationFeedback?: RecommendationFeedback;
+  RecommendationFeedback?: RecommendationFeedback | undefined;
 }
 
 /**
@@ -1243,7 +1243,7 @@ export interface DescribeRepositoryAssociationResponse {
    * <p>Information about the repository association.</p>
    * @public
    */
-  RepositoryAssociation?: RepositoryAssociation;
+  RepositoryAssociation?: RepositoryAssociation | undefined;
 
   /**
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
@@ -1262,7 +1262,7 @@ export interface DescribeRepositoryAssociationResponse {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1272,7 +1272,7 @@ export interface DescribeRepositoryAssociationResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1306,7 +1306,7 @@ export interface DisassociateRepositoryResponse {
    * <p>Information about the disassociated repository.</p>
    * @public
    */
-  RepositoryAssociation?: RepositoryAssociation;
+  RepositoryAssociation?: RepositoryAssociation | undefined;
 
   /**
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
@@ -1325,7 +1325,7 @@ export interface DisassociateRepositoryResponse {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1338,7 +1338,7 @@ export interface ListCodeReviewsRequest {
    *          GitHub.</p>
    * @public
    */
-  ProviderTypes?: ProviderType[];
+  ProviderTypes?: ProviderType[] | undefined;
 
   /**
    * <p>List of states for filtering that needs to be applied before displaying the result. For
@@ -1364,14 +1364,14 @@ export interface ListCodeReviewsRequest {
    *          </ul>
    * @public
    */
-  States?: JobState[];
+  States?: JobState[] | undefined;
 
   /**
    * <p>List of repository names for filtering that needs to be applied before displaying the
    *          result.</p>
    * @public
    */
-  RepositoryNames?: string[];
+  RepositoryNames?: string[] | undefined;
 
   /**
    * <p>The type of code reviews to list in the response.</p>
@@ -1383,7 +1383,7 @@ export interface ListCodeReviewsRequest {
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1392,7 +1392,7 @@ export interface ListCodeReviewsRequest {
    *          unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1413,7 +1413,7 @@ export interface MetricsSummary {
    *          lines of code.</p>
    * @public
    */
-  MeteredLinesOfCodeCount?: number;
+  MeteredLinesOfCodeCount?: number | undefined;
 
   /**
    * <p>Lines of code suppressed in the code review based on the <code>excludeFiles</code>
@@ -1432,13 +1432,13 @@ export interface MetricsSummary {
    *          lines of code suppressed.</p>
    * @public
    */
-  SuppressedLinesOfCodeCount?: number;
+  SuppressedLinesOfCodeCount?: number | undefined;
 
   /**
    * <p>Total number of recommendations found in the code review.</p>
    * @public
    */
-  FindingsCount?: number;
+  FindingsCount?: number | undefined;
 }
 
 /**
@@ -1450,20 +1450,20 @@ export interface CodeReviewSummary {
    * <p>The name of the code review.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    * @public
    */
-  CodeReviewArn?: string;
+  CodeReviewArn?: string | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
@@ -1471,13 +1471,13 @@ export interface CodeReviewSummary {
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The provider type of the repository association.</p>
    * @public
    */
-  ProviderType?: ProviderType;
+  ProviderType?: ProviderType | undefined;
 
   /**
    * <p>The state of the code review.</p>
@@ -1502,43 +1502,43 @@ export interface CodeReviewSummary {
    *          </ul>
    * @public
    */
-  State?: JobState;
+  State?: JobState | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the code review was created.</p>
    * @public
    */
-  CreatedTimeStamp?: Date;
+  CreatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the code review was last updated.</p>
    * @public
    */
-  LastUpdatedTimeStamp?: Date;
+  LastUpdatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The type of the code review.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p>The pull request ID for the code review.</p>
    * @public
    */
-  PullRequestId?: string;
+  PullRequestId?: string | undefined;
 
   /**
    * <p>The statistics from the code review.</p>
    * @public
    */
-  MetricsSummary?: MetricsSummary;
+  MetricsSummary?: MetricsSummary | undefined;
 
   /**
    * <p>Specifies the source code that is analyzed in a code review.</p>
    * @public
    */
-  SourceCodeType?: SourceCodeType;
+  SourceCodeType?: SourceCodeType | undefined;
 }
 
 /**
@@ -1549,13 +1549,13 @@ export interface ListCodeReviewsResponse {
    * <p>A list of code reviews that meet the criteria of the request.</p>
    * @public
    */
-  CodeReviewSummaries?: CodeReviewSummary[];
+  CodeReviewSummaries?: CodeReviewSummary[] | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1569,13 +1569,13 @@ export interface ListRecommendationFeedbackRequest {
    *          unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
@@ -1593,13 +1593,13 @@ export interface ListRecommendationFeedbackRequest {
    *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  UserIds?: string[];
+  UserIds?: string[] | undefined;
 
   /**
    * <p>Used to query the recommendation feedback for a given recommendation.</p>
    * @public
    */
-  RecommendationIds?: string[];
+  RecommendationIds?: string[] | undefined;
 }
 
 /**
@@ -1612,13 +1612,13 @@ export interface RecommendationFeedbackSummary {
    *          it can be used to collect the feedback.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis.</p>
    * @public
    */
-  Reactions?: Reaction[];
+  Reactions?: Reaction[] | undefined;
 
   /**
    * <p>The ID of the user that gave the feedback.</p>
@@ -1628,7 +1628,7 @@ export interface RecommendationFeedbackSummary {
    *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 }
 
 /**
@@ -1639,7 +1639,7 @@ export interface ListRecommendationFeedbackResponse {
    * <p>Recommendation feedback summaries corresponding to the code review ARN.</p>
    * @public
    */
-  RecommendationFeedbackSummaries?: RecommendationFeedbackSummary[];
+  RecommendationFeedbackSummaries?: RecommendationFeedbackSummary[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1648,7 +1648,7 @@ export interface ListRecommendationFeedbackResponse {
    *          unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1659,13 +1659,13 @@ export interface ListRecommendationsRequest {
    * <p>Pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
@@ -1707,31 +1707,31 @@ export interface RuleMetadata {
    * <p>The ID of the rule.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The name of the rule.</p>
    * @public
    */
-  RuleName?: string;
+  RuleName?: string | undefined;
 
   /**
    * <p>A short description of the rule.</p>
    * @public
    */
-  ShortDescription?: string;
+  ShortDescription?: string | undefined;
 
   /**
    * <p>A long description of the rule.</p>
    * @public
    */
-  LongDescription?: string;
+  LongDescription?: string | undefined;
 
   /**
    * <p>Tags that are associated with the rule.</p>
    * @public
    */
-  RuleTags?: string[];
+  RuleTags?: string[] | undefined;
 }
 
 /**
@@ -1760,53 +1760,53 @@ export interface RecommendationSummary {
    * <p>Name of the file on which a recommendation is provided.</p>
    * @public
    */
-  FilePath?: string;
+  FilePath?: string | undefined;
 
   /**
    * <p>The recommendation ID that can be used to track the provided recommendations. Later on
    *          it can be used to collect the feedback.</p>
    * @public
    */
-  RecommendationId?: string;
+  RecommendationId?: string | undefined;
 
   /**
    * <p>Start line from where the recommendation is applicable in the source commit or source
    *          branch.</p>
    * @public
    */
-  StartLine?: number;
+  StartLine?: number | undefined;
 
   /**
    * <p>Last line where the recommendation is applicable in the source commit or source branch.
    *          For a single line comment the start line and end line values are the same.</p>
    * @public
    */
-  EndLine?: number;
+  EndLine?: number | undefined;
 
   /**
    * <p>A description of the recommendation generated by CodeGuru Reviewer for the lines of code between
    *          the start line and the end line.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of a recommendation.</p>
    * @public
    */
-  RecommendationCategory?: RecommendationCategory;
+  RecommendationCategory?: RecommendationCategory | undefined;
 
   /**
    * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is included in analysis results if code is detected that violates the rule.</p>
    * @public
    */
-  RuleMetadata?: RuleMetadata;
+  RuleMetadata?: RuleMetadata | undefined;
 
   /**
    * <p>The severity of the issue in the code that generated this recommendation.</p>
    * @public
    */
-  Severity?: Severity;
+  Severity?: Severity | undefined;
 }
 
 /**
@@ -1817,13 +1817,13 @@ export interface ListRecommendationsResponse {
    * <p>List of recommendations for the requested code review.</p>
    * @public
    */
-  RecommendationSummaries?: RecommendationSummary[];
+  RecommendationSummaries?: RecommendationSummary[] | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1834,7 +1834,7 @@ export interface ListRepositoryAssociationsRequest {
    * <p>List of provider types to use as a filter.</p>
    * @public
    */
-  ProviderTypes?: ProviderType[];
+  ProviderTypes?: ProviderType[] | undefined;
 
   /**
    * <p>List of repository association states to use as a filter.</p>
@@ -1875,13 +1875,13 @@ export interface ListRepositoryAssociationsRequest {
    *          </ul>
    * @public
    */
-  States?: RepositoryAssociationState[];
+  States?: RepositoryAssociationState[] | undefined;
 
   /**
    * <p>List of repository names to use as a filter.</p>
    * @public
    */
-  Names?: string[];
+  Names?: string[] | undefined;
 
   /**
    * <p>List of owners to use as a filter. For Amazon Web Services CodeCommit, it is the name of the
@@ -1890,7 +1890,7 @@ export interface ListRepositoryAssociationsRequest {
    *          was used to associate the repository. </p>
    * @public
    */
-  Owners?: string[];
+  Owners?: string[] | undefined;
 
   /**
    * <p>The maximum number of repository association results returned by
@@ -1903,7 +1903,7 @@ export interface ListRepositoryAssociationsRequest {
    *          100 results and a <code>nextToken</code> value if applicable. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -1916,7 +1916,7 @@ export interface ListRepositoryAssociationsRequest {
    *          </note>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1929,32 +1929,32 @@ export interface RepositoryAssociationSummary {
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    * @public
    */
-  AssociationArn?: string;
+  AssociationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a> in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</p>
    * @public
    */
-  ConnectionArn?: string;
+  ConnectionArn?: string | undefined;
 
   /**
    * <p>The time, in milliseconds since the epoch, since the repository association was last
    *          updated.</p>
    * @public
    */
-  LastUpdatedTimeStamp?: Date;
+  LastUpdatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The repository association ID.</p>
    * @public
    */
-  AssociationId?: string;
+  AssociationId?: string | undefined;
 
   /**
    * <p>The name of the repository association.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
@@ -1962,13 +1962,13 @@ export interface RepositoryAssociationSummary {
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The provider type of the repository association.</p>
    * @public
    */
-  ProviderType?: ProviderType;
+  ProviderType?: ProviderType | undefined;
 
   /**
    * <p>The state of the repository association.</p>
@@ -2009,7 +2009,7 @@ export interface RepositoryAssociationSummary {
    *          </ul>
    * @public
    */
-  State?: RepositoryAssociationState;
+  State?: RepositoryAssociationState | undefined;
 }
 
 /**
@@ -2020,7 +2020,7 @@ export interface ListRepositoryAssociationsResponse {
    * <p>A list of repository associations that meet the criteria of the request.</p>
    * @public
    */
-  RepositoryAssociationSummaries?: RepositoryAssociationSummary[];
+  RepositoryAssociationSummaries?: RepositoryAssociationSummary[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code>
@@ -2029,7 +2029,7 @@ export interface ListRepositoryAssociationsResponse {
    *          This value is <code>null</code> when there are no more results to return. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2064,7 +2064,7 @@ export interface ListTagsForResourceResponse {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**

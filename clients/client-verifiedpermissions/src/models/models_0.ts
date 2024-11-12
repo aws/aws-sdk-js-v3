@@ -161,7 +161,7 @@ export interface StaticPolicyDefinitionDetail {
    * <p>A description of the static policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The content of the static policy written in the Cedar policy language.</p>
@@ -187,7 +187,7 @@ export interface TemplateLinkedPolicyDefinitionDetail {
    *             request.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
@@ -195,7 +195,7 @@ export interface TemplateLinkedPolicyDefinitionDetail {
    *             request.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 }
 
 /**
@@ -375,13 +375,13 @@ export class ThrottlingException extends __BaseException {
    * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -508,7 +508,7 @@ export class ValidationException extends __BaseException {
    * <p>The list of fields that aren't valid.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -649,7 +649,7 @@ export interface CognitoGroupConfigurationDetail {
    *             to <code>AWS::CognitoGroup</code>.</p>
    * @public
    */
-  groupEntityType?: string;
+  groupEntityType?: string | undefined;
 }
 
 /**
@@ -665,7 +665,7 @@ export interface CognitoGroupConfigurationItem {
    *             to <code>AWS::CognitoGroup</code>.</p>
    * @public
    */
-  groupEntityType?: string;
+  groupEntityType?: string | undefined;
 }
 
 /**
@@ -696,14 +696,14 @@ export interface CognitoUserPoolConfiguration {
    *          </p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 
   /**
    * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
    *             pool identity source.</p>
    * @public
    */
-  groupConfiguration?: CognitoGroupConfiguration;
+  groupConfiguration?: CognitoGroupConfiguration | undefined;
 }
 
 /**
@@ -751,7 +751,7 @@ export interface CognitoUserPoolConfigurationDetail {
    *             pool identity source.</p>
    * @public
    */
-  groupConfiguration?: CognitoGroupConfigurationDetail;
+  groupConfiguration?: CognitoGroupConfigurationDetail | undefined;
 }
 
 /**
@@ -799,7 +799,7 @@ export interface CognitoUserPoolConfigurationItem {
    *             pool identity source.</p>
    * @public
    */
-  groupConfiguration?: CognitoGroupConfigurationItem;
+  groupConfiguration?: CognitoGroupConfigurationItem | undefined;
 }
 
 /**
@@ -840,14 +840,14 @@ export interface OpenIdConnectAccessTokenConfiguration {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The access token <code>aud</code> claim values that you want to accept in your policy
    *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
    * @public
    */
-  audiences?: string[];
+  audiences?: string[] | undefined;
 }
 
 /**
@@ -864,7 +864,7 @@ export interface OpenIdConnectIdentityTokenConfiguration {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
@@ -872,7 +872,7 @@ export interface OpenIdConnectIdentityTokenConfiguration {
    *             2example10111213</code>.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 }
 
 /**
@@ -961,7 +961,7 @@ export interface OpenIdConnectConfiguration {
    *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
    * @public
    */
-  entityIdPrefix?: string;
+  entityIdPrefix?: string | undefined;
 
   /**
    * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
@@ -969,7 +969,7 @@ export interface OpenIdConnectConfiguration {
    *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
    * @public
    */
-  groupConfiguration?: OpenIdConnectGroupConfiguration;
+  groupConfiguration?: OpenIdConnectGroupConfiguration | undefined;
 
   /**
    * <p>The token type that you want to process from your OIDC identity provider. Your policy
@@ -1088,14 +1088,14 @@ export interface OpenIdConnectAccessTokenConfigurationDetail {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The access token <code>aud</code> claim values that you want to accept in your policy
    *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
    * @public
    */
-  audiences?: string[];
+  audiences?: string[] | undefined;
 }
 
 /**
@@ -1112,7 +1112,7 @@ export interface OpenIdConnectIdentityTokenConfigurationDetail {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
@@ -1120,7 +1120,7 @@ export interface OpenIdConnectIdentityTokenConfigurationDetail {
    *             2example10111213</code>.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 }
 
 /**
@@ -1209,7 +1209,7 @@ export interface OpenIdConnectConfigurationDetail {
    *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
    * @public
    */
-  entityIdPrefix?: string;
+  entityIdPrefix?: string | undefined;
 
   /**
    * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
@@ -1217,7 +1217,7 @@ export interface OpenIdConnectConfigurationDetail {
    *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
    * @public
    */
-  groupConfiguration?: OpenIdConnectGroupConfigurationDetail;
+  groupConfiguration?: OpenIdConnectGroupConfigurationDetail | undefined;
 
   /**
    * <p>The token type that you want to process from your OIDC identity provider. Your policy
@@ -1337,14 +1337,14 @@ export interface OpenIdConnectAccessTokenConfigurationItem {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The access token <code>aud</code> claim values that you want to accept in your policy
    *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
    * @public
    */
-  audiences?: string[];
+  audiences?: string[] | undefined;
 }
 
 /**
@@ -1361,7 +1361,7 @@ export interface OpenIdConnectIdentityTokenConfigurationItem {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
@@ -1369,7 +1369,7 @@ export interface OpenIdConnectIdentityTokenConfigurationItem {
    *             2example10111213</code>.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 }
 
 /**
@@ -1458,7 +1458,7 @@ export interface OpenIdConnectConfigurationItem {
    *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
    * @public
    */
-  entityIdPrefix?: string;
+  entityIdPrefix?: string | undefined;
 
   /**
    * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
@@ -1466,7 +1466,7 @@ export interface OpenIdConnectConfigurationItem {
    *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
    * @public
    */
-  groupConfiguration?: OpenIdConnectGroupConfigurationItem;
+  groupConfiguration?: OpenIdConnectGroupConfigurationItem | undefined;
 
   /**
    * <p>The token type that you want to process from your OIDC identity provider. Your policy
@@ -1615,7 +1615,7 @@ export interface CreateIdentitySourceInput {
    *              the value of <code>ClientToken</code>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and
@@ -1637,7 +1637,7 @@ export interface CreateIdentitySourceInput {
    *             authenticated by the new identity source.</p>
    * @public
    */
-  principalEntityType?: string;
+  principalEntityType?: string | undefined;
 }
 
 /**
@@ -1680,7 +1680,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The unique ID of the resource referenced in the failed request.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type of the resource referenced in the failed request.</p>
@@ -1692,13 +1692,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * @internal
@@ -1728,7 +1728,7 @@ export interface StaticPolicyDefinition {
    * <p>The description of the static policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The policy content of the static policy, written in the Cedar policy language.</p>
@@ -1754,7 +1754,7 @@ export interface TemplateLinkedPolicyDefinition {
    *             request.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
@@ -1762,7 +1762,7 @@ export interface TemplateLinkedPolicyDefinition {
    *             request.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 }
 
 /**
@@ -1850,7 +1850,7 @@ export interface CreatePolicyInput {
    *              the value of <code>ClientToken</code>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the <code>PolicyStoreId</code> of the policy store you want to store the policy
@@ -1909,14 +1909,14 @@ export interface CreatePolicyOutput {
    *             when <code>principal</code> isn't specified in the policy content.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource specified in the new policy's scope. This response element isn't present
    *             when the <code>resource</code> isn't specified in the policy content.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>The action that a policy permits or forbids. For example,
@@ -1924,7 +1924,7 @@ export interface CreatePolicyOutput {
    * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
    * @public
    */
-  actions?: ActionIdentifier[];
+  actions?: ActionIdentifier[] | undefined;
 
   /**
    * <p>The date and time the policy was originally created.</p>
@@ -1943,7 +1943,7 @@ export interface CreatePolicyOutput {
    * request. For example, <code>"effect": "Permit"</code>.</p>
    * @public
    */
-  effect?: PolicyEffect;
+  effect?: PolicyEffect | undefined;
 }
 
 /**
@@ -2016,7 +2016,7 @@ export interface CreatePolicyStoreInput {
    *              the value of <code>ClientToken</code>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the validation setting for this policy store.</p>
@@ -2036,7 +2036,7 @@ export interface CreatePolicyStoreInput {
    *             of the current policy store.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2089,7 +2089,7 @@ export interface CreatePolicyTemplateInput {
    *              the value of <code>ClientToken</code>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID of the policy store in which to create the policy template.</p>
@@ -2101,7 +2101,7 @@ export interface CreatePolicyTemplateInput {
    * <p>Specifies a description for the policy template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies the content that you want to use for the new policy template, written in the Cedar
@@ -2329,7 +2329,7 @@ export interface IdentitySourceDetails {
    *             enabled for this identity source.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 
   /**
    * @deprecated
@@ -2338,7 +2338,7 @@ export interface IdentitySourceDetails {
    *             policy store.</p>
    * @public
    */
-  userPoolArn?: string;
+  userPoolArn?: string | undefined;
 
   /**
    * @deprecated
@@ -2352,7 +2352,7 @@ export interface IdentitySourceDetails {
    *          </p>
    * @public
    */
-  discoveryUrl?: string;
+  discoveryUrl?: string | undefined;
 
   /**
    * @deprecated
@@ -2361,7 +2361,7 @@ export interface IdentitySourceDetails {
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    * @public
    */
-  openIdIssuer?: OpenIdIssuer;
+  openIdIssuer?: OpenIdIssuer | undefined;
 }
 
 /**
@@ -2380,7 +2380,7 @@ export interface GetIdentitySourceOutput {
    * <p>A structure that describes the configuration of the identity source.</p>
    * @public
    */
-  details?: IdentitySourceDetails;
+  details?: IdentitySourceDetails | undefined;
 
   /**
    * <p>The ID of the identity source.</p>
@@ -2411,7 +2411,7 @@ export interface GetIdentitySourceOutput {
    * <p>Contains configuration information about an identity source.</p>
    * @public
    */
-  configuration?: ConfigurationDetail;
+  configuration?: ConfigurationDetail | undefined;
 }
 
 /**
@@ -2459,14 +2459,14 @@ export interface GetPolicyOutput {
    *             response when <code>Principal</code> isn't present in the policy content.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource specified in the policy's scope. This element isn't included in the
    *             response when <code>Resource</code> isn't present in the policy content.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>The action that a policy permits or forbids. For example,
@@ -2474,7 +2474,7 @@ export interface GetPolicyOutput {
    * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
    * @public
    */
-  actions?: ActionIdentifier[];
+  actions?: ActionIdentifier[] | undefined;
 
   /**
    * <p>The definition of the requested policy.</p>
@@ -2499,7 +2499,7 @@ export interface GetPolicyOutput {
    * request. For example, <code>"effect": "Permit"</code>.</p>
    * @public
    */
-  effect?: PolicyEffect;
+  effect?: PolicyEffect | undefined;
 }
 
 /**
@@ -2552,7 +2552,7 @@ export interface GetPolicyStoreOutput {
    *             of the current policy store.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2593,7 +2593,7 @@ export interface GetPolicyTemplateOutput {
    * <p>The description of the policy template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The content of the body of the policy template written in the Cedar policy language.</p>
@@ -2657,7 +2657,7 @@ export interface GetSchemaOutput {
    * <p>The namespaces of the entities referenced by this schema.</p>
    * @public
    */
-  namespaces?: string[];
+  namespaces?: string[] | undefined;
 }
 
 /**
@@ -2673,7 +2673,7 @@ export interface IdentitySourceFilter {
    *             associated with this identity source.</p>
    * @public
    */
-  principalEntityType?: string;
+  principalEntityType?: string | undefined;
 }
 
 /**
@@ -2694,7 +2694,7 @@ export interface ListIdentitySourcesInput {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included in each
@@ -2709,14 +2709,14 @@ export interface ListIdentitySourcesInput {
    *             You can specify a maximum of 50 identity sources per response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies characteristics of an identity source that you can use to limit the output to matching
    *             identity sources.</p>
    * @public
    */
-  filters?: IdentitySourceFilter[];
+  filters?: IdentitySourceFilter[] | undefined;
 }
 
 /**
@@ -2735,7 +2735,7 @@ export interface IdentitySourceItemDetails {
    *             enabled for this identity source.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 
   /**
    * @deprecated
@@ -2743,7 +2743,7 @@ export interface IdentitySourceItemDetails {
    * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
    * @public
    */
-  userPoolArn?: string;
+  userPoolArn?: string | undefined;
 
   /**
    * @deprecated
@@ -2757,7 +2757,7 @@ export interface IdentitySourceItemDetails {
    *          </p>
    * @public
    */
-  discoveryUrl?: string;
+  discoveryUrl?: string | undefined;
 
   /**
    * @deprecated
@@ -2766,7 +2766,7 @@ export interface IdentitySourceItemDetails {
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    * @public
    */
-  openIdIssuer?: OpenIdIssuer;
+  openIdIssuer?: OpenIdIssuer | undefined;
 }
 
 /**
@@ -2789,7 +2789,7 @@ export interface IdentitySourceItem {
    *             (IdP).</p>
    * @public
    */
-  details?: IdentitySourceItemDetails;
+  details?: IdentitySourceItemDetails | undefined;
 
   /**
    * <p>The unique identifier of the identity source.</p>
@@ -2820,7 +2820,7 @@ export interface IdentitySourceItem {
    * <p>Contains configuration information about an identity source.</p>
    * @public
    */
-  configuration?: ConfigurationItem;
+  configuration?: ConfigurationItem | undefined;
 }
 
 /**
@@ -2835,7 +2835,7 @@ export interface ListIdentitySourcesOutput {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of identity sources stored in the specified policy store.</p>
@@ -2874,14 +2874,14 @@ export interface UpdateCognitoUserPoolConfiguration {
    *             pool.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 
   /**
    * <p>The configuration of the user groups from an Amazon Cognito user pool identity
    *             source.</p>
    * @public
    */
-  groupConfiguration?: UpdateCognitoGroupConfiguration;
+  groupConfiguration?: UpdateCognitoGroupConfiguration | undefined;
 }
 
 /**
@@ -2922,14 +2922,14 @@ export interface UpdateOpenIdConnectAccessTokenConfiguration {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The access token <code>aud</code> claim values that you want to accept in your policy
    *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
    * @public
    */
-  audiences?: string[];
+  audiences?: string[] | undefined;
 }
 
 /**
@@ -2946,7 +2946,7 @@ export interface UpdateOpenIdConnectIdentityTokenConfiguration {
    *             <code>sub</code>.</p>
    * @public
    */
-  principalIdClaim?: string;
+  principalIdClaim?: string | undefined;
 
   /**
    * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
@@ -2954,7 +2954,7 @@ export interface UpdateOpenIdConnectIdentityTokenConfiguration {
    *             2example10111213</code>.</p>
    * @public
    */
-  clientIds?: string[];
+  clientIds?: string[] | undefined;
 }
 
 /**
@@ -3043,7 +3043,7 @@ export interface UpdateOpenIdConnectConfiguration {
    *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
    * @public
    */
-  entityIdPrefix?: string;
+  entityIdPrefix?: string | undefined;
 
   /**
    * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
@@ -3051,7 +3051,7 @@ export interface UpdateOpenIdConnectConfiguration {
    *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
    * @public
    */
-  groupConfiguration?: UpdateOpenIdConnectGroupConfiguration;
+  groupConfiguration?: UpdateOpenIdConnectGroupConfiguration | undefined;
 
   /**
    * <p>The token type that you want to process from your OIDC identity provider. Your policy
@@ -3151,7 +3151,7 @@ export interface UpdateIdentitySourceInput {
    *             identity source.</p>
    * @public
    */
-  principalEntityType?: string;
+  principalEntityType?: string | undefined;
 }
 
 /**
@@ -3246,7 +3246,7 @@ export interface IsAuthorizedWithTokenOutput {
    * <p>The identifier of the principal in the ID or access token.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 }
 
 /**
@@ -3259,26 +3259,26 @@ export interface PolicyFilter {
    * <p>Filters the output to only policies that reference the specified principal.</p>
    * @public
    */
-  principal?: EntityReference;
+  principal?: EntityReference | undefined;
 
   /**
    * <p>Filters the output to only policies that reference the specified resource.</p>
    * @public
    */
-  resource?: EntityReference;
+  resource?: EntityReference | undefined;
 
   /**
    * <p>Filters the output to only policies of the specified type.</p>
    * @public
    */
-  policyType?: PolicyType;
+  policyType?: PolicyType | undefined;
 
   /**
    * <p>Filters the output to only template-linked policies that were instantiated from the specified
    *             policy template.</p>
    * @public
    */
-  policyTemplateId?: string;
+  policyTemplateId?: string | undefined;
 }
 
 /**
@@ -3299,7 +3299,7 @@ export interface ListPoliciesInput {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included in each
@@ -3314,7 +3314,7 @@ export interface ListPoliciesInput {
    *             response. You can specify a maximum of 50 policies per response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies a filter that limits the response to only policies that match the specified
@@ -3322,7 +3322,7 @@ export interface ListPoliciesInput {
    *             principal.</p>
    * @public
    */
-  filter?: PolicyFilter;
+  filter?: PolicyFilter | undefined;
 }
 
 /**
@@ -3337,7 +3337,7 @@ export interface StaticPolicyDefinitionItem {
    * <p>A description of the static policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3358,7 +3358,7 @@ export interface TemplateLinkedPolicyDefinitionItem {
    *             request.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
@@ -3366,7 +3366,7 @@ export interface TemplateLinkedPolicyDefinitionItem {
    *             request.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 }
 
 /**
@@ -3469,13 +3469,13 @@ export interface PolicyItem {
    * <p>The principal associated with the policy.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource associated with the policy.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>The action that a policy permits or forbids. For example,
@@ -3483,7 +3483,7 @@ export interface PolicyItem {
    * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
    * @public
    */
-  actions?: ActionIdentifier[];
+  actions?: ActionIdentifier[] | undefined;
 
   /**
    * <p>The policy definition of an item in the list of policies returned.</p>
@@ -3508,7 +3508,7 @@ export interface PolicyItem {
    * request. For example, <code>"effect": "Permit"</code>.</p>
    * @public
    */
-  effect?: PolicyEffect;
+  effect?: PolicyEffect | undefined;
 }
 
 /**
@@ -3523,7 +3523,7 @@ export interface ListPoliciesOutput {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Lists all policies that are available in the specified policy store.</p>
@@ -3544,7 +3544,7 @@ export interface ListPolicyStoresInput {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included in each
@@ -3559,7 +3559,7 @@ export interface ListPolicyStoresInput {
    *             You can specify a maximum of 50 policy stores per response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3591,14 +3591,14 @@ export interface PolicyStoreItem {
    * <p>The date and time the policy store was most recently updated.</p>
    * @public
    */
-  lastUpdatedDate?: Date;
+  lastUpdatedDate?: Date | undefined;
 
   /**
    * <p>Descriptive text that you can provide to help with identification
    *             of the current policy store.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3613,7 +3613,7 @@ export interface ListPolicyStoresOutput {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of policy stores in the account.</p>
@@ -3640,7 +3640,7 @@ export interface ListPolicyTemplatesInput {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included in each
@@ -3655,7 +3655,7 @@ export interface ListPolicyTemplatesInput {
    *             You can specify a maximum of 50 policy templates per response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3681,7 +3681,7 @@ export interface PolicyTemplateItem {
    * <p>The description attached to the policy template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the policy template was created.</p>
@@ -3708,7 +3708,7 @@ export interface ListPolicyTemplatesOutput {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of the policy templates in the specified policy store.</p>
@@ -3726,7 +3726,7 @@ export interface UpdateStaticPolicyDefinition {
    * <p>Specifies the description to be added to or replaced on the static policy.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies the Cedar policy language text to be added to or replaced on the static policy.</p>
@@ -3881,14 +3881,14 @@ export interface UpdatePolicyOutput {
    *             response when <code>Principal</code> isn't present in the policy content.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>The resource specified in the policy's scope. This element isn't included in the
    *             response when <code>Resource</code> isn't present in the policy content.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>The action that a policy permits or forbids. For example,
@@ -3896,7 +3896,7 @@ export interface UpdatePolicyOutput {
    * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
    * @public
    */
-  actions?: ActionIdentifier[];
+  actions?: ActionIdentifier[] | undefined;
 
   /**
    * <p>The date and time that the policy was originally created.</p>
@@ -3915,7 +3915,7 @@ export interface UpdatePolicyOutput {
    * request. For example, <code>"effect": "Permit"</code>.</p>
    * @public
    */
-  effect?: PolicyEffect;
+  effect?: PolicyEffect | undefined;
 }
 
 /**
@@ -3938,7 +3938,7 @@ export interface UpdatePolicyTemplateInput {
    * <p>Specifies a new description to apply to the policy template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies new statement content written in Cedar policy language to replace the
@@ -4112,7 +4112,7 @@ export interface UpdatePolicyStoreInput {
    *             of the current policy store.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -4429,7 +4429,7 @@ export interface EntityItem {
    * <p>A list of attributes for the entity.</p>
    * @public
    */
-  attributes?: Record<string, AttributeValue>;
+  attributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The parent entities in the hierarchy that contains the entity. A principal or resource
@@ -4441,7 +4441,7 @@ export interface EntityItem {
    *             parents, and eight parents of parents. </p>
    * @public
    */
-  parents?: EntityIdentifier[];
+  parents?: EntityIdentifier[] | undefined;
 }
 
 /**
@@ -4454,28 +4454,28 @@ export interface BatchIsAuthorizedInputItem {
    * <p>Specifies the principal for which the authorization decision is to be made.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies the requested action to be authorized. For example,
    *                 <code>PhotoFlash::ReadPhoto</code>.</p>
    * @public
    */
-  action?: ActionIdentifier;
+  action?: ActionIdentifier | undefined;
 
   /**
    * <p>Specifies the resource that you want an authorization decision for. For example,
    *                 <code>PhotoFlash::Photo</code>.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
    * @public
    */
-  context?: ContextDefinition;
+  context?: ContextDefinition | undefined;
 }
 
 /**
@@ -4489,21 +4489,21 @@ export interface BatchIsAuthorizedWithTokenInputItem {
    *             <code>PhotoFlash::ReadPhoto</code>.</p>
    * @public
    */
-  action?: ActionIdentifier;
+  action?: ActionIdentifier | undefined;
 
   /**
    * <p>Specifies the resource that you want an authorization decision for. For example,
    *             <code>PhotoFlash::Photo</code>.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
    * @public
    */
-  context?: ContextDefinition;
+  context?: ContextDefinition | undefined;
 }
 
 /**
@@ -4645,7 +4645,7 @@ export interface BatchIsAuthorizedWithTokenOutput {
    * <p>The identifier of the principal in the ID or access token.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
@@ -4670,27 +4670,27 @@ export interface IsAuthorizedInput {
    * <p>Specifies the principal for which the authorization decision is to be made.</p>
    * @public
    */
-  principal?: EntityIdentifier;
+  principal?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies the requested action to be authorized. For example, is the principal
    *             authorized to perform this action on the resource?</p>
    * @public
    */
-  action?: ActionIdentifier;
+  action?: ActionIdentifier | undefined;
 
   /**
    * <p>Specifies the resource for which the authorization decision is to be made.</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
    * @public
    */
-  context?: ContextDefinition;
+  context?: ContextDefinition | undefined;
 
   /**
    * <p>Specifies the list of resources and principals and their associated attributes that
@@ -4701,7 +4701,7 @@ export interface IsAuthorizedInput {
    *          </note>
    * @public
    */
-  entities?: EntitiesDefinition;
+  entities?: EntitiesDefinition | undefined;
 }
 
 /**
@@ -4724,7 +4724,7 @@ export interface IsAuthorizedWithTokenInput {
    *             submitted token isn't <code>id</code>.</p>
    * @public
    */
-  identityToken?: string;
+  identityToken?: string | undefined;
 
   /**
    * <p>Specifies an access token for the principal to be authorized. This token is provided
@@ -4735,28 +4735,28 @@ export interface IsAuthorizedWithTokenInput {
    *             the submitted token isn't <code>access</code>.</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
 
   /**
    * <p>Specifies the requested action to be authorized. Is the specified principal authorized
    *             to perform this action on the specified resource.</p>
    * @public
    */
-  action?: ActionIdentifier;
+  action?: ActionIdentifier | undefined;
 
   /**
    * <p>Specifies the resource for which the authorization decision is made. For example, is
    *             the principal allowed to perform the action on the resource?</p>
    * @public
    */
-  resource?: EntityIdentifier;
+  resource?: EntityIdentifier | undefined;
 
   /**
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
    * @public
    */
-  context?: ContextDefinition;
+  context?: ContextDefinition | undefined;
 
   /**
    * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
@@ -4782,7 +4782,7 @@ export interface IsAuthorizedWithTokenInput {
    *          </important>
    * @public
    */
-  entities?: EntitiesDefinition;
+  entities?: EntitiesDefinition | undefined;
 }
 
 /**
@@ -4805,7 +4805,7 @@ export interface BatchIsAuthorizedInput {
    *          </note>
    * @public
    */
-  entities?: EntitiesDefinition;
+  entities?: EntitiesDefinition | undefined;
 
   /**
    * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>
@@ -4834,7 +4834,7 @@ export interface BatchIsAuthorizedWithTokenInput {
    *             submitted token isn't <code>id</code>.</p>
    * @public
    */
-  identityToken?: string;
+  identityToken?: string | undefined;
 
   /**
    * <p>Specifies an access token for the principal that you want to authorize in each
@@ -4845,7 +4845,7 @@ export interface BatchIsAuthorizedWithTokenInput {
    *             the submitted token isn't <code>access</code>.</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
 
   /**
    * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
@@ -4871,7 +4871,7 @@ export interface BatchIsAuthorizedWithTokenInput {
    *          </important>
    * @public
    */
-  entities?: EntitiesDefinition;
+  entities?: EntitiesDefinition | undefined;
 
   /**
    * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>

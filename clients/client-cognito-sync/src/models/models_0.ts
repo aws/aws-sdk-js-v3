@@ -48,7 +48,7 @@ export interface BulkPublishResponse {
    *       unique within a region.
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 }
 
 /**
@@ -201,48 +201,48 @@ export interface Dataset {
    *       unique within a region.
    * @public
    */
-  IdentityId?: string;
+  IdentityId?: string | undefined;
 
   /**
    * A string of up to 128 characters. Allowed characters
    *       are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * Date on which the dataset was
    *       created.
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * Date when the dataset was last
    *       modified.
    * @public
    */
-  LastModifiedDate?: Date;
+  LastModifiedDate?: Date | undefined;
 
   /**
    * The device that made the last change to this
    *       dataset.
    * @public
    */
-  LastModifiedBy?: string;
+  LastModifiedBy?: string | undefined;
 
   /**
    * Total size in bytes of the records in this
    *       dataset.
    * @public
    */
-  DataStorage?: number;
+  DataStorage?: number | undefined;
 
   /**
    * Number of records in this dataset.
    * @public
    */
-  NumRecords?: number;
+  NumRecords?: number | undefined;
 }
 
 /**
@@ -259,7 +259,7 @@ export interface DeleteDatasetResponse {
    *       up to 1MB of key-value pairs.
    * @public
    */
-  Dataset?: Dataset;
+  Dataset?: Dataset | undefined;
 }
 
 /**
@@ -349,7 +349,7 @@ export interface DescribeDatasetResponse {
    *       pairs.
    * @public
    */
-  Dataset?: Dataset;
+  Dataset?: Dataset | undefined;
 }
 
 /**
@@ -379,28 +379,28 @@ export interface IdentityPoolUsage {
    *       unique within a region.
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * Number of sync sessions for the
    *       identity pool.
    * @public
    */
-  SyncSessionsCount?: number;
+  SyncSessionsCount?: number | undefined;
 
   /**
    * Data storage information for the identity
    *       pool.
    * @public
    */
-  DataStorage?: number;
+  DataStorage?: number | undefined;
 
   /**
    * Date on which the identity pool was
    *       last modified.
    * @public
    */
-  LastModifiedDate?: Date;
+  LastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -414,7 +414,7 @@ export interface DescribeIdentityPoolUsageResponse {
    *       usage of the identity pool.
    * @public
    */
-  IdentityPoolUsage?: IdentityPoolUsage;
+  IdentityPoolUsage?: IdentityPoolUsage | undefined;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface IdentityUsage {
    *       unique within a region.
    * @public
    */
-  IdentityId?: string;
+  IdentityId?: string | undefined;
 
   /**
    * A name-spaced GUID (for example,
@@ -459,28 +459,28 @@ export interface IdentityUsage {
    *       unique within a region.
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * Date on which the identity was last
    *       modified.
    * @public
    */
-  LastModifiedDate?: Date;
+  LastModifiedDate?: Date | undefined;
 
   /**
    * Number of datasets for the
    *       identity.
    * @public
    */
-  DatasetCount?: number;
+  DatasetCount?: number | undefined;
 
   /**
    * Total data storage for this
    *       identity.
    * @public
    */
-  DataStorage?: number;
+  DataStorage?: number | undefined;
 }
 
 /**
@@ -494,7 +494,7 @@ export interface DescribeIdentityUsageResponse {
    *       identity.
    * @public
    */
-  IdentityUsage?: IdentityUsage;
+  IdentityUsage?: IdentityUsage | undefined;
 }
 
 /**
@@ -538,19 +538,19 @@ export interface GetBulkPublishDetailsResponse {
    *       unique within a region.
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * The date/time at which the last bulk publish was initiated.
    * @public
    */
-  BulkPublishStartTime?: Date;
+  BulkPublishStartTime?: Date | undefined;
 
   /**
    * If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
    * @public
    */
-  BulkPublishCompleteTime?: Date;
+  BulkPublishCompleteTime?: Date | undefined;
 
   /**
    * Status of the last bulk publish operation, valid values are:
@@ -560,13 +560,13 @@ export interface GetBulkPublishDetailsResponse {
    *       <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>
    * @public
    */
-  BulkPublishStatus?: BulkPublishStatus;
+  BulkPublishStatus?: BulkPublishStatus | undefined;
 
   /**
    * If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface GetCognitoEventsResponse {
    * <p>The Cognito Events returned from the GetCognitoEvents request</p>
    * @public
    */
-  Events?: Record<string, string>;
+  Events?: Record<string, string> | undefined;
 }
 
 /**
@@ -629,13 +629,13 @@ export interface CognitoStreams {
    * The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * Status of the Cognito streams. Valid values are:
@@ -643,7 +643,7 @@ export interface CognitoStreams {
    *       <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>
    * @public
    */
-  StreamingStatus?: StreamingStatus;
+  StreamingStatus?: StreamingStatus | undefined;
 }
 
 /**
@@ -655,13 +655,13 @@ export interface PushSync {
    * <p>List of SNS platform application ARNs that could be used by clients.</p>
    * @public
    */
-  ApplicationArns?: string[];
+  ApplicationArns?: string[] | undefined;
 
   /**
    * <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -674,19 +674,19 @@ export interface GetIdentityPoolConfigurationResponse {
    *          Amazon Cognito.</p>
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * <p>Options to apply to this identity pool for push synchronization.</p>
    * @public
    */
-  PushSync?: PushSync;
+  PushSync?: PushSync | undefined;
 
   /**
    * Options to apply to this identity pool for Amazon Cognito streams.
    * @public
    */
-  CognitoStreams?: CognitoStreams;
+  CognitoStreams?: CognitoStreams | undefined;
 }
 
 /**
@@ -716,14 +716,14 @@ export interface ListDatasetsRequest {
    *       page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * The maximum number of results to be
    *       returned.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -736,20 +736,20 @@ export interface ListDatasetsResponse {
    * A set of datasets.
    * @public
    */
-  Datasets?: Dataset[];
+  Datasets?: Dataset[] | undefined;
 
   /**
    * Number of datasets returned.
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * A pagination token for obtaining the next
    *       page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -763,14 +763,14 @@ export interface ListIdentityPoolUsageRequest {
    *       the next page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * The maximum number of results to
    *       be returned.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -784,28 +784,28 @@ export interface ListIdentityPoolUsageResponse {
    *       the identity pools.
    * @public
    */
-  IdentityPoolUsages?: IdentityPoolUsage[];
+  IdentityPoolUsages?: IdentityPoolUsage[] | undefined;
 
   /**
    * The maximum number of results to
    *       be returned.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * Total number of identities for the
    *       identity pool.
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * A pagination token for obtaining
    *       the next page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -841,28 +841,28 @@ export interface ListRecordsRequest {
    *       record.
    * @public
    */
-  LastSyncCount?: number;
+  LastSyncCount?: number | undefined;
 
   /**
    * A pagination token for obtaining the next
    *       page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * The maximum number of results to be
    *       returned.
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * A token containing a session ID,
    *       identity ID, and expiration.
    * @public
    */
-  SyncSessionToken?: string;
+  SyncSessionToken?: string | undefined;
 }
 
 /**
@@ -874,40 +874,40 @@ export interface _Record {
    * The key for the record.
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * The value for the record.
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * The server sync count for this record.
    * @public
    */
-  SyncCount?: number;
+  SyncCount?: number | undefined;
 
   /**
    * The date on which the record was last
    *       modified.
    * @public
    */
-  LastModifiedDate?: Date;
+  LastModifiedDate?: Date | undefined;
 
   /**
    * The user/device that made the last change to this
    *       record.
    * @public
    */
-  LastModifiedBy?: string;
+  LastModifiedBy?: string | undefined;
 
   /**
    * The last modified date of the client
    *       device.
    * @public
    */
-  DeviceLastModifiedDate?: Date;
+  DeviceLastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -920,62 +920,62 @@ export interface ListRecordsResponse {
    * A list of all records.
    * @public
    */
-  Records?: _Record[];
+  Records?: _Record[] | undefined;
 
   /**
    * A pagination token for obtaining the next
    *       page of results.
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * Total number of records.
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * Server sync count for this
    *       dataset.
    * @public
    */
-  DatasetSyncCount?: number;
+  DatasetSyncCount?: number | undefined;
 
   /**
    * The user/device that made the last
    *       change to this record.
    * @public
    */
-  LastModifiedBy?: string;
+  LastModifiedBy?: string | undefined;
 
   /**
    * Names of merged
    *       datasets.
    * @public
    */
-  MergedDatasetNames?: string[];
+  MergedDatasetNames?: string[] | undefined;
 
   /**
    * Indicates whether the dataset
    *       exists.
    * @public
    */
-  DatasetExists?: boolean;
+  DatasetExists?: boolean | undefined;
 
   /**
    * A boolean value
    *       specifying whether to delete the dataset locally.
    * @public
    */
-  DatasetDeletedAfterRequestedSyncCount?: boolean;
+  DatasetDeletedAfterRequestedSyncCount?: boolean | undefined;
 
   /**
    * A token containing a session ID,
    *       identity ID, and expiration.
    * @public
    */
-  SyncSessionToken?: string;
+  SyncSessionToken?: string | undefined;
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface RegisterDeviceResponse {
    * <p>The unique ID generated for this device by Cognito.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 }
 
 /**
@@ -1110,13 +1110,13 @@ export interface SetIdentityPoolConfigurationRequest {
    * <p>Options to apply to this identity pool for push synchronization.</p>
    * @public
    */
-  PushSync?: PushSync;
+  PushSync?: PushSync | undefined;
 
   /**
    * Options to apply to this identity pool for Amazon Cognito streams.
    * @public
    */
-  CognitoStreams?: CognitoStreams;
+  CognitoStreams?: CognitoStreams | undefined;
 }
 
 /**
@@ -1129,19 +1129,19 @@ export interface SetIdentityPoolConfigurationResponse {
    *          Amazon Cognito.</p>
    * @public
    */
-  IdentityPoolId?: string;
+  IdentityPoolId?: string | undefined;
 
   /**
    * <p>Options to apply to this identity pool for push synchronization.</p>
    * @public
    */
-  PushSync?: PushSync;
+  PushSync?: PushSync | undefined;
 
   /**
    * Options to apply to this identity pool for Amazon Cognito streams.
    * @public
    */
-  CognitoStreams?: CognitoStreams;
+  CognitoStreams?: CognitoStreams | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface RecordPatch {
    *       patch.
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * Last known server sync count for this record. Set
@@ -1329,7 +1329,7 @@ export interface RecordPatch {
    *       device.
    * @public
    */
-  DeviceLastModifiedDate?: Date;
+  DeviceLastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -1366,14 +1366,14 @@ export interface UpdateRecordsRequest {
    * <p>The unique ID generated for this device by Cognito.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * A list of patch
    *       operations.
    * @public
    */
-  RecordPatches?: RecordPatch[];
+  RecordPatches?: RecordPatch[] | undefined;
 
   /**
    * The SyncSessionToken returned by a
@@ -1388,7 +1388,7 @@ export interface UpdateRecordsRequest {
    *          ClientContext field is not yet implemented.
    * @public
    */
-  ClientContext?: string;
+  ClientContext?: string | undefined;
 }
 
 /**
@@ -1402,5 +1402,5 @@ export interface UpdateRecordsResponse {
    *       updated.
    * @public
    */
-  Records?: _Record[];
+  Records?: _Record[] | undefined;
 }

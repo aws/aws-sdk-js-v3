@@ -40,7 +40,7 @@ export interface ApiKeyFilter {
    * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    * @public
    */
-  KeyStatus?: Status;
+  KeyStatus?: Status | undefined;
 }
 
 /**
@@ -199,7 +199,7 @@ export interface ApiKeyRestrictions {
    *          </ul>
    * @public
    */
-  AllowReferers?: string[];
+  AllowReferers?: string[] | undefined;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface CreateKeyRequest {
    * <p>An optional description for the API key resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The optional timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -243,14 +243,14 @@ export interface CreateKeyRequest {
    *                 <code>ExpireTime</code> must be set.</p>
    * @public
    */
-  ExpireTime?: Date;
+  ExpireTime?: Date | undefined;
 
   /**
    * <p>Optionally set to <code>true</code> to set no expiration time for the API key. One of
    *                 <code>NoExpiry</code> or <code>ExpireTime</code> must be set.</p>
    * @public
    */
-  NoExpiry?: boolean;
+  NoExpiry?: boolean | undefined;
 
   /**
    * <p>Applies one or more tags to the map resource. A tag is a key-value pair that helps
@@ -281,7 +281,7 @@ export interface CreateKeyRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -479,7 +479,7 @@ export interface DeleteKeyRequest {
    *          </note>
    * @public
    */
-  ForceDelete?: boolean;
+  ForceDelete?: boolean | undefined;
 }
 
 /**
@@ -582,13 +582,13 @@ export interface DescribeKeyResponse {
    * <p>The optional description for the API key resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Tags associated with the API key resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -601,7 +601,7 @@ export interface ListKeysRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -610,14 +610,14 @@ export interface ListKeysRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Optionally filter the list to only <code>Active</code> or <code>Expired</code> API
    *             keys.</p>
    * @public
    */
-  Filter?: ApiKeyFilter;
+  Filter?: ApiKeyFilter | undefined;
 }
 
 /**
@@ -642,7 +642,7 @@ export interface ListKeysResponseEntry {
    * <p>The optional description for the API key resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>API Restrictions on the allowed actions, resources, and referers for an API key
@@ -682,7 +682,7 @@ export interface ListKeysResponse {
    *             token in a following request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -699,21 +699,21 @@ export interface UpdateKeyRequest {
    * <p>Updates the description for the API key resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Updates the timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    * @public
    */
-  ExpireTime?: Date;
+  ExpireTime?: Date | undefined;
 
   /**
    * <p>Whether the API key should expire. Set to <code>true</code> to set the API key to have
    *             no expiration time.</p>
    * @public
    */
-  NoExpiry?: boolean;
+  NoExpiry?: boolean | undefined;
 
   /**
    * <p>The boolean flag to be included for updating <code>ExpireTime</code> or
@@ -726,13 +726,13 @@ export interface UpdateKeyRequest {
    *          </p>
    * @public
    */
-  ForceUpdate?: boolean;
+  ForceUpdate?: boolean | undefined;
 
   /**
    * <p>Updates the API key restrictions for the API key resource.</p>
    * @public
    */
-  Restrictions?: ApiKeyRestrictions;
+  Restrictions?: ApiKeyRestrictions | undefined;
 }
 
 /**
@@ -841,13 +841,13 @@ export interface BatchItemError {
    * <p>The error code associated with the batch request error.</p>
    * @public
    */
-  Code?: BatchItemErrorCode;
+  Code?: BatchItemErrorCode | undefined;
 
   /**
    * <p>A message with the reason for the batch request error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -969,7 +969,7 @@ export interface DevicePositionUpdate {
    * <p>The accuracy of the device position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>Associates one of more properties with the position update. A property is a key-value
@@ -979,7 +979,7 @@ export interface DevicePositionUpdate {
    *          </p>
    * @public
    */
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -1073,7 +1073,7 @@ export interface DevicePosition {
    * <p>The device whose position you retrieved.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -1099,13 +1099,13 @@ export interface DevicePosition {
    * <p>The accuracy of the device position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>The properties associated with the position.</p>
    * @public
    */
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -1192,20 +1192,20 @@ export interface GeofenceGeometry {
    *          <p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 
   /**
    * <p>A circle on the earth, as defined by a center point and a radius.</p>
    * @public
    */
-  Circle?: Circle;
+  Circle?: Circle | undefined;
 
   /**
    * <p>Geobuf is a compact binary encoding for geographic data that provides lossless compression of GeoJSON polygons. The Geobuf must be Base64-encoded.</p>
    *          <p>A polygon in Geobuf format can have up to 100,000 vertices.</p>
    * @public
    */
-  Geobuf?: Uint8Array;
+  Geobuf?: Uint8Array | undefined;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface BatchPutGeofenceRequestEntry {
    *          </p>
    * @public
    */
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -1392,7 +1392,7 @@ export interface CalculateRouteCarModeOptions {
    *          </p>
    * @public
    */
-  AvoidFerries?: boolean;
+  AvoidFerries?: boolean | undefined;
 
   /**
    * <p>Avoids tolls when calculating routes.</p>
@@ -1402,7 +1402,7 @@ export interface CalculateRouteCarModeOptions {
    *          </p>
    * @public
    */
-  AvoidTolls?: boolean;
+  AvoidTolls?: boolean | undefined;
 }
 
 /**
@@ -1446,7 +1446,7 @@ export interface TruckDimensions {
    *          </note>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>The height of the truck.</p>
@@ -1462,7 +1462,7 @@ export interface TruckDimensions {
    *          </note>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>The width of the truck.</p>
@@ -1478,7 +1478,7 @@ export interface TruckDimensions {
    *          </note>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 
   /**
    * <p> Specifies the unit of measurement for the truck dimensions.</p>
@@ -1486,7 +1486,7 @@ export interface TruckDimensions {
    *          </p>
    * @public
    */
-  Unit?: DimensionUnit;
+  Unit?: DimensionUnit | undefined;
 }
 
 /**
@@ -1510,7 +1510,7 @@ export interface TruckWeight {
    *          </ul>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 
   /**
    * <p>The unit of measurement to use for the truck weight.</p>
@@ -1518,7 +1518,7 @@ export interface TruckWeight {
    *          </p>
    * @public
    */
-  Unit?: VehicleWeightUnit;
+  Unit?: VehicleWeightUnit | undefined;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface CalculateRouteTruckModeOptions {
    *          </p>
    * @public
    */
-  AvoidFerries?: boolean;
+  AvoidFerries?: boolean | undefined;
 
   /**
    * <p>Avoids tolls when calculating routes.</p>
@@ -1545,7 +1545,7 @@ export interface CalculateRouteTruckModeOptions {
    *          </p>
    * @public
    */
-  AvoidTolls?: boolean;
+  AvoidTolls?: boolean | undefined;
 
   /**
    * <p>Specifies the truck's dimension specifications including length, height, width, and
@@ -1553,14 +1553,14 @@ export interface CalculateRouteTruckModeOptions {
    *             dimensions.</p>
    * @public
    */
-  Dimensions?: TruckDimensions;
+  Dimensions?: TruckDimensions | undefined;
 
   /**
    * <p>Specifies the truck's weight specifications including total weight and unit of
    *             measurement. Used to avoid roads that can't support the truck's weight.</p>
    * @public
    */
-  Weight?: TruckWeight;
+  Weight?: TruckWeight | undefined;
 }
 
 /**
@@ -1640,7 +1640,7 @@ export interface CalculateRouteRequest {
    *          </p>
    * @public
    */
-  WaypointPositions?: number[][];
+  WaypointPositions?: number[][] | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
@@ -1672,7 +1672,7 @@ export interface CalculateRouteRequest {
    *          </p>
    * @public
    */
-  TravelMode?: TravelMode;
+  TravelMode?: TravelMode | undefined;
 
   /**
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
@@ -1688,7 +1688,7 @@ export interface CalculateRouteRequest {
    *          </ul>
    * @public
    */
-  DepartureTime?: Date;
+  DepartureTime?: Date | undefined;
 
   /**
    * <p>Sets the time of departure as the current time. Uses the current time to calculate a
@@ -1700,7 +1700,7 @@ export interface CalculateRouteRequest {
    *          </p>
    * @public
    */
-  DepartNow?: boolean;
+  DepartNow?: boolean | undefined;
 
   /**
    * <p>Set the unit system to specify the distance.</p>
@@ -1708,7 +1708,7 @@ export interface CalculateRouteRequest {
    *          </p>
    * @public
    */
-  DistanceUnit?: DistanceUnit;
+  DistanceUnit?: DistanceUnit | undefined;
 
   /**
    * <p>Set to include the geometry details in the result for each path between a pair of
@@ -1719,7 +1719,7 @@ export interface CalculateRouteRequest {
    *          </p>
    * @public
    */
-  IncludeLegGeometry?: boolean;
+  IncludeLegGeometry?: boolean | undefined;
 
   /**
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
@@ -1727,7 +1727,7 @@ export interface CalculateRouteRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
    * @public
    */
-  CarModeOptions?: CalculateRouteCarModeOptions;
+  CarModeOptions?: CalculateRouteCarModeOptions | undefined;
 
   /**
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
@@ -1736,7 +1736,7 @@ export interface CalculateRouteRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    * @public
    */
-  TruckModeOptions?: CalculateRouteTruckModeOptions;
+  TruckModeOptions?: CalculateRouteTruckModeOptions | undefined;
 
   /**
    * <p>Specifies the desired time of arrival. Uses the given time to calculate the route.
@@ -1746,20 +1746,20 @@ export interface CalculateRouteRequest {
    *          </note>
    * @public
    */
-  ArrivalTime?: Date;
+  ArrivalTime?: Date | undefined;
 
   /**
    * <p>Specifies the distance to optimize for when calculating a route.</p>
    * @public
    */
-  OptimizeFor?: OptimizationMode;
+  OptimizeFor?: OptimizationMode | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -1781,7 +1781,7 @@ export interface LegGeometry {
    *          </ul>
    * @public
    */
-  LineString?: number[][];
+  LineString?: number[][] | undefined;
 }
 
 /**
@@ -1827,7 +1827,7 @@ export interface Step {
    *                 <code>True</code>. </p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 }
 
 /**
@@ -1907,7 +1907,7 @@ export interface Leg {
    * <p>Contains the calculated route's path as a linestring geometry.</p>
    * @public
    */
-  Geometry?: LegGeometry;
+  Geometry?: LegGeometry | undefined;
 
   /**
    * <p>Contains a list of steps, which represent subsections of a leg. Each step provides
@@ -2135,7 +2135,7 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  TravelMode?: TravelMode;
+  TravelMode?: TravelMode | undefined;
 
   /**
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route
@@ -2156,7 +2156,7 @@ export interface CalculateRouteMatrixRequest {
    *          </ul>
    * @public
    */
-  DepartureTime?: Date;
+  DepartureTime?: Date | undefined;
 
   /**
    * <p>Sets the time of departure as the current time. Uses the current time to calculate the
@@ -2169,7 +2169,7 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  DepartNow?: boolean;
+  DepartNow?: boolean | undefined;
 
   /**
    * <p>Set the unit system to specify the distance.</p>
@@ -2177,7 +2177,7 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  DistanceUnit?: DistanceUnit;
+  DistanceUnit?: DistanceUnit | undefined;
 
   /**
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
@@ -2185,7 +2185,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
    * @public
    */
-  CarModeOptions?: CalculateRouteCarModeOptions;
+  CarModeOptions?: CalculateRouteCarModeOptions | undefined;
 
   /**
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
@@ -2194,14 +2194,14 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    * @public
    */
-  TruckModeOptions?: CalculateRouteTruckModeOptions;
+  TruckModeOptions?: CalculateRouteTruckModeOptions | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -2276,7 +2276,7 @@ export interface RouteMatrixEntryError {
    * <p>A message about the error that occurred for the route calculation.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -2289,20 +2289,20 @@ export interface RouteMatrixEntry {
    * <p>The total distance of travel for the route.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The expected duration of travel for the route.</p>
    * @public
    */
-  DurationSeconds?: number;
+  DurationSeconds?: number | undefined;
 
   /**
    * <p>An error corresponding to the calculation of a route between the
    *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
    * @public
    */
-  Error?: RouteMatrixEntryError;
+  Error?: RouteMatrixEntryError | undefined;
 }
 
 /**
@@ -2380,14 +2380,14 @@ export interface CalculateRouteMatrixResponse {
    *             <code>RouteMatrix</code>.</p>
    * @public
    */
-  SnappedDeparturePositions?: number[][];
+  SnappedDeparturePositions?: number[][] | undefined;
 
   /**
    * <p>The list of destination positions for the route matrix used for calculation of the
    *                 <code>RouteMatrix</code>.</p>
    * @public
    */
-  SnappedDestinationPositions?: number[][];
+  SnappedDestinationPositions?: number[][] | undefined;
 
   /**
    * <p>Contains information about the route matrix, <code>DataSource</code>,
@@ -2443,13 +2443,13 @@ export interface LteNetworkMeasurements {
    * <p>Signal power of the reference signal received, measured in dBm (decibel-milliwatts).</p>
    * @public
    */
-  Rsrp?: number;
+  Rsrp?: number | undefined;
 
   /**
    * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
    * @public
    */
-  Rsrq?: number;
+  Rsrq?: number | undefined;
 }
 
 /**
@@ -2479,43 +2479,43 @@ export interface LteCellDetails {
    * <p>The LTE local identification information (local ID).</p>
    * @public
    */
-  LocalId?: LteLocalId;
+  LocalId?: LteLocalId | undefined;
 
   /**
    * <p>The network measurements.</p>
    * @public
    */
-  NetworkMeasurements?: LteNetworkMeasurements[];
+  NetworkMeasurements?: LteNetworkMeasurements[] | undefined;
 
   /**
    * <p>Timing Advance (TA).</p>
    * @public
    */
-  TimingAdvance?: number;
+  TimingAdvance?: number | undefined;
 
   /**
    * <p>Indicates whether the LTE object is capable of supporting NR (new radio).</p>
    * @public
    */
-  NrCapable?: boolean;
+  NrCapable?: boolean | undefined;
 
   /**
    * <p>Signal power of the reference signal received, measured in decibel-milliwatts (dBm).</p>
    * @public
    */
-  Rsrp?: number;
+  Rsrp?: number | undefined;
 
   /**
    * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
    * @public
    */
-  Rsrq?: number;
+  Rsrq?: number | undefined;
 
   /**
    * <p>LTE Tracking Area Code (TAC).</p>
    * @public
    */
-  Tac?: number;
+  Tac?: number | undefined;
 }
 
 /**
@@ -2565,7 +2565,7 @@ export interface CreateGeofenceCollectionRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -2573,13 +2573,13 @@ export interface CreateGeofenceCollectionRequest {
    * <p>This parameter is no longer used.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>An optional description for the geofence collection.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
@@ -2610,7 +2610,7 @@ export interface CreateGeofenceCollectionRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A key identifier for an
@@ -2619,7 +2619,7 @@ export interface CreateGeofenceCollectionRequest {
    * 	</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -2818,7 +2818,7 @@ export interface MapConfiguration {
    *          </note>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
@@ -2828,7 +2828,7 @@ export interface MapConfiguration {
    *          </note>
    * @public
    */
-  CustomLayers?: string[];
+  CustomLayers?: string[] | undefined;
 }
 
 /**
@@ -2868,13 +2868,13 @@ export interface CreateMapRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>An optional description for the map resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
@@ -2905,7 +2905,7 @@ export interface CreateMapRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2985,7 +2985,7 @@ export interface DataSourceConfiguration {
    *          </p>
    * @public
    */
-  IntendedUse?: IntendedUse;
+  IntendedUse?: IntendedUse | undefined;
 }
 
 /**
@@ -3053,19 +3053,19 @@ export interface CreatePlaceIndexRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The optional description for the place index resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies the data storage option requesting Places.</p>
    * @public
    */
-  DataSourceConfiguration?: DataSourceConfiguration;
+  DataSourceConfiguration?: DataSourceConfiguration | undefined;
 
   /**
    * <p>Applies one or more tags to the place index resource. A tag is a key-value pair that
@@ -3096,7 +3096,7 @@ export interface CreatePlaceIndexRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3194,13 +3194,13 @@ export interface CreateRouteCalculatorRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The optional description for the route calculator resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Applies one or more tags to the route calculator resource. A tag is a key-value pair
@@ -3237,7 +3237,7 @@ export interface CreateRouteCalculatorRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3317,7 +3317,7 @@ export interface CreateTrackerRequest {
    *            <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>A key identifier for an
@@ -3325,7 +3325,7 @@ export interface CreateTrackerRequest {
    *                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * @deprecated
@@ -3333,13 +3333,13 @@ export interface CreateTrackerRequest {
    * <p>This parameter is no longer used.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>An optional description for the tracker resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
@@ -3370,7 +3370,7 @@ export interface CreateTrackerRequest {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the position filtering for the tracker resource.</p>
@@ -3406,7 +3406,7 @@ export interface CreateTrackerRequest {
    *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    * @public
    */
-  PositionFiltering?: PositionFiltering;
+  PositionFiltering?: PositionFiltering | undefined;
 
   /**
    * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
@@ -3418,7 +3418,7 @@ export interface CreateTrackerRequest {
    *          </note>
    * @public
    */
-  EventBridgeEnabled?: boolean;
+  EventBridgeEnabled?: boolean | undefined;
 
   /**
    * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
@@ -3432,7 +3432,7 @@ export interface CreateTrackerRequest {
    *          </note>
    * @public
    */
-  KmsKeyEnableGeospatialQueries?: boolean;
+  KmsKeyEnableGeospatialQueries?: boolean | undefined;
 }
 
 /**
@@ -3594,7 +3594,7 @@ export interface DescribeGeofenceCollectionResponse {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -3602,7 +3602,7 @@ export interface DescribeGeofenceCollectionResponse {
    * <p>No longer used. Always returns an empty string.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>A key identifier for an
@@ -3610,13 +3610,13 @@ export interface DescribeGeofenceCollectionResponse {
    *                 KMS customer managed key</a> assigned to the Amazon Location resource</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp for when the geofence resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -3638,7 +3638,7 @@ export interface DescribeGeofenceCollectionResponse {
    * <p>The number of geofences in the geofence collection.</p>
    * @public
    */
-  GeofenceCount?: number;
+  GeofenceCount?: number | undefined;
 }
 
 /**
@@ -3682,7 +3682,7 @@ export interface DescribeMapResponse {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>Specifies the data provider for the associated map tiles.</p>
@@ -3706,7 +3706,7 @@ export interface DescribeMapResponse {
    * <p>Tags associated with the map resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -3764,7 +3764,7 @@ export interface DescribePlaceIndexResponse {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The optional description for the place index resource.</p>
@@ -3820,7 +3820,7 @@ export interface DescribePlaceIndexResponse {
    * <p>Tags associated with place index resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3864,7 +3864,7 @@ export interface DescribeRouteCalculatorResponse {
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The optional description of the route calculator resource.</p>
@@ -3927,7 +3927,7 @@ export interface DescribeRouteCalculatorResponse {
    * <p>Tags associated with route calculator resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3977,7 +3977,7 @@ export interface DescribeTrackerResponse {
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -3985,13 +3985,13 @@ export interface DescribeTrackerResponse {
    * <p>No longer used. Always returns an empty string.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>The tags associated with the tracker resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -4012,20 +4012,20 @@ export interface DescribeTrackerResponse {
    *             KMS customer managed key</a> assigned to the Amazon Location resource.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The position filtering method of the tracker resource.</p>
    * @public
    */
-  PositionFiltering?: PositionFiltering;
+  PositionFiltering?: PositionFiltering | undefined;
 
   /**
    * <p>Whether <code>UPDATE</code> events from this tracker in EventBridge are
    *             enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
    * @public
    */
-  EventBridgeEnabled?: boolean;
+  EventBridgeEnabled?: boolean | undefined;
 
   /**
    * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
@@ -4039,7 +4039,7 @@ export interface DescribeTrackerResponse {
    *          </note>
    * @public
    */
-  KmsKeyEnableGeospatialQueries?: boolean;
+  KmsKeyEnableGeospatialQueries?: boolean | undefined;
 }
 
 /**
@@ -4088,25 +4088,25 @@ export interface DeviceState {
    * <p>Defines the level of certainty of the position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>The device's Ipv4 address.</p>
    * @public
    */
-  Ipv4Address?: string;
+  Ipv4Address?: string | undefined;
 
   /**
    * <p>The Wi-Fi access points the device is using.</p>
    * @public
    */
-  WiFiAccessPoints?: WiFiAccessPoint[];
+  WiFiAccessPoints?: WiFiAccessPoint[] | undefined;
 
   /**
    * <p>The cellular network infrastructure that the device is connected to.</p>
    * @public
    */
-  CellSignals?: CellSignals;
+  CellSignals?: CellSignals | undefined;
 }
 
 /**
@@ -4193,13 +4193,13 @@ export interface ForecastedEvent {
    *          </p>
    * @public
    */
-  ForecastedBreachTime?: Date;
+  ForecastedBreachTime?: Date | undefined;
 
   /**
    * <p>The geofence properties.</p>
    * @public
    */
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -4217,7 +4217,7 @@ export interface ForecastGeofenceEventsDeviceState {
    * <p>The device's speed.</p>
    * @public
    */
-  Speed?: number;
+  Speed?: number | undefined;
 }
 
 /**
@@ -4245,7 +4245,7 @@ export interface ForecastGeofenceEventsRequest {
    * <p>Specifies the time horizon in minutes for the forecasted events.</p>
    * @public
    */
-  TimeHorizonMinutes?: number;
+  TimeHorizonMinutes?: number | undefined;
 
   /**
    * <p>The distance unit used for the <code>NearestDistance</code> property returned in a forecasted event.
@@ -4256,7 +4256,7 @@ export interface ForecastGeofenceEventsRequest {
    *          </p>
    * @public
    */
-  DistanceUnit?: DistanceUnit;
+  DistanceUnit?: DistanceUnit | undefined;
 
   /**
    * <p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>
@@ -4264,7 +4264,7 @@ export interface ForecastGeofenceEventsRequest {
    *          <p>Default Value: <code>KilometersPerHour</code>.</p>
    * @public
    */
-  SpeedUnit?: SpeedUnit;
+  SpeedUnit?: SpeedUnit | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -4273,7 +4273,7 @@ export interface ForecastGeofenceEventsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional limit for the number of resources returned in a single call.</p>
@@ -4281,7 +4281,7 @@ export interface ForecastGeofenceEventsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4299,7 +4299,7 @@ export interface ForecastGeofenceEventsResponse {
    *             token is provided, the default page is the first page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The distance unit for the forecasted events.</p>
@@ -4347,7 +4347,7 @@ export interface ListTagsForResourceResponse {
    *          </ul>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4522,7 +4522,7 @@ export interface GetGeofenceResponse {
    *          </p>
    * @public
    */
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -4535,7 +4535,7 @@ export interface ListGeofenceCollectionsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -4544,7 +4544,7 @@ export interface ListGeofenceCollectionsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4573,7 +4573,7 @@ export interface ListGeofenceCollectionsResponseEntry {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -4581,7 +4581,7 @@ export interface ListGeofenceCollectionsResponseEntry {
    * <p>No longer used. Always returns an empty string.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>The timestamp for when the geofence collection was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4615,7 +4615,7 @@ export interface ListGeofenceCollectionsResponse {
    *             token in a following request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4635,7 +4635,7 @@ export interface ListGeofencesRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional limit for the number of geofences returned in a single call. </p>
@@ -4643,7 +4643,7 @@ export interface ListGeofencesRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4721,7 +4721,7 @@ export interface ListGeofenceResponseEntry {
    *          </p>
    * @public
    */
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -4739,7 +4739,7 @@ export interface ListGeofencesResponse {
    *             token in a following request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4777,7 +4777,7 @@ export interface PutGeofenceRequest {
    *          </p>
    * @public
    */
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -4824,7 +4824,7 @@ export interface UpdateGeofenceCollectionRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -4832,13 +4832,13 @@ export interface UpdateGeofenceCollectionRequest {
    * <p>This parameter is no longer used.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>Updates the description for the geofence collection.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4899,7 +4899,7 @@ export interface GetDevicePositionResponse {
    * <p>The device whose position you retrieved.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
@@ -4925,13 +4925,13 @@ export interface GetDevicePositionResponse {
    * <p>The accuracy of the device position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>The properties associated with the position.</p>
    * @public
    */
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -4957,7 +4957,7 @@ export interface GetDevicePositionHistoryRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specify the start time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -4972,7 +4972,7 @@ export interface GetDevicePositionHistoryRequest {
    *          </ul>
    * @public
    */
-  StartTimeInclusive?: Date;
+  StartTimeInclusive?: Date | undefined;
 
   /**
    * <p>Specify the end time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -4987,7 +4987,7 @@ export interface GetDevicePositionHistoryRequest {
    *          </ul>
    * @public
    */
-  EndTimeExclusive?: Date;
+  EndTimeExclusive?: Date | undefined;
 
   /**
    * <p>An optional limit for the number of device positions returned in a single call.</p>
@@ -4995,7 +4995,7 @@ export interface GetDevicePositionHistoryRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5013,7 +5013,7 @@ export interface GetDevicePositionHistoryResponse {
    *             token in a following request to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5130,7 +5130,7 @@ export interface GetMapGlyphsRequest {
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -5141,19 +5141,19 @@ export interface GetMapGlyphsResponse {
    * <p>The glyph, as binary blob.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>The map glyph content type. For example, <code>application/octet-stream</code>.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The HTTP Cache-Control directive for the value.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 }
 
 /**
@@ -5200,7 +5200,7 @@ export interface GetMapSpritesRequest {
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -5211,7 +5211,7 @@ export interface GetMapSpritesResponse {
    * <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>The content type of the sprite sheet and offsets. For example, the sprite sheet
@@ -5219,13 +5219,13 @@ export interface GetMapSpritesResponse {
    *                 <code>application/json</code>. </p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The HTTP Cache-Control directive for the value.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 }
 
 /**
@@ -5243,7 +5243,7 @@ export interface GetMapStyleDescriptorRequest {
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -5254,20 +5254,20 @@ export interface GetMapStyleDescriptorResponse {
    * <p>Contains the body of the style descriptor.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>The style descriptor's content type. For example,
    *             <code>application/json</code>.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The HTTP Cache-Control directive for the value.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 }
 
 /**
@@ -5303,7 +5303,7 @@ export interface GetMapTileRequest {
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -5314,20 +5314,20 @@ export interface GetMapTileResponse {
    * <p>Contains Mapbox Vector Tile (MVT) data.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>The map tile's content type. For example,
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The HTTP Cache-Control directive for the value.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 }
 
 /**
@@ -5363,14 +5363,14 @@ export interface GetPlaceRequest {
    *             that the provider does support.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -5393,7 +5393,7 @@ export interface PlaceGeometry {
    *          </ul>
    * @public
    */
-  Point?: number[];
+  Point?: number[] | undefined;
 }
 
 /**
@@ -5414,7 +5414,7 @@ export interface TimeZone {
    * <p>The time zone's offset, in seconds, from UTC.</p>
    * @public
    */
-  Offset?: number;
+  Offset?: number | undefined;
 }
 
 /**
@@ -5430,7 +5430,7 @@ export interface Place {
    *             For example, <code>123 Any Street, Any Town, USA</code>.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>Places uses a point geometry to specify a location or a Place.</p>
@@ -5442,55 +5442,55 @@ export interface Place {
    * <p>The numerical portion of an address, such as a building number. </p>
    * @public
    */
-  AddressNumber?: string;
+  AddressNumber?: string | undefined;
 
   /**
    * <p>The name for a street or a road to identify a location. For example, <code>Main
    *                 Street</code>.</p>
    * @public
    */
-  Street?: string;
+  Street?: string | undefined;
 
   /**
    * <p>The name of a community district. For example, <code>Downtown</code>.</p>
    * @public
    */
-  Neighborhood?: string;
+  Neighborhood?: string | undefined;
 
   /**
    * <p>A name for a local area, such as a city or town name. For example,
    *                 <code>Toronto</code>.</p>
    * @public
    */
-  Municipality?: string;
+  Municipality?: string | undefined;
 
   /**
    * <p>A county, or an area that's part of a larger region. For example, <code>Metro
    *                 Vancouver</code>.</p>
    * @public
    */
-  SubRegion?: string;
+  SubRegion?: string | undefined;
 
   /**
    * <p>A name for an area or geographical division, such as a province or state name. For
    *             example, <code>British Columbia</code>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>A country/region specified using <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
    *             country/region code. For example, <code>CAN</code>.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>A group of numbers and letters in a country-specific format, which accompanies the
    *             address for the purpose of identifying a location. </p>
    * @public
    */
-  PostalCode?: string;
+  PostalCode?: string | undefined;
 
   /**
    * <p>
@@ -5504,14 +5504,14 @@ export interface Place {
    *         </p>
    * @public
    */
-  Interpolated?: boolean;
+  Interpolated?: boolean | undefined;
 
   /**
    * <p>The time zone in which the <code>Place</code> is located. Returned only when using
    *             HERE or Grab as the selected partner.</p>
    * @public
    */
-  TimeZone?: TimeZone;
+  TimeZone?: TimeZone | undefined;
 
   /**
    * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
@@ -5521,7 +5521,7 @@ export interface Place {
    *          </note>
    * @public
    */
-  UnitType?: string;
+  UnitType?: string | undefined;
 
   /**
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
@@ -5532,7 +5532,7 @@ export interface Place {
    *          </note>
    * @public
    */
-  UnitNumber?: string;
+  UnitNumber?: string | undefined;
 
   /**
    * <p>The Amazon Location categories that describe this Place.</p>
@@ -5541,14 +5541,14 @@ export interface Place {
    *                 Guide</i>.</p>
    * @public
    */
-  Categories?: string[];
+  Categories?: string[] | undefined;
 
   /**
    * <p>Categories from the data provider that describe the Place that are not mapped
    *             to any Amazon Location categories.</p>
    * @public
    */
-  SupplementalCategories?: string[];
+  SupplementalCategories?: string[] | undefined;
 
   /**
    * <p>An area that's part of a larger municipality. For example, <code>Blissville </code>
@@ -5558,7 +5558,7 @@ export interface Place {
    *          </note>
    * @public
    */
-  SubMunicipality?: string;
+  SubMunicipality?: string | undefined;
 }
 
 /**
@@ -5581,19 +5581,19 @@ export interface InferredState {
    * <p>The device position inferred by the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>
    * @public
    */
-  Position?: number[];
+  Position?: number[] | undefined;
 
   /**
    * <p>The level of certainty of the inferred position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>The distance between the inferred position and the device's self-reported position.</p>
    * @public
    */
-  DeviationDistance?: number;
+  DeviationDistance?: number | undefined;
 
   /**
    * <p>Indicates if a proxy was used.</p>
@@ -5611,7 +5611,7 @@ export interface TrackingFilterGeometry {
    * <p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 }
 
 /**
@@ -5630,7 +5630,7 @@ export interface ListDevicePositionsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -5639,13 +5639,13 @@ export interface ListDevicePositionsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The geometry used to filter device positions.</p>
    * @public
    */
-  FilterGeometry?: TrackingFilterGeometry;
+  FilterGeometry?: TrackingFilterGeometry | undefined;
 }
 
 /**
@@ -5676,13 +5676,13 @@ export interface ListDevicePositionsResponseEntry {
    * <p>The accuracy of the device position.</p>
    * @public
    */
-  Accuracy?: PositionalAccuracy;
+  Accuracy?: PositionalAccuracy | undefined;
 
   /**
    * <p>The properties associated with the position.</p>
    * @public
    */
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -5700,7 +5700,7 @@ export interface ListDevicePositionsResponse {
    *             token in a following request to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5713,7 +5713,7 @@ export interface ListMapsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -5722,7 +5722,7 @@ export interface ListMapsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5754,7 +5754,7 @@ export interface ListMapsResponseEntry {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -5785,7 +5785,7 @@ export interface ListMapsResponse {
    * <p>A pagination token indicating there are additional pages available. You can use the token in a following request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5798,7 +5798,7 @@ export interface ListPlaceIndexesRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -5807,7 +5807,7 @@ export interface ListPlaceIndexesRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5857,7 +5857,7 @@ export interface ListPlaceIndexesResponseEntry {
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -5889,7 +5889,7 @@ export interface ListPlaceIndexesResponse {
    *             the token in a new request to fetch the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5902,7 +5902,7 @@ export interface ListRouteCalculatorsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -5911,7 +5911,7 @@ export interface ListRouteCalculatorsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5962,7 +5962,7 @@ export interface ListRouteCalculatorsResponseEntry {
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -6006,7 +6006,7 @@ export interface ListRouteCalculatorsResponse {
    *             token in a subsequent request to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6025,7 +6025,7 @@ export interface ListTrackerConsumersRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -6034,7 +6034,7 @@ export interface ListTrackerConsumersRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6052,7 +6052,7 @@ export interface ListTrackerConsumersResponse {
    *             token in a following request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6065,7 +6065,7 @@ export interface ListTrackersRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
@@ -6074,7 +6074,7 @@ export interface ListTrackersRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6100,7 +6100,7 @@ export interface ListTrackersResponseEntry {
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -6108,7 +6108,7 @@ export interface ListTrackersResponseEntry {
    * <p>No longer used. Always returns an empty string.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -6141,7 +6141,7 @@ export interface ListTrackersResponse {
    *             token in a following request to fetch the next set of results.  </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6161,7 +6161,7 @@ export interface MapConfigurationUpdate {
    *          </note>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
@@ -6171,7 +6171,7 @@ export interface MapConfigurationUpdate {
    *          </note>
    * @public
    */
-  CustomLayers?: string[];
+  CustomLayers?: string[] | undefined;
 }
 
 /**
@@ -6191,20 +6191,20 @@ export interface UpdateMapRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>Updates the description for the map resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Updates the parts of the map configuration that can be updated, including the
    *             political view.</p>
    * @public
    */
-  ConfigurationUpdate?: MapConfigurationUpdate;
+  ConfigurationUpdate?: MapConfigurationUpdate | undefined;
 }
 
 /**
@@ -6265,7 +6265,7 @@ export interface SearchPlaceIndexForPositionRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
@@ -6284,14 +6284,14 @@ export interface SearchPlaceIndexForPositionRequest {
    *             that the provider does support.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -6326,7 +6326,7 @@ export interface SearchForPositionResult {
    *          </note>
    * @public
    */
-  PlaceId?: string;
+  PlaceId?: string | undefined;
 }
 
 /**
@@ -6347,7 +6347,7 @@ export interface SearchPlaceIndexForPositionSummary {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
@@ -6374,7 +6374,7 @@ export interface SearchPlaceIndexForPositionSummary {
    *             language tag, for example, <code>en</code> for English.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 }
 
 /**
@@ -6429,7 +6429,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>An optional parameter that limits the search results by returning only suggestions
@@ -6450,7 +6450,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *          </note>
    * @public
    */
-  FilterBBox?: number[];
+  FilterBBox?: number[] | undefined;
 
   /**
    * <p>An optional parameter that limits the search results by returning only suggestions
@@ -6464,7 +6464,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *          </ul>
    * @public
    */
-  FilterCountries?: string[];
+  FilterCountries?: string[] | undefined;
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
@@ -6472,7 +6472,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
@@ -6489,7 +6489,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *             that the provider does support.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>A list of one or more Amazon Location categories to filter the returned places. If you
@@ -6500,14 +6500,14 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  FilterCategories?: string[];
+  FilterCategories?: string[] | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -6535,7 +6535,7 @@ export interface SearchForSuggestionsResult {
    *          </note>
    * @public
    */
-  PlaceId?: string;
+  PlaceId?: string | undefined;
 
   /**
    * <p>The Amazon Location categories that describe the Place.</p>
@@ -6544,14 +6544,14 @@ export interface SearchForSuggestionsResult {
    *                     Guide</i>.</p>
    * @public
    */
-  Categories?: string[];
+  Categories?: string[] | undefined;
 
   /**
    * <p>Categories from the data provider that describe the Place that are not mapped
    *             to any Amazon Location categories.</p>
    * @public
    */
-  SupplementalCategories?: string[];
+  SupplementalCategories?: string[] | undefined;
 }
 
 /**
@@ -6576,26 +6576,26 @@ export interface SearchPlaceIndexForSuggestionsSummary {
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>Contains the coordinates for the optional bounding box specified in the
    *             request.</p>
    * @public
    */
-  FilterBBox?: number[];
+  FilterBBox?: number[] | undefined;
 
   /**
    * <p>Contains the optional country filter specified in the request.</p>
    * @public
    */
-  FilterCountries?: string[];
+  FilterCountries?: string[] | undefined;
 
   /**
    * <p>Contains the optional result count limit specified in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
@@ -6622,13 +6622,13 @@ export interface SearchPlaceIndexForSuggestionsSummary {
    *             language tag, for example, <code>en</code> for English.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The optional category filter specified in the request.</p>
    * @public
    */
-  FilterCategories?: string[];
+  FilterCategories?: string[] | undefined;
 }
 
 /**
@@ -6683,7 +6683,7 @@ export interface SearchPlaceIndexForTextRequest {
    *          </note>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>An optional parameter that limits the search results by returning only places that are
@@ -6704,7 +6704,7 @@ export interface SearchPlaceIndexForTextRequest {
    *          </note>
    * @public
    */
-  FilterBBox?: number[];
+  FilterBBox?: number[] | undefined;
 
   /**
    * <p>An optional parameter that limits the search results by returning only places that are
@@ -6718,7 +6718,7 @@ export interface SearchPlaceIndexForTextRequest {
    *          </ul>
    * @public
    */
-  FilterCountries?: string[];
+  FilterCountries?: string[] | undefined;
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
@@ -6726,7 +6726,7 @@ export interface SearchPlaceIndexForTextRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
@@ -6743,7 +6743,7 @@ export interface SearchPlaceIndexForTextRequest {
    *             that the provider does support.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>A list of one or more Amazon Location categories to filter the returned places. If you
@@ -6754,14 +6754,14 @@ export interface SearchPlaceIndexForTextRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  FilterCategories?: string[];
+  FilterCategories?: string[] | undefined;
 
   /**
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -6786,7 +6786,7 @@ export interface SearchForTextResult {
    *          </note>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>The relative confidence in the match for a result among the results returned. For
@@ -6795,7 +6795,7 @@ export interface SearchForTextResult {
    *          <p>Returned only when the partner selected is Esri or Grab.</p>
    * @public
    */
-  Relevance?: number;
+  Relevance?: number | undefined;
 
   /**
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
@@ -6806,7 +6806,7 @@ export interface SearchForTextResult {
    *          </note>
    * @public
    */
-  PlaceId?: string;
+  PlaceId?: string | undefined;
 }
 
 /**
@@ -6830,26 +6830,26 @@ export interface SearchPlaceIndexForTextSummary {
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    * @public
    */
-  BiasPosition?: number[];
+  BiasPosition?: number[] | undefined;
 
   /**
    * <p>Contains the coordinates for the optional bounding box specified in the
    *             request.</p>
    * @public
    */
-  FilterBBox?: number[];
+  FilterBBox?: number[] | undefined;
 
   /**
    * <p>Contains the optional country filter specified in the request.</p>
    * @public
    */
-  FilterCountries?: string[];
+  FilterCountries?: string[] | undefined;
 
   /**
    * <p>Contains the optional result count limit specified in the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The bounding box that fully contains all search results.</p>
@@ -6859,7 +6859,7 @@ export interface SearchPlaceIndexForTextSummary {
    *          </note>
    * @public
    */
-  ResultBBox?: number[];
+  ResultBBox?: number[] | undefined;
 
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
@@ -6886,13 +6886,13 @@ export interface SearchPlaceIndexForTextSummary {
    *             language tag, for example, <code>en</code> for English.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The optional category filter specified in the request.</p>
    * @public
    */
-  FilterCategories?: string[];
+  FilterCategories?: string[] | undefined;
 }
 
 /**
@@ -6936,19 +6936,19 @@ export interface UpdatePlaceIndexRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>Updates the description for the place index resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Updates the data storage option for the place index resource.</p>
    * @public
    */
-  DataSourceConfiguration?: DataSourceConfiguration;
+  DataSourceConfiguration?: DataSourceConfiguration | undefined;
 }
 
 /**
@@ -7000,13 +7000,13 @@ export interface UpdateRouteCalculatorRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * <p>Updates the description for the route calculator resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -7058,7 +7058,7 @@ export interface UpdateTrackerRequest {
    *             <code>RequestBasedUsage</code>.</p>
    * @public
    */
-  PricingPlan?: PricingPlan;
+  PricingPlan?: PricingPlan | undefined;
 
   /**
    * @deprecated
@@ -7066,13 +7066,13 @@ export interface UpdateTrackerRequest {
    * <p>This parameter is no longer used.</p>
    * @public
    */
-  PricingPlanDataSource?: string;
+  PricingPlanDataSource?: string | undefined;
 
   /**
    * <p>Updates the description for the tracker resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Updates the position filtering for the tracker resource.</p>
@@ -7107,7 +7107,7 @@ export interface UpdateTrackerRequest {
    *          </ul>
    * @public
    */
-  PositionFiltering?: PositionFiltering;
+  PositionFiltering?: PositionFiltering | undefined;
 
   /**
    * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
@@ -7119,7 +7119,7 @@ export interface UpdateTrackerRequest {
    *          </note>
    * @public
    */
-  EventBridgeEnabled?: boolean;
+  EventBridgeEnabled?: boolean | undefined;
 
   /**
    * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
@@ -7127,7 +7127,7 @@ export interface UpdateTrackerRequest {
    *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
    * @public
    */
-  KmsKeyEnableGeospatialQueries?: boolean;
+  KmsKeyEnableGeospatialQueries?: boolean | undefined;
 }
 
 /**
@@ -7183,7 +7183,7 @@ export interface VerifyDevicePositionRequest {
    *          </p>
    * @public
    */
-  DistanceUnit?: DistanceUnit;
+  DistanceUnit?: DistanceUnit | undefined;
 }
 
 /**

@@ -145,7 +145,7 @@ export interface OrderedResourceDefinition {
    *             order. Does not show details if the resource type is DEVICE_IDENTIFIER.</p>
    * @public
    */
-  commitmentConfiguration?: CommitmentConfiguration;
+  commitmentConfiguration?: CommitmentConfiguration | undefined;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface Address {
    * <p>The company name for this address.</p>
    * @public
    */
-  company?: string;
+  company?: string | undefined;
 
   /**
    * <p>The country for this address.</p>
@@ -181,7 +181,7 @@ export interface Address {
    * <p>The recipient's phone number.</p>
    * @public
    */
-  phoneNumber?: string;
+  phoneNumber?: string | undefined;
 
   /**
    * <p>The postal code for this address.</p>
@@ -205,19 +205,19 @@ export interface Address {
    * <p>The second line of the street address.</p>
    * @public
    */
-  street2?: string;
+  street2?: string | undefined;
 
   /**
    * <p>The third line of the street address.</p>
    * @public
    */
-  street3?: string;
+  street3?: string | undefined;
 
   /**
    * <p>The recipient's email address.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 }
 
 /**
@@ -229,7 +229,7 @@ export interface TrackingInformation {
    * <p>The tracking number of the shipment.</p>
    * @public
    */
-  trackingNumber?: string;
+  trackingNumber?: string | undefined;
 }
 
 /**
@@ -241,49 +241,49 @@ export interface Order {
    * <p>The Amazon Resource Name (ARN) of the order.</p>
    * @public
    */
-  orderArn?: string;
+  orderArn?: string | undefined;
 
   /**
    * <p>The shipping address of the order.</p>
    * @public
    */
-  shippingAddress?: Address;
+  shippingAddress?: Address | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network associated with this order.</p>
    * @public
    */
-  networkArn?: string;
+  networkArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network site associated with this order.</p>
    * @public
    */
-  networkSiteArn?: string;
+  networkSiteArn?: string | undefined;
 
   /**
    * <p>The tracking information of the order.</p>
    * @public
    */
-  trackingInformation?: TrackingInformation[];
+  trackingInformation?: TrackingInformation[] | undefined;
 
   /**
    * <p>The acknowledgement status of the order.</p>
    * @public
    */
-  acknowledgmentStatus?: AcknowledgmentStatus;
+  acknowledgmentStatus?: AcknowledgmentStatus | undefined;
 
   /**
    * <p>The creation time of the order.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>A list of the network resources placed in the order.</p>
    * @public
    */
-  orderedResources?: OrderedResourceDefinition[];
+  orderedResources?: OrderedResourceDefinition[] | undefined;
 }
 
 /**
@@ -309,7 +309,7 @@ export class InternalServerException extends __BaseException {
    * Advice to clients on when the call can be safely retried.
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -411,7 +411,7 @@ export class ValidationException extends __BaseException {
    * The list of fields that caused the error, if applicable.
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -444,7 +444,7 @@ export interface ActivateDeviceIdentifierRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -470,58 +470,58 @@ export interface DeviceIdentifier {
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
    * @public
    */
-  deviceIdentifierArn?: string;
+  deviceIdentifierArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the traffic group to which the device identifier
    *             belongs.</p>
    * @public
    */
-  trafficGroupArn?: string;
+  trafficGroupArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network on which the device identifier
    *             appears.</p>
    * @public
    */
-  networkArn?: string;
+  networkArn?: string | undefined;
 
   /**
    * <p>The International Mobile Subscriber Identity of the device identifier.</p>
    * @public
    */
-  imsi?: string;
+  imsi?: string | undefined;
 
   /**
    * <p>The Integrated Circuit Card Identifier of the device identifier.</p>
    * @public
    */
-  iccid?: string;
+  iccid?: string | undefined;
 
   /**
    * <p>The vendor of the device identifier.</p>
    * @public
    */
-  vendor?: string;
+  vendor?: string | undefined;
 
   /**
    * <p>The status of the device identifier.</p>
    * @public
    */
-  status?: DeviceIdentifierStatus;
+  status?: DeviceIdentifierStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the order used to purchase the device
    *             identifier.</p>
    * @public
    */
-  orderArn?: string;
+  orderArn?: string | undefined;
 
   /**
    * <p>The creation time of this device identifier.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -538,7 +538,7 @@ export interface ActivateDeviceIdentifierResponse {
    * <p> The tags on the device identifier. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -563,7 +563,7 @@ export interface ActivateNetworkSiteRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Determines the duration and renewal status of the commitment period for all pending radio
@@ -588,7 +588,7 @@ export interface ActivateNetworkSiteRequest {
    *             60-days.</p>
    * @public
    */
-  commitmentConfiguration?: CommitmentConfiguration;
+  commitmentConfiguration?: CommitmentConfiguration | undefined;
 }
 
 /**
@@ -606,7 +606,7 @@ export interface NameValuePair {
    * <p>The value of the pair.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface NetworkResourceDefinition {
    * <p>The options in the network resource definition.</p>
    * @public
    */
-  options?: NameValuePair[];
+  options?: NameValuePair[] | undefined;
 
   /**
    * <p>The count in the network resource definition.</p>
@@ -642,13 +642,13 @@ export interface SitePlan {
    * <p>The resource definitions of the plan.</p>
    * @public
    */
-  resourceDefinitions?: NetworkResourceDefinition[];
+  resourceDefinitions?: NetworkResourceDefinition[] | undefined;
 
   /**
    * <p>The options of the plan.</p>
    * @public
    */
-  options?: NameValuePair[];
+  options?: NameValuePair[] | undefined;
 }
 
 /**
@@ -689,7 +689,7 @@ export interface NetworkSite {
    * <p>The description of the network site.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the network site.</p>
@@ -701,7 +701,7 @@ export interface NetworkSite {
    * <p>The status reason of the network site.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network to which the network site
@@ -714,31 +714,31 @@ export interface NetworkSite {
    * <p>The pending plan of the network site.</p>
    * @public
    */
-  pendingPlan?: SitePlan;
+  pendingPlan?: SitePlan | undefined;
 
   /**
    * <p>The current plan of the network site.</p>
    * @public
    */
-  currentPlan?: SitePlan;
+  currentPlan?: SitePlan | undefined;
 
   /**
    * <p>The creation time of the network site.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The parent Availability Zone for the network site. </p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p> The parent Availability Zone ID for the network site. </p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 }
 
 /**
@@ -749,7 +749,7 @@ export interface ActivateNetworkSiteResponse {
    * <p>Information about the network site.</p>
    * @public
    */
-  networkSite?: NetworkSite;
+  networkSite?: NetworkSite | undefined;
 }
 
 /**
@@ -768,7 +768,7 @@ export interface CommitmentInformation {
    * <p>The date and time that the commitment period started.</p>
    * @public
    */
-  startAt?: Date;
+  startAt?: Date | undefined;
 
   /**
    * <p>The date and time that the commitment period ends. If you do not cancel or renew the
@@ -776,7 +776,7 @@ export interface CommitmentInformation {
    *             rate.</p>
    * @public
    */
-  expiresOn?: Date;
+  expiresOn?: Date | undefined;
 }
 
 /**
@@ -818,31 +818,31 @@ export interface Position {
    * <p>The latitude of the position.</p>
    * @public
    */
-  latitude?: number;
+  latitude?: number | undefined;
 
   /**
    * <p>The longitude of the position.</p>
    * @public
    */
-  longitude?: number;
+  longitude?: number | undefined;
 
   /**
    * <p>The elevation of the equipment at this position.</p>
    * @public
    */
-  elevation?: number;
+  elevation?: number | undefined;
 
   /**
    * <p>The units used to measure the elevation of the position.</p>
    * @public
    */
-  elevationUnit?: ElevationUnit;
+  elevationUnit?: ElevationUnit | undefined;
 
   /**
    * <p>The reference point from which elevation is reported.</p>
    * @public
    */
-  elevationReference?: ElevationReference;
+  elevationReference?: ElevationReference | undefined;
 }
 
 /**
@@ -859,35 +859,35 @@ export interface ConfigureAccessPointRequest {
    * <p>The position of the network resource.</p>
    * @public
    */
-  position?: Position;
+  position?: Position | undefined;
 
   /**
    * <p>The CPI user name of the CPI user who is certifying the coordinates of the radio
    *             unit.</p>
    * @public
    */
-  cpiUsername?: string;
+  cpiUsername?: string | undefined;
 
   /**
    * <p>The CPI user ID of the CPI user who is certifying the coordinates of the network
    *             resource. </p>
    * @public
    */
-  cpiUserId?: string;
+  cpiUserId?: string | undefined;
 
   /**
    * <p>The CPI password associated with the CPI certificate in
    *             <code>cpiSecretKey</code>.</p>
    * @public
    */
-  cpiUserPassword?: string;
+  cpiUserPassword?: string | undefined;
 
   /**
    * <p>A Base64 encoded string of the CPI certificate associated with the CPI user who is
    *             certifying the coordinates of the network resource. </p>
    * @public
    */
-  cpiSecretKey?: string;
+  cpiSecretKey?: string | undefined;
 }
 
 /**
@@ -914,20 +914,20 @@ export interface ReturnInformation {
    * <p>The shipping address.</p>
    * @public
    */
-  shippingAddress?: Address;
+  shippingAddress?: Address | undefined;
 
   /**
    * <p>The reason for the return. If the return request did not include a reason for the
    *             return, this value is null.</p>
    * @public
    */
-  returnReason?: string;
+  returnReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replacement order.</p>
    * @public
    */
-  replacementOrderArn?: string;
+  replacementOrderArn?: string | undefined;
 
   /**
    * <p>The URL of the shipping label. The shipping label is available for download only if
@@ -936,7 +936,7 @@ export interface ReturnInformation {
    *                 radio unit</a>.</p>
    * @public
    */
-  shippingLabel?: string;
+  shippingLabel?: string | undefined;
 }
 
 /**
@@ -982,100 +982,100 @@ export interface NetworkResource {
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
    * @public
    */
-  networkResourceArn?: string;
+  networkResourceArn?: string | undefined;
 
   /**
    * <p>The description of the network resource.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of the network resource.</p>
    * @public
    */
-  type?: NetworkResourceType;
+  type?: NetworkResourceType | undefined;
 
   /**
    * <p>The status of the network resource.</p>
    * @public
    */
-  status?: NetworkResourceStatus;
+  status?: NetworkResourceStatus | undefined;
 
   /**
    * <p>The status reason of the network resource.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The vendor of the network resource.</p>
    * @public
    */
-  vendor?: string;
+  vendor?: string | undefined;
 
   /**
    * <p>The model of the network resource.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The serial number of the network resource.</p>
    * @public
    */
-  serialNumber?: string;
+  serialNumber?: string | undefined;
 
   /**
    * <p>The health of the network resource.</p>
    * @public
    */
-  health?: HealthStatus;
+  health?: HealthStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network on which this network resource
    *             appears.</p>
    * @public
    */
-  networkArn?: string;
+  networkArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network site on which this network resource
    *             appears.</p>
    * @public
    */
-  networkSiteArn?: string;
+  networkSiteArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the order used to purchase this network
    *             resource.</p>
    * @public
    */
-  orderArn?: string;
+  orderArn?: string | undefined;
 
   /**
    * <p>The attributes of the network resource.</p>
    * @public
    */
-  attributes?: NameValuePair[];
+  attributes?: NameValuePair[] | undefined;
 
   /**
    * <p>The position of the network resource.</p>
    * @public
    */
-  position?: Position;
+  position?: Position | undefined;
 
   /**
    * <p>The creation time of the network resource.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Information about a request to return the network resource.</p>
    * @public
    */
-  returnInformation?: ReturnInformation;
+  returnInformation?: ReturnInformation | undefined;
 
   /**
    * <p>Information about the commitment period for the radio unit. Shows the duration, the
@@ -1083,7 +1083,7 @@ export interface NetworkResource {
    *             commitment period.</p>
    * @public
    */
-  commitmentInformation?: CommitmentInformation;
+  commitmentInformation?: CommitmentInformation | undefined;
 }
 
 /**
@@ -1112,7 +1112,7 @@ export interface CreateNetworkRequest {
    * <p>The description of the network.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1120,13 +1120,13 @@ export interface CreateNetworkRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p> The tags to apply to the network. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1167,7 +1167,7 @@ export interface Network {
    * <p>The description of the network.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the network.</p>
@@ -1179,13 +1179,13 @@ export interface Network {
    * <p>The status reason of the network.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The creation time of the network.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -1202,7 +1202,7 @@ export interface CreateNetworkResponse {
    * <p> The network tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1239,7 +1239,7 @@ export interface CreateNetworkSiteRequest {
    * <p>The description of the site.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1251,7 +1251,7 @@ export interface CreateNetworkSiteRequest {
    * <p>Information about the pending plan for this site.</p>
    * @public
    */
-  pendingPlan?: SitePlan;
+  pendingPlan?: SitePlan | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1259,27 +1259,27 @@ export interface CreateNetworkSiteRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Availability Zone that is the parent of this site. You can't change the
    *             Availability Zone after you create the site.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The ID of the Availability Zone that is the parent of this site. You can't change the
    *             Availability Zone after you create the site.</p>
    * @public
    */
-  availabilityZoneId?: string;
+  availabilityZoneId?: string | undefined;
 
   /**
    * <p> The tags to apply to the network site. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1290,13 +1290,13 @@ export interface CreateNetworkSiteResponse {
    * <p>Information about the network site.</p>
    * @public
    */
-  networkSite?: NetworkSite;
+  networkSite?: NetworkSite | undefined;
 
   /**
    * <p> The network site tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface DeactivateDeviceIdentifierRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1345,7 +1345,7 @@ export interface DeleteNetworkRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1375,7 +1375,7 @@ export interface DeleteNetworkSiteRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1386,7 +1386,7 @@ export interface DeleteNetworkSiteResponse {
    * <p>Information about the network site.</p>
    * @public
    */
-  networkSite?: NetworkSite;
+  networkSite?: NetworkSite | undefined;
 }
 
 /**
@@ -1423,13 +1423,13 @@ export interface GetDeviceIdentifierResponse {
    * <p>Information about the device identifier.</p>
    * @public
    */
-  deviceIdentifier?: DeviceIdentifier;
+  deviceIdentifier?: DeviceIdentifier | undefined;
 
   /**
    * <p> The device identifier tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1457,7 +1457,7 @@ export interface GetNetworkResponse {
    * <p> The network tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1485,7 +1485,7 @@ export interface GetNetworkResourceResponse {
    * <p> The network resource tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1507,13 +1507,13 @@ export interface GetNetworkSiteResponse {
    * <p>Information about the network site.</p>
    * @public
    */
-  networkSite?: NetworkSite;
+  networkSite?: NetworkSite | undefined;
 
   /**
    * <p> The network site tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1541,7 +1541,7 @@ export interface GetOrderResponse {
    * <p> The order tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1571,7 +1571,7 @@ export interface ListDeviceIdentifiersRequest {
    *          all results that match any of the specified values.</p>
    * @public
    */
-  filters?: Partial<Record<DeviceIdentifierFilterKeys, string[]>>;
+  filters?: Partial<Record<DeviceIdentifierFilterKeys, string[]>> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1583,13 +1583,13 @@ export interface ListDeviceIdentifiersRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  startToken?: string;
+  startToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1600,13 +1600,13 @@ export interface ListDeviceIdentifiersResponse {
    * <p>Information about the device identifiers.</p>
    * @public
    */
-  deviceIdentifiers?: DeviceIdentifier[];
+  deviceIdentifiers?: DeviceIdentifier[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1647,7 +1647,7 @@ export interface ListNetworkResourcesRequest {
    *          all results that match any of the specified values.</p>
    * @public
    */
-  filters?: Partial<Record<NetworkResourceFilterKeys, string[]>>;
+  filters?: Partial<Record<NetworkResourceFilterKeys, string[]>> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1659,13 +1659,13 @@ export interface ListNetworkResourcesRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  startToken?: string;
+  startToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1676,13 +1676,13 @@ export interface ListNetworkResourcesResponse {
    * <p>Information about network resources.</p>
    * @public
    */
-  networkResources?: NetworkResource[];
+  networkResources?: NetworkResource[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1717,19 +1717,19 @@ export interface ListNetworksRequest {
    *          all results that match any of the specified values.</p>
    * @public
    */
-  filters?: Partial<Record<NetworkFilterKeys, string[]>>;
+  filters?: Partial<Record<NetworkFilterKeys, string[]>> | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  startToken?: string;
+  startToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1740,13 +1740,13 @@ export interface ListNetworksResponse {
    * <p>The networks.</p>
    * @public
    */
-  networks?: Network[];
+  networks?: Network[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1782,7 +1782,7 @@ export interface ListNetworkSitesRequest {
    *          all results that match any of the specified values.</p>
    * @public
    */
-  filters?: Partial<Record<NetworkSiteFilterKeys, string[]>>;
+  filters?: Partial<Record<NetworkSiteFilterKeys, string[]>> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1794,13 +1794,13 @@ export interface ListNetworkSitesRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  startToken?: string;
+  startToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1811,13 +1811,13 @@ export interface ListNetworkSitesResponse {
    * <p>Information about the network sites.</p>
    * @public
    */
-  networkSites?: NetworkSite[];
+  networkSites?: NetworkSite[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1848,13 +1848,13 @@ export interface ListOrdersRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  startToken?: string;
+  startToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The filters.</p>
@@ -1875,7 +1875,7 @@ export interface ListOrdersRequest {
    *          all results that match any of the specified values.</p>
    * @public
    */
-  filters?: Partial<Record<OrderFilterKeys, string[]>>;
+  filters?: Partial<Record<OrderFilterKeys, string[]>> | undefined;
 }
 
 /**
@@ -1886,13 +1886,13 @@ export interface ListOrdersResponse {
    * <p>Information about the orders.</p>
    * @public
    */
-  orders?: Order[];
+  orders?: Order[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1914,7 +1914,7 @@ export interface ListTagsForResourceResponse {
    * <p>The resource tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1948,7 +1948,7 @@ export interface PingResponse {
    * <p>Information about the health of the service.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -2009,13 +2009,13 @@ export interface StartNetworkResourceUpdateRequest {
    *             resource.</p>
    * @public
    */
-  shippingAddress?: Address;
+  shippingAddress?: Address | undefined;
 
   /**
    * <p>The reason for the return. Providing a reason for a return is optional.</p>
    * @public
    */
-  returnReason?: string;
+  returnReason?: string | undefined;
 
   /**
    * <p>Use this action to extend and automatically renew the commitment period for the radio
@@ -2050,7 +2050,7 @@ export interface StartNetworkResourceUpdateRequest {
    *                 Pricing</a>.</p>
    * @public
    */
-  commitmentConfiguration?: CommitmentConfiguration;
+  commitmentConfiguration?: CommitmentConfiguration | undefined;
 }
 
 /**
@@ -2061,7 +2061,7 @@ export interface StartNetworkResourceUpdateResponse {
    * <p>The network resource.</p>
    * @public
    */
-  networkResource?: NetworkResource;
+  networkResource?: NetworkResource | undefined;
 }
 
 /**
@@ -2124,13 +2124,13 @@ export interface UpdateNetworkSiteRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2141,13 +2141,13 @@ export interface UpdateNetworkSiteResponse {
    * <p>Information about the network site.</p>
    * @public
    */
-  networkSite?: NetworkSite;
+  networkSite?: NetworkSite | undefined;
 
   /**
    * <p> The network site tags. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2172,7 +2172,7 @@ export interface UpdateNetworkSitePlanRequest {
    *                 idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**

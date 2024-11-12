@@ -14,14 +14,14 @@ export interface AuthorizationData {
    *          public registry authentication using <code>docker login</code>.</p>
    * @public
    */
-  authorizationToken?: string;
+  authorizationToken?: string | undefined;
 
   /**
    * <p>The Unix time in seconds and milliseconds when the authorization token expires.
    *          Authorization tokens are valid for 12 hours.</p>
    * @public
    */
-  expiresAt?: Date;
+  expiresAt?: Date | undefined;
 }
 
 /**
@@ -33,7 +33,7 @@ export interface BatchCheckLayerAvailabilityRequest {
    *          contains the image layers to check. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that's associated with the image layers to check.</p>
@@ -71,19 +71,19 @@ export interface LayerFailure {
    * <p>The layer digest that's associated with the failure.</p>
    * @public
    */
-  layerDigest?: string;
+  layerDigest?: string | undefined;
 
   /**
    * <p>The failure code that's associated with the failure.</p>
    * @public
    */
-  failureCode?: LayerFailureCode;
+  failureCode?: LayerFailureCode | undefined;
 
   /**
    * <p>The reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -109,19 +109,19 @@ export interface Layer {
    * <p>The <code>sha256</code> digest of the image layer.</p>
    * @public
    */
-  layerDigest?: string;
+  layerDigest?: string | undefined;
 
   /**
    * <p>The availability status of the image layer.</p>
    * @public
    */
-  layerAvailability?: LayerAvailability;
+  layerAvailability?: LayerAvailability | undefined;
 
   /**
    * <p>The size, in bytes, of the image layer.</p>
    * @public
    */
-  layerSize?: number;
+  layerSize?: number | undefined;
 
   /**
    * <p>The media type of the layer, such as
@@ -129,7 +129,7 @@ export interface Layer {
    *             <code>application/vnd.oci.image.layer.v1.tar+gzip</code>.</p>
    * @public
    */
-  mediaType?: string;
+  mediaType?: string | undefined;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface BatchCheckLayerAvailabilityResponse {
    *          request.</p>
    * @public
    */
-  layers?: Layer[];
+  layers?: Layer[] | undefined;
 
   /**
    * <p>Any failures associated with the call.</p>
    * @public
    */
-  failures?: LayerFailure[];
+  failures?: LayerFailure[] | undefined;
 }
 
 /**
@@ -261,13 +261,13 @@ export interface ImageIdentifier {
    * <p>The <code>sha256</code> digest of the image manifest.</p>
    * @public
    */
-  imageDigest?: string;
+  imageDigest?: string | undefined;
 
   /**
    * <p>The tag that's used for the image.</p>
    * @public
    */
-  imageTag?: string;
+  imageTag?: string | undefined;
 }
 
 /**
@@ -279,7 +279,7 @@ export interface BatchDeleteImageRequest {
    *          contains the image to delete. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository in a public registry that contains the image to delete.</p>
@@ -324,19 +324,19 @@ export interface ImageFailure {
    * <p>The image ID that's associated with the failure.</p>
    * @public
    */
-  imageId?: ImageIdentifier;
+  imageId?: ImageIdentifier | undefined;
 
   /**
    * <p>The code that's associated with the failure.</p>
    * @public
    */
-  failureCode?: ImageFailureCode;
+  failureCode?: ImageFailureCode | undefined;
 
   /**
    * <p>The reason for the failure.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -347,13 +347,13 @@ export interface BatchDeleteImageResponse {
    * <p>The image IDs of the deleted images.</p>
    * @public
    */
-  imageIds?: ImageIdentifier[];
+  imageIds?: ImageIdentifier[] | undefined;
 
   /**
    * <p>Any failures associated with the call.</p>
    * @public
    */
-  failures?: ImageFailure[];
+  failures?: ImageFailure[] | undefined;
 }
 
 /**
@@ -365,7 +365,7 @@ export interface CompleteLayerUploadRequest {
    *          uploaded. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository in a public registry to associate with the image
@@ -396,25 +396,25 @@ export interface CompleteLayerUploadResponse {
    * <p>The public registry ID that's associated with the request.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository name that's associated with the request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The upload ID that's associated with the layer.</p>
    * @public
    */
-  uploadId?: string;
+  uploadId?: string | undefined;
 
   /**
    * <p>The <code>sha256</code> digest of the image layer.</p>
    * @public
    */
-  layerDigest?: string;
+  layerDigest?: string | undefined;
 }
 
 /**
@@ -530,7 +530,7 @@ export interface RepositoryCatalogDataInput {
    *          image details and also when searching for repositories on the Amazon ECR Public Gallery.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The system architecture that the images in the repository are compatible with. On the
@@ -565,7 +565,7 @@ export interface RepositoryCatalogDataInput {
    *          </ul>
    * @public
    */
-  architectures?: string[];
+  architectures?: string[] | undefined;
 
   /**
    * <p>The operating systems that the images in the repository are compatible with. On the
@@ -590,7 +590,7 @@ export interface RepositoryCatalogDataInput {
    *          </ul>
    * @public
    */
-  operatingSystems?: string[];
+  operatingSystems?: string[] | undefined;
 
   /**
    * <p>The base64-encoded repository logo payload.</p>
@@ -600,14 +600,14 @@ export interface RepositoryCatalogDataInput {
    *          </note>
    * @public
    */
-  logoImageBlob?: Uint8Array;
+  logoImageBlob?: Uint8Array | undefined;
 
   /**
    * <p>A detailed description of the contents of the repository. It's publicly visible in the
    *          Amazon ECR Public Gallery. The text must be in markdown format.</p>
    * @public
    */
-  aboutText?: string;
+  aboutText?: string | undefined;
 
   /**
    * <p>Detailed information about how to use the contents of the repository. It's publicly
@@ -616,7 +616,7 @@ export interface RepositoryCatalogDataInput {
    *          format.</p>
    * @public
    */
-  usageText?: string;
+  usageText?: string | undefined;
 }
 
 /**
@@ -630,14 +630,14 @@ export interface Tag {
    *          that acts like a category for more specific tag values.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as a
    *          descriptor within a tag category (key).</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -658,7 +658,7 @@ export interface CreateRepositoryRequest {
    *          Amazon ECR Public Gallery.</p>
    * @public
    */
-  catalogData?: RepositoryCatalogDataInput;
+  catalogData?: RepositoryCatalogDataInput | undefined;
 
   /**
    * <p>The metadata that you apply to each repository to help categorize and organize your
@@ -666,7 +666,7 @@ export interface CreateRepositoryRequest {
    *          Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -679,7 +679,7 @@ export interface RepositoryCatalogData {
    * <p>The short description of the repository.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The architecture tags that are associated with the repository.</p>
@@ -689,7 +689,7 @@ export interface RepositoryCatalogData {
    *          </note>
    * @public
    */
-  architectures?: string[];
+  architectures?: string[] | undefined;
 
   /**
    * <p>The operating system tags that are associated with the repository.</p>
@@ -699,33 +699,33 @@ export interface RepositoryCatalogData {
    *          </note>
    * @public
    */
-  operatingSystems?: string[];
+  operatingSystems?: string[] | undefined;
 
   /**
    * <p>The URL that contains the logo that's associated with the repository.</p>
    * @public
    */
-  logoUrl?: string;
+  logoUrl?: string | undefined;
 
   /**
    * <p>The longform description of the contents of the repository. This text appears in the
    *          repository details on the Amazon ECR Public Gallery.</p>
    * @public
    */
-  aboutText?: string;
+  aboutText?: string | undefined;
 
   /**
    * <p>The longform usage details of the contents of the repository. The usage text provides
    *          context for users of the repository.</p>
    * @public
    */
-  usageText?: string;
+  usageText?: string | undefined;
 
   /**
    * <p>Indicates whether the repository is certified by Amazon Web Services Marketplace.</p>
    * @public
    */
-  marketplaceCertified?: boolean;
+  marketplaceCertified?: boolean | undefined;
 }
 
 /**
@@ -737,33 +737,33 @@ export interface Repository {
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
    * @public
    */
-  repositoryArn?: string;
+  repositoryArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
    *          repository.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The URI for the repository. You can use this URI for container image <code>push</code>
    *          and <code>pull</code> operations.</p>
    * @public
    */
-  repositoryUri?: string;
+  repositoryUri?: string | undefined;
 
   /**
    * <p>The date and time, in JavaScript date format, when the repository was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -774,14 +774,14 @@ export interface CreateRepositoryResponse {
    * <p>The repository that was created.</p>
    * @public
    */
-  repository?: Repository;
+  repository?: Repository | undefined;
 
   /**
    * <p>The catalog data for a repository. This data is publicly visible in the
    *          Amazon ECR Public Gallery.</p>
    * @public
    */
-  catalogData?: RepositoryCatalogData;
+  catalogData?: RepositoryCatalogData | undefined;
 }
 
 /**
@@ -876,7 +876,7 @@ export interface DeleteRepositoryRequest {
    *          repository to delete. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository to delete.</p>
@@ -889,7 +889,7 @@ export interface DeleteRepositoryRequest {
    *          option is not used, the repository must be empty prior to deletion.</p>
    * @public
    */
-  force?: boolean;
+  force?: boolean | undefined;
 }
 
 /**
@@ -900,7 +900,7 @@ export interface DeleteRepositoryResponse {
    * <p>The repository that was deleted.</p>
    * @public
    */
-  repository?: Repository;
+  repository?: Repository | undefined;
 }
 
 /**
@@ -933,7 +933,7 @@ export interface DeleteRepositoryPolicyRequest {
    *          repository policy to delete. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that's associated with the repository policy to
@@ -951,19 +951,19 @@ export interface DeleteRepositoryPolicyResponse {
    * <p>The registry ID that's associated with the request.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository name that's associated with the request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The JSON repository policy that was deleted from the repository.</p>
    * @public
    */
-  policyText?: string;
+  policyText?: string | undefined;
 }
 
 /**
@@ -996,7 +996,7 @@ export interface DescribeImagesRequest {
    *          repository where images are described. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository that contains the images to describe.</p>
@@ -1008,7 +1008,7 @@ export interface DescribeImagesRequest {
    * <p>The list of image IDs for the requested repository.</p>
    * @public
    */
-  imageIds?: ImageIdentifier[];
+  imageIds?: ImageIdentifier[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value that's returned from a previous paginated
@@ -1019,7 +1019,7 @@ export interface DescribeImagesRequest {
    *             <code>imageIds</code>, you can't use this option.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of repository results that's returned by <code>DescribeImages</code>
@@ -1033,7 +1033,7 @@ export interface DescribeImagesRequest {
    *             <code>imageIds</code>, you can't use this option.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1047,25 +1047,25 @@ export interface ImageDetail {
    *          belongs.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository where this image belongs.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The <code>sha256</code> digest of the image manifest.</p>
    * @public
    */
-  imageDigest?: string;
+  imageDigest?: string | undefined;
 
   /**
    * <p>The list of tags that's associated with this image.</p>
    * @public
    */
-  imageTags?: string[];
+  imageTags?: string[] | undefined;
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
@@ -1079,26 +1079,26 @@ export interface ImageDetail {
    *          </note>
    * @public
    */
-  imageSizeInBytes?: number;
+  imageSizeInBytes?: number | undefined;
 
   /**
    * <p>The date and time, expressed in standard JavaScript date format, that the current image
    *          was pushed to the repository at. </p>
    * @public
    */
-  imagePushedAt?: Date;
+  imagePushedAt?: Date | undefined;
 
   /**
    * <p>The media type of the image manifest.</p>
    * @public
    */
-  imageManifestMediaType?: string;
+  imageManifestMediaType?: string | undefined;
 
   /**
    * <p>The artifact media type of the image.</p>
    * @public
    */
-  artifactMediaType?: string;
+  artifactMediaType?: string | undefined;
 }
 
 /**
@@ -1110,7 +1110,7 @@ export interface DescribeImagesResponse {
    *          image.</p>
    * @public
    */
-  imageDetails?: ImageDetail[];
+  imageDetails?: ImageDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeImages</code>
@@ -1119,7 +1119,7 @@ export interface DescribeImagesResponse {
    *          there are no more results to return, this value is <code>null</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1151,7 +1151,7 @@ export interface DescribeImageTagsRequest {
    *          repository where images are described. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that contains the image tag details to describe.</p>
@@ -1168,7 +1168,7 @@ export interface DescribeImageTagsRequest {
    *             <code>imageIds</code>, you can't use this option.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of repository results that's returned by
@@ -1183,7 +1183,7 @@ export interface DescribeImageTagsRequest {
    *          option.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1195,7 +1195,7 @@ export interface ReferencedImageDetail {
    * <p>The <code>sha256</code> digest of the image manifest.</p>
    * @public
    */
-  imageDigest?: string;
+  imageDigest?: string | undefined;
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
@@ -1209,26 +1209,26 @@ export interface ReferencedImageDetail {
    *          </note>
    * @public
    */
-  imageSizeInBytes?: number;
+  imageSizeInBytes?: number | undefined;
 
   /**
    * <p>The date and time, expressed in standard JavaScript date format, which the current image
    *          tag was pushed to the repository at.</p>
    * @public
    */
-  imagePushedAt?: Date;
+  imagePushedAt?: Date | undefined;
 
   /**
    * <p>The media type of the image manifest.</p>
    * @public
    */
-  imageManifestMediaType?: string;
+  imageManifestMediaType?: string | undefined;
 
   /**
    * <p>The artifact media type of the image.</p>
    * @public
    */
-  artifactMediaType?: string;
+  artifactMediaType?: string | undefined;
 }
 
 /**
@@ -1240,19 +1240,19 @@ export interface ImageTagDetail {
    * <p>The tag that's associated with the image.</p>
    * @public
    */
-  imageTag?: string;
+  imageTag?: string | undefined;
 
   /**
    * <p>The time stamp that indicates when the image tag was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>An object that describes the details of an image.</p>
    * @public
    */
-  imageDetail?: ReferencedImageDetail;
+  imageDetail?: ReferencedImageDetail | undefined;
 }
 
 /**
@@ -1263,7 +1263,7 @@ export interface DescribeImageTagsResponse {
    * <p>The image tag details for the images in the requested repository.</p>
    * @public
    */
-  imageTagDetails?: ImageTagDetail[];
+  imageTagDetails?: ImageTagDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeImageTags</code>
@@ -1272,7 +1272,7 @@ export interface DescribeImageTagsResponse {
    *          there are no more results to return, this value is <code>null</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1290,7 +1290,7 @@ export interface DescribeRegistriesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of repository results that's returned by
@@ -1304,7 +1304,7 @@ export interface DescribeRegistriesRequest {
    *          applicable.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1421,7 +1421,7 @@ export interface DescribeRegistriesResponse {
    *          is <code>null</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1433,14 +1433,14 @@ export interface DescribeRepositoriesRequest {
    *          to be described. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>A list of repositories to describe. If this parameter is omitted, then all repositories
    *          in a registry are described.</p>
    * @public
    */
-  repositoryNames?: string[];
+  repositoryNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value that's returned from a previous paginated
@@ -1454,7 +1454,7 @@ export interface DescribeRepositoriesRequest {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of repository results that's returned by
@@ -1469,7 +1469,7 @@ export interface DescribeRepositoriesRequest {
    *          this option.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1480,7 +1480,7 @@ export interface DescribeRepositoriesResponse {
    * <p>A list of repository objects corresponding to valid repositories.</p>
    * @public
    */
-  repositories?: Repository[];
+  repositories?: Repository[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -1490,7 +1490,7 @@ export interface DescribeRepositoriesResponse {
    *          value is <code>null</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1506,7 +1506,7 @@ export interface GetAuthorizationTokenResponse {
    * <p>An authorization token data object that corresponds to a public registry.</p>
    * @public
    */
-  authorizationData?: AuthorizationData;
+  authorizationData?: AuthorizationData | undefined;
 }
 
 /**
@@ -1527,7 +1527,7 @@ export interface RegistryCatalogData {
    *          </important>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -1550,7 +1550,7 @@ export interface GetRepositoryCatalogDataRequest {
    *          to be described. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository to retrieve the catalog metadata for.</p>
@@ -1567,7 +1567,7 @@ export interface GetRepositoryCatalogDataResponse {
    * <p>The catalog metadata for the repository.</p>
    * @public
    */
-  catalogData?: RepositoryCatalogData;
+  catalogData?: RepositoryCatalogData | undefined;
 }
 
 /**
@@ -1599,7 +1599,7 @@ export interface GetRepositoryPolicyRequest {
    *          repository. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository with the policy to retrieve.</p>
@@ -1616,20 +1616,20 @@ export interface GetRepositoryPolicyResponse {
    * <p>The registry ID that's associated with the request.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository name that's associated with the request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The repository policy text that's associated with the repository. The policy text will
    *          be in JSON format.</p>
    * @public
    */
-  policyText?: string;
+  policyText?: string | undefined;
 }
 
 /**
@@ -1641,31 +1641,31 @@ export interface Image {
    * <p>The Amazon Web Services account ID that's associated with the registry containing the image.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that's associated with the image.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>An object that contains the image tag and image digest associated with an image.</p>
    * @public
    */
-  imageId?: ImageIdentifier;
+  imageId?: ImageIdentifier | undefined;
 
   /**
    * <p>The image manifest that's associated with the image.</p>
    * @public
    */
-  imageManifest?: string;
+  imageManifest?: string | undefined;
 
   /**
    * <p>The manifest media type of the image.</p>
    * @public
    */
-  imageManifestMediaType?: string;
+  imageManifestMediaType?: string | undefined;
 }
 
 /**
@@ -1740,7 +1740,7 @@ export interface InitiateLayerUploadRequest {
    *          you intend to upload layers. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that you want to upload layers to.</p>
@@ -1757,13 +1757,13 @@ export interface InitiateLayerUploadResponse {
    * <p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>
    * @public
    */
-  uploadId?: string;
+  uploadId?: string | undefined;
 
   /**
    * <p>The size, in bytes, that Amazon ECR expects future layer part uploads to be.</p>
    * @public
    */
-  partSize?: number;
+  partSize?: number | undefined;
 }
 
 /**
@@ -1778,25 +1778,25 @@ export class InvalidLayerPartException extends __BaseException {
    * <p>The Amazon Web Services account ID that's associated with the layer part.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The upload ID that's associated with the layer part.</p>
    * @public
    */
-  uploadId?: string;
+  uploadId?: string | undefined;
 
   /**
    * <p>The position of the last byte of the layer part.</p>
    * @public
    */
-  lastValidByteReceived?: number;
+  lastValidByteReceived?: number | undefined;
 
   /**
    * @internal
@@ -1856,7 +1856,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1868,7 +1868,7 @@ export interface PutImageRequest {
    *          contains the repository where the image is put. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository where the image is put.</p>
@@ -1888,20 +1888,20 @@ export interface PutImageRequest {
    *          in the request.</p>
    * @public
    */
-  imageManifestMediaType?: string;
+  imageManifestMediaType?: string | undefined;
 
   /**
    * <p>The tag to associate with the image. This parameter is required for images that use the
    *          Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.</p>
    * @public
    */
-  imageTag?: string;
+  imageTag?: string | undefined;
 
   /**
    * <p>The image digest of the image manifest that corresponds to the image.</p>
    * @public
    */
-  imageDigest?: string;
+  imageDigest?: string | undefined;
 }
 
 /**
@@ -1912,7 +1912,7 @@ export interface PutImageResponse {
    * <p>Details of the image uploaded.</p>
    * @public
    */
-  image?: Image;
+  image?: Image | undefined;
 }
 
 /**
@@ -1948,7 +1948,7 @@ export interface PutRegistryCatalogDataRequest {
    *          </note>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -1971,7 +1971,7 @@ export interface PutRepositoryCatalogDataRequest {
    *          If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository to create or update the catalog data for.</p>
@@ -1995,7 +1995,7 @@ export interface PutRepositoryCatalogDataResponse {
    * <p>The catalog data for the repository.</p>
    * @public
    */
-  catalogData?: RepositoryCatalogData;
+  catalogData?: RepositoryCatalogData | undefined;
 }
 
 /**
@@ -2007,7 +2007,7 @@ export interface SetRepositoryPolicyRequest {
    *          If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository to receive the policy.</p>
@@ -2029,7 +2029,7 @@ export interface SetRepositoryPolicyRequest {
    *          operation. This prevents accidental repository lockouts.</p>
    * @public
    */
-  force?: boolean;
+  force?: boolean | undefined;
 }
 
 /**
@@ -2040,19 +2040,19 @@ export interface SetRepositoryPolicyResponse {
    * <p>The registry ID that's associated with the request.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository name that's associated with the request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The JSON repository policy text that's applied to the repository.</p>
    * @public
    */
-  policyText?: string;
+  policyText?: string | undefined;
 }
 
 /**
@@ -2111,7 +2111,7 @@ export interface UploadLayerPartRequest {
    *          uploading layer parts to. If you do not specify a registry, the default public registry is assumed.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The name of the repository that you're uploading layer parts to.</p>
@@ -2153,23 +2153,23 @@ export interface UploadLayerPartResponse {
    * <p>The registry ID that's associated with the request.</p>
    * @public
    */
-  registryId?: string;
+  registryId?: string | undefined;
 
   /**
    * <p>The repository name that's associated with the request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The upload ID that's associated with the request.</p>
    * @public
    */
-  uploadId?: string;
+  uploadId?: string | undefined;
 
   /**
    * <p>The integer value of the last byte that's received in the request.</p>
    * @public
    */
-  lastByteReceived?: number;
+  lastByteReceived?: number | undefined;
 }

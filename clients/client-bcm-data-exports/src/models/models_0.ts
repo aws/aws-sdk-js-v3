@@ -18,7 +18,7 @@ export interface DataQuery {
    * <p>The table configuration.</p>
    * @public
    */
-  TableConfigurations?: Record<string, Record<string, string>>;
+  TableConfigurations?: Record<string, Record<string, string>> | undefined;
 }
 
 /**
@@ -187,7 +187,7 @@ export interface Export {
    * <p>The Amazon Resource Name (ARN) for this export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 
   /**
    * <p>The name of this specific data export.</p>
@@ -199,7 +199,7 @@ export interface Export {
    * <p>The description for this specific data export.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The data query for this specific data export.</p>
@@ -254,7 +254,7 @@ export interface CreateExportRequest {
    *       key and a value, and each key must be unique for the resource.</p>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface CreateExportResponse {
    * <p>The Amazon Resource Name (ARN) for this export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 }
 
 /**
@@ -304,13 +304,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The identifier of the resource that exceeded quota.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that exceeded quota.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The quota code that was exceeded.</p>
@@ -354,14 +354,14 @@ export class ThrottlingException extends __BaseException {
    * <p>The quota code that exceeded the throttling limit.</p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * <p>The service code that exceeded the throttling limit. It will always be
    *       “AWSBillingAndCostManagementDataExports”.</p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
   /**
    * @internal
    */
@@ -426,13 +426,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the validation exception.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The list of fields that are invalid.</p>
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -468,7 +468,7 @@ export interface DeleteExportResponse {
    * <p>The Amazon Resource Name (ARN) for this export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 }
 
 /**
@@ -567,31 +567,31 @@ export interface ExecutionStatus {
    * <p>The code for the status of the execution.</p>
    * @public
    */
-  StatusCode?: ExecutionStatusCode;
+  StatusCode?: ExecutionStatusCode | undefined;
 
   /**
    * <p>The reason for the failed status.</p>
    * @public
    */
-  StatusReason?: ExecutionStatusReason;
+  StatusReason?: ExecutionStatusReason | undefined;
 
   /**
    * <p>The time when the execution was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The time when the execution was completed.</p>
    * @public
    */
-  CompletedAt?: Date;
+  CompletedAt?: Date | undefined;
 
   /**
    * <p>The time when the execution was last updated.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -602,7 +602,7 @@ export interface GetExecutionResponse {
    * <p>The ID for this specific execution.</p>
    * @public
    */
-  ExecutionId?: string;
+  ExecutionId?: string | undefined;
 
   /**
    * <p>The export data for this specific execution. This export data is a snapshot from when the
@@ -610,13 +610,13 @@ export interface GetExecutionResponse {
    *       export was updated since the execution was generated.</p>
    * @public
    */
-  Export?: Export;
+  Export?: Export | undefined;
 
   /**
    * <p>The status of this specific execution.</p>
    * @public
    */
-  ExecutionStatus?: ExecutionStatus;
+  ExecutionStatus?: ExecutionStatus | undefined;
 }
 
 /**
@@ -653,31 +653,31 @@ export interface ExportStatus {
    * <p>The status code for the request.</p>
    * @public
    */
-  StatusCode?: ExportStatusCode;
+  StatusCode?: ExportStatusCode | undefined;
 
   /**
    * <p>The description for the status code.</p>
    * @public
    */
-  StatusReason?: ExecutionStatusReason;
+  StatusReason?: ExecutionStatusReason | undefined;
 
   /**
    * <p>The timestamp of when the export  was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export  was updated.</p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export was last generated.</p>
    * @public
    */
-  LastRefreshedAt?: Date;
+  LastRefreshedAt?: Date | undefined;
 }
 
 /**
@@ -688,13 +688,13 @@ export interface GetExportResponse {
    * <p>The data for this specific export.</p>
    * @public
    */
-  Export?: Export;
+  Export?: Export | undefined;
 
   /**
    * <p>The status of this specific export.</p>
    * @public
    */
-  ExportStatus?: ExportStatus;
+  ExportStatus?: ExportStatus | undefined;
 }
 
 /**
@@ -714,7 +714,7 @@ export interface GetTableRequest {
    *       specified.</p>
    * @public
    */
-  TableProperties?: Record<string, string>;
+  TableProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -727,19 +727,19 @@ export interface Column {
    * <p>The column name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The kind of data a column stores.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The description for a column.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -750,13 +750,13 @@ export interface GetTableResponse {
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The table description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>TableProperties are additional configurations you can provide to change the data and
@@ -765,13 +765,13 @@ export interface GetTableResponse {
    *       specified.</p>
    * @public
    */
-  TableProperties?: Record<string, string>;
+  TableProperties?: Record<string, string> | undefined;
 
   /**
    * <p>The schema of the table.</p>
    * @public
    */
-  Schema?: Column[];
+  Schema?: Column[] | undefined;
 }
 
 /**
@@ -788,13 +788,13 @@ export interface ListExecutionsRequest {
    * <p>The maximum number of objects that are returned for the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -823,13 +823,13 @@ export interface ListExecutionsResponse {
    * <p>The list of executions.</p>
    * @public
    */
-  Executions?: ExecutionReference[];
+  Executions?: ExecutionReference[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -840,13 +840,13 @@ export interface ListExportsRequest {
    * <p>The maximum number of objects that are returned for the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -881,13 +881,13 @@ export interface ListExportsResponse {
    * <p>The details of the exports, including name and export status.</p>
    * @public
    */
-  Exports?: ExportReference[];
+  Exports?: ExportReference[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -898,13 +898,13 @@ export interface ListTablesRequest {
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects that are returned for the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -916,25 +916,25 @@ export interface TablePropertyDescription {
    * <p>The name of the table.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The valid values for the table.</p>
    * @public
    */
-  ValidValues?: string[];
+  ValidValues?: string[] | undefined;
 
   /**
    * <p>The default value for the table.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>The description for the table.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -946,19 +946,19 @@ export interface Table {
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The description for the table.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The properties for the table.</p>
    * @public
    */
-  TableProperties?: TablePropertyDescription[];
+  TableProperties?: TablePropertyDescription[] | undefined;
 }
 
 /**
@@ -969,13 +969,13 @@ export interface ListTablesResponse {
    * <p>The list of tables.</p>
    * @public
    */
-  Tables?: Table[];
+  Tables?: Table[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -992,13 +992,13 @@ export interface ListTagsForResourceRequest {
    * <p>The maximum number of objects that are returned for the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1010,13 +1010,13 @@ export interface ListTagsForResourceResponse {
    *       key and a value, and each key must be unique for the resource.</p>
    * @public
    */
-  ResourceTags?: ResourceTag[];
+  ResourceTags?: ResourceTag[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1089,5 +1089,5 @@ export interface UpdateExportResponse {
    * <p>The Amazon Resource Name (ARN) for this export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 }

@@ -11,7 +11,7 @@ import { RestJsonProtocolServiceException as __BaseException } from "./RestJsonP
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -40,41 +40,41 @@ export enum IntegerEnum {
  * @public
  */
 export interface AllQueryStringTypesInput {
-  queryString?: string;
-  queryStringList?: string[];
-  queryStringSet?: string[];
-  queryByte?: number;
-  queryShort?: number;
-  queryInteger?: number;
-  queryIntegerList?: number[];
-  queryIntegerSet?: number[];
-  queryLong?: number;
-  queryFloat?: number;
-  queryDouble?: number;
-  queryDoubleList?: number[];
-  queryBoolean?: boolean;
-  queryBooleanList?: boolean[];
-  queryTimestamp?: Date;
-  queryTimestampList?: Date[];
-  queryEnum?: FooEnum;
-  queryEnumList?: FooEnum[];
-  queryIntegerEnum?: IntegerEnum;
-  queryIntegerEnumList?: IntegerEnum[];
-  queryParamsMapOfStringList?: Record<string, string[]>;
+  queryString?: string | undefined;
+  queryStringList?: string[] | undefined;
+  queryStringSet?: string[] | undefined;
+  queryByte?: number | undefined;
+  queryShort?: number | undefined;
+  queryInteger?: number | undefined;
+  queryIntegerList?: number[] | undefined;
+  queryIntegerSet?: number[] | undefined;
+  queryLong?: number | undefined;
+  queryFloat?: number | undefined;
+  queryDouble?: number | undefined;
+  queryDoubleList?: number[] | undefined;
+  queryBoolean?: boolean | undefined;
+  queryBooleanList?: boolean[] | undefined;
+  queryTimestamp?: Date | undefined;
+  queryTimestampList?: Date[] | undefined;
+  queryEnum?: FooEnum | undefined;
+  queryEnumList?: FooEnum[] | undefined;
+  queryIntegerEnum?: IntegerEnum | undefined;
+  queryIntegerEnumList?: IntegerEnum[] | undefined;
+  queryParamsMapOfStringList?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface ClientOptionalDefaults {
-  member?: number;
+  member?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -84,9 +84,9 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  Header?: string;
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  Header?: string | undefined;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -107,8 +107,8 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export interface ConstantAndVariableQueryStringInput {
-  baz?: string;
-  maybeSet?: string;
+  baz?: string | undefined;
+  maybeSet?: string | undefined;
 }
 
 /**
@@ -122,7 +122,7 @@ export interface ConstantQueryStringInput {
  * @public
  */
 export interface ContentTypeParametersInput {
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -134,7 +134,7 @@ export interface ContentTypeParametersOutput {}
  * @public
  */
 export interface DatetimeOffsetsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
@@ -160,72 +160,72 @@ export enum TestIntEnum {
  * @public
  */
 export interface Defaults {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultDocumentMap?: __DocumentType;
-  defaultDocumentString?: __DocumentType;
-  defaultDocumentBoolean?: __DocumentType;
-  defaultDocumentList?: __DocumentType;
-  defaultNullDocument?: __DocumentType;
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultDocumentMap?: __DocumentType | undefined;
+  defaultDocumentString?: __DocumentType | undefined;
+  defaultDocumentBoolean?: __DocumentType | undefined;
+  defaultDocumentList?: __DocumentType | undefined;
+  defaultNullDocument?: __DocumentType | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface Farewell {
-  phrase?: string;
+  phrase?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface Dialog {
-  language?: string;
-  greeting?: string;
-  farewell?: Farewell;
+  language?: string | undefined;
+  greeting?: string | undefined;
+  farewell?: Farewell | undefined;
 }
 
 /**
  * @public
  */
 export interface DocumentTypeInputOutput {
-  stringValue?: string;
-  documentValue?: __DocumentType;
+  stringValue?: string | undefined;
+  documentValue?: __DocumentType | undefined;
 }
 
 /**
  * @public
  */
 export interface DocumentTypeAsMapValueInputOutput {
-  docValuedMap?: Record<string, __DocumentType>;
+  docValuedMap?: Record<string, __DocumentType> | undefined;
 }
 
 /**
  * @public
  */
 export interface DocumentTypeAsPayloadInputOutput {
-  documentValue?: __DocumentType;
+  documentValue?: __DocumentType | undefined;
 }
 
 /**
@@ -261,7 +261,7 @@ export type StringEnum = (typeof StringEnum)[keyof typeof StringEnum];
  * @public
  */
 export interface EnumPayloadInput {
-  payload?: StringEnum;
+  payload?: StringEnum | undefined;
 }
 
 /**
@@ -289,14 +289,14 @@ export class FooError extends __BaseException {
  * @public
  */
 export interface FractionalSecondsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -325,38 +325,38 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface HttpChecksumRequiredInputOutput {
-  foo?: string;
+  foo?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadTraitsInputOutput {
-  foo?: string;
-  blob?: Uint8Array;
+  foo?: string | undefined;
+  blob?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
-  foo?: string;
-  blob?: Uint8Array;
+  foo?: string | undefined;
+  blob?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedPayload {
-  greeting?: string;
-  name?: string;
+  greeting?: string | undefined;
+  name?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPayloadWithStructureInputOutput {
-  nested?: NestedPayload;
+  nested?: NestedPayload | undefined;
 }
 
 /**
@@ -396,23 +396,23 @@ export namespace UnionPayload {
  * @public
  */
 export interface HttpPayloadWithUnionInputOutput {
-  nested?: UnionPayload;
+  nested?: UnionPayload | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPrefixHeadersInput {
-  foo?: string;
-  fooMap?: Record<string, string>;
+  foo?: string | undefined;
+  fooMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface HttpPrefixHeadersOutput {
-  foo?: string;
-  fooMap?: Record<string, string>;
+  foo?: string | undefined;
+  fooMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -424,7 +424,7 @@ export interface HttpPrefixHeadersInResponseInput {}
  * @public
  */
 export interface HttpPrefixHeadersInResponseOutput {
-  prefixHeaders?: Record<string, string>;
+  prefixHeaders?: Record<string, string> | undefined;
 }
 
 /**
@@ -490,135 +490,135 @@ export interface HttpRequestWithRegexLiteralInput {
  * @public
  */
 export interface HttpResponseCodeOutput {
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface StringPayloadInput {
-  payload?: string;
+  payload?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface IgnoreQueryParamsInResponseOutput {
-  baz?: string;
+  baz?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface InputAndOutputWithHeadersIO {
-  headerString?: string;
-  headerByte?: number;
-  headerShort?: number;
-  headerInteger?: number;
-  headerLong?: number;
-  headerFloat?: number;
-  headerDouble?: number;
-  headerTrueBool?: boolean;
-  headerFalseBool?: boolean;
-  headerStringList?: string[];
-  headerStringSet?: string[];
-  headerIntegerList?: number[];
-  headerBooleanList?: boolean[];
-  headerTimestampList?: Date[];
-  headerEnum?: FooEnum;
-  headerEnumList?: FooEnum[];
-  headerIntegerEnum?: IntegerEnum;
-  headerIntegerEnumList?: IntegerEnum[];
+  headerString?: string | undefined;
+  headerByte?: number | undefined;
+  headerShort?: number | undefined;
+  headerInteger?: number | undefined;
+  headerLong?: number | undefined;
+  headerFloat?: number | undefined;
+  headerDouble?: number | undefined;
+  headerTrueBool?: boolean | undefined;
+  headerFalseBool?: boolean | undefined;
+  headerStringList?: string[] | undefined;
+  headerStringSet?: string[] | undefined;
+  headerIntegerList?: number[] | undefined;
+  headerBooleanList?: boolean[] | undefined;
+  headerTimestampList?: Date[] | undefined;
+  headerEnum?: FooEnum | undefined;
+  headerEnumList?: FooEnum[] | undefined;
+  headerIntegerEnum?: IntegerEnum | undefined;
+  headerIntegerEnumList?: IntegerEnum[] | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonBlobsInputOutput {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum;
-  fooEnum2?: FooEnum;
-  fooEnum3?: FooEnum;
-  fooEnumList?: FooEnum[];
-  fooEnumSet?: FooEnum[];
-  fooEnumMap?: Record<string, FooEnum>;
+  fooEnum1?: FooEnum | undefined;
+  fooEnum2?: FooEnum | undefined;
+  fooEnum3?: FooEnum | undefined;
+  fooEnumList?: FooEnum[] | undefined;
+  fooEnumSet?: FooEnum[] | undefined;
+  fooEnumMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonIntEnumsInputOutput {
-  integerEnum1?: IntegerEnum;
-  integerEnum2?: IntegerEnum;
-  integerEnum3?: IntegerEnum;
-  integerEnumList?: IntegerEnum[];
-  integerEnumSet?: IntegerEnum[];
-  integerEnumMap?: Record<string, IntegerEnum>;
+  integerEnum1?: IntegerEnum | undefined;
+  integerEnum2?: IntegerEnum | undefined;
+  integerEnum3?: IntegerEnum | undefined;
+  integerEnumList?: IntegerEnum[] | undefined;
+  integerEnumSet?: IntegerEnum[] | undefined;
+  integerEnumMap?: Record<string, IntegerEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface StructureListMember {
-  a?: string;
-  b?: string;
+  a?: string | undefined;
+  b?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonListsInputOutput {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  structureList?: StructureListMember[];
+  structureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonMapsInputOutput {
-  denseStructMap?: Record<string, GreetingStruct>;
-  denseNumberMap?: Record<string, number>;
-  denseBooleanMap?: Record<string, boolean>;
-  denseStringMap?: Record<string, string>;
-  denseSetMap?: Record<string, string[]>;
+  denseStructMap?: Record<string, GreetingStruct> | undefined;
+  denseNumberMap?: Record<string, number> | undefined;
+  denseBooleanMap?: Record<string, boolean> | undefined;
+  denseStringMap?: Record<string, string> | undefined;
+  denseSetMap?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface JsonTimestampsInputOutput {
-  normal?: Date;
-  dateTime?: Date;
-  dateTimeOnTarget?: Date;
-  epochSeconds?: Date;
-  epochSecondsOnTarget?: Date;
-  httpDate?: Date;
-  httpDateOnTarget?: Date;
+  normal?: Date | undefined;
+  dateTime?: Date | undefined;
+  dateTimeOnTarget?: Date | undefined;
+  epochSeconds?: Date | undefined;
+  epochSecondsOnTarget?: Date | undefined;
+  httpDate?: Date | undefined;
+  httpDateOnTarget?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface RenamedGreeting {
-  salutation?: string;
+  salutation?: string | undefined;
 }
 
 /**
@@ -837,141 +837,141 @@ export interface UnionInputOutput {
    * A union with a representative set of types for members.
    * @public
    */
-  contents?: MyUnion;
+  contents?: MyUnion | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedAcceptWithGenericStringOutput {
-  payload?: string;
+  payload?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedAcceptWithPayloadOutput {
-  payload?: Uint8Array;
+  payload?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedBlobInput {
-  blob?: Uint8Array;
+  blob?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedBooleanInput {
-  booleanInBody?: boolean;
+  booleanInBody?: boolean | undefined;
   booleanInPath: boolean | undefined;
-  booleanInQuery?: boolean;
-  booleanInHeader?: boolean;
+  booleanInQuery?: boolean | undefined;
+  booleanInHeader?: boolean | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedByteInput {
-  byteInBody?: number;
+  byteInBody?: number | undefined;
   byteInPath: number | undefined;
-  byteInQuery?: number;
-  byteInHeader?: number;
+  byteInQuery?: number | undefined;
+  byteInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedContentTypeWithGenericStringInput {
-  payload?: string;
+  payload?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedContentTypeWithPayloadInput {
-  payload?: Uint8Array;
+  payload?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedDoubleInput {
-  doubleInBody?: number;
+  doubleInBody?: number | undefined;
   doubleInPath: number | undefined;
-  doubleInQuery?: number;
-  doubleInHeader?: number;
+  doubleInQuery?: number | undefined;
+  doubleInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedFloatInput {
-  floatInBody?: number;
+  floatInBody?: number | undefined;
   floatInPath: number | undefined;
-  floatInQuery?: number;
-  floatInHeader?: number;
+  floatInQuery?: number | undefined;
+  floatInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedIntegerInput {
-  integerInBody?: number;
+  integerInBody?: number | undefined;
   integerInPath: number | undefined;
-  integerInQuery?: number;
-  integerInHeader?: number;
+  integerInQuery?: number | undefined;
+  integerInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedListInput {
-  bodyList?: string[];
+  bodyList?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedLongInput {
-  longInBody?: number;
+  longInBody?: number | undefined;
   longInPath: number | undefined;
-  longInQuery?: number;
-  longInHeader?: number;
+  longInQuery?: number | undefined;
+  longInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedMapInput {
-  bodyMap?: Record<string, string>;
+  bodyMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedRequestBodyInput {
-  int?: number;
-  float?: number;
+  int?: number | undefined;
+  float?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedShortInput {
-  shortInBody?: number;
+  shortInBody?: number | undefined;
   shortInPath: number | undefined;
-  shortInQuery?: number;
-  shortInHeader?: number;
+  shortInQuery?: number | undefined;
+  shortInHeader?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface MalformedStringInput {
-  blob?: __LazyJsonString | string;
+  blob?: __LazyJsonString | string | undefined;
 }
 
 /**
@@ -1105,21 +1105,21 @@ export namespace SimpleUnion {
  * @public
  */
 export interface MalformedUnionInput {
-  union?: SimpleUnion;
+  union?: SimpleUnion | undefined;
 }
 
 /**
  * @public
  */
 export interface MediaTypeHeaderInput {
-  json?: __LazyJsonString | string;
+  json?: __LazyJsonString | string | undefined;
 }
 
 /**
  * @public
  */
 export interface MediaTypeHeaderOutput {
-  json?: __LazyJsonString | string;
+  json?: __LazyJsonString | string | undefined;
 }
 
 /**
@@ -1131,74 +1131,74 @@ export interface NoInputAndOutputOutput {}
  * @public
  */
 export interface NullAndEmptyHeadersIO {
-  a?: string;
-  b?: string;
-  c?: string[];
+  a?: string | undefined;
+  b?: string | undefined;
+  c?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface OmitsNullSerializesEmptyStringInput {
-  nullValue?: string;
-  emptyString?: string;
+  nullValue?: string | undefined;
+  emptyString?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface OmitsSerializingEmptyListsInput {
-  queryStringList?: string[];
-  queryIntegerList?: number[];
-  queryDoubleList?: number[];
-  queryBooleanList?: boolean[];
-  queryTimestampList?: Date[];
-  queryEnumList?: FooEnum[];
-  queryIntegerEnumList?: IntegerEnum[];
+  queryStringList?: string[] | undefined;
+  queryIntegerList?: number[] | undefined;
+  queryDoubleList?: number[] | undefined;
+  queryBooleanList?: boolean[] | undefined;
+  queryTimestampList?: Date[] | undefined;
+  queryEnumList?: FooEnum[] | undefined;
+  queryIntegerEnumList?: IntegerEnum[] | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithDefaultsInput {
-  defaults?: Defaults;
-  clientOptionalDefaults?: ClientOptionalDefaults;
-  topLevelDefault?: string;
-  otherTopLevelDefault?: number;
+  defaults?: Defaults | undefined;
+  clientOptionalDefaults?: ClientOptionalDefaults | undefined;
+  topLevelDefault?: string | undefined;
+  otherTopLevelDefault?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithDefaultsOutput {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultDocumentMap?: __DocumentType;
-  defaultDocumentString?: __DocumentType;
-  defaultDocumentBoolean?: __DocumentType;
-  defaultDocumentList?: __DocumentType;
-  defaultNullDocument?: __DocumentType;
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultDocumentMap?: __DocumentType | undefined;
+  defaultDocumentString?: __DocumentType | undefined;
+  defaultDocumentBoolean?: __DocumentType | undefined;
+  defaultDocumentList?: __DocumentType | undefined;
+  defaultNullDocument?: __DocumentType | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
@@ -1206,8 +1206,8 @@ export interface OperationWithDefaultsOutput {
  */
 export interface TopLevel {
   dialog: Dialog | undefined;
-  dialogList?: Dialog[];
-  dialogMap?: Record<string, Dialog>;
+  dialogList?: Dialog[] | undefined;
+  dialogMap?: Record<string, Dialog> | undefined;
 }
 
 /**
@@ -1222,15 +1222,15 @@ export interface OperationWithNestedStructureInput {
  */
 export interface OperationWithNestedStructureOutput {
   dialog: Dialog | undefined;
-  dialogList?: Dialog[];
-  dialogMap?: Record<string, Dialog>;
+  dialogList?: Dialog[] | undefined;
+  dialogMap?: Record<string, Dialog> | undefined;
 }
 
 /**
  * @public
  */
 export interface PayloadConfig {
-  data?: number;
+  data?: number | undefined;
 }
 
 /**
@@ -1279,7 +1279,7 @@ export namespace PlayerAction {
  * @public
  */
 export interface PostPlayerActionInput {
-  action?: PlayerAction;
+  action?: PlayerAction | undefined;
 }
 
 /**
@@ -1352,7 +1352,7 @@ export namespace UnionWithJsonName {
  * @public
  */
 export interface PostUnionWithJsonNameInput {
-  value?: UnionWithJsonName;
+  value?: UnionWithJsonName | undefined;
 }
 
 /**
@@ -1366,74 +1366,74 @@ export interface PostUnionWithJsonNameOutput {
  * @public
  */
 export interface PutWithContentEncodingInput {
-  encoding?: string;
-  data?: string;
+  encoding?: string | undefined;
+  data?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryIdempotencyTokenAutoFillInput {
-  token?: string;
+  token?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryParamsAsStringListMapInput {
-  qux?: string;
-  foo?: Record<string, string[]>;
+  qux?: string | undefined;
+  foo?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryPrecedenceInput {
-  foo?: string;
-  baz?: Record<string, string>;
+  foo?: string | undefined;
+  baz?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarPropertiesInputOutput {
-  foo?: string;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
-  byteValue?: number;
-  shortValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  foo?: string | undefined;
+  stringValue?: string | undefined;
+  trueBooleanValue?: boolean | undefined;
+  falseBooleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  shortValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface SparseJsonListsInputOutput {
-  sparseStringList?: string[];
-  sparseShortList?: number[];
+  sparseStringList?: string[] | undefined;
+  sparseShortList?: number[] | undefined;
 }
 
 /**
  * @public
  */
 export interface SparseJsonMapsInputOutput {
-  sparseStructMap?: Record<string, GreetingStruct>;
-  sparseNumberMap?: Record<string, number>;
-  sparseBooleanMap?: Record<string, boolean>;
-  sparseStringMap?: Record<string, string>;
-  sparseSetMap?: Record<string, string[]>;
+  sparseStructMap?: Record<string, GreetingStruct> | undefined;
+  sparseNumberMap?: Record<string, number> | undefined;
+  sparseBooleanMap?: Record<string, boolean> | undefined;
+  sparseStringMap?: Record<string, string> | undefined;
+  sparseSetMap?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface StreamingTraitsInputOutput {
-  foo?: string;
-  blob?: StreamingBlobTypes;
+  foo?: string | undefined;
+  blob?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -1447,8 +1447,8 @@ export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTrait
  * @public
  */
 export interface StreamingTraitsRequireLengthInput {
-  foo?: string;
-  blob?: StreamingBlobTypes;
+  foo?: string | undefined;
+  blob?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -1462,8 +1462,8 @@ export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: Streami
  * @public
  */
 export interface StreamingTraitsWithMediaTypeInputOutput {
-  foo?: string;
-  blob?: StreamingBlobTypes;
+  foo?: string | undefined;
+  blob?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -1479,72 +1479,72 @@ export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
  * @public
  */
 export interface TestConfig {
-  timeout?: number;
+  timeout?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface TestBodyStructureInputOutput {
-  testId?: string;
-  testConfig?: TestConfig;
+  testId?: string | undefined;
+  testConfig?: TestConfig | undefined;
 }
 
 /**
  * @public
  */
 export interface TestNoPayloadInputOutput {
-  testId?: string;
+  testId?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface TestPayloadBlobInputOutput {
-  contentType?: string;
-  data?: Uint8Array;
+  contentType?: string | undefined;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface TestPayloadStructureInputOutput {
-  testId?: string;
-  payloadConfig?: PayloadConfig;
+  testId?: string | undefined;
+  payloadConfig?: PayloadConfig | undefined;
 }
 
 /**
  * @public
  */
 export interface TimestampFormatHeadersIO {
-  memberEpochSeconds?: Date;
-  memberHttpDate?: Date;
-  memberDateTime?: Date;
-  defaultFormat?: Date;
-  targetEpochSeconds?: Date;
-  targetHttpDate?: Date;
-  targetDateTime?: Date;
+  memberEpochSeconds?: Date | undefined;
+  memberHttpDate?: Date | undefined;
+  memberDateTime?: Date | undefined;
+  defaultFormat?: Date | undefined;
+  targetEpochSeconds?: Date | undefined;
+  targetHttpDate?: Date | undefined;
+  targetDateTime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutputNested1 {
-  foo?: string;
-  nested?: RecursiveShapesInputOutputNested2;
+  foo?: string | undefined;
+  nested?: RecursiveShapesInputOutputNested2 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutputNested2 {
-  bar?: string;
-  recursiveMember?: RecursiveShapesInputOutputNested1;
+  bar?: string | undefined;
+  recursiveMember?: RecursiveShapesInputOutputNested1 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutput {
-  nested?: RecursiveShapesInputOutputNested1;
+  nested?: RecursiveShapesInputOutputNested1 | undefined;
 }

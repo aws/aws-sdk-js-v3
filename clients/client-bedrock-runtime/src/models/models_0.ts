@@ -55,7 +55,7 @@ export interface GuardrailTextBlock {
    * <p>The qualifiers describing the text block.</p>
    * @public
    */
-  qualifiers?: GuardrailContentQualifier[];
+  qualifiers?: GuardrailContentQualifier[] | undefined;
 }
 
 /**
@@ -240,7 +240,7 @@ export interface GuardrailContentFilter {
    * <p>The filter strength setting for the guardrail content filter.</p>
    * @public
    */
-  filterStrength?: GuardrailContentFilterStrength;
+  filterStrength?: GuardrailContentFilterStrength | undefined;
 
   /**
    * <p>The guardrail action.</p>
@@ -330,7 +330,7 @@ export interface GuardrailContextualGroundingPolicyAssessment {
    * <p>The filter details for the guardrails contextual grounding filter.</p>
    * @public
    */
-  filters?: GuardrailContextualGroundingFilter[];
+  filters?: GuardrailContextualGroundingFilter[] | undefined;
 }
 
 /**
@@ -342,13 +342,13 @@ export interface GuardrailTextCharactersCoverage {
    * <p>The text characters that were guarded by the guardrail coverage.</p>
    * @public
    */
-  guarded?: number;
+  guarded?: number | undefined;
 
   /**
    * <p>The total text characters by the guardrail coverage.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 }
 
 /**
@@ -360,7 +360,7 @@ export interface GuardrailCoverage {
    * <p>The text characters of the guardrail coverage details.</p>
    * @public
    */
-  textCharacters?: GuardrailTextCharactersCoverage;
+  textCharacters?: GuardrailTextCharactersCoverage | undefined;
 }
 
 /**
@@ -414,19 +414,19 @@ export interface GuardrailInvocationMetrics {
    * <p>The processing latency details for the guardrail invocation metrics.</p>
    * @public
    */
-  guardrailProcessingLatency?: number;
+  guardrailProcessingLatency?: number | undefined;
 
   /**
    * <p>The usage details for the guardrail invocation metrics.</p>
    * @public
    */
-  usage?: GuardrailUsage;
+  usage?: GuardrailUsage | undefined;
 
   /**
    * <p>The coverage details for the guardrail invocation metrics.</p>
    * @public
    */
-  guardrailCoverage?: GuardrailCoverage;
+  guardrailCoverage?: GuardrailCoverage | undefined;
 }
 
 /**
@@ -520,19 +520,19 @@ export interface GuardrailRegexFilter {
    * <p>The regex filter name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The regesx filter match.</p>
    * @public
    */
-  match?: string;
+  match?: string | undefined;
 
   /**
    * <p>The regex query.</p>
    * @public
    */
-  regex?: string;
+  regex?: string | undefined;
 
   /**
    * <p>The region filter action.</p>
@@ -716,37 +716,37 @@ export interface GuardrailAssessment {
    * <p>The topic policy.</p>
    * @public
    */
-  topicPolicy?: GuardrailTopicPolicyAssessment;
+  topicPolicy?: GuardrailTopicPolicyAssessment | undefined;
 
   /**
    * <p>The content policy.</p>
    * @public
    */
-  contentPolicy?: GuardrailContentPolicyAssessment;
+  contentPolicy?: GuardrailContentPolicyAssessment | undefined;
 
   /**
    * <p>The word policy.</p>
    * @public
    */
-  wordPolicy?: GuardrailWordPolicyAssessment;
+  wordPolicy?: GuardrailWordPolicyAssessment | undefined;
 
   /**
    * <p>The sensitive information policy.</p>
    * @public
    */
-  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment | undefined;
 
   /**
    * <p>The contextual grounding policy used for the guardrail assessment.</p>
    * @public
    */
-  contextualGroundingPolicy?: GuardrailContextualGroundingPolicyAssessment;
+  contextualGroundingPolicy?: GuardrailContextualGroundingPolicyAssessment | undefined;
 
   /**
    * <p>The invocation metrics for the guardrail assessment.</p>
    * @public
    */
-  invocationMetrics?: GuardrailInvocationMetrics;
+  invocationMetrics?: GuardrailInvocationMetrics | undefined;
 }
 
 /**
@@ -758,7 +758,7 @@ export interface GuardrailOutputContent {
    * <p>The specific text for the output content produced by the guardrail.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface ApplyGuardrailResponse {
    * <p>The guardrail coverage details in the apply guardrail response.</p>
    * @public
    */
-  guardrailCoverage?: GuardrailCoverage;
+  guardrailCoverage?: GuardrailCoverage | undefined;
 }
 
 /**
@@ -931,7 +931,7 @@ export interface GuardrailConfiguration {
    * <p>The trace behavior for the guardrail.</p>
    * @public
    */
-  trace?: GuardrailTrace;
+  trace?: GuardrailTrace | undefined;
 }
 
 /**
@@ -950,7 +950,7 @@ export interface InferenceConfiguration {
    *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>. </p>
    * @public
    */
-  maxTokens?: number;
+  maxTokens?: number | undefined;
 
   /**
    * <p>The likelihood of the model selecting higher-probability options while generating a
@@ -962,7 +962,7 @@ export interface InferenceConfiguration {
    *             models</a>. </p>
    * @public
    */
-  temperature?: number;
+  temperature?: number | undefined;
 
   /**
    * <p>The percentage of most-likely candidates that the model considers for the next token. For
@@ -972,14 +972,14 @@ export interface InferenceConfiguration {
    *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>. </p>
    * @public
    */
-  topP?: number;
+  topP?: number | undefined;
 
   /**
    * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the
    *          model to stop generating the response. </p>
    * @public
    */
-  stopSequences?: string[];
+  stopSequences?: string[] | undefined;
 }
 
 /**
@@ -1116,7 +1116,7 @@ export interface GuardrailConverseTextBlock {
    * <p>The qualifier details for the guardrails contextual grounding filter.</p>
    * @public
    */
-  qualifiers?: GuardrailConverseContentQualifier[];
+  qualifiers?: GuardrailConverseContentQualifier[] | undefined;
 }
 
 /**
@@ -1366,7 +1366,7 @@ export interface ToolResultBlock {
    *          </note>
    * @public
    */
-  status?: ToolResultStatus;
+  status?: ToolResultStatus | undefined;
 }
 
 /**
@@ -1833,7 +1833,7 @@ export interface ToolSpecification {
    * <p>The description for the tool.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The input schema for the tool in JSON format.</p>
@@ -1898,7 +1898,7 @@ export interface ToolConfiguration {
    * <p>If supported by model, forces the model to request a tool.</p>
    * @public
    */
-  toolChoice?: ToolChoice;
+  toolChoice?: ToolChoice | undefined;
 }
 
 /**
@@ -1933,13 +1933,13 @@ export interface ConverseRequest {
    * <p>The messages that you want to send to the model.</p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
    * @public
    */
-  system?: SystemContentBlock[];
+  system?: SystemContentBlock[] | undefined;
 
   /**
    * <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base
@@ -1947,7 +1947,7 @@ export interface ConverseRequest {
    *          supports, use the <code>additionalModelRequestFields</code> request field.</p>
    * @public
    */
-  inferenceConfig?: InferenceConfiguration;
+  inferenceConfig?: InferenceConfiguration | undefined;
 
   /**
    * <p>Configuration information for the tools that the model can use when generating a response. </p>
@@ -1956,13 +1956,13 @@ export interface ConverseRequest {
    *          </note>
    * @public
    */
-  toolConfig?: ToolConfiguration;
+  toolConfig?: ToolConfiguration | undefined;
 
   /**
    * <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
    * @public
    */
-  guardrailConfig?: GuardrailConfiguration;
+  guardrailConfig?: GuardrailConfiguration | undefined;
 
   /**
    * <p>Additional inference parameters that the model supports, beyond the
@@ -1970,13 +1970,13 @@ export interface ConverseRequest {
    *          field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
    * @public
    */
-  additionalModelRequestFields?: __DocumentType;
+  additionalModelRequestFields?: __DocumentType | undefined;
 
   /**
    * <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
    * @public
    */
-  promptVariables?: Record<string, PromptVariableValues>;
+  promptVariables?: Record<string, PromptVariableValues> | undefined;
 
   /**
    * <p>Additional model parameters field paths to return in the
@@ -1995,7 +1995,7 @@ export interface ConverseRequest {
    *          field is not in the model response, it is ignored by <code>Converse</code>.</p>
    * @public
    */
-  additionalModelResponseFieldPaths?: string[];
+  additionalModelResponseFieldPaths?: string[] | undefined;
 }
 
 /**
@@ -2076,19 +2076,19 @@ export interface GuardrailTraceAssessment {
    * <p>The output from the model.</p>
    * @public
    */
-  modelOutput?: string[];
+  modelOutput?: string[] | undefined;
 
   /**
    * <p>The input assessment.</p>
    * @public
    */
-  inputAssessment?: Record<string, GuardrailAssessment>;
+  inputAssessment?: Record<string, GuardrailAssessment> | undefined;
 
   /**
    * <p>the output assessments.</p>
    * @public
    */
-  outputAssessments?: Record<string, GuardrailAssessment[]>;
+  outputAssessments?: Record<string, GuardrailAssessment[]> | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface ConverseTrace {
    * <p>The guardrail trace object. </p>
    * @public
    */
-  guardrail?: GuardrailTraceAssessment;
+  guardrail?: GuardrailTraceAssessment | undefined;
 }
 
 /**
@@ -2160,13 +2160,13 @@ export interface ConverseResponse {
    * <p>Additional fields in the response that are unique to the model. </p>
    * @public
    */
-  additionalModelResponseFields?: __DocumentType;
+  additionalModelResponseFields?: __DocumentType | undefined;
 
   /**
    * <p>A trace object that contains information about the Guardrail behavior.</p>
    * @public
    */
-  trace?: ConverseTrace;
+  trace?: ConverseTrace | undefined;
 }
 
 /**
@@ -2180,13 +2180,13 @@ export class ModelErrorException extends __BaseException {
    * <p>The original status code.</p>
    * @public
    */
-  originalStatusCode?: number;
+  originalStatusCode?: number | undefined;
 
   /**
    * <p>The resource name.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -2304,7 +2304,7 @@ export interface GuardrailStreamConfiguration {
    * <p>The trace behavior for the guardrail.</p>
    * @public
    */
-  trace?: GuardrailTrace;
+  trace?: GuardrailTrace | undefined;
 
   /**
    * <p>The processing mode. </p>
@@ -2312,7 +2312,7 @@ export interface GuardrailStreamConfiguration {
    *       </p>
    * @public
    */
-  streamProcessingMode?: GuardrailStreamProcessingMode;
+  streamProcessingMode?: GuardrailStreamProcessingMode | undefined;
 }
 
 /**
@@ -2347,13 +2347,13 @@ export interface ConverseStreamRequest {
    * <p>The messages that you want to send to the model.</p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
    * @public
    */
-  system?: SystemContentBlock[];
+  system?: SystemContentBlock[] | undefined;
 
   /**
    * <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base
@@ -2361,7 +2361,7 @@ export interface ConverseStreamRequest {
    *          supports, use the <code>additionalModelRequestFields</code> request field.</p>
    * @public
    */
-  inferenceConfig?: InferenceConfiguration;
+  inferenceConfig?: InferenceConfiguration | undefined;
 
   /**
    * <p>Configuration information for the tools that the model can use when generating a response.</p>
@@ -2370,13 +2370,13 @@ export interface ConverseStreamRequest {
    *          </note>
    * @public
    */
-  toolConfig?: ToolConfiguration;
+  toolConfig?: ToolConfiguration | undefined;
 
   /**
    * <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
    * @public
    */
-  guardrailConfig?: GuardrailStreamConfiguration;
+  guardrailConfig?: GuardrailStreamConfiguration | undefined;
 
   /**
    * <p>Additional inference parameters that the model supports, beyond the
@@ -2384,13 +2384,13 @@ export interface ConverseStreamRequest {
    *          field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
    * @public
    */
-  additionalModelRequestFields?: __DocumentType;
+  additionalModelRequestFields?: __DocumentType | undefined;
 
   /**
    * <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
    * @public
    */
-  promptVariables?: Record<string, PromptVariableValues>;
+  promptVariables?: Record<string, PromptVariableValues> | undefined;
 
   /**
    * <p>Additional model parameters field paths to return in the
@@ -2409,7 +2409,7 @@ export interface ConverseStreamRequest {
    *          field is not in the model response, it is ignored by <code>Converse</code>.</p>
    * @public
    */
-  additionalModelResponseFieldPaths?: string[];
+  additionalModelResponseFieldPaths?: string[] | undefined;
 }
 
 /**
@@ -2610,7 +2610,7 @@ export interface MessageStopEvent {
    * <p>The additional model response fields.</p>
    * @public
    */
-  additionalModelResponseFields?: __DocumentType;
+  additionalModelResponseFields?: __DocumentType | undefined;
 }
 
 /**
@@ -2634,7 +2634,7 @@ export interface ConverseStreamTrace {
    * <p>The guardrail trace object. </p>
    * @public
    */
-  guardrail?: GuardrailTraceAssessment;
+  guardrail?: GuardrailTraceAssessment | undefined;
 }
 
 /**
@@ -2658,7 +2658,7 @@ export interface ConverseStreamMetadataEvent {
    * <p>The trace object in the response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> that contains information about the guardrail behavior.</p>
    * @public
    */
-  trace?: ConverseStreamTrace;
+  trace?: ConverseStreamTrace | undefined;
 }
 
 /**
@@ -2672,13 +2672,13 @@ export class ModelStreamErrorException extends __BaseException {
    * <p>The original status code.</p>
    * @public
    */
-  originalStatusCode?: number;
+  originalStatusCode?: number | undefined;
 
   /**
    * <p>The original message.</p>
    * @public
    */
-  originalMessage?: string;
+  originalMessage?: string | undefined;
 
   /**
    * @internal
@@ -2986,7 +2986,7 @@ export interface ConverseStreamResponse {
    * <p>The output stream that the model generated.</p>
    * @public
    */
-  stream?: AsyncIterable<ConverseStreamOutput>;
+  stream?: AsyncIterable<ConverseStreamOutput> | undefined;
 }
 
 /**
@@ -3011,20 +3011,20 @@ export interface InvokeModelRequest {
    * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
-  body?: Uint8Array;
+  body?: Uint8Array | undefined;
 
   /**
    * <p>The MIME type of the input data in the request. You must specify
    *             <code>application/json</code>.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The desired MIME type of the inference body in the response. The default value is <code>application/json</code>.</p>
    * @public
    */
-  accept?: string;
+  accept?: string | undefined;
 
   /**
    * <p>The unique identifier of the model to invoke to run inference.</p>
@@ -3051,7 +3051,7 @@ export interface InvokeModelRequest {
    * <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
    * @public
    */
-  trace?: Trace;
+  trace?: Trace | undefined;
 
   /**
    * <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied
@@ -3070,13 +3070,13 @@ export interface InvokeModelRequest {
    *          </ul>
    * @public
    */
-  guardrailIdentifier?: string;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
    * @public
    */
-  guardrailVersion?: string;
+  guardrailVersion?: string | undefined;
 }
 
 /**
@@ -3104,21 +3104,21 @@ export interface InvokeModelWithResponseStreamRequest {
    * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
-  body?: Uint8Array;
+  body?: Uint8Array | undefined;
 
   /**
    * <p>The MIME type of the input data in the request. You must specify
    *             <code>application/json</code>.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The desired MIME type of the inference body in the response. The default value is
    *             <code>application/json</code>.</p>
    * @public
    */
-  accept?: string;
+  accept?: string | undefined;
 
   /**
    * <p>The unique identifier of the model to invoke to run inference.</p>
@@ -3145,7 +3145,7 @@ export interface InvokeModelWithResponseStreamRequest {
    * <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
    * @public
    */
-  trace?: Trace;
+  trace?: Trace | undefined;
 
   /**
    * <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied
@@ -3164,13 +3164,13 @@ export interface InvokeModelWithResponseStreamRequest {
    *          </ul>
    * @public
    */
-  guardrailIdentifier?: string;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
    * @public
    */
-  guardrailVersion?: string;
+  guardrailVersion?: string | undefined;
 }
 
 /**
@@ -3182,7 +3182,7 @@ export interface PayloadPart {
    * <p>Base64-encoded bytes of payload data.</p>
    * @public
    */
-  bytes?: Uint8Array;
+  bytes?: Uint8Array | undefined;
 }
 
 /**

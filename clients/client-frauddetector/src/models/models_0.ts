@@ -63,7 +63,7 @@ export interface AggregatedVariablesImpactExplanation {
    *         </p>
    * @public
    */
-  eventVariableNames?: string[];
+  eventVariableNames?: string[] | undefined;
 
   /**
    * <p>
@@ -71,7 +71,7 @@ export interface AggregatedVariablesImpactExplanation {
    *         </p>
    * @public
    */
-  relativeImpact?: string;
+  relativeImpact?: string | undefined;
 
   /**
    * <p>
@@ -86,7 +86,7 @@ export interface AggregatedVariablesImpactExplanation {
    *          </ul>
    * @public
    */
-  logOddsImpact?: number;
+  logOddsImpact?: number | undefined;
 }
 
 /**
@@ -103,7 +103,7 @@ export interface AggregatedVariablesImportanceMetrics {
    *         </p>
    * @public
    */
-  logOddsMetrics?: AggregatedLogOddsMetric[];
+  logOddsMetrics?: AggregatedLogOddsMetric[] | undefined;
 }
 
 /**
@@ -127,7 +127,7 @@ export interface AllowDenyList {
    *         </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -135,7 +135,7 @@ export interface AllowDenyList {
    *         </p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 
   /**
    * <p>
@@ -143,7 +143,7 @@ export interface AllowDenyList {
    *         </p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>
@@ -151,7 +151,7 @@ export interface AllowDenyList {
    *         </p>
    * @public
    */
-  updatedTime?: string;
+  updatedTime?: string | undefined;
 
   /**
    * <p>
@@ -159,7 +159,7 @@ export interface AllowDenyList {
    *         </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface ATIMetricDataPoint {
    *         </p>
    * @public
    */
-  cr?: number;
+  cr?: number | undefined;
 
   /**
    * <p>
@@ -204,7 +204,7 @@ export interface ATIMetricDataPoint {
    *         </p>
    * @public
    */
-  adr?: number;
+  adr?: number | undefined;
 
   /**
    * <p>
@@ -213,7 +213,7 @@ export interface ATIMetricDataPoint {
    *         </p>
    * @public
    */
-  threshold?: number;
+  threshold?: number | undefined;
 
   /**
    * <p>
@@ -222,7 +222,7 @@ export interface ATIMetricDataPoint {
    *         </p>
    * @public
    */
-  atodr?: number;
+  atodr?: number | undefined;
 }
 
 /**
@@ -240,7 +240,7 @@ export interface ATIModelPerformance {
    *         </p>
    * @public
    */
-  asi?: number;
+  asi?: number | undefined;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface ATITrainingMetricsValue {
    *         </p>
    * @public
    */
-  metricDataPoints?: ATIMetricDataPoint[];
+  metricDataPoints?: ATIMetricDataPoint[] | undefined;
 
   /**
    * <p>
@@ -264,7 +264,7 @@ export interface ATITrainingMetricsValue {
    *         </p>
    * @public
    */
-  modelPerformance?: ATIModelPerformance;
+  modelPerformance?: ATIModelPerformance | undefined;
 }
 
 /**
@@ -294,31 +294,31 @@ export interface VariableEntry {
    * <p>The name of the variable.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The data type of the variable.</p>
    * @public
    */
-  dataType?: string;
+  dataType?: string | undefined;
 
   /**
    * <p>The data source of the variable.</p>
    * @public
    */
-  dataSource?: string;
+  dataSource?: string | undefined;
 
   /**
    * <p>The default value of the variable.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The description of the variable.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
@@ -326,7 +326,7 @@ export interface VariableEntry {
    *          </p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 }
 
 /**
@@ -343,7 +343,7 @@ export interface BatchCreateVariableRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -355,19 +355,19 @@ export interface BatchCreateVariableError {
    * <p>The name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The error code. </p>
    * @public
    */
-  code?: number;
+  code?: number | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -378,7 +378,7 @@ export interface BatchCreateVariableResult {
    * <p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>
    * @public
    */
-  errors?: BatchCreateVariableError[];
+  errors?: BatchCreateVariableError[] | undefined;
 }
 
 /**
@@ -461,19 +461,19 @@ export interface BatchGetVariableError {
    * <p>The error name. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The error code. </p>
    * @public
    */
-  code?: number;
+  code?: number | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -517,31 +517,31 @@ export interface Variable {
    * <p>The name of the variable.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    * @public
    */
-  dataType?: DataType;
+  dataType?: DataType | undefined;
 
   /**
    * <p>The data source of the variable.</p>
    * @public
    */
-  dataSource?: DataSource;
+  dataSource?: DataSource | undefined;
 
   /**
    * <p>The default value of the variable.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The description of the variable. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The variable type of the variable.</p>
@@ -549,25 +549,25 @@ export interface Variable {
    *          </p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 
   /**
    * <p>The time when variable was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The time when the variable was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The ARN of the variable.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -578,13 +578,13 @@ export interface BatchGetVariableResult {
    * <p>The returned variables.</p>
    * @public
    */
-  variables?: Variable[];
+  variables?: Variable[] | undefined;
 
   /**
    * <p>The errors from the request.</p>
    * @public
    */
-  errors?: BatchGetVariableError[];
+  errors?: BatchGetVariableError[] | undefined;
 }
 
 /**
@@ -681,7 +681,7 @@ export interface CreateBatchImportJobRequest {
    * <p>A collection of key-value pairs associated with this request.  </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -727,7 +727,7 @@ export interface CreateBatchPredictionJobRequest {
    * <p>The detector version.</p>
    * @public
    */
-  detectorVersion?: string;
+  detectorVersion?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to use for this job request.</p>
@@ -742,7 +742,7 @@ export interface CreateBatchPredictionJobRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -792,7 +792,7 @@ export interface ModelVersion {
    * <p>The model version ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -847,13 +847,13 @@ export interface CreateDetectorVersionRequest {
    * <p>The description of the detector version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Sagemaker model endpoints to include in the detector version.</p>
    * @public
    */
-  externalModelEndpoints?: string[];
+  externalModelEndpoints?: string[] | undefined;
 
   /**
    * <p>The rules to include in the detector version.</p>
@@ -865,7 +865,7 @@ export interface CreateDetectorVersionRequest {
    * <p>The model versions to include in the detector version.</p>
    * @public
    */
-  modelVersions?: ModelVersion[];
+  modelVersions?: ModelVersion[] | undefined;
 
   /**
    * <p>The rule execution mode for the rules included in the detector version.</p>
@@ -875,13 +875,13 @@ export interface CreateDetectorVersionRequest {
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    * @public
    */
-  ruleExecutionMode?: RuleExecutionMode;
+  ruleExecutionMode?: RuleExecutionMode | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -907,19 +907,19 @@ export interface CreateDetectorVersionResult {
    * <p>The ID for the created version's parent detector.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The ID for the created detector. </p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 
   /**
    * <p>The status of the detector version.</p>
    * @public
    */
-  status?: DetectorVersionStatus;
+  status?: DetectorVersionStatus | undefined;
 }
 
 /**
@@ -940,7 +940,7 @@ export interface CreateListRequest {
    *         </p>
    * @public
    */
-  elements?: string[];
+  elements?: string[] | undefined;
 
   /**
    * <p>
@@ -949,7 +949,7 @@ export interface CreateListRequest {
    *         </p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 
   /**
    * <p>
@@ -957,7 +957,7 @@ export interface CreateListRequest {
    *         </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -965,7 +965,7 @@ export interface CreateListRequest {
    *         </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -993,7 +993,7 @@ export interface CreateModelRequest {
    * <p>The model description. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
@@ -1005,7 +1005,7 @@ export interface CreateModelRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1087,7 +1087,7 @@ export interface LabelSchema {
    *         </p>
    * @public
    */
-  labelMapper?: Record<string, string[]>;
+  labelMapper?: Record<string, string[]> | undefined;
 
   /**
    * <p>The action to take for unlabeled events.</p>
@@ -1108,7 +1108,7 @@ export interface LabelSchema {
    *          <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>
    * @public
    */
-  unlabeledEventsTreatment?: UnlabeledEventsTreatment;
+  unlabeledEventsTreatment?: UnlabeledEventsTreatment | undefined;
 }
 
 /**
@@ -1126,7 +1126,7 @@ export interface TrainingDataSchema {
    * <p>The label schema.</p>
    * @public
    */
-  labelSchema?: LabelSchema;
+  labelSchema?: LabelSchema | undefined;
 }
 
 /**
@@ -1175,19 +1175,19 @@ export interface CreateModelVersionRequest {
    * <p>Details of the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
    * @public
    */
-  externalEventsDetail?: ExternalEventsDetail;
+  externalEventsDetail?: ExternalEventsDetail | undefined;
 
   /**
    * <p>Details of the ingested events data used for model version training. Required if <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
    * @public
    */
-  ingestedEventsDetail?: IngestedEventsDetail;
+  ingestedEventsDetail?: IngestedEventsDetail | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1198,25 +1198,25 @@ export interface CreateModelVersionResult {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The model version number of the model version created.</p>
    * @public
    */
-  modelVersionNumber?: string;
+  modelVersionNumber?: string | undefined;
 
   /**
    * <p>The model version status. </p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -1252,7 +1252,7 @@ export interface CreateRuleRequest {
    * <p>The rule description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The rule expression.</p>
@@ -1276,7 +1276,7 @@ export interface CreateRuleRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1287,7 +1287,7 @@ export interface CreateRuleResult {
    * <p>The created rule.</p>
    * @public
    */
-  rule?: Rule;
+  rule?: Rule | undefined;
 }
 
 /**
@@ -1322,7 +1322,7 @@ export interface CreateVariableRequest {
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
@@ -1331,13 +1331,13 @@ export interface CreateVariableRequest {
    *          </p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1471,7 +1471,7 @@ export interface DeleteEventRequest {
    * <p>Specifies whether or not to delete any predictions associated with the event. If set to <code>True</code>, </p>
    * @public
    */
-  deleteAuditHistory?: boolean;
+  deleteAuditHistory?: boolean | undefined;
 }
 
 /**
@@ -1498,13 +1498,13 @@ export interface DeleteEventsByEventTypeResult {
    * <p>Name of event type for which to delete the events.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>The status of the delete request.</p>
    * @public
    */
-  eventsDeletionStatus?: string;
+  eventsDeletionStatus?: string | undefined;
 }
 
 /**
@@ -1685,13 +1685,13 @@ export interface DescribeDetectorRequest {
    * <p>The next token from the previous response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1703,25 +1703,25 @@ export interface DetectorVersionSummary {
    * <p>The detector version ID. </p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 
   /**
    * <p>The detector version status. </p>
    * @public
    */
-  status?: DetectorVersionStatus;
+  status?: DetectorVersionStatus | undefined;
 
   /**
    * <p>The detector version description. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Timestamp of when the detector version was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 }
 
 /**
@@ -1732,25 +1732,25 @@ export interface DescribeDetectorResult {
    * <p>The detector ID.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The status and description for each detector version.</p>
    * @public
    */
-  detectorVersionSummaries?: DetectorVersionSummary[];
+  detectorVersionSummaries?: DetectorVersionSummary[] | undefined;
 
   /**
    * <p>The next token to be used for subsequent requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The detector ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -1761,31 +1761,31 @@ export interface DescribeModelVersionsRequest {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model version number.</p>
    * @public
    */
-  modelVersionNumber?: string;
+  modelVersionNumber?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The next token from the previous results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1797,31 +1797,31 @@ export interface FieldValidationMessage {
    * <p>The field name.</p>
    * @public
    */
-  fieldName?: string;
+  fieldName?: string | undefined;
 
   /**
    * <p>The message ID.</p>
    * @public
    */
-  identifier?: string;
+  identifier?: string | undefined;
 
   /**
    * <p>The message title.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The message content.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>The message type.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 }
 
 /**
@@ -1833,19 +1833,19 @@ export interface FileValidationMessage {
    * <p>The message title.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The message content.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>The message type.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 }
 
 /**
@@ -1857,13 +1857,13 @@ export interface DataValidationMetrics {
    * <p>The file-specific model training data validation messages.</p>
    * @public
    */
-  fileLevelMessages?: FileValidationMessage[];
+  fileLevelMessages?: FileValidationMessage[] | undefined;
 
   /**
    * <p>The field-specific model training validation messages.</p>
    * @public
    */
-  fieldLevelMessages?: FieldValidationMessage[];
+  fieldLevelMessages?: FieldValidationMessage[] | undefined;
 }
 
 /**
@@ -1875,25 +1875,25 @@ export interface MetricDataPoint {
    * <p>The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.</p>
    * @public
    */
-  fpr?: number;
+  fpr?: number | undefined;
 
   /**
    * <p>The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.</p>
    * @public
    */
-  precision?: number;
+  precision?: number | undefined;
 
   /**
    * <p>The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.</p>
    * @public
    */
-  tpr?: number;
+  tpr?: number | undefined;
 
   /**
    * <p>The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.</p>
    * @public
    */
-  threshold?: number;
+  threshold?: number | undefined;
 }
 
 /**
@@ -1905,13 +1905,13 @@ export interface TrainingMetrics {
    * <p>The area under the curve. This summarizes true positive rate (TPR) and false positive rate (FPR) across all possible model score thresholds. A model with no predictive power has an AUC of 0.5, whereas a perfect model has a score of 1.0.</p>
    * @public
    */
-  auc?: number;
+  auc?: number | undefined;
 
   /**
    * <p>The data points details.</p>
    * @public
    */
-  metricDataPoints?: MetricDataPoint[];
+  metricDataPoints?: MetricDataPoint[] | undefined;
 }
 
 /**
@@ -1947,7 +1947,7 @@ export interface VariableImportanceMetrics {
    * <p>List of variable metrics.</p>
    * @public
    */
-  logOddsMetrics?: LogOddsMetric[];
+  logOddsMetrics?: LogOddsMetric[] | undefined;
 }
 
 /**
@@ -1959,19 +1959,19 @@ export interface TrainingResult {
    * <p>The validation metrics.</p>
    * @public
    */
-  dataValidationMetrics?: DataValidationMetrics;
+  dataValidationMetrics?: DataValidationMetrics | undefined;
 
   /**
    * <p>The training metric details.</p>
    * @public
    */
-  trainingMetrics?: TrainingMetrics;
+  trainingMetrics?: TrainingMetrics | undefined;
 
   /**
    * <p>The variable importance metrics.</p>
    * @public
    */
-  variableImportanceMetrics?: VariableImportanceMetrics;
+  variableImportanceMetrics?: VariableImportanceMetrics | undefined;
 }
 
 /**
@@ -1987,7 +1987,7 @@ export interface OFIMetricDataPoint {
    *         </p>
    * @public
    */
-  fpr?: number;
+  fpr?: number | undefined;
 
   /**
    * <p>
@@ -1995,7 +1995,7 @@ export interface OFIMetricDataPoint {
    *         </p>
    * @public
    */
-  precision?: number;
+  precision?: number | undefined;
 
   /**
    * <p>
@@ -2003,7 +2003,7 @@ export interface OFIMetricDataPoint {
    *         </p>
    * @public
    */
-  tpr?: number;
+  tpr?: number | undefined;
 
   /**
    * <p>
@@ -2011,7 +2011,7 @@ export interface OFIMetricDataPoint {
    *         </p>
    * @public
    */
-  threshold?: number;
+  threshold?: number | undefined;
 }
 
 /**
@@ -2052,7 +2052,7 @@ export interface OFIModelPerformance {
    *         </p>
    * @public
    */
-  auc?: number;
+  auc?: number | undefined;
 
   /**
    * <p>
@@ -2060,7 +2060,7 @@ export interface OFIModelPerformance {
    *         </p>
    * @public
    */
-  uncertaintyRange?: UncertaintyRange;
+  uncertaintyRange?: UncertaintyRange | undefined;
 }
 
 /**
@@ -2076,7 +2076,7 @@ export interface OFITrainingMetricsValue {
    *         </p>
    * @public
    */
-  metricDataPoints?: OFIMetricDataPoint[];
+  metricDataPoints?: OFIMetricDataPoint[] | undefined;
 
   /**
    * <p>
@@ -2084,7 +2084,7 @@ export interface OFITrainingMetricsValue {
    *         </p>
    * @public
    */
-  modelPerformance?: OFIModelPerformance;
+  modelPerformance?: OFIModelPerformance | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface TFIMetricDataPoint {
    *         </p>
    * @public
    */
-  fpr?: number;
+  fpr?: number | undefined;
 
   /**
    * <p>
@@ -2108,7 +2108,7 @@ export interface TFIMetricDataPoint {
    *         </p>
    * @public
    */
-  precision?: number;
+  precision?: number | undefined;
 
   /**
    * <p>
@@ -2116,7 +2116,7 @@ export interface TFIMetricDataPoint {
    *         </p>
    * @public
    */
-  tpr?: number;
+  tpr?: number | undefined;
 
   /**
    * <p>
@@ -2125,7 +2125,7 @@ export interface TFIMetricDataPoint {
    *         </p>
    * @public
    */
-  threshold?: number;
+  threshold?: number | undefined;
 }
 
 /**
@@ -2141,7 +2141,7 @@ export interface TFIModelPerformance {
    *         </p>
    * @public
    */
-  auc?: number;
+  auc?: number | undefined;
 
   /**
    * <p>
@@ -2149,7 +2149,7 @@ export interface TFIModelPerformance {
    *         </p>
    * @public
    */
-  uncertaintyRange?: UncertaintyRange;
+  uncertaintyRange?: UncertaintyRange | undefined;
 }
 
 /**
@@ -2165,7 +2165,7 @@ export interface TFITrainingMetricsValue {
    *         </p>
    * @public
    */
-  metricDataPoints?: TFIMetricDataPoint[];
+  metricDataPoints?: TFIMetricDataPoint[] | undefined;
 
   /**
    * <p>
@@ -2173,7 +2173,7 @@ export interface TFITrainingMetricsValue {
    *         </p>
    * @public
    */
-  modelPerformance?: TFIModelPerformance;
+  modelPerformance?: TFIModelPerformance | undefined;
 }
 
 /**
@@ -2189,7 +2189,7 @@ export interface TrainingMetricsV2 {
    *         </p>
    * @public
    */
-  ofi?: OFITrainingMetricsValue;
+  ofi?: OFITrainingMetricsValue | undefined;
 
   /**
    * <p>
@@ -2197,7 +2197,7 @@ export interface TrainingMetricsV2 {
    *         </p>
    * @public
    */
-  tfi?: TFITrainingMetricsValue;
+  tfi?: TFITrainingMetricsValue | undefined;
 
   /**
    * <p>
@@ -2205,7 +2205,7 @@ export interface TrainingMetricsV2 {
    *         </p>
    * @public
    */
-  ati?: ATITrainingMetricsValue;
+  ati?: ATITrainingMetricsValue | undefined;
 }
 
 /**
@@ -2219,7 +2219,7 @@ export interface TrainingResultV2 {
    * <p>The model training data validation metrics.</p>
    * @public
    */
-  dataValidationMetrics?: DataValidationMetrics;
+  dataValidationMetrics?: DataValidationMetrics | undefined;
 
   /**
    * <p>
@@ -2227,13 +2227,13 @@ export interface TrainingResultV2 {
    *         </p>
    * @public
    */
-  trainingMetricsV2?: TrainingMetricsV2;
+  trainingMetricsV2?: TrainingMetricsV2 | undefined;
 
   /**
    * <p>The variable importance metrics details.</p>
    * @public
    */
-  variableImportanceMetrics?: VariableImportanceMetrics;
+  variableImportanceMetrics?: VariableImportanceMetrics | undefined;
 
   /**
    * <p>
@@ -2244,7 +2244,7 @@ export interface TrainingResultV2 {
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    * @public
    */
-  aggregatedVariablesImportanceMetrics?: AggregatedVariablesImportanceMetrics;
+  aggregatedVariablesImportanceMetrics?: AggregatedVariablesImportanceMetrics | undefined;
 }
 
 /**
@@ -2256,73 +2256,73 @@ export interface ModelVersionDetail {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The model version number.</p>
    * @public
    */
-  modelVersionNumber?: string;
+  modelVersionNumber?: string | undefined;
 
   /**
    * <p>The status of the model version.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The model version training data source.</p>
    * @public
    */
-  trainingDataSource?: TrainingDataSourceEnum;
+  trainingDataSource?: TrainingDataSourceEnum | undefined;
 
   /**
    * <p>The training data schema.</p>
    * @public
    */
-  trainingDataSchema?: TrainingDataSchema;
+  trainingDataSchema?: TrainingDataSchema | undefined;
 
   /**
    * <p>The external events data details. This will be populated if the <code>trainingDataSource</code> for the model version is specified as  <code>EXTERNAL_EVENTS</code>.</p>
    * @public
    */
-  externalEventsDetail?: ExternalEventsDetail;
+  externalEventsDetail?: ExternalEventsDetail | undefined;
 
   /**
    * <p>The ingested events data details. This will be populated if the <code>trainingDataSource</code> for the model version is specified as  <code>INGESTED_EVENTS</code>.</p>
    * @public
    */
-  ingestedEventsDetail?: IngestedEventsDetail;
+  ingestedEventsDetail?: IngestedEventsDetail | undefined;
 
   /**
    * <p>The training results.</p>
    * @public
    */
-  trainingResult?: TrainingResult;
+  trainingResult?: TrainingResult | undefined;
 
   /**
    * <p>The timestamp when the model was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The timestamp when the model was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The model version ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -2330,7 +2330,7 @@ export interface ModelVersionDetail {
    *         </p>
    * @public
    */
-  trainingResultV2?: TrainingResultV2;
+  trainingResultV2?: TrainingResultV2 | undefined;
 }
 
 /**
@@ -2341,13 +2341,13 @@ export interface DescribeModelVersionsResult {
    * <p>The model version details.</p>
    * @public
    */
-  modelVersionDetails?: ModelVersionDetail[];
+  modelVersionDetails?: ModelVersionDetail[] | undefined;
 
   /**
    * <p>The next token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2358,19 +2358,19 @@ export interface GetBatchImportJobsRequest {
    * <p>The ID of the batch import job to get.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The next token from the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2382,79 +2382,79 @@ export interface BatchImport {
    * <p>The ID of the batch import job. </p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The status of the batch import job.</p>
    * @public
    */
-  status?: AsyncJobStatus;
+  status?: AsyncJobStatus | undefined;
 
   /**
    * <p>The reason batch import job failed.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>Timestamp of when the batch import job started.</p>
    * @public
    */
-  startTime?: string;
+  startTime?: string | undefined;
 
   /**
    * <p>Timestamp of when batch import job completed.</p>
    * @public
    */
-  completionTime?: string;
+  completionTime?: string | undefined;
 
   /**
    * <p>The Amazon S3 location of your data file for batch import.</p>
    * @public
    */
-  inputPath?: string;
+  inputPath?: string | undefined;
 
   /**
    * <p>The Amazon S3 location of your output file.</p>
    * @public
    */
-  outputPath?: string;
+  outputPath?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to use for this job request.</p>
    * @public
    */
-  iamRoleArn?: string;
+  iamRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of the batch import job.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The number of records processed by batch import job.</p>
    * @public
    */
-  processedRecordsCount?: number;
+  processedRecordsCount?: number | undefined;
 
   /**
    * <p>The number of records that failed to import. </p>
    * @public
    */
-  failedRecordsCount?: number;
+  failedRecordsCount?: number | undefined;
 
   /**
    * <p>The total number of records in the batch import job.</p>
    * @public
    */
-  totalRecordsCount?: number;
+  totalRecordsCount?: number | undefined;
 }
 
 /**
@@ -2465,13 +2465,13 @@ export interface GetBatchImportJobsResult {
    * <p>An array containing the details of each batch import job.</p>
    * @public
    */
-  batchImports?: BatchImport[];
+  batchImports?: BatchImport[] | undefined;
 
   /**
    * <p>The next token for the subsequent resquest.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2482,19 +2482,19 @@ export interface GetBatchPredictionJobsRequest {
    * <p>The batch prediction job for which to get the details.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The next token from the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2506,91 +2506,91 @@ export interface BatchPrediction {
    * <p>The job ID for the batch prediction.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The batch prediction status.</p>
    * @public
    */
-  status?: AsyncJobStatus;
+  status?: AsyncJobStatus | undefined;
 
   /**
    * <p>The reason a batch prediction job failed.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 
   /**
    * <p>Timestamp of when the batch prediction job started.</p>
    * @public
    */
-  startTime?: string;
+  startTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the batch prediction job completed.</p>
    * @public
    */
-  completionTime?: string;
+  completionTime?: string | undefined;
 
   /**
    * <p>Timestamp of most recent heartbeat indicating the batch prediction job was making progress.</p>
    * @public
    */
-  lastHeartbeatTime?: string;
+  lastHeartbeatTime?: string | undefined;
 
   /**
    * <p>The Amazon S3 location of your training file.</p>
    * @public
    */
-  inputPath?: string;
+  inputPath?: string | undefined;
 
   /**
    * <p>The Amazon S3 location of your output file.</p>
    * @public
    */
-  outputPath?: string;
+  outputPath?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>The name of the detector.</p>
    * @public
    */
-  detectorName?: string;
+  detectorName?: string | undefined;
 
   /**
    * <p>The detector version. </p>
    * @public
    */
-  detectorVersion?: string;
+  detectorVersion?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to use for this job request.</p>
    * @public
    */
-  iamRoleArn?: string;
+  iamRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of batch prediction job.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The number of records processed by the batch prediction job.</p>
    * @public
    */
-  processedRecordsCount?: number;
+  processedRecordsCount?: number | undefined;
 
   /**
    * <p>The total number of records in the batch prediction job.</p>
    * @public
    */
-  totalRecordsCount?: number;
+  totalRecordsCount?: number | undefined;
 }
 
 /**
@@ -2601,13 +2601,13 @@ export interface GetBatchPredictionJobsResult {
    * <p>An array containing the details of each batch prediction job.</p>
    * @public
    */
-  batchPredictions?: BatchPrediction[];
+  batchPredictions?: BatchPrediction[] | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2629,13 +2629,13 @@ export interface GetDeleteEventsByEventTypeStatusResult {
    * <p>The event type name.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>The deletion status.</p>
    * @public
    */
-  eventsDeletionStatus?: AsyncJobStatus;
+  eventsDeletionStatus?: AsyncJobStatus | undefined;
 }
 
 /**
@@ -2646,19 +2646,19 @@ export interface GetDetectorsRequest {
    * <p>The detector ID.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2670,37 +2670,37 @@ export interface Detector {
    * <p>The detector ID.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The detector description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>Timestamp of when the detector was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the detector was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The detector ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -2711,13 +2711,13 @@ export interface GetDetectorsResult {
    * <p>The detectors.</p>
    * @public
    */
-  detectors?: Detector[];
+  detectors?: Detector[] | undefined;
 
   /**
    * <p>The next page token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2745,56 +2745,56 @@ export interface GetDetectorVersionResult {
    * <p>The detector ID.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The detector version ID.</p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 
   /**
    * <p>The detector version description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
    * @public
    */
-  externalModelEndpoints?: string[];
+  externalModelEndpoints?: string[] | undefined;
 
   /**
    * <p>The model versions included in the detector version. </p>
    * @public
    */
-  modelVersions?: ModelVersion[];
+  modelVersions?: ModelVersion[] | undefined;
 
   /**
    * <p>The rules included in the detector version.</p>
    * @public
    */
-  rules?: Rule[];
+  rules?: Rule[] | undefined;
 
   /**
    * <p>The status of the detector version.</p>
    * @public
    */
-  status?: DetectorVersionStatus;
+  status?: DetectorVersionStatus | undefined;
 
   /**
    * <p>The timestamp when the detector version was last updated.
    *         </p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The timestamp when the detector version was created. </p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The execution mode of the rule in the dectector</p>
@@ -2804,13 +2804,13 @@ export interface GetDetectorVersionResult {
    *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    * @public
    */
-  ruleExecutionMode?: RuleExecutionMode;
+  ruleExecutionMode?: RuleExecutionMode | undefined;
 
   /**
    * <p>The detector version ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -2821,19 +2821,19 @@ export interface GetEntityTypesRequest {
    * <p>The name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2845,31 +2845,31 @@ export interface EntityType {
    * <p>The entity type name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The entity type description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Timestamp of when the entity type was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the entity type was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The entity type ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -2880,13 +2880,13 @@ export interface GetEntityTypesResult {
    * <p>An array of entity types.</p>
    * @public
    */
-  entityTypes?: EntityType[];
+  entityTypes?: EntityType[] | undefined;
 
   /**
    * <p>The next page token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2933,43 +2933,43 @@ export interface Event {
    * <p>The event ID.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>The event type.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>The timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.</p>
    * @public
    */
-  eventTimestamp?: string;
+  eventTimestamp?: string | undefined;
 
   /**
    * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
    * @public
    */
-  eventVariables?: Record<string, string>;
+  eventVariables?: Record<string, string> | undefined;
 
   /**
    * <p>The label associated with the event.</p>
    * @public
    */
-  currentLabel?: string;
+  currentLabel?: string | undefined;
 
   /**
    * <p>The timestamp associated with the label to update. The timestamp must be specified using ISO 8601 standard in UTC.</p>
    * @public
    */
-  labelTimestamp?: string;
+  labelTimestamp?: string | undefined;
 
   /**
    * <p>The event entities.</p>
    * @public
    */
-  entities?: Entity[];
+  entities?: Entity[] | undefined;
 }
 
 /**
@@ -2980,7 +2980,7 @@ export interface GetEventResult {
    * <p>The details of the event.</p>
    * @public
    */
-  event?: Event;
+  event?: Event | undefined;
 }
 
 /**
@@ -2992,13 +2992,13 @@ export interface ModelEndpointDataBlob {
    * <p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>
    * @public
    */
-  byteBuffer?: Uint8Array;
+  byteBuffer?: Uint8Array | undefined;
 
   /**
    * <p>The content type of the Amazon SageMaker model endpoint input data blob. </p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 }
 
 /**
@@ -3015,7 +3015,7 @@ export interface GetEventPredictionRequest {
    * <p>The detector version ID.</p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 
   /**
    * <p>The unique ID used to identify the event.</p>
@@ -3066,7 +3066,7 @@ export interface GetEventPredictionRequest {
    * <p>The Amazon SageMaker model endpoint input data blobs.</p>
    * @public
    */
-  externalModelEndpointDataBlobs?: Record<string, ModelEndpointDataBlob>;
+  externalModelEndpointDataBlobs?: Record<string, ModelEndpointDataBlob> | undefined;
 }
 
 /**
@@ -3091,13 +3091,13 @@ export interface ExternalModelSummary {
    * <p>The endpoint of the Amazon SageMaker model.</p>
    * @public
    */
-  modelEndpoint?: string;
+  modelEndpoint?: string | undefined;
 
   /**
    * <p>The source of the model.</p>
    * @public
    */
-  modelSource?: ModelSource;
+  modelSource?: ModelSource | undefined;
 }
 
 /**
@@ -3109,13 +3109,13 @@ export interface ExternalModelOutputs {
    * <p>The Amazon SageMaker model.</p>
    * @public
    */
-  externalModel?: ExternalModelSummary;
+  externalModel?: ExternalModelSummary | undefined;
 
   /**
    * <p>The fraud prediction scores from Amazon SageMaker model.</p>
    * @public
    */
-  outputs?: Record<string, string>;
+  outputs?: Record<string, string> | undefined;
 }
 
 /**
@@ -3127,13 +3127,13 @@ export interface ModelScores {
    * <p>The model version.</p>
    * @public
    */
-  modelVersion?: ModelVersion;
+  modelVersion?: ModelVersion | undefined;
 
   /**
    * <p>The model's fraud prediction scores.</p>
    * @public
    */
-  scores?: Record<string, number>;
+  scores?: Record<string, number> | undefined;
 }
 
 /**
@@ -3145,13 +3145,13 @@ export interface RuleResult {
    * <p>The rule ID that was matched, based on the rule execution mode.</p>
    * @public
    */
-  ruleId?: string;
+  ruleId?: string | undefined;
 
   /**
    * <p>The outcomes of the matched rule, based on the rule execution mode.</p>
    * @public
    */
-  outcomes?: string[];
+  outcomes?: string[] | undefined;
 }
 
 /**
@@ -3162,19 +3162,19 @@ export interface GetEventPredictionResult {
    * <p>The model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.</p>
    * @public
    */
-  modelScores?: ModelScores[];
+  modelScores?: ModelScores[] | undefined;
 
   /**
    * <p>The results from the rules.</p>
    * @public
    */
-  ruleResults?: RuleResult[];
+  ruleResults?: RuleResult[] | undefined;
 
   /**
    * <p>The model scores for Amazon SageMaker models.</p>
    * @public
    */
-  externalModelOutputs?: ExternalModelOutputs[];
+  externalModelOutputs?: ExternalModelOutputs[] | undefined;
 }
 
 /**
@@ -3256,7 +3256,7 @@ export interface EvaluatedExternalModel {
    * </p>
    * @public
    */
-  modelEndpoint?: string;
+  modelEndpoint?: string | undefined;
 
   /**
    * <p>
@@ -3264,7 +3264,7 @@ export interface EvaluatedExternalModel {
    * </p>
    * @public
    */
-  useEventVariables?: boolean;
+  useEventVariables?: boolean | undefined;
 
   /**
    * <p>
@@ -3272,7 +3272,7 @@ export interface EvaluatedExternalModel {
    * </p>
    * @public
    */
-  inputVariables?: Record<string, string>;
+  inputVariables?: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -3280,7 +3280,7 @@ export interface EvaluatedExternalModel {
    * </p>
    * @public
    */
-  outputVariables?: Record<string, string>;
+  outputVariables?: Record<string, string> | undefined;
 }
 
 /**
@@ -3296,7 +3296,7 @@ export interface VariableImpactExplanation {
    * </p>
    * @public
    */
-  eventVariableName?: string;
+  eventVariableName?: string | undefined;
 
   /**
    * <p>
@@ -3305,7 +3305,7 @@ export interface VariableImpactExplanation {
    * </p>
    * @public
    */
-  relativeImpact?: string;
+  relativeImpact?: string | undefined;
 
   /**
    * <p>
@@ -3320,7 +3320,7 @@ export interface VariableImpactExplanation {
    *          </ul>
    * @public
    */
-  logOddsImpact?: number;
+  logOddsImpact?: number | undefined;
 }
 
 /**
@@ -3336,7 +3336,7 @@ export interface PredictionExplanations {
    * </p>
    * @public
    */
-  variableImpactExplanations?: VariableImpactExplanation[];
+  variableImpactExplanations?: VariableImpactExplanation[] | undefined;
 
   /**
    * <p>
@@ -3347,7 +3347,7 @@ export interface PredictionExplanations {
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    * @public
    */
-  aggregatedVariablesImpactExplanations?: AggregatedVariablesImpactExplanation[];
+  aggregatedVariablesImpactExplanations?: AggregatedVariablesImpactExplanation[] | undefined;
 }
 
 /**
@@ -3363,7 +3363,7 @@ export interface ModelVersionEvaluation {
    * </p>
    * @public
    */
-  outputVariableName?: string;
+  outputVariableName?: string | undefined;
 
   /**
    * <p>
@@ -3371,7 +3371,7 @@ export interface ModelVersionEvaluation {
    * </p>
    * @public
    */
-  evaluationScore?: string;
+  evaluationScore?: string | undefined;
 
   /**
    * <p>
@@ -3379,7 +3379,7 @@ export interface ModelVersionEvaluation {
    * </p>
    * @public
    */
-  predictionExplanations?: PredictionExplanations;
+  predictionExplanations?: PredictionExplanations | undefined;
 }
 
 /**
@@ -3395,7 +3395,7 @@ export interface EvaluatedModelVersion {
    * </p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>
@@ -3403,7 +3403,7 @@ export interface EvaluatedModelVersion {
    * </p>
    * @public
    */
-  modelVersion?: string;
+  modelVersion?: string | undefined;
 
   /**
    * <p>The model type. </p>
@@ -3411,7 +3411,7 @@ export interface EvaluatedModelVersion {
    *          </p>
    * @public
    */
-  modelType?: string;
+  modelType?: string | undefined;
 
   /**
    * <p>
@@ -3419,7 +3419,7 @@ export interface EvaluatedModelVersion {
    * </p>
    * @public
    */
-  evaluations?: ModelVersionEvaluation[];
+  evaluations?: ModelVersionEvaluation[] | undefined;
 }
 
 /**
@@ -3435,7 +3435,7 @@ export interface EventVariableSummary {
    * </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -3443,7 +3443,7 @@ export interface EventVariableSummary {
    * </p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>
@@ -3451,7 +3451,7 @@ export interface EventVariableSummary {
    * </p>
    * @public
    */
-  source?: string;
+  source?: string | undefined;
 }
 
 /**
@@ -3467,7 +3467,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  ruleId?: string;
+  ruleId?: string | undefined;
 
   /**
    * <p>
@@ -3475,7 +3475,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  ruleVersion?: string;
+  ruleVersion?: string | undefined;
 
   /**
    * <p>
@@ -3483,7 +3483,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 
   /**
    * <p>
@@ -3491,7 +3491,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  expressionWithValues?: string;
+  expressionWithValues?: string | undefined;
 
   /**
    * <p>
@@ -3499,7 +3499,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  outcomes?: string[];
+  outcomes?: string[] | undefined;
 
   /**
    * <p>
@@ -3507,7 +3507,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  evaluated?: boolean;
+  evaluated?: boolean | undefined;
 
   /**
    * <p>
@@ -3515,7 +3515,7 @@ export interface EvaluatedRule {
    * </p>
    * @public
    */
-  matched?: boolean;
+  matched?: boolean | undefined;
 }
 
 /**
@@ -3528,7 +3528,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>
@@ -3536,7 +3536,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>
@@ -3544,7 +3544,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  entityId?: string;
+  entityId?: string | undefined;
 
   /**
    * <p>
@@ -3552,7 +3552,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  entityType?: string;
+  entityType?: string | undefined;
 
   /**
    * <p>
@@ -3560,7 +3560,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  eventTimestamp?: string;
+  eventTimestamp?: string | undefined;
 
   /**
    * <p>
@@ -3568,7 +3568,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>
@@ -3576,7 +3576,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 
   /**
    * <p>
@@ -3584,7 +3584,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  detectorVersionStatus?: string;
+  detectorVersionStatus?: string | undefined;
 
   /**
    * <p>
@@ -3592,7 +3592,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  eventVariables?: EventVariableSummary[];
+  eventVariables?: EventVariableSummary[] | undefined;
 
   /**
    * <p>
@@ -3600,7 +3600,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  rules?: EvaluatedRule[];
+  rules?: EvaluatedRule[] | undefined;
 
   /**
    * <p>
@@ -3608,7 +3608,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  ruleExecutionMode?: RuleExecutionMode;
+  ruleExecutionMode?: RuleExecutionMode | undefined;
 
   /**
    * <p>
@@ -3616,7 +3616,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  outcomes?: string[];
+  outcomes?: string[] | undefined;
 
   /**
    * <p>
@@ -3624,7 +3624,7 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  evaluatedModelVersions?: EvaluatedModelVersion[];
+  evaluatedModelVersions?: EvaluatedModelVersion[] | undefined;
 
   /**
    * <p>
@@ -3632,13 +3632,13 @@ export interface GetEventPredictionMetadataResult {
    * </p>
    * @public
    */
-  evaluatedExternalModels?: EvaluatedExternalModel[];
+  evaluatedExternalModels?: EvaluatedExternalModel[] | undefined;
 
   /**
    * <p>The timestamp that defines when the prediction was generated. </p>
    * @public
    */
-  predictionTimestamp?: string;
+  predictionTimestamp?: string | undefined;
 }
 
 /**
@@ -3649,19 +3649,19 @@ export interface GetEventTypesRequest {
    * <p>The name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3701,32 +3701,32 @@ export interface IngestedEventStatistics {
    * <p>The number of stored events.</p>
    * @public
    */
-  numberOfEvents?: number;
+  numberOfEvents?: number | undefined;
 
   /**
    * <p>The total size of the stored events.</p>
    * @public
    */
-  eventDataSizeInBytes?: number;
+  eventDataSizeInBytes?: number | undefined;
 
   /**
    * <p>The oldest stored event.</p>
    * @public
    */
-  leastRecentEvent?: string;
+  leastRecentEvent?: string | undefined;
 
   /**
    * <p>The newest stored event.</p>
    * @public
    */
-  mostRecentEvent?: string;
+  mostRecentEvent?: string | undefined;
 
   /**
    * <p>Timestamp of when the stored event was last updated.
    *       </p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 }
 
 /**
@@ -3738,67 +3738,67 @@ export interface EventType {
    * <p>The event type name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The event type description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The event type event variables.</p>
    * @public
    */
-  eventVariables?: string[];
+  eventVariables?: string[] | undefined;
 
   /**
    * <p>The event type labels.</p>
    * @public
    */
-  labels?: string[];
+  labels?: string[] | undefined;
 
   /**
    * <p>The event type entity types.</p>
    * @public
    */
-  entityTypes?: string[];
+  entityTypes?: string[] | undefined;
 
   /**
    * <p>If <code>Enabled</code>, Amazon Fraud Detector stores event data when you generate a prediction and uses that data to update calculated variables in near real-time. Amazon Fraud Detector uses this data, known as <code>INGESTED_EVENTS</code>, to train your model and  improve fraud predictions.</p>
    * @public
    */
-  eventIngestion?: EventIngestion;
+  eventIngestion?: EventIngestion | undefined;
 
   /**
    * <p>Data about the stored events.</p>
    * @public
    */
-  ingestedEventStatistics?: IngestedEventStatistics;
+  ingestedEventStatistics?: IngestedEventStatistics | undefined;
 
   /**
    * <p>Timestamp of when the event type was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the event type was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The entity type ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The event orchestration status. </p>
    * @public
    */
-  eventOrchestration?: EventOrchestration;
+  eventOrchestration?: EventOrchestration | undefined;
 }
 
 /**
@@ -3809,13 +3809,13 @@ export interface GetEventTypesResult {
    * <p>An array of event types.</p>
    * @public
    */
-  eventTypes?: EventType[];
+  eventTypes?: EventType[] | undefined;
 
   /**
    * <p>The next page token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3826,19 +3826,19 @@ export interface GetExternalModelsRequest {
    * <p>The Amazon SageMaker model endpoint.</p>
    * @public
    */
-  modelEndpoint?: string;
+  modelEndpoint?: string | undefined;
 
   /**
    * <p>The next page token for the request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3864,14 +3864,14 @@ export interface ModelInputConfiguration {
    * <p>The event type name.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p> The format of the model input configuration. The format differs depending on if it is
    *             passed through to SageMaker or constructed by Amazon Fraud Detector.</p>
    * @public
    */
-  format?: ModelInputDataFormat;
+  format?: ModelInputDataFormat | undefined;
 
   /**
    * <p>The event variables.</p>
@@ -3885,7 +3885,7 @@ export interface ModelInputConfiguration {
    *             values before being sent to SageMaker. </p>
    * @public
    */
-  jsonInputTemplate?: string;
+  jsonInputTemplate?: string | undefined;
 
   /**
    * <p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,
@@ -3893,7 +3893,7 @@ export interface ModelInputConfiguration {
    *             values before being sent to SageMaker. </p>
    * @public
    */
-  csvInputTemplate?: string;
+  csvInputTemplate?: string | undefined;
 }
 
 /**
@@ -3939,13 +3939,13 @@ export interface ModelOutputConfiguration {
    * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
    * @public
    */
-  jsonKeyToVariableMap?: Record<string, string>;
+  jsonKeyToVariableMap?: Record<string, string> | undefined;
 
   /**
    * <p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>
    * @public
    */
-  csvIndexToVariableMap?: Record<string, string>;
+  csvIndexToVariableMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -3957,55 +3957,55 @@ export interface ExternalModel {
    * <p>The Amazon SageMaker model endpoints.</p>
    * @public
    */
-  modelEndpoint?: string;
+  modelEndpoint?: string | undefined;
 
   /**
    * <p>The source of the model.</p>
    * @public
    */
-  modelSource?: ModelSource;
+  modelSource?: ModelSource | undefined;
 
   /**
    * <p>The role used to invoke the model. </p>
    * @public
    */
-  invokeModelEndpointRoleArn?: string;
+  invokeModelEndpointRoleArn?: string | undefined;
 
   /**
    * <p>The input configuration.</p>
    * @public
    */
-  inputConfiguration?: ModelInputConfiguration;
+  inputConfiguration?: ModelInputConfiguration | undefined;
 
   /**
    * <p>The output configuration.</p>
    * @public
    */
-  outputConfiguration?: ModelOutputConfiguration;
+  outputConfiguration?: ModelOutputConfiguration | undefined;
 
   /**
    * <p>The Amazon Fraud Detector status for the external model endpoint</p>
    * @public
    */
-  modelEndpointStatus?: ModelEndpointStatus;
+  modelEndpointStatus?: ModelEndpointStatus | undefined;
 
   /**
    * <p>Timestamp of when the model was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the model was last created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The model ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4016,13 +4016,13 @@ export interface GetExternalModelsResult {
    * <p>Gets the Amazon SageMaker models.</p>
    * @public
    */
-  externalModels?: ExternalModel[];
+  externalModels?: ExternalModel[] | undefined;
 
   /**
    * <p>The next page token to be used in subsequent requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4034,7 +4034,7 @@ export interface KMSKey {
    * <p>The encryption key ARN.</p>
    * @public
    */
-  kmsEncryptionKeyArn?: string;
+  kmsEncryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -4045,7 +4045,7 @@ export interface GetKMSEncryptionKeyResult {
    * <p>The KMS encryption key.</p>
    * @public
    */
-  kmsKey?: KMSKey;
+  kmsKey?: KMSKey | undefined;
 }
 
 /**
@@ -4056,19 +4056,19 @@ export interface GetLabelsRequest {
    * <p>The name of the label or labels to get.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4080,31 +4080,31 @@ export interface Label {
    * <p>The label name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The label description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Timestamp of when the label was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>Timestamp of when the event type was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The label ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4115,13 +4115,13 @@ export interface GetLabelsResult {
    * <p>An array of labels.</p>
    * @public
    */
-  labels?: Label[];
+  labels?: Label[] | undefined;
 
   /**
    * <p>The next page token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4142,7 +4142,7 @@ export interface GetListElementsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -4150,7 +4150,7 @@ export interface GetListElementsRequest {
    *         </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4163,7 +4163,7 @@ export interface GetListElementsResult {
    *         </p>
    * @public
    */
-  elements?: string[];
+  elements?: string[] | undefined;
 
   /**
    * <p>
@@ -4171,7 +4171,7 @@ export interface GetListElementsResult {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4184,7 +4184,7 @@ export interface GetListsMetadataRequest {
    *         </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -4192,7 +4192,7 @@ export interface GetListsMetadataRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -4200,7 +4200,7 @@ export interface GetListsMetadataRequest {
    *         </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4213,7 +4213,7 @@ export interface GetListsMetadataResult {
    *         </p>
    * @public
    */
-  lists?: AllowDenyList[];
+  lists?: AllowDenyList[] | undefined;
 
   /**
    * <p>
@@ -4221,7 +4221,7 @@ export interface GetListsMetadataResult {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4232,25 +4232,25 @@ export interface GetModelsRequest {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The next token for the subsequent request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4262,43 +4262,43 @@ export interface Model {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The model description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>Timestamp of when the model was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>Timestamp of last time the model was updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The ARN of the model.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4309,13 +4309,13 @@ export interface GetModelsResult {
    * <p>The next page token to be used in subsequent requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The array of models.</p>
    * @public
    */
-  models?: Model[];
+  models?: Model[] | undefined;
 }
 
 /**
@@ -4349,31 +4349,31 @@ export interface GetModelVersionResult {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The model version number.</p>
    * @public
    */
-  modelVersionNumber?: string;
+  modelVersionNumber?: string | undefined;
 
   /**
    * <p>The training data source.</p>
    * @public
    */
-  trainingDataSource?: TrainingDataSourceEnum;
+  trainingDataSource?: TrainingDataSourceEnum | undefined;
 
   /**
    * <p>The training data schema.</p>
    * @public
    */
-  trainingDataSchema?: TrainingDataSchema;
+  trainingDataSchema?: TrainingDataSchema | undefined;
 
   /**
    * <p>The details of the external events data used for training the model version.
@@ -4381,14 +4381,14 @@ export interface GetModelVersionResult {
    *          </p>
    * @public
    */
-  externalEventsDetail?: ExternalEventsDetail;
+  externalEventsDetail?: ExternalEventsDetail | undefined;
 
   /**
    * <p>The details of the ingested events data used for training the model version.
    *          This will be populated if the <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
    * @public
    */
-  ingestedEventsDetail?: IngestedEventsDetail;
+  ingestedEventsDetail?: IngestedEventsDetail | undefined;
 
   /**
    * <p>The model version status.</p>
@@ -4442,13 +4442,13 @@ export interface GetModelVersionResult {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The model version ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4459,19 +4459,19 @@ export interface GetOutcomesRequest {
    * <p>The name of the outcome or outcomes to get.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The next page token for the request. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4483,31 +4483,31 @@ export interface Outcome {
    * <p>The outcome name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The outcome description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp when the outcome was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The timestamp when the outcome was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The outcome ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4518,13 +4518,13 @@ export interface GetOutcomesResult {
    * <p>The outcomes. </p>
    * @public
    */
-  outcomes?: Outcome[];
+  outcomes?: Outcome[] | undefined;
 
   /**
    * <p>The next page token for subsequent requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4535,7 +4535,7 @@ export interface GetRulesRequest {
    * <p>The rule ID.</p>
    * @public
    */
-  ruleId?: string;
+  ruleId?: string | undefined;
 
   /**
    * <p>The detector ID.</p>
@@ -4547,19 +4547,19 @@ export interface GetRulesRequest {
    * <p>The rule version.</p>
    * @public
    */
-  ruleVersion?: string;
+  ruleVersion?: string | undefined;
 
   /**
    * <p>The next page token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of rules to return for the request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4571,61 +4571,61 @@ export interface RuleDetail {
    * <p>The rule ID.</p>
    * @public
    */
-  ruleId?: string;
+  ruleId?: string | undefined;
 
   /**
    * <p>The rule description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The detector for which the rule is associated.</p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>The rule version.</p>
    * @public
    */
-  ruleVersion?: string;
+  ruleVersion?: string | undefined;
 
   /**
    * <p>The rule expression.</p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 
   /**
    * <p>The rule language.</p>
    * @public
    */
-  language?: Language;
+  language?: Language | undefined;
 
   /**
    * <p>The rule outcomes.</p>
    * @public
    */
-  outcomes?: string[];
+  outcomes?: string[] | undefined;
 
   /**
    * <p>Timestamp of the last time the rule was updated.</p>
    * @public
    */
-  lastUpdatedTime?: string;
+  lastUpdatedTime?: string | undefined;
 
   /**
    * <p>The timestamp of when the rule was created.</p>
    * @public
    */
-  createdTime?: string;
+  createdTime?: string | undefined;
 
   /**
    * <p>The rule ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -4636,13 +4636,13 @@ export interface GetRulesResult {
    * <p>The details of the requested rule.</p>
    * @public
    */
-  ruleDetails?: RuleDetail[];
+  ruleDetails?: RuleDetail[] | undefined;
 
   /**
    * <p>The next page token to be used in subsequent requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4653,19 +4653,19 @@ export interface GetVariablesRequest {
    * <p>The name of the variable. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The next page token of the get variable request. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The max size per page determined for the get variable request. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4676,13 +4676,13 @@ export interface GetVariablesResult {
    * <p>The names of the variables returned. </p>
    * @public
    */
-  variables?: Variable[];
+  variables?: Variable[] | undefined;
 
   /**
    * <p>The next page token to be used in subsequent requests. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4698,7 +4698,7 @@ export interface FilterCondition {
    * </p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -4735,7 +4735,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  eventId?: FilterCondition;
+  eventId?: FilterCondition | undefined;
 
   /**
    * <p>
@@ -4743,7 +4743,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  eventType?: FilterCondition;
+  eventType?: FilterCondition | undefined;
 
   /**
    * <p>
@@ -4751,7 +4751,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  detectorId?: FilterCondition;
+  detectorId?: FilterCondition | undefined;
 
   /**
    * <p>
@@ -4759,7 +4759,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  detectorVersionId?: FilterCondition;
+  detectorVersionId?: FilterCondition | undefined;
 
   /**
    * <p>
@@ -4767,7 +4767,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  predictionTimeRange?: PredictionTimeRange;
+  predictionTimeRange?: PredictionTimeRange | undefined;
 
   /**
    * <p>
@@ -4775,7 +4775,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -4783,7 +4783,7 @@ export interface ListEventPredictionsRequest {
    * </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4799,7 +4799,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>
@@ -4807,7 +4807,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  eventTypeName?: string;
+  eventTypeName?: string | undefined;
 
   /**
    * <p>
@@ -4815,7 +4815,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  eventTimestamp?: string;
+  eventTimestamp?: string | undefined;
 
   /**
    * <p>
@@ -4823,7 +4823,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  predictionTimestamp?: string;
+  predictionTimestamp?: string | undefined;
 
   /**
    * <p>
@@ -4831,7 +4831,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  detectorId?: string;
+  detectorId?: string | undefined;
 
   /**
    * <p>
@@ -4839,7 +4839,7 @@ export interface EventPredictionSummary {
    * </p>
    * @public
    */
-  detectorVersionId?: string;
+  detectorVersionId?: string | undefined;
 }
 
 /**
@@ -4852,7 +4852,7 @@ export interface ListEventPredictionsResult {
    * </p>
    * @public
    */
-  eventPredictionSummaries?: EventPredictionSummary[];
+  eventPredictionSummaries?: EventPredictionSummary[] | undefined;
 
   /**
    * <p>
@@ -4860,7 +4860,7 @@ export interface ListEventPredictionsResult {
    * </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4877,13 +4877,13 @@ export interface ListTagsForResourceRequest {
    * <p>The next token from the previous results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return for the request. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4894,13 +4894,13 @@ export interface ListTagsForResourceResult {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The next token for subsequent requests. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4917,7 +4917,7 @@ export interface PutDetectorRequest {
    * <p>The description of the detector.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the event type.</p>
@@ -4929,7 +4929,7 @@ export interface PutDetectorRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4951,13 +4951,13 @@ export interface PutEntityTypeRequest {
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4979,7 +4979,7 @@ export interface PutEventTypeRequest {
    * <p>The description of the event type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The event type variables.</p>
@@ -4991,7 +4991,7 @@ export interface PutEventTypeRequest {
    * <p>The event type labels.</p>
    * @public
    */
-  labels?: string[];
+  labels?: string[] | undefined;
 
   /**
    * <p>The entity type for the event type. Example entity types: customer, merchant, account.</p>
@@ -5003,19 +5003,19 @@ export interface PutEventTypeRequest {
    * <p>Specifies if ingestion is enabled or disabled.</p>
    * @public
    */
-  eventIngestion?: EventIngestion;
+  eventIngestion?: EventIngestion | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Enables or disables event orchestration. If enabled, you can send event predictions to select AWS services for downstream processing of the events.</p>
    * @public
    */
-  eventOrchestration?: EventOrchestration;
+  eventOrchestration?: EventOrchestration | undefined;
 }
 
 /**
@@ -5067,7 +5067,7 @@ export interface PutExternalModelRequest {
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5106,13 +5106,13 @@ export interface PutLabelRequest {
    * <p>The label description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5134,13 +5134,13 @@ export interface PutOutcomeRequest {
    * <p>The outcome description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5180,13 +5180,13 @@ export interface SendEventRequest {
    * <p>The label to associate with the event. Required if specifying <code>labelTimestamp</code>.</p>
    * @public
    */
-  assignedLabel?: string;
+  assignedLabel?: string | undefined;
 
   /**
    * <p>The timestamp associated with the label. Required if specifying <code>assignedLabel</code>.</p>
    * @public
    */
-  labelTimestamp?: string;
+  labelTimestamp?: string | undefined;
 
   /**
    * <p>An array of entities.</p>
@@ -5276,13 +5276,13 @@ export interface UpdateDetectorVersionRequest {
    * <p>The detector version description. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The model versions to include in the detector version.</p>
    * @public
    */
-  modelVersions?: ModelVersion[];
+  modelVersions?: ModelVersion[] | undefined;
 
   /**
    * <p>The rule execution mode to add to the detector.</p>
@@ -5291,7 +5291,7 @@ export interface UpdateDetectorVersionRequest {
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    * @public
    */
-  ruleExecutionMode?: RuleExecutionMode;
+  ruleExecutionMode?: RuleExecutionMode | undefined;
 }
 
 /**
@@ -5425,7 +5425,7 @@ export interface UpdateListRequest {
    *          <p>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code> and provide an empty list (0 elements).</p>
    * @public
    */
-  elements?: string[];
+  elements?: string[] | undefined;
 
   /**
    * <p>
@@ -5433,7 +5433,7 @@ export interface UpdateListRequest {
    *         </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>
@@ -5452,7 +5452,7 @@ export interface UpdateListRequest {
    *          </ul>
    * @public
    */
-  updateMode?: ListUpdateMode;
+  updateMode?: ListUpdateMode | undefined;
 
   /**
    * <p>
@@ -5463,7 +5463,7 @@ export interface UpdateListRequest {
    *          </note>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 }
 
 /**
@@ -5491,7 +5491,7 @@ export interface UpdateModelRequest {
    * <p>The new model description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5525,19 +5525,19 @@ export interface UpdateModelVersionRequest {
    * <p>The details of the external events data used for training the model version. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
    * @public
    */
-  externalEventsDetail?: ExternalEventsDetail;
+  externalEventsDetail?: ExternalEventsDetail | undefined;
 
   /**
    * <p>The details of the ingested event used for training the model version. Required if your <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
    * @public
    */
-  ingestedEventsDetail?: IngestedEventsDetail;
+  ingestedEventsDetail?: IngestedEventsDetail | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5548,25 +5548,25 @@ export interface UpdateModelVersionResult {
    * <p>The model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The model type.</p>
    * @public
    */
-  modelType?: ModelTypeEnum;
+  modelType?: ModelTypeEnum | undefined;
 
   /**
    * <p>The model version number of the model version updated.</p>
    * @public
    */
-  modelVersionNumber?: string;
+  modelVersionNumber?: string | undefined;
 
   /**
    * <p>The status of the updated model version.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -5654,7 +5654,7 @@ export interface UpdateRuleVersionRequest {
    * <p>The description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The rule expression.</p>
@@ -5678,7 +5678,7 @@ export interface UpdateRuleVersionRequest {
    * <p>The tags to assign to the rule version.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5689,7 +5689,7 @@ export interface UpdateRuleVersionResult {
    * <p>The new rule version that was created.</p>
    * @public
    */
-  rule?: Rule;
+  rule?: Rule | undefined;
 }
 
 /**
@@ -5706,19 +5706,19 @@ export interface UpdateVariableRequest {
    * <p>The new default value of the variable.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The new description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    * @public
    */
-  variableType?: string;
+  variableType?: string | undefined;
 }
 
 /**

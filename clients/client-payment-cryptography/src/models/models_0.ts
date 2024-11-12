@@ -10,7 +10,7 @@ import { PaymentCryptographyServiceException as __BaseException } from "./Paymen
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -43,7 +43,7 @@ export interface Alias {
    * <p>The <code>KeyARN</code> of the key associated with the alias.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 }
 
 /**
@@ -53,7 +53,7 @@ export interface Alias {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -85,7 +85,7 @@ export interface CreateAliasInput {
    * <p>The <code>KeyARN</code> of the key to associate with the alias.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 }
 
 /**
@@ -106,7 +106,7 @@ export interface CreateAliasOutput {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -132,7 +132,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The string for the exception.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
   /**
    * @internal
    */
@@ -154,7 +154,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -176,7 +176,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -198,7 +198,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -220,7 +220,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -281,20 +281,20 @@ export interface ListAliasesInput {
    * <p>The <code>keyARN</code> for which you want to list all aliases.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface ListAliasesOutput {
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -328,7 +328,7 @@ export interface UpdateAliasInput {
    * <p>The <code>KeyARN</code> for the key that you are updating or removing from the alias.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 }
 
 /**
@@ -389,55 +389,55 @@ export interface KeyModesOfUse {
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to encrypt data.</p>
    * @public
    */
-  Encrypt?: boolean;
+  Encrypt?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to decrypt data.</p>
    * @public
    */
-  Decrypt?: boolean;
+  Decrypt?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap other keys.</p>
    * @public
    */
-  Wrap?: boolean;
+  Wrap?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to unwrap other keys.</p>
    * @public
    */
-  Unwrap?: boolean;
+  Unwrap?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to generate and verify other card and PIN verification keys.</p>
    * @public
    */
-  Generate?: boolean;
+  Generate?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used for signing.</p>
    * @public
    */
-  Sign?: boolean;
+  Sign?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to verify signatures.</p>
    * @public
    */
-  Verify?: boolean;
+  Verify?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to derive new keys.</p>
    * @public
    */
-  DeriveKey?: boolean;
+  DeriveKey?: boolean | undefined;
 
   /**
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions other than the restrictions implied by <code>KeyUsage</code>.</p>
    * @public
    */
-  NoRestrictions?: boolean;
+  NoRestrictions?: boolean | undefined;
 }
 
 /**
@@ -553,7 +553,7 @@ export interface CreateKeyInput {
    *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
 
   /**
    * <p>Specifies whether the key is exportable from the service.</p>
@@ -565,7 +565,7 @@ export interface CreateKeyInput {
    * <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key is not enabled, then it is created but not activated. The default value is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
@@ -578,7 +578,7 @@ export interface CreateKeyInput {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -675,25 +675,25 @@ export interface Key {
    * <p>The date and time after which Amazon Web Services Payment Cryptography will start using the key material for cryptographic operations.</p>
    * @public
    */
-  UsageStartTimestamp?: Date;
+  UsageStartTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time after which Amazon Web Services Payment Cryptography will stop using the key material for cryptographic operations.</p>
    * @public
    */
-  UsageStopTimestamp?: Date;
+  UsageStopTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when <code>KeyState</code> is <code>DELETE_PENDING</code> and the key is scheduled for deletion.</p>
    * @public
    */
-  DeletePendingTimestamp?: Date;
+  DeletePendingTimestamp?: Date | undefined;
 
   /**
    * <p>The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when when the <code>KeyState</code> is <code>DELETE_COMPLETE</code> and the Amazon Web Services Payment Cryptography key is deleted.</p>
    * @public
    */
-  DeleteTimestamp?: Date;
+  DeleteTimestamp?: Date | undefined;
 }
 
 /**
@@ -721,7 +721,7 @@ export interface DeleteKeyInput {
    * <p>The waiting period for key deletion. The default value is seven days.</p>
    * @public
    */
-  DeleteKeyInDays?: number;
+  DeleteKeyInDays?: number | undefined;
 }
 
 /**
@@ -757,14 +757,14 @@ export interface ExportAttributes {
    * <p>Parameter information for IPEK export.</p>
    * @public
    */
-  ExportDukptInitialKey?: ExportDukptInitialKey;
+  ExportDukptInitialKey?: ExportDukptInitialKey | undefined;
 
   /**
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity. Specify KCV for IPEK export only.</p>
    *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
 }
 
 /**
@@ -802,7 +802,7 @@ export interface ExportKeyCryptogram {
    * <p>The wrapping spec for the key under export.</p>
    * @public
    */
-  WrappingSpec?: WrappingKeySpec;
+  WrappingSpec?: WrappingKeySpec | undefined;
 }
 
 /**
@@ -829,27 +829,27 @@ export interface KeyBlockHeaders {
    * <p>The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.</p>
    * @public
    */
-  KeyModesOfUse?: KeyModesOfUse;
+  KeyModesOfUse?: KeyModesOfUse | undefined;
 
   /**
    * <p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p>
    *          <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>.</p>
    * @public
    */
-  KeyExportability?: KeyExportability;
+  KeyExportability?: KeyExportability | undefined;
 
   /**
    * <p>Parameter used to indicate the version of the key carried in the key block or indicate the value carried in the key block is a component of a key.</p>
    * @public
    */
-  KeyVersion?: string;
+  KeyVersion?: string | undefined;
 
   /**
    * <p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p>
    *          <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>
    * @public
    */
-  OptionalBlocks?: Record<string, string>;
+  OptionalBlocks?: Record<string, string> | undefined;
 }
 
 /**
@@ -867,7 +867,7 @@ export interface ExportTr31KeyBlock {
    * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
    * @public
    */
-  KeyBlockHeaders?: KeyBlockHeaders;
+  KeyBlockHeaders?: KeyBlockHeaders | undefined;
 }
 
 /**
@@ -916,13 +916,13 @@ export interface ExportTr34KeyBlock {
    * <p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>
    * @public
    */
-  RandomNonce?: string;
+  RandomNonce?: string | undefined;
 
   /**
    * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
    * @public
    */
-  KeyBlockHeaders?: KeyBlockHeaders;
+  KeyBlockHeaders?: KeyBlockHeaders | undefined;
 }
 
 /**
@@ -1017,7 +1017,7 @@ export interface ExportKeyInput {
    * <p>The attributes for IPEK generation during export.</p>
    * @public
    */
-  ExportAttributes?: ExportAttributes;
+  ExportAttributes?: ExportAttributes | undefined;
 }
 
 /**
@@ -1062,14 +1062,14 @@ export interface WrappedKey {
    * <p>The key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
    * @public
    */
-  KeyCheckValue?: string;
+  KeyCheckValue?: string | undefined;
 
   /**
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
    *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
 }
 
 /**
@@ -1080,7 +1080,7 @@ export interface ExportKeyOutput {
    * <p>The key material under export as a TR-34 WrappedKeyBlock or a TR-31 WrappedKeyBlock. or a RSA WrappedKeyCryptogram.</p>
    * @public
    */
-  WrappedKey?: WrappedKey;
+  WrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface ImportKeyCryptogram {
    * <p>The wrapping spec for the wrapped key cryptogram.</p>
    * @public
    */
-  WrappingSpec?: WrappingKeySpec;
+  WrappingSpec?: WrappingKeySpec | undefined;
 }
 
 /**
@@ -1367,7 +1367,7 @@ export interface ImportTr34KeyBlock {
    * <p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>
    * @public
    */
-  RandomNonce?: string;
+  RandomNonce?: string | undefined;
 }
 
 /**
@@ -1523,13 +1523,13 @@ export interface ImportKeyInput {
    *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
 
   /**
    * <p>Specifies whether import key is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is imported. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
@@ -1542,7 +1542,7 @@ export interface ImportKeyInput {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1564,20 +1564,20 @@ export interface ListKeysInput {
    * <p>The key state of the keys you want to list.</p>
    * @public
    */
-  KeyState?: KeyState;
+  KeyState?: KeyState | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1636,7 +1636,7 @@ export interface ListKeysOutput {
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1719,14 +1719,14 @@ export interface ListTagsForResourceInput {
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1743,7 +1743,7 @@ export interface ListTagsForResourceOutput {
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

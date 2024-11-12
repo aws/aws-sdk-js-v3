@@ -42,14 +42,14 @@ export interface OrganizationDetails {
    *       UTC format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>Information about the GuardDuty coverage statistics
    *       for members in your Amazon Web Services organization.</p>
    * @public
    */
-  OrganizationStatistics?: OrganizationStatistics;
+  OrganizationStatistics?: OrganizationStatistics | undefined;
 }
 
 /**
@@ -60,7 +60,7 @@ export interface GetOrganizationStatisticsResponse {
    * <p>Information about the statistics report for your organization.</p>
    * @public
    */
-  OrganizationDetails?: OrganizationDetails;
+  OrganizationDetails?: OrganizationDetails | undefined;
 }
 
 /**
@@ -79,7 +79,7 @@ export interface GetRemainingFreeTrialDaysRequest {
    * <p>A list of account identifiers of the GuardDuty member account.</p>
    * @public
    */
-  AccountIds?: string[];
+  AccountIds?: string[] | undefined;
 }
 
 /**
@@ -91,14 +91,14 @@ export interface GetRemainingFreeTrialDaysResponse {
    *       successfully.</p>
    * @public
    */
-  Accounts?: AccountFreeTrialInfo[];
+  Accounts?: AccountFreeTrialInfo[] | undefined;
 
   /**
    * <p>The member account that was included in a request but for which the request could not be
    *       processed.</p>
    * @public
    */
-  UnprocessedAccounts?: UnprocessedAccount[];
+  UnprocessedAccounts?: UnprocessedAccount[] | undefined;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface GetThreatIntelSetResponse {
    * <p>The tags of the threat list resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface UsageCriteria {
    * <p>The account IDs to aggregate usage statistics from.</p>
    * @public
    */
-  AccountIds?: string[];
+  AccountIds?: string[] | undefined;
 
   /**
    * @deprecated
@@ -217,20 +217,20 @@ export interface UsageCriteria {
    * <p>The data sources to aggregate usage statistics from.</p>
    * @public
    */
-  DataSources?: DataSource[];
+  DataSources?: DataSource[] | undefined;
 
   /**
    * <p>The resources to aggregate usage statistics from. Only accepts exact resource
    *       names.</p>
    * @public
    */
-  Resources?: string[];
+  Resources?: string[] | undefined;
 
   /**
    * <p>The features to aggregate usage statistics from.</p>
    * @public
    */
-  Features?: UsageFeature[];
+  Features?: UsageFeature[] | undefined;
 }
 
 /**
@@ -281,13 +281,13 @@ export interface GetUsageStatisticsRequest {
    *       are USD.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
@@ -296,7 +296,7 @@ export interface GetUsageStatisticsRequest {
    *       page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -308,13 +308,13 @@ export interface Total {
    * <p>The total usage.</p>
    * @public
    */
-  Amount?: string;
+  Amount?: string | undefined;
 
   /**
    * <p>The currency unit that the amount is given in.</p>
    * @public
    */
-  Unit?: string;
+  Unit?: string | undefined;
 }
 
 /**
@@ -326,13 +326,13 @@ export interface UsageAccountResult {
    * <p>The Account ID that generated usage.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Represents the total of usage for the Account ID.</p>
    * @public
    */
-  Total?: Total;
+  Total?: Total | undefined;
 }
 
 /**
@@ -344,13 +344,13 @@ export interface UsageDataSourceResult {
    * <p>The data source type that generated usage.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>Represents the total of usage for the specified data source.</p>
    * @public
    */
-  Total?: Total;
+  Total?: Total | undefined;
 }
 
 /**
@@ -362,13 +362,13 @@ export interface UsageFeatureResult {
    * <p>The feature that generated the usage cost.</p>
    * @public
    */
-  Feature?: UsageFeature;
+  Feature?: UsageFeature | undefined;
 
   /**
    * <p>Contains the total usage with the corresponding currency unit for that value.</p>
    * @public
    */
-  Total?: Total;
+  Total?: Total | undefined;
 }
 
 /**
@@ -380,13 +380,13 @@ export interface UsageResourceResult {
    * <p>The Amazon Web Services resource that generated usage.</p>
    * @public
    */
-  Resource?: string;
+  Resource?: string | undefined;
 
   /**
    * <p>Represents the sum total of usage for the specified resource type.</p>
    * @public
    */
-  Total?: Total;
+  Total?: Total | undefined;
 }
 
 /**
@@ -399,13 +399,13 @@ export interface UsageTopAccountResult {
    * <p>The unique account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Contains the total usage with the corresponding currency unit for that value.</p>
    * @public
    */
-  Total?: Total;
+  Total?: Total | undefined;
 }
 
 /**
@@ -421,13 +421,13 @@ export interface UsageTopAccountsResult {
    *       with <code>topAccountsByFeature</code>.</p>
    * @public
    */
-  Feature?: UsageFeature;
+  Feature?: UsageFeature | undefined;
 
   /**
    * <p>The accounts that contributed to the total usage cost.</p>
    * @public
    */
-  Accounts?: UsageTopAccountResult[];
+  Accounts?: UsageTopAccountResult[] | undefined;
 }
 
 /**
@@ -440,7 +440,7 @@ export interface UsageStatistics {
    * <p>The usage statistic sum organized by account ID.</p>
    * @public
    */
-  SumByAccount?: UsageAccountResult[];
+  SumByAccount?: UsageAccountResult[] | undefined;
 
   /**
    * <p>Lists the top 50 accounts by feature that have generated the most
@@ -448,32 +448,32 @@ export interface UsageStatistics {
    *          <p>Currently, this doesn't support <code>RDS_LOGIN_EVENTS</code>.</p>
    * @public
    */
-  TopAccountsByFeature?: UsageTopAccountsResult[];
+  TopAccountsByFeature?: UsageTopAccountsResult[] | undefined;
 
   /**
    * <p>The usage statistic sum organized by on data source.</p>
    * @public
    */
-  SumByDataSource?: UsageDataSourceResult[];
+  SumByDataSource?: UsageDataSourceResult[] | undefined;
 
   /**
    * <p>The usage statistic sum organized by resource.</p>
    * @public
    */
-  SumByResource?: UsageResourceResult[];
+  SumByResource?: UsageResourceResult[] | undefined;
 
   /**
    * <p>Lists the top 50 resources that have generated the most GuardDuty usage, in order from
    *       most to least expensive.</p>
    * @public
    */
-  TopResources?: UsageResourceResult[];
+  TopResources?: UsageResourceResult[] | undefined;
 
   /**
    * <p>The usage statistic sum organized by feature.</p>
    * @public
    */
-  SumByFeature?: UsageFeatureResult[];
+  SumByFeature?: UsageFeatureResult[] | undefined;
 }
 
 /**
@@ -485,14 +485,14 @@ export interface GetUsageStatisticsResponse {
    *       representing other types will be null.</p>
    * @public
    */
-  UsageStatistics?: UsageStatistics;
+  UsageStatistics?: UsageStatistics | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -519,14 +519,14 @@ export interface InviteMembersRequest {
    *       accounts that you are inviting to GuardDuty as members.</p>
    * @public
    */
-  DisableEmailNotification?: boolean;
+  DisableEmailNotification?: boolean | undefined;
 
   /**
    * <p>The invitation message that you want to send to the accounts that you're inviting to
    *       GuardDuty as members.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -560,25 +560,25 @@ export interface ListCoverageRequest {
    *       page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the criteria used to filter the coverage details.</p>
    * @public
    */
-  FilterCriteria?: CoverageFilterCriteria;
+  FilterCriteria?: CoverageFilterCriteria | undefined;
 
   /**
    * <p>Represents the criteria used to sort the coverage details.</p>
    * @public
    */
-  SortCriteria?: CoverageSortCriteria;
+  SortCriteria?: CoverageSortCriteria | undefined;
 }
 
 /**
@@ -596,7 +596,7 @@ export interface ListCoverageResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface ListDetectorsRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -617,7 +617,7 @@ export interface ListDetectorsRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -635,7 +635,7 @@ export interface ListDetectorsResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -655,7 +655,7 @@ export interface ListFiltersRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -664,7 +664,7 @@ export interface ListFiltersRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -682,7 +682,7 @@ export interface ListFiltersResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -858,20 +858,20 @@ export interface ListFindingsRequest {
    *          </ul>
    * @public
    */
-  FindingCriteria?: FindingCriteria;
+  FindingCriteria?: FindingCriteria | undefined;
 
   /**
    * <p>Represents the criteria used for sorting findings.</p>
    * @public
    */
-  SortCriteria?: SortCriteria;
+  SortCriteria?: SortCriteria | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -880,7 +880,7 @@ export interface ListFindingsRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -898,7 +898,7 @@ export interface ListFindingsResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -910,7 +910,7 @@ export interface ListInvitationsRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -919,7 +919,7 @@ export interface ListInvitationsRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -931,26 +931,26 @@ export interface Invitation {
    * <p>The ID of the account that the invitation was sent from.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the invitation. This value is used to validate the inviter account to the member
    *       account.</p>
    * @public
    */
-  InvitationId?: string;
+  InvitationId?: string | undefined;
 
   /**
    * <p>The status of the relationship between the inviter and invitee accounts.</p>
    * @public
    */
-  RelationshipStatus?: string;
+  RelationshipStatus?: string | undefined;
 
   /**
    * <p>The timestamp when the invitation was sent.</p>
    * @public
    */
-  InvitedAt?: string;
+  InvitedAt?: string | undefined;
 }
 
 /**
@@ -961,14 +961,14 @@ export interface ListInvitationsResponse {
    * <p>A list of invitation descriptions.</p>
    * @public
    */
-  Invitations?: Invitation[];
+  Invitations?: Invitation[] | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -988,7 +988,7 @@ export interface ListIPSetsRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -997,7 +997,7 @@ export interface ListIPSetsRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1015,7 +1015,7 @@ export interface ListIPSetsResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface ListMalwareProtectionPlansRequest {
    *       continue listing data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1042,7 +1042,7 @@ export interface MalwareProtectionPlanSummary {
    * <p>A unique identifier associated with Malware Protection plan.</p>
    * @public
    */
-  MalwareProtectionPlanId?: string;
+  MalwareProtectionPlanId?: string | undefined;
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface ListMalwareProtectionPlansResponse {
    * <p>A list of unique identifiers associated with each Malware Protection plan.</p>
    * @public
    */
-  MalwareProtectionPlans?: MalwareProtectionPlanSummary[];
+  MalwareProtectionPlans?: MalwareProtectionPlanSummary[] | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value
@@ -1063,7 +1063,7 @@ export interface ListMalwareProtectionPlansResponse {
    *       continue listing data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1083,7 +1083,7 @@ export interface ListMembersRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
@@ -1092,7 +1092,7 @@ export interface ListMembersRequest {
    *       data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies whether to only return associated members or to return all members (including
@@ -1103,7 +1103,7 @@ export interface ListMembersRequest {
    *             </a>. </p>
    * @public
    */
-  OnlyAssociated?: string;
+  OnlyAssociated?: string | undefined;
 }
 
 /**
@@ -1118,14 +1118,14 @@ export interface ListMembersResponse {
    *          </note>
    * @public
    */
-  Members?: Member[];
+  Members?: Member[] | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1136,7 +1136,7 @@ export interface ListOrganizationAdminAccountsRequest {
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
@@ -1145,7 +1145,7 @@ export interface ListOrganizationAdminAccountsRequest {
    *       after the first page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1156,14 +1156,14 @@ export interface ListOrganizationAdminAccountsResponse {
    * <p>A list of accounts configured as GuardDuty delegated administrators.</p>
    * @public
    */
-  AdminAccounts?: AdminAccount[];
+  AdminAccounts?: AdminAccount[] | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1182,7 +1182,7 @@ export interface ListPublishingDestinationsRequest {
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
@@ -1191,7 +1191,7 @@ export interface ListPublishingDestinationsRequest {
    *       after the first page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1212,7 +1212,7 @@ export interface ListPublishingDestinationsResponse {
    *       after the first page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1254,7 +1254,7 @@ export interface ListThreatIntelSetsRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>You can use this parameter to paginate results in the response. Set the value of this
@@ -1263,7 +1263,7 @@ export interface ListThreatIntelSetsRequest {
    *       continue listing data.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1281,7 +1281,7 @@ export interface ListThreatIntelSetsResponse {
    *       items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1304,7 +1304,7 @@ export interface StartMalwareScanResponse {
    *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
    * @public
    */
-  ScanId?: string;
+  ScanId?: string | undefined;
 }
 
 /**
@@ -1455,14 +1455,14 @@ export interface UpdateDetectorRequest {
    * <p>Specifies whether the detector is enabled or not enabled.</p>
    * @public
    */
-  Enable?: boolean;
+  Enable?: boolean | undefined;
 
   /**
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
    *       Events.</p>
    * @public
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency;
+  FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
 
   /**
    * @deprecated
@@ -1473,13 +1473,13 @@ export interface UpdateDetectorRequest {
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    * @public
    */
-  DataSources?: DataSourceConfigurations;
+  DataSources?: DataSourceConfigurations | undefined;
 
   /**
    * <p>Provides the features that will be updated for the detector.</p>
    * @public
    */
-  Features?: DetectorFeatureConfiguration[];
+  Features?: DetectorFeatureConfiguration[] | undefined;
 }
 
 /**
@@ -1513,26 +1513,26 @@ export interface UpdateFilterRequest {
    *       newline, form feed, return, and whitespace.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    * @public
    */
-  Action?: FilterAction;
+  Action?: FilterAction | undefined;
 
   /**
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
    *       order in which this filter is applied to the findings.</p>
    * @public
    */
-  Rank?: number;
+  Rank?: number | undefined;
 
   /**
    * <p>Represents the criteria to be used in the filter for querying findings.</p>
    * @public
    */
-  FindingCriteria?: FindingCriteria;
+  FindingCriteria?: FindingCriteria | undefined;
 }
 
 /**
@@ -1575,7 +1575,7 @@ export interface UpdateFindingsFeedbackRequest {
    * <p>Additional feedback about the GuardDuty findings.</p>
    * @public
    */
-  Comments?: string;
+  Comments?: string | undefined;
 }
 
 /**
@@ -1605,19 +1605,19 @@ export interface UpdateIPSetRequest {
    * <p>The unique ID that specifies the IPSet that you want to update.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated URI of the file that contains the IPSet. </p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The updated Boolean value that specifies whether the IPSet is active or not.</p>
    * @public
    */
-  Activate?: boolean;
+  Activate?: boolean | undefined;
 }
 
 /**
@@ -1635,7 +1635,7 @@ export interface UpdateS3BucketResource {
    *       if it belongs to any of the specified object prefixes.</p>
    * @public
    */
-  ObjectPrefixes?: string[];
+  ObjectPrefixes?: string[] | undefined;
 }
 
 /**
@@ -1649,7 +1649,7 @@ export interface UpdateProtectedResource {
    * <p>Information about the protected S3 bucket resource.</p>
    * @public
    */
-  S3Bucket?: UpdateS3BucketResource;
+  S3Bucket?: UpdateS3BucketResource | undefined;
 }
 
 /**
@@ -1667,13 +1667,13 @@ export interface UpdateMalwareProtectionPlanRequest {
    *       the associated protected resource.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
    * @public
    */
-  Actions?: MalwareProtectionPlanActions;
+  Actions?: MalwareProtectionPlanActions | undefined;
 
   /**
    * <p>Information about the protected resource that is associated
@@ -1681,7 +1681,7 @@ export interface UpdateMalwareProtectionPlanRequest {
    *       is the only supported protected resource.</p>
    * @public
    */
-  ProtectedResource?: UpdateProtectedResource;
+  ProtectedResource?: UpdateProtectedResource | undefined;
 }
 
 /**
@@ -1701,13 +1701,13 @@ export interface UpdateMalwareScanSettingsRequest {
    * <p>Represents the criteria to be used in the filter for selecting resources to scan.</p>
    * @public
    */
-  ScanResourceCriteria?: ScanResourceCriteria;
+  ScanResourceCriteria?: ScanResourceCriteria | undefined;
 
   /**
    * <p>An enum value representing possible snapshot preservation settings.</p>
    * @public
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation;
+  EbsSnapshotPreservation?: EbsSnapshotPreservation | undefined;
 }
 
 /**
@@ -1724,13 +1724,13 @@ export interface MemberAdditionalConfiguration {
    * <p>Name of the additional configuration.</p>
    * @public
    */
-  Name?: OrgFeatureAdditionalConfiguration;
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
 
   /**
    * <p>Status of the additional configuration.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 }
 
 /**
@@ -1742,19 +1742,19 @@ export interface MemberFeaturesConfiguration {
    * <p>The name of the feature.</p>
    * @public
    */
-  Name?: OrgFeature;
+  Name?: OrgFeature | undefined;
 
   /**
    * <p>The status of the feature.</p>
    * @public
    */
-  Status?: FeatureStatus;
+  Status?: FeatureStatus | undefined;
 
   /**
    * <p>Additional configuration of the feature for the member account.</p>
    * @public
    */
-  AdditionalConfiguration?: MemberAdditionalConfiguration[];
+  AdditionalConfiguration?: MemberAdditionalConfiguration[] | undefined;
 }
 
 /**
@@ -1781,13 +1781,13 @@ export interface UpdateMemberDetectorsRequest {
    * <p>Describes which data sources will be updated.</p>
    * @public
    */
-  DataSources?: DataSourceConfigurations;
+  DataSources?: DataSourceConfigurations | undefined;
 
   /**
    * <p>A list of features that will be updated for the specified member accounts.</p>
    * @public
    */
-  Features?: MemberFeaturesConfiguration[];
+  Features?: MemberFeaturesConfiguration[] | undefined;
 }
 
 /**
@@ -1838,7 +1838,7 @@ export interface OrganizationEbsVolumes {
    *       organization.</p>
    * @public
    */
-  AutoEnable?: boolean;
+  AutoEnable?: boolean | undefined;
 }
 
 /**
@@ -1851,7 +1851,7 @@ export interface OrganizationScanEc2InstanceWithFindings {
    *       organization.</p>
    * @public
    */
-  EbsVolumes?: OrganizationEbsVolumes;
+  EbsVolumes?: OrganizationEbsVolumes | undefined;
 }
 
 /**
@@ -1864,7 +1864,7 @@ export interface OrganizationMalwareProtectionConfiguration {
    *       members joining the organization.</p>
    * @public
    */
-  ScanEc2InstanceWithFindings?: OrganizationScanEc2InstanceWithFindings;
+  ScanEc2InstanceWithFindings?: OrganizationScanEc2InstanceWithFindings | undefined;
 }
 
 /**
@@ -1892,21 +1892,21 @@ export interface OrganizationDataSourceConfigurations {
    *       organization.</p>
    * @public
    */
-  S3Logs?: OrganizationS3LogsConfiguration;
+  S3Logs?: OrganizationS3LogsConfiguration | undefined;
 
   /**
    * <p>Describes the configuration of Kubernetes data sources for new members of the
    *       organization.</p>
    * @public
    */
-  Kubernetes?: OrganizationKubernetesConfiguration;
+  Kubernetes?: OrganizationKubernetesConfiguration | undefined;
 
   /**
    * <p>Describes the configuration of Malware Protection for new members of the
    *       organization.</p>
    * @public
    */
-  MalwareProtection?: OrganizationMalwareProtectionConfiguration;
+  MalwareProtection?: OrganizationMalwareProtectionConfiguration | undefined;
 }
 
 /**
@@ -1919,7 +1919,7 @@ export interface OrganizationAdditionalConfiguration {
    *       organization.</p>
    * @public
    */
-  Name?: OrgFeatureAdditionalConfiguration;
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
 
   /**
    * <p>The status of the additional configuration that will be configured for the
@@ -1950,7 +1950,7 @@ export interface OrganizationAdditionalConfiguration {
    *          </ul>
    * @public
    */
-  AutoEnable?: OrgFeatureStatus;
+  AutoEnable?: OrgFeatureStatus | undefined;
 }
 
 /**
@@ -1962,7 +1962,7 @@ export interface OrganizationFeatureConfiguration {
    * <p>The name of the feature that will be configured for the organization.</p>
    * @public
    */
-  Name?: OrgFeature;
+  Name?: OrgFeature | undefined;
 
   /**
    * <p>Describes the status of the feature that is configured for the
@@ -1992,13 +1992,13 @@ export interface OrganizationFeatureConfiguration {
    *          </ul>
    * @public
    */
-  AutoEnable?: OrgFeatureStatus;
+  AutoEnable?: OrgFeatureStatus | undefined;
 
   /**
    * <p>The additional information that will be configured for the organization.</p>
    * @public
    */
-  AdditionalConfiguration?: OrganizationAdditionalConfiguration[];
+  AdditionalConfiguration?: OrganizationAdditionalConfiguration[] | undefined;
 }
 
 /**
@@ -2022,7 +2022,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
    * @public
    */
-  AutoEnable?: boolean;
+  AutoEnable?: boolean | undefined;
 
   /**
    * @deprecated
@@ -2030,13 +2030,13 @@ export interface UpdateOrganizationConfigurationRequest {
    * <p>Describes which data sources will be updated.</p>
    * @public
    */
-  DataSources?: OrganizationDataSourceConfigurations;
+  DataSources?: OrganizationDataSourceConfigurations | undefined;
 
   /**
    * <p>A list of features that will be configured for the organization.</p>
    * @public
    */
-  Features?: OrganizationFeatureConfiguration[];
+  Features?: OrganizationFeatureConfiguration[] | undefined;
 
   /**
    * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the
@@ -2069,7 +2069,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *          </ul>
    * @public
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers;
+  AutoEnableOrganizationMembers?: AutoEnableMembers | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface UpdatePublishingDestinationRequest {
    *       and <code>KmsKeyArn</code> of the publishing destination.</p>
    * @public
    */
-  DestinationProperties?: DestinationProperties;
+  DestinationProperties?: DestinationProperties | undefined;
 }
 
 /**
@@ -2131,20 +2131,20 @@ export interface UpdateThreatIntelSetRequest {
    * <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated URI of the file that contains the ThreateIntelSet.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The updated Boolean value that specifies whether the ThreateIntelSet is active or
    *       not.</p>
    * @public
    */
-  Activate?: boolean;
+  Activate?: boolean | undefined;
 }
 
 /**

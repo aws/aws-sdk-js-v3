@@ -28,14 +28,14 @@ export interface AccessRights {
    *          template.</p>
    * @public
    */
-  Enroll?: AccessRight;
+  Enroll?: AccessRight | undefined;
 
   /**
    * <p>Allow or deny an Active Directory group from autoenrolling certificates issued against a template.
    *          The Active Directory group must be allowed to enroll to allow autoenrollment</p>
    * @public
    */
-  AutoEnroll?: AccessRight;
+  AutoEnroll?: AccessRight | undefined;
 }
 
 /**
@@ -48,39 +48,39 @@ export interface AccessControlEntry {
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
    * @public
    */
-  GroupDisplayName?: string;
+  GroupDisplayName?: string | undefined;
 
   /**
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
    * @public
    */
-  GroupSecurityIdentifier?: string;
+  GroupSecurityIdentifier?: string | undefined;
 
   /**
    * <p>Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued
    *          against a template.</p>
    * @public
    */
-  AccessRights?: AccessRights;
+  AccessRights?: AccessRights | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
    * @public
    */
-  TemplateArn?: string;
+  TemplateArn?: string | undefined;
 
   /**
    * <p>The date and time that the Access Control Entry was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the Access Control Entry was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -93,39 +93,39 @@ export interface AccessControlEntrySummary {
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
    * @public
    */
-  GroupDisplayName?: string;
+  GroupDisplayName?: string | undefined;
 
   /**
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
    * @public
    */
-  GroupSecurityIdentifier?: string;
+  GroupSecurityIdentifier?: string | undefined;
 
   /**
    * <p>Allow or deny an Active Directory group from enrolling and autoenrolling certificates issued against
    *          a template.</p>
    * @public
    */
-  AccessRights?: AccessRights;
+  AccessRights?: AccessRights | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>. </p>
    * @public
    */
-  TemplateArn?: string;
+  TemplateArn?: string | undefined;
 
   /**
    * <p>The date and time that the Access Control Entry was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the Access Control Entry was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -297,7 +297,7 @@ export interface ApplicationPolicies {
    * <p>Marks the application policy extension as critical.</p>
    * @public
    */
-  Critical?: boolean;
+  Critical?: boolean | undefined;
 
   /**
    * <p>Application policies describe what the certificate can be used for.</p>
@@ -527,56 +527,56 @@ export interface Connector {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate authority being used. </p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>Certificate enrollment endpoint for Active Directory domain-joined objects reach out to when
    *          requesting certificates.</p>
    * @public
    */
-  CertificateEnrollmentPolicyServerEndpoint?: string;
+  CertificateEnrollmentPolicyServerEndpoint?: string | undefined;
 
   /**
    * <p>The identifier of the Active Directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Information of the VPC and security group(s) used with the connector.</p>
    * @public
    */
-  VpcInformation?: VpcInformation;
+  VpcInformation?: VpcInformation | undefined;
 
   /**
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
    * @public
    */
-  Status?: ConnectorStatus;
+  Status?: ConnectorStatus | undefined;
 
   /**
    * <p>Additional information about the connector status if the status is failed.</p>
    * @public
    */
-  StatusReason?: ConnectorStatusReason;
+  StatusReason?: ConnectorStatusReason | undefined;
 
   /**
    * <p>The date and time that the connector was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the connector was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -589,56 +589,56 @@ export interface ConnectorSummary {
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate authority being used.</p>
    * @public
    */
-  CertificateAuthorityArn?: string;
+  CertificateAuthorityArn?: string | undefined;
 
   /**
    * <p>Certificate enrollment endpoint for Active Directory domain-joined objects to request
    *          certificates.</p>
    * @public
    */
-  CertificateEnrollmentPolicyServerEndpoint?: string;
+  CertificateEnrollmentPolicyServerEndpoint?: string | undefined;
 
   /**
    * <p>The identifier of the Active Directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Information of the VPC and security group(s) used with the connector.</p>
    * @public
    */
-  VpcInformation?: VpcInformation;
+  VpcInformation?: VpcInformation | undefined;
 
   /**
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
    * @public
    */
-  Status?: ConnectorStatus;
+  Status?: ConnectorStatus | undefined;
 
   /**
    * <p>Additional information about the connector status if the status is failed.</p>
    * @public
    */
-  StatusReason?: ConnectorStatusReason;
+  StatusReason?: ConnectorStatusReason | undefined;
 
   /**
    * <p>The date and time that the connector was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the connector was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -667,13 +667,13 @@ export interface CreateConnectorRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Metadata assigned to a connector consisting of a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface CreateConnectorResponse {
    * <p>If successful, the Amazon Resource Name (ARN) of the connector for Active Directory.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 }
 
 /**
@@ -811,13 +811,13 @@ export class ThrottlingException extends __BaseException {
    * <p>Identifies the originating service.</p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
 
   /**
    * <p>The code associated with the quota.</p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
   /**
    * @internal
    */
@@ -868,7 +868,7 @@ export class ValidationException extends __BaseException {
    *          validation exception.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -914,7 +914,7 @@ export interface GetConnectorResponse {
    * <p>A structure that contains information about your connector.</p>
    * @public
    */
-  Connector?: Connector;
+  Connector?: Connector | undefined;
 }
 
 /**
@@ -929,7 +929,7 @@ export interface ListConnectorsRequest {
    *          items.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -937,7 +937,7 @@ export interface ListConnectorsRequest {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -948,7 +948,7 @@ export interface ListConnectorsResponse {
    * <p>Summary information about each connector you have created.</p>
    * @public
    */
-  Connectors?: ConnectorSummary[];
+  Connectors?: ConnectorSummary[] | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -956,7 +956,7 @@ export interface ListConnectorsResponse {
    *          response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -973,13 +973,13 @@ export interface CreateDirectoryRegistrationRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Metadata assigned to a directory registration consisting of a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -990,7 +990,7 @@ export interface CreateDirectoryRegistrationResponse {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
    * @public
    */
-  DirectoryRegistrationArn?: string;
+  DirectoryRegistrationArn?: string | undefined;
 }
 
 /**
@@ -1013,7 +1013,7 @@ export interface CreateServicePrincipalNameRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1025,20 +1025,20 @@ export interface EnrollmentFlagsV2 {
    * <p>Include symmetric algorithms allowed by the subject.</p>
    * @public
    */
-  IncludeSymmetricAlgorithms?: boolean;
+  IncludeSymmetricAlgorithms?: boolean | undefined;
 
   /**
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
    * @public
    */
-  UserInteractionRequired?: boolean;
+  UserInteractionRequired?: boolean | undefined;
 
   /**
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
    * @public
    */
-  RemoveInvalidCertificateFromPersonalStore?: boolean;
+  RemoveInvalidCertificateFromPersonalStore?: boolean | undefined;
 
   /**
    * <p>This flag instructs the CA to not include the security extension
@@ -1047,13 +1047,13 @@ export interface EnrollmentFlagsV2 {
    *          Kerberos elevation-of-privilege vulnerability.</p>
    * @public
    */
-  NoSecurityExtension?: boolean;
+  NoSecurityExtension?: boolean | undefined;
 
   /**
    * <p>Allow renewal using the same key.</p>
    * @public
    */
-  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean | undefined;
 }
 
 /**
@@ -1067,34 +1067,34 @@ export interface KeyUsageFlags {
    *          digital signatures.</p>
    * @public
    */
-  DigitalSignature?: boolean;
+  DigitalSignature?: boolean | undefined;
 
   /**
    * <p>NonRepudiation is asserted when the subject public key is used to verify digital
    *          signatures.</p>
    * @public
    */
-  NonRepudiation?: boolean;
+  NonRepudiation?: boolean | undefined;
 
   /**
    * <p>KeyEncipherment is asserted when the subject public key is used for enciphering private
    *          or secret keys, i.e., for key transport.</p>
    * @public
    */
-  KeyEncipherment?: boolean;
+  KeyEncipherment?: boolean | undefined;
 
   /**
    * <p>DataEncipherment is asserted when the subject public key is used for directly
    *          enciphering raw user data without the use of an intermediate symmetric cipher.</p>
    * @public
    */
-  DataEncipherment?: boolean;
+  DataEncipherment?: boolean | undefined;
 
   /**
    * <p>KeyAgreement is asserted when the subject public key is used for key agreement.</p>
    * @public
    */
-  KeyAgreement?: boolean;
+  KeyAgreement?: boolean | undefined;
 }
 
 /**
@@ -1107,7 +1107,7 @@ export interface KeyUsage {
    * <p>Sets the key usage extension to critical.</p>
    * @public
    */
-  Critical?: boolean;
+  Critical?: boolean | undefined;
 
   /**
    * <p>The key usage flags represent the purpose (e.g., encipherment, signature) of the key
@@ -1133,7 +1133,7 @@ export interface ExtensionsV2 {
    * <p>Application policies specify what the certificate is used for and its purpose. </p>
    * @public
    */
-  ApplicationPolicies?: ApplicationPolicies;
+  ApplicationPolicies?: ApplicationPolicies | undefined;
 }
 
 /**
@@ -1147,14 +1147,14 @@ export interface GeneralFlagsV2 {
    *          autoenrollment.</p>
    * @public
    */
-  AutoEnrollment?: boolean;
+  AutoEnrollment?: boolean | undefined;
 
   /**
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users.</p>
    * @public
    */
-  MachineType?: boolean;
+  MachineType?: boolean | undefined;
 }
 
 /**
@@ -1193,7 +1193,7 @@ export interface PrivateKeyAttributesV2 {
    * <p>Defines the cryptographic providers used to generate the private key.</p>
    * @public
    */
-  CryptoProviders?: string[];
+  CryptoProviders?: string[] | undefined;
 }
 
 /**
@@ -1206,13 +1206,13 @@ export interface PrivateKeyFlagsV2 {
    * <p>Allows the private key to be exported.</p>
    * @public
    */
-  ExportableKey?: boolean;
+  ExportableKey?: boolean | undefined;
 
   /**
    * <p>Require user input when using the private key for enrollment.</p>
    * @public
    */
-  StrongKeyProtectionRequired?: boolean;
+  StrongKeyProtectionRequired?: boolean | undefined;
 
   /**
    * <p>Defines the minimum client compatibility.</p>
@@ -1236,61 +1236,61 @@ export interface SubjectNameFlagsV2 {
    * <p>Include the domain DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDomainDns?: boolean;
+  SanRequireDomainDns?: boolean | undefined;
 
   /**
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireSpn?: boolean;
+  SanRequireSpn?: boolean | undefined;
 
   /**
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
    * @public
    */
-  SanRequireDirectoryGuid?: boolean;
+  SanRequireDirectoryGuid?: boolean | undefined;
 
   /**
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireUpn?: boolean;
+  SanRequireUpn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject alternate name.</p>
    * @public
    */
-  SanRequireEmail?: boolean;
+  SanRequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDns?: boolean;
+  SanRequireDns?: boolean | undefined;
 
   /**
    * <p>Include the DNS as common name in the subject name.</p>
    * @public
    */
-  RequireDnsAsCn?: boolean;
+  RequireDnsAsCn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject name.</p>
    * @public
    */
-  RequireEmail?: boolean;
+  RequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the common name in the subject name.</p>
    * @public
    */
-  RequireCommonName?: boolean;
+  RequireCommonName?: boolean | undefined;
 
   /**
    * <p>Include the directory path in the subject name.</p>
    * @public
    */
-  RequireDirectoryPath?: boolean;
+  RequireDirectoryPath?: boolean | undefined;
 }
 
 /**
@@ -1308,7 +1308,7 @@ export interface TemplateV2 {
    * <p>List of templates in Active Directory that are superseded by this template.</p>
    * @public
    */
-  SupersededTemplates?: string[];
+  SupersededTemplates?: string[] | undefined;
 
   /**
    * <p>Private key attributes allow you to specify the minimal key length, key spec, and
@@ -1363,20 +1363,20 @@ export interface EnrollmentFlagsV3 {
    * <p>Include symmetric algorithms allowed by the subject.</p>
    * @public
    */
-  IncludeSymmetricAlgorithms?: boolean;
+  IncludeSymmetricAlgorithms?: boolean | undefined;
 
   /**
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
    * @public
    */
-  UserInteractionRequired?: boolean;
+  UserInteractionRequired?: boolean | undefined;
 
   /**
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
    * @public
    */
-  RemoveInvalidCertificateFromPersonalStore?: boolean;
+  RemoveInvalidCertificateFromPersonalStore?: boolean | undefined;
 
   /**
    * <p>This flag instructs the CA to not include the security extension
@@ -1385,13 +1385,13 @@ export interface EnrollmentFlagsV3 {
    *          Kerberos elevation-of-privilege vulnerability.</p>
    * @public
    */
-  NoSecurityExtension?: boolean;
+  NoSecurityExtension?: boolean | undefined;
 
   /**
    * <p>Allow renewal using the same key.</p>
    * @public
    */
-  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean | undefined;
 }
 
 /**
@@ -1410,7 +1410,7 @@ export interface ExtensionsV3 {
    * <p>Application policies specify what the certificate is used for and its purpose.</p>
    * @public
    */
-  ApplicationPolicies?: ApplicationPolicies;
+  ApplicationPolicies?: ApplicationPolicies | undefined;
 }
 
 /**
@@ -1424,14 +1424,14 @@ export interface GeneralFlagsV3 {
    *          autoenrollment.</p>
    * @public
    */
-  AutoEnrollment?: boolean;
+  AutoEnrollment?: boolean | undefined;
 
   /**
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users</p>
    * @public
    */
-  MachineType?: boolean;
+  MachineType?: boolean | undefined;
 }
 
 /**
@@ -1474,19 +1474,19 @@ export interface KeyUsagePropertyFlags {
    * <p>Allows key for encryption and decryption.</p>
    * @public
    */
-  Decrypt?: boolean;
+  Decrypt?: boolean | undefined;
 
   /**
    * <p>Allows key exchange without encryption.</p>
    * @public
    */
-  KeyAgreement?: boolean;
+  KeyAgreement?: boolean | undefined;
 
   /**
    * <p>Allow key use for digital signature.</p>
    * @public
    */
-  Sign?: boolean;
+  Sign?: boolean | undefined;
 }
 
 /**
@@ -1583,7 +1583,7 @@ export interface PrivateKeyAttributesV3 {
    * <p>Defines the cryptographic providers used to generate the private key.</p>
    * @public
    */
-  CryptoProviders?: string[];
+  CryptoProviders?: string[] | undefined;
 
   /**
    * <p>The key usage property defines the purpose of the private key contained in the
@@ -1611,20 +1611,20 @@ export interface PrivateKeyFlagsV3 {
    * <p>Allows the private key to be exported.</p>
    * @public
    */
-  ExportableKey?: boolean;
+  ExportableKey?: boolean | undefined;
 
   /**
    * <p>Requirer user input when using the private key for enrollment.</p>
    * @public
    */
-  StrongKeyProtectionRequired?: boolean;
+  StrongKeyProtectionRequired?: boolean | undefined;
 
   /**
    * <p>Reguires the PKCS #1 v2.1 signature format for certificates. You should verify that your
    *          CA, objects, and applications can accept this signature format.</p>
    * @public
    */
-  RequireAlternateSignatureAlgorithm?: boolean;
+  RequireAlternateSignatureAlgorithm?: boolean | undefined;
 
   /**
    * <p>Defines the minimum client compatibility.</p>
@@ -1648,61 +1648,61 @@ export interface SubjectNameFlagsV3 {
    * <p>Include the domain DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDomainDns?: boolean;
+  SanRequireDomainDns?: boolean | undefined;
 
   /**
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireSpn?: boolean;
+  SanRequireSpn?: boolean | undefined;
 
   /**
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
    * @public
    */
-  SanRequireDirectoryGuid?: boolean;
+  SanRequireDirectoryGuid?: boolean | undefined;
 
   /**
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireUpn?: boolean;
+  SanRequireUpn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject alternate name.</p>
    * @public
    */
-  SanRequireEmail?: boolean;
+  SanRequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDns?: boolean;
+  SanRequireDns?: boolean | undefined;
 
   /**
    * <p>Include the DNS as common name in the subject name.</p>
    * @public
    */
-  RequireDnsAsCn?: boolean;
+  RequireDnsAsCn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject name.</p>
    * @public
    */
-  RequireEmail?: boolean;
+  RequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the common name in the subject name. </p>
    * @public
    */
-  RequireCommonName?: boolean;
+  RequireCommonName?: boolean | undefined;
 
   /**
    * <p>Include the directory path in the subject name.</p>
    * @public
    */
-  RequireDirectoryPath?: boolean;
+  RequireDirectoryPath?: boolean | undefined;
 }
 
 /**
@@ -1720,7 +1720,7 @@ export interface TemplateV3 {
    * <p>List of templates in Active Directory that are superseded by this template.</p>
    * @public
    */
-  SupersededTemplates?: string[];
+  SupersededTemplates?: string[] | undefined;
 
   /**
    * <p>Private key attributes allow you to specify the algorithm, minimal key length, key spec,
@@ -1782,20 +1782,20 @@ export interface EnrollmentFlagsV4 {
    * <p>Include symmetric algorithms allowed by the subject.</p>
    * @public
    */
-  IncludeSymmetricAlgorithms?: boolean;
+  IncludeSymmetricAlgorithms?: boolean | undefined;
 
   /**
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
    * @public
    */
-  UserInteractionRequired?: boolean;
+  UserInteractionRequired?: boolean | undefined;
 
   /**
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
    * @public
    */
-  RemoveInvalidCertificateFromPersonalStore?: boolean;
+  RemoveInvalidCertificateFromPersonalStore?: boolean | undefined;
 
   /**
    * <p>This flag instructs the CA to not include the security extension
@@ -1804,13 +1804,13 @@ export interface EnrollmentFlagsV4 {
    *          Kerberos elevation-of-privilege vulnerability.</p>
    * @public
    */
-  NoSecurityExtension?: boolean;
+  NoSecurityExtension?: boolean | undefined;
 
   /**
    * <p>Allow renewal using the same key.</p>
    * @public
    */
-  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
+  EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean | undefined;
 }
 
 /**
@@ -1829,7 +1829,7 @@ export interface ExtensionsV4 {
    * <p>Application policies specify what the certificate is used for and its purpose.</p>
    * @public
    */
-  ApplicationPolicies?: ApplicationPolicies;
+  ApplicationPolicies?: ApplicationPolicies | undefined;
 }
 
 /**
@@ -1843,14 +1843,14 @@ export interface GeneralFlagsV4 {
    *          autoenrollment.</p>
    * @public
    */
-  AutoEnrollment?: boolean;
+  AutoEnrollment?: boolean | undefined;
 
   /**
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users</p>
    * @public
    */
-  MachineType?: boolean;
+  MachineType?: boolean | undefined;
 }
 
 /**
@@ -1875,7 +1875,7 @@ export interface PrivateKeyAttributesV4 {
    * <p>Defines the cryptographic providers used to generate the private key.</p>
    * @public
    */
-  CryptoProviders?: string[];
+  CryptoProviders?: string[] | undefined;
 
   /**
    * <p>The key usage property defines the purpose of the private key contained in the
@@ -1883,13 +1883,13 @@ export interface PrivateKeyAttributesV4 {
    *          property type ALL.</p>
    * @public
    */
-  KeyUsageProperty?: KeyUsageProperty;
+  KeyUsageProperty?: KeyUsageProperty | undefined;
 
   /**
    * <p>Defines the algorithm used to generate the private key.</p>
    * @public
    */
-  Algorithm?: PrivateKeyAlgorithm;
+  Algorithm?: PrivateKeyAlgorithm | undefined;
 }
 
 /**
@@ -1904,26 +1904,26 @@ export interface PrivateKeyFlagsV4 {
    * <p>Allows the private key to be exported.</p>
    * @public
    */
-  ExportableKey?: boolean;
+  ExportableKey?: boolean | undefined;
 
   /**
    * <p>Require user input when using the private key for enrollment.</p>
    * @public
    */
-  StrongKeyProtectionRequired?: boolean;
+  StrongKeyProtectionRequired?: boolean | undefined;
 
   /**
    * <p>Requires the PKCS #1 v2.1 signature format for certificates. You should verify that your
    *          CA, objects, and applications can accept this signature format.</p>
    * @public
    */
-  RequireAlternateSignatureAlgorithm?: boolean;
+  RequireAlternateSignatureAlgorithm?: boolean | undefined;
 
   /**
    * <p>Renew certificate using the same private key.</p>
    * @public
    */
-  RequireSameKeyRenewal?: boolean;
+  RequireSameKeyRenewal?: boolean | undefined;
 
   /**
    * <p>Specifies the cryptographic service provider category used to generate private keys. Set
@@ -1931,7 +1931,7 @@ export interface PrivateKeyFlagsV4 {
    *          Providers.</p>
    * @public
    */
-  UseLegacyProvider?: boolean;
+  UseLegacyProvider?: boolean | undefined;
 
   /**
    * <p>Defines the minimum client compatibility.</p>
@@ -1955,61 +1955,61 @@ export interface SubjectNameFlagsV4 {
    * <p>Include the domain DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDomainDns?: boolean;
+  SanRequireDomainDns?: boolean | undefined;
 
   /**
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireSpn?: boolean;
+  SanRequireSpn?: boolean | undefined;
 
   /**
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
    * @public
    */
-  SanRequireDirectoryGuid?: boolean;
+  SanRequireDirectoryGuid?: boolean | undefined;
 
   /**
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
    * @public
    */
-  SanRequireUpn?: boolean;
+  SanRequireUpn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject alternate name.</p>
    * @public
    */
-  SanRequireEmail?: boolean;
+  SanRequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the DNS in the subject alternate name.</p>
    * @public
    */
-  SanRequireDns?: boolean;
+  SanRequireDns?: boolean | undefined;
 
   /**
    * <p>Include the DNS as common name in the subject name.</p>
    * @public
    */
-  RequireDnsAsCn?: boolean;
+  RequireDnsAsCn?: boolean | undefined;
 
   /**
    * <p>Include the subject's email in the subject name.</p>
    * @public
    */
-  RequireEmail?: boolean;
+  RequireEmail?: boolean | undefined;
 
   /**
    * <p>Include the common name in the subject name.</p>
    * @public
    */
-  RequireCommonName?: boolean;
+  RequireCommonName?: boolean | undefined;
 
   /**
    * <p>Include the directory path in the subject name.</p>
    * @public
    */
-  RequireDirectoryPath?: boolean;
+  RequireDirectoryPath?: boolean | undefined;
 }
 
 /**
@@ -2028,7 +2028,7 @@ export interface TemplateV4 {
    * <p>List of templates in Active Directory that are superseded by this template.</p>
    * @public
    */
-  SupersededTemplates?: string[];
+  SupersededTemplates?: string[] | undefined;
 
   /**
    * <p>Private key attributes allow you to specify the minimal key length, key spec, key usage,
@@ -2074,7 +2074,7 @@ export interface TemplateV4 {
    *          specified when using Key Storage Providers.</p>
    * @public
    */
-  HashAlgorithm?: HashAlgorithm;
+  HashAlgorithm?: HashAlgorithm | undefined;
 
   /**
    * <p>Extensions describe the key usage extensions and application policies for a
@@ -2192,13 +2192,13 @@ export interface CreateTemplateRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Metadata assigned to a template consisting of a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2209,7 +2209,7 @@ export interface CreateTemplateResponse {
    * <p>If successful, the Amazon Resource Name (ARN) of the template.</p>
    * @public
    */
-  TemplateArn?: string;
+  TemplateArn?: string | undefined;
 }
 
 /**
@@ -2246,7 +2246,7 @@ export interface CreateTemplateGroupAccessControlEntryRequest {
    * <p>Idempotency token.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -2353,38 +2353,38 @@ export interface DirectoryRegistration {
    *          CreateDirectoryRegistration. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The identifier of the Active Directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Status of the directory registration.</p>
    * @public
    */
-  Status?: DirectoryRegistrationStatus;
+  Status?: DirectoryRegistrationStatus | undefined;
 
   /**
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
    * @public
    */
-  StatusReason?: DirectoryRegistrationStatusReason;
+  StatusReason?: DirectoryRegistrationStatusReason | undefined;
 
   /**
    * <p>The date and time that the directory registration was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the directory registration was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2397,38 +2397,38 @@ export interface DirectoryRegistrationSummary {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The identifier of the Active Directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Status of the directory registration.</p>
    * @public
    */
-  Status?: DirectoryRegistrationStatus;
+  Status?: DirectoryRegistrationStatus | undefined;
 
   /**
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
    * @public
    */
-  StatusReason?: DirectoryRegistrationStatusReason;
+  StatusReason?: DirectoryRegistrationStatusReason | undefined;
 
   /**
    * <p>The date and time that the directory registration was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the directory registration was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2451,7 +2451,7 @@ export interface GetDirectoryRegistrationResponse {
    *          directory.</p>
    * @public
    */
-  DirectoryRegistration?: DirectoryRegistration;
+  DirectoryRegistration?: DirectoryRegistration | undefined;
 }
 
 /**
@@ -2466,7 +2466,7 @@ export interface ListDirectoryRegistrationsRequest {
    *          items.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2474,7 +2474,7 @@ export interface ListDirectoryRegistrationsRequest {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2485,7 +2485,7 @@ export interface ListDirectoryRegistrationsResponse {
    * <p>Summary information about each directory registration you have created.</p>
    * @public
    */
-  DirectoryRegistrations?: DirectoryRegistrationSummary[];
+  DirectoryRegistrations?: DirectoryRegistrationSummary[] | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2493,7 +2493,7 @@ export interface ListDirectoryRegistrationsResponse {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2556,38 +2556,38 @@ export interface ServicePrincipalName {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
    * @public
    */
-  DirectoryRegistrationArn?: string;
+  DirectoryRegistrationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector.html</a>.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>The status of a service principal name.</p>
    * @public
    */
-  Status?: ServicePrincipalNameStatus;
+  Status?: ServicePrincipalNameStatus | undefined;
 
   /**
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
    * @public
    */
-  StatusReason?: ServicePrincipalNameStatusReason;
+  StatusReason?: ServicePrincipalNameStatusReason | undefined;
 
   /**
    * <p>The date and time that the service principal name was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the service principal name was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2598,7 +2598,7 @@ export interface GetServicePrincipalNameResponse {
    * <p>The service principal name that the connector uses to authenticate with Active Directory.</p>
    * @public
    */
-  ServicePrincipalName?: ServicePrincipalName;
+  ServicePrincipalName?: ServicePrincipalName | undefined;
 }
 
 /**
@@ -2657,13 +2657,13 @@ export interface Template {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>Template configuration to define the information included in certificates. Define
@@ -2671,51 +2671,51 @@ export interface Template {
    *          options, key usage extensions, application policies, and cryptography settings.</p>
    * @public
    */
-  Definition?: TemplateDefinition;
+  Definition?: TemplateDefinition | undefined;
 
   /**
    * <p>Name of the templates. Template names must be unique.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Object identifier of a template.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 
   /**
    * <p>The template schema version. Template schema versions can be v2, v3, or v4. The template
    *          configuration options change based on the template schema version.</p>
    * @public
    */
-  PolicySchema?: number;
+  PolicySchema?: number | undefined;
 
   /**
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
    * @public
    */
-  Status?: TemplateStatus;
+  Status?: TemplateStatus | undefined;
 
   /**
    * <p>The version of the template. Template updates will increment the minor revision.
    *          Re-enrolling all certificate holders will increment the major revision.</p>
    * @public
    */
-  Revision?: TemplateRevision;
+  Revision?: TemplateRevision | undefined;
 
   /**
    * <p>The date and time that the template was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the template was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2727,7 +2727,7 @@ export interface GetTemplateResponse {
    *          CA.</p>
    * @public
    */
-  Template?: Template;
+  Template?: Template | undefined;
 }
 
 /**
@@ -2757,7 +2757,7 @@ export interface GetTemplateGroupAccessControlEntryResponse {
    *          autoenrolling with a template.</p>
    * @public
    */
-  AccessControlEntry?: AccessControlEntry;
+  AccessControlEntry?: AccessControlEntry | undefined;
 }
 
 /**
@@ -2772,7 +2772,7 @@ export interface ListServicePrincipalNamesRequest {
    *          items.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2780,7 +2780,7 @@ export interface ListServicePrincipalNamesRequest {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
@@ -2798,38 +2798,38 @@ export interface ServicePrincipalNameSummary {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
    * @public
    */
-  DirectoryRegistrationArn?: string;
+  DirectoryRegistrationArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>The status of a service principal name.</p>
    * @public
    */
-  Status?: ServicePrincipalNameStatus;
+  Status?: ServicePrincipalNameStatus | undefined;
 
   /**
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
    * @public
    */
-  StatusReason?: ServicePrincipalNameStatusReason;
+  StatusReason?: ServicePrincipalNameStatusReason | undefined;
 
   /**
    * <p>The date and time that the service principal name was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Time when the service principal name was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2841,7 +2841,7 @@ export interface ListServicePrincipalNamesResponse {
    *          Active Directory.</p>
    * @public
    */
-  ServicePrincipalNames?: ServicePrincipalNameSummary[];
+  ServicePrincipalNames?: ServicePrincipalNameSummary[] | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2849,7 +2849,7 @@ export interface ListServicePrincipalNamesResponse {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2871,7 +2871,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags, if any, that are associated with your resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2886,7 +2886,7 @@ export interface ListTemplateGroupAccessControlEntriesRequest {
    *          items.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2894,7 +2894,7 @@ export interface ListTemplateGroupAccessControlEntriesRequest {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
@@ -2912,7 +2912,7 @@ export interface ListTemplateGroupAccessControlEntriesResponse {
    *          certificates for a template.</p>
    * @public
    */
-  AccessControlEntries?: AccessControlEntrySummary[];
+  AccessControlEntries?: AccessControlEntrySummary[] | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2920,7 +2920,7 @@ export interface ListTemplateGroupAccessControlEntriesResponse {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2935,7 +2935,7 @@ export interface ListTemplatesRequest {
    *          items.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -2943,7 +2943,7 @@ export interface ListTemplatesRequest {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
@@ -2962,13 +2962,13 @@ export interface TemplateSummary {
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
    * @public
    */
-  ConnectorArn?: string;
+  ConnectorArn?: string | undefined;
 
   /**
    * <p>Template configuration to define the information included in certificates. Define
@@ -2976,51 +2976,51 @@ export interface TemplateSummary {
    *          options, key usage extensions, application policies, and cryptography settings.</p>
    * @public
    */
-  Definition?: TemplateDefinition;
+  Definition?: TemplateDefinition | undefined;
 
   /**
    * <p>Name of the template. The template name must be unique.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Object identifier of a template.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 
   /**
    * <p>The template schema version. Template schema versions can be v2, v3, or v4. The template
    *          configuration options change based on the template schema version.</p>
    * @public
    */
-  PolicySchema?: number;
+  PolicySchema?: number | undefined;
 
   /**
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
    * @public
    */
-  Status?: TemplateStatus;
+  Status?: TemplateStatus | undefined;
 
   /**
    * <p>The revision version of the template. Template updates will increment the minor
    *          revision. Re-enrolling all certificate holders will increment the major revision.</p>
    * @public
    */
-  Revision?: TemplateRevision;
+  Revision?: TemplateRevision | undefined;
 
   /**
    * <p>The date and time that the template was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time that the template was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3031,7 +3031,7 @@ export interface ListTemplatesResponse {
    * <p>Custom configuration templates used when issuing a certificate. </p>
    * @public
    */
-  Templates?: TemplateSummary[];
+  Templates?: TemplateSummary[] | undefined;
 
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -3039,7 +3039,7 @@ export interface ListTemplatesResponse {
    *          parameter from the response you just received.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3080,14 +3080,14 @@ export interface UpdateTemplateGroupAccessControlEntryRequest {
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
    * @public
    */
-  GroupDisplayName?: string;
+  GroupDisplayName?: string | undefined;
 
   /**
    * <p>Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a
    *          template.</p>
    * @public
    */
-  AccessRights?: AccessRights;
+  AccessRights?: AccessRights | undefined;
 }
 
 /**
@@ -3106,7 +3106,7 @@ export interface UpdateTemplateRequest {
    *          options, key usage extensions, application policies, and cryptography settings.</p>
    * @public
    */
-  Definition?: TemplateDefinition;
+  Definition?: TemplateDefinition | undefined;
 
   /**
    * <p>This setting allows the major version of a template to be increased automatically. All
@@ -3114,7 +3114,7 @@ export interface UpdateTemplateRequest {
    *          certificate issued using that template.</p>
    * @public
    */
-  ReenrollAllCertificateHolders?: boolean;
+  ReenrollAllCertificateHolders?: boolean | undefined;
 }
 
 /**

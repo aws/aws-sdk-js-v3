@@ -7,7 +7,7 @@ import { QueryProtocolServiceException as __BaseException } from "./QueryProtoco
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -36,7 +36,7 @@ export enum IntegerEnum {
  * @public
  */
 export interface DatetimeOffsetsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
@@ -60,35 +60,35 @@ export interface HostLabelInput {
  * @public
  */
 export interface FlattenedXmlMapOutput {
-  myMap?: Record<string, FooEnum>;
+  myMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapWithXmlNameOutput {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface FlattenedXmlMapWithXmlNamespaceOutput {
-  myMap?: Record<string, string>;
+  myMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface FractionalSecondsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -98,8 +98,8 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -121,7 +121,7 @@ export class ComplexError extends __BaseException {
 export class CustomCodeError extends __BaseException {
   readonly name: "CustomCodeError" = "CustomCodeError";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -140,7 +140,7 @@ export class CustomCodeError extends __BaseException {
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -169,7 +169,7 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface IgnoresWrappingXmlNameOutput {
-  foo?: string;
+  foo?: string | undefined;
 }
 
 /**
@@ -186,238 +186,238 @@ export interface NoInputAndOutputOutput {}
  * @public
  */
 export interface PutWithContentEncodingInput {
-  encoding?: string;
-  data?: string;
+  encoding?: string | undefined;
+  data?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryIdempotencyTokenAutoFillInput {
-  token?: string;
+  token?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedStructWithList {
-  ListArg?: string[];
+  ListArg?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryListsInput {
-  ListArg?: string[];
-  ComplexListArg?: GreetingStruct[];
-  FlattenedListArg?: string[];
-  ListArgWithXmlNameMember?: string[];
-  FlattenedListArgWithXmlName?: string[];
-  NestedWithList?: NestedStructWithList;
+  ListArg?: string[] | undefined;
+  ComplexListArg?: GreetingStruct[] | undefined;
+  FlattenedListArg?: string[] | undefined;
+  ListArgWithXmlNameMember?: string[] | undefined;
+  FlattenedListArgWithXmlName?: string[] | undefined;
+  NestedWithList?: NestedStructWithList | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedStructWithMap {
-  MapArg?: Record<string, string>;
+  MapArg?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryMapsInput {
-  MapArg?: Record<string, string>;
-  RenamedMapArg?: Record<string, string>;
-  ComplexMapArg?: Record<string, GreetingStruct>;
-  MapWithXmlMemberName?: Record<string, string>;
-  FlattenedMap?: Record<string, string>;
-  FlattenedMapWithXmlName?: Record<string, string>;
-  MapOfLists?: Record<string, string[]>;
-  NestedStructWithMap?: NestedStructWithMap;
+  MapArg?: Record<string, string> | undefined;
+  RenamedMapArg?: Record<string, string> | undefined;
+  ComplexMapArg?: Record<string, GreetingStruct> | undefined;
+  MapWithXmlMemberName?: Record<string, string> | undefined;
+  FlattenedMap?: Record<string, string> | undefined;
+  FlattenedMapWithXmlName?: Record<string, string> | undefined;
+  MapOfLists?: Record<string, string[]> | undefined;
+  NestedStructWithMap?: NestedStructWithMap | undefined;
 }
 
 /**
  * @public
  */
 export interface QueryTimestampsInput {
-  normalFormat?: Date;
-  epochMember?: Date;
-  epochTarget?: Date;
+  normalFormat?: Date | undefined;
+  epochMember?: Date | undefined;
+  epochTarget?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleInputParamsInput {
-  Foo?: string;
-  Bar?: string;
-  Baz?: boolean;
-  Bam?: number;
-  FloatValue?: number;
-  Boo?: number;
-  Qux?: Uint8Array;
-  FooEnum?: FooEnum;
-  IntegerEnum?: IntegerEnum;
+  Foo?: string | undefined;
+  Bar?: string | undefined;
+  Baz?: boolean | undefined;
+  Bam?: number | undefined;
+  FloatValue?: number | undefined;
+  Boo?: number | undefined;
+  Qux?: Uint8Array | undefined;
+  FooEnum?: FooEnum | undefined;
+  IntegerEnum?: IntegerEnum | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarXmlPropertiesOutput {
-  stringValue?: string;
-  emptyStringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
-  byteValue?: number;
-  shortValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  stringValue?: string | undefined;
+  emptyStringValue?: string | undefined;
+  trueBooleanValue?: boolean | undefined;
+  falseBooleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  shortValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  floatValue?: number | undefined;
+  doubleValue?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlBlobsOutput {
-  data?: Uint8Array;
+  data?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface StructureListMember {
-  a?: string;
-  b?: string;
+  a?: string | undefined;
+  b?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlListsOutput {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
-  structureList?: StructureListMember[];
+  renamedListMembers?: string[] | undefined;
+  flattenedList?: string[] | undefined;
+  flattenedList2?: string[] | undefined;
+  flattenedListWithMemberNamespace?: string[] | undefined;
+  flattenedListWithNamespace?: string[] | undefined;
+  structureList?: StructureListMember[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsOutput {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlEnumsOutput {
-  fooEnum1?: FooEnum;
-  fooEnum2?: FooEnum;
-  fooEnum3?: FooEnum;
-  fooEnumList?: FooEnum[];
-  fooEnumSet?: FooEnum[];
-  fooEnumMap?: Record<string, FooEnum>;
+  fooEnum1?: FooEnum | undefined;
+  fooEnum2?: FooEnum | undefined;
+  fooEnum3?: FooEnum | undefined;
+  fooEnumList?: FooEnum[] | undefined;
+  fooEnumSet?: FooEnum[] | undefined;
+  fooEnumMap?: Record<string, FooEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlIntEnumsOutput {
-  intEnum1?: IntegerEnum;
-  intEnum2?: IntegerEnum;
-  intEnum3?: IntegerEnum;
-  intEnumList?: IntegerEnum[];
-  intEnumSet?: IntegerEnum[];
-  intEnumMap?: Record<string, IntegerEnum>;
+  intEnum1?: IntegerEnum | undefined;
+  intEnum2?: IntegerEnum | undefined;
+  intEnum3?: IntegerEnum | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
+  intEnumSet?: IntegerEnum[] | undefined;
+  intEnumMap?: Record<string, IntegerEnum> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlMapsXmlNameOutput {
-  myMap?: Record<string, GreetingStruct>;
+  myMap?: Record<string, GreetingStruct> | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNamespaceNested {
-  foo?: string;
-  values?: string[];
+  foo?: string | undefined;
+  values?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlNamespacesOutput {
-  nested?: XmlNamespaceNested;
+  nested?: XmlNamespaceNested | undefined;
 }
 
 /**
  * @public
  */
 export interface XmlTimestampsOutput {
-  normal?: Date;
-  dateTime?: Date;
-  dateTimeOnTarget?: Date;
-  epochSeconds?: Date;
-  epochSecondsOnTarget?: Date;
-  httpDate?: Date;
-  httpDateOnTarget?: Date;
+  normal?: Date | undefined;
+  dateTime?: Date | undefined;
+  dateTimeOnTarget?: Date | undefined;
+  epochSeconds?: Date | undefined;
+  epochSecondsOnTarget?: Date | undefined;
+  httpDate?: Date | undefined;
+  httpDateOnTarget?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface StructArg {
-  StringArg?: string;
-  OtherArg?: boolean;
-  RecursiveArg?: StructArg;
+  StringArg?: string | undefined;
+  OtherArg?: boolean | undefined;
+  RecursiveArg?: StructArg | undefined;
 }
 
 /**
  * @public
  */
 export interface NestedStructuresInput {
-  Nested?: StructArg;
+  Nested?: StructArg | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveXmlShapesOutputNested1 {
-  foo?: string;
-  nested?: RecursiveXmlShapesOutputNested2;
+  foo?: string | undefined;
+  nested?: RecursiveXmlShapesOutputNested2 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveXmlShapesOutputNested2 {
-  bar?: string;
-  recursiveMember?: RecursiveXmlShapesOutputNested1;
+  bar?: string | undefined;
+  recursiveMember?: RecursiveXmlShapesOutputNested1 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveXmlShapesOutput {
-  nested?: RecursiveXmlShapesOutputNested1;
+  nested?: RecursiveXmlShapesOutputNested1 | undefined;
 }

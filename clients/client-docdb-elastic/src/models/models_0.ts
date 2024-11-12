@@ -95,7 +95,7 @@ export interface ApplyPendingMaintenanceActionInput {
    *          </p>
    * @public
    */
-  applyOn?: string;
+  applyOn?: string | undefined;
 }
 
 /**
@@ -116,7 +116,7 @@ export interface PendingMaintenanceActionDetails {
    *             <code>optInType</code> requests are ignored.</p>
    * @public
    */
-  autoAppliedAfterDate?: string;
+  autoAppliedAfterDate?: string | undefined;
 
   /**
    * <p>Displays the date when the maintenance action is automatically applied.
@@ -125,25 +125,25 @@ export interface PendingMaintenanceActionDetails {
    *             <code>optInType</code> requests are ignored.</p>
    * @public
    */
-  forcedApplyDate?: string;
+  forcedApplyDate?: string | undefined;
 
   /**
    * <p>Displays the type of <code>optInType</code> request that has been received for the resource.</p>
    * @public
    */
-  optInStatus?: string;
+  optInStatus?: string | undefined;
 
   /**
    * <p>Displays the effective date when the pending maintenance action is applied to the resource.</p>
    * @public
    */
-  currentApplyDate?: string;
+  currentApplyDate?: string | undefined;
 
   /**
    * <p>Displays a description providing more detail about the maintenance action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -155,13 +155,13 @@ export interface ResourcePendingMaintenanceAction {
    * <p>The Amazon DocumentDB Amazon Resource Name (ARN) of the resource to which the pending maintenance action applies.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>Provides information about a pending maintenance action for a resource.</p>
    * @public
    */
-  pendingMaintenanceActionDetails?: PendingMaintenanceActionDetails[];
+  pendingMaintenanceActionDetails?: PendingMaintenanceActionDetails[] | undefined;
 }
 
 /**
@@ -276,7 +276,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds to wait before retrying the operation.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -344,7 +344,7 @@ export class ValidationException extends __BaseException {
    * <p>A list of the fields in which the validation exception occurred.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -416,20 +416,20 @@ export interface CopyClusterSnapshotInput {
    *          <p>If you copy an unencrypted elastic cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>Set to <code>true</code> to copy all tags from the source cluster snapshot to the target elastic cluster snapshot.
    *       The default is <code>false</code>.</p>
    * @public
    */
-  copyTags?: boolean;
+  copyTags?: boolean | undefined;
 
   /**
    * <p>The tags to be assigned to the elastic cluster snapshot.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -563,7 +563,7 @@ export interface ClusterSnapshot {
    *          </ul>
    * @public
    */
-  snapshotType?: SnapshotType;
+  snapshotType?: SnapshotType | undefined;
 }
 
 /**
@@ -683,13 +683,13 @@ export interface CreateClusterInput {
    *       elastic cluster.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 subnet IDs for the new elastic cluster.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The KMS key identifier to use to encrypt the new elastic cluster.</p>
@@ -702,13 +702,13 @@ export interface CreateClusterInput {
    *         has a different default encryption key for each Amazon Region.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The client token for the elastic cluster.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur,
@@ -724,32 +724,32 @@ export interface CreateClusterInput {
    *             <i>Constraints</i>: Minimum 30-minute window.</p>
    * @public
    */
-  preferredMaintenanceWindow?: string;
+  preferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The tags to be assigned to the new elastic cluster.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The number of days for which automatic snapshots are retained.</p>
    * @public
    */
-  backupRetentionPeriod?: number;
+  backupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>backupRetentionPeriod</code>.</p>
    * @public
    */
-  preferredBackupWindow?: string;
+  preferredBackupWindow?: string | undefined;
 
   /**
    * <p>The number of replica instances applying to all shards in the elastic cluster.
    *       A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
    * @public
    */
-  shardInstanceCount?: number;
+  shardInstanceCount?: number | undefined;
 }
 
 /**
@@ -867,26 +867,26 @@ export interface Cluster {
    * <p>The total number of shards in the cluster.</p>
    * @public
    */
-  shards?: Shard[];
+  shards?: Shard[] | undefined;
 
   /**
    * <p>The number of days for which automatic snapshots are retained.</p>
    * @public
    */
-  backupRetentionPeriod?: number;
+  backupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are enabled, as determined by <code>backupRetentionPeriod</code>.</p>
    * @public
    */
-  preferredBackupWindow?: string;
+  preferredBackupWindow?: string | undefined;
 
   /**
    * <p>The number of replica instances applying to all shards in the cluster.
    *       A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
    * @public
    */
-  shardInstanceCount?: number;
+  shardInstanceCount?: number | undefined;
 }
 
 /**
@@ -920,7 +920,7 @@ export interface CreateClusterSnapshotInput {
    * <p>The tags to be assigned to the new elastic cluster snapshot.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1054,13 +1054,13 @@ export interface ListClustersInput {
    *          <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of elastic cluster snapshot results to receive in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1095,7 +1095,7 @@ export interface ListClustersOutput {
    * <p>A list of Amazon DocumentDB elastic clusters.</p>
    * @public
    */
-  clusters?: ClusterInList[];
+  clusters?: ClusterInList[] | undefined;
 
   /**
    * <p>A pagination token provided by a previous request.
@@ -1103,7 +1103,7 @@ export interface ListClustersOutput {
    *          <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1114,7 +1114,7 @@ export interface ListClusterSnapshotsInput {
    * <p>The ARN identifier of the elastic cluster.</p>
    * @public
    */
-  clusterArn?: string;
+  clusterArn?: string | undefined;
 
   /**
    * <p>A pagination token provided by a previous request.
@@ -1122,13 +1122,13 @@ export interface ListClusterSnapshotsInput {
    *          <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of elastic cluster snapshot results to receive in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The type of cluster snapshots to be returned. You can specify one of the following values:</p>
@@ -1144,7 +1144,7 @@ export interface ListClusterSnapshotsInput {
    *          </ul>
    * @public
    */
-  snapshotType?: string;
+  snapshotType?: string | undefined;
 }
 
 /**
@@ -1191,7 +1191,7 @@ export interface ListClusterSnapshotsOutput {
    * <p>A list of snapshots for a specified elastic cluster.</p>
    * @public
    */
-  snapshots?: ClusterSnapshotInList[];
+  snapshots?: ClusterSnapshotInList[] | undefined;
 
   /**
    * <p>A pagination token provided by a previous request.
@@ -1199,7 +1199,7 @@ export interface ListClusterSnapshotsOutput {
    *          <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1210,14 +1210,14 @@ export interface ListPendingMaintenanceActionsInput {
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>maxResults</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to include in the response.
    *       If more records exist than the specified <code>maxResults</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface ListPendingMaintenanceActionsOutput {
    * <p>An optional pagination token provided by a previous request. If this parameter is displayed, the responses will include only records beyond the marker, up to the value specified by <code>maxResults</code>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags for the specified elastic cluster resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1279,13 +1279,13 @@ export interface RestoreClusterFromSnapshotInput {
    * <p>A list of EC2 VPC security groups to associate with the elastic cluster.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 subnet IDs for the elastic cluster.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The KMS key identifier to use to encrypt the new Amazon DocumentDB elastic clusters cluster.</p>
@@ -1298,26 +1298,26 @@ export interface RestoreClusterFromSnapshotInput {
    *         has a different default encryption key for each Amazon Region.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>A list of the tag names to be assigned to the restored elastic cluster, in the form of an array of key-value pairs in which the key is the tag name and the value is the key value.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The capacity of each shard in the new restored elastic cluster.</p>
    * @public
    */
-  shardCapacity?: number;
+  shardCapacity?: number | undefined;
 
   /**
    * <p>The number of replica instances applying to all shards in the elastic cluster.
    *       A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
    * @public
    */
-  shardInstanceCount?: number;
+  shardInstanceCount?: number | undefined;
 }
 
 /**
@@ -1434,32 +1434,32 @@ export interface UpdateClusterInput {
    *       Valid types are <code>PLAIN_TEXT</code> or <code>SECRET_ARN</code>.</p>
    * @public
    */
-  authType?: Auth;
+  authType?: Auth | undefined;
 
   /**
    * <p>The number of vCPUs assigned to each elastic cluster shard.
    *       Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.</p>
    * @public
    */
-  shardCapacity?: number;
+  shardCapacity?: number | undefined;
 
   /**
    * <p>The number of shards assigned to the elastic cluster. Maximum is 32.</p>
    * @public
    */
-  shardCount?: number;
+  shardCount?: number | undefined;
 
   /**
    * <p>A list of EC2 VPC security groups to associate with the elastic cluster.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The Amazon EC2 subnet IDs for the elastic cluster.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The password associated with the elastic cluster administrator.
@@ -1468,13 +1468,13 @@ export interface UpdateClusterInput {
    *             <i>Constraints</i>: Must contain from 8 to 100 characters.</p>
    * @public
    */
-  adminUserPassword?: string;
+  adminUserPassword?: string | undefined;
 
   /**
    * <p>The client token for the elastic cluster.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
@@ -1489,26 +1489,26 @@ export interface UpdateClusterInput {
    *             <i>Constraints</i>: Minimum 30-minute window.</p>
    * @public
    */
-  preferredMaintenanceWindow?: string;
+  preferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The number of days for which automatic snapshots are retained.</p>
    * @public
    */
-  backupRetentionPeriod?: number;
+  backupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>backupRetentionPeriod</code>.</p>
    * @public
    */
-  preferredBackupWindow?: string;
+  preferredBackupWindow?: string | undefined;
 
   /**
    * <p>The number of replica instances applying to all shards in the elastic cluster.
    *       A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
    * @public
    */
-  shardInstanceCount?: number;
+  shardInstanceCount?: number | undefined;
 }
 
 /**

@@ -18,14 +18,14 @@ export interface DescribeStreamInput {
    * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
    *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
    * @public
    */
-  ExclusiveStartShardId?: string;
+  ExclusiveStartShardId?: string | undefined;
 }
 
 /**
@@ -99,13 +99,13 @@ export interface SequenceNumberRange {
    * <p>The first sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    * @public
    */
-  StartingSequenceNumber?: string;
+  StartingSequenceNumber?: string | undefined;
 
   /**
    * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    * @public
    */
-  EndingSequenceNumber?: string;
+  EndingSequenceNumber?: string | undefined;
 }
 
 /**
@@ -117,19 +117,19 @@ export interface Shard {
    * <p>The system-generated identifier for this shard.</p>
    * @public
    */
-  ShardId?: string;
+  ShardId?: string | undefined;
 
   /**
    * <p>The range of possible sequence numbers for the shard.</p>
    * @public
    */
-  SequenceNumberRange?: SequenceNumberRange;
+  SequenceNumberRange?: SequenceNumberRange | undefined;
 
   /**
    * <p>The shard ID of the current shard's parent.</p>
    * @public
    */
-  ParentShardId?: string;
+  ParentShardId?: string | undefined;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface StreamDescription {
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
@@ -194,7 +194,7 @@ export interface StreamDescription {
    *          </ul>
    * @public
    */
-  StreamLabel?: string;
+  StreamLabel?: string | undefined;
 
   /**
    * <p>Indicates the current status of the stream:</p>
@@ -218,7 +218,7 @@ export interface StreamDescription {
    *          </ul>
    * @public
    */
-  StreamStatus?: StreamStatus;
+  StreamStatus?: StreamStatus | undefined;
 
   /**
    * <p>Indicates the format of the records within this stream:</p>
@@ -242,31 +242,31 @@ export interface StreamDescription {
    *          </ul>
    * @public
    */
-  StreamViewType?: StreamViewType;
+  StreamViewType?: StreamViewType | undefined;
 
   /**
    * <p>The date and time when the request to create this stream was issued.</p>
    * @public
    */
-  CreationRequestDateTime?: Date;
+  CreationRequestDateTime?: Date | undefined;
 
   /**
    * <p>The DynamoDB table with which the stream is associated.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The key attribute(s) of the stream's DynamoDB table.</p>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>The shards that comprise the stream.</p>
    * @public
    */
-  Shards?: Shard[];
+  Shards?: Shard[] | undefined;
 
   /**
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -277,7 +277,7 @@ export interface StreamDescription {
    *       set is when <code>LastEvaluatedShardId</code> is empty.</p>
    * @public
    */
-  LastEvaluatedShardId?: string;
+  LastEvaluatedShardId?: string | undefined;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface DescribeStreamOutput {
    * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
    * @public
    */
-  StreamDescription?: StreamDescription;
+  StreamDescription?: StreamDescription | undefined;
 }
 
 /**
@@ -371,7 +371,7 @@ export interface GetRecordsInput {
    * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -399,13 +399,13 @@ export interface Identity {
    *       principalId is "dynamodb.amazonaws.com".</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The type of the identity. For Time To Live, the type is "Service".</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -539,7 +539,7 @@ export interface GetShardIteratorInput {
    * <p>The sequence number of a stream record in the shard from which to start reading.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 }
 
 /**
@@ -551,7 +551,7 @@ export interface GetShardIteratorOutput {
    * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
    * @public
    */
-  ShardIterator?: string;
+  ShardIterator?: string | undefined;
 }
 
 /**
@@ -563,13 +563,13 @@ export interface ListStreamsInput {
    * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The maximum number of streams to return. The upper limit is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
@@ -577,7 +577,7 @@ export interface ListStreamsInput {
    *     </p>
    * @public
    */
-  ExclusiveStartStreamArn?: string;
+  ExclusiveStartStreamArn?: string | undefined;
 }
 
 /**
@@ -589,13 +589,13 @@ export interface _Stream {
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>The DynamoDB table with which the stream is associated.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
@@ -616,7 +616,7 @@ export interface _Stream {
    *          </ul>
    * @public
    */
-  StreamLabel?: string;
+  StreamLabel?: string | undefined;
 }
 
 /**
@@ -628,7 +628,7 @@ export interface ListStreamsOutput {
    * <p>A list of stream descriptors associated with the current account and endpoint.</p>
    * @public
    */
-  Streams?: _Stream[];
+  Streams?: _Stream[] | undefined;
 
   /**
    * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -639,7 +639,7 @@ export interface ListStreamsOutput {
    *       result set is when <code>LastEvaluatedStreamArn</code> is empty.</p>
    * @public
    */
-  LastEvaluatedStreamArn?: string;
+  LastEvaluatedStreamArn?: string | undefined;
 }
 
 /**
@@ -933,37 +933,37 @@ export interface StreamRecord {
    * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.</p>
    * @public
    */
-  ApproximateCreationDateTime?: Date;
+  ApproximateCreationDateTime?: Date | undefined;
 
   /**
    * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
    * @public
    */
-  Keys?: Record<string, AttributeValue>;
+  Keys?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
    * @public
    */
-  NewImage?: Record<string, AttributeValue>;
+  NewImage?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
    * @public
    */
-  OldImage?: Record<string, AttributeValue>;
+  OldImage?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The sequence number of the stream record.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 
   /**
    * <p>The size of the stream record, in bytes.</p>
    * @public
    */
-  SizeBytes?: number;
+  SizeBytes?: number | undefined;
 
   /**
    * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
@@ -987,7 +987,7 @@ export interface StreamRecord {
    *          </ul>
    * @public
    */
-  StreamViewType?: StreamViewType;
+  StreamViewType?: StreamViewType | undefined;
 }
 
 /**
@@ -999,7 +999,7 @@ export interface _Record {
    * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
    * @public
    */
-  eventID?: string;
+  eventID?: string | undefined;
 
   /**
    * <p>The type of data modification that was performed on the DynamoDB table:</p>
@@ -1019,7 +1019,7 @@ export interface _Record {
    *          </ul>
    * @public
    */
-  eventName?: OperationType;
+  eventName?: OperationType | undefined;
 
   /**
    * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
@@ -1028,25 +1028,25 @@ export interface _Record {
    *       only increase as the low-level DynamoDB Streams API evolves.</p>
    * @public
    */
-  eventVersion?: string;
+  eventVersion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
    * @public
    */
-  eventSource?: string;
+  eventSource?: string | undefined;
 
   /**
    * <p>The region in which the <code>GetRecords</code> request was received.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
    * @public
    */
-  dynamodb?: StreamRecord;
+  dynamodb?: StreamRecord | undefined;
 
   /**
    * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
@@ -1062,7 +1062,7 @@ export interface _Record {
    *          </ul>
    * @public
    */
-  userIdentity?: Identity;
+  userIdentity?: Identity | undefined;
 }
 
 /**
@@ -1074,7 +1074,7 @@ export interface GetRecordsOutput {
    * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
    * @public
    */
-  Records?: _Record[];
+  Records?: _Record[] | undefined;
 
   /**
    * <p>The next position in the shard from which to start sequentially reading stream records. If
@@ -1082,5 +1082,5 @@ export interface GetRecordsOutput {
    *       any more data.</p>
    * @public
    */
-  NextShardIterator?: string;
+  NextShardIterator?: string | undefined;
 }

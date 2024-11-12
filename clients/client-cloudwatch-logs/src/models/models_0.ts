@@ -59,44 +59,44 @@ export interface AccountPolicy {
    * <p>The name of the account policy.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The policy document for this account policy.</p>
    *          <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>The date and time that this policy was most recently updated.</p>
    * @public
    */
-  lastUpdatedTime?: number;
+  lastUpdatedTime?: number | undefined;
 
   /**
    * <p>The type of policy for this account policy.</p>
    * @public
    */
-  policyType?: PolicyType;
+  policyType?: PolicyType | undefined;
 
   /**
    * <p>The scope of the account policy.</p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>The log group selection criteria for this subscription filter policy.</p>
    * @public
    */
-  selectionCriteria?: string;
+  selectionCriteria?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that the policy applies to.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 }
 
 /**
@@ -110,7 +110,7 @@ export interface RecordField {
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>If this is <code>true</code>, the record field must be present in the <code>recordFields</code> parameter provided to a
@@ -118,7 +118,7 @@ export interface RecordField {
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation.</p>
    * @public
    */
-  mandatory?: boolean;
+  mandatory?: boolean | undefined;
 }
 
 /**
@@ -131,13 +131,13 @@ export interface LogEvent {
    * <p>The time stamp of the log event.</p>
    * @public
    */
-  timestamp?: number;
+  timestamp?: number | undefined;
 
   /**
    * <p>The message content of the log event.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -154,13 +154,13 @@ export interface PatternToken {
    *       one that appears second is <code>2</code>, and so on.</p>
    * @public
    */
-  dynamicTokenPosition?: number;
+  dynamicTokenPosition?: number | undefined;
 
   /**
    * <p>Specifies whether this is a dynamic token.</p>
    * @public
    */
-  isDynamic?: boolean;
+  isDynamic?: boolean | undefined;
 
   /**
    * <p>The string represented by this token. If this is a dynamic token, the
@@ -168,13 +168,13 @@ export interface PatternToken {
    *          </p>
    * @public
    */
-  tokenString?: string;
+  tokenString?: string | undefined;
 
   /**
    * <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
    * @public
    */
-  enumerations?: Record<string, number>;
+  enumerations?: Record<string, number> | undefined;
 
   /**
    * <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of
@@ -185,7 +185,7 @@ export interface PatternToken {
    *       token is the third dynamic token in the pattern.</p>
    * @public
    */
-  inferredTokenName?: string;
+  inferredTokenName?: string | undefined;
 }
 
 /**
@@ -238,7 +238,7 @@ export interface Anomaly {
    * <p>The pattern used to help identify this anomaly, in regular expression format.</p>
    * @public
    */
-  patternRegex?: string;
+  patternRegex?: string | undefined;
 
   /**
    * <p>The priority level of this anomaly, as determined by CloudWatch Logs. Priority is computed based on log
@@ -247,7 +247,7 @@ export interface Anomaly {
    *         <code>HIGH</code>, <code>MEDIUM</code>, and <code>LOW</code>.</p>
    * @public
    */
-  priority?: string;
+  priority?: string | undefined;
 
   /**
    * <p>The date and time when the anomaly detector first saw this anomaly.
@@ -318,27 +318,27 @@ export interface Anomaly {
    *         use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a>.</p>
    * @public
    */
-  suppressed?: boolean;
+  suppressed?: boolean | undefined;
 
   /**
    * <p>If the anomaly is suppressed, this indicates when it was suppressed.</p>
    * @public
    */
-  suppressedDate?: number;
+  suppressedDate?: number | undefined;
 
   /**
    * <p>If the anomaly is suppressed, this indicates when the suppression will end. If this value is <code>0</code>,
    *      the anomaly was suppressed with no expiration, with the <code>INFINITE</code> value.</p>
    * @public
    */
-  suppressedUntil?: number;
+  suppressedUntil?: number | undefined;
 
   /**
    * <p>If this anomaly is suppressed, this field is <code>true</code> if the suppression is because the
    *       pattern is suppressed. If <code>false</code>, then only this particular anomaly is suppressed.</p>
    * @public
    */
-  isPatternLevelSuppression?: boolean;
+  isPatternLevelSuppression?: boolean | undefined;
 }
 
 /**
@@ -386,25 +386,25 @@ export interface AnomalyDetector {
    * <p>The ARN of the anomaly detector.</p>
    * @public
    */
-  anomalyDetectorArn?: string;
+  anomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the anomaly detector.</p>
    * @public
    */
-  detectorName?: string;
+  detectorName?: string | undefined;
 
   /**
    * <p>A list of the ARNs of the log groups that this anomaly detector watches.</p>
    * @public
    */
-  logGroupArnList?: string[];
+  logGroupArnList?: string[] | undefined;
 
   /**
    * <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
    * @public
    */
-  evaluationFrequency?: EvaluationFrequency;
+  evaluationFrequency?: EvaluationFrequency | undefined;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -412,7 +412,7 @@ export interface AnomalyDetector {
    *       use the filter pattern to specify what to look for in the log event message.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>Specifies the current status of the anomaly detector. To pause an anomaly detector, use
@@ -420,32 +420,32 @@ export interface AnomalyDetector {
    *        operation.</p>
    * @public
    */
-  anomalyDetectorStatus?: AnomalyDetectorStatus;
+  anomalyDetectorStatus?: AnomalyDetectorStatus | undefined;
 
   /**
    * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The date and time when this anomaly detector was created.</p>
    * @public
    */
-  creationTimeStamp?: number;
+  creationTimeStamp?: number | undefined;
 
   /**
    * <p>The date and time when this anomaly detector was most recently modified.</p>
    * @public
    */
-  lastModifiedTimeStamp?: number;
+  lastModifiedTimeStamp?: number | undefined;
 
   /**
    * <p>The number of days used as the life cycle of anomalies. After this time, anomalies are automatically baselined
    *        and the anomaly detector model will treat new occurrences of similar event as normal. </p>
    * @public
    */
-  anomalyVisibilityTime?: number;
+  anomalyVisibilityTime?: number | undefined;
 }
 
 /**
@@ -459,7 +459,7 @@ export interface AssociateKmsKeyRequest {
    *       but you can't specify both.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log
@@ -497,7 +497,7 @@ export interface AssociateKmsKeyRequest {
    *         but you can't specify both.</p>
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 }
 
 /**
@@ -639,13 +639,13 @@ export interface S3DeliveryConfiguration {
    *       more info on what values are supported in the suffix path for each log source.</p>
    * @public
    */
-  suffixPath?: string;
+  suffixPath?: string | undefined;
 
   /**
    * <p>This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.</p>
    * @public
    */
-  enableHiveCompatiblePath?: boolean;
+  enableHiveCompatiblePath?: boolean | undefined;
 }
 
 /**
@@ -659,7 +659,7 @@ export interface ConfigurationTemplateDeliveryConfigValues {
    *       a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation.</p>
    * @public
    */
-  recordFields?: string[];
+  recordFields?: string[] | undefined;
 
   /**
    * <p>The default field delimiter that is used in a  <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation when
@@ -667,13 +667,13 @@ export interface ConfigurationTemplateDeliveryConfigValues {
    *       the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
    * @public
    */
-  fieldDelimiter?: string;
+  fieldDelimiter?: string | undefined;
 
   /**
    * <p>The delivery parameters that are used when you create a delivery to a delivery destination that is an S3 Bucket.</p>
    * @public
    */
-  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
 }
 
 /**
@@ -703,52 +703,52 @@ export interface ConfigurationTemplate {
    *         services.</a>.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>A string specifying which log type this configuration template applies to.</p>
    * @public
    */
-  logType?: string;
+  logType?: string | undefined;
 
   /**
    * <p>A string specifying which resource type this configuration template applies to.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>A string specifying which destination type this configuration template applies to.</p>
    * @public
    */
-  deliveryDestinationType?: DeliveryDestinationType;
+  deliveryDestinationType?: DeliveryDestinationType | undefined;
 
   /**
    * <p>A mapping that displays the default value of each property within a delivery's configuration,
    *       if it is not specified in the request.</p>
    * @public
    */
-  defaultDeliveryConfigValues?: ConfigurationTemplateDeliveryConfigValues;
+  defaultDeliveryConfigValues?: ConfigurationTemplateDeliveryConfigValues | undefined;
 
   /**
    * <p>The allowed fields that a caller can use in the <code>recordFields</code> parameter of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation.</p>
    * @public
    */
-  allowedFields?: RecordField[];
+  allowedFields?: RecordField[] | undefined;
 
   /**
    * <p>The list of delivery destination output formats that are supported by this log source.</p>
    * @public
    */
-  allowedOutputFormats?: OutputFormat[];
+  allowedOutputFormats?: OutputFormat[] | undefined;
 
   /**
    * <p>The action permissions that a caller needs to have to be able to successfully create a delivery source on the
    *       desired resource type when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
    * @public
    */
-  allowedActionForAllowVendedLogsDeliveryForResource?: string;
+  allowedActionForAllowVendedLogsDeliveryForResource?: string | undefined;
 
   /**
    * <p>The valid values that a caller can use as field delimiters when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
@@ -756,13 +756,13 @@ export interface ConfigurationTemplate {
    *       on a delivery that delivers in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
    * @public
    */
-  allowedFieldDelimiters?: string[];
+  allowedFieldDelimiters?: string[] | undefined;
 
   /**
    * <p>The list of variable fields that can be used in the suffix path of a delivery that delivers to an S3 bucket.</p>
    * @public
    */
-  allowedSuffixPathFields?: string[];
+  allowedSuffixPathFields?: string[] | undefined;
 }
 
 /**
@@ -806,20 +806,20 @@ export interface CreateDeliveryRequest {
    *       If the delivery's log source has mandatory fields, they must be included in this list.</p>
    * @public
    */
-  recordFields?: string[];
+  recordFields?: string[] | undefined;
 
   /**
    * <p>The field delimiter to use between record fields when the final output format of a delivery
    *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
    * @public
    */
-  fieldDelimiter?: string;
+  fieldDelimiter?: string | undefined;
 
   /**
    * <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
    * @public
    */
-  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
 
   /**
    * <p>An optional list of key-value pairs to associate with the resource.</p>
@@ -828,7 +828,7 @@ export interface CreateDeliveryRequest {
    *          </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -844,56 +844,56 @@ export interface Delivery {
    * <p>The unique ID that identifies this delivery in your account.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the delivery source that is associated with this delivery.</p>
    * @public
    */
-  deliverySourceName?: string;
+  deliverySourceName?: string | undefined;
 
   /**
    * <p>The ARN of the delivery destination that is associated with this delivery.</p>
    * @public
    */
-  deliveryDestinationArn?: string;
+  deliveryDestinationArn?: string | undefined;
 
   /**
    * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Firehose.</p>
    * @public
    */
-  deliveryDestinationType?: DeliveryDestinationType;
+  deliveryDestinationType?: DeliveryDestinationType | undefined;
 
   /**
    * <p>The record fields used in this delivery.</p>
    * @public
    */
-  recordFields?: string[];
+  recordFields?: string[] | undefined;
 
   /**
    * <p>The field delimiter that is used between record fields when the final output format of a delivery
    *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
    * @public
    */
-  fieldDelimiter?: string;
+  fieldDelimiter?: string | undefined;
 
   /**
    * <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
    * @public
    */
-  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
 
   /**
    * <p>The tags that have been assigned to this delivery.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -904,7 +904,7 @@ export interface CreateDeliveryResponse {
    * <p>A structure that contains information about the delivery that you just created.</p>
    * @public
    */
-  delivery?: Delivery;
+  delivery?: Delivery | undefined;
 }
 
 /**
@@ -975,7 +975,7 @@ export interface CreateExportTaskRequest {
    * <p>The name of the export task.</p>
    * @public
    */
-  taskName?: string;
+  taskName?: string | undefined;
 
   /**
    * <p>The name of the log group.</p>
@@ -988,7 +988,7 @@ export interface CreateExportTaskRequest {
    *       specify a value, no prefix filter is applied.</p>
    * @public
    */
-  logStreamNamePrefix?: string;
+  logStreamNamePrefix?: string | undefined;
 
   /**
    * <p>The start time of the range for the request, expressed as the number of milliseconds
@@ -1020,7 +1020,7 @@ export interface CreateExportTaskRequest {
    *       and can be up to 1,024 bytes.</p>
    * @public
    */
-  destinationPrefix?: string;
+  destinationPrefix?: string | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface CreateExportTaskResponse {
    * <p>The ID of the export task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 }
 
 /**
@@ -1089,7 +1089,7 @@ export interface CreateLogAnomalyDetectorRequest {
    * <p>A name for this anomaly detector.</p>
    * @public
    */
-  detectorName?: string;
+  detectorName?: string | undefined;
 
   /**
    * <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value
@@ -1098,14 +1098,14 @@ export interface CreateLogAnomalyDetectorRequest {
    *         <code>evaluationFrequency</code> .</p>
    * @public
    */
-  evaluationFrequency?: EvaluationFrequency;
+  evaluationFrequency?: EvaluationFrequency | undefined;
 
   /**
    * <p>You can use this parameter to limit the anomaly detection model to examine only log events
    *       that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>Optionally assigns a KMS key to secure this anomaly detector and its findings. If a key is
@@ -1116,7 +1116,7 @@ export interface CreateLogAnomalyDetectorRequest {
    *        policy, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection-KMS.html">Use a KMS key with an anomaly detector</a>.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly,
@@ -1127,7 +1127,7 @@ export interface CreateLogAnomalyDetectorRequest {
    *        going forward and will not be detected as an anomaly.</p>
    * @public
    */
-  anomalyVisibilityTime?: number;
+  anomalyVisibilityTime?: number | undefined;
 
   /**
    * <p>An optional list of key-value pairs to associate with the resource.</p>
@@ -1136,7 +1136,7 @@ export interface CreateLogAnomalyDetectorRequest {
    *          </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1147,7 +1147,7 @@ export interface CreateLogAnomalyDetectorResponse {
    * <p>The ARN of the log anomaly detector that you just created.</p>
    * @public
    */
-  anomalyDetectorArn?: string;
+  anomalyDetectorArn?: string | undefined;
 }
 
 /**
@@ -1180,7 +1180,7 @@ export interface CreateLogGroupRequest {
    *         Names</a>.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The key-value pairs to use for the tags.</p>
@@ -1193,7 +1193,7 @@ export interface CreateLogGroupRequest {
    *       <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Use this parameter to specify the log group class for this log group. There are two classes:</p>
@@ -1215,7 +1215,7 @@ export interface CreateLogGroupRequest {
    *          </p>
    * @public
    */
-  logGroupClass?: LogGroupClass;
+  logGroupClass?: LogGroupClass | undefined;
 }
 
 /**
@@ -1249,7 +1249,7 @@ export interface CreateLogStreamRequest {
 export class DataAlreadyAcceptedException extends __BaseException {
   readonly name: "DataAlreadyAcceptedException" = "DataAlreadyAcceptedException";
   readonly $fault: "client" = "client";
-  expectedSequenceToken?: string;
+  expectedSequenceToken?: string | undefined;
   /**
    * @internal
    */
@@ -1445,7 +1445,7 @@ export interface DeleteQueryDefinitionResponse {
    *       failed.</p>
    * @public
    */
-  success?: boolean;
+  success?: boolean | undefined;
 }
 
 /**
@@ -1456,7 +1456,7 @@ export interface DeleteResourcePolicyRequest {
    * <p>The name of the policy to be revoked. This parameter is required.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 }
 
 /**
@@ -1536,37 +1536,37 @@ export interface DeliveryDestination {
    * <p>The name of this delivery destination.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.</p>
    * @public
    */
-  deliveryDestinationType?: DeliveryDestinationType;
+  deliveryDestinationType?: DeliveryDestinationType | undefined;
 
   /**
    * <p>The format of the logs that are sent to this delivery destination. </p>
    * @public
    */
-  outputFormat?: OutputFormat;
+  outputFormat?: OutputFormat | undefined;
 
   /**
    * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
    * @public
    */
-  deliveryDestinationConfiguration?: DeliveryDestinationConfiguration;
+  deliveryDestinationConfiguration?: DeliveryDestinationConfiguration | undefined;
 
   /**
    * <p>The tags that have been assigned to this delivery destination.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1611,39 +1611,39 @@ export interface DeliverySource {
    * <p>The unique name of the delivery source.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery source.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by
    *       this delivery source. Currently, only one ARN can be in the array.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services service that is sending logs.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>The type of log that the source is sending. For valid values for this parameter, see the documentation for
    *        the source service.</p>
    * @public
    */
-  logType?: string;
+  logType?: string | undefined;
 
   /**
    * <p>The tags that have been assigned to this delivery source.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1661,7 +1661,7 @@ export interface DescribeAccountPoliciesRequest {
    * <p>Use this parameter to limit the returned policies to only the policy with the name that you specify.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account
@@ -1672,7 +1672,7 @@ export interface DescribeAccountPoliciesRequest {
    *     omit this parameter, only the policy in the current account is returned.</p>
    * @public
    */
-  accountIdentifiers?: string[];
+  accountIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -1684,7 +1684,7 @@ export interface DescribeAccountPoliciesResponse {
    *     the specified filters.</p>
    * @public
    */
-  accountPolicies?: AccountPolicy[];
+  accountPolicies?: AccountPolicy[] | undefined;
 }
 
 /**
@@ -1696,41 +1696,41 @@ export interface DescribeConfigurationTemplatesRequest {
    *       configuration templates that apply to the Amazon Web Services service that you specify here.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>Use this parameter to filter the response to include only the
    *       configuration templates that apply to the log types that you specify here.</p>
    * @public
    */
-  logTypes?: string[];
+  logTypes?: string[] | undefined;
 
   /**
    * <p>Use this parameter to filter the response to include only the
    *       configuration templates that apply to the resource types that you specify here.</p>
    * @public
    */
-  resourceTypes?: string[];
+  resourceTypes?: string[] | undefined;
 
   /**
    * <p>Use this parameter to filter the response to include only the
    *       configuration templates that apply to the delivery destination types that you specify here.</p>
    * @public
    */
-  deliveryDestinationTypes?: DeliveryDestinationType[];
+  deliveryDestinationTypes?: DeliveryDestinationType[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Use this parameter to limit the number of configuration templates that are returned
    *     in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1742,13 +1742,13 @@ export interface DescribeConfigurationTemplatesResponse {
    *     the filters that you specified in the request.</p>
    * @public
    */
-  configurationTemplates?: ConfigurationTemplate[];
+  configurationTemplates?: ConfigurationTemplate[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1759,13 +1759,13 @@ export interface DescribeDeliveriesRequest {
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optionally specify the maximum number of deliveries to return in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1776,13 +1776,13 @@ export interface DescribeDeliveriesResponse {
    * <p>An array of structures. Each structure contains information about one delivery in the account.</p>
    * @public
    */
-  deliveries?: Delivery[];
+  deliveries?: Delivery[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1793,13 +1793,13 @@ export interface DescribeDeliveryDestinationsRequest {
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optionally specify the maximum number of delivery destinations to return in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1810,13 +1810,13 @@ export interface DescribeDeliveryDestinationsResponse {
    * <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
    * @public
    */
-  deliveryDestinations?: DeliveryDestination[];
+  deliveryDestinations?: DeliveryDestination[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1827,13 +1827,13 @@ export interface DescribeDeliverySourcesRequest {
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optionally specify the maximum number of delivery sources to return in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1844,13 +1844,13 @@ export interface DescribeDeliverySourcesResponse {
    * <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
    * @public
    */
-  deliverySources?: DeliverySource[];
+  deliverySources?: DeliverySource[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1861,20 +1861,20 @@ export interface DescribeDestinationsRequest {
    * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
    * @public
    */
-  DestinationNamePrefix?: string;
+  DestinationNamePrefix?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default maximum value of
    *       50 items is used.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1886,40 +1886,40 @@ export interface Destination {
    * <p>The name of the destination.</p>
    * @public
    */
-  destinationName?: string;
+  destinationName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the physical target where the log events are
    *       delivered (for example, a Kinesis stream).</p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>A role for impersonation, used when delivering log events to the target.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>An IAM policy document that governs which Amazon Web Services accounts can create subscription filters
    *       against this destination.</p>
    * @public
    */
-  accessPolicy?: string;
+  accessPolicy?: string | undefined;
 
   /**
    * <p>The ARN of this destination.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The creation time of the destination, expressed as the number of milliseconds after Jan
    *       1, 1970 00:00:00 UTC.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 }
 
 /**
@@ -1930,13 +1930,13 @@ export interface DescribeDestinationsResponse {
    * <p>The destinations.</p>
    * @public
    */
-  destinations?: Destination[];
+  destinations?: Destination[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1966,25 +1966,25 @@ export interface DescribeExportTasksRequest {
    *       export tasks.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
    * @public
    */
-  statusCode?: ExportTaskStatusCode;
+  statusCode?: ExportTaskStatusCode | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -1997,14 +1997,14 @@ export interface ExportTaskExecutionInfo {
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 
   /**
    * <p>The completion time of the export task, expressed as the number of milliseconds after
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  completionTime?: number;
+  completionTime?: number | undefined;
 }
 
 /**
@@ -2016,13 +2016,13 @@ export interface ExportTaskStatus {
    * <p>The status code of the export task.</p>
    * @public
    */
-  code?: ExportTaskStatusCode;
+  code?: ExportTaskStatusCode | undefined;
 
   /**
    * <p>The status message related to the status code.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -2034,57 +2034,57 @@ export interface ExportTask {
    * <p>The ID of the export task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The name of the export task.</p>
    * @public
    */
-  taskName?: string;
+  taskName?: string | undefined;
 
   /**
    * <p>The name of the log group from which logs data was exported.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The start time, expressed as the number of milliseconds after <code>Jan 1, 1970
    *         00:00:00 UTC</code>. Events with a timestamp before this time are not exported.</p>
    * @public
    */
-  from?: number;
+  from?: number | undefined;
 
   /**
    * <p>The end time, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00
    *         UTC</code>. Events with a timestamp later than this time are not exported.</p>
    * @public
    */
-  to?: number;
+  to?: number | undefined;
 
   /**
    * <p>The name of the S3 bucket to which the log data was exported.</p>
    * @public
    */
-  destination?: string;
+  destination?: string | undefined;
 
   /**
    * <p>The prefix that was used as the start of Amazon S3 key for every object exported.</p>
    * @public
    */
-  destinationPrefix?: string;
+  destinationPrefix?: string | undefined;
 
   /**
    * <p>The status of the export task.</p>
    * @public
    */
-  status?: ExportTaskStatus;
+  status?: ExportTaskStatus | undefined;
 
   /**
    * <p>Execution information about the export task.</p>
    * @public
    */
-  executionInfo?: ExportTaskExecutionInfo;
+  executionInfo?: ExportTaskExecutionInfo | undefined;
 }
 
 /**
@@ -2095,13 +2095,13 @@ export interface DescribeExportTasksResponse {
    * <p>The export tasks.</p>
    * @public
    */
-  exportTasks?: ExportTask[];
+  exportTasks?: ExportTask[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2113,7 +2113,7 @@ export interface DescribeLogGroupsRequest {
    *       specify the list of accounts to search. You can specify as many as 20 account IDs in the array.  </p>
    * @public
    */
-  accountIdentifiers?: string[];
+  accountIdentifiers?: string[] | undefined;
 
   /**
    * <p>The prefix to match.</p>
@@ -2126,7 +2126,7 @@ export interface DescribeLogGroupsRequest {
    *          </note>
    * @public
    */
-  logGroupNamePrefix?: string;
+  logGroupNamePrefix?: string | undefined;
 
   /**
    * <p>If you specify a string for this parameter, the operation returns only log groups that have names
@@ -2145,19 +2145,19 @@ export interface DescribeLogGroupsRequest {
    *          </note>
    * @public
    */
-  logGroupNamePattern?: string;
+  logGroupNamePattern?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>If you are using a monitoring account, set this to <code>True</code> to have the operation
@@ -2169,7 +2169,7 @@ export interface DescribeLogGroupsRequest {
    *       and all log groups in all source accounts that are linked to the monitoring account. </p>
    * @public
    */
-  includeLinkedAccounts?: boolean;
+  includeLinkedAccounts?: boolean | undefined;
 
   /**
    * <p>Specifies the log group class for this log group. There are two classes:</p>
@@ -2187,7 +2187,7 @@ export interface DescribeLogGroupsRequest {
    *          </p>
    * @public
    */
-  logGroupClass?: LogGroupClass;
+  logGroupClass?: LogGroupClass | undefined;
 }
 
 /**
@@ -2212,14 +2212,14 @@ export interface LogGroup {
    * <p>The name of the log group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The creation time of the log group, expressed as the number of milliseconds after Jan
    *       1, 1970 00:00:00 UTC.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
@@ -2227,13 +2227,13 @@ export interface LogGroup {
    *          <p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
    * @public
    */
-  retentionInDays?: number;
+  retentionInDays?: number | undefined;
 
   /**
    * <p>The number of metric filters.</p>
    * @public
    */
-  metricFilterCount?: number;
+  metricFilterCount?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the log group. This version of the ARN includes a trailing <code>:*</code> after the log group name. </p>
@@ -2242,34 +2242,34 @@ export interface LogGroup {
    *       The permissions for those three actions require the ARN version that doesn't include a trailing <code>:*</code>.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The number of bytes stored.</p>
    * @public
    */
-  storedBytes?: number;
+  storedBytes?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to use when
    *       encrypting log data.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
    * @public
    */
-  dataProtectionStatus?: DataProtectionStatus;
+  dataProtectionStatus?: DataProtectionStatus | undefined;
 
   /**
    * <p>Displays all the properties that this log group has inherited from account-level
    *     settings.</p>
    * @public
    */
-  inheritedProperties?: InheritedProperty[];
+  inheritedProperties?: InheritedProperty[] | undefined;
 
   /**
    * <p>This specifies the log group class for this log group. There are two classes:</p>
@@ -2287,7 +2287,7 @@ export interface LogGroup {
    *          </p>
    * @public
    */
-  logGroupClass?: LogGroupClass;
+  logGroupClass?: LogGroupClass | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the log group. This version of the ARN doesn't include a trailing <code>:*</code> after the log group name. </p>
@@ -2306,7 +2306,7 @@ export interface LogGroup {
    *          </ul>
    * @public
    */
-  logGroupArn?: string;
+  logGroupArn?: string | undefined;
 }
 
 /**
@@ -2319,13 +2319,13 @@ export interface DescribeLogGroupsResponse {
    *       group's events do not expire.</p>
    * @public
    */
-  logGroups?: LogGroup[];
+  logGroups?: LogGroup[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2356,7 +2356,7 @@ export interface DescribeLogStreamsRequest {
    *          </note>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Specify either the name or ARN of the log group to view. If the log group is in a source account
@@ -2369,7 +2369,7 @@ export interface DescribeLogStreamsRequest {
    *          </note>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>The prefix to match.</p>
@@ -2377,7 +2377,7 @@ export interface DescribeLogStreamsRequest {
    *       parameter.</p>
    * @public
    */
-  logStreamNamePrefix?: string;
+  logStreamNamePrefix?: string | undefined;
 
   /**
    * <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name.
@@ -2392,7 +2392,7 @@ export interface DescribeLogStreamsRequest {
    *       rare situations might take longer.</p>
    * @public
    */
-  orderBy?: OrderBy;
+  orderBy?: OrderBy | undefined;
 
   /**
    * <p>If the value is true, results are returned in descending order.
@@ -2400,19 +2400,19 @@ export interface DescribeLogStreamsRequest {
    *       The default value is false.</p>
    * @public
    */
-  descending?: boolean;
+  descending?: boolean | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -2425,21 +2425,21 @@ export interface LogStream {
    * <p>The name of the log stream.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The creation time of the stream, expressed as the number of milliseconds after
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 
   /**
    * <p>The time of the first event, expressed as the number of milliseconds after <code>Jan 1,
    *         1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  firstEventTimestamp?: number;
+  firstEventTimestamp?: number | undefined;
 
   /**
    * <p>The time of the most recent log event in the log stream in CloudWatch Logs. This number
@@ -2449,7 +2449,7 @@ export interface LogStream {
    *       longer.</p>
    * @public
    */
-  lastEventTimestamp?: number;
+  lastEventTimestamp?: number | undefined;
 
   /**
    * <p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970
@@ -2457,7 +2457,7 @@ export interface LogStream {
    *       typically updates in less than an hour after ingestion, but in rare situations might take longer.</p>
    * @public
    */
-  lastIngestionTime?: number;
+  lastIngestionTime?: number | undefined;
 
   /**
    * <p>The sequence token.</p>
@@ -2469,13 +2469,13 @@ export interface LogStream {
    *          </important>
    * @public
    */
-  uploadSequenceToken?: string;
+  uploadSequenceToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the log stream.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * @deprecated
@@ -2487,7 +2487,7 @@ export interface LogStream {
    *       log streams. The <code>storedBytes</code> parameter for log groups is not affected.</p>
    * @public
    */
-  storedBytes?: number;
+  storedBytes?: number | undefined;
 }
 
 /**
@@ -2498,13 +2498,13 @@ export interface DescribeLogStreamsResponse {
    * <p>The log streams.</p>
    * @public
    */
-  logStreams?: LogStream[];
+  logStreams?: LogStream[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2515,40 +2515,40 @@ export interface DescribeMetricFiltersRequest {
    * <p>The name of the log group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The prefix to match. CloudWatch Logs uses the value that you set here only if you also
    *       include the <code>logGroupName</code> parameter in your request.</p>
    * @public
    */
-  filterNamePrefix?: string;
+  filterNamePrefix?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you
    *     must also include the <code>metricNamespace</code> parameter.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>Filters results to include only those in the specified namespace. If you include this parameter in your request, you
    *     must also include the <code>metricName</code> parameter.</p>
    * @public
    */
-  metricNamespace?: string;
+  metricNamespace?: string | undefined;
 }
 
 /**
@@ -2620,7 +2620,7 @@ export interface MetricTransformation {
    *       This value can be null.</p>
    * @public
    */
-  defaultValue?: number;
+  defaultValue?: number | undefined;
 
   /**
    * <p>The fields to use as dimensions for the metric. One metric filter can include
@@ -2643,13 +2643,13 @@ export interface MetricTransformation {
    *          </important>
    * @public
    */
-  dimensions?: Record<string, string>;
+  dimensions?: Record<string, string> | undefined;
 
   /**
    * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
    * @public
    */
-  unit?: StandardUnit;
+  unit?: StandardUnit | undefined;
 }
 
 /**
@@ -2662,7 +2662,7 @@ export interface MetricFilter {
    * <p>The name of the metric filter.</p>
    * @public
    */
-  filterName?: string;
+  filterName?: string | undefined;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -2670,26 +2670,26 @@ export interface MetricFilter {
    *       use the filter pattern to specify what to look for in the log event message.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>The metric transformations.</p>
    * @public
    */
-  metricTransformations?: MetricTransformation[];
+  metricTransformations?: MetricTransformation[] | undefined;
 
   /**
    * <p>The creation time of the metric filter, expressed as the number of milliseconds after
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 
   /**
    * <p>The name of the log group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 }
 
 /**
@@ -2700,13 +2700,13 @@ export interface DescribeMetricFiltersResponse {
    * <p>The metric filters.</p>
    * @public
    */
-  metricFilters?: MetricFilter[];
+  metricFilters?: MetricFilter[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2736,26 +2736,26 @@ export interface DescribeQueriesRequest {
    * <p>Limits the returned queries to only those for the specified log group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
    * @public
    */
-  status?: QueryStatus;
+  status?: QueryStatus | undefined;
 
   /**
    * <p>Limits the number of returned queries to the specified number.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2767,32 +2767,32 @@ export interface QueryInfo {
    * <p>The unique ID number of this query.</p>
    * @public
    */
-  queryId?: string;
+  queryId?: string | undefined;
 
   /**
    * <p>The query string used in this query.</p>
    * @public
    */
-  queryString?: string;
+  queryString?: string | undefined;
 
   /**
    * <p>The status of this query. Possible values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
    * @public
    */
-  status?: QueryStatus;
+  status?: QueryStatus | undefined;
 
   /**
    * <p>The date and time that this query was created.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>The name of the log group scanned by this query.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 }
 
 /**
@@ -2803,13 +2803,13 @@ export interface DescribeQueriesResponse {
    * <p>The list of queries that match the request.</p>
    * @public
    */
-  queries?: QueryInfo[];
+  queries?: QueryInfo[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2820,19 +2820,19 @@ export interface DescribeQueryDefinitionsRequest {
    * <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
    * @public
    */
-  queryDefinitionNamePrefix?: string;
+  queryDefinitionNamePrefix?: string | undefined;
 
   /**
    * <p>Limits the number of returned query definitions to the specified number.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2844,32 +2844,32 @@ export interface QueryDefinition {
    * <p>The unique ID of the query definition.</p>
    * @public
    */
-  queryDefinitionId?: string;
+  queryDefinitionId?: string | undefined;
 
   /**
    * <p>The name of the query definition.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The query string to use for this definition.
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    * @public
    */
-  queryString?: string;
+  queryString?: string | undefined;
 
   /**
    * <p>The date that the query definition was most recently modified.</p>
    * @public
    */
-  lastModified?: number;
+  lastModified?: number | undefined;
 
   /**
    * <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
    * @public
    */
-  logGroupNames?: string[];
+  logGroupNames?: string[] | undefined;
 }
 
 /**
@@ -2880,13 +2880,13 @@ export interface DescribeQueryDefinitionsResponse {
    * <p>The list of query definitions that match your request.</p>
    * @public
    */
-  queryDefinitions?: QueryDefinition[];
+  queryDefinitions?: QueryDefinition[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2897,13 +2897,13 @@ export interface DescribeResourcePoliciesRequest {
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of resource policies to be displayed with one call of this API.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -2915,20 +2915,20 @@ export interface ResourcePolicy {
    * <p>The name of the resource policy.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The details of the policy.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>Timestamp showing when this policy was last updated, expressed as the number of
    *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  lastUpdatedTime?: number;
+  lastUpdatedTime?: number | undefined;
 }
 
 /**
@@ -2939,13 +2939,13 @@ export interface DescribeResourcePoliciesResponse {
    * <p>The resource policies that exist in this account.</p>
    * @public
    */
-  resourcePolicies?: ResourcePolicy[];
+  resourcePolicies?: ResourcePolicy[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2962,19 +2962,19 @@ export interface DescribeSubscriptionFiltersRequest {
    * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
    * @public
    */
-  filterNamePrefix?: string;
+  filterNamePrefix?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3000,13 +3000,13 @@ export interface SubscriptionFilter {
    * <p>The name of the subscription filter.</p>
    * @public
    */
-  filterName?: string;
+  filterName?: string | undefined;
 
   /**
    * <p>The name of the log group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -3014,33 +3014,33 @@ export interface SubscriptionFilter {
    *       use the filter pattern to specify what to look for in the log event message.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the destination.</p>
    * @public
    */
-  destinationArn?: string;
+  destinationArn?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The method used to distribute log data to the destination, which can be either
    *       random or grouped by log stream.</p>
    * @public
    */
-  distribution?: Distribution;
+  distribution?: Distribution | undefined;
 
   /**
    * <p>The creation time of the subscription filter, expressed as the number of milliseconds
    *       after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  creationTime?: number;
+  creationTime?: number | undefined;
 }
 
 /**
@@ -3051,13 +3051,13 @@ export interface DescribeSubscriptionFiltersResponse {
    * <p>The subscription filters.</p>
    * @public
    */
-  subscriptionFilters?: SubscriptionFilter[];
+  subscriptionFilters?: SubscriptionFilter[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3071,7 +3071,7 @@ export interface DisassociateKmsKeyRequest {
    *       but you can't specify both.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Specifies the target for this operation. You must specify one of the following:</p>
@@ -3101,7 +3101,7 @@ export interface DisassociateKmsKeyRequest {
    *       but you can't specify both.</p>
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 }
 
 /**
@@ -3113,13 +3113,13 @@ export interface Entity {
    * <p>Reserved for internal use.</p>
    * @public
    */
-  keyAttributes?: Record<string, string>;
+  keyAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>Reserved for internal use.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -3150,33 +3150,33 @@ export interface FilteredLogEvent {
    * <p>The name of the log stream to which this event belongs.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The time the event occurred, expressed as the number of milliseconds after <code>Jan 1,
    *         1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  timestamp?: number;
+  timestamp?: number | undefined;
 
   /**
    * <p>The data contained in the log event.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The time the event was ingested, expressed as the number of milliseconds after
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  ingestionTime?: number;
+  ingestionTime?: number | undefined;
 
   /**
    * <p>The ID of the event.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -3193,7 +3193,7 @@ export interface FilterLogEventsRequest {
    *          </note>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account
@@ -3206,7 +3206,7 @@ export interface FilterLogEventsRequest {
    *          </note>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>Filters the results to only logs from the log streams in this list.</p>
@@ -3214,7 +3214,7 @@ export interface FilterLogEventsRequest {
    *       returns an <code>InvalidParameterException</code> error.</p>
    * @public
    */
-  logStreamNames?: string[];
+  logStreamNames?: string[] | undefined;
 
   /**
    * <p>Filters the results to include only events from log streams that have names starting with this prefix.</p>
@@ -3222,7 +3222,7 @@ export interface FilterLogEventsRequest {
    *       returns an <code>InvalidParameterException</code> error.</p>
    * @public
    */
-  logStreamNamePrefix?: string;
+  logStreamNamePrefix?: string | undefined;
 
   /**
    * <p>The start of the time range, expressed as the number of milliseconds after <code>Jan 1,
@@ -3230,7 +3230,7 @@ export interface FilterLogEventsRequest {
    *       returned.</p>
    * @public
    */
-  startTime?: number;
+  startTime?: number | undefined;
 
   /**
    * <p>The end of the time range, expressed as the number of milliseconds after <code>Jan 1,
@@ -3238,26 +3238,26 @@ export interface FilterLogEventsRequest {
    *       returned.</p>
    * @public
    */
-  endTime?: number;
+  endTime?: number | undefined;
 
   /**
    * <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
    *          <p>If not provided, all the events are matched.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>The token for the next set of events to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of events to return. The default is 10,000 events.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * @deprecated
@@ -3272,7 +3272,7 @@ export interface FilterLogEventsRequest {
    *       interleaves events from multiple log streams within a log group.</p>
    * @public
    */
-  interleaved?: boolean;
+  interleaved?: boolean | undefined;
 
   /**
    * <p>Specify <code>true</code> to display the log event fields with all sensitive data unmasked and visible.
@@ -3281,7 +3281,7 @@ export interface FilterLogEventsRequest {
    *       permission.</p>
    * @public
    */
-  unmask?: boolean;
+  unmask?: boolean | undefined;
 }
 
 /**
@@ -3293,13 +3293,13 @@ export interface SearchedLogStream {
    * <p>The name of the log stream.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>Indicates whether all the events in this log stream were searched.</p>
    * @public
    */
-  searchedCompletely?: boolean;
+  searchedCompletely?: boolean | undefined;
 }
 
 /**
@@ -3310,7 +3310,7 @@ export interface FilterLogEventsResponse {
    * <p>The matched events.</p>
    * @public
    */
-  events?: FilteredLogEvent[];
+  events?: FilteredLogEvent[] | undefined;
 
   /**
    * <p>
@@ -3319,13 +3319,13 @@ export interface FilterLogEventsResponse {
    *          <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
    * @public
    */
-  searchedLogStreams?: SearchedLogStream[];
+  searchedLogStreams?: SearchedLogStream[] | undefined;
 
   /**
    * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3347,19 +3347,19 @@ export interface GetDataProtectionPolicyResponse {
    * <p>The log group name or ARN that you specified in your request.</p>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>The data protection policy document for this log group.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>The date and time that this policy was most recently updated.</p>
    * @public
    */
-  lastUpdatedTime?: number;
+  lastUpdatedTime?: number | undefined;
 }
 
 /**
@@ -3381,7 +3381,7 @@ export interface GetDeliveryResponse {
    * <p>A structure that contains information about the delivery.</p>
    * @public
    */
-  delivery?: Delivery;
+  delivery?: Delivery | undefined;
 }
 
 /**
@@ -3403,7 +3403,7 @@ export interface GetDeliveryDestinationResponse {
    * <p>A structure containing information about the delivery destination.</p>
    * @public
    */
-  deliveryDestination?: DeliveryDestination;
+  deliveryDestination?: DeliveryDestination | undefined;
 }
 
 /**
@@ -3426,7 +3426,7 @@ export interface Policy {
    * <p>The contents of the delivery destination policy.</p>
    * @public
    */
-  deliveryDestinationPolicy?: string;
+  deliveryDestinationPolicy?: string | undefined;
 }
 
 /**
@@ -3437,7 +3437,7 @@ export interface GetDeliveryDestinationPolicyResponse {
    * <p>The IAM policy for this delivery destination.</p>
    * @public
    */
-  policy?: Policy;
+  policy?: Policy | undefined;
 }
 
 /**
@@ -3459,7 +3459,7 @@ export interface GetDeliverySourceResponse {
    * <p>A structure containing information about the delivery source.</p>
    * @public
    */
-  deliverySource?: DeliverySource;
+  deliverySource?: DeliverySource | undefined;
 }
 
 /**
@@ -3483,14 +3483,14 @@ export interface GetLogAnomalyDetectorResponse {
    * <p>The name of the log anomaly detector</p>
    * @public
    */
-  detectorName?: string;
+  detectorName?: string | undefined;
 
   /**
    * <p>An array of structures, where each structure contains the ARN of a log group
    *       associated with this anomaly detector.</p>
    * @public
    */
-  logGroupArnList?: string[];
+  logGroupArnList?: string[] | undefined;
 
   /**
    * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
@@ -3499,7 +3499,7 @@ export interface GetLogAnomalyDetectorResponse {
    *        <code>FIFTEEN_MIN</code> might be appropriate.</p>
    * @public
    */
-  evaluationFrequency?: EvaluationFrequency;
+  evaluationFrequency?: EvaluationFrequency | undefined;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -3507,7 +3507,7 @@ export interface GetLogAnomalyDetectorResponse {
    *       use the filter pattern to specify what to look for in the log event message.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>Specifies whether the anomaly detector is currently active. To change its status, use
@@ -3515,32 +3515,32 @@ export interface GetLogAnomalyDetectorResponse {
    *       operation.</p>
    * @public
    */
-  anomalyDetectorStatus?: AnomalyDetectorStatus;
+  anomalyDetectorStatus?: AnomalyDetectorStatus | undefined;
 
   /**
    * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The date and time when this anomaly detector was created.</p>
    * @public
    */
-  creationTimeStamp?: number;
+  creationTimeStamp?: number | undefined;
 
   /**
    * <p>The date and time when this anomaly detector was most recently modified.</p>
    * @public
    */
-  lastModifiedTimeStamp?: number;
+  lastModifiedTimeStamp?: number | undefined;
 
   /**
    * <p>The number of days used as the life cycle of anomalies. After this time, anomalies are automatically baselined
    *        and the anomaly detector model will treat new occurrences of similar event as normal. </p>
    * @public
    */
-  anomalyVisibilityTime?: number;
+  anomalyVisibilityTime?: number | undefined;
 }
 
 /**
@@ -3557,7 +3557,7 @@ export interface GetLogEventsRequest {
    *          </note>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account
@@ -3570,7 +3570,7 @@ export interface GetLogEventsRequest {
    *          </note>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>The name of the log stream.</p>
@@ -3584,7 +3584,7 @@ export interface GetLogEventsRequest {
    *       are included. Events with a timestamp earlier than this time are not included.</p>
    * @public
    */
-  startTime?: number;
+  startTime?: number | undefined;
 
   /**
    * <p>The end of the time range, expressed as the number of milliseconds after <code>Jan 1,
@@ -3592,20 +3592,20 @@ export interface GetLogEventsRequest {
    *       included.</p>
    * @public
    */
-  endTime?: number;
+  endTime?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of log events returned. If you don't specify a limit, the default is
    *       as many log events as can fit in a response size of 1 MB (up to 10,000 log events).</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>If the value is true, the earliest log events are returned first.
@@ -3615,7 +3615,7 @@ export interface GetLogEventsRequest {
    *       you must specify <code>true</code> for <code>startFromHead</code>.</p>
    * @public
    */
-  startFromHead?: boolean;
+  startFromHead?: boolean | undefined;
 
   /**
    * <p>Specify <code>true</code> to display the log event fields with all sensitive data unmasked and visible.
@@ -3624,7 +3624,7 @@ export interface GetLogEventsRequest {
    *       permission.</p>
    * @public
    */
-  unmask?: boolean;
+  unmask?: boolean | undefined;
 }
 
 /**
@@ -3637,20 +3637,20 @@ export interface OutputLogEvent {
    *         1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  timestamp?: number;
+  timestamp?: number | undefined;
 
   /**
    * <p>The data contained in the log event.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The time the event was ingested, expressed as the number of milliseconds after
    *         <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
-  ingestionTime?: number;
+  ingestionTime?: number | undefined;
 }
 
 /**
@@ -3661,7 +3661,7 @@ export interface GetLogEventsResponse {
    * <p>The events.</p>
    * @public
    */
-  events?: OutputLogEvent[];
+  events?: OutputLogEvent[] | undefined;
 
   /**
    * <p>The token for the next set of items in the forward direction. The token expires after
@@ -3669,7 +3669,7 @@ export interface GetLogEventsResponse {
    *       in.</p>
    * @public
    */
-  nextForwardToken?: string;
+  nextForwardToken?: string | undefined;
 
   /**
    * <p>The token for the next set of items in the backward direction. The token expires after
@@ -3677,7 +3677,7 @@ export interface GetLogEventsResponse {
    *       same token you passed in.</p>
    * @public
    */
-  nextBackwardToken?: string;
+  nextBackwardToken?: string | undefined;
 }
 
 /**
@@ -3694,7 +3694,7 @@ export interface GetLogGroupFieldsRequest {
    *          </note>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The time to set as the center of the query. If you specify <code>time</code>, the 8 minutes before and
@@ -3704,7 +3704,7 @@ export interface GetLogGroupFieldsRequest {
    *       since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
    * @public
    */
-  time?: number;
+  time?: number | undefined;
 
   /**
    * <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and
@@ -3717,7 +3717,7 @@ export interface GetLogGroupFieldsRequest {
    *          </note>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 }
 
 /**
@@ -3730,13 +3730,13 @@ export interface LogGroupField {
    * <p>The name of a log field.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The percentage of log events queried that contained the field.</p>
    * @public
    */
-  percent?: number;
+  percent?: number | undefined;
 }
 
 /**
@@ -3749,7 +3749,7 @@ export interface GetLogGroupFieldsResponse {
    *       queried.</p>
    * @public
    */
-  logGroupFields?: LogGroupField[];
+  logGroupFields?: LogGroupField[] | undefined;
 }
 
 /**
@@ -3772,7 +3772,7 @@ export interface GetLogRecordRequest {
    *       permission.</p>
    * @public
    */
-  unmask?: boolean;
+  unmask?: boolean | undefined;
 }
 
 /**
@@ -3783,7 +3783,7 @@ export interface GetLogRecordResponse {
    * <p>The requested log event, as a JSON string.</p>
    * @public
    */
-  logRecord?: Record<string, string>;
+  logRecord?: Record<string, string> | undefined;
 }
 
 /**
@@ -3809,13 +3809,13 @@ export interface ResultField {
    * <p>The log event field.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 
   /**
    * <p>The value of this field.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -3828,19 +3828,19 @@ export interface QueryStatistics {
    * <p>The number of log events that matched the query string.</p>
    * @public
    */
-  recordsMatched?: number;
+  recordsMatched?: number | undefined;
 
   /**
    * <p>The total number of log events scanned during the query.</p>
    * @public
    */
-  recordsScanned?: number;
+  recordsScanned?: number | undefined;
 
   /**
    * <p>The total number of bytes in the log events scanned during the query.</p>
    * @public
    */
-  bytesScanned?: number;
+  bytesScanned?: number | undefined;
 }
 
 /**
@@ -3854,7 +3854,7 @@ export interface GetQueryResultsResponse {
    *         <code>field</code>/<code>value</code> pairs.</p>
    * @public
    */
-  results?: ResultField[][];
+  results?: ResultField[][] | undefined;
 
   /**
    * <p>Includes the number of log events scanned by the query, the number of log events that
@@ -3862,7 +3862,7 @@ export interface GetQueryResultsResponse {
    *       values reflect the full raw results of the query.</p>
    * @public
    */
-  statistics?: QueryStatistics;
+  statistics?: QueryStatistics | undefined;
 
   /**
    * <p>The status of the most recent running of the query. Possible values are <code>Cancelled</code>,
@@ -3872,7 +3872,7 @@ export interface GetQueryResultsResponse {
    *       reduce the time range being searched or partition your query into a number of queries.</p>
    * @public
    */
-  status?: QueryStatus;
+  status?: QueryStatus | undefined;
 
   /**
    * <p>If you associated an KMS key with the CloudWatch Logs Insights
@@ -3881,7 +3881,7 @@ export interface GetQueryResultsResponse {
    *       them.</p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 }
 
 /**
@@ -3919,7 +3919,7 @@ export interface InputLogEvent {
 export class InvalidSequenceTokenException extends __BaseException {
   readonly name: "InvalidSequenceTokenException" = "InvalidSequenceTokenException";
   readonly $fault: "client" = "client";
-  expectedSequenceToken?: string;
+  expectedSequenceToken?: string | undefined;
   /**
    * @internal
    */
@@ -3957,27 +3957,27 @@ export interface ListAnomaliesRequest {
    *       anomaly detector.</p>
    * @public
    */
-  anomalyDetectorArn?: string;
+  anomalyDetectorArn?: string | undefined;
 
   /**
    * <p>You can specify this parameter if you want to the operation to return only anomalies that
    *       are currently either suppressed or unsuppressed.</p>
    * @public
    */
-  suppressionState?: SuppressionState;
+  suppressionState?: SuppressionState | undefined;
 
   /**
    * <p>The maximum number of items to return. If you don't specify a value, the default maximum value of
    *        50 items is used.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3989,13 +3989,13 @@ export interface ListAnomaliesResponse {
    *       anomaly detector has found.</p>
    * @public
    */
-  anomalies?: Anomaly[];
+  anomalies?: Anomaly[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4007,20 +4007,20 @@ export interface ListLogAnomalyDetectorsRequest {
    *       specified log group.</p>
    * @public
    */
-  filterLogGroupArn?: string;
+  filterLogGroupArn?: string | undefined;
 
   /**
    * <p>The maximum number of items to return. If you don't specify a value, the default maximum value of
    *        50 items is used.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4031,13 +4031,13 @@ export interface ListLogAnomalyDetectorsResponse {
    * <p>An array of structures, where each structure in the array contains information about one anomaly detector.</p>
    * @public
    */
-  anomalyDetectors?: AnomalyDetector[];
+  anomalyDetectors?: AnomalyDetector[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4069,7 +4069,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags associated with the requested resource.></p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4091,7 +4091,7 @@ export interface ListTagsLogGroupResponse {
    * <p>The tags for the log group.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4103,31 +4103,31 @@ export interface LiveTailSessionLogEvent {
    * <p>The name of the log stream that ingested this log event.</p>
    * @public
    */
-  logStreamName?: string;
+  logStreamName?: string | undefined;
 
   /**
    * <p>The name or ARN of the log group that ingested this log event.</p>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>The log event message text.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The timestamp specifying when this log event was created.</p>
    * @public
    */
-  timestamp?: number;
+  timestamp?: number | undefined;
 
   /**
    * <p>The timestamp specifying when this log event was ingested into the log group.</p>
    * @public
    */
-  ingestionTime?: number;
+  ingestionTime?: number | undefined;
 }
 
 /**
@@ -4145,7 +4145,7 @@ export interface LiveTailSessionMetadata {
    *       <code>sessionResults</code> array includes all log events that matched your request during this time.</p>
    * @public
    */
-  sampled?: boolean;
+  sampled?: boolean | undefined;
 }
 
 /**
@@ -4158,33 +4158,33 @@ export interface LiveTailSessionStart {
    * <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session request.</p>
    * @public
    */
-  requestId?: string;
+  requestId?: string | undefined;
 
   /**
    * <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
    * @public
    */
-  logGroupIdentifiers?: string[];
+  logGroupIdentifiers?: string[] | undefined;
 
   /**
    * <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session
    *     to only include certain log streams, these streams are listed here.</p>
    * @public
    */
-  logStreamNames?: string[];
+  logStreamNames?: string[] | undefined;
 
   /**
    * <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session
    *       to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
    * @public
    */
-  logStreamNamePrefixes?: string[];
+  logStreamNamePrefixes?: string[] | undefined;
 
   /**
    * <p>An optional pattern to filter the results to include only log events that match the pattern.
@@ -4193,7 +4193,7 @@ export interface LiveTailSessionStart {
    *          <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
    * @public
    */
-  logEventFilterPattern?: string;
+  logEventFilterPattern?: string | undefined;
 }
 
 /**
@@ -4205,7 +4205,7 @@ export interface LiveTailSessionUpdate {
    * <p>This object contains the session metadata for a Live Tail session.</p>
    * @public
    */
-  sessionMetadata?: LiveTailSessionMetadata;
+  sessionMetadata?: LiveTailSessionMetadata | undefined;
 
   /**
    * <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
@@ -4214,7 +4214,7 @@ export interface LiveTailSessionUpdate {
    *       log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
    * @public
    */
-  sessionResults?: LiveTailSessionLogEvent[];
+  sessionResults?: LiveTailSessionLogEvent[] | undefined;
 }
 
 /**
@@ -4326,7 +4326,7 @@ export interface PutAccountPolicyRequest {
    *     of <code>ALL</code> is used.</p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p>Use this parameter to apply the subscription filter policy to a subset of log groups in the account.
@@ -4338,7 +4338,7 @@ export interface PutAccountPolicyRequest {
    *     for <code>policyType</code>.</p>
    * @public
    */
-  selectionCriteria?: string;
+  selectionCriteria?: string | undefined;
 }
 
 /**
@@ -4349,7 +4349,7 @@ export interface PutAccountPolicyResponse {
    * <p>The account policy that you created.</p>
    * @public
    */
-  accountPolicy?: AccountPolicy;
+  accountPolicy?: AccountPolicy | undefined;
 }
 
 /**
@@ -4410,19 +4410,19 @@ export interface PutDataProtectionPolicyResponse {
    * <p>The log group name or ARN that you specified in your request.</p>
    * @public
    */
-  logGroupIdentifier?: string;
+  logGroupIdentifier?: string | undefined;
 
   /**
    * <p>The data protection policy used for this log group.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>The date and time that this policy was most recently updated.</p>
    * @public
    */
-  lastUpdatedTime?: number;
+  lastUpdatedTime?: number | undefined;
 }
 
 /**
@@ -4439,7 +4439,7 @@ export interface PutDeliveryDestinationRequest {
    * <p>The format for the logs that this delivery destination will receive.</p>
    * @public
    */
-  outputFormat?: OutputFormat;
+  outputFormat?: OutputFormat | undefined;
 
   /**
    * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
@@ -4454,7 +4454,7 @@ export interface PutDeliveryDestinationRequest {
    *          </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4465,7 +4465,7 @@ export interface PutDeliveryDestinationResponse {
    * <p>A structure containing information about the delivery destination that you just created or updated.</p>
    * @public
    */
-  deliveryDestination?: DeliveryDestination;
+  deliveryDestination?: DeliveryDestination | undefined;
 }
 
 /**
@@ -4493,7 +4493,7 @@ export interface PutDeliveryDestinationPolicyResponse {
    * <p>The contents of the policy that you just created.</p>
    * @public
    */
-  policy?: Policy;
+  policy?: Policy | undefined;
 }
 
 /**
@@ -4545,7 +4545,7 @@ export interface PutDeliverySourceRequest {
    *          </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4556,7 +4556,7 @@ export interface PutDeliverySourceResponse {
    * <p>A structure containing information about the delivery source that was just created or updated.</p>
    * @public
    */
-  deliverySource?: DeliverySource;
+  deliverySource?: DeliverySource | undefined;
 }
 
 /**
@@ -4589,7 +4589,7 @@ export interface PutDestinationRequest {
    *          </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4600,7 +4600,7 @@ export interface PutDestinationResponse {
    * <p>The destination.</p>
    * @public
    */
-  destination?: Destination;
+  destination?: Destination | undefined;
 }
 
 /**
@@ -4634,7 +4634,7 @@ export interface PutDestinationPolicyRequest {
    *          <p>If you omit this parameter, the default of <code>false</code> is used.</p>
    * @public
    */
-  forceUpdate?: boolean;
+  forceUpdate?: boolean | undefined;
 }
 
 /**
@@ -4670,13 +4670,13 @@ export interface PutLogEventsRequest {
    *          </important>
    * @public
    */
-  sequenceToken?: string;
+  sequenceToken?: string | undefined;
 
   /**
    * <p>Reserved for internal use.</p>
    * @public
    */
-  entity?: Entity;
+  entity?: Entity | undefined;
 }
 
 /**
@@ -4700,19 +4700,19 @@ export interface RejectedLogEventsInfo {
    * <p>The index of the first log event that is too new. This field is inclusive.</p>
    * @public
    */
-  tooNewLogEventStartIndex?: number;
+  tooNewLogEventStartIndex?: number | undefined;
 
   /**
    * <p>The index of the last log event that is too old. This field is exclusive.</p>
    * @public
    */
-  tooOldLogEventEndIndex?: number;
+  tooOldLogEventEndIndex?: number | undefined;
 
   /**
    * <p>The expired log events.</p>
    * @public
    */
-  expiredLogEventEndIndex?: number;
+  expiredLogEventEndIndex?: number | undefined;
 }
 
 /**
@@ -4732,19 +4732,19 @@ export interface PutLogEventsResponse {
    *          </important>
    * @public
    */
-  nextSequenceToken?: string;
+  nextSequenceToken?: string | undefined;
 
   /**
    * <p>The rejected events.</p>
    * @public
    */
-  rejectedLogEventsInfo?: RejectedLogEventsInfo;
+  rejectedLogEventsInfo?: RejectedLogEventsInfo | undefined;
 
   /**
    * <p>Reserved for internal use.</p>
    * @public
    */
-  rejectedEntityInfo?: RejectedEntityInfo;
+  rejectedEntityInfo?: RejectedEntityInfo | undefined;
 }
 
 /**
@@ -4818,7 +4818,7 @@ export interface PutQueryDefinitionRequest {
    *       operation.</p>
    * @public
    */
-  queryDefinitionId?: string;
+  queryDefinitionId?: string | undefined;
 
   /**
    * <p>Use this parameter to include specific log groups as part of your query definition.</p>
@@ -4826,7 +4826,7 @@ export interface PutQueryDefinitionRequest {
    *       definition will contain no log groups.</p>
    * @public
    */
-  logGroupNames?: string[];
+  logGroupNames?: string[] | undefined;
 
   /**
    * <p>The query string to use for this definition.
@@ -4842,7 +4842,7 @@ export interface PutQueryDefinitionRequest {
    *     error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4853,7 +4853,7 @@ export interface PutQueryDefinitionResponse {
    * <p>The ID of the query definition.</p>
    * @public
    */
-  queryDefinitionId?: string;
+  queryDefinitionId?: string | undefined;
 }
 
 /**
@@ -4864,7 +4864,7 @@ export interface PutResourcePolicyRequest {
    * <p>Name of the new policy. This parameter is required.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.
@@ -4908,7 +4908,7 @@ export interface PutResourcePolicyRequest {
    *          </p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 }
 
 /**
@@ -4919,7 +4919,7 @@ export interface PutResourcePolicyResponse {
    * <p>The new policy.</p>
    * @public
    */
-  resourcePolicy?: ResourcePolicy;
+  resourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -4999,7 +4999,7 @@ export interface PutSubscriptionFilterRequest {
    *       a logical destination for cross-account delivery.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The method used to distribute log data to the destination. By default, log data is
@@ -5007,7 +5007,7 @@ export interface PutSubscriptionFilterRequest {
    *       This property is only applicable when the destination is an Amazon Kinesis data stream. </p>
    * @public
    */
-  distribution?: Distribution;
+  distribution?: Distribution | undefined;
 }
 
 /**
@@ -5034,7 +5034,7 @@ export interface StartLiveTailRequest {
    *          </note>
    * @public
    */
-  logStreamNames?: string[];
+  logStreamNames?: string[] | undefined;
 
   /**
    * <p>If you specify this parameter, then only log events in the log streams that have names that start with the
@@ -5046,7 +5046,7 @@ export interface StartLiveTailRequest {
    *          </note>
    * @public
    */
-  logStreamNamePrefixes?: string[];
+  logStreamNamePrefixes?: string[] | undefined;
 
   /**
    * <p>An optional pattern to use to filter the results to include only log events that match the pattern.
@@ -5056,7 +5056,7 @@ export interface StartLiveTailRequest {
    *          <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
    * @public
    */
-  logEventFilterPattern?: string;
+  logEventFilterPattern?: string | undefined;
 }
 
 /**
@@ -5205,7 +5205,7 @@ export interface StartLiveTailResponse {
    * <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
    * @public
    */
-  responseStream?: AsyncIterable<StartLiveTailResponseStream>;
+  responseStream?: AsyncIterable<StartLiveTailResponseStream> | undefined;
 }
 
 /**
@@ -5217,13 +5217,13 @@ export interface QueryCompileErrorLocation {
    * <p>Reserved.</p>
    * @public
    */
-  startCharOffset?: number;
+  startCharOffset?: number | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  endCharOffset?: number;
+  endCharOffset?: number | undefined;
 }
 
 /**
@@ -5235,13 +5235,13 @@ export interface QueryCompileError {
    * <p>Reserved.</p>
    * @public
    */
-  location?: QueryCompileErrorLocation;
+  location?: QueryCompileErrorLocation | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -5259,7 +5259,7 @@ export class MalformedQueryException extends __BaseException {
    * <p>Reserved.</p>
    * @public
    */
-  queryCompileError?: QueryCompileError;
+  queryCompileError?: QueryCompileError | undefined;
 
   /**
    * @internal
@@ -5288,7 +5288,7 @@ export interface StartQueryRequest {
    *          </note>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The list of log groups to be queried. You can include up to 50 log groups.</p>
@@ -5299,7 +5299,7 @@ export interface StartQueryRequest {
    *          </note>
    * @public
    */
-  logGroupNames?: string[];
+  logGroupNames?: string[] | undefined;
 
   /**
    * <p>The list of log groups to query. You can include up to 50 log groups.</p>
@@ -5311,7 +5311,7 @@ export interface StartQueryRequest {
    *         <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. </p>
    * @public
    */
-  logGroupIdentifiers?: string[];
+  logGroupIdentifiers?: string[] | undefined;
 
   /**
    * <p>The beginning of the time range to query. The range is inclusive, so the specified start
@@ -5341,7 +5341,7 @@ export interface StartQueryRequest {
    *     only the specified fields and their values are returned. The default is 10,000.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -5352,7 +5352,7 @@ export interface StartQueryResponse {
    * <p>The unique ID of the query. </p>
    * @public
    */
-  queryId?: string;
+  queryId?: string | undefined;
 }
 
 /**
@@ -5375,7 +5375,7 @@ export interface StopQueryResponse {
    * <p>This is true if the query was stopped by the <code>StopQuery</code> operation.</p>
    * @public
    */
-  success?: boolean;
+  success?: boolean | undefined;
 }
 
 /**
@@ -5433,7 +5433,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>The name of the resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -5477,19 +5477,19 @@ export interface MetricFilterMatchRecord {
    * <p>The event number.</p>
    * @public
    */
-  eventNumber?: number;
+  eventNumber?: number | undefined;
 
   /**
    * <p>The raw event data.</p>
    * @public
    */
-  eventMessage?: string;
+  eventMessage?: string | undefined;
 
   /**
    * <p>The values extracted from the event data by the filter.</p>
    * @public
    */
-  extractedValues?: Record<string, string>;
+  extractedValues?: Record<string, string> | undefined;
 }
 
 /**
@@ -5500,7 +5500,7 @@ export interface TestMetricFilterResponse {
    * <p>The matched events.</p>
    * @public
    */
-  matches?: MetricFilterMatchRecord[];
+  matches?: MetricFilterMatchRecord[] | undefined;
 }
 
 /**
@@ -5572,13 +5572,13 @@ export interface SuppressionPeriod {
    * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 
   /**
    * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
    * @public
    */
-  suppressionUnit?: SuppressionUnit;
+  suppressionUnit?: SuppressionUnit | undefined;
 }
 
 /**
@@ -5604,14 +5604,14 @@ export interface UpdateAnomalyRequest {
    *         using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a> operation.</p>
    * @public
    */
-  anomalyId?: string;
+  anomalyId?: string | undefined;
 
   /**
    * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can find pattern IDs by
    *        using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a> operation.</p>
    * @public
    */
-  patternId?: string;
+  patternId?: string | undefined;
 
   /**
    * <p>The ARN of the anomaly detector that this operation is to act on.</p>
@@ -5625,14 +5625,14 @@ export interface UpdateAnomalyRequest {
    *         any value for <code>suppressionPeriod</code> is ignored. </p>
    * @public
    */
-  suppressionType?: SuppressionType;
+  suppressionType?: SuppressionType | undefined;
 
   /**
    * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
    *       how long the suppression is to last.</p>
    * @public
    */
-  suppressionPeriod?: SuppressionPeriod;
+  suppressionPeriod?: SuppressionPeriod | undefined;
 
   /**
    * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior as an anomaly in the future. The behavior is then treated as
@@ -5642,7 +5642,7 @@ export interface UpdateAnomalyRequest {
    *          </p>
    * @public
    */
-  baseline?: boolean;
+  baseline?: boolean | undefined;
 }
 
 /**
@@ -5660,20 +5660,20 @@ export interface UpdateDeliveryConfigurationRequest {
    *       If the delivery's log source has mandatory fields, they must be included in this list.</p>
    * @public
    */
-  recordFields?: string[];
+  recordFields?: string[] | undefined;
 
   /**
    * <p>The field delimiter to use between record fields when the final output format of a delivery
    *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
    * @public
    */
-  fieldDelimiter?: string;
+  fieldDelimiter?: string | undefined;
 
   /**
    * <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
    * @public
    */
-  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
 }
 
 /**
@@ -5698,7 +5698,7 @@ export interface UpdateLogAnomalyDetectorRequest {
    *        <code>FIFTEEN_MIN</code> might be appropriate.</p>
    * @public
    */
-  evaluationFrequency?: EvaluationFrequency;
+  evaluationFrequency?: EvaluationFrequency | undefined;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -5706,7 +5706,7 @@ export interface UpdateLogAnomalyDetectorRequest {
    *       use the filter pattern to specify what to look for in the log event message.</p>
    * @public
    */
-  filterPattern?: string;
+  filterPattern?: string | undefined;
 
   /**
    * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are automatically baselined
@@ -5714,7 +5714,7 @@ export interface UpdateLogAnomalyDetectorRequest {
    *        anomaly during this time, it will be considered normal going forward and will not be detected.</p>
    * @public
    */
-  anomalyVisibilityTime?: number;
+  anomalyVisibilityTime?: number | undefined;
 
   /**
    * <p>Use this parameter to pause or restart the anomaly detector. </p>

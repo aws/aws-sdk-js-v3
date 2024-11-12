@@ -67,7 +67,7 @@ export interface RespondToAuthChallengeResponse {
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    * @public
    */
-  ChallengeName?: ChallengeNameType;
+  ChallengeName?: ChallengeNameType | undefined;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -76,20 +76,20 @@ export interface RespondToAuthChallengeResponse {
    *                 <code>RespondToAuthChallenge</code> API call.</p>
    * @public
    */
-  Session?: string;
+  Session?: string | undefined;
 
   /**
    * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    * @public
    */
-  ChallengeParameters?: Record<string, string>;
+  ChallengeParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The result returned by the server in response to the request to respond to the
    *             authentication challenge.</p>
    * @public
    */
-  AuthenticationResult?: AuthenticationResultType;
+  AuthenticationResult?: AuthenticationResultType | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface RevokeTokenRequest {
    *             secret.</p>
    * @public
    */
-  ClientSecret?: string;
+  ClientSecret?: string | undefined;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface SetLogDeliveryConfigurationResponse {
    *             pool.</p>
    * @public
    */
-  LogDeliveryConfiguration?: LogDeliveryConfigurationType;
+  LogDeliveryConfiguration?: LogDeliveryConfigurationType | undefined;
 }
 
 /**
@@ -231,25 +231,25 @@ export interface SetRiskConfigurationRequest {
    *             client is used instead.</p>
    * @public
    */
-  ClientId?: string;
+  ClientId?: string | undefined;
 
   /**
    * <p>The compromised credentials risk configuration.</p>
    * @public
    */
-  CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType;
+  CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType | undefined;
 
   /**
    * <p>The account takeover risk configuration.</p>
    * @public
    */
-  AccountTakeoverRiskConfiguration?: AccountTakeoverRiskConfigurationType;
+  AccountTakeoverRiskConfiguration?: AccountTakeoverRiskConfigurationType | undefined;
 
   /**
    * <p>The configuration to override the risk decision.</p>
    * @public
    */
-  RiskExceptionConfiguration?: RiskExceptionConfigurationType;
+  RiskExceptionConfiguration?: RiskExceptionConfigurationType | undefined;
 }
 
 /**
@@ -277,19 +277,19 @@ export interface SetUICustomizationRequest {
    * <p>The client ID for the client app.</p>
    * @public
    */
-  ClientId?: string;
+  ClientId?: string | undefined;
 
   /**
    * <p>The CSS values in the UI customization.</p>
    * @public
    */
-  CSS?: string;
+  CSS?: string | undefined;
 
   /**
    * <p>The uploaded logo image for the UI customization.</p>
    * @public
    */
-  ImageFile?: Uint8Array;
+  ImageFile?: Uint8Array | undefined;
 }
 
 /**
@@ -312,7 +312,7 @@ export interface SetUserMFAPreferenceRequest {
    *             the preferred MFA method when multiple methods are available.</p>
    * @public
    */
-  SMSMfaSettings?: SMSMfaSettingsType;
+  SMSMfaSettings?: SMSMfaSettingsType | undefined;
 
   /**
    * <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
@@ -320,7 +320,7 @@ export interface SetUserMFAPreferenceRequest {
    *             available.</p>
    * @public
    */
-  SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType;
+  SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType | undefined;
 
   /**
    * <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it
@@ -328,7 +328,7 @@ export interface SetUserMFAPreferenceRequest {
    *                      advanced security features</a> must be active in your user pool.</p>
    * @public
    */
-  EmailMfaSettings?: EmailMfaSettingsType;
+  EmailMfaSettings?: EmailMfaSettingsType | undefined;
 
   /**
    * <p>A valid access token that Amazon Cognito issued to the user whose MFA preference you want to
@@ -358,14 +358,14 @@ export interface SetUserPoolMfaConfigRequest {
    *             message sending configuration for Amazon SNS.</p>
    * @public
    */
-  SmsMfaConfiguration?: SmsMfaConfigType;
+  SmsMfaConfiguration?: SmsMfaConfigType | undefined;
 
   /**
    * <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or
    *             disables TOTP.</p>
    * @public
    */
-  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
+  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType | undefined;
 
   /**
    * <p>Configures user pool email messages for MFA. Sets the subject and body of the email
@@ -373,7 +373,7 @@ export interface SetUserPoolMfaConfigRequest {
    *                      advanced security features</a> must be active in your user pool.</p>
    * @public
    */
-  EmailMfaConfiguration?: EmailMfaConfigType;
+  EmailMfaConfiguration?: EmailMfaConfigType | undefined;
 
   /**
    * <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who
@@ -396,7 +396,7 @@ export interface SetUserPoolMfaConfigRequest {
    *          </ul>
    * @public
    */
-  MfaConfiguration?: UserPoolMfaType;
+  MfaConfiguration?: UserPoolMfaType | undefined;
 }
 
 /**
@@ -408,14 +408,14 @@ export interface SetUserPoolMfaConfigResponse {
    *             the SMS message sending configuration for Amazon SNS.</p>
    * @public
    */
-  SmsMfaConfiguration?: SmsMfaConfigType;
+  SmsMfaConfiguration?: SmsMfaConfigType | undefined;
 
   /**
    * <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes
    *             TOTP enabled or disabled state.</p>
    * @public
    */
-  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
+  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType | undefined;
 
   /**
    * <p>Shows user pool email message configuration for MFA. Includes the subject and body of
@@ -423,7 +423,7 @@ export interface SetUserPoolMfaConfigResponse {
    *                      advanced security features</a> must be active in your user pool.</p>
    * @public
    */
-  EmailMfaConfiguration?: EmailMfaConfigType;
+  EmailMfaConfiguration?: EmailMfaConfigType | undefined;
 
   /**
    * <p>The MFA configuration. Valid values include:</p>
@@ -444,7 +444,7 @@ export interface SetUserPoolMfaConfigResponse {
    *          </ul>
    * @public
    */
-  MfaConfiguration?: UserPoolMfaType;
+  MfaConfiguration?: UserPoolMfaType | undefined;
 }
 
 /**
@@ -489,7 +489,7 @@ export interface SignUpRequest {
    *             user pool client and username plus the client ID in the message.</p>
    * @public
    */
-  SecretHash?: string;
+  SecretHash?: string | undefined;
 
   /**
    * <p>The username of the user that you want to sign up. The value of this parameter is
@@ -510,7 +510,7 @@ export interface SignUpRequest {
    *             attribute name.</p>
    * @public
    */
-  UserAttributes?: AttributeType[];
+  UserAttributes?: AttributeType[] | undefined;
 
   /**
    * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
@@ -524,14 +524,14 @@ export interface SignUpRequest {
    *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
    * @public
    */
-  ValidationData?: AttributeType[];
+  ValidationData?: AttributeType[] | undefined;
 
   /**
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
    *                 <code>SignUp</code> calls.</p>
    * @public
    */
-  AnalyticsMetadata?: AnalyticsMetadataType;
+  AnalyticsMetadata?: AnalyticsMetadataType | undefined;
 
   /**
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
@@ -539,7 +539,7 @@ export interface SignUpRequest {
    * when it makes API requests.</p>
    * @public
    */
-  UserContextData?: UserContextDataType;
+  UserContextData?: UserContextDataType | undefined;
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
@@ -576,7 +576,7 @@ export interface SignUpRequest {
    *          </note>
    * @public
    */
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -596,7 +596,7 @@ export interface SignUpResponse {
    *             request.</p>
    * @public
    */
-  CodeDeliveryDetails?: CodeDeliveryDetailsType;
+  CodeDeliveryDetails?: CodeDeliveryDetailsType | undefined;
 
   /**
    * <p>The 128-bit ID of the authenticated user. This isn't the same as
@@ -634,7 +634,7 @@ export interface StartUserImportJobResponse {
    * <p>The job object that represents the user import job.</p>
    * @public
    */
-  UserImportJob?: UserImportJobType;
+  UserImportJob?: UserImportJobType | undefined;
 }
 
 /**
@@ -665,7 +665,7 @@ export interface StopUserImportJobResponse {
    * <p>The job object that represents the user import job.</p>
    * @public
    */
-  UserImportJob?: UserImportJobType;
+  UserImportJob?: UserImportJobType | undefined;
 }
 
 /**
@@ -782,7 +782,7 @@ export interface UpdateDeviceStatusRequest {
    * <p>The status of whether a device is remembered.</p>
    * @public
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType;
+  DeviceRememberedStatus?: DeviceRememberedStatusType | undefined;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface UpdateGroupRequest {
    * <p>A string containing the new description of the group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new role Amazon Resource Name (ARN) for the group. This is used for setting the
@@ -819,14 +819,14 @@ export interface UpdateGroupRequest {
    *             token.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The new precedence value for the group. For more information about this parameter, see
    *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
    * @public
    */
-  Precedence?: number;
+  Precedence?: number | undefined;
 }
 
 /**
@@ -837,7 +837,7 @@ export interface UpdateGroupResponse {
    * <p>The group object for the group.</p>
    * @public
    */
-  Group?: GroupType;
+  Group?: GroupType | undefined;
 }
 
 /**
@@ -978,19 +978,19 @@ export interface UpdateIdentityProviderRequest {
    *          </dl>
    * @public
    */
-  ProviderDetails?: Record<string, string>;
+  ProviderDetails?: Record<string, string> | undefined;
 
   /**
    * <p>The IdP attribute mapping to be changed.</p>
    * @public
    */
-  AttributeMapping?: Record<string, string>;
+  AttributeMapping?: Record<string, string> | undefined;
 
   /**
    * <p>A list of IdP identifiers.</p>
    * @public
    */
-  IdpIdentifiers?: string[];
+  IdpIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface UpdateResourceServerRequest {
    * <p>The scope values to be set for the resource server.</p>
    * @public
    */
-  Scopes?: ResourceServerScopeType[];
+  Scopes?: ResourceServerScopeType[] | undefined;
 }
 
 /**
@@ -1108,7 +1108,7 @@ export interface UpdateUserAttributesRequest {
    *          </note>
    * @public
    */
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -1122,7 +1122,7 @@ export interface UpdateUserAttributesResponse {
    *             attributes.</p>
    * @public
    */
-  CodeDeliveryDetailsList?: CodeDeliveryDetailsType[];
+  CodeDeliveryDetailsList?: CodeDeliveryDetailsType[] | undefined;
 }
 
 /**
@@ -1140,7 +1140,7 @@ export interface UpdateUserPoolRequest {
    * <p>A container with the policies you want to update in a user pool.</p>
    * @public
    */
-  Policies?: UserPoolPolicyType;
+  Policies?: UserPoolPolicyType | undefined;
 
   /**
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
@@ -1152,50 +1152,50 @@ export interface UpdateUserPoolRequest {
    * <code>UpdateUserPool</code> API request.</p>
    * @public
    */
-  DeletionProtection?: DeletionProtectionType;
+  DeletionProtection?: DeletionProtectionType | undefined;
 
   /**
    * <p>The Lambda configuration information from the request to update the user pool.</p>
    * @public
    */
-  LambdaConfig?: LambdaConfigType;
+  LambdaConfig?: LambdaConfigType | undefined;
 
   /**
    * <p>The attributes that are automatically verified when Amazon Cognito requests to update user
    *             pools.</p>
    * @public
    */
-  AutoVerifiedAttributes?: VerifiedAttributeType[];
+  AutoVerifiedAttributes?: VerifiedAttributeType[] | undefined;
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    * @public
    */
-  SmsVerificationMessage?: string;
+  SmsVerificationMessage?: string | undefined;
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    * @public
    */
-  EmailVerificationMessage?: string;
+  EmailVerificationMessage?: string | undefined;
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    * @public
    */
-  EmailVerificationSubject?: string;
+  EmailVerificationSubject?: string | undefined;
 
   /**
    * <p>The template for verification messages.</p>
    * @public
    */
-  VerificationMessageTemplate?: VerificationMessageTemplateType;
+  VerificationMessageTemplate?: VerificationMessageTemplateType | undefined;
 
   /**
    * <p>The contents of the SMS authentication message.</p>
    * @public
    */
-  SmsAuthenticationMessage?: string;
+  SmsAuthenticationMessage?: string | undefined;
 
   /**
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
@@ -1204,7 +1204,7 @@ export interface UpdateUserPoolRequest {
    * Verifying updates to email addresses and phone numbers</a>.</p>
    * @public
    */
-  UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
+  UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType | undefined;
 
   /**
    * <p>Possible values include:</p>
@@ -1229,7 +1229,7 @@ export interface UpdateUserPoolRequest {
    *          </ul>
    * @public
    */
-  MfaConfiguration?: UserPoolMfaType;
+  MfaConfiguration?: UserPoolMfaType | undefined;
 
   /**
    * <p>The device-remembering configuration for a user pool. A null value indicates that you
@@ -1240,7 +1240,7 @@ export interface UpdateUserPoolRequest {
    *          </note>
    * @public
    */
-  DeviceConfiguration?: DeviceConfigurationType;
+  DeviceConfiguration?: DeviceConfigurationType | undefined;
 
   /**
    * <p>The email configuration of your user pool. The email configuration type sets your
@@ -1248,7 +1248,7 @@ export interface UpdateUserPoolRequest {
    *             messages from your user pool.</p>
    * @public
    */
-  EmailConfiguration?: EmailConfigurationType;
+  EmailConfiguration?: EmailConfigurationType | undefined;
 
   /**
    * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
@@ -1257,7 +1257,7 @@ export interface UpdateUserPoolRequest {
    *             (IAM) role in your Amazon Web Services account.</p>
    * @public
    */
-  SmsConfiguration?: SmsConfigurationType;
+  SmsConfiguration?: SmsConfigurationType | undefined;
 
   /**
    * <p>The tag keys and values to assign to the user pool. A tag is a label that you can use
@@ -1265,13 +1265,13 @@ export interface UpdateUserPoolRequest {
    *             environment, or other criteria.</p>
    * @public
    */
-  UserPoolTags?: Record<string, string>;
+  UserPoolTags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
    * @public
    */
-  AdminCreateUserConfig?: AdminCreateUserConfigType;
+  AdminCreateUserConfig?: AdminCreateUserConfigType | undefined;
 
   /**
    * <p>User pool add-ons. Contains settings for activation of advanced security features. To
@@ -1281,7 +1281,7 @@ export interface UpdateUserPoolRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
    * @public
    */
-  UserPoolAddOns?: UserPoolAddOnsType;
+  UserPoolAddOns?: UserPoolAddOnsType | undefined;
 
   /**
    * <p>The available verified method a user can use to recover their password when they call
@@ -1292,7 +1292,7 @@ export interface UpdateUserPoolRequest {
    *             behavior to determine the recovery method where SMS is preferred through email.</p>
    * @public
    */
-  AccountRecoverySetting?: AccountRecoverySettingType;
+  AccountRecoverySetting?: AccountRecoverySettingType | undefined;
 }
 
 /**
@@ -1324,7 +1324,7 @@ export interface UpdateUserPoolClientRequest {
    * <p>The client name from the update user pool client request.</p>
    * @public
    */
-  ClientName?: string;
+  ClientName?: string | undefined;
 
   /**
    * <p>The refresh token time limit. After this limit expires, your user can't use
@@ -1342,7 +1342,7 @@ export interface UpdateUserPoolClientRequest {
    * tokens are valid for 30 days.</p>
    * @public
    */
-  RefreshTokenValidity?: number;
+  RefreshTokenValidity?: number | undefined;
 
   /**
    * <p>The access token time limit. After this limit expires, your user can't use
@@ -1358,7 +1358,7 @@ export interface UpdateUserPoolClientRequest {
    * tokens are valid for one hour.</p>
    * @public
    */
-  AccessTokenValidity?: number;
+  AccessTokenValidity?: number | undefined;
 
   /**
    * <p>The ID token time limit. After this limit expires, your user can't use
@@ -1374,7 +1374,7 @@ export interface UpdateUserPoolClientRequest {
    * tokens are valid for one hour.</p>
    * @public
    */
-  IdTokenValidity?: number;
+  IdTokenValidity?: number | undefined;
 
   /**
    * <p>The time units you use when you set the duration of ID, access, and refresh tokens.
@@ -1382,7 +1382,7 @@ export interface UpdateUserPoolClientRequest {
    *             hours.</p>
    * @public
    */
-  TokenValidityUnits?: TokenValidityUnitsType;
+  TokenValidityUnits?: TokenValidityUnitsType | undefined;
 
   /**
    * <p>The list of user attributes that you want your app client to have read access to.
@@ -1400,7 +1400,7 @@ export interface UpdateUserPoolClientRequest {
    *     custom set of read attributes.</p>
    * @public
    */
-  ReadAttributes?: string[];
+  ReadAttributes?: string[] | undefined;
 
   /**
    * <p>The list of user attributes that you want your app client to have write access to.
@@ -1423,7 +1423,7 @@ export interface UpdateUserPoolClientRequest {
    *     pool</a>.</p>
    * @public
    */
-  WriteAttributes?: string[];
+  WriteAttributes?: string[] | undefined;
 
   /**
    * <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in
@@ -1468,7 +1468,7 @@ export interface UpdateUserPoolClientRequest {
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    * @public
    */
-  ExplicitAuthFlows?: ExplicitAuthFlowsType[];
+  ExplicitAuthFlows?: ExplicitAuthFlowsType[] | undefined;
 
   /**
    * <p>A list of provider names for the IdPs that this client supports. The following are
@@ -1477,7 +1477,7 @@ export interface UpdateUserPoolClientRequest {
    *             own SAML and OIDC providers.</p>
    * @public
    */
-  SupportedIdentityProviders?: string[];
+  SupportedIdentityProviders?: string[] | undefined;
 
   /**
    * <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
@@ -1500,13 +1500,13 @@ export interface UpdateUserPoolClientRequest {
    *          <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
    * @public
    */
-  CallbackURLs?: string[];
+  CallbackURLs?: string[] | undefined;
 
   /**
    * <p>A list of allowed logout URLs for the IdPs.</p>
    * @public
    */
-  LogoutURLs?: string[];
+  LogoutURLs?: string[] | undefined;
 
   /**
    * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
@@ -1529,7 +1529,7 @@ export interface UpdateUserPoolClientRequest {
    *          <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
    * @public
    */
-  DefaultRedirectURI?: string;
+  DefaultRedirectURI?: string | undefined;
 
   /**
    * <p>The allowed OAuth flows.</p>
@@ -1554,7 +1554,7 @@ export interface UpdateUserPoolClientRequest {
    *          </dl>
    * @public
    */
-  AllowedOAuthFlows?: OAuthFlowType[];
+  AllowedOAuthFlows?: OAuthFlowType[] | undefined;
 
   /**
    * <p>The allowed OAuth scopes. Possible values provided by OAuth are <code>phone</code>,
@@ -1563,7 +1563,7 @@ export interface UpdateUserPoolClientRequest {
    *             in Resource Servers are also supported.</p>
    * @public
    */
-  AllowedOAuthScopes?: string[];
+  AllowedOAuthScopes?: string[] | undefined;
 
   /**
    * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
@@ -1595,7 +1595,7 @@ export interface UpdateUserPoolClientRequest {
    * to <code>false</code>.</p>
    * @public
    */
-  AllowedOAuthFlowsUserPoolClient?: boolean;
+  AllowedOAuthFlowsUserPoolClient?: boolean | undefined;
 
   /**
    * <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for this user
@@ -1607,7 +1607,7 @@ export interface UpdateUserPoolClientRequest {
    *          </note>
    * @public
    */
-  AnalyticsConfiguration?: AnalyticsConfigurationType;
+  AnalyticsConfiguration?: AnalyticsConfigurationType | undefined;
 
   /**
    * <p>Errors and responses that you want Amazon Cognito APIs to return during authentication, account
@@ -1633,14 +1633,14 @@ export interface UpdateUserPoolClientRequest {
    *          <p>Defaults to <code>LEGACY</code> when you don't provide a value.</p>
    * @public
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
+  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | undefined;
 
   /**
    * <p>Activates or deactivates token revocation. For more information about revoking tokens,
    *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
    * @public
    */
-  EnableTokenRevocation?: boolean;
+  EnableTokenRevocation?: boolean | undefined;
 
   /**
    * <p>Activates the propagation of additional user context data. For more information about
@@ -1651,14 +1651,14 @@ export interface UpdateUserPoolClientRequest {
    *             client secret.</p>
    * @public
    */
-  EnablePropagateAdditionalUserContextData?: boolean;
+  EnablePropagateAdditionalUserContextData?: boolean | undefined;
 
   /**
    * <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration,
    * in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
    * @public
    */
-  AuthSessionValidity?: number;
+  AuthSessionValidity?: number | undefined;
 }
 
 /**
@@ -1672,7 +1672,7 @@ export interface UpdateUserPoolClientResponse {
    *             update the user pool client.</p>
    * @public
    */
-  UserPoolClient?: UserPoolClientType;
+  UserPoolClient?: UserPoolClientType | undefined;
 }
 
 /**
@@ -1715,7 +1715,7 @@ export interface UpdateUserPoolDomainResponse {
    *             pool.</p>
    * @public
    */
-  CloudFrontDomain?: string;
+  CloudFrontDomain?: string | undefined;
 }
 
 /**
@@ -1748,14 +1748,14 @@ export interface VerifySoftwareTokenRequest {
    *             verify.</p>
    * @public
    */
-  AccessToken?: string;
+  AccessToken?: string | undefined;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service.</p>
    * @public
    */
-  Session?: string;
+  Session?: string | undefined;
 
   /**
    * <p>The one- time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>.</p>
@@ -1767,7 +1767,7 @@ export interface VerifySoftwareTokenRequest {
    * <p>The friendly device name.</p>
    * @public
    */
-  FriendlyDeviceName?: string;
+  FriendlyDeviceName?: string | undefined;
 }
 
 /**
@@ -1793,14 +1793,14 @@ export interface VerifySoftwareTokenResponse {
    * <p>The status of the verify software token.</p>
    * @public
    */
-  Status?: VerifySoftwareTokenResponseType;
+  Status?: VerifySoftwareTokenResponseType | undefined;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service.</p>
    * @public
    */
-  Session?: string;
+  Session?: string | undefined;
 }
 
 /**

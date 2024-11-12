@@ -66,7 +66,7 @@ export interface ScoreAttributes {
    * <p>A relative ranking for how relevant the response is to the query.</p>
    * @public
    */
-  ScoreConfidence?: ScoreConfidence;
+  ScoreConfidence?: ScoreConfidence | undefined;
 }
 
 /**
@@ -79,7 +79,7 @@ export interface TableCell {
    *             value of a year, or a string value of text, for example.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>
@@ -88,7 +88,7 @@ export interface TableCell {
    *             query.</p>
    * @public
    */
-  TopAnswer?: boolean;
+  TopAnswer?: boolean | undefined;
 
   /**
    * <p>
@@ -96,14 +96,14 @@ export interface TableCell {
    *             relevant to the query, so the value or content should be highlighted.</p>
    * @public
    */
-  Highlighted?: boolean;
+  Highlighted?: boolean | undefined;
 
   /**
    * <p>
    *             <code>TRUE</code> means that the table cell should be treated as a header.</p>
    * @public
    */
-  Header?: boolean;
+  Header?: boolean | undefined;
 }
 
 /**
@@ -115,7 +115,7 @@ export interface TableRow {
    * <p>A list of table cells in a row.</p>
    * @public
    */
-  Cells?: TableCell[];
+  Cells?: TableCell[] | undefined;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface TableExcerpt {
    * <p>A list of rows in the table excerpt.</p>
    * @public
    */
-  Rows?: TableRow[];
+  Rows?: TableRow[] | undefined;
 
   /**
    * <p>A count of the number of rows in the original table within the document.</p>
    * @public
    */
-  TotalNumberOfRows?: number;
+  TotalNumberOfRows?: number | undefined;
 }
 
 /**
@@ -153,14 +153,14 @@ export interface QueryResultItem {
    *          with every request, even when you have the same documents.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The type of document within the response. For example, a response could include a
    *          question-answer that's relevant to the query.</p>
    * @public
    */
-  Type?: QueryResultType;
+  Type?: QueryResultType | undefined;
 
   /**
    * <p>If the <code>Type</code> of document within the response is <code>ANSWER</code>, then it
@@ -169,39 +169,39 @@ export interface QueryResultItem {
    *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
    * @public
    */
-  Format?: QueryResultFormat;
+  Format?: QueryResultFormat | undefined;
 
   /**
    * <p>One or more additional fields/attributes associated with the query result.</p>
    * @public
    */
-  AdditionalAttributes?: AdditionalResultAttribute[];
+  AdditionalAttributes?: AdditionalResultAttribute[] | undefined;
 
   /**
    * <p>The identifier for the document.</p>
    * @public
    */
-  DocumentId?: string;
+  DocumentId?: string | undefined;
 
   /**
    * <p>The title of the document. Contains the text of the title and information for
    *          highlighting the relevant terms in the title.</p>
    * @public
    */
-  DocumentTitle?: TextWithHighlights;
+  DocumentTitle?: TextWithHighlights | undefined;
 
   /**
    * <p>An extract of the text in the document. Contains information about highlighting the
    *          relevant terms in the excerpt.</p>
    * @public
    */
-  DocumentExcerpt?: TextWithHighlights;
+  DocumentExcerpt?: TextWithHighlights | undefined;
 
   /**
    * <p>The URI of the original location of the document.</p>
    * @public
    */
-  DocumentURI?: string;
+  DocumentURI?: string | undefined;
 
   /**
    * <p>An array of document fields/attributes assigned to a document in the search results. For
@@ -209,7 +209,7 @@ export interface QueryResultItem {
    *             (<code>_source_uri</code>) of the document.</p>
    * @public
    */
-  DocumentAttributes?: DocumentAttribute[];
+  DocumentAttributes?: DocumentAttribute[] | undefined;
 
   /**
    * <p>Indicates the confidence level of Amazon Kendra providing a relevant result for the
@@ -222,7 +222,7 @@ export interface QueryResultItem {
    *          relevant to the query.</p>
    * @public
    */
-  ScoreAttributes?: ScoreAttributes;
+  ScoreAttributes?: ScoreAttributes | undefined;
 
   /**
    * <p>A token that identifies a particular result from a particular query. Use this token to
@@ -230,19 +230,19 @@ export interface QueryResultItem {
    *             feedback</a>.</p>
    * @public
    */
-  FeedbackToken?: string;
+  FeedbackToken?: string | undefined;
 
   /**
    * <p>An excerpt from a table within a document.</p>
    * @public
    */
-  TableExcerpt?: TableExcerpt;
+  TableExcerpt?: TableExcerpt | undefined;
 
   /**
    * <p>Provides details about a collapsed group of search results.</p>
    * @public
    */
-  CollapsedResultDetail?: CollapsedResultDetail;
+  CollapsedResultDetail?: CollapsedResultDetail | undefined;
 }
 
 /**
@@ -255,26 +255,26 @@ export interface Correction {
    *             the corrected word starts.</p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>The zero-based location in the response string or text where
    *             the corrected word ends.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The string or text of a misspelled word in a query.</p>
    * @public
    */
-  Term?: string;
+  Term?: string | undefined;
 
   /**
    * <p>The string or text of a corrected misspelled word in a query.</p>
    * @public
    */
-  CorrectedTerm?: string;
+  CorrectedTerm?: string | undefined;
 }
 
 /**
@@ -286,13 +286,13 @@ export interface SpellCorrectedQuery {
    * <p>The query with the suggested spell corrections.</p>
    * @public
    */
-  SuggestedQueryText?: string;
+  SuggestedQueryText?: string | undefined;
 
   /**
    * <p>The corrected misspelled word or words in a query.</p>
    * @public
    */
-  Corrections?: Correction[];
+  Corrections?: Correction[] | undefined;
 }
 
 /**
@@ -317,13 +317,13 @@ export interface Warning {
    * <p>The message that explains the problem with the query.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The code used to show the type of warning for the query.</p>
    * @public
    */
-  Code?: WarningCode;
+  Code?: WarningCode | undefined;
 }
 
 /**
@@ -335,31 +335,31 @@ export interface RetrieveResultItem {
    * <p>The identifier of the relevant passage result.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The identifier of the document.</p>
    * @public
    */
-  DocumentId?: string;
+  DocumentId?: string | undefined;
 
   /**
    * <p>The title of the document.</p>
    * @public
    */
-  DocumentTitle?: string;
+  DocumentTitle?: string | undefined;
 
   /**
    * <p>The contents of the relevant passage.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The URI of the original location of the document.</p>
    * @public
    */
-  DocumentURI?: string;
+  DocumentURI?: string | undefined;
 
   /**
    * <p>An array of document fields/attributes assigned to a document in the search results.
@@ -367,7 +367,7 @@ export interface RetrieveResultItem {
    *                 (<code>_source_uri</code>) of the document.</p>
    * @public
    */
-  DocumentAttributes?: DocumentAttribute[];
+  DocumentAttributes?: DocumentAttribute[] | undefined;
 
   /**
    * <p>The confidence score bucket for a retrieved passage result. The confidence bucket
@@ -375,7 +375,7 @@ export interface RetrieveResultItem {
    *             response is relevant to the query.</p>
    * @public
    */
-  ScoreAttributes?: ScoreAttributes;
+  ScoreAttributes?: ScoreAttributes | undefined;
 }
 
 /**
@@ -388,13 +388,13 @@ export interface RetrieveResult {
    *             API.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The results of the retrieved relevant passages for the search.</p>
    * @public
    */
-  ResultItems?: RetrieveResultItem[];
+  ResultItems?: RetrieveResultItem[] | undefined;
 }
 
 /**
@@ -405,7 +405,7 @@ export interface RetrieveResult {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -445,7 +445,7 @@ export interface StartDataSourceSyncJobResponse {
    * <p>Identifies a particular synchronization job.</p>
    * @public
    */
-  ExecutionId?: string;
+  ExecutionId?: string | undefined;
 }
 
 /**
@@ -543,14 +543,14 @@ export interface SubmitFeedbackRequest {
    *             by the user. </p>
    * @public
    */
-  ClickFeedbackItems?: ClickFeedback[];
+  ClickFeedbackItems?: ClickFeedback[] | undefined;
 
   /**
    * <p>Provides Amazon Kendra with relevant or not relevant feedback for
    *             whether a particular item was relevant to the search.</p>
    * @public
    */
-  RelevanceFeedbackItems?: RelevanceFeedback[];
+  RelevanceFeedbackItems?: RelevanceFeedback[] | undefined;
 }
 
 /**
@@ -620,13 +620,13 @@ export interface UpdateAccessControlConfigurationRequest {
    * <p>A new name for the access control configuration.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A new description for the access control configuration.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Information you want to update on principals (users and/or groups) and which documents
@@ -634,14 +634,14 @@ export interface UpdateAccessControlConfigurationRequest {
    *             results are filtered based on the user or their group access to documents.</p>
    * @public
    */
-  AccessControlList?: Principal[];
+  AccessControlList?: Principal[] | undefined;
 
   /**
    * <p>The updated list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that define the
    *             hierarchy for which documents users should have access to.</p>
    * @public
    */
-  HierarchicalAccessControlList?: HierarchicalPrincipal[];
+  HierarchicalAccessControlList?: HierarchicalPrincipal[] | undefined;
 }
 
 /**
@@ -663,7 +663,7 @@ export interface UpdateDataSourceRequest {
    * <p>A new name for the data source connector.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The identifier of the index used with the data source connector.</p>
@@ -675,33 +675,33 @@ export interface UpdateDataSourceRequest {
    * <p>Configuration information you want to update for the data source connector.</p>
    * @public
    */
-  Configuration?: DataSourceConfiguration;
+  Configuration?: DataSourceConfiguration | undefined;
 
   /**
    * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source.
    *       For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
    * @public
    */
-  VpcConfiguration?: DataSourceVpcConfiguration;
+  VpcConfiguration?: DataSourceVpcConfiguration | undefined;
 
   /**
    * <p>A new description for the data source connector.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The sync schedule you want to update for the data source connector.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the data source and
    *       required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The code for a language you want to update for the data source connector.
@@ -712,7 +712,7 @@ export interface UpdateDataSourceRequest {
    *                 documents in languages other than English</a>.</p>
    * @public
    */
-  LanguageCode?: string;
+  LanguageCode?: string | undefined;
 
   /**
    * <p>Configuration information you want to update for altering document metadata and
@@ -721,7 +721,7 @@ export interface UpdateDataSourceRequest {
    *             other content alterations when you ingest documents into Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata during the ingestion process</a>.</p>
    * @public
    */
-  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration | undefined;
 }
 
 /**
@@ -738,7 +738,7 @@ export interface UpdateExperienceRequest {
    * <p>A new name for your Amazon Kendra experience.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The identifier of the index for your Amazon Kendra experience.</p>
@@ -753,19 +753,19 @@ export interface UpdateExperienceRequest {
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Configuration information you want to update for your Amazon Kendra experience.</p>
    * @public
    */
-  Configuration?: ExperienceConfiguration;
+  Configuration?: ExperienceConfiguration | undefined;
 
   /**
    * <p>A new description for your Amazon Kendra experience.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -788,13 +788,13 @@ export interface UpdateFeaturedResultsSetRequest {
    * <p>A new name for the set of featured results.</p>
    * @public
    */
-  FeaturedResultsSetName?: string;
+  FeaturedResultsSetName?: string | undefined;
 
   /**
    * <p>A new description for the set of featured results.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code>.
@@ -805,14 +805,14 @@ export interface UpdateFeaturedResultsSetRequest {
    *             status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    * @public
    */
-  Status?: FeaturedResultsSetStatus;
+  Status?: FeaturedResultsSetStatus | undefined;
 
   /**
    * <p>A list of queries for featuring results. For more information on the
    *             list of queries, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
    * @public
    */
-  QueryTexts?: string[];
+  QueryTexts?: string[] | undefined;
 
   /**
    * <p>A list of document IDs for the documents you want to feature at the
@@ -820,7 +820,7 @@ export interface UpdateFeaturedResultsSetRequest {
    *             featured documents, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
    * @public
    */
-  FeaturedDocuments?: FeaturedDocument[];
+  FeaturedDocuments?: FeaturedDocument[] | undefined;
 }
 
 /**
@@ -833,7 +833,7 @@ export interface UpdateFeaturedResultsSetResponse {
    *             or inactive, when the featured results set was last updated, and more.</p>
    * @public
    */
-  FeaturedResultsSet?: FeaturedResultsSet;
+  FeaturedResultsSet?: FeaturedResultsSet | undefined;
 }
 
 /**
@@ -850,20 +850,20 @@ export interface UpdateIndexRequest {
    * <p>A new name for the index.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An Identity and Access Management (IAM) role that gives Amazon Kendra
    *       permission to access Amazon CloudWatch logs and metrics.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>A new description for the index.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The document metadata configuration you want to update for the index. Document metadata
@@ -871,7 +871,7 @@ export interface UpdateIndexRequest {
    *       name associated with each document.</p>
    * @public
    */
-  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
+  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[] | undefined;
 
   /**
    * <p>Sets the number of additional document storage and query capacity units that should be
@@ -881,19 +881,19 @@ export interface UpdateIndexRequest {
    *       required to meet the storage needs for your index.</p>
    * @public
    */
-  CapacityUnits?: CapacityUnitsConfiguration;
+  CapacityUnits?: CapacityUnitsConfiguration | undefined;
 
   /**
    * <p>The user token configuration.</p>
    * @public
    */
-  UserTokenConfigurations?: UserTokenConfiguration[];
+  UserTokenConfigurations?: UserTokenConfiguration[] | undefined;
 
   /**
    * <p>The user context policy.</p>
    * @public
    */
-  UserContextPolicy?: UserContextPolicy;
+  UserContextPolicy?: UserContextPolicy | undefined;
 
   /**
    * <p>Gets users and groups from IAM Identity Center
@@ -901,7 +901,7 @@ export interface UpdateIndexRequest {
    *          search results are filtered based on the user or their group access to documents.</p>
    * @public
    */
-  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration | undefined;
 }
 
 /**
@@ -924,13 +924,13 @@ export interface UpdateQuerySuggestionsBlockListRequest {
    * <p>A new name for the block list.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A new description for the block list.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The S3 path where your block list text file sits in S3.</p>
@@ -944,14 +944,14 @@ export interface UpdateQuerySuggestionsBlockListRequest {
    *             means changes might not take effect immediately.</p>
    * @public
    */
-  SourceS3Path?: S3Path;
+  SourceS3Path?: S3Path | undefined;
 
   /**
    * <p>The IAM (Identity and Access Management) role used to access the
    *             block list text file in S3.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -974,7 +974,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *             switch to ENABLED mode again.</p>
    * @public
    */
-  Mode?: Mode;
+  Mode?: Mode | undefined;
 
   /**
    * <p>How recent your queries are in your query log time window.</p>
@@ -982,7 +982,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *          <p>By default, Amazon Kendra sets this to 180.</p>
    * @public
    */
-  QueryLogLookBackWindowInDays?: number;
+  QueryLogLookBackWindowInDays?: number | undefined;
 
   /**
    * <p>
@@ -999,7 +999,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *             from all queries.</p>
    * @public
    */
-  IncludeQueriesWithoutUserInformation?: boolean;
+  IncludeQueriesWithoutUserInformation?: boolean | undefined;
 
   /**
    * <p>The minimum number of unique users who must search a query in order for the query
@@ -1009,7 +1009,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *          <p>How you tune this setting depends on your specific needs.</p>
    * @public
    */
-  MinimumNumberOfQueryingUsers?: number;
+  MinimumNumberOfQueryingUsers?: number | undefined;
 
   /**
    * <p>The the minimum number of times a query must be searched in order to be
@@ -1020,14 +1020,14 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *          <p>How you tune this setting depends on your specific needs.</p>
    * @public
    */
-  MinimumQueryCount?: number;
+  MinimumQueryCount?: number | undefined;
 
   /**
    * <p>Configuration information for the document fields/attributes that you want to base
    *             query suggestions on.</p>
    * @public
    */
-  AttributeSuggestionsConfig?: AttributeSuggestionsUpdateConfig;
+  AttributeSuggestionsConfig?: AttributeSuggestionsUpdateConfig | undefined;
 }
 
 /**
@@ -1044,7 +1044,7 @@ export interface UpdateThesaurusRequest {
    * <p>A new name for the thesaurus.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The identifier of the index for the thesaurus.</p>
@@ -1056,20 +1056,20 @@ export interface UpdateThesaurusRequest {
    * <p>A new description for the thesaurus.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>An IAM role that gives Amazon Kendra permissions to
    *          access thesaurus file specified in <code>SourceS3Path</code>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
    * @public
    */
-  SourceS3Path?: S3Path;
+  SourceS3Path?: S3Path | undefined;
 }
 
 /**
@@ -1087,7 +1087,7 @@ export interface Facet {
    * <p>The unique key for the document attribute.</p>
    * @public
    */
-  DocumentAttributeKey?: string;
+  DocumentAttributeKey?: string | undefined;
 
   /**
    * <p>An array of document attributes that are nested facets within a facet.</p>
@@ -1101,7 +1101,7 @@ export interface Facet {
    *          contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
    * @public
    */
-  Facets?: Facet[];
+  Facets?: Facet[] | undefined;
 
   /**
    * <p>Maximum number of facet values per facet. The default is 10. You can use this to limit
@@ -1109,7 +1109,7 @@ export interface Facet {
    *             <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1122,14 +1122,14 @@ export interface DocumentAttributeValueCountPair {
    * <p>The value of the attribute/field. For example, "HR".</p>
    * @public
    */
-  DocumentAttributeValue?: DocumentAttributeValue;
+  DocumentAttributeValue?: DocumentAttributeValue | undefined;
 
   /**
    * <p>The number of documents in the response that have the attribute/field value for the
    *          key.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>Contains the results of a document attribute/field that is a nested facet. A
@@ -1145,7 +1145,7 @@ export interface DocumentAttributeValueCountPair {
    *          <p></p>
    * @public
    */
-  FacetResults?: FacetResult[];
+  FacetResults?: FacetResult[] | undefined;
 }
 
 /**
@@ -1158,21 +1158,21 @@ export interface FacetResult {
    *          provided in the query.</p>
    * @public
    */
-  DocumentAttributeKey?: string;
+  DocumentAttributeKey?: string | undefined;
 
   /**
    * <p>The data type of the facet value. This is the same as the type defined for the index
    *          field when it was created.</p>
    * @public
    */
-  DocumentAttributeValueType?: DocumentAttributeValueType;
+  DocumentAttributeValueType?: DocumentAttributeValueType | undefined;
 
   /**
    * <p>An array of key/value pairs, where the key is the value of the attribute and the count
    *          is the number of documents that share the key value.</p>
    * @public
    */
-  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[] | undefined;
 }
 
 /**
@@ -1224,39 +1224,39 @@ export interface AttributeFilter {
    * <p>Performs a logical <code>AND</code> operation on all filters that you specify.</p>
    * @public
    */
-  AndAllFilters?: AttributeFilter[];
+  AndAllFilters?: AttributeFilter[] | undefined;
 
   /**
    * <p>Performs a logical <code>OR</code> operation on all filters that you specify.</p>
    * @public
    */
-  OrAllFilters?: AttributeFilter[];
+  OrAllFilters?: AttributeFilter[] | undefined;
 
   /**
    * <p>Performs a logical <code>NOT</code> operation on all filters that you specify.</p>
    * @public
    */
-  NotFilter?: AttributeFilter;
+  NotFilter?: AttributeFilter | undefined;
 
   /**
    * <p>Performs an equals operation on document attributes/fields and their values.</p>
    * @public
    */
-  EqualsTo?: DocumentAttribute;
+  EqualsTo?: DocumentAttribute | undefined;
 
   /**
    * <p>Returns true when a document contains all of the specified document attributes/fields.
    *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
    * @public
    */
-  ContainsAll?: DocumentAttribute;
+  ContainsAll?: DocumentAttribute | undefined;
 
   /**
    * <p>Returns true when a document contains any of the specified document attributes/fields.
    *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
    * @public
    */
-  ContainsAny?: DocumentAttribute;
+  ContainsAny?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a greater than operation on document attributes/fields and their values. Use
@@ -1265,7 +1265,7 @@ export interface AttributeFilter {
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
    */
-  GreaterThan?: DocumentAttribute;
+  GreaterThan?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a greater or equals than operation on document attributes/fields and their
@@ -1274,7 +1274,7 @@ export interface AttributeFilter {
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
    */
-  GreaterThanOrEquals?: DocumentAttribute;
+  GreaterThanOrEquals?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a less than operation on document attributes/fields and their values. Use with
@@ -1283,7 +1283,7 @@ export interface AttributeFilter {
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
    */
-  LessThan?: DocumentAttribute;
+  LessThan?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a less than or equals operation on document attributes/fields and their values.
@@ -1292,7 +1292,7 @@ export interface AttributeFilter {
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
    */
-  LessThanOrEquals?: DocumentAttribute;
+  LessThanOrEquals?: DocumentAttribute | undefined;
 }
 
 /**
@@ -1305,20 +1305,20 @@ export interface QueryResult {
    *          API.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The results of the search.</p>
    * @public
    */
-  ResultItems?: QueryResultItem[];
+  ResultItems?: QueryResultItem[] | undefined;
 
   /**
    * <p>Contains the facet results. A <code>FacetResult</code> contains the counts for each
    *          field/attribute key that was specified in the <code>Facets</code> input parameter.</p>
    * @public
    */
-  FacetResults?: FacetResult[];
+  FacetResults?: FacetResult[] | undefined;
 
   /**
    * <p>The total number of items found by the search. However, you can only retrieve up to 100
@@ -1326,7 +1326,7 @@ export interface QueryResult {
    *          the items.</p>
    * @public
    */
-  TotalNumberOfResults?: number;
+  TotalNumberOfResults?: number | undefined;
 
   /**
    * <p>A list of warning codes and their messages on problems with your query.</p>
@@ -1335,13 +1335,13 @@ export interface QueryResult {
    *             with advanced query syntax</a>.</p>
    * @public
    */
-  Warnings?: Warning[];
+  Warnings?: Warning[] | undefined;
 
   /**
    * <p>A list of information related to suggested spell corrections for a query.</p>
    * @public
    */
-  SpellCorrectedQueries?: SpellCorrectedQuery[];
+  SpellCorrectedQueries?: SpellCorrectedQuery[] | undefined;
 
   /**
    * <p>The list of featured result items. Featured results are displayed at the top of the
@@ -1349,7 +1349,7 @@ export interface QueryResult {
    *          exact match of a query, then certain documents are featured in the search results.</p>
    * @public
    */
-  FeaturedResultsItems?: FeaturedResultsItem[];
+  FeaturedResultsItems?: FeaturedResultsItem[] | undefined;
 }
 
 /**
@@ -1364,7 +1364,7 @@ export interface AttributeSuggestionsGetConfig {
    *             then the field content is returned as a query suggestion.</p>
    * @public
    */
-  SuggestionAttributes?: string[];
+  SuggestionAttributes?: string[] | undefined;
 
   /**
    * <p>The list of additional document field/attribute keys or field names to include in the
@@ -1372,20 +1372,20 @@ export interface AttributeSuggestionsGetConfig {
    *             Additional fields are not used to based suggestions on.</p>
    * @public
    */
-  AdditionalResponseAttributes?: string[];
+  AdditionalResponseAttributes?: string[] | undefined;
 
   /**
    * <p>Filters the search results based on document fields/attributes.</p>
    * @public
    */
-  AttributeFilter?: AttributeFilter;
+  AttributeFilter?: AttributeFilter | undefined;
 
   /**
    * <p>Applies user context filtering so that only users who are given access to certain
    *             documents see these document in their search results.</p>
    * @public
    */
-  UserContext?: UserContext;
+  UserContext?: UserContext | undefined;
 }
 
 /**
@@ -1417,7 +1417,7 @@ export interface RetrieveRequest {
    *             rules that a document must satisfy to be included in the query results.</p>
    * @public
    */
-  AttributeFilter?: AttributeFilter;
+  AttributeFilter?: AttributeFilter | undefined;
 
   /**
    * <p>A list of document fields/attributes to include in the response. You can limit the
@@ -1425,7 +1425,7 @@ export interface RetrieveRequest {
    *             included in the response.</p>
    * @public
    */
-  RequestedDocumentAttributes?: string[];
+  RequestedDocumentAttributes?: string[] | undefined;
 
   /**
    * <p>Overrides relevance tuning configurations of fields/attributes set at the index
@@ -1438,7 +1438,7 @@ export interface RetrieveRequest {
    *             override, the importance is set to 1.</p>
    * @public
    */
-  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[] | undefined;
 
   /**
    * <p>Retrieved relevant passages are returned in pages the size of the
@@ -1446,7 +1446,7 @@ export interface RetrieveRequest {
    *             page of results. Use this parameter to get result pages after the first one.</p>
    * @public
    */
-  PageNumber?: number;
+  PageNumber?: number | undefined;
 
   /**
    * <p>Sets the number of retrieved relevant passages that are returned in each page of
@@ -1454,13 +1454,13 @@ export interface RetrieveRequest {
    *             you ask for more than 100 results, only 100 are returned.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The user context token or user and group information.</p>
    * @public
    */
-  UserContext?: UserContext;
+  UserContext?: UserContext | undefined;
 }
 
 /**
@@ -1490,7 +1490,7 @@ export interface GetQuerySuggestionsRequest {
    *             to your users.</p>
    * @public
    */
-  MaxSuggestionsCount?: number;
+  MaxSuggestionsCount?: number | undefined;
 
   /**
    * <p>The suggestions type to base query suggestions on. The suggestion
@@ -1504,14 +1504,14 @@ export interface GetQuerySuggestionsRequest {
    *             contents of document fields.</p>
    * @public
    */
-  SuggestionTypes?: SuggestionType[];
+  SuggestionTypes?: SuggestionType[] | undefined;
 
   /**
    * <p>Configuration information for the document fields/attributes that you
    *             want to base query suggestions on.</p>
    * @public
    */
-  AttributeSuggestionsConfig?: AttributeSuggestionsGetConfig;
+  AttributeSuggestionsConfig?: AttributeSuggestionsGetConfig | undefined;
 }
 
 /**
@@ -1532,7 +1532,7 @@ export interface QueryRequest {
    *             <code>hr</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>
    * @public
    */
-  QueryText?: string;
+  QueryText?: string | undefined;
 
   /**
    * <p>Filters search results by document fields/attributes. You can only provide one attribute
@@ -1542,14 +1542,14 @@ export interface QueryRequest {
    *          that a document must satisfy to be included in the query results.</p>
    * @public
    */
-  AttributeFilter?: AttributeFilter;
+  AttributeFilter?: AttributeFilter | undefined;
 
   /**
    * <p>An array of documents fields/attributes for faceted search. Amazon Kendra returns a
    *          count for each field key specified. This helps your users narrow their search.</p>
    * @public
    */
-  Facets?: Facet[];
+  Facets?: Facet[] | undefined;
 
   /**
    * <p>An array of document fields/attributes to include in the response. You can limit the
@@ -1557,14 +1557,14 @@ export interface QueryRequest {
    *          included in the response.</p>
    * @public
    */
-  RequestedDocumentAttributes?: string[];
+  RequestedDocumentAttributes?: string[] | undefined;
 
   /**
    * <p>Sets the type of query result or response. Only results for the specified type are
    *          returned.</p>
    * @public
    */
-  QueryResultTypeFilter?: QueryResultType;
+  QueryResultTypeFilter?: QueryResultType | undefined;
 
   /**
    * <p>Overrides relevance tuning configurations of fields/attributes set at the index
@@ -1577,7 +1577,7 @@ export interface QueryRequest {
    *          importance is set to 1.</p>
    * @public
    */
-  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[] | undefined;
 
   /**
    * <p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By
@@ -1585,7 +1585,7 @@ export interface QueryRequest {
    *          result pages after the first one.</p>
    * @public
    */
-  PageNumber?: number;
+  PageNumber?: number | undefined;
 
   /**
    * <p>Sets the number of results that are returned in each page of results. The default page
@@ -1593,7 +1593,7 @@ export interface QueryRequest {
    *          results, only 100 are returned.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>Provides information that determines how the results of the query are sorted. You can
@@ -1604,7 +1604,7 @@ export interface QueryRequest {
    *             Amazon Kendra determines for the result.</p>
    * @public
    */
-  SortingConfiguration?: SortingConfiguration;
+  SortingConfiguration?: SortingConfiguration | undefined;
 
   /**
    * <p>Provides configuration information to determine how the results of a query are
@@ -1617,13 +1617,13 @@ export interface QueryRequest {
    *          results, the results are sorted by relevance. </p>
    * @public
    */
-  SortingConfigurations?: SortingConfiguration[];
+  SortingConfigurations?: SortingConfiguration[] | undefined;
 
   /**
    * <p>The user context token or user and group information.</p>
    * @public
    */
-  UserContext?: UserContext;
+  UserContext?: UserContext | undefined;
 
   /**
    * <p>Provides an identifier for a specific user. The <code>VisitorId</code> should be a
@@ -1631,13 +1631,13 @@ export interface QueryRequest {
    *          the user's email address, as the <code>VisitorId</code>.</p>
    * @public
    */
-  VisitorId?: string;
+  VisitorId?: string | undefined;
 
   /**
    * <p>Enables suggested spell corrections for queries.</p>
    * @public
    */
-  SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
+  SpellCorrectionConfiguration?: SpellCorrectionConfiguration | undefined;
 
   /**
    * <p>Provides configuration to determine how to group results by document attribute value,
@@ -1645,5 +1645,5 @@ export interface QueryRequest {
    *          each group.</p>
    * @public
    */
-  CollapseConfiguration?: CollapseConfiguration;
+  CollapseConfiguration?: CollapseConfiguration | undefined;
 }

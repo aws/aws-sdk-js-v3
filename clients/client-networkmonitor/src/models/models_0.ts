@@ -92,7 +92,7 @@ export interface CreateMonitorProbeInput {
    * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
@@ -104,13 +104,13 @@ export interface CreateMonitorProbeInput {
    * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>The list of key-value pairs created and assigned to the monitor.</p>
    * @public
    */
-  probeTags?: Record<string, string>;
+  probeTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -127,7 +127,7 @@ export interface CreateMonitorInput {
    * <p>Displays a list of all of the probes created for a monitor.</p>
    * @public
    */
-  probes?: CreateMonitorProbeInput[];
+  probes?: CreateMonitorProbeInput[] | undefined;
 
   /**
    * <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
@@ -135,19 +135,19 @@ export interface CreateMonitorInput {
    *             no period is chosen.</p>
    * @public
    */
-  aggregationPeriod?: number;
+  aggregationPeriod?: number | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The list of key-value pairs created and assigned to the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -194,13 +194,13 @@ export interface CreateMonitorOutput {
    *             This will be either <code>30</code> or <code>60</code>. </p>
    * @public
    */
-  aggregationPeriod?: number;
+  aggregationPeriod?: number | undefined;
 
   /**
    * <p>The list of key-value pairs assigned to the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -308,7 +308,7 @@ export interface ProbeInput {
    * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
@@ -320,13 +320,13 @@ export interface ProbeInput {
    * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>The list of key-value pairs created and assigned to the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -349,13 +349,13 @@ export interface CreateProbeInput {
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The list of key-value pairs created and assigned to the probe.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -384,13 +384,13 @@ export interface CreateProbeOutput {
    * <p>The ID of the probe for which details are returned.</p>
    * @public
    */
-  probeId?: string;
+  probeId?: string | undefined;
 
   /**
    * <p>The ARN of the probe.</p>
    * @public
    */
-  probeArn?: string;
+  probeArn?: string | undefined;
 
   /**
    * <p>The ARN of the probe.</p>
@@ -408,7 +408,7 @@ export interface CreateProbeOutput {
    * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
@@ -420,43 +420,43 @@ export interface CreateProbeOutput {
    * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>Indicates whether the IP address is <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
-  addressFamily?: AddressFamily;
+  addressFamily?: AddressFamily | undefined;
 
   /**
    * <p>The ID of the source VPC or subnet.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The state of the probe.</p>
    * @public
    */
-  state?: ProbeState;
+  state?: ProbeState | undefined;
 
   /**
    * <p>The time and date that the probe was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time and date when the probe was last modified. </p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>The list of key-value pairs assigned to the probe.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -537,13 +537,13 @@ export interface Probe {
    * <p>The ID of the probe.</p>
    * @public
    */
-  probeId?: string;
+  probeId?: string | undefined;
 
   /**
    * <p>The ARN of the probe.</p>
    * @public
    */
-  probeArn?: string;
+  probeArn?: string | undefined;
 
   /**
    * <p>The ARN of the probe source subnet.</p>
@@ -561,7 +561,7 @@ export interface Probe {
    * <p>The destination port for the probe. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
@@ -573,43 +573,43 @@ export interface Probe {
    * <p>The size of the packets traveling between the <code>source</code> and <code>destination</code>. This must be a number between <code>56</code> and </p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>The IPv4 or IPv6 address for the probe.</p>
    * @public
    */
-  addressFamily?: AddressFamily;
+  addressFamily?: AddressFamily | undefined;
 
   /**
    * <p>The ID of the source VPC subnet.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The state of the probe.</p>
    * @public
    */
-  state?: ProbeState;
+  state?: ProbeState | undefined;
 
   /**
    * <p>The time and date the probe was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time and date that the probe was last modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>The list of key-value pairs created and assigned to the probe.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -644,13 +644,13 @@ export interface GetMonitorOutput {
    * <p>The list of key-value pairs assigned to the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The details about each probe associated with that monitor. </p>
    * @public
    */
-  probes?: Probe[];
+  probes?: Probe[] | undefined;
 
   /**
    * <p>The time and date when the monitor was created.</p>
@@ -690,13 +690,13 @@ export interface GetProbeOutput {
    * <p>The ID of the probe for which details are returned.</p>
    * @public
    */
-  probeId?: string;
+  probeId?: string | undefined;
 
   /**
    * <p>The ARN of the probe.</p>
    * @public
    */
-  probeArn?: string;
+  probeArn?: string | undefined;
 
   /**
    * <p>The ARN of the probe.</p>
@@ -714,7 +714,7 @@ export interface GetProbeOutput {
    * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
@@ -726,43 +726,43 @@ export interface GetProbeOutput {
    * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>Indicates whether the IP address is <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
-  addressFamily?: AddressFamily;
+  addressFamily?: AddressFamily | undefined;
 
   /**
    * <p>The ID of the source VPC or subnet.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The state of the probe.</p>
    * @public
    */
-  state?: ProbeState;
+  state?: ProbeState | undefined;
 
   /**
    * <p>The time and date that the probe was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time and date that the probe was last modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>The list of key-value pairs assigned to the probe.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -773,7 +773,7 @@ export interface ListMonitorsInput {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -782,13 +782,13 @@ export interface ListMonitorsInput {
    *       returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The list of all monitors and their states.</p>
    * @public
    */
-  state?: string;
+  state?: string | undefined;
 }
 
 /**
@@ -818,13 +818,13 @@ export interface MonitorSummary {
    * <p>The time, in seconds, that metrics are collected and sent to Amazon CloudWatch. Valid values are either <code>30</code> or <code>60</code>.</p>
    * @public
    */
-  aggregationPeriod?: number;
+  aggregationPeriod?: number | undefined;
 
   /**
    * <p>The list of key-value pairs assigned to the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -841,7 +841,7 @@ export interface ListMonitorsOutput {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -863,7 +863,7 @@ export interface ListTagsForResourceOutput {
    * <p>Lists the tags assigned to the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -909,13 +909,13 @@ export interface UpdateMonitorOutput {
    * <p>The changed aggregation period.</p>
    * @public
    */
-  aggregationPeriod?: number;
+  aggregationPeriod?: number | undefined;
 
   /**
    * <p>The list of key-value pairs associated with the monitor.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -938,31 +938,31 @@ export interface UpdateProbeInput {
    * <p>The state of the probe update.</p>
    * @public
    */
-  state?: ProbeState;
+  state?: ProbeState | undefined;
 
   /**
    * <p>The updated IP address for the probe destination. This must be either an IPv4 or IPv6 address.</p>
    * @public
    */
-  destination?: string;
+  destination?: string | undefined;
 
   /**
    * <p>The updated port for the probe destination. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The updated network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
    * @public
    */
-  protocol?: Protocol;
+  protocol?: Protocol | undefined;
 
   /**
    * <p>he updated packets size for network traffic between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 }
 
 /**
@@ -973,13 +973,13 @@ export interface UpdateProbeOutput {
    * <p>The updated ID of the probe.</p>
    * @public
    */
-  probeId?: string;
+  probeId?: string | undefined;
 
   /**
    * <p>The updated ARN of the probe.</p>
    * @public
    */
-  probeArn?: string;
+  probeArn?: string | undefined;
 
   /**
    * <p>The updated ARN of the source subnet.</p>
@@ -997,7 +997,7 @@ export interface UpdateProbeOutput {
    * <p>The updated destination port. This must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
-  destinationPort?: number;
+  destinationPort?: number | undefined;
 
   /**
    * <p>The updated protocol for the probe.</p>
@@ -1009,43 +1009,43 @@ export interface UpdateProbeOutput {
    * <p>The updated packet size for the probe. </p>
    * @public
    */
-  packetSize?: number;
+  packetSize?: number | undefined;
 
   /**
    * <p>The updated IP address family. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
-  addressFamily?: AddressFamily;
+  addressFamily?: AddressFamily | undefined;
 
   /**
    * <p>The updated ID of the source VPC subnet ID.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The state of the updated probe.</p>
    * @public
    */
-  state?: ProbeState;
+  state?: ProbeState | undefined;
 
   /**
    * <p>The time and date that the probe was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time and date that the probe was last updated.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>Update tags for a probe.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

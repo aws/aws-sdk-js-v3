@@ -37,21 +37,21 @@ export interface GetEntitlementsRequest {
    *         <i>intersected</i> for each filter key.</p>
    * @public
    */
-  Filter?: Partial<Record<GetEntitlementFilterName, string[]>>;
+  Filter?: Partial<Record<GetEntitlementFilterName, string[]>> | undefined;
 
   /**
    * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
    *    GetEntitlementsResult.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
    *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -65,28 +65,28 @@ export interface EntitlementValue {
    *    integer type. Otherwise, the field will not be set.</p>
    * @public
    */
-  IntegerValue?: number;
+  IntegerValue?: number | undefined;
 
   /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    * @public
    */
-  DoubleValue?: number;
+  DoubleValue?: number | undefined;
 
   /**
    * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
    *       boolean type. Otherwise, the field will not be set.</p>
    * @public
    */
-  BooleanValue?: boolean;
+  BooleanValue?: boolean | undefined;
 
   /**
    * <p>The StringValue field will be populated with a string value when the entitlement is a
    *    string type. Otherwise, the field will not be set.</p>
    * @public
    */
-  StringValue?: string;
+  StringValue?: string | undefined;
 }
 
 /**
@@ -101,7 +101,7 @@ export interface Entitlement {
    *    AWS Marketplace when the product listing is created.</p>
    * @public
    */
-  ProductCode?: string;
+  ProductCode?: string | undefined;
 
   /**
    * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
@@ -109,7 +109,7 @@ export interface Entitlement {
    *       Marketplace.</p>
    * @public
    */
-  Dimension?: string;
+  Dimension?: string | undefined;
 
   /**
    * <p>The customer identifier is a handle to each unique customer in an application. Customer
@@ -117,14 +117,14 @@ export interface Entitlement {
    *    Service.</p>
    * @public
    */
-  CustomerIdentifier?: string;
+  CustomerIdentifier?: string | undefined;
 
   /**
    * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
    *    for the product.</p>
    * @public
    */
-  Value?: EntitlementValue;
+  Value?: EntitlementValue | undefined;
 
   /**
    * <p>The expiration date represents the minimum date through which this entitlement is
@@ -133,7 +133,7 @@ export interface Entitlement {
    *    to renew their contract will still have entitlements with an expiration date.</p>
    * @public
    */
-  ExpirationDate?: Date;
+  ExpirationDate?: Date | undefined;
 }
 
 /**
@@ -147,7 +147,7 @@ export interface GetEntitlementsResult {
    *       used.</p>
    * @public
    */
-  Entitlements?: Entitlement[];
+  Entitlements?: Entitlement[] | undefined;
 
   /**
    * <p>For paginated results, use NextToken in subsequent calls to GetEntitlements. If the
@@ -155,7 +155,7 @@ export interface GetEntitlementsResult {
    *       used.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

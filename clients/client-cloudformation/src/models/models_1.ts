@@ -33,7 +33,7 @@ export interface SetTypeConfigurationInput {
    *       configuration for an extension, but not for a specific extension version.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>The configuration data for the extension, in this account and Region.</p>
@@ -51,7 +51,7 @@ export interface SetTypeConfigurationInput {
    *       a resource type extension.</p>
    * @public
    */
-  ConfigurationAlias?: string;
+  ConfigurationAlias?: string | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -59,7 +59,7 @@ export interface SetTypeConfigurationInput {
    *         <code>TypeName</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The type of extension.</p>
@@ -67,7 +67,7 @@ export interface SetTypeConfigurationInput {
    *         <code>TypeName</code>.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 }
 
 /**
@@ -81,7 +81,7 @@ export interface SetTypeConfigurationOutput {
    *         <code>TypeName</code>.</p>
    * @public
    */
-  ConfigurationArn?: string;
+  ConfigurationArn?: string | undefined;
 }
 
 /**
@@ -95,7 +95,7 @@ export interface SetTypeDefaultVersionInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The kind of extension.</p>
@@ -103,7 +103,7 @@ export interface SetTypeDefaultVersionInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -111,14 +111,14 @@ export interface SetTypeDefaultVersionInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The ID of a specific version of the extension. The version ID is the value at the end of
    *       the Amazon Resource Name (ARN) assigned to the extension version when it is registered.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface SignalResourceInput {
 export class ResourceScanLimitExceededException extends __BaseException {
   readonly name: "ResourceScanLimitExceededException" = "ResourceScanLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -220,7 +220,7 @@ export interface StartResourceScanInput {
    *       resource scan.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface StartResourceScanOutput {
    *             </code>.</p>
    * @public
    */
-  ResourceScanId?: string;
+  ResourceScanId?: string | undefined;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface StopStackSetOperationInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface TestTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of the extension to test.</p>
@@ -297,7 +297,7 @@ export interface TestTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 
   /**
    * <p>The name of the extension to test.</p>
@@ -305,7 +305,7 @@ export interface TestTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The version of the extension to test.</p>
@@ -315,7 +315,7 @@ export interface TestTypeInput {
    *       this account and Region for testing.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The S3 bucket to which CloudFormation delivers the contract test execution logs.</p>
@@ -339,7 +339,7 @@ export interface TestTypeInput {
    *         Condition Keys for Amazon S3</a> in the <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  LogDeliveryBucket?: string;
+  LogDeliveryBucket?: string | undefined;
 }
 
 /**
@@ -350,7 +350,7 @@ export interface TestTypeOutput {
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
    * @public
    */
-  TypeVersionArn?: string;
+  TypeVersionArn?: string | undefined;
 }
 
 /**
@@ -367,19 +367,19 @@ export interface UpdateGeneratedTemplateInput {
    * <p>An optional new name to assign to the generated template.</p>
    * @public
    */
-  NewGeneratedTemplateName?: string;
+  NewGeneratedTemplateName?: string | undefined;
 
   /**
    * <p>An optional list of resources to be added to the generated template.</p>
    * @public
    */
-  AddResources?: ResourceDefinition[];
+  AddResources?: ResourceDefinition[] | undefined;
 
   /**
    * <p>A list of logical ids for resources to remove from the generated template.</p>
    * @public
    */
-  RemoveResources?: string[];
+  RemoveResources?: string[] | undefined;
 
   /**
    * <p>If <code>true</code>, update the resource properties in the generated template with their
@@ -388,14 +388,14 @@ export interface UpdateGeneratedTemplateInput {
    *       update the resource properties after generating a template.</p>
    * @public
    */
-  RefreshAllResources?: boolean;
+  RefreshAllResources?: boolean | undefined;
 
   /**
    * <p>The configuration details of the generated template, including the
    *         <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code>.</p>
    * @public
    */
-  TemplateConfiguration?: TemplateConfiguration;
+  TemplateConfiguration?: TemplateConfiguration | undefined;
 }
 
 /**
@@ -410,7 +410,7 @@ export interface UpdateGeneratedTemplateOutput {
    *             </code>.</p>
    * @public
    */
-  GeneratedTemplateId?: string;
+  GeneratedTemplateId?: string | undefined;
 }
 
 /**
@@ -432,7 +432,7 @@ export interface UpdateStackInput {
    *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>Location of file containing the template body. The URL must point to a template that's
@@ -443,7 +443,7 @@ export interface UpdateStackInput {
    *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>Reuse the existing template that is associated with the stack that you are
@@ -453,7 +453,7 @@ export interface UpdateStackInput {
    *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
-  UsePreviousTemplate?: boolean;
+  UsePreviousTemplate?: boolean | undefined;
 
   /**
    * <p>Structure containing the temporary overriding stack policy body. You can specify either
@@ -464,7 +464,7 @@ export interface UpdateStackInput {
    *       with the stack will be used.</p>
    * @public
    */
-  StackPolicyDuringUpdateBody?: string;
+  StackPolicyDuringUpdateBody?: string | undefined;
 
   /**
    * <p>Location of a file containing the temporary overriding stack policy. The URL must point to
@@ -477,7 +477,7 @@ export interface UpdateStackInput {
    *       with the stack will be used.</p>
    * @public
    */
-  StackPolicyDuringUpdateURL?: string;
+  StackPolicyDuringUpdateURL?: string | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack.
@@ -485,7 +485,7 @@ export interface UpdateStackInput {
    *       type.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -590,7 +590,7 @@ export interface UpdateStackInput {
    *          </note>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The template resource types that you have permissions to work with for this update stack
@@ -606,7 +606,7 @@ export interface UpdateStackInput {
    *          </note>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to update the
@@ -619,14 +619,14 @@ export interface UpdateStackInput {
    *       your user credentials.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating
    *       operations, and for the specified monitoring period afterwards.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>Structure containing a new stack policy body. You can specify either the
@@ -637,7 +637,7 @@ export interface UpdateStackInput {
    *       that is associated with the stack is unchanged.</p>
    * @public
    */
-  StackPolicyBody?: string;
+  StackPolicyBody?: string | undefined;
 
   /**
    * <p>Location of a file containing the updated stack policy. The URL must point to a policy
@@ -650,14 +650,14 @@ export interface UpdateStackInput {
    *       that is associated with the stack is unchanged.</p>
    * @public
    */
-  StackPolicyURL?: string;
+  StackPolicyURL?: string | undefined;
 
   /**
    * <p>Amazon Simple Notification Service topic Amazon Resource Names (ARNs) that CloudFormation
    *       associates with the stack. Specify an empty list to remove all notification topics.</p>
    * @public
    */
-  NotificationARNs?: string[];
+  NotificationARNs?: string[] | undefined;
 
   /**
    * <p>Key-value pairs to associate with this stack. CloudFormation also propagates these tags to
@@ -666,7 +666,7 @@ export interface UpdateStackInput {
    *       specify an empty value, CloudFormation removes all associated tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Preserve the state of previously provisioned resources when an operation fails.</p>
@@ -674,7 +674,7 @@ export interface UpdateStackInput {
    *          </p>
    * @public
    */
-  DisableRollback?: boolean;
+  DisableRollback?: boolean | undefined;
 
   /**
    * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if you
@@ -694,7 +694,7 @@ export interface UpdateStackInput {
    *         <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, newly created resources are deleted when the operation
@@ -704,7 +704,7 @@ export interface UpdateStackInput {
    *          </p>
    * @public
    */
-  RetainExceptOnCreate?: boolean;
+  RetainExceptOnCreate?: boolean | undefined;
 }
 
 /**
@@ -716,7 +716,7 @@ export interface UpdateStackOutput {
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -737,7 +737,7 @@ export interface UpdateStackInstancesInput {
    *       both.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>[Service-managed permissions] The Organizations accounts for which you want to
@@ -749,7 +749,7 @@ export interface UpdateStackInstancesInput {
    *       both.</p>
    * @public
    */
-  DeploymentTargets?: DeploymentTargets;
+  DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
    * <p>The names of one or more Amazon Web Services Regions in which you want to update parameter values for
@@ -795,13 +795,13 @@ export interface UpdateStackInstancesInput {
    *       override the parameter value using <code>UpdateStackInstances</code>.</p>
    * @public
    */
-  ParameterOverrides?: Parameter[];
+  ParameterOverrides?: Parameter[] | undefined;
 
   /**
    * <p>Preferences for how CloudFormation performs this stack set operation.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -813,7 +813,7 @@ export interface UpdateStackInstancesInput {
    *       automatically.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -835,7 +835,7 @@ export interface UpdateStackInstancesInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -846,7 +846,7 @@ export interface UpdateStackInstancesOutput {
    * <p>The unique identifier for this stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -863,7 +863,7 @@ export interface UpdateStackSetInput {
    * <p>A brief description of updates that you are making.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
@@ -873,7 +873,7 @@ export interface UpdateStackSetInput {
    *         <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The location of the file that contains the template body. The URL must point to a template
@@ -884,7 +884,7 @@ export interface UpdateStackSetInput {
    *         <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>Use the existing template that's associated with the stack set that you're
@@ -894,13 +894,13 @@ export interface UpdateStackSetInput {
    *         <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
-  UsePreviousTemplate?: boolean;
+  UsePreviousTemplate?: boolean | undefined;
 
   /**
    * <p>A list of input parameters for the stack set template.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -989,7 +989,7 @@ export interface UpdateStackSetInput {
    *          </ul>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The key-value pairs to associate with this stack set and the stacks created from it.
@@ -1024,13 +1024,13 @@ export interface UpdateStackSetInput {
    *       stack set is not updated.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Preferences for how CloudFormation performs this stack set operation.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
@@ -1043,7 +1043,7 @@ export interface UpdateStackSetInput {
    *       used with this stack set previously.</p>
    * @public
    */
-  AdministrationRoleARN?: string;
+  AdministrationRoleARN?: string | undefined;
 
   /**
    * <p>The name of the IAM execution role to use to update the stack set. If you do not specify
@@ -1057,7 +1057,7 @@ export interface UpdateStackSetInput {
    *       operations on the stack set.</p>
    * @public
    */
-  ExecutionRoleName?: string;
+  ExecutionRoleName?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] The Organizations accounts in which to update
@@ -1073,7 +1073,7 @@ export interface UpdateStackSetInput {
    *       all other stack instances with their existing stack instance status.</p>
    * @public
    */
-  DeploymentTargets?: DeploymentTargets;
+  DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created. You cannot
@@ -1094,7 +1094,7 @@ export interface UpdateStackSetInput {
    *          </ul>
    * @public
    */
-  PermissionModel?: PermissionModels;
+  PermissionModel?: PermissionModels | undefined;
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organization or organizational unit
@@ -1103,7 +1103,7 @@ export interface UpdateStackSetInput {
    *       or <code>Regions</code>.</p>
    * @public
    */
-  AutoDeployment?: AutoDeployment;
+  AutoDeployment?: AutoDeployment | undefined;
 
   /**
    * <p>The unique ID for this stack set operation.</p>
@@ -1117,7 +1117,7 @@ export interface UpdateStackSetInput {
    *       whose status is <code>OUTDATED</code>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>[Self-managed permissions] The accounts in which to update associated stack instances. If
@@ -1134,7 +1134,7 @@ export interface UpdateStackSetInput {
    *       leaving all other stack instances with their existing stack instance status.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services Regions in which to update associated stack instances. If you specify Regions,
@@ -1150,7 +1150,7 @@ export interface UpdateStackSetInput {
    *       all other stack instances with their existing stack instance status.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -1172,14 +1172,14 @@ export interface UpdateStackSetInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 
   /**
    * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
    *       conflicting operations.</p>
    * @public
    */
-  ManagedExecution?: ManagedExecution;
+  ManagedExecution?: ManagedExecution | undefined;
 }
 
 /**
@@ -1190,7 +1190,7 @@ export interface UpdateStackSetOutput {
    * <p>The unique ID for this stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -1219,7 +1219,7 @@ export interface UpdateTerminationProtectionOutput {
    * <p>The unique ID of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface ValidateTemplateInput {
    *       are passed, only <code>TemplateBody</code> is used.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>Location of file containing the template body. The URL must point to a template (max size:
@@ -1244,7 +1244,7 @@ export interface ValidateTemplateInput {
    *       are passed, only <code>TemplateBody</code> is used.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 }
 
 /**
@@ -1256,26 +1256,26 @@ export interface TemplateParameter {
    * <p>The name associated with the parameter.</p>
    * @public
    */
-  ParameterKey?: string;
+  ParameterKey?: string | undefined;
 
   /**
    * <p>The default value associated with the parameter.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>Flag indicating whether the parameter should be displayed as plain text in logs and
    *    UIs.</p>
    * @public
    */
-  NoEcho?: boolean;
+  NoEcho?: boolean | undefined;
 
   /**
    * <p>User defined description associated with the parameter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -1287,13 +1287,13 @@ export interface ValidateTemplateOutput {
    * <p>A list of <code>TemplateParameter</code> structures.</p>
    * @public
    */
-  Parameters?: TemplateParameter[];
+  Parameters?: TemplateParameter[] | undefined;
 
   /**
    * <p>The description found within the template.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources, you
@@ -1303,18 +1303,18 @@ export interface ValidateTemplateOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code> response
    *       element.</p>
    * @public
    */
-  CapabilitiesReason?: string;
+  CapabilitiesReason?: string | undefined;
 
   /**
    * <p>A list of the transforms that are declared in the template.</p>
    * @public
    */
-  DeclaredTransforms?: string[];
+  DeclaredTransforms?: string[] | undefined;
 }

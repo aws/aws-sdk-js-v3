@@ -116,36 +116,6 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/key-value-store/arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  * }
  * *\/
- * // example id: to-create-a-key-value-store-1699751722467
- * ```
- *
- * @example To create a KeyValueStore
- * ```javascript
- * // Use the following command to create a KeyValueStore.
- * const input = {
- *   "Comment": "my-key-valuestore-comment",
- *   "ImportSource": {
- *     "SourceARN": "arn:aws:s3:::my-bucket/validJSON.json",
- *     "SourceType": "S3"
- *   },
- *   "Name": "my-keyvaluestore-name"
- * };
- * const command = new CreateKeyValueStoreCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "ETVPDKIKX0DER",
- *   "KeyValueStore": {
- *     "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "Comment": "my-key-valuestore-comment",
- *     "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "LastModifiedTime": "2023-11-07T18:15:52.042Z",
- *     "Name": "my-keyvaluestore-name",
- *     "Status": "PROVISIONING"
- *   },
- *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/key-value-store/arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
- * }
- * *\/
  * // example id: example-1
  * ```
  *

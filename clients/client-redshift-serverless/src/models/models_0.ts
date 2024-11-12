@@ -10,7 +10,7 @@ import { RedshiftServerlessServiceException as __BaseException } from "./Redshif
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -34,25 +34,25 @@ export interface Association {
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 
   /**
    * <p>The expiration time for the certificate.</p>
    * @public
    */
-  customDomainCertificateExpiryTime?: Date;
+  customDomainCertificateExpiryTime?: Date | undefined;
 
   /**
    * <p>The custom domain name associated with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The name of the workgroup associated with the database.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 }
 
 /**
@@ -68,13 +68,13 @@ export interface ConfigParameter {
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
-  parameterKey?: string;
+  parameterKey?: string | undefined;
 
   /**
    * <p>The value of the parameter to set.</p>
    * @public
    */
-  parameterValue?: string;
+  parameterValue?: string | undefined;
 }
 
 /**
@@ -135,14 +135,14 @@ export interface ConvertRecoveryPointToSnapshotRequest {
    * <p>How long to retain the snapshot.</p>
    * @public
    */
-  retentionPeriod?: number;
+  retentionPeriod?: number | undefined;
 
   /**
    * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a>
    *          to associate with the created snapshot.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -172,134 +172,134 @@ export interface Snapshot {
    * <p>The name of the namepsace.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the namespace the snapshot was created from.</p>
    * @public
    */
-  namespaceArn?: string;
+  namespaceArn?: string | undefined;
 
   /**
    * <p>The name of the snapshot.</p>
    * @public
    */
-  snapshotName?: string;
+  snapshotName?: string | undefined;
 
   /**
    * <p>The timestamp of when the snapshot was created.</p>
    * @public
    */
-  snapshotCreateTime?: Date;
+  snapshotCreateTime?: Date | undefined;
 
   /**
    * <p>The username of the database within a snapshot.</p>
    * @public
    */
-  adminUsername?: string;
+  adminUsername?: string | undefined;
 
   /**
    * <p>The status of the snapshot.</p>
    * @public
    */
-  status?: SnapshotStatus;
+  status?: SnapshotStatus | undefined;
 
   /**
    * <p>The unique identifier of the KMS key used to encrypt the snapshot.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The owner Amazon Web Services; account of the snapshot.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 
   /**
    * <p>The total size, in megabytes, of how big the snapshot is.</p>
    * @public
    */
-  totalBackupSizeInMegaBytes?: number;
+  totalBackupSizeInMegaBytes?: number | undefined;
 
   /**
    * <p>The size of the incremental backup in megabytes.</p>
    * @public
    */
-  actualIncrementalBackupSizeInMegaBytes?: number;
+  actualIncrementalBackupSizeInMegaBytes?: number | undefined;
 
   /**
    * <p>The size in megabytes of the data that has been backed up to a snapshot.</p>
    * @public
    */
-  backupProgressInMegaBytes?: number;
+  backupProgressInMegaBytes?: number | undefined;
 
   /**
    * <p>The rate at which data is backed up into a snapshot in megabytes per second.</p>
    * @public
    */
-  currentBackupRateInMegaBytesPerSecond?: number;
+  currentBackupRateInMegaBytesPerSecond?: number | undefined;
 
   /**
    * <p>The estimated amount of seconds until the snapshot completes backup.</p>
    * @public
    */
-  estimatedSecondsToCompletion?: number;
+  estimatedSecondsToCompletion?: number | undefined;
 
   /**
    * <p>The amount of time it took to back up data into a snapshot.</p>
    * @public
    */
-  elapsedTimeInSeconds?: number;
+  elapsedTimeInSeconds?: number | undefined;
 
   /**
    * <p>The period of time, in days, of how long the snapshot is retained.</p>
    * @public
    */
-  snapshotRetentionPeriod?: number;
+  snapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The amount of days until the snapshot is deleted.</p>
    * @public
    */
-  snapshotRemainingDays?: number;
+  snapshotRemainingDays?: number | undefined;
 
   /**
    * <p>The timestamp of when data within the snapshot started getting retained.</p>
    * @public
    */
-  snapshotRetentionStartTime?: Date;
+  snapshotRetentionStartTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the snapshot.</p>
    * @public
    */
-  snapshotArn?: string;
+  snapshotArn?: string | undefined;
 
   /**
    * <p>All of the Amazon Web Services accounts that have access to
    *          restore a snapshot to a namespace.</p>
    * @public
    */
-  accountsWithRestoreAccess?: string[];
+  accountsWithRestoreAccess?: string[] | undefined;
 
   /**
    * <p>All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.</p>
    * @public
    */
-  accountsWithProvisionedRestoreAccess?: string[];
+  accountsWithProvisionedRestoreAccess?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.</p>
    * @public
    */
-  adminPasswordSecretArn?: string;
+  adminPasswordSecretArn?: string | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
    * @public
    */
-  adminPasswordSecretKmsKeyId?: string;
+  adminPasswordSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -310,7 +310,7 @@ export interface ConvertRecoveryPointToSnapshotResponse {
    * <p>The snapshot converted from the recovery point.</p>
    * @public
    */
-  snapshot?: Snapshot;
+  snapshot?: Snapshot | undefined;
 }
 
 /**
@@ -345,7 +345,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The name of the resource that could not be found.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -392,7 +392,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>The name of the resource that exceeded the number of tags allowed for a resource.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -459,25 +459,25 @@ export interface CreateCustomDomainAssociationResponse {
    * <p>The custom domain name to associate with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The name of the workgroup associated with the database.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 
   /**
    * <p>The expiration time for the certificate.</p>
    * @public
    */
-  customDomainCertificateExpiryTime?: Date;
+  customDomainCertificateExpiryTime?: Date | undefined;
 }
 
 /**
@@ -488,7 +488,7 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   $retryable = {};
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -533,13 +533,13 @@ export interface CreateEndpointAccessRequest {
    *          protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 }
 
 /**
@@ -553,31 +553,31 @@ export interface NetworkInterface {
    * <p>The unique identifier of the network interface.</p>
    * @public
    */
-  networkInterfaceId?: string;
+  networkInterfaceId?: string | undefined;
 
   /**
    * <p>The unique identifier of the subnet.</p>
    * @public
    */
-  subnetId?: string;
+  subnetId?: string | undefined;
 
   /**
    * <p>The IPv4 address of the network interface within the subnet.</p>
    * @public
    */
-  privateIpAddress?: string;
+  privateIpAddress?: string | undefined;
 
   /**
    * <p>The availability Zone.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The IPv6 address of the network interface within the subnet.</p>
    * @public
    */
-  ipv6Address?: string;
+  ipv6Address?: string | undefined;
 }
 
 /**
@@ -589,19 +589,19 @@ export interface VpcEndpoint {
    * <p>The connection endpoint ID for connecting to Amazon Redshift Serverless.</p>
    * @public
    */
-  vpcEndpointId?: string;
+  vpcEndpointId?: string | undefined;
 
   /**
    * <p>The VPC identifier that the endpoint is associated with.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>One or more network interfaces of the endpoint. Also known as an interface endpoint.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 }
 
 /**
@@ -613,13 +613,13 @@ export interface VpcSecurityGroupMembership {
    * <p>The unique identifier of the VPC security group.</p>
    * @public
    */
-  vpcSecurityGroupId?: string;
+  vpcSecurityGroupId?: string | undefined;
 
   /**
    * <p>The status of the VPC security group.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -631,62 +631,62 @@ export interface EndpointAccess {
    * <p>The name of the VPC endpoint.</p>
    * @public
    */
-  endpointName?: string;
+  endpointName?: string | undefined;
 
   /**
    * <p>The status of the VPC endpoint.</p>
    * @public
    */
-  endpointStatus?: string;
+  endpointStatus?: string | undefined;
 
   /**
    * <p>The name of the workgroup associated with the endpoint.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The time that the endpoint was created.</p>
    * @public
    */
-  endpointCreateTime?: Date;
+  endpointCreateTime?: Date | undefined;
 
   /**
    * <p>The port number on which Amazon Redshift Serverless accepts incoming connections.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The DNS address of the endpoint.</p>
    * @public
    */
-  address?: string;
+  address?: string | undefined;
 
   /**
    * <p>The unique identifier of subnets
    *          where Amazon Redshift Serverless choose to deploy the VPC endpoint.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The security groups associated with the endpoint.</p>
    * @public
    */
-  vpcSecurityGroups?: VpcSecurityGroupMembership[];
+  vpcSecurityGroups?: VpcSecurityGroupMembership[] | undefined;
 
   /**
    * <p>The connection endpoint for connecting to Amazon Redshift Serverless.</p>
    * @public
    */
-  vpcEndpoint?: VpcEndpoint;
+  vpcEndpoint?: VpcEndpoint | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint.</p>
    * @public
    */
-  endpointArn?: string;
+  endpointArn?: string | undefined;
 }
 
 /**
@@ -697,7 +697,7 @@ export interface CreateEndpointAccessResponse {
    * <p>The created VPC endpoint.</p>
    * @public
    */
-  endpoint?: EndpointAccess;
+  endpoint?: EndpointAccess | undefined;
 }
 
 /**
@@ -729,51 +729,51 @@ export interface CreateNamespaceRequest {
    * <p>The username of the administrator for the first database created in the namespace.</p>
    * @public
    */
-  adminUsername?: string;
+  adminUsername?: string | undefined;
 
   /**
    * <p>The password of the administrator for the first database created in the namespace.</p>
    *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    * @public
    */
-  adminUserPassword?: string;
+  adminUserPassword?: string | undefined;
 
   /**
    * <p>The name of the first database created in the namespace.</p>
    * @public
    */
-  dbName?: string;
+  dbName?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services Key Management Service key used to encrypt your data.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.</p>
    * @public
    */
-  defaultIamRoleArn?: string;
+  defaultIamRoleArn?: string | undefined;
 
   /**
    * <p>A list of IAM roles to associate with the namespace.</p>
    * @public
    */
-  iamRoles?: string[];
+  iamRoles?: string[] | undefined;
 
   /**
    * <p>The types of logs the namespace can export.
    *          Available export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    * @public
    */
-  logExports?: LogExport[];
+  logExports?: LogExport[] | undefined;
 
   /**
    * <p>A list of tag instances.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
@@ -783,20 +783,20 @@ export interface CreateNamespaceRequest {
    *       </p>
    * @public
    */
-  manageAdminPassword?: boolean;
+  manageAdminPassword?: boolean | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
    *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
    * @public
    */
-  adminPasswordSecretKmsKeyId?: string;
+  adminPasswordSecretKmsKeyId?: string | undefined;
 
   /**
    * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
    * @public
    */
-  redshiftIdcApplicationArn?: string;
+  redshiftIdcApplicationArn?: string | undefined;
 }
 
 /**
@@ -823,13 +823,13 @@ export interface Namespace {
    * <p>The Amazon Resource Name (ARN) associated with a namespace.</p>
    * @public
    */
-  namespaceArn?: string;
+  namespaceArn?: string | undefined;
 
   /**
    * <p>The unique identifier of a namespace.</p>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 
   /**
    * <p>The name of the namespace.
@@ -838,67 +838,67 @@ export interface Namespace {
    *       in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The username of the administrator for the first database created in the namespace.</p>
    * @public
    */
-  adminUsername?: string;
+  adminUsername?: string | undefined;
 
   /**
    * <p>The name of the first database created in the namespace.</p>
    * @public
    */
-  dbName?: string;
+  dbName?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services Key Management Service key used to encrypt your data.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.</p>
    * @public
    */
-  defaultIamRoleArn?: string;
+  defaultIamRoleArn?: string | undefined;
 
   /**
    * <p>A list of IAM roles to associate with the namespace.</p>
    * @public
    */
-  iamRoles?: string[];
+  iamRoles?: string[] | undefined;
 
   /**
    * <p>The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.</p>
    * @public
    */
-  logExports?: LogExport[];
+  logExports?: LogExport[] | undefined;
 
   /**
    * <p>The status of the namespace.</p>
    * @public
    */
-  status?: NamespaceStatus;
+  status?: NamespaceStatus | undefined;
 
   /**
    * <p>The date of when the namespace was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.</p>
    * @public
    */
-  adminPasswordSecretArn?: string;
+  adminPasswordSecretArn?: string | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
    * @public
    */
-  adminPasswordSecretKmsKeyId?: string;
+  adminPasswordSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -909,7 +909,7 @@ export interface CreateNamespaceResponse {
    * <p>The created namespace object.</p>
    * @public
    */
-  namespace?: Namespace;
+  namespace?: Namespace | undefined;
 }
 
 /**
@@ -989,13 +989,13 @@ export interface CreateSnapshotScheduleActionParameters {
    * <p>The retention period of the snapshot created by the scheduled action.</p>
    * @public
    */
-  retentionPeriod?: number;
+  retentionPeriod?: number | undefined;
 
   /**
    * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a> to associate with the snapshot.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1094,25 +1094,25 @@ export interface CreateScheduledActionRequest {
    *          of the scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The description of the scheduled action.</p>
    * @public
    */
-  scheduledActionDescription?: string;
+  scheduledActionDescription?: string | undefined;
 
   /**
    * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1138,7 +1138,7 @@ export interface ScheduledActionResponse {
    * <p>The name of the scheduled action.</p>
    * @public
    */
-  scheduledActionName?: string;
+  scheduledActionName?: string | undefined;
 
   /**
    * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
@@ -1153,19 +1153,19 @@ export interface ScheduledActionResponse {
    *          </ul>
    * @public
    */
-  schedule?: Schedule;
+  schedule?: Schedule | undefined;
 
   /**
    * <p>The description of the scheduled action.</p>
    * @public
    */
-  scheduledActionDescription?: string;
+  scheduledActionDescription?: string | undefined;
 
   /**
    * <p>An array of timestamps of when the next scheduled actions will trigger.</p>
    * @public
    */
-  nextInvocations?: Date[];
+  nextInvocations?: Date[] | undefined;
 
   /**
    * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
@@ -1174,25 +1174,25 @@ export interface ScheduledActionResponse {
    *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The state of the scheduled action.</p>
    * @public
    */
-  state?: State;
+  state?: State | undefined;
 
   /**
    * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time of </p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
@@ -1201,19 +1201,19 @@ export interface ScheduledActionResponse {
    *          </p>
    * @public
    */
-  targetAction?: TargetAction;
+  targetAction?: TargetAction | undefined;
 
   /**
    * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The uuid of the scheduled action.</p>
    * @public
    */
-  scheduledActionUuid?: string;
+  scheduledActionUuid?: string | undefined;
 }
 
 /**
@@ -1224,7 +1224,7 @@ export interface CreateScheduledActionResponse {
    * <p>The returned <code>ScheduledAction</code> object that describes the properties of a scheduled action.</p>
    * @public
    */
-  scheduledAction?: ScheduledActionResponse;
+  scheduledAction?: ScheduledActionResponse | undefined;
 }
 
 /**
@@ -1247,13 +1247,13 @@ export interface CreateSnapshotRequest {
    * <p>How long to retain the created snapshot.</p>
    * @public
    */
-  retentionPeriod?: number;
+  retentionPeriod?: number | undefined;
 
   /**
    * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a> to associate with the snapshot.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1264,7 +1264,7 @@ export interface CreateSnapshotResponse {
    * <p>The created snapshot object.</p>
    * @public
    */
-  snapshot?: Snapshot;
+  snapshot?: Snapshot | undefined;
 }
 
 /**
@@ -1287,13 +1287,13 @@ export interface CreateSnapshotCopyConfigurationRequest {
    * <p>The retention period of the snapshots that you copy to the destination Amazon Web Services Region.</p>
    * @public
    */
-  snapshotRetentionPeriod?: number;
+  snapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The KMS key to use to encrypt your snapshots in the destination Amazon Web Services Region.</p>
    * @public
    */
-  destinationKmsKeyId?: string;
+  destinationKmsKeyId?: string | undefined;
 }
 
 /**
@@ -1305,37 +1305,37 @@ export interface SnapshotCopyConfiguration {
    * <p>The ID of the snapshot copy configuration object.</p>
    * @public
    */
-  snapshotCopyConfigurationId?: string;
+  snapshotCopyConfigurationId?: string | undefined;
 
   /**
    * <p>The ARN of the snapshot copy configuration object.</p>
    * @public
    */
-  snapshotCopyConfigurationArn?: string;
+  snapshotCopyConfigurationArn?: string | undefined;
 
   /**
    * <p>The name of the namespace to copy snapshots from in the source Amazon Web Services Region.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The destination Amazon Web Services Region to copy snapshots to.</p>
    * @public
    */
-  destinationRegion?: string;
+  destinationRegion?: string | undefined;
 
   /**
    * <p>The retention period of snapshots that are copied to the destination Amazon Web Services Region.</p>
    * @public
    */
-  snapshotRetentionPeriod?: number;
+  snapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The ID of the KMS key to use to encrypt your snapshots in the destination Amazon Web Services Region.</p>
    * @public
    */
-  destinationKmsKeyId?: string;
+  destinationKmsKeyId?: string | undefined;
 }
 
 /**
@@ -1420,13 +1420,13 @@ export interface CreateUsageLimitRequest {
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    * @public
    */
-  period?: UsageLimitPeriod;
+  period?: UsageLimitPeriod | undefined;
 
   /**
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached. The default is log.</p>
    * @public
    */
-  breachAction?: UsageLimitBreachAction;
+  breachAction?: UsageLimitBreachAction | undefined;
 }
 
 /**
@@ -1438,43 +1438,43 @@ export interface UsageLimit {
    * <p>The identifier of the usage limit.</p>
    * @public
    */
-  usageLimitId?: string;
+  usageLimitId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the usage limit.</p>
    * @public
    */
-  usageLimitArn?: string;
+  usageLimitArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the Amazon Redshift Serverless resource.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Redshift Serverless feature to limit.</p>
    * @public
    */
-  usageType?: UsageLimitUsageType;
+  usageType?: UsageLimitUsageType | undefined;
 
   /**
    * <p>The limit amount. If time-based, this amount is in RPUs consumed per hour. If data-based, this amount is in terabytes (TB). The value must be a positive number.</p>
    * @public
    */
-  amount?: number;
+  amount?: number | undefined;
 
   /**
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    * @public
    */
-  period?: UsageLimitPeriod;
+  period?: UsageLimitPeriod | undefined;
 
   /**
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached.</p>
    * @public
    */
-  breachAction?: UsageLimitBreachAction;
+  breachAction?: UsageLimitBreachAction | undefined;
 }
 
 /**
@@ -1485,7 +1485,7 @@ export interface CreateUsageLimitResponse {
    * <p>The returned usage limit object.</p>
    * @public
    */
-  usageLimit?: UsageLimit;
+  usageLimit?: UsageLimit | undefined;
 }
 
 /**
@@ -1511,14 +1511,14 @@ export interface PerformanceTarget {
    * <p>Whether the price performance target is enabled for the workgroup.</p>
    * @public
    */
-  status?: PerformanceTargetStatus;
+  status?: PerformanceTargetStatus | undefined;
 
   /**
    * <p>The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These
    *          correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.</p>
    * @public
    */
-  level?: number;
+  level?: number | undefined;
 }
 
 /**
@@ -1541,14 +1541,14 @@ export interface CreateWorkgroupRequest {
    * <p>The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).</p>
    * @public
    */
-  baseCapacity?: number;
+  baseCapacity?: number | undefined;
 
   /**
    * <p>The value that specifies whether to turn on enhanced virtual
    *          private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.</p>
    * @public
    */
-  enhancedVpcRouting?: boolean;
+  enhancedVpcRouting?: boolean | undefined;
 
   /**
    * <p>An array of parameters to set for advanced control over a database. The
@@ -1558,55 +1558,55 @@ export interface CreateWorkgroupRequest {
    *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
-  configParameters?: ConfigParameter[];
+  configParameters?: ConfigParameter[] | undefined;
 
   /**
    * <p>An array of security group IDs to associate with the workgroup.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>An array of VPC subnet IDs to associate with the workgroup.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>A value that specifies whether the workgroup can be accessed from a public network.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>A array of tag instances.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
    * @public
    */
-  maxCapacity?: number;
+  maxCapacity?: number | undefined;
 
   /**
    * <p>An object that represents the price performance target settings for the workgroup.</p>
    * @public
    */
-  pricePerformanceTarget?: PerformanceTarget;
+  pricePerformanceTarget?: PerformanceTarget | undefined;
 
   /**
    * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    * @public
    */
-  ipAddressType?: string;
+  ipAddressType?: string | undefined;
 }
 
 /**
@@ -1618,19 +1618,19 @@ export interface Endpoint {
    * <p>The DNS address of the VPC endpoint.</p>
    * @public
    */
-  address?: string;
+  address?: string | undefined;
 
   /**
    * <p>The port that Amazon Redshift Serverless listens on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>An array of <code>VpcEndpoint</code> objects.</p>
    * @public
    */
-  vpcEndpoints?: VpcEndpoint[];
+  vpcEndpoints?: VpcEndpoint[] | undefined;
 }
 
 /**
@@ -1658,38 +1658,38 @@ export interface Workgroup {
    * <p>The unique identifier of the workgroup.</p>
    * @public
    */
-  workgroupId?: string;
+  workgroupId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that links to the workgroup.</p>
    * @public
    */
-  workgroupArn?: string;
+  workgroupArn?: string | undefined;
 
   /**
    * <p>The name of the workgroup.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The namespace the workgroup is associated with.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).</p>
    * @public
    */
-  baseCapacity?: number;
+  baseCapacity?: number | undefined;
 
   /**
    * <p>The value that specifies whether to enable enhanced virtual
    *       private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
    * @public
    */
-  enhancedVpcRouting?: boolean;
+  enhancedVpcRouting?: boolean | undefined;
 
   /**
    * <p>An array of parameters to set for advanced control over a database. The
@@ -1698,104 +1698,104 @@ export interface Workgroup {
    *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
-  configParameters?: ConfigParameter[];
+  configParameters?: ConfigParameter[] | undefined;
 
   /**
    * <p>An array of security group IDs to associate with the workgroup.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>An array of subnet IDs the workgroup is associated with.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>The status of the workgroup.</p>
    * @public
    */
-  status?: WorkgroupStatus;
+  status?: WorkgroupStatus | undefined;
 
   /**
    * <p>The endpoint that is created from the workgroup.</p>
    * @public
    */
-  endpoint?: Endpoint;
+  endpoint?: Endpoint | undefined;
 
   /**
    * <p>A value that specifies whether the workgroup can be accessible from a public network.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>The creation date of the workgroup.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The custom domain name associated with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 
   /**
    * <p>The expiration time for the certificate.</p>
    * @public
    */
-  customDomainCertificateExpiryTime?: Date;
+  customDomainCertificateExpiryTime?: Date | undefined;
 
   /**
    * <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
    * @public
    */
-  workgroupVersion?: string;
+  workgroupVersion?: string | undefined;
 
   /**
    * <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
    * @public
    */
-  patchVersion?: string;
+  patchVersion?: string | undefined;
 
   /**
    * <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
    * @public
    */
-  maxCapacity?: number;
+  maxCapacity?: number | undefined;
 
   /**
    * <p>A list of VPCs. Each entry is the unique identifier of a virtual private cloud with access to Amazon Redshift Serverless. If all of the VPCs for the grantee are allowed, it shows an asterisk.</p>
    * @public
    */
-  crossAccountVpcs?: string[];
+  crossAccountVpcs?: string[] | undefined;
 
   /**
    * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    * @public
    */
-  ipAddressType?: string;
+  ipAddressType?: string | undefined;
 
   /**
    * <p>An object that represents the price performance target settings for the workgroup.</p>
    * @public
    */
-  pricePerformanceTarget?: PerformanceTarget;
+  pricePerformanceTarget?: PerformanceTarget | undefined;
 }
 
 /**
@@ -1806,7 +1806,7 @@ export interface CreateWorkgroupResponse {
    * <p>The created workgroup object.</p>
    * @public
    */
-  workgroup?: Workgroup;
+  workgroup?: Workgroup | undefined;
 }
 
 /**
@@ -1869,7 +1869,7 @@ export interface DeleteEndpointAccessResponse {
    * <p>The deleted VPC endpoint.</p>
    * @public
    */
-  endpoint?: EndpointAccess;
+  endpoint?: EndpointAccess | undefined;
 }
 
 /**
@@ -1891,7 +1891,7 @@ export interface GetEndpointAccessResponse {
    * <p>The returned VPC endpoint.</p>
    * @public
    */
-  endpoint?: EndpointAccess;
+  endpoint?: EndpointAccess | undefined;
 }
 
 /**
@@ -1904,32 +1904,32 @@ export interface ListEndpointAccessRequest {
    *          which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of the workgroup associated with the VPC endpoint to return.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The unique identifier of the virtual private cloud with access to Amazon Redshift Serverless.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 }
 
 /**
@@ -1942,7 +1942,7 @@ export interface ListEndpointAccessResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The returned VPC endpoints.</p>
@@ -1965,7 +1965,7 @@ export interface UpdateEndpointAccessRequest {
    * <p>The list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -1976,7 +1976,7 @@ export interface UpdateEndpointAccessResponse {
    * <p>The updated VPC endpoint.</p>
    * @public
    */
-  endpoint?: EndpointAccess;
+  endpoint?: EndpointAccess | undefined;
 }
 
 /**
@@ -2015,13 +2015,13 @@ export interface DeleteNamespaceRequest {
    * <p>The name of the snapshot to be created before the namespace is deleted.</p>
    * @public
    */
-  finalSnapshotName?: string;
+  finalSnapshotName?: string | undefined;
 
   /**
    * <p>How long to retain the final snapshot.</p>
    * @public
    */
-  finalSnapshotRetentionPeriod?: number;
+  finalSnapshotRetentionPeriod?: number | undefined;
 }
 
 /**
@@ -2070,7 +2070,7 @@ export interface DeleteScheduledActionResponse {
    * <p>The deleted scheduled action object.</p>
    * @public
    */
-  scheduledAction?: ScheduledActionResponse;
+  scheduledAction?: ScheduledActionResponse | undefined;
 }
 
 /**
@@ -2092,7 +2092,7 @@ export interface DeleteSnapshotResponse {
    * <p>The deleted snapshot object.</p>
    * @public
    */
-  snapshot?: Snapshot;
+  snapshot?: Snapshot | undefined;
 }
 
 /**
@@ -2136,7 +2136,7 @@ export interface DeleteUsageLimitResponse {
    * <p>The deleted usage limit object.</p>
    * @public
    */
-  usageLimit?: UsageLimit;
+  usageLimit?: UsageLimit | undefined;
 }
 
 /**
@@ -2189,26 +2189,26 @@ export interface GetCredentialsRequest {
    *          </ul>
    * @public
    */
-  dbName?: string;
+  dbName?: string | undefined;
 
   /**
    * <p>The number of seconds until the returned temporary password expires.
    *          The minimum is 900 seconds, and the maximum is 3600 seconds.</p>
    * @public
    */
-  durationSeconds?: number;
+  durationSeconds?: number | undefined;
 
   /**
    * <p>The name of the workgroup associated with the database.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The custom domain name associated with the workgroup. The custom domain name or the workgroup name must be included in the request.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 }
 
 /**
@@ -2222,27 +2222,27 @@ export interface GetCredentialsResponse {
    *          <code>DbUser</code>. By default, the user is added to PUBLIC.</p>
    * @public
    */
-  dbUser?: string;
+  dbUser?: string | undefined;
 
   /**
    * <p>A temporary password that authorizes the user name returned by
    *          <code>DbUser</code> to log on to the database <code>DbName</code>.</p>
    * @public
    */
-  dbPassword?: string;
+  dbPassword?: string | undefined;
 
   /**
    * <p>The date and time the password in <code>DbPassword</code> expires.</p>
    * @public
    */
-  expiration?: Date;
+  expiration?: Date | undefined;
 
   /**
    * <p>The date and time of when the <code>DbUser</code> and <code>DbPassword</code>
    *          authorization refreshes.</p>
    * @public
    */
-  nextRefreshTime?: Date;
+  nextRefreshTime?: Date | undefined;
 }
 
 /**
@@ -2270,25 +2270,25 @@ export interface GetCustomDomainAssociationResponse {
    * <p>The custom domain name associated with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The name of the workgroup associated with the database.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 
   /**
    * <p>The expiration time for the certificate.</p>
    * @public
    */
-  customDomainCertificateExpiryTime?: Date;
+  customDomainCertificateExpiryTime?: Date | undefined;
 }
 
 /**
@@ -2334,37 +2334,37 @@ export interface RecoveryPoint {
    * <p>The unique identifier of the recovery point.</p>
    * @public
    */
-  recoveryPointId?: string;
+  recoveryPointId?: string | undefined;
 
   /**
    * <p>The time the recovery point is created.</p>
    * @public
    */
-  recoveryPointCreateTime?: Date;
+  recoveryPointCreateTime?: Date | undefined;
 
   /**
    * <p>The total size of the data in the recovery point in megabytes.</p>
    * @public
    */
-  totalSizeInMegaBytes?: number;
+  totalSizeInMegaBytes?: number | undefined;
 
   /**
    * <p>The name of the namespace the recovery point is associated with.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The name of the workgroup the recovery point is associated with.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the namespace the recovery point is associated with.</p>
    * @public
    */
-  namespaceArn?: string;
+  namespaceArn?: string | undefined;
 }
 
 /**
@@ -2375,7 +2375,7 @@ export interface GetRecoveryPointResponse {
    * <p>The returned recovery point object.</p>
    * @public
    */
-  recoveryPoint?: RecoveryPoint;
+  recoveryPoint?: RecoveryPoint | undefined;
 }
 
 /**
@@ -2398,13 +2398,13 @@ export interface ResourcePolicy {
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The resource policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -2415,7 +2415,7 @@ export interface GetResourcePolicyResponse {
    * <p>The returned resource policy.</p>
    * @public
    */
-  resourcePolicy?: ResourcePolicy;
+  resourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -2437,7 +2437,7 @@ export interface GetScheduledActionResponse {
    * <p>The returned scheduled action object.</p>
    * @public
    */
-  scheduledAction?: ScheduledActionResponse;
+  scheduledAction?: ScheduledActionResponse | undefined;
 }
 
 /**
@@ -2448,19 +2448,19 @@ export interface GetSnapshotRequest {
    * <p>The name of the snapshot to return.</p>
    * @public
    */
-  snapshotName?: string;
+  snapshotName?: string | undefined;
 
   /**
    * <p>The owner Amazon Web Services account of a snapshot shared with another user.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the snapshot to return.</p>
    * @public
    */
-  snapshotArn?: string;
+  snapshotArn?: string | undefined;
 }
 
 /**
@@ -2471,7 +2471,7 @@ export interface GetSnapshotResponse {
    * <p>The returned snapshot object.</p>
    * @public
    */
-  snapshot?: Snapshot;
+  snapshot?: Snapshot | undefined;
 }
 
 /**
@@ -2494,99 +2494,99 @@ export interface TableRestoreStatus {
    * <p>The ID of the RestoreTableFromSnapshot request.</p>
    * @public
    */
-  tableRestoreRequestId?: string;
+  tableRestoreRequestId?: string | undefined;
 
   /**
    * <p>A value that describes the current state of the table restore request.
    *          Possible values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>A message that explains the returned status. For example, if the status of the operation is <code>FAILED</code>, the message explains why the operation failed.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The time that the table restore request was made,
    *          in Universal Coordinated Time (UTC).</p>
    * @public
    */
-  requestTime?: Date;
+  requestTime?: Date | undefined;
 
   /**
    * <p>The namespace of the table being restored from.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The name of the workgroup being restored from.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The name of the snapshot being restored from.</p>
    * @public
    */
-  snapshotName?: string;
+  snapshotName?: string | undefined;
 
   /**
    * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
    * @public
    */
-  progressInMegaBytes?: number;
+  progressInMegaBytes?: number | undefined;
 
   /**
    * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
    * @public
    */
-  totalDataInMegaBytes?: number;
+  totalDataInMegaBytes?: number | undefined;
 
   /**
    * <p>The name of the source database being restored from.</p>
    * @public
    */
-  sourceDatabaseName?: string;
+  sourceDatabaseName?: string | undefined;
 
   /**
    * <p>The name of the source schema being restored from.</p>
    * @public
    */
-  sourceSchemaName?: string;
+  sourceSchemaName?: string | undefined;
 
   /**
    * <p>The name of the source table being restored from.</p>
    * @public
    */
-  sourceTableName?: string;
+  sourceTableName?: string | undefined;
 
   /**
    * <p>The name of the database to restore to.</p>
    * @public
    */
-  targetDatabaseName?: string;
+  targetDatabaseName?: string | undefined;
 
   /**
    * <p>The name of the schema to restore to.</p>
    * @public
    */
-  targetSchemaName?: string;
+  targetSchemaName?: string | undefined;
 
   /**
    * <p>The name of the table to create from the restore operation.</p>
    * @public
    */
-  newTableName?: string;
+  newTableName?: string | undefined;
 
   /**
    * <p>The ID of the recovery point being restored from.</p>
    * @public
    */
-  recoveryPointId?: string;
+  recoveryPointId?: string | undefined;
 }
 
 /**
@@ -2598,7 +2598,7 @@ export interface GetTableRestoreStatusResponse {
    *          the status of your <code>RestoreTableFromSnapshot</code> request.</p>
    * @public
    */
-  tableRestoreStatus?: TableRestoreStatus;
+  tableRestoreStatus?: TableRestoreStatus | undefined;
 }
 
 /**
@@ -2620,7 +2620,7 @@ export interface GetUsageLimitResponse {
    * <p>The returned usage limit object.</p>
    * @public
    */
-  usageLimit?: UsageLimit;
+  usageLimit?: UsageLimit | undefined;
 }
 
 /**
@@ -2675,26 +2675,26 @@ export interface ListCustomDomainAssociationsRequest {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The custom domain name associated with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 }
 
 /**
@@ -2707,13 +2707,13 @@ export interface ListCustomDomainAssociationsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of Association objects.</p>
    * @public
    */
-  associations?: Association[];
+  associations?: Association[] | undefined;
 }
 
 /**
@@ -2726,14 +2726,14 @@ export interface ListNamespacesRequest {
    *          which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2746,7 +2746,7 @@ export interface ListNamespacesResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of returned namespaces.</p>
@@ -2765,38 +2765,38 @@ export interface ListRecoveryPointsRequest {
    *          which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The time when the recovery point's creation was initiated.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The time when creation of the recovery point finished.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The name of the namespace to list recovery points for.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</p>
    * @public
    */
-  namespaceArn?: string;
+  namespaceArn?: string | undefined;
 }
 
 /**
@@ -2807,7 +2807,7 @@ export interface ListRecoveryPointsResponse {
    * <p>The returned recovery point objects.</p>
    * @public
    */
-  recoveryPoints?: RecoveryPoint[];
+  recoveryPoints?: RecoveryPoint[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available.
@@ -2815,7 +2815,7 @@ export interface ListRecoveryPointsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2827,19 +2827,19 @@ export interface ListScheduledActionsRequest {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The name of namespace associated with the scheduled action to retrieve.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 }
 
 /**
@@ -2851,13 +2851,13 @@ export interface ScheduledActionAssociation {
    * <p>Name of associated Amazon Redshift Serverless namespace.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>Name of associated scheduled action.</p>
    * @public
    */
-  scheduledActionName?: string;
+  scheduledActionName?: string | undefined;
 }
 
 /**
@@ -2868,13 +2868,13 @@ export interface ListScheduledActionsResponse {
    * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>All of the returned scheduled action association objects.</p>
    * @public
    */
-  scheduledActions?: ScheduledActionAssociation[];
+  scheduledActions?: ScheduledActionAssociation[] | undefined;
 }
 
 /**
@@ -2885,20 +2885,20 @@ export interface ListSnapshotCopyConfigurationsRequest {
    * <p>The namespace from which to list all snapshot copy configurations.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using
    *          the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2910,7 +2910,7 @@ export interface ListSnapshotCopyConfigurationsResponse {
    *          the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>All of the returned snapshot copy configurations.</p>
@@ -2929,44 +2929,44 @@ export interface ListSnapshotsRequest {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The namespace from which to list all snapshots.</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the namespace from which to list all snapshots.</p>
    * @public
    */
-  namespaceArn?: string;
+  namespaceArn?: string | undefined;
 
   /**
    * <p>The owner Amazon Web Services account of the snapshot.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 
   /**
    * <p>The time when the creation of the snapshot was initiated.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The timestamp showing when the snapshot creation finished.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -2979,13 +2979,13 @@ export interface ListSnapshotsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>All of the returned snapshot objects.</p>
    * @public
    */
-  snapshots?: Snapshot[];
+  snapshots?: Snapshot[] | undefined;
 }
 
 /**
@@ -2998,26 +2998,26 @@ export interface ListTableRestoreStatusRequest {
    *          operations. This will return results on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to
    *          return. You can use nextToken to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The namespace from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations .</p>
    * @public
    */
-  namespaceName?: string;
+  namespaceName?: string | undefined;
 
   /**
    * <p>The workgroup from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 }
 
 /**
@@ -3030,13 +3030,13 @@ export interface ListTableRestoreStatusResponse {
    *          operations. This will returns results on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The array of returned <code>TableRestoreStatus</code> objects.</p>
    * @public
    */
-  tableRestoreStatuses?: TableRestoreStatus[];
+  tableRestoreStatuses?: TableRestoreStatus[] | undefined;
 }
 
 /**
@@ -3058,7 +3058,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of the key-value pairs assigned to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3069,13 +3069,13 @@ export interface ListUsageLimitsRequest {
    * <p>The Amazon Resource Name (ARN) associated with the resource whose usage limits you want to list.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Redshift Serverless feature whose limits you want to see.</p>
    * @public
    */
-  usageType?: UsageLimitUsageType;
+  usageType?: UsageLimitUsageType | undefined;
 
   /**
    * <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,
@@ -3084,14 +3084,14 @@ export interface ListUsageLimitsRequest {
    *       </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to get the next page of results. The default is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3102,7 +3102,7 @@ export interface ListUsageLimitsResponse {
    * <p>An array of returned usage limit objects.</p>
    * @public
    */
-  usageLimits?: UsageLimit[];
+  usageLimits?: UsageLimit[] | undefined;
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -3110,7 +3110,7 @@ export interface ListUsageLimitsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3123,20 +3123,20 @@ export interface ListWorkgroupsRequest {
    *          which returns results in the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
    *          You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 }
 
 /**
@@ -3150,7 +3150,7 @@ export interface ListWorkgroupsResponse {
    *          To retrieve the next page, make the call again using the returned token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The returned array of workgroups.</p>
@@ -3175,39 +3175,39 @@ export interface UpdateNamespaceRequest {
    *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    * @public
    */
-  adminUserPassword?: string;
+  adminUserPassword?: string | undefined;
 
   /**
    * <p>The username of the administrator for the first database created in the namespace. This parameter must be updated
    *       together with <code>adminUserPassword</code>.</p>
    * @public
    */
-  adminUsername?: string;
+  adminUsername?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services Key Management Service key used to encrypt your data.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. This parameter must be updated together
    *       with <code>iamRoles</code>.</p>
    * @public
    */
-  defaultIamRoleArn?: string;
+  defaultIamRoleArn?: string | undefined;
 
   /**
    * <p>A list of IAM roles to associate with the namespace. This parameter must be updated together with <code>defaultIamRoleArn</code>.</p>
    * @public
    */
-  iamRoles?: string[];
+  iamRoles?: string[] | undefined;
 
   /**
    * <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    * @public
    */
-  logExports?: LogExport[];
+  logExports?: LogExport[] | undefined;
 
   /**
    * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
@@ -3217,14 +3217,14 @@ export interface UpdateNamespaceRequest {
    *       </p>
    * @public
    */
-  manageAdminPassword?: boolean;
+  manageAdminPassword?: boolean | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
    *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
    * @public
    */
-  adminPasswordSecretKmsKeyId?: string;
+  adminPasswordSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -3269,7 +3269,7 @@ export interface PutResourcePolicyResponse {
    * <p>The policy that was created or updated.</p>
    * @public
    */
-  resourcePolicy?: ResourcePolicy;
+  resourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -3303,13 +3303,13 @@ export interface RestoreFromRecoveryPointResponse {
    * <p>The unique identifier of the recovery point used for the restore.</p>
    * @public
    */
-  recoveryPointId?: string;
+  recoveryPointId?: string | undefined;
 
   /**
    * <p>The namespace that data was restored into.</p>
    * @public
    */
-  namespace?: Namespace;
+  namespace?: Namespace | undefined;
 }
 
 /**
@@ -3344,7 +3344,7 @@ export interface RestoreTableFromRecoveryPointRequest {
    * <p>The name of the source schema that contains the table being restored.</p>
    * @public
    */
-  sourceSchemaName?: string;
+  sourceSchemaName?: string | undefined;
 
   /**
    * <p>The name of the source table being restored.</p>
@@ -3356,13 +3356,13 @@ export interface RestoreTableFromRecoveryPointRequest {
    * <p>The name of the database to restore the table to.</p>
    * @public
    */
-  targetDatabaseName?: string;
+  targetDatabaseName?: string | undefined;
 
   /**
    * <p>The name of the schema to restore the table to.</p>
    * @public
    */
-  targetSchemaName?: string;
+  targetSchemaName?: string | undefined;
 
   /**
    * <p>The name of the table to create from the restore operation.</p>
@@ -3374,7 +3374,7 @@ export interface RestoreTableFromRecoveryPointRequest {
    * <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If true, the names are case sensitive. If false, the names are not case sensitive. The default is false.</p>
    * @public
    */
-  activateCaseSensitiveIdentifier?: boolean;
+  activateCaseSensitiveIdentifier?: boolean | undefined;
 }
 
 /**
@@ -3385,7 +3385,7 @@ export interface RestoreTableFromRecoveryPointResponse {
    * <p>Contains information about a table restore request.</p>
    * @public
    */
-  tableRestoreStatus?: TableRestoreStatus;
+  tableRestoreStatus?: TableRestoreStatus | undefined;
 }
 
 /**
@@ -3405,7 +3405,7 @@ export interface UpdateScheduledActionRequest {
    *          </p>
    * @public
    */
-  targetAction?: TargetAction;
+  targetAction?: TargetAction | undefined;
 
   /**
    * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
@@ -3420,7 +3420,7 @@ export interface UpdateScheduledActionRequest {
    *          </ul>
    * @public
    */
-  schedule?: Schedule;
+  schedule?: Schedule | undefined;
 
   /**
    * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
@@ -3429,31 +3429,31 @@ export interface UpdateScheduledActionRequest {
    *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>Specifies whether to enable the scheduled action.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The descripion of the scheduled action to update to.</p>
    * @public
    */
-  scheduledActionDescription?: string;
+  scheduledActionDescription?: string | undefined;
 
   /**
    * <p>The start time in UTC of the scheduled action to update to.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The end time in UTC of the scheduled action to update.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -3464,7 +3464,7 @@ export interface UpdateScheduledActionResponse {
    * <p>The ScheduledAction object that was updated.</p>
    * @public
    */
-  scheduledAction?: ScheduledActionResponse;
+  scheduledAction?: ScheduledActionResponse | undefined;
 }
 
 /**
@@ -3487,7 +3487,7 @@ export interface RestoreFromSnapshotRequest {
    * <p>The name of the snapshot to restore from. Must not be specified at the same time as <code>snapshotArn</code>.</p>
    * @public
    */
-  snapshotName?: string;
+  snapshotName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from Amazon Redshift Serverless to a provisioned cluster.
@@ -3495,13 +3495,13 @@ export interface RestoreFromSnapshotRequest {
    *          <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>
    * @public
    */
-  snapshotArn?: string;
+  snapshotArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account that owns the snapshot.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 
   /**
    * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
@@ -3510,13 +3510,13 @@ export interface RestoreFromSnapshotRequest {
    *          had at the time the snapshot was taken.</p>
    * @public
    */
-  manageAdminPassword?: boolean;
+  manageAdminPassword?: boolean | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
    * @public
    */
-  adminPasswordSecretKmsKeyId?: string;
+  adminPasswordSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -3527,19 +3527,19 @@ export interface RestoreFromSnapshotResponse {
    * <p>The name of the snapshot used to restore the namespace.</p>
    * @public
    */
-  snapshotName?: string;
+  snapshotName?: string | undefined;
 
   /**
    * <p>The owner Amazon Web Services; account of the snapshot that was restored.</p>
    * @public
    */
-  ownerAccount?: string;
+  ownerAccount?: string | undefined;
 
   /**
    * <p>A collection of database objects and users.</p>
    * @public
    */
-  namespace?: Namespace;
+  namespace?: Namespace | undefined;
 }
 
 /**
@@ -3574,7 +3574,7 @@ export interface RestoreTableFromSnapshotRequest {
    * <p>The name of the source schema that contains the table being restored.</p>
    * @public
    */
-  sourceSchemaName?: string;
+  sourceSchemaName?: string | undefined;
 
   /**
    * <p>The name of the source table being restored.</p>
@@ -3586,13 +3586,13 @@ export interface RestoreTableFromSnapshotRequest {
    * <p>The name of the database to restore the table to.</p>
    * @public
    */
-  targetDatabaseName?: string;
+  targetDatabaseName?: string | undefined;
 
   /**
    * <p>The name of the schema to restore the table to.</p>
    * @public
    */
-  targetSchemaName?: string;
+  targetSchemaName?: string | undefined;
 
   /**
    * <p>The name of the table to create from the restore operation.</p>
@@ -3606,7 +3606,7 @@ export interface RestoreTableFromSnapshotRequest {
    *          false, the names are not case sensitive. The default is false.</p>
    * @public
    */
-  activateCaseSensitiveIdentifier?: boolean;
+  activateCaseSensitiveIdentifier?: boolean | undefined;
 }
 
 /**
@@ -3617,7 +3617,7 @@ export interface RestoreTableFromSnapshotResponse {
    * <p>The TableRestoreStatus object that contains the status of the restore operation.</p>
    * @public
    */
-  tableRestoreStatus?: TableRestoreStatus;
+  tableRestoreStatus?: TableRestoreStatus | undefined;
 }
 
 /**
@@ -3634,7 +3634,7 @@ export interface UpdateSnapshotRequest {
    * <p>The new retention period of the snapshot.</p>
    * @public
    */
-  retentionPeriod?: number;
+  retentionPeriod?: number | undefined;
 }
 
 /**
@@ -3645,7 +3645,7 @@ export interface UpdateSnapshotResponse {
    * <p>The updated snapshot object.</p>
    * @public
    */
-  snapshot?: Snapshot;
+  snapshot?: Snapshot | undefined;
 }
 
 /**
@@ -3662,7 +3662,7 @@ export interface UpdateSnapshotCopyConfigurationRequest {
    * <p>The new retention period of how long to keep a snapshot in the destination Amazon Web Services Region.</p>
    * @public
    */
-  snapshotRetentionPeriod?: number;
+  snapshotRetentionPeriod?: number | undefined;
 }
 
 /**
@@ -3751,25 +3751,25 @@ export interface UpdateCustomDomainAssociationResponse {
    * <p>The custom domain name associated with the workgroup.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The name of the workgroup associated with the database.</p>
    * @public
    */
-  workgroupName?: string;
+  workgroupName?: string | undefined;
 
   /**
    * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
    * @public
    */
-  customDomainCertificateArn?: string;
+  customDomainCertificateArn?: string | undefined;
 
   /**
    * <p>The expiration time for the certificate.</p>
    * @public
    */
-  customDomainCertificateExpiryTime?: Date;
+  customDomainCertificateExpiryTime?: Date | undefined;
 }
 
 /**
@@ -3788,13 +3788,13 @@ export interface UpdateUsageLimitRequest {
    *          The value must be a positive number.</p>
    * @public
    */
-  amount?: number;
+  amount?: number | undefined;
 
   /**
    * <p>The new action that Amazon Redshift Serverless takes when the limit is reached.</p>
    * @public
    */
-  breachAction?: UsageLimitBreachAction;
+  breachAction?: UsageLimitBreachAction | undefined;
 }
 
 /**
@@ -3805,7 +3805,7 @@ export interface UpdateUsageLimitResponse {
    * <p>The updated usage limit object.</p>
    * @public
    */
-  usageLimit?: UsageLimit;
+  usageLimit?: UsageLimit | undefined;
 }
 
 /**
@@ -3822,14 +3822,14 @@ export interface UpdateWorkgroupRequest {
    * <p>The new base data warehouse capacity in Redshift Processing Units (RPUs).</p>
    * @public
    */
-  baseCapacity?: number;
+  baseCapacity?: number | undefined;
 
   /**
    * <p>The value that specifies whether to turn on enhanced virtual
    *          private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
    * @public
    */
-  enhancedVpcRouting?: boolean;
+  enhancedVpcRouting?: boolean | undefined;
 
   /**
    * <p>An array of parameters to set for advanced control over a database. The
@@ -3840,49 +3840,49 @@ export interface UpdateWorkgroupRequest {
    *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
-  configParameters?: ConfigParameter[];
+  configParameters?: ConfigParameter[] | undefined;
 
   /**
    * <p>A value that specifies whether the workgroup can be accessible from a public network.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>An array of VPC subnet IDs to associate with the workgroup.</p>
    * @public
    */
-  subnetIds?: string[];
+  subnetIds?: string[] | undefined;
 
   /**
    * <p>An array of security group IDs to associate with the workgroup.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
    * @public
    */
-  maxCapacity?: number;
+  maxCapacity?: number | undefined;
 
   /**
    * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    * @public
    */
-  ipAddressType?: string;
+  ipAddressType?: string | undefined;
 
   /**
    * <p>An object that represents the price performance target settings for the workgroup.</p>
    * @public
    */
-  pricePerformanceTarget?: PerformanceTarget;
+  pricePerformanceTarget?: PerformanceTarget | undefined;
 }
 
 /**

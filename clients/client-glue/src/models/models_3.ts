@@ -131,25 +131,25 @@ export interface UpdateDevEndpointRequest {
    * <p>The public key for the <code>DevEndpoint</code> to use.</p>
    * @public
    */
-  PublicKey?: string;
+  PublicKey?: string | undefined;
 
   /**
    * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
    * @public
    */
-  AddPublicKeys?: string[];
+  AddPublicKeys?: string[] | undefined;
 
   /**
    * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
    * @public
    */
-  DeletePublicKeys?: string[];
+  DeletePublicKeys?: string[] | undefined;
 
   /**
    * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
    * @public
    */
-  CustomLibraries?: DevEndpointCustomLibraries;
+  CustomLibraries?: DevEndpointCustomLibraries | undefined;
 
   /**
    * <p>
@@ -157,14 +157,14 @@ export interface UpdateDevEndpointRequest {
    *       needs to be updated, or <code>False</code> if otherwise.</p>
    * @public
    */
-  UpdateEtlLibraries?: boolean;
+  UpdateEtlLibraries?: boolean | undefined;
 
   /**
    * <p>The list of argument keys to be deleted from the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
    * @public
    */
-  DeleteArguments?: string[];
+  DeleteArguments?: string[] | undefined;
 
   /**
    * <p>The map of arguments to add the map of arguments used to configure the
@@ -180,7 +180,7 @@ export interface UpdateDevEndpointRequest {
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    * @public
    */
-  AddArguments?: Record<string, string>;
+  AddArguments?: Record<string, string> | undefined;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface UpdateJobResponse {
    * <p>Returns the name of the updated job definition.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface UpdateJobFromSourceControlRequest {
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>
@@ -215,7 +215,7 @@ export interface UpdateJobFromSourceControlRequest {
    *     </p>
    * @public
    */
-  Provider?: SourceControlProvider;
+  Provider?: SourceControlProvider | undefined;
 
   /**
    * <p>The name of the remote repository that contains the job artifacts.
@@ -224,43 +224,43 @@ export interface UpdateJobFromSourceControlRequest {
    *     </p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The owner of the remote repository that contains the job artifacts.</p>
    * @public
    */
-  RepositoryOwner?: string;
+  RepositoryOwner?: string | undefined;
 
   /**
    * <p>An optional branch in the remote repository.</p>
    * @public
    */
-  BranchName?: string;
+  BranchName?: string | undefined;
 
   /**
    * <p>An optional folder in the remote repository.</p>
    * @public
    */
-  Folder?: string;
+  Folder?: string | undefined;
 
   /**
    * <p>A commit ID for a commit in the remote repository.</p>
    * @public
    */
-  CommitId?: string;
+  CommitId?: string | undefined;
 
   /**
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    * @public
    */
-  AuthStrategy?: SourceControlAuthStrategy;
+  AuthStrategy?: SourceControlAuthStrategy | undefined;
 
   /**
    * <p>The value of the authorization token.</p>
    * @public
    */
-  AuthToken?: string;
+  AuthToken?: string | undefined;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface UpdateJobFromSourceControlResponse {
    * <p>The name of the Glue job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 }
 
 /**
@@ -288,33 +288,33 @@ export interface UpdateMLTransformRequest {
    * <p>The unique name that you gave the transform when you created it.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the transform. The default is an empty string.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The configuration parameters that are specific to the transform type (algorithm) used.
    *       Conditionally dependent on the transform type.</p>
    * @public
    */
-  Parameters?: TransformParameters;
+  Parameters?: TransformParameters | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
    *       permissions.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -324,7 +324,7 @@ export interface UpdateMLTransformRequest {
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -341,25 +341,25 @@ export interface UpdateMLTransformRequest {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 }
 
 /**
@@ -370,7 +370,7 @@ export interface UpdateMLTransformResponse {
    * <p>The unique identifier for the transform that was updated.</p>
    * @public
    */
-  TransformId?: string;
+  TransformId?: string | undefined;
 }
 
 /**
@@ -382,7 +382,7 @@ export interface UpdatePartitionRequest {
    *       the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database in which the table in question
@@ -441,13 +441,13 @@ export interface UpdateRegistryResponse {
    * <p>The name of the updated registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The Amazon Resource name (ARN) of the updated registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 }
 
 /**
@@ -472,19 +472,19 @@ export interface UpdateSchemaInput {
    * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
    * @public
    */
-  SchemaVersionNumber?: SchemaVersionNumber;
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
 
   /**
    * <p>The new compatibility setting for the schema.</p>
    * @public
    */
-  Compatibility?: Compatibility;
+  Compatibility?: Compatibility | undefined;
 
   /**
    * <p>The new description for the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -495,19 +495,19 @@ export interface UpdateSchemaResponse {
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The name of the registry that contains the schema.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 }
 
 /**
@@ -518,7 +518,7 @@ export interface UpdateSourceControlFromJobRequest {
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>
@@ -526,7 +526,7 @@ export interface UpdateSourceControlFromJobRequest {
    *     </p>
    * @public
    */
-  Provider?: SourceControlProvider;
+  Provider?: SourceControlProvider | undefined;
 
   /**
    * <p>The name of the remote repository that contains the job artifacts.
@@ -535,43 +535,43 @@ export interface UpdateSourceControlFromJobRequest {
    *     </p>
    * @public
    */
-  RepositoryName?: string;
+  RepositoryName?: string | undefined;
 
   /**
    * <p>The owner of the remote repository that contains the job artifacts.</p>
    * @public
    */
-  RepositoryOwner?: string;
+  RepositoryOwner?: string | undefined;
 
   /**
    * <p>An optional branch in the remote repository.</p>
    * @public
    */
-  BranchName?: string;
+  BranchName?: string | undefined;
 
   /**
    * <p>An optional folder in the remote repository.</p>
    * @public
    */
-  Folder?: string;
+  Folder?: string | undefined;
 
   /**
    * <p>A commit ID for a commit in the remote repository.</p>
    * @public
    */
-  CommitId?: string;
+  CommitId?: string | undefined;
 
   /**
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    * @public
    */
-  AuthStrategy?: SourceControlAuthStrategy;
+  AuthStrategy?: SourceControlAuthStrategy | undefined;
 
   /**
    * <p>The value of the authorization token.</p>
    * @public
    */
-  AuthToken?: string;
+  AuthToken?: string | undefined;
 }
 
 /**
@@ -582,7 +582,7 @@ export interface UpdateSourceControlFromJobResponse {
    * <p>The name of the Glue job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface UpdateTableRequest {
    *       ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database in which the table resides. For Hive
@@ -632,31 +632,31 @@ export interface UpdateTableRequest {
    *         <code>UpdateTable</code> does not create the archived version.</p>
    * @public
    */
-  SkipArchive?: boolean;
+  SkipArchive?: boolean | undefined;
 
   /**
    * <p>The transaction ID at which to update the table contents. </p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>The version ID at which to update the table contents. </p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The operation to be performed when updating the view.</p>
    * @public
    */
-  ViewUpdateAction?: ViewUpdateAction;
+  ViewUpdateAction?: ViewUpdateAction | undefined;
 
   /**
    * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
    * @public
    */
-  Force?: boolean;
+  Force?: boolean | undefined;
 }
 
 /**
@@ -714,13 +714,13 @@ export interface TriggerUpdate {
    * <p>Reserved for future use.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of this trigger.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
@@ -729,26 +729,26 @@ export interface TriggerUpdate {
    *       <code>cron(15 12 * * ? *)</code>.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>The actions initiated by this trigger.</p>
    * @public
    */
-  Actions?: Action[];
+  Actions?: Action[] | undefined;
 
   /**
    * <p>The predicate of this trigger, which defines when it will fire.</p>
    * @public
    */
-  Predicate?: Predicate;
+  Predicate?: Predicate | undefined;
 
   /**
    * <p>Batch condition that must be met (specified number of events received or batch time window expired)
    *       before EventBridge event trigger fires.</p>
    * @public
    */
-  EventBatchingCondition?: EventBatchingCondition;
+  EventBatchingCondition?: EventBatchingCondition | undefined;
 }
 
 /**
@@ -776,7 +776,7 @@ export interface UpdateTriggerResponse {
    * <p>The resulting trigger definition.</p>
    * @public
    */
-  Trigger?: Trigger;
+  Trigger?: Trigger | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface UpdateUsageProfileRequest {
    * <p>A description of the usage profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
@@ -810,7 +810,7 @@ export interface UpdateUsageProfileResponse {
    * <p>The name of the usage profile that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -822,7 +822,7 @@ export interface UpdateUserDefinedFunctionRequest {
    *       provided, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the function to be updated is
@@ -864,19 +864,19 @@ export interface UpdateWorkflowRequest {
    * <p>The description of the workflow.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.</p>
    * @public
    */
-  DefaultRunProperties?: Record<string, string>;
+  DefaultRunProperties?: Record<string, string> | undefined;
 
   /**
    * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
    * @public
    */
-  MaxConcurrentRuns?: number;
+  MaxConcurrentRuns?: number | undefined;
 }
 
 /**
@@ -887,7 +887,7 @@ export interface UpdateWorkflowResponse {
    * <p>The name of the workflow which was specified in input.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -899,31 +899,31 @@ export interface Mapping {
    * <p>After the apply mapping, what the name of the column should be. Can be the same as <code>FromPath</code>.</p>
    * @public
    */
-  ToKey?: string;
+  ToKey?: string | undefined;
 
   /**
    * <p>The table or column to be modified.</p>
    * @public
    */
-  FromPath?: string[];
+  FromPath?: string[] | undefined;
 
   /**
    * <p>The type of the data to be modified.</p>
    * @public
    */
-  FromType?: string;
+  FromType?: string | undefined;
 
   /**
    * <p>The data type that the data is to be modified to.</p>
    * @public
    */
-  ToType?: string;
+  ToType?: string | undefined;
 
   /**
    * <p>If true, then the column is removed.</p>
    * @public
    */
-  Dropped?: boolean;
+  Dropped?: boolean | undefined;
 
   /**
    * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
@@ -959,7 +959,7 @@ export interface Mapping {
    *          </p>
    * @public
    */
-  Children?: Mapping[];
+  Children?: Mapping[] | undefined;
 }
 
 /**
@@ -995,13 +995,13 @@ export interface StatusDetails {
    * <p>A <code>Table</code> object representing the requested changes.</p>
    * @public
    */
-  RequestedChange?: Table;
+  RequestedChange?: Table | undefined;
 
   /**
    * <p>A list of <code>ViewValidation</code> objects that contain information for an analytical engine to validate a view.</p>
    * @public
    */
-  ViewValidations?: ViewValidation[];
+  ViewValidations?: ViewValidation[] | undefined;
 }
 
 /**
@@ -1021,57 +1021,57 @@ export interface Table {
    *       For Hive compatibility, this must be all lowercase.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>A description of the table.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The owner of the table.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The time when the table definition was created in the Data Catalog.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The last time that the table was updated.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 
   /**
    * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
    *       be reliable.</p>
    * @public
    */
-  LastAccessTime?: Date;
+  LastAccessTime?: Date | undefined;
 
   /**
    * <p>The last time that column statistics were computed for this table.</p>
    * @public
    */
-  LastAnalyzedTime?: Date;
+  LastAnalyzedTime?: Date | undefined;
 
   /**
    * <p>The retention time for this table.</p>
    * @public
    */
-  Retention?: number;
+  Retention?: number | undefined;
 
   /**
    * <p>A storage descriptor containing information about the physical storage
    *       of this table.</p>
    * @public
    */
-  StorageDescriptor?: StorageDescriptor;
+  StorageDescriptor?: StorageDescriptor | undefined;
 
   /**
    * <p>A list of columns by which the table is partitioned. Only primitive
@@ -1084,20 +1084,20 @@ export interface Table {
    *          </p>
    * @public
    */
-  PartitionKeys?: Column[];
+  PartitionKeys?: Column[] | undefined;
 
   /**
    * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
    *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
    * @public
    */
-  ViewOriginalText?: string;
+  ViewOriginalText?: string | undefined;
 
   /**
    * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
    * @public
    */
-  ViewExpandedText?: string;
+  ViewExpandedText?: string | undefined;
 
   /**
    * <p>The type of this table.
@@ -1118,67 +1118,67 @@ export interface Table {
    *          </dl>
    * @public
    */
-  TableType?: string;
+  TableType?: string | undefined;
 
   /**
    * <p>These key-value pairs define properties associated with the table.</p>
    * @public
    */
-  Parameters?: Record<string, string>;
+  Parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The person or entity who created the table.</p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 
   /**
    * <p>Indicates whether the table has been registered with Lake Formation.</p>
    * @public
    */
-  IsRegisteredWithLakeFormation?: boolean;
+  IsRegisteredWithLakeFormation?: boolean | undefined;
 
   /**
    * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
    * @public
    */
-  TargetTable?: TableIdentifier;
+  TargetTable?: TableIdentifier | undefined;
 
   /**
    * <p>The ID of the Data Catalog in which the table resides.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The ID of the table version.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
    * @public
    */
-  FederatedTable?: FederatedTable;
+  FederatedTable?: FederatedTable | undefined;
 
   /**
    * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
    * @public
    */
-  ViewDefinition?: ViewDefinition;
+  ViewDefinition?: ViewDefinition | undefined;
 
   /**
    * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
    * @public
    */
-  IsMultiDialectView?: boolean;
+  IsMultiDialectView?: boolean | undefined;
 
   /**
    * <p>A structure containing information about the state of an asynchronous change to a table.</p>
    * @public
    */
-  Status?: TableStatus;
+  Status?: TableStatus | undefined;
 }
 
 /**
@@ -1190,49 +1190,49 @@ export interface TableStatus {
    * <p>The ARN of the user who requested the asynchronous change.</p>
    * @public
    */
-  RequestedBy?: string;
+  RequestedBy?: string | undefined;
 
   /**
    * <p>The ARN of the user to last manually alter the asynchronous change (requesting cancellation, etc).</p>
    * @public
    */
-  UpdatedBy?: string;
+  UpdatedBy?: string | undefined;
 
   /**
    * <p>An ISO 8601 formatted date string indicating the time that the change was initiated.</p>
    * @public
    */
-  RequestTime?: Date;
+  RequestTime?: Date | undefined;
 
   /**
    * <p>An ISO 8601 formatted date string indicating the time that the state was last updated.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 
   /**
    * <p>Indicates which action was called on the table, currently only <code>CREATE</code> or <code>UPDATE</code>.</p>
    * @public
    */
-  Action?: ResourceAction;
+  Action?: ResourceAction | undefined;
 
   /**
    * <p>A generic status for the change in progress, such as QUEUED, IN_PROGRESS, SUCCESS, or FAILED.</p>
    * @public
    */
-  State?: ResourceState;
+  State?: ResourceState | undefined;
 
   /**
    * <p>An error that will only appear when the state is "FAILED". This is a parent level exception message, there may be different <code>Error</code>s for each dialect.</p>
    * @public
    */
-  Error?: ErrorDetail;
+  Error?: ErrorDetail | undefined;
 
   /**
    * <p>A <code>StatusDetails</code> object with information about the requested change.</p>
    * @public
    */
-  Details?: StatusDetails;
+  Details?: StatusDetails | undefined;
 }
 
 /**
@@ -1245,428 +1245,428 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a connector to an Amazon Athena data source.</p>
    * @public
    */
-  AthenaConnectorSource?: AthenaConnectorSource;
+  AthenaConnectorSource?: AthenaConnectorSource | undefined;
 
   /**
    * <p>Specifies a connector to a JDBC data source.</p>
    * @public
    */
-  JDBCConnectorSource?: JDBCConnectorSource;
+  JDBCConnectorSource?: JDBCConnectorSource | undefined;
 
   /**
    * <p>Specifies a connector to an Apache Spark data source.</p>
    * @public
    */
-  SparkConnectorSource?: SparkConnectorSource;
+  SparkConnectorSource?: SparkConnectorSource | undefined;
 
   /**
    * <p>Specifies a data store in the Glue Data Catalog.</p>
    * @public
    */
-  CatalogSource?: CatalogSource;
+  CatalogSource?: CatalogSource | undefined;
 
   /**
    * <p>Specifies an Amazon Redshift data store.</p>
    * @public
    */
-  RedshiftSource?: RedshiftSource;
+  RedshiftSource?: RedshiftSource | undefined;
 
   /**
    * <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
    * @public
    */
-  S3CatalogSource?: S3CatalogSource;
+  S3CatalogSource?: S3CatalogSource | undefined;
 
   /**
    * <p>Specifies a command-separated value (CSV) data store stored in Amazon S3.</p>
    * @public
    */
-  S3CsvSource?: S3CsvSource;
+  S3CsvSource?: S3CsvSource | undefined;
 
   /**
    * <p>Specifies a JSON data store stored in Amazon S3.</p>
    * @public
    */
-  S3JsonSource?: S3JsonSource;
+  S3JsonSource?: S3JsonSource | undefined;
 
   /**
    * <p>Specifies an Apache Parquet data store stored in Amazon S3.</p>
    * @public
    */
-  S3ParquetSource?: S3ParquetSource;
+  S3ParquetSource?: S3ParquetSource | undefined;
 
   /**
    * <p>Specifies a relational catalog data store in the Glue Data Catalog.</p>
    * @public
    */
-  RelationalCatalogSource?: RelationalCatalogSource;
+  RelationalCatalogSource?: RelationalCatalogSource | undefined;
 
   /**
    * <p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>
    * @public
    */
-  DynamoDBCatalogSource?: DynamoDBCatalogSource;
+  DynamoDBCatalogSource?: DynamoDBCatalogSource | undefined;
 
   /**
    * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
    * @public
    */
-  JDBCConnectorTarget?: JDBCConnectorTarget;
+  JDBCConnectorTarget?: JDBCConnectorTarget | undefined;
 
   /**
    * <p>Specifies a target that uses an Apache Spark connector.</p>
    * @public
    */
-  SparkConnectorTarget?: SparkConnectorTarget;
+  SparkConnectorTarget?: SparkConnectorTarget | undefined;
 
   /**
    * <p>Specifies a target that uses a Glue Data Catalog table.</p>
    * @public
    */
-  CatalogTarget?: BasicCatalogTarget;
+  CatalogTarget?: BasicCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that uses Amazon Redshift.</p>
    * @public
    */
-  RedshiftTarget?: RedshiftTarget;
+  RedshiftTarget?: RedshiftTarget | undefined;
 
   /**
    * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
    * @public
    */
-  S3CatalogTarget?: S3CatalogTarget;
+  S3CatalogTarget?: S3CatalogTarget | undefined;
 
   /**
    * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
    * @public
    */
-  S3GlueParquetTarget?: S3GlueParquetTarget;
+  S3GlueParquetTarget?: S3GlueParquetTarget | undefined;
 
   /**
    * <p>Specifies a data target that writes to Amazon S3.</p>
    * @public
    */
-  S3DirectTarget?: S3DirectTarget;
+  S3DirectTarget?: S3DirectTarget | undefined;
 
   /**
    * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
    * @public
    */
-  ApplyMapping?: ApplyMapping;
+  ApplyMapping?: ApplyMapping | undefined;
 
   /**
    * <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
    * @public
    */
-  SelectFields?: SelectFields;
+  SelectFields?: SelectFields | undefined;
 
   /**
    * <p>Specifies a transform that chooses the data property keys that you want to drop.</p>
    * @public
    */
-  DropFields?: DropFields;
+  DropFields?: DropFields | undefined;
 
   /**
    * <p>Specifies a transform that renames a single data property key.</p>
    * @public
    */
-  RenameField?: RenameField;
+  RenameField?: RenameField | undefined;
 
   /**
    * <p>Specifies a transform that writes samples of the data to an Amazon S3 bucket.</p>
    * @public
    */
-  Spigot?: Spigot;
+  Spigot?: Spigot | undefined;
 
   /**
    * <p>Specifies a transform that joins two datasets into one dataset using a comparison phrase on the specified data property keys. You can use inner, outer, left, right, left semi, and left anti joins.</p>
    * @public
    */
-  Join?: Join;
+  Join?: Join | undefined;
 
   /**
    * <p>Specifies a transform that splits data property keys into two <code>DynamicFrames</code>. The output is a collection of <code>DynamicFrames</code>: one with selected data property keys, and one with the remaining data property keys.</p>
    * @public
    */
-  SplitFields?: SplitFields;
+  SplitFields?: SplitFields | undefined;
 
   /**
    * <p>Specifies a transform that chooses one <code>DynamicFrame</code> from a collection of <code>DynamicFrames</code>. The output is the selected <code>DynamicFrame</code>
    *          </p>
    * @public
    */
-  SelectFromCollection?: SelectFromCollection;
+  SelectFromCollection?: SelectFromCollection | undefined;
 
   /**
    * <p>Specifies a transform that locates records in the dataset that have missing values and adds a new field with a value determined by imputation. The input data set is used to train the machine learning model that determines what the missing value should be.</p>
    * @public
    */
-  FillMissingValues?: FillMissingValues;
+  FillMissingValues?: FillMissingValues | undefined;
 
   /**
    * <p>Specifies a transform that splits a dataset into two, based on a filter condition.</p>
    * @public
    */
-  Filter?: Filter;
+  Filter?: Filter | undefined;
 
   /**
    * <p>Specifies a transform that uses custom code you provide to perform the data transformation. The output is a collection of DynamicFrames.</p>
    * @public
    */
-  CustomCode?: CustomCode;
+  CustomCode?: CustomCode | undefined;
 
   /**
    * <p>Specifies a transform where you enter a SQL query using Spark SQL syntax to transform the data. The output is a single <code>DynamicFrame</code>.</p>
    * @public
    */
-  SparkSQL?: SparkSQL;
+  SparkSQL?: SparkSQL | undefined;
 
   /**
    * <p>Specifies a direct Amazon Kinesis data source.</p>
    * @public
    */
-  DirectKinesisSource?: DirectKinesisSource;
+  DirectKinesisSource?: DirectKinesisSource | undefined;
 
   /**
    * <p>Specifies an Apache Kafka data store.</p>
    * @public
    */
-  DirectKafkaSource?: DirectKafkaSource;
+  DirectKafkaSource?: DirectKafkaSource | undefined;
 
   /**
    * <p>Specifies a Kinesis data source in the Glue Data Catalog.</p>
    * @public
    */
-  CatalogKinesisSource?: CatalogKinesisSource;
+  CatalogKinesisSource?: CatalogKinesisSource | undefined;
 
   /**
    * <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
    * @public
    */
-  CatalogKafkaSource?: CatalogKafkaSource;
+  CatalogKafkaSource?: CatalogKafkaSource | undefined;
 
   /**
    * <p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are "null", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>
    * @public
    */
-  DropNullFields?: DropNullFields;
+  DropNullFields?: DropNullFields | undefined;
 
   /**
    * <p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>
    * @public
    */
-  Merge?: Merge;
+  Merge?: Merge | undefined;
 
   /**
    * <p>Specifies a transform that combines the rows from two or more datasets into a single result.</p>
    * @public
    */
-  Union?: Union;
+  Union?: Union | undefined;
 
   /**
    * <p>Specifies a transform that identifies, removes or masks PII data.</p>
    * @public
    */
-  PIIDetection?: PIIDetection;
+  PIIDetection?: PIIDetection | undefined;
 
   /**
    * <p>Specifies a transform that groups rows by chosen fields and computes the aggregated value by specified function.</p>
    * @public
    */
-  Aggregate?: Aggregate;
+  Aggregate?: Aggregate | undefined;
 
   /**
    * <p>Specifies a transform that removes rows of repeating data from a data set.</p>
    * @public
    */
-  DropDuplicates?: DropDuplicates;
+  DropDuplicates?: DropDuplicates | undefined;
 
   /**
    * <p>Specifies a data target that writes to a goverened catalog.</p>
    * @public
    */
-  GovernedCatalogTarget?: GovernedCatalogTarget;
+  GovernedCatalogTarget?: GovernedCatalogTarget | undefined;
 
   /**
    * <p>Specifies a data source in a goverened Data Catalog.</p>
    * @public
    */
-  GovernedCatalogSource?: GovernedCatalogSource;
+  GovernedCatalogSource?: GovernedCatalogSource | undefined;
 
   /**
    * <p>Specifies a Microsoft SQL server data source in the Glue Data Catalog.</p>
    * @public
    */
-  MicrosoftSQLServerCatalogSource?: MicrosoftSQLServerCatalogSource;
+  MicrosoftSQLServerCatalogSource?: MicrosoftSQLServerCatalogSource | undefined;
 
   /**
    * <p>Specifies a MySQL data source in the Glue Data Catalog.</p>
    * @public
    */
-  MySQLCatalogSource?: MySQLCatalogSource;
+  MySQLCatalogSource?: MySQLCatalogSource | undefined;
 
   /**
    * <p>Specifies an Oracle data source in the Glue Data Catalog.</p>
    * @public
    */
-  OracleSQLCatalogSource?: OracleSQLCatalogSource;
+  OracleSQLCatalogSource?: OracleSQLCatalogSource | undefined;
 
   /**
    * <p>Specifies a PostgresSQL data source in the Glue Data Catalog.</p>
    * @public
    */
-  PostgreSQLCatalogSource?: PostgreSQLCatalogSource;
+  PostgreSQLCatalogSource?: PostgreSQLCatalogSource | undefined;
 
   /**
    * <p>Specifies a target that uses Microsoft SQL.</p>
    * @public
    */
-  MicrosoftSQLServerCatalogTarget?: MicrosoftSQLServerCatalogTarget;
+  MicrosoftSQLServerCatalogTarget?: MicrosoftSQLServerCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that uses MySQL.</p>
    * @public
    */
-  MySQLCatalogTarget?: MySQLCatalogTarget;
+  MySQLCatalogTarget?: MySQLCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that uses Oracle SQL.</p>
    * @public
    */
-  OracleSQLCatalogTarget?: OracleSQLCatalogTarget;
+  OracleSQLCatalogTarget?: OracleSQLCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that uses Postgres SQL.</p>
    * @public
    */
-  PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget;
+  PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget | undefined;
 
   /**
    * <p>Specifies a custom visual transform created by a user.</p>
    * @public
    */
-  DynamicTransform?: DynamicTransform;
+  DynamicTransform?: DynamicTransform | undefined;
 
   /**
    * <p>Specifies your data quality evaluation criteria.</p>
    * @public
    */
-  EvaluateDataQuality?: EvaluateDataQuality;
+  EvaluateDataQuality?: EvaluateDataQuality | undefined;
 
   /**
    * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
    * @public
    */
-  S3CatalogHudiSource?: S3CatalogHudiSource;
+  S3CatalogHudiSource?: S3CatalogHudiSource | undefined;
 
   /**
    * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
    * @public
    */
-  CatalogHudiSource?: CatalogHudiSource;
+  CatalogHudiSource?: CatalogHudiSource | undefined;
 
   /**
    * <p>Specifies a Hudi data source stored in Amazon S3.</p>
    * @public
    */
-  S3HudiSource?: S3HudiSource;
+  S3HudiSource?: S3HudiSource | undefined;
 
   /**
    * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
    * @public
    */
-  S3HudiCatalogTarget?: S3HudiCatalogTarget;
+  S3HudiCatalogTarget?: S3HudiCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
    * @public
    */
-  S3HudiDirectTarget?: S3HudiDirectTarget;
+  S3HudiDirectTarget?: S3HudiDirectTarget | undefined;
 
   /**
    * <p>Specifies the direct JDBC source connection.</p>
    * @public
    */
-  DirectJDBCSource?: DirectJDBCSource;
+  DirectJDBCSource?: DirectJDBCSource | undefined;
 
   /**
    * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
    * @public
    */
-  S3CatalogDeltaSource?: S3CatalogDeltaSource;
+  S3CatalogDeltaSource?: S3CatalogDeltaSource | undefined;
 
   /**
    * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
    * @public
    */
-  CatalogDeltaSource?: CatalogDeltaSource;
+  CatalogDeltaSource?: CatalogDeltaSource | undefined;
 
   /**
    * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
    * @public
    */
-  S3DeltaSource?: S3DeltaSource;
+  S3DeltaSource?: S3DeltaSource | undefined;
 
   /**
    * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
    * @public
    */
-  S3DeltaCatalogTarget?: S3DeltaCatalogTarget;
+  S3DeltaCatalogTarget?: S3DeltaCatalogTarget | undefined;
 
   /**
    * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
    * @public
    */
-  S3DeltaDirectTarget?: S3DeltaDirectTarget;
+  S3DeltaDirectTarget?: S3DeltaDirectTarget | undefined;
 
   /**
    * <p>Specifies a target that writes to a data source in Amazon Redshift.</p>
    * @public
    */
-  AmazonRedshiftSource?: AmazonRedshiftSource;
+  AmazonRedshiftSource?: AmazonRedshiftSource | undefined;
 
   /**
    * <p>Specifies a target that writes to a data target in Amazon Redshift.</p>
    * @public
    */
-  AmazonRedshiftTarget?: AmazonRedshiftTarget;
+  AmazonRedshiftTarget?: AmazonRedshiftTarget | undefined;
 
   /**
    * <p>Specifies your data quality evaluation criteria. Allows multiple input data and returns a collection of Dynamic Frames.</p>
    * @public
    */
-  EvaluateDataQualityMultiFrame?: EvaluateDataQualityMultiFrame;
+  EvaluateDataQualityMultiFrame?: EvaluateDataQualityMultiFrame | undefined;
 
   /**
    * <p>Specifies a Glue DataBrew recipe node.</p>
    * @public
    */
-  Recipe?: Recipe;
+  Recipe?: Recipe | undefined;
 
   /**
    * <p>Specifies a Snowflake data source.</p>
    * @public
    */
-  SnowflakeSource?: SnowflakeSource;
+  SnowflakeSource?: SnowflakeSource | undefined;
 
   /**
    * <p>Specifies a target that writes to a Snowflake data source.</p>
    * @public
    */
-  SnowflakeTarget?: SnowflakeTarget;
+  SnowflakeTarget?: SnowflakeTarget | undefined;
 
   /**
    * <p>Specifies a source generated with standard connection options.</p>
    * @public
    */
-  ConnectorDataSource?: ConnectorDataSource;
+  ConnectorDataSource?: ConnectorDataSource | undefined;
 
   /**
    * <p>Specifies a target generated with standard connection options.</p>
    * @public
    */
-  ConnectorDataTarget?: ConnectorDataTarget;
+  ConnectorDataTarget?: ConnectorDataTarget | undefined;
 }
 
 /**
@@ -1677,7 +1677,7 @@ export interface GetTableResponse {
    * <p>The <code>Table</code> object that defines the specified table.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 }
 
 /**
@@ -1688,62 +1688,62 @@ export interface GetUnfilteredTableMetadataResponse {
    * <p>A Table object containing the table metadata.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 
   /**
    * <p>A list of column names that the user has been granted access to.</p>
    * @public
    */
-  AuthorizedColumns?: string[];
+  AuthorizedColumns?: string[] | undefined;
 
   /**
    * <p>A Boolean value that indicates whether the partition location is registered
    *           with Lake Formation.</p>
    * @public
    */
-  IsRegisteredWithLakeFormation?: boolean;
+  IsRegisteredWithLakeFormation?: boolean | undefined;
 
   /**
    * <p>A list of column row filters.</p>
    * @public
    */
-  CellFilters?: ColumnRowFilter[];
+  CellFilters?: ColumnRowFilter[] | undefined;
 
   /**
    * <p>A cryptographically generated query identifier generated by Glue or Lake Formation.</p>
    * @public
    */
-  QueryAuthorizationId?: string;
+  QueryAuthorizationId?: string | undefined;
 
   /**
    * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
    * @public
    */
-  IsMultiDialectView?: boolean;
+  IsMultiDialectView?: boolean | undefined;
 
   /**
    * <p>The resource ARN of the parent resource extracted from the request.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>A flag that instructs the engine not to push user-provided operations into the logical plan of the view during query planning. However, if set this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
    * @public
    */
-  IsProtected?: boolean;
+  IsProtected?: boolean | undefined;
 
   /**
    * <p>The Lake Formation data permissions of the caller on the table. Used to authorize the call when no view context is found.</p>
    * @public
    */
-  Permissions?: Permission[];
+  Permissions?: Permission[] | undefined;
 
   /**
    * <p>The filter that applies to the table. For example when applying the filter in SQL, it would go in the <code>WHERE</code> clause and can be evaluated by using an <code>AND</code> operator with any other predicates applied by the user querying the table.</p>
    * @public
    */
-  RowFilter?: string;
+  RowFilter?: string | undefined;
 }
 
 /**
@@ -1755,13 +1755,13 @@ export interface TableVersion {
    * <p>The table in question.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 
   /**
    * <p>The ID value that identifies this table version. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -1772,13 +1772,13 @@ export interface GetTablesResponse {
    * <p>A list of the requested <code>Table</code> objects.</p>
    * @public
    */
-  TableList?: Table[];
+  TableList?: Table[] | undefined;
 
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1789,7 +1789,7 @@ export interface GetTableVersionResponse {
    * <p>The requested table version.</p>
    * @public
    */
-  TableVersion?: TableVersion;
+  TableVersion?: TableVersion | undefined;
 }
 
 /**
@@ -1800,13 +1800,13 @@ export interface SearchTablesResponse {
    * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
    * @public
    */
-  TableList?: Table[];
+  TableList?: Table[] | undefined;
 }
 
 /**
@@ -1838,7 +1838,7 @@ export interface CreateJobRequest {
    *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
    * @public
    */
-  JobMode?: JobMode;
+  JobMode?: JobMode | undefined;
 
   /**
    * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
@@ -1846,19 +1846,19 @@ export interface CreateJobRequest {
    *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
    * @public
    */
-  JobRunQueuingEnabled?: boolean;
+  JobRunQueuingEnabled?: boolean | undefined;
 
   /**
    * <p>Description of the job being defined.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>This field is reserved for future use.</p>
    * @public
    */
-  LogUri?: string;
+  LogUri?: string | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
@@ -1871,7 +1871,7 @@ export interface CreateJobRequest {
    *       for this job.</p>
    * @public
    */
-  ExecutionProperty?: ExecutionProperty;
+  ExecutionProperty?: ExecutionProperty | undefined;
 
   /**
    * <p>The <code>JobCommand</code> that runs this job.</p>
@@ -1894,26 +1894,26 @@ export interface CreateJobRequest {
    *       job parameters in Ray jobs</a> in the developer guide.</p>
    * @public
    */
-  DefaultArguments?: Record<string, string>;
+  DefaultArguments?: Record<string, string> | undefined;
 
   /**
    * <p>Arguments for this job that are not overridden when providing job arguments
    *       in a job run, specified as name-value pairs.</p>
    * @public
    */
-  NonOverridableArguments?: Record<string, string>;
+  NonOverridableArguments?: Record<string, string> | undefined;
 
   /**
    * <p>The connections used for this job.</p>
    * @public
    */
-  Connections?: ConnectionsList;
+  Connections?: ConnectionsList | undefined;
 
   /**
    * <p>The maximum number of times to retry this job if it fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 
   /**
    * @deprecated
@@ -1926,7 +1926,7 @@ export interface CreateJobRequest {
    *       page</a>.</p>
    * @public
    */
-  AllocatedCapacity?: number;
+  AllocatedCapacity?: number | undefined;
 
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
@@ -1935,7 +1935,7 @@ export interface CreateJobRequest {
    *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
@@ -1962,26 +1962,26 @@ export interface CreateJobRequest {
    *          </ul>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
    *       job.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 
   /**
    * <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies configuration properties of a job notification.</p>
    * @public
    */
-  NotificationProperty?: NotificationProperty;
+  NotificationProperty?: NotificationProperty | undefined;
 
   /**
    * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
@@ -1996,13 +1996,13 @@ export interface CreateJobRequest {
    *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
@@ -2029,13 +2029,13 @@ export interface CreateJobRequest {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    * @public
    */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode> | undefined;
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
@@ -2043,20 +2043,20 @@ export interface CreateJobRequest {
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    * @public
    */
-  ExecutionClass?: ExecutionClass;
+  ExecutionClass?: ExecutionClass | undefined;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
    * @public
    */
-  SourceControlDetails?: SourceControlDetails;
+  SourceControlDetails?: SourceControlDetails | undefined;
 
   /**
    * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
    *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
    * @public
    */
-  MaintenanceWindow?: string;
+  MaintenanceWindow?: string | undefined;
 }
 
 /**
@@ -2068,14 +2068,14 @@ export interface GetTableVersionsResponse {
    *       specified table.</p>
    * @public
    */
-  TableVersions?: TableVersion[];
+  TableVersions?: TableVersion[] | undefined;
 
   /**
    * <p>A continuation token, if the list of available versions does
    *       not include the last one.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2087,7 +2087,7 @@ export interface Job {
    * <p>The name you assign to this job definition.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A mode that describes how a job was created. Valid values are:</p>
@@ -2108,7 +2108,7 @@ export interface Job {
    *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
    * @public
    */
-  JobMode?: JobMode;
+  JobMode?: JobMode | undefined;
 
   /**
    * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
@@ -2116,50 +2116,50 @@ export interface Job {
    *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
    * @public
    */
-  JobRunQueuingEnabled?: boolean;
+  JobRunQueuingEnabled?: boolean | undefined;
 
   /**
    * <p>A description of the job.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>This field is reserved for future use.</p>
    * @public
    */
-  LogUri?: string;
+  LogUri?: string | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>The time and date that this job definition was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>The last point in time when this job definition was modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
    *       for this job.</p>
    * @public
    */
-  ExecutionProperty?: ExecutionProperty;
+  ExecutionProperty?: ExecutionProperty | undefined;
 
   /**
    * <p>The <code>JobCommand</code> that runs this job.</p>
    * @public
    */
-  Command?: JobCommand;
+  Command?: JobCommand | undefined;
 
   /**
    * <p>The default arguments for every run of this job, specified as name-value pairs.</p>
@@ -2176,26 +2176,26 @@ export interface Job {
    *       job parameters in Ray jobs</a> in the developer guide.</p>
    * @public
    */
-  DefaultArguments?: Record<string, string>;
+  DefaultArguments?: Record<string, string> | undefined;
 
   /**
    * <p>Arguments for this job that are not overridden when providing job arguments
    *       in a job run, specified as name-value pairs.</p>
    * @public
    */
-  NonOverridableArguments?: Record<string, string>;
+  NonOverridableArguments?: Record<string, string> | undefined;
 
   /**
    * <p>The connections used for this job.</p>
    * @public
    */
-  Connections?: ConnectionsList;
+  Connections?: ConnectionsList | undefined;
 
   /**
    * <p>The maximum number of times to retry this job after a JobRun fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 
   /**
    * @deprecated
@@ -2209,7 +2209,7 @@ export interface Job {
    *          <p></p>
    * @public
    */
-  AllocatedCapacity?: number;
+  AllocatedCapacity?: number | undefined;
 
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
@@ -2218,7 +2218,7 @@ export interface Job {
    *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
@@ -2245,7 +2245,7 @@ export interface Job {
    *          </ul>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
@@ -2272,26 +2272,26 @@ export interface Job {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
    *       job.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 
   /**
    * <p>Specifies configuration properties of a job notification.</p>
    * @public
    */
-  NotificationProperty?: NotificationProperty;
+  NotificationProperty?: NotificationProperty | undefined;
 
   /**
    * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
@@ -2306,13 +2306,13 @@ export interface Job {
    *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    * @public
    */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode> | undefined;
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
@@ -2320,26 +2320,26 @@ export interface Job {
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    * @public
    */
-  ExecutionClass?: ExecutionClass;
+  ExecutionClass?: ExecutionClass | undefined;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
    * @public
    */
-  SourceControlDetails?: SourceControlDetails;
+  SourceControlDetails?: SourceControlDetails | undefined;
 
   /**
    * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
    *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
    * @public
    */
-  MaintenanceWindow?: string;
+  MaintenanceWindow?: string | undefined;
 
   /**
    * <p>The name of an Glue usage profile associated with the job.</p>
    * @public
    */
-  ProfileName?: string;
+  ProfileName?: string | undefined;
 }
 
 /**
@@ -2367,7 +2367,7 @@ export interface JobUpdate {
    *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
    * @public
    */
-  JobMode?: JobMode;
+  JobMode?: JobMode | undefined;
 
   /**
    * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
@@ -2375,39 +2375,39 @@ export interface JobUpdate {
    *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
    * @public
    */
-  JobRunQueuingEnabled?: boolean;
+  JobRunQueuingEnabled?: boolean | undefined;
 
   /**
    * <p>Description of the job being defined.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>This field is reserved for future use.</p>
    * @public
    */
-  LogUri?: string;
+  LogUri?: string | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
    *       (required).</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
    *       for this job.</p>
    * @public
    */
-  ExecutionProperty?: ExecutionProperty;
+  ExecutionProperty?: ExecutionProperty | undefined;
 
   /**
    * <p>The <code>JobCommand</code> that runs this job (required).</p>
    * @public
    */
-  Command?: JobCommand;
+  Command?: JobCommand | undefined;
 
   /**
    * <p>The default arguments for every run of this job, specified as name-value pairs.</p>
@@ -2424,26 +2424,26 @@ export interface JobUpdate {
    *       job parameters in Ray jobs</a> in the developer guide.</p>
    * @public
    */
-  DefaultArguments?: Record<string, string>;
+  DefaultArguments?: Record<string, string> | undefined;
 
   /**
    * <p>Arguments for this job that are not overridden when providing job arguments
    *       in a job run, specified as name-value pairs.</p>
    * @public
    */
-  NonOverridableArguments?: Record<string, string>;
+  NonOverridableArguments?: Record<string, string> | undefined;
 
   /**
    * <p>The connections used for this job.</p>
    * @public
    */
-  Connections?: ConnectionsList;
+  Connections?: ConnectionsList | undefined;
 
   /**
    * <p>The maximum number of times to retry this job if it fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 
   /**
    * @deprecated
@@ -2456,7 +2456,7 @@ export interface JobUpdate {
    *       page</a>.</p>
    * @public
    */
-  AllocatedCapacity?: number;
+  AllocatedCapacity?: number | undefined;
 
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
@@ -2465,7 +2465,7 @@ export interface JobUpdate {
    *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
@@ -2492,7 +2492,7 @@ export interface JobUpdate {
    *          </ul>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
@@ -2519,26 +2519,26 @@ export interface JobUpdate {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
    *       job.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 
   /**
    * <p>Specifies the configuration properties of a job notification.</p>
    * @public
    */
-  NotificationProperty?: NotificationProperty;
+  NotificationProperty?: NotificationProperty | undefined;
 
   /**
    * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
@@ -2553,13 +2553,13 @@ export interface JobUpdate {
    *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    * @public
    */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode> | undefined;
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
@@ -2567,20 +2567,20 @@ export interface JobUpdate {
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    * @public
    */
-  ExecutionClass?: ExecutionClass;
+  ExecutionClass?: ExecutionClass | undefined;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
    * @public
    */
-  SourceControlDetails?: SourceControlDetails;
+  SourceControlDetails?: SourceControlDetails | undefined;
 
   /**
    * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
    *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
    * @public
    */
-  MaintenanceWindow?: string;
+  MaintenanceWindow?: string | undefined;
 }
 
 /**
@@ -2591,7 +2591,7 @@ export interface GetJobResponse {
    * <p>The requested job definition.</p>
    * @public
    */
-  Job?: Job;
+  Job?: Job | undefined;
 }
 
 /**
@@ -2619,13 +2619,13 @@ export interface BatchGetJobsResponse {
    * <p>A list of job definitions.</p>
    * @public
    */
-  Jobs?: Job[];
+  Jobs?: Job[] | undefined;
 
   /**
    * <p>A list of names of jobs not found.</p>
    * @public
    */
-  JobsNotFound?: string[];
+  JobsNotFound?: string[] | undefined;
 }
 
 /**
@@ -2636,13 +2636,13 @@ export interface GetJobsResponse {
    * <p>A list of job definitions.</p>
    * @public
    */
-  Jobs?: Job[];
+  Jobs?: Job[] | undefined;
 
   /**
    * <p>A continuation token, if not all job definitions have yet been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

@@ -23,7 +23,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 export namespace GreetingStruct {
@@ -184,11 +184,11 @@ export namespace EnumUnion {
  * @public
  */
 export interface MalformedEnumInput {
-  string?: EnumString;
-  stringWithEnumTrait?: EnumTraitString;
-  list?: EnumString[];
-  map?: Partial<Record<EnumString, EnumString>>;
-  union?: EnumUnion;
+  string?: EnumString | undefined;
+  stringWithEnumTrait?: EnumTraitString | undefined;
+  list?: EnumString[] | undefined;
+  map?: Partial<Record<EnumString, EnumString>> | undefined;
+  union?: EnumUnion | undefined;
 }
 
 export namespace MalformedEnumInput {
@@ -327,7 +327,7 @@ export class ValidationException extends __BaseException {
    * A member can appear in this list more than once if it failed to satisfy multiple constraints.
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
     super({
@@ -344,12 +344,12 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export interface MalformedLengthInput {
-  blob?: Uint8Array;
-  string?: string;
-  minString?: string;
-  maxString?: string;
-  list?: string[];
-  map?: Record<string, string[]>;
+  blob?: Uint8Array | undefined;
+  string?: string | undefined;
+  minString?: string | undefined;
+  maxString?: string | undefined;
+  list?: string[] | undefined;
+  map?: Record<string, string[]> | undefined;
 }
 
 export namespace MalformedLengthInput {
@@ -423,12 +423,12 @@ export namespace MalformedLengthInput {
  * @public
  */
 export interface MalformedLengthOverrideInput {
-  blob?: Uint8Array;
-  string?: string;
-  minString?: string;
-  maxString?: string;
-  list?: string[];
-  map?: Record<string, string[]>;
+  blob?: Uint8Array | undefined;
+  string?: string | undefined;
+  minString?: string | undefined;
+  maxString?: string | undefined;
+  list?: string[] | undefined;
+  map?: Record<string, string[]> | undefined;
 }
 
 export namespace MalformedLengthOverrideInput {
@@ -502,7 +502,7 @@ export namespace MalformedLengthOverrideInput {
  * @public
  */
 export interface MalformedLengthQueryStringInput {
-  string?: string;
+  string?: string | undefined;
 }
 
 export namespace MalformedLengthQueryStringInput {
@@ -608,11 +608,11 @@ export namespace PatternUnion {
  * @public
  */
 export interface MalformedPatternInput {
-  string?: string;
-  evilString?: string;
-  list?: string[];
-  map?: Record<string, string>;
-  union?: PatternUnion;
+  string?: string | undefined;
+  evilString?: string | undefined;
+  list?: string[] | undefined;
+  map?: Record<string, string> | undefined;
+  union?: PatternUnion | undefined;
 }
 
 export namespace MalformedPatternInput {
@@ -757,10 +757,10 @@ export namespace PatternUnionOverride {
  * @public
  */
 export interface MalformedPatternOverrideInput {
-  string?: string;
-  list?: string[];
-  map?: Record<string, string>;
-  union?: PatternUnionOverride;
+  string?: string | undefined;
+  list?: string[] | undefined;
+  map?: Record<string, string> | undefined;
+  union?: PatternUnionOverride | undefined;
 }
 
 export namespace MalformedPatternOverrideInput {
@@ -822,21 +822,21 @@ export namespace MalformedPatternOverrideInput {
  * @public
  */
 export interface MalformedRangeInput {
-  byte?: number;
-  minByte?: number;
-  maxByte?: number;
-  short?: number;
-  minShort?: number;
-  maxShort?: number;
-  integer?: number;
-  minInteger?: number;
-  maxInteger?: number;
-  long?: number;
-  minLong?: number;
-  maxLong?: number;
-  float?: number;
-  minFloat?: number;
-  maxFloat?: number;
+  byte?: number | undefined;
+  minByte?: number | undefined;
+  maxByte?: number | undefined;
+  short?: number | undefined;
+  minShort?: number | undefined;
+  maxShort?: number | undefined;
+  integer?: number | undefined;
+  minInteger?: number | undefined;
+  maxInteger?: number | undefined;
+  long?: number | undefined;
+  minLong?: number | undefined;
+  maxLong?: number | undefined;
+  float?: number | undefined;
+  minFloat?: number | undefined;
+  maxFloat?: number | undefined;
 }
 
 export namespace MalformedRangeInput {
@@ -954,21 +954,21 @@ export namespace MalformedRangeInput {
  * @public
  */
 export interface MalformedRangeOverrideInput {
-  byte?: number;
-  minByte?: number;
-  maxByte?: number;
-  short?: number;
-  minShort?: number;
-  maxShort?: number;
-  integer?: number;
-  minInteger?: number;
-  maxInteger?: number;
-  long?: number;
-  minLong?: number;
-  maxLong?: number;
-  float?: number;
-  minFloat?: number;
-  maxFloat?: number;
+  byte?: number | undefined;
+  minByte?: number | undefined;
+  maxByte?: number | undefined;
+  short?: number | undefined;
+  minShort?: number | undefined;
+  maxShort?: number | undefined;
+  integer?: number | undefined;
+  minInteger?: number | undefined;
+  maxInteger?: number | undefined;
+  long?: number | undefined;
+  minLong?: number | undefined;
+  maxLong?: number | undefined;
+  float?: number | undefined;
+  minFloat?: number | undefined;
+  maxFloat?: number | undefined;
 }
 
 export namespace MalformedRangeOverrideInput {
@@ -1240,22 +1240,22 @@ export namespace FooUnion {
  * @public
  */
 export interface MalformedUniqueItemsInput {
-  blobList?: Uint8Array[];
-  booleanList?: boolean[];
-  stringList?: string[];
-  byteList?: number[];
-  shortList?: number[];
-  integerList?: number[];
-  longList?: number[];
-  timestampList?: Date[];
-  dateTimeList?: Date[];
-  httpDateList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
-  listList?: string[][];
-  structureList?: GreetingStruct[];
-  structureListWithNoKey?: MissingKeyStructure[];
-  unionList?: FooUnion[];
+  blobList?: Uint8Array[] | undefined;
+  booleanList?: boolean[] | undefined;
+  stringList?: string[] | undefined;
+  byteList?: number[] | undefined;
+  shortList?: number[] | undefined;
+  integerList?: number[] | undefined;
+  longList?: number[] | undefined;
+  timestampList?: Date[] | undefined;
+  dateTimeList?: Date[] | undefined;
+  httpDateList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
+  listList?: string[][] | undefined;
+  structureList?: GreetingStruct[] | undefined;
+  structureListWithNoKey?: MissingKeyStructure[] | undefined;
+  unionList?: FooUnion[] | undefined;
 }
 
 export namespace MalformedUniqueItemsInput {
@@ -1448,7 +1448,7 @@ export type RecursiveEnumString = (typeof RecursiveEnumString)[keyof typeof Recu
  * @public
  */
 export interface SensitiveValidationInput {
-  string?: string;
+  string?: string | undefined;
 }
 
 /**
@@ -1653,7 +1653,7 @@ export namespace RecursiveUnionTwo {
  * @public
  */
 export interface RecursiveStructuresInput {
-  union?: RecursiveUnionOne;
+  union?: RecursiveUnionOne | undefined;
 }
 
 export namespace RecursiveStructuresInput {

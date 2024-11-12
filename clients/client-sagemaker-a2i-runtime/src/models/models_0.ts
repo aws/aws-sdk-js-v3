@@ -27,7 +27,7 @@ export interface DeleteHumanLoopResponse {}
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -50,7 +50,7 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -74,7 +74,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -97,7 +97,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -167,7 +167,7 @@ export interface DescribeHumanLoopResponse {
    *       human loop is <code>Failed</code>.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>A failure code that identifies the type of failure.</p>
@@ -176,7 +176,7 @@ export interface DescribeHumanLoopResponse {
    *          </p>
    * @public
    */
-  FailureCode?: string;
+  FailureCode?: string | undefined;
 
   /**
    * <p>The status of the human loop. </p>
@@ -207,7 +207,7 @@ export interface DescribeHumanLoopResponse {
    * <p>An object that contains information about the output of the human loop.</p>
    * @public
    */
-  HumanLoopOutput?: HumanLoopOutput;
+  HumanLoopOutput?: HumanLoopOutput | undefined;
 }
 
 /**
@@ -232,13 +232,13 @@ export interface ListHumanLoopsRequest {
    * <p>(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>(Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a flow definition.</p>
@@ -251,13 +251,13 @@ export interface ListHumanLoopsRequest {
    *         <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>A token to display the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of items to return. If the total number of available items is more than
@@ -265,7 +265,7 @@ export interface ListHumanLoopsRequest {
    *       the output. You can use this token to display the next page of results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -277,33 +277,33 @@ export interface HumanLoopSummary {
    * <p>The name of the human loop.</p>
    * @public
    */
-  HumanLoopName?: string;
+  HumanLoopName?: string | undefined;
 
   /**
    * <p>The status of the human loop. </p>
    * @public
    */
-  HumanLoopStatus?: HumanLoopStatus;
+  HumanLoopStatus?: HumanLoopStatus | undefined;
 
   /**
    * <p>When Amazon Augmented AI created the human loop.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The reason why the human loop failed. A failure reason is returned when the status of the
    *       human loop is <code>Failed</code>.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the flow definition used to configure the human
    *       loop.</p>
    * @public
    */
-  FlowDefinitionArn?: string;
+  FlowDefinitionArn?: string | undefined;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface ListHumanLoopsResponse {
    * <p>A token to display the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -331,7 +331,7 @@ export interface ListHumanLoopsResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -358,7 +358,7 @@ export class ConflictException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -440,7 +440,7 @@ export interface StartHumanLoopRequest {
    *       is free of personally identifiable information and/or free of adult content.</p>
    * @public
    */
-  DataAttributes?: HumanLoopDataAttributes;
+  DataAttributes?: HumanLoopDataAttributes | undefined;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface StartHumanLoopResponse {
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
    * @public
    */
-  HumanLoopArn?: string;
+  HumanLoopArn?: string | undefined;
 }
 
 /**

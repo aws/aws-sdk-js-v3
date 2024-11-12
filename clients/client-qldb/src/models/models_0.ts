@@ -29,7 +29,7 @@ export interface CancelJournalKinesisStreamResponse {
    * <p>The UUID (Base62-encoded text) of the canceled QLDB journal stream.</p>
    * @public
    */
-  StreamId?: string;
+  StreamId?: string | undefined;
 }
 
 /**
@@ -39,12 +39,12 @@ export interface CancelJournalKinesisStreamResponse {
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the invalid parameter.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
   /**
    * @internal
    */
@@ -67,18 +67,18 @@ export class InvalidParameterException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -102,18 +102,18 @@ export class ResourceNotFoundException extends __BaseException {
 export class ResourcePreconditionNotMetException extends __BaseException {
   readonly name: "ResourcePreconditionNotMetException" = "ResourcePreconditionNotMetException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -162,7 +162,7 @@ export interface CreateLedgerRequest {
    *          case sensitive. Tag values are case sensitive and can be null.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The permissions mode to assign to the ledger that you want to create. This parameter can
@@ -206,7 +206,7 @@ export interface CreateLedgerRequest {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For
@@ -262,7 +262,7 @@ export interface CreateLedgerRequest {
    *          the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KmsKey?: string;
+  KmsKey?: string | undefined;
 }
 
 /**
@@ -289,32 +289,32 @@ export interface CreateLedgerResponse {
    * <p>The name of the ledger.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The current status of the ledger.</p>
    * @public
    */
-  State?: LedgerState;
+  State?: LedgerState | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
    *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 
   /**
    * <p>The permissions mode of the ledger that you created.</p>
    * @public
    */
-  PermissionsMode?: PermissionsMode;
+  PermissionsMode?: PermissionsMode | undefined;
 
   /**
    * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
@@ -323,14 +323,14 @@ export interface CreateLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>The ARN of the customer managed KMS key that the ledger uses for encryption at rest. If
    *          this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key for encryption.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -340,12 +340,12 @@ export interface CreateLedgerResponse {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -368,18 +368,18 @@ export class LimitExceededException extends __BaseException {
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -403,18 +403,18 @@ export class ResourceAlreadyExistsException extends __BaseException {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -499,7 +499,7 @@ export interface KinesisConfiguration {
    *          </important>
    * @public
    */
-  AggregationEnabled?: boolean;
+  AggregationEnabled?: boolean | undefined;
 }
 
 /**
@@ -538,20 +538,20 @@ export interface JournalKinesisStreamDescription {
    *          UTC.)</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The inclusive start date and time from which to start streaming journal data.</p>
    * @public
    */
-  InclusiveStartTime?: Date;
+  InclusiveStartTime?: Date | undefined;
 
   /**
    * <p>The exclusive date and time that specifies when the stream ends. If this parameter is
    *          undefined, the stream runs indefinitely until you cancel it.</p>
    * @public
    */
-  ExclusiveEndTime?: Date;
+  ExclusiveEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
@@ -570,7 +570,7 @@ export interface JournalKinesisStreamDescription {
    * <p>The Amazon Resource Name (ARN) of the QLDB journal stream.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The current state of the QLDB journal stream.</p>
@@ -591,7 +591,7 @@ export interface JournalKinesisStreamDescription {
    *          have other status values.</p>
    * @public
    */
-  ErrorCause?: ErrorCause;
+  ErrorCause?: ErrorCause | undefined;
 
   /**
    * <p>The user-defined name of the QLDB journal stream.</p>
@@ -609,7 +609,7 @@ export interface DescribeJournalKinesisStreamResponse {
    *             <code>DescribeJournalS3Export</code> request.</p>
    * @public
    */
-  Stream?: JournalKinesisStreamDescription;
+  Stream?: JournalKinesisStreamDescription | undefined;
 }
 
 /**
@@ -685,7 +685,7 @@ export interface S3EncryptionConfiguration {
    *             <code>ObjectEncryptionType</code>.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -826,7 +826,7 @@ export interface JournalS3ExportDescription {
    * <p>The output format of the exported journal data.</p>
    * @public
    */
-  OutputFormat?: OutputFormat;
+  OutputFormat?: OutputFormat | undefined;
 }
 
 /**
@@ -924,7 +924,7 @@ export interface LedgerEncryptionDescription {
    *          <p>This parameter is undefined if the KMS key is accessible.</p>
    * @public
    */
-  InaccessibleKmsKeyDateTime?: Date;
+  InaccessibleKmsKeyDateTime?: Date | undefined;
 }
 
 /**
@@ -935,32 +935,32 @@ export interface DescribeLedgerResponse {
    * <p>The name of the ledger.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The current status of the ledger.</p>
    * @public
    */
-  State?: LedgerState;
+  State?: LedgerState | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
    *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 
   /**
    * <p>The permissions mode of the ledger.</p>
    * @public
    */
-  PermissionsMode?: PermissionsMode;
+  PermissionsMode?: PermissionsMode | undefined;
 
   /**
    * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
@@ -969,7 +969,7 @@ export interface DescribeLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Information about the encryption of data at rest in the ledger. This includes the
@@ -977,7 +977,7 @@ export interface DescribeLedgerResponse {
    *          error). If this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key for encryption.</p>
    * @public
    */
-  EncryptionDescription?: LedgerEncryptionDescription;
+  EncryptionDescription?: LedgerEncryptionDescription | undefined;
 }
 
 /**
@@ -1051,7 +1051,7 @@ export interface ExportJournalToS3Request {
    *          because these services can parse newline-delimited JSON automatically.</p>
    * @public
    */
-  OutputFormat?: OutputFormat;
+  OutputFormat?: OutputFormat | undefined;
 }
 
 /**
@@ -1077,7 +1077,7 @@ export interface ValueHolder {
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    * @public
    */
-  IonText?: string;
+  IonText?: string | undefined;
 }
 
 /**
@@ -1105,7 +1105,7 @@ export interface GetBlockRequest {
    *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    * @public
    */
-  DigestTipAddress?: ValueHolder;
+  DigestTipAddress?: ValueHolder | undefined;
 }
 
 /**
@@ -1124,7 +1124,7 @@ export interface GetBlockResponse {
    *          Merkle tree, starting with the specified block.</p>
    * @public
    */
-  Proof?: ValueHolder;
+  Proof?: ValueHolder | undefined;
 }
 
 /**
@@ -1189,7 +1189,7 @@ export interface GetRevisionRequest {
    *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    * @public
    */
-  DigestTipAddress?: ValueHolder;
+  DigestTipAddress?: ValueHolder | undefined;
 }
 
 /**
@@ -1202,7 +1202,7 @@ export interface GetRevisionResponse {
    *          digest using a Merkle tree, starting with the specified document revision.</p>
    * @public
    */
-  Proof?: ValueHolder;
+  Proof?: ValueHolder | undefined;
 
   /**
    * <p>The document revision data object in Amazon Ion format.</p>
@@ -1227,7 +1227,7 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
    *          returned might be fewer.)</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
@@ -1236,7 +1236,7 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
    *          here.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1247,7 +1247,7 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
    * <p>The QLDB journal streams that are currently associated with the given ledger.</p>
    * @public
    */
-  Streams?: JournalKinesisStreamDescription[];
+  Streams?: JournalKinesisStreamDescription[] | undefined;
 
   /**
    * <ul>
@@ -1264,7 +1264,7 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
    *          </ul>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1276,7 +1276,7 @@ export interface ListJournalS3ExportsRequest {
    *          request. (The actual number of results returned might be fewer.)</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
@@ -1285,7 +1285,7 @@ export interface ListJournalS3ExportsRequest {
    *          here.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1297,7 +1297,7 @@ export interface ListJournalS3ExportsResponse {
    *          Amazon Web Services account and Region.</p>
    * @public
    */
-  JournalS3Exports?: JournalS3ExportDescription[];
+  JournalS3Exports?: JournalS3ExportDescription[] | undefined;
 
   /**
    * <ul>
@@ -1314,7 +1314,7 @@ export interface ListJournalS3ExportsResponse {
    *          </ul>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1333,7 +1333,7 @@ export interface ListJournalS3ExportsForLedgerRequest {
    *          returned might be fewer.)</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
@@ -1342,7 +1342,7 @@ export interface ListJournalS3ExportsForLedgerRequest {
    *          here.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1353,7 +1353,7 @@ export interface ListJournalS3ExportsForLedgerResponse {
    * <p>The journal export jobs that are currently associated with the specified ledger.</p>
    * @public
    */
-  JournalS3Exports?: JournalS3ExportDescription[];
+  JournalS3Exports?: JournalS3ExportDescription[] | undefined;
 
   /**
    * <ul>
@@ -1370,7 +1370,7 @@ export interface ListJournalS3ExportsForLedgerResponse {
    *          </ul>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1382,7 +1382,7 @@ export interface ListLedgersRequest {
    *          (The actual number of results returned might be fewer.)</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
@@ -1390,7 +1390,7 @@ export interface ListLedgersRequest {
    *             <code>ListLedgers</code> call, then you should use that value as input here.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1402,20 +1402,20 @@ export interface LedgerSummary {
    * <p>The name of the ledger.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current status of the ledger.</p>
    * @public
    */
-  State?: LedgerState;
+  State?: LedgerState | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
    *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 }
 
 /**
@@ -1426,7 +1426,7 @@ export interface ListLedgersResponse {
    * <p>The ledgers that are associated with the current Amazon Web Services account and Region.</p>
    * @public
    */
-  Ledgers?: LedgerSummary[];
+  Ledgers?: LedgerSummary[] | undefined;
 
   /**
    * <p>A pagination token, indicating whether there are more results available:</p>
@@ -1443,7 +1443,7 @@ export interface ListLedgersResponse {
    *          </ul>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1468,7 +1468,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1496,7 +1496,7 @@ export interface StreamJournalToKinesisRequest {
    *          case sensitive. Tag values are case sensitive and can be null.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The inclusive start date and time from which to start streaming journal data. This
@@ -1519,7 +1519,7 @@ export interface StreamJournalToKinesisRequest {
    *          <code>2019-06-13T21:36:34Z</code>.</p>
    * @public
    */
-  ExclusiveEndTime?: Date;
+  ExclusiveEndTime?: Date | undefined;
 
   /**
    * <p>The configuration settings of the Kinesis Data Streams destination for your stream request.</p>
@@ -1548,7 +1548,7 @@ export interface StreamJournalToKinesisResponse {
    *          stream.</p>
    * @public
    */
-  StreamId?: string;
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1620,7 +1620,7 @@ export interface UpdateLedgerRequest {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For
@@ -1676,7 +1676,7 @@ export interface UpdateLedgerRequest {
    *          the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KmsKey?: string;
+  KmsKey?: string | undefined;
 }
 
 /**
@@ -1687,26 +1687,26 @@ export interface UpdateLedgerResponse {
    * <p>The name of the ledger.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The current status of the ledger.</p>
    * @public
    */
-  State?: LedgerState;
+  State?: LedgerState | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
    *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 
   /**
    * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
@@ -1715,7 +1715,7 @@ export interface UpdateLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Information about the encryption of data at rest in the ledger. This includes the
@@ -1723,7 +1723,7 @@ export interface UpdateLedgerResponse {
    *          error).</p>
    * @public
    */
-  EncryptionDescription?: LedgerEncryptionDescription;
+  EncryptionDescription?: LedgerEncryptionDescription | undefined;
 }
 
 /**
@@ -1780,19 +1780,19 @@ export interface UpdateLedgerPermissionsModeResponse {
    * <p>The name of the ledger.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The current permissions mode of the ledger.</p>
    * @public
    */
-  PermissionsMode?: PermissionsMode;
+  PermissionsMode?: PermissionsMode | undefined;
 }
 
 /**

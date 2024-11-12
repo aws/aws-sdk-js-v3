@@ -31,7 +31,7 @@ export type ResponseHeadersPolicyAccessControlAllowMethodsValues =
 export class AccessDenied extends __BaseException {
   readonly name: "AccessDenied" = "AccessDenied";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -61,7 +61,7 @@ export interface KeyPairIds {
    * <p>A list of CloudFront key pair identifiers.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -74,13 +74,13 @@ export interface KGKeyPairIds {
    * <p>The identifier of the key group that contains the public keys.</p>
    * @public
    */
-  KeyGroupId?: string;
+  KeyGroupId?: string | undefined;
 
   /**
    * <p>A list of CloudFront key pair identifiers.</p>
    * @public
    */
-  KeyPairIds?: KeyPairIds;
+  KeyPairIds?: KeyPairIds | undefined;
 }
 
 /**
@@ -108,7 +108,7 @@ export interface ActiveTrustedKeyGroups {
    * 			that CloudFront can use to verify the signatures of signed URLs and signed cookies.</p>
    * @public
    */
-  Items?: KGKeyPairIds[];
+  Items?: KGKeyPairIds[] | undefined;
 }
 
 /**
@@ -124,13 +124,13 @@ export interface Signer {
    * 			field is <code>self</code>.</p>
    * @public
    */
-  AwsAccountNumber?: string;
+  AwsAccountNumber?: string | undefined;
 
   /**
    * <p>A list of CloudFront key pair identifiers.</p>
    * @public
    */
-  KeyPairIds?: KeyPairIds;
+  KeyPairIds?: KeyPairIds | undefined;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface ActiveTrustedSigners {
    * 			that CloudFront can use to verify the signatures of signed URLs and signed cookies.</p>
    * @public
    */
-  Items?: Signer[];
+  Items?: Signer[] | undefined;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface Aliases {
    * 			with this distribution.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface AliasICPRecordal {
    * <p>A domain name associated with a distribution.</p>
    * @public
    */
-  CNAME?: string;
+  CNAME?: string | undefined;
 
   /**
    * <p>The Internet Content Provider (ICP) recordal status for a CNAME. The ICPRecordalStatus
@@ -242,7 +242,7 @@ export interface AliasICPRecordal {
    *          </ul>
    * @public
    */
-  ICPRecordalStatus?: ICPRecordalStatus;
+  ICPRecordalStatus?: ICPRecordalStatus | undefined;
 }
 
 /**
@@ -357,7 +357,7 @@ export interface AllowedMethods {
    * 			the responses to be cached correctly.</p>
    * @public
    */
-  CachedMethods?: CachedMethods;
+  CachedMethods?: CachedMethods | undefined;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface AssociateAliasRequest {
 export class IllegalUpdate extends __BaseException {
   readonly name: "IllegalUpdate" = "IllegalUpdate";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -406,7 +406,7 @@ export class IllegalUpdate extends __BaseException {
 export class InvalidArgument extends __BaseException {
   readonly name: "InvalidArgument" = "InvalidArgument";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -428,7 +428,7 @@ export class InvalidArgument extends __BaseException {
 export class NoSuchDistribution extends __BaseException {
   readonly name: "NoSuchDistribution" = "NoSuchDistribution";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -450,7 +450,7 @@ export class NoSuchDistribution extends __BaseException {
 export class TooManyDistributionCNAMEs extends __BaseException {
   readonly name: "TooManyDistributionCNAMEs" = "TooManyDistributionCNAMEs";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -472,7 +472,7 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 export class BatchTooLarge extends __BaseException {
   readonly name: "BatchTooLarge" = "BatchTooLarge";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -517,7 +517,7 @@ export interface CookieNames {
    * <p>A list of cookie names.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -574,7 +574,7 @@ export interface CookiePreference {
    * 				Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  WhitelistedNames?: CookieNames;
+  WhitelistedNames?: CookieNames | undefined;
 }
 
 /**
@@ -592,7 +592,7 @@ export interface Headers {
    * <p>A list of HTTP header names.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -622,7 +622,7 @@ export interface QueryStringCacheKeys {
    * 				<code>Items</code>.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -700,7 +700,7 @@ export interface ForwardedValues {
    * 				Based on Request Headers</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  Headers?: Headers;
+  Headers?: Headers | undefined;
 
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -714,7 +714,7 @@ export interface ForwardedValues {
    * 			want CloudFront to use for caching for this cache behavior.</p>
    * @public
    */
-  QueryStringCacheKeys?: QueryStringCacheKeys;
+  QueryStringCacheKeys?: QueryStringCacheKeys | undefined;
 }
 
 /**
@@ -774,7 +774,7 @@ export interface FunctionAssociations {
    * 			cache behavior.</p>
    * @public
    */
-  Items?: FunctionAssociation[];
+  Items?: FunctionAssociation[] | undefined;
 }
 
 /**
@@ -830,7 +830,7 @@ export interface LambdaFunctionAssociation {
    * 			Amazon CloudFront Developer Guide.</p>
    * @public
    */
-  IncludeBody?: boolean;
+  IncludeBody?: boolean | undefined;
 }
 
 /**
@@ -861,7 +861,7 @@ export interface LambdaFunctionAssociations {
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    * @public
    */
-  Items?: LambdaFunctionAssociation[];
+  Items?: LambdaFunctionAssociation[] | undefined;
 }
 
 /**
@@ -888,7 +888,7 @@ export interface TrustedKeyGroups {
    * <p>A list of key groups identifiers.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -914,7 +914,7 @@ export interface TrustedSigners {
    * <p>A list of Amazon Web Services account identifiers.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -996,7 +996,7 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  TrustedSigners?: TrustedSigners;
+  TrustedSigners?: TrustedSigners | undefined;
 
   /**
    * <p>A list of key groups that CloudFront can use to validate signed URLs or signed
@@ -1009,7 +1009,7 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  TrustedKeyGroups?: TrustedKeyGroups;
+  TrustedKeyGroups?: TrustedKeyGroups | undefined;
 
   /**
    * <p>The protocol that viewers can use to access the files in the origin specified by
@@ -1070,7 +1070,7 @@ export interface CacheBehavior {
    * 			origin.</p>
    * @public
    */
-  AllowedMethods?: AllowedMethods;
+  AllowedMethods?: AllowedMethods | undefined;
 
   /**
    * <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
@@ -1081,7 +1081,7 @@ export interface CacheBehavior {
    * 				<code>PathPattern</code>.</p>
    * @public
    */
-  SmoothStreaming?: boolean;
+  SmoothStreaming?: boolean | undefined;
 
   /**
    * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
@@ -1089,14 +1089,14 @@ export interface CacheBehavior {
    * 				Compressed Files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  Compress?: boolean;
+  Compress?: boolean | undefined;
 
   /**
    * <p>A complex type that contains zero or more Lambda@Edge function associations for a
    * 			cache behavior.</p>
    * @public
    */
-  LambdaFunctionAssociations?: LambdaFunctionAssociations;
+  LambdaFunctionAssociations?: LambdaFunctionAssociations | undefined;
 
   /**
    * <p>A list of CloudFront functions that are associated with this cache behavior. CloudFront functions
@@ -1104,14 +1104,14 @@ export interface CacheBehavior {
    * 			behavior.</p>
    * @public
    */
-  FunctionAssociations?: FunctionAssociations;
+  FunctionAssociations?: FunctionAssociations | undefined;
 
   /**
    * <p>The value of <code>ID</code> for the field-level encryption configuration that you
    * 			want CloudFront to use for encrypting specific fields of data for this cache behavior.</p>
    * @public
    */
-  FieldLevelEncryptionId?: string;
+  FieldLevelEncryptionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the real-time log configuration that is attached to
@@ -1119,7 +1119,7 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  RealtimeLogConfigArn?: string;
+  RealtimeLogConfigArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the cache policy that is attached to this cache behavior. For
@@ -1130,7 +1130,7 @@ export interface CacheBehavior {
    * 			<code>CachePolicyId</code>.</p>
    * @public
    */
-  CachePolicyId?: string;
+  CachePolicyId?: string | undefined;
 
   /**
    * <p>The unique identifier of the origin request policy that is attached to this cache
@@ -1138,13 +1138,13 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginRequestPolicyId?: string;
+  OriginRequestPolicyId?: string | undefined;
 
   /**
    * <p>The identifier for a response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicyId?: string;
+  ResponseHeadersPolicyId?: string | undefined;
 
   /**
    * @deprecated
@@ -1165,7 +1165,7 @@ export interface CacheBehavior {
    * 			headers.</p>
    * @public
    */
-  ForwardedValues?: ForwardedValues;
+  ForwardedValues?: ForwardedValues | undefined;
 
   /**
    * @deprecated
@@ -1184,7 +1184,7 @@ export interface CacheBehavior {
    * 			<code>Name</code>).</p>
    * @public
    */
-  MinTTL?: number;
+  MinTTL?: number | undefined;
 
   /**
    * @deprecated
@@ -1200,7 +1200,7 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  DefaultTTL?: number;
+  DefaultTTL?: number | undefined;
 
   /**
    * @deprecated
@@ -1216,7 +1216,7 @@ export interface CacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  MaxTTL?: number;
+  MaxTTL?: number | undefined;
 }
 
 /**
@@ -1235,7 +1235,7 @@ export interface CacheBehaviors {
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    * @public
    */
-  Items?: CacheBehavior[];
+  Items?: CacheBehavior[] | undefined;
 }
 
 /**
@@ -1301,7 +1301,7 @@ export interface CachePolicyCookiesConfig {
    * <p>Contains a list of cookie names.</p>
    * @public
    */
-  Cookies?: CookieNames;
+  Cookies?: CookieNames | undefined;
 }
 
 /**
@@ -1350,7 +1350,7 @@ export interface CachePolicyHeadersConfig {
    * <p>Contains a list of HTTP header names.</p>
    * @public
    */
-  Headers?: Headers;
+  Headers?: Headers | undefined;
 }
 
 /**
@@ -1385,7 +1385,7 @@ export interface QueryStringNames {
    * <p>A list of query string names.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -1450,7 +1450,7 @@ export interface CachePolicyQueryStringsConfig {
    * 			are).</p>
    * @public
    */
-  QueryStrings?: QueryStringNames;
+  QueryStrings?: QueryStringNames | undefined;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
    * 			whitelist like any other HTTP header.</p>
    * @public
    */
-  EnableAcceptEncodingBrotli?: boolean;
+  EnableAcceptEncodingBrotli?: boolean | undefined;
 
   /**
    * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -1587,7 +1587,7 @@ export interface CachePolicyConfig {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A unique name to identify the cache policy.</p>
@@ -1607,7 +1607,7 @@ export interface CachePolicyConfig {
    * 			field is the same as the value of <code>MinTTL</code>.</p>
    * @public
    */
-  DefaultTTL?: number;
+  DefaultTTL?: number | undefined;
 
   /**
    * <p>The maximum amount of time, in seconds, that objects stay in the CloudFront cache before
@@ -1621,7 +1621,7 @@ export interface CachePolicyConfig {
    * 			<code>DefaultTTL</code>.</p>
    * @public
    */
-  MaxTTL?: number;
+  MaxTTL?: number | undefined;
 
   /**
    * <p>The minimum amount of time, in seconds, that you want objects to stay in the CloudFront
@@ -1638,7 +1638,7 @@ export interface CachePolicyConfig {
    * 			origin.</p>
    * @public
    */
-  ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin;
+  ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin | undefined;
 }
 
 /**
@@ -1691,7 +1691,7 @@ export interface CachePolicy {
 export class CachePolicyAlreadyExists extends __BaseException {
   readonly name: "CachePolicyAlreadyExists" = "CachePolicyAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1714,7 +1714,7 @@ export class CachePolicyAlreadyExists extends __BaseException {
 export class CachePolicyInUse extends __BaseException {
   readonly name: "CachePolicyInUse" = "CachePolicyInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1773,7 +1773,7 @@ export interface CachePolicyList {
    * 			subsequent request to continue listing cache policies where you left off.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>The maximum number of cache policies requested.</p>
@@ -1791,7 +1791,7 @@ export interface CachePolicyList {
    * <p>Contains the cache policies in the list.</p>
    * @public
    */
-  Items?: CachePolicySummary[];
+  Items?: CachePolicySummary[] | undefined;
 }
 
 /**
@@ -1801,7 +1801,7 @@ export interface CachePolicyList {
 export class CannotChangeImmutablePublicKeyFields extends __BaseException {
   readonly name: "CannotChangeImmutablePublicKeyFields" = "CannotChangeImmutablePublicKeyFields";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1823,7 +1823,7 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 export class CannotDeleteEntityWhileInUse extends __BaseException {
   readonly name: "CannotDeleteEntityWhileInUse" = "CannotDeleteEntityWhileInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1860,7 +1860,7 @@ export type CertificateSource = (typeof CertificateSource)[keyof typeof Certific
 export class CNAMEAlreadyExists extends __BaseException {
   readonly name: "CNAMEAlreadyExists" = "CNAMEAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1892,7 +1892,7 @@ export interface CopyDistributionRequest {
    * 			distribution.</p>
    * @public
    */
-  Staging?: boolean;
+  Staging?: boolean | undefined;
 
   /**
    * <p>The version identifier of the primary distribution whose configuration you are
@@ -1900,7 +1900,7 @@ export interface CopyDistributionRequest {
    * 				<code>GetDistribution</code> and <code>GetDistributionConfig</code>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 
   /**
    * <p>A value that uniquely identifies a request to create a resource. This helps to prevent
@@ -1918,7 +1918,7 @@ export interface CopyDistributionRequest {
    *          <p>If you omit this field, the default value is <code>True</code>.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1973,7 +1973,7 @@ export interface CustomErrorResponse {
    * 			unavailable.</p>
    * @public
    */
-  ResponsePagePath?: string;
+  ResponsePagePath?: string | undefined;
 
   /**
    * <p>The HTTP status code that you want CloudFront to return to the viewer along with the custom
@@ -2001,7 +2001,7 @@ export interface CustomErrorResponse {
    * 			for <code>ResponsePagePath</code>.</p>
    * @public
    */
-  ResponseCode?: string;
+  ResponseCode?: string | undefined;
 
   /**
    * <p>The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status
@@ -2012,7 +2012,7 @@ export interface CustomErrorResponse {
    * 				Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  ErrorCachingMinTTL?: number;
+  ErrorCachingMinTTL?: number | undefined;
 }
 
 /**
@@ -2045,7 +2045,7 @@ export interface CustomErrorResponses {
    * 		</p>
    * @public
    */
-  Items?: CustomErrorResponse[];
+  Items?: CustomErrorResponse[] | undefined;
 }
 
 /**
@@ -2078,7 +2078,7 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  TrustedSigners?: TrustedSigners;
+  TrustedSigners?: TrustedSigners | undefined;
 
   /**
    * <p>A list of key groups that CloudFront can use to validate signed URLs or signed
@@ -2091,7 +2091,7 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  TrustedKeyGroups?: TrustedKeyGroups;
+  TrustedKeyGroups?: TrustedKeyGroups | undefined;
 
   /**
    * <p>The protocol that viewers can use to access the files in the origin specified by
@@ -2152,7 +2152,7 @@ export interface DefaultCacheBehavior {
    * 			origin.</p>
    * @public
    */
-  AllowedMethods?: AllowedMethods;
+  AllowedMethods?: AllowedMethods | undefined;
 
   /**
    * <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
@@ -2163,7 +2163,7 @@ export interface DefaultCacheBehavior {
    * 				<code>PathPattern</code>.</p>
    * @public
    */
-  SmoothStreaming?: boolean;
+  SmoothStreaming?: boolean | undefined;
 
   /**
    * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
@@ -2172,14 +2172,14 @@ export interface DefaultCacheBehavior {
    * 				Compressed Files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  Compress?: boolean;
+  Compress?: boolean | undefined;
 
   /**
    * <p>A complex type that contains zero or more Lambda@Edge function associations for a
    * 			cache behavior.</p>
    * @public
    */
-  LambdaFunctionAssociations?: LambdaFunctionAssociations;
+  LambdaFunctionAssociations?: LambdaFunctionAssociations | undefined;
 
   /**
    * <p>A list of CloudFront functions that are associated with this cache behavior. Your functions
@@ -2187,7 +2187,7 @@ export interface DefaultCacheBehavior {
    * 			behavior.</p>
    * @public
    */
-  FunctionAssociations?: FunctionAssociations;
+  FunctionAssociations?: FunctionAssociations | undefined;
 
   /**
    * <p>The value of <code>ID</code> for the field-level encryption configuration that you
@@ -2195,7 +2195,7 @@ export interface DefaultCacheBehavior {
    * 			behavior.</p>
    * @public
    */
-  FieldLevelEncryptionId?: string;
+  FieldLevelEncryptionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the real-time log configuration that is attached to
@@ -2203,7 +2203,7 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  RealtimeLogConfigArn?: string;
+  RealtimeLogConfigArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the cache policy that is attached to the default cache
@@ -2214,7 +2214,7 @@ export interface DefaultCacheBehavior {
    * 			<code>CachePolicyId</code>.</p>
    * @public
    */
-  CachePolicyId?: string;
+  CachePolicyId?: string | undefined;
 
   /**
    * <p>The unique identifier of the origin request policy that is attached to the default
@@ -2222,13 +2222,13 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginRequestPolicyId?: string;
+  OriginRequestPolicyId?: string | undefined;
 
   /**
    * <p>The identifier for a response headers policy.</p>
    * @public
    */
-  ResponseHeadersPolicyId?: string;
+  ResponseHeadersPolicyId?: string | undefined;
 
   /**
    * @deprecated
@@ -2249,7 +2249,7 @@ export interface DefaultCacheBehavior {
    * 			headers.</p>
    * @public
    */
-  ForwardedValues?: ForwardedValues;
+  ForwardedValues?: ForwardedValues | undefined;
 
   /**
    * @deprecated
@@ -2268,7 +2268,7 @@ export interface DefaultCacheBehavior {
    * 			<code>Name</code>).</p>
    * @public
    */
-  MinTTL?: number;
+  MinTTL?: number | undefined;
 
   /**
    * @deprecated
@@ -2284,7 +2284,7 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  DefaultTTL?: number;
+  DefaultTTL?: number | undefined;
 
   /**
    * @deprecated
@@ -2300,7 +2300,7 @@ export interface DefaultCacheBehavior {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  MaxTTL?: number;
+  MaxTTL?: number | undefined;
 }
 
 /**
@@ -2472,7 +2472,7 @@ export interface OriginGroups {
    * <p>The items (origin groups) in a distribution.</p>
    * @public
    */
-  Items?: OriginGroup[];
+  Items?: OriginGroup[] | undefined;
 }
 
 /**
@@ -2516,7 +2516,7 @@ export interface CustomHeaders {
    * 			forward to the origin. If Quantity is <code>0</code>, omit <code>Items</code>.</p>
    * @public
    */
-  Items?: OriginCustomHeader[];
+  Items?: OriginCustomHeader[] | undefined;
 }
 
 /**
@@ -2624,7 +2624,7 @@ export interface CustomOriginConfig {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginSslProtocols?: OriginSslProtocols;
+  OriginSslProtocols?: OriginSslProtocols | undefined;
 
   /**
    * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin. This is
@@ -2635,7 +2635,7 @@ export interface CustomOriginConfig {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginReadTimeout?: number;
+  OriginReadTimeout?: number | undefined;
 
   /**
    * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin. The
@@ -2645,7 +2645,7 @@ export interface CustomOriginConfig {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginKeepaliveTimeout?: number;
+  OriginKeepaliveTimeout?: number | undefined;
 }
 
 /**
@@ -2676,7 +2676,7 @@ export interface OriginShield {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginShieldRegion?: string;
+  OriginShieldRegion?: string | undefined;
 }
 
 /**
@@ -2780,7 +2780,7 @@ export interface Origin {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginPath?: string;
+  OriginPath?: string | undefined;
 
   /**
    * <p>A list of HTTP header names and values that CloudFront adds to the requests that it sends to
@@ -2789,7 +2789,7 @@ export interface Origin {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  CustomHeaders?: CustomHeaders;
+  CustomHeaders?: CustomHeaders | undefined;
 
   /**
    * <p>Use this type to specify an origin that is an Amazon S3 bucket that is not configured with
@@ -2798,7 +2798,7 @@ export interface Origin {
    * 			type instead.</p>
    * @public
    */
-  S3OriginConfig?: S3OriginConfig;
+  S3OriginConfig?: S3OriginConfig | undefined;
 
   /**
    * <p>Use this type to specify an origin that is not an Amazon S3 bucket, with one exception. If
@@ -2807,7 +2807,7 @@ export interface Origin {
    * 				<code>S3OriginConfig</code> type instead.</p>
    * @public
    */
-  CustomOriginConfig?: CustomOriginConfig;
+  CustomOriginConfig?: CustomOriginConfig | undefined;
 
   /**
    * <p>The number of times that CloudFront attempts to connect to the origin. The minimum number is
@@ -2819,7 +2819,7 @@ export interface Origin {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  ConnectionAttempts?: number;
+  ConnectionAttempts?: number | undefined;
 
   /**
    * <p>The number of seconds that CloudFront waits when trying to establish a connection to the
@@ -2829,7 +2829,7 @@ export interface Origin {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  ConnectionTimeout?: number;
+  ConnectionTimeout?: number | undefined;
 
   /**
    * <p>CloudFront Origin Shield. Using Origin Shield can help reduce the load on your
@@ -2837,7 +2837,7 @@ export interface Origin {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html">Using Origin Shield</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginShield?: OriginShield;
+  OriginShield?: OriginShield | undefined;
 
   /**
    * <p>The unique identifier of an origin access control for this origin.</p>
@@ -2845,7 +2845,7 @@ export interface Origin {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  OriginAccessControlId?: string;
+  OriginAccessControlId?: string | undefined;
 }
 
 /**
@@ -2950,7 +2950,7 @@ export interface GeoRestriction {
    * 			CloudFront console, which includes both country names and codes.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -3089,7 +3089,7 @@ export interface ViewerCertificate {
    *          </ul>
    * @public
    */
-  CloudFrontDefaultCertificate?: boolean;
+  CloudFrontDefaultCertificate?: boolean | undefined;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
@@ -3098,7 +3098,7 @@ export interface ViewerCertificate {
    * 				<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>. </p>
    * @public
    */
-  IAMCertificateId?: string;
+  IAMCertificateId?: string | undefined;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
@@ -3109,7 +3109,7 @@ export interface ViewerCertificate {
    * 				<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>.</p>
    * @public
    */
-  ACMCertificateArn?: string;
+  ACMCertificateArn?: string | undefined;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
@@ -3140,7 +3140,7 @@ export interface ViewerCertificate {
    * 				<code>d111111abcdef8.cloudfront.net</code>, don't set a value for this field.</p>
    * @public
    */
-  SSLSupportMethod?: SSLSupportMethod;
+  SSLSupportMethod?: SSLSupportMethod | undefined;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
@@ -3171,7 +3171,7 @@ export interface ViewerCertificate {
    * 			here.</p>
    * @public
    */
-  MinimumProtocolVersion?: MinimumProtocolVersion;
+  MinimumProtocolVersion?: MinimumProtocolVersion | undefined;
 
   /**
    * @deprecated
@@ -3196,7 +3196,7 @@ export interface ViewerCertificate {
    *          </ul>
    * @public
    */
-  Certificate?: string;
+  Certificate?: string | undefined;
 
   /**
    * @deprecated
@@ -3221,7 +3221,7 @@ export interface ViewerCertificate {
    *          </ul>
    * @public
    */
-  CertificateSource?: CertificateSource;
+  CertificateSource?: CertificateSource | undefined;
 }
 
 /**
@@ -3246,7 +3246,7 @@ export interface DistributionConfig {
    * 			any, for this distribution.</p>
    * @public
    */
-  Aliases?: Aliases;
+  Aliases?: Aliases | undefined;
 
   /**
    * <p>The object that you want CloudFront to request from your origin (for example,
@@ -3267,7 +3267,7 @@ export interface DistributionConfig {
    * 				Default Root Object</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  DefaultRootObject?: string;
+  DefaultRootObject?: string | undefined;
 
   /**
    * <p>A complex type that contains information about origins for this distribution.</p>
@@ -3280,7 +3280,7 @@ export interface DistributionConfig {
    * 			distribution.</p>
    * @public
    */
-  OriginGroups?: OriginGroups;
+  OriginGroups?: OriginGroups | undefined;
 
   /**
    * <p>A complex type that describes the default cache behavior if you don't specify a
@@ -3295,7 +3295,7 @@ export interface DistributionConfig {
    * <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.</p>
    * @public
    */
-  CacheBehaviors?: CacheBehaviors;
+  CacheBehaviors?: CacheBehaviors | undefined;
 
   /**
    * <p>A complex type that controls the following:</p>
@@ -3312,7 +3312,7 @@ export interface DistributionConfig {
    * 				Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  CustomErrorResponses?: CustomErrorResponses;
+  CustomErrorResponses?: CustomErrorResponses | undefined;
 
   /**
    * <p>A comment to describe the distribution. The comment cannot be longer than
@@ -3328,7 +3328,7 @@ export interface DistributionConfig {
    * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
-  Logging?: LoggingConfig;
+  Logging?: LoggingConfig | undefined;
 
   /**
    * <p>The price class that corresponds with the maximum price that you want to pay for CloudFront
@@ -3345,7 +3345,7 @@ export interface DistributionConfig {
    * 				Pricing</a>.</p>
    * @public
    */
-  PriceClass?: PriceClass;
+  PriceClass?: PriceClass | undefined;
 
   /**
    * <p>From this field, you can enable or disable the selected distribution.</p>
@@ -3358,14 +3358,14 @@ export interface DistributionConfig {
    * 			communicating with viewers.</p>
    * @public
    */
-  ViewerCertificate?: ViewerCertificate;
+  ViewerCertificate?: ViewerCertificate | undefined;
 
   /**
    * <p>A complex type that identifies ways in which you want to restrict distribution of your
    * 			content.</p>
    * @public
    */
-  Restrictions?: Restrictions;
+  Restrictions?: Restrictions | undefined;
 
   /**
    * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this
@@ -3383,7 +3383,7 @@ export interface DistributionConfig {
    * 				<a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF Developer Guide</a>.</p>
    * @public
    */
-  WebACLId?: string;
+  WebACLId?: string | undefined;
 
   /**
    * <p>(Optional) Specify the HTTP version(s) that you want viewers to use to communicate with
@@ -3398,7 +3398,7 @@ export interface DistributionConfig {
    * 			TLSv1.3 ciphers, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers between viewers and CloudFront</a>.</p>
    * @public
    */
-  HttpVersion?: HttpVersion;
+  HttpVersion?: HttpVersion | undefined;
 
   /**
    * <p>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
@@ -3433,14 +3433,14 @@ export interface DistributionConfig {
    * 			distribution regardless of the IP address format of the viewer request.</p>
    * @public
    */
-  IsIPV6Enabled?: boolean;
+  IsIPV6Enabled?: boolean | undefined;
 
   /**
    * <p>The identifier of a continuous deployment policy. For more information, see
    * 				<code>CreateContinuousDeploymentPolicy</code>.</p>
    * @public
    */
-  ContinuousDeploymentPolicyId?: string;
+  ContinuousDeploymentPolicyId?: string | undefined;
 
   /**
    * <p>A Boolean that indicates whether this is a staging distribution. When this value is
@@ -3448,7 +3448,7 @@ export interface DistributionConfig {
    * 				<code>false</code>, this is not a staging distribution.</p>
    * @public
    */
-  Staging?: boolean;
+  Staging?: boolean | undefined;
 }
 
 /**
@@ -3505,14 +3505,14 @@ export interface Distribution {
    * 			cookies.</p>
    * @public
    */
-  ActiveTrustedSigners?: ActiveTrustedSigners;
+  ActiveTrustedSigners?: ActiveTrustedSigners | undefined;
 
   /**
    * <p>This field contains a list of key groups and the public keys in each key group that
    * 			CloudFront can use to verify the signatures of signed URLs or signed cookies.</p>
    * @public
    */
-  ActiveTrustedKeyGroups?: ActiveTrustedKeyGroups;
+  ActiveTrustedKeyGroups?: ActiveTrustedKeyGroups | undefined;
 
   /**
    * <p>The distribution's configuration.</p>
@@ -3529,7 +3529,7 @@ export interface Distribution {
    * 				services in China</i>.</p>
    * @public
    */
-  AliasICPRecordals?: AliasICPRecordal[];
+  AliasICPRecordals?: AliasICPRecordal[] | undefined;
 }
 
 /**
@@ -3541,19 +3541,19 @@ export interface CopyDistributionResult {
    * 			about how to track and manage content delivery.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The URL of the staging distribution.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The version identifier for the current version of the staging distribution.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -3564,7 +3564,7 @@ export interface CopyDistributionResult {
 export class DistributionAlreadyExists extends __BaseException {
   readonly name: "DistributionAlreadyExists" = "DistributionAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3588,7 +3588,7 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
   readonly name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior" =
     "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3613,7 +3613,7 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
 export class InconsistentQuantities extends __BaseException {
   readonly name: "InconsistentQuantities" = "InconsistentQuantities";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3635,7 +3635,7 @@ export class InconsistentQuantities extends __BaseException {
 export class InvalidDefaultRootObject extends __BaseException {
   readonly name: "InvalidDefaultRootObject" = "InvalidDefaultRootObject";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3657,7 +3657,7 @@ export class InvalidDefaultRootObject extends __BaseException {
 export class InvalidErrorCode extends __BaseException {
   readonly name: "InvalidErrorCode" = "InvalidErrorCode";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3681,7 +3681,7 @@ export class InvalidErrorCode extends __BaseException {
 export class InvalidForwardCookies extends __BaseException {
   readonly name: "InvalidForwardCookies" = "InvalidForwardCookies";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3703,7 +3703,7 @@ export class InvalidForwardCookies extends __BaseException {
 export class InvalidFunctionAssociation extends __BaseException {
   readonly name: "InvalidFunctionAssociation" = "InvalidFunctionAssociation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3725,7 +3725,7 @@ export class InvalidFunctionAssociation extends __BaseException {
 export class InvalidGeoRestrictionParameter extends __BaseException {
   readonly name: "InvalidGeoRestrictionParameter" = "InvalidGeoRestrictionParameter";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3747,7 +3747,7 @@ export class InvalidGeoRestrictionParameter extends __BaseException {
 export class InvalidHeadersForS3Origin extends __BaseException {
   readonly name: "InvalidHeadersForS3Origin" = "InvalidHeadersForS3Origin";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3769,7 +3769,7 @@ export class InvalidHeadersForS3Origin extends __BaseException {
 export class InvalidIfMatchVersion extends __BaseException {
   readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3791,7 +3791,7 @@ export class InvalidIfMatchVersion extends __BaseException {
 export class InvalidLambdaFunctionAssociation extends __BaseException {
   readonly name: "InvalidLambdaFunctionAssociation" = "InvalidLambdaFunctionAssociation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3813,7 +3813,7 @@ export class InvalidLambdaFunctionAssociation extends __BaseException {
 export class InvalidLocationCode extends __BaseException {
   readonly name: "InvalidLocationCode" = "InvalidLocationCode";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3835,7 +3835,7 @@ export class InvalidLocationCode extends __BaseException {
 export class InvalidMinimumProtocolVersion extends __BaseException {
   readonly name: "InvalidMinimumProtocolVersion" = "InvalidMinimumProtocolVersion";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3857,7 +3857,7 @@ export class InvalidMinimumProtocolVersion extends __BaseException {
 export class InvalidOrigin extends __BaseException {
   readonly name: "InvalidOrigin" = "InvalidOrigin";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3879,7 +3879,7 @@ export class InvalidOrigin extends __BaseException {
 export class InvalidOriginAccessControl extends __BaseException {
   readonly name: "InvalidOriginAccessControl" = "InvalidOriginAccessControl";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3901,7 +3901,7 @@ export class InvalidOriginAccessControl extends __BaseException {
 export class InvalidOriginAccessIdentity extends __BaseException {
   readonly name: "InvalidOriginAccessIdentity" = "InvalidOriginAccessIdentity";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3923,7 +3923,7 @@ export class InvalidOriginAccessIdentity extends __BaseException {
 export class InvalidOriginKeepaliveTimeout extends __BaseException {
   readonly name: "InvalidOriginKeepaliveTimeout" = "InvalidOriginKeepaliveTimeout";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3945,7 +3945,7 @@ export class InvalidOriginKeepaliveTimeout extends __BaseException {
 export class InvalidOriginReadTimeout extends __BaseException {
   readonly name: "InvalidOriginReadTimeout" = "InvalidOriginReadTimeout";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3968,7 +3968,7 @@ export class InvalidOriginReadTimeout extends __BaseException {
 export class InvalidProtocolSettings extends __BaseException {
   readonly name: "InvalidProtocolSettings" = "InvalidProtocolSettings";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3990,7 +3990,7 @@ export class InvalidProtocolSettings extends __BaseException {
 export class InvalidQueryStringParameters extends __BaseException {
   readonly name: "InvalidQueryStringParameters" = "InvalidQueryStringParameters";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4013,7 +4013,7 @@ export class InvalidQueryStringParameters extends __BaseException {
 export class InvalidRelativePath extends __BaseException {
   readonly name: "InvalidRelativePath" = "InvalidRelativePath";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4037,7 +4037,7 @@ export class InvalidRelativePath extends __BaseException {
 export class InvalidRequiredProtocol extends __BaseException {
   readonly name: "InvalidRequiredProtocol" = "InvalidRequiredProtocol";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4059,7 +4059,7 @@ export class InvalidRequiredProtocol extends __BaseException {
 export class InvalidResponseCode extends __BaseException {
   readonly name: "InvalidResponseCode" = "InvalidResponseCode";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4081,7 +4081,7 @@ export class InvalidResponseCode extends __BaseException {
 export class InvalidTTLOrder extends __BaseException {
   readonly name: "InvalidTTLOrder" = "InvalidTTLOrder";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4103,7 +4103,7 @@ export class InvalidTTLOrder extends __BaseException {
 export class InvalidViewerCertificate extends __BaseException {
   readonly name: "InvalidViewerCertificate" = "InvalidViewerCertificate";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4129,7 +4129,7 @@ export class InvalidViewerCertificate extends __BaseException {
 export class InvalidWebACLId extends __BaseException {
   readonly name: "InvalidWebACLId" = "InvalidWebACLId";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4152,7 +4152,7 @@ export class InvalidWebACLId extends __BaseException {
 export class MissingBody extends __BaseException {
   readonly name: "MissingBody" = "MissingBody";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4174,7 +4174,7 @@ export class MissingBody extends __BaseException {
 export class NoSuchCachePolicy extends __BaseException {
   readonly name: "NoSuchCachePolicy" = "NoSuchCachePolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4196,7 +4196,7 @@ export class NoSuchCachePolicy extends __BaseException {
 export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
   readonly name: "NoSuchFieldLevelEncryptionConfig" = "NoSuchFieldLevelEncryptionConfig";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4218,7 +4218,7 @@ export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
 export class NoSuchOrigin extends __BaseException {
   readonly name: "NoSuchOrigin" = "NoSuchOrigin";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4240,7 +4240,7 @@ export class NoSuchOrigin extends __BaseException {
 export class NoSuchOriginRequestPolicy extends __BaseException {
   readonly name: "NoSuchOriginRequestPolicy" = "NoSuchOriginRequestPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4262,7 +4262,7 @@ export class NoSuchOriginRequestPolicy extends __BaseException {
 export class NoSuchRealtimeLogConfig extends __BaseException {
   readonly name: "NoSuchRealtimeLogConfig" = "NoSuchRealtimeLogConfig";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4284,7 +4284,7 @@ export class NoSuchRealtimeLogConfig extends __BaseException {
 export class NoSuchResponseHeadersPolicy extends __BaseException {
   readonly name: "NoSuchResponseHeadersPolicy" = "NoSuchResponseHeadersPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4307,7 +4307,7 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
 export class PreconditionFailed extends __BaseException {
   readonly name: "PreconditionFailed" = "PreconditionFailed";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4329,7 +4329,7 @@ export class PreconditionFailed extends __BaseException {
 export class RealtimeLogConfigOwnerMismatch extends __BaseException {
   readonly name: "RealtimeLogConfigOwnerMismatch" = "RealtimeLogConfigOwnerMismatch";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4351,7 +4351,7 @@ export class RealtimeLogConfigOwnerMismatch extends __BaseException {
 export class TooManyCacheBehaviors extends __BaseException {
   readonly name: "TooManyCacheBehaviors" = "TooManyCacheBehaviors";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4373,7 +4373,7 @@ export class TooManyCacheBehaviors extends __BaseException {
 export class TooManyCertificates extends __BaseException {
   readonly name: "TooManyCertificates" = "TooManyCertificates";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4396,7 +4396,7 @@ export class TooManyCertificates extends __BaseException {
 export class TooManyCookieNamesInWhiteList extends __BaseException {
   readonly name: "TooManyCookieNamesInWhiteList" = "TooManyCookieNamesInWhiteList";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4419,7 +4419,7 @@ export class TooManyCookieNamesInWhiteList extends __BaseException {
 export class TooManyDistributions extends __BaseException {
   readonly name: "TooManyDistributions" = "TooManyDistributions";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4443,7 +4443,7 @@ export class TooManyDistributions extends __BaseException {
 export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException {
   readonly name: "TooManyDistributionsAssociatedToCachePolicy" = "TooManyDistributionsAssociatedToCachePolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4467,7 +4467,7 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
   readonly name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig" =
     "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4493,7 +4493,7 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
 export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
   readonly name: "TooManyDistributionsAssociatedToKeyGroup" = "TooManyDistributionsAssociatedToKeyGroup";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4519,7 +4519,7 @@ export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseE
   readonly name: "TooManyDistributionsAssociatedToOriginAccessControl" =
     "TooManyDistributionsAssociatedToOriginAccessControl";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4544,7 +4544,7 @@ export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseE
   readonly name: "TooManyDistributionsAssociatedToOriginRequestPolicy" =
     "TooManyDistributionsAssociatedToOriginRequestPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4570,7 +4570,7 @@ export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __Bas
   readonly name: "TooManyDistributionsAssociatedToResponseHeadersPolicy" =
     "TooManyDistributionsAssociatedToResponseHeadersPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4594,7 +4594,7 @@ export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __Bas
 export class TooManyDistributionsWithFunctionAssociations extends __BaseException {
   readonly name: "TooManyDistributionsWithFunctionAssociations" = "TooManyDistributionsWithFunctionAssociations";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4617,7 +4617,7 @@ export class TooManyDistributionsWithFunctionAssociations extends __BaseExceptio
 export class TooManyDistributionsWithLambdaAssociations extends __BaseException {
   readonly name: "TooManyDistributionsWithLambdaAssociations" = "TooManyDistributionsWithLambdaAssociations";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4640,7 +4640,7 @@ export class TooManyDistributionsWithLambdaAssociations extends __BaseException 
 export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
   readonly name: "TooManyDistributionsWithSingleFunctionARN" = "TooManyDistributionsWithSingleFunctionARN";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4664,7 +4664,7 @@ export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
 export class TooManyFunctionAssociations extends __BaseException {
   readonly name: "TooManyFunctionAssociations" = "TooManyFunctionAssociations";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4686,7 +4686,7 @@ export class TooManyFunctionAssociations extends __BaseException {
 export class TooManyHeadersInForwardedValues extends __BaseException {
   readonly name: "TooManyHeadersInForwardedValues" = "TooManyHeadersInForwardedValues";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4710,7 +4710,7 @@ export class TooManyHeadersInForwardedValues extends __BaseException {
 export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
   readonly name: "TooManyKeyGroupsAssociatedToDistribution" = "TooManyKeyGroupsAssociatedToDistribution";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4733,7 +4733,7 @@ export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
 export class TooManyLambdaFunctionAssociations extends __BaseException {
   readonly name: "TooManyLambdaFunctionAssociations" = "TooManyLambdaFunctionAssociations";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4755,7 +4755,7 @@ export class TooManyLambdaFunctionAssociations extends __BaseException {
 export class TooManyOriginCustomHeaders extends __BaseException {
   readonly name: "TooManyOriginCustomHeaders" = "TooManyOriginCustomHeaders";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4778,7 +4778,7 @@ export class TooManyOriginCustomHeaders extends __BaseException {
 export class TooManyOriginGroupsPerDistribution extends __BaseException {
   readonly name: "TooManyOriginGroupsPerDistribution" = "TooManyOriginGroupsPerDistribution";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4800,7 +4800,7 @@ export class TooManyOriginGroupsPerDistribution extends __BaseException {
 export class TooManyOrigins extends __BaseException {
   readonly name: "TooManyOrigins" = "TooManyOrigins";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4822,7 +4822,7 @@ export class TooManyOrigins extends __BaseException {
 export class TooManyQueryStringParameters extends __BaseException {
   readonly name: "TooManyQueryStringParameters" = "TooManyQueryStringParameters";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4844,7 +4844,7 @@ export class TooManyQueryStringParameters extends __BaseException {
 export class TooManyTrustedSigners extends __BaseException {
   readonly name: "TooManyTrustedSigners" = "TooManyTrustedSigners";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4866,7 +4866,7 @@ export class TooManyTrustedSigners extends __BaseException {
 export class TrustedKeyGroupDoesNotExist extends __BaseException {
   readonly name: "TrustedKeyGroupDoesNotExist" = "TrustedKeyGroupDoesNotExist";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4888,7 +4888,7 @@ export class TrustedKeyGroupDoesNotExist extends __BaseException {
 export class TrustedSignerDoesNotExist extends __BaseException {
   readonly name: "TrustedSignerDoesNotExist" = "TrustedSignerDoesNotExist";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4922,19 +4922,19 @@ export interface CreateCachePolicyResult {
    * <p>A cache policy.</p>
    * @public
    */
-  CachePolicy?: CachePolicy;
+  CachePolicy?: CachePolicy | undefined;
 
   /**
    * <p>The fully qualified URI of the cache policy just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the cache policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -4946,7 +4946,7 @@ export interface CreateCachePolicyResult {
 export class TooManyCachePolicies extends __BaseException {
   readonly name: "TooManyCachePolicies" = "TooManyCachePolicies";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4970,7 +4970,7 @@ export class TooManyCachePolicies extends __BaseException {
 export class TooManyCookiesInCachePolicy extends __BaseException {
   readonly name: "TooManyCookiesInCachePolicy" = "TooManyCookiesInCachePolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4994,7 +4994,7 @@ export class TooManyCookiesInCachePolicy extends __BaseException {
 export class TooManyHeadersInCachePolicy extends __BaseException {
   readonly name: "TooManyHeadersInCachePolicy" = "TooManyHeadersInCachePolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5018,7 +5018,7 @@ export class TooManyHeadersInCachePolicy extends __BaseException {
 export class TooManyQueryStringsInCachePolicy extends __BaseException {
   readonly name: "TooManyQueryStringsInCachePolicy" = "TooManyQueryStringsInCachePolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5044,7 +5044,7 @@ export class TooManyQueryStringsInCachePolicy extends __BaseException {
 export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
   readonly name: "CloudFrontOriginAccessIdentityAlreadyExists" = "CloudFrontOriginAccessIdentityAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5131,7 +5131,7 @@ export interface CloudFrontOriginAccessIdentity {
    * <p>The current configuration information for the identity.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
+  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig | undefined;
 }
 
 /**
@@ -5143,19 +5143,19 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
    * <p>The origin access identity's information.</p>
    * @public
    */
-  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
+  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity | undefined;
 
   /**
    * <p>The fully qualified URI of the new origin access identity just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the origin access identity created.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5166,7 +5166,7 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
 export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
   readonly name: "TooManyCloudFrontOriginAccessIdentities" = "TooManyCloudFrontOriginAccessIdentities";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5188,7 +5188,7 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
 export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
   readonly name: "ContinuousDeploymentPolicyAlreadyExists" = "ContinuousDeploymentPolicyAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5218,7 +5218,7 @@ export interface StagingDistributionDnsNames {
    * <p>The CloudFront domain name of the staging distribution.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -5287,7 +5287,7 @@ export interface ContinuousDeploymentSingleWeightConfig {
    * 			sent to your primary distribution. Define the session duration using TTL values.</p>
    * @public
    */
-  SessionStickinessConfig?: SessionStickinessConfig;
+  SessionStickinessConfig?: SessionStickinessConfig | undefined;
 }
 
 /**
@@ -5314,13 +5314,13 @@ export interface TrafficConfig {
    * <p>Contains the percentage of traffic to send to the staging distribution.</p>
    * @public
    */
-  SingleWeightConfig?: ContinuousDeploymentSingleWeightConfig;
+  SingleWeightConfig?: ContinuousDeploymentSingleWeightConfig | undefined;
 
   /**
    * <p>Determines which HTTP requests are sent to the staging distribution.</p>
    * @public
    */
-  SingleHeaderConfig?: ContinuousDeploymentSingleHeaderConfig;
+  SingleHeaderConfig?: ContinuousDeploymentSingleHeaderConfig | undefined;
 
   /**
    * <p>The type of traffic configuration.</p>
@@ -5355,7 +5355,7 @@ export interface ContinuousDeploymentPolicyConfig {
    * 			distributions.</p>
    * @public
    */
-  TrafficConfig?: TrafficConfig;
+  TrafficConfig?: TrafficConfig | undefined;
 }
 
 /**
@@ -5401,20 +5401,20 @@ export interface CreateContinuousDeploymentPolicyResult {
    * <p>A continuous deployment policy.</p>
    * @public
    */
-  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy | undefined;
 
   /**
    * <p>The location of the continuous deployment policy.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The version identifier for the current version of the continuous deployment
    * 			policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5424,7 +5424,7 @@ export interface CreateContinuousDeploymentPolicyResult {
 export class StagingDistributionInUse extends __BaseException {
   readonly name: "StagingDistributionInUse" = "StagingDistributionInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5447,7 +5447,7 @@ export class StagingDistributionInUse extends __BaseException {
 export class TooManyContinuousDeploymentPolicies extends __BaseException {
   readonly name: "TooManyContinuousDeploymentPolicies" = "TooManyContinuousDeploymentPolicies";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5470,7 +5470,7 @@ export class TooManyContinuousDeploymentPolicies extends __BaseException {
 export class ContinuousDeploymentPolicyInUse extends __BaseException {
   readonly name: "ContinuousDeploymentPolicyInUse" = "ContinuousDeploymentPolicyInUse";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5506,19 +5506,19 @@ export interface CreateDistributionResult {
    * <p>The distribution's information.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The fully qualified URI of the new distribution resource just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the distribution created.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5529,7 +5529,7 @@ export interface CreateDistributionResult {
 export class IllegalOriginAccessConfiguration extends __BaseException {
   readonly name: "IllegalOriginAccessConfiguration" = "IllegalOriginAccessConfiguration";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5552,7 +5552,7 @@ export class IllegalOriginAccessConfiguration extends __BaseException {
 export class InvalidDomainNameForOriginAccessControl extends __BaseException {
   readonly name: "InvalidDomainNameForOriginAccessControl" = "InvalidDomainNameForOriginAccessControl";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5574,7 +5574,7 @@ export class InvalidDomainNameForOriginAccessControl extends __BaseException {
 export class NoSuchContinuousDeploymentPolicy extends __BaseException {
   readonly name: "NoSuchContinuousDeploymentPolicy" = "NoSuchContinuousDeploymentPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5610,7 +5610,7 @@ export interface Tag {
    * 			characters <code>_ - . : / = + @</code>.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -5622,7 +5622,7 @@ export interface Tags {
    * <p>A complex type that contains <code>Tag</code> elements.</p>
    * @public
    */
-  Items?: Tag[];
+  Items?: Tag[] | undefined;
 }
 
 /**
@@ -5665,19 +5665,19 @@ export interface CreateDistributionWithTagsResult {
    * <p>The distribution's information.</p>
    * @public
    */
-  Distribution?: Distribution;
+  Distribution?: Distribution | undefined;
 
   /**
    * <p>The fully qualified URI of the new distribution resource just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the distribution created.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5687,7 +5687,7 @@ export interface CreateDistributionWithTagsResult {
 export class InvalidTagging extends __BaseException {
   readonly name: "InvalidTagging" = "InvalidTagging";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5730,7 +5730,7 @@ export interface ContentTypeProfile {
    * <p>The profile ID for a field-level encryption content type-profile mapping.</p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>The content type for a field-level encryption content type-profile mapping.</p>
@@ -5754,7 +5754,7 @@ export interface ContentTypeProfiles {
    * <p>Items in a field-level encryption content type-profile mapping.</p>
    * @public
    */
-  Items?: ContentTypeProfile[];
+  Items?: ContentTypeProfile[] | undefined;
 }
 
 /**
@@ -5775,7 +5775,7 @@ export interface ContentTypeProfileConfig {
    * <p>The configuration for a field-level encryption content type-profile.</p>
    * @public
    */
-  ContentTypeProfiles?: ContentTypeProfiles;
+  ContentTypeProfiles?: ContentTypeProfiles | undefined;
 }
 
 /**
@@ -5812,7 +5812,7 @@ export interface QueryArgProfiles {
    * <p>Number of items for query argument-profile mapping for field-level encryption.</p>
    * @public
    */
-  Items?: QueryArgProfile[];
+  Items?: QueryArgProfile[] | undefined;
 }
 
 /**
@@ -5832,7 +5832,7 @@ export interface QueryArgProfileConfig {
    * 			encryption.</p>
    * @public
    */
-  QueryArgProfiles?: QueryArgProfiles;
+  QueryArgProfiles?: QueryArgProfiles | undefined;
 }
 
 /**
@@ -5852,14 +5852,14 @@ export interface FieldLevelEncryptionConfig {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A complex data type that specifies when to forward content if a profile isn't found
    * 			and the profile that can be provided as a query argument in a request.</p>
    * @public
    */
-  QueryArgProfileConfig?: QueryArgProfileConfig;
+  QueryArgProfileConfig?: QueryArgProfileConfig | undefined;
 
   /**
    * <p>A complex data type that specifies when to forward content if a content type isn't
@@ -5867,7 +5867,7 @@ export interface FieldLevelEncryptionConfig {
    * 			specify a profile to use.</p>
    * @public
    */
-  ContentTypeProfileConfig?: ContentTypeProfileConfig;
+  ContentTypeProfileConfig?: ContentTypeProfileConfig | undefined;
 }
 
 /**
@@ -5917,20 +5917,20 @@ export interface CreateFieldLevelEncryptionConfigResult {
    * <p>Returned when you create a new field-level encryption configuration.</p>
    * @public
    */
-  FieldLevelEncryption?: FieldLevelEncryption;
+  FieldLevelEncryption?: FieldLevelEncryption | undefined;
 
   /**
    * <p>The fully qualified URI of the new configuration resource just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the field level encryption configuration. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -5940,7 +5940,7 @@ export interface CreateFieldLevelEncryptionConfigResult {
 export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
   readonly name: "FieldLevelEncryptionConfigAlreadyExists" = "FieldLevelEncryptionConfigAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5962,7 +5962,7 @@ export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
 export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
   readonly name: "NoSuchFieldLevelEncryptionProfile" = "NoSuchFieldLevelEncryptionProfile";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5984,7 +5984,7 @@ export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
 export class QueryArgProfileEmpty extends __BaseException {
   readonly name: "QueryArgProfileEmpty" = "QueryArgProfileEmpty";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6007,7 +6007,7 @@ export class QueryArgProfileEmpty extends __BaseException {
 export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionConfigs" = "TooManyFieldLevelEncryptionConfigs";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6030,7 +6030,7 @@ export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
 export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionContentTypeProfiles" = "TooManyFieldLevelEncryptionContentTypeProfiles";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6053,7 +6053,7 @@ export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseExcept
 export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionQueryArgProfiles" = "TooManyFieldLevelEncryptionQueryArgProfiles";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6084,7 +6084,7 @@ export interface FieldPatterns {
    * <p>An array of the field-level encryption field patterns.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -6136,7 +6136,7 @@ export interface EncryptionEntities {
    * 		</p>
    * @public
    */
-  Items?: EncryptionEntity[];
+  Items?: EncryptionEntity[] | undefined;
 }
 
 /**
@@ -6161,7 +6161,7 @@ export interface FieldLevelEncryptionProfileConfig {
    * 			longer than 128 characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A complex data type of encryption entities for the field-level encryption profile that
@@ -6218,20 +6218,20 @@ export interface CreateFieldLevelEncryptionProfileResult {
    * <p>Returned when you create a new field-level encryption profile.</p>
    * @public
    */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile | undefined;
 
   /**
    * <p>The fully qualified URI of the new profile resource just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the field level encryption profile. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -6241,7 +6241,7 @@ export interface CreateFieldLevelEncryptionProfileResult {
 export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
   readonly name: "FieldLevelEncryptionProfileAlreadyExists" = "FieldLevelEncryptionProfileAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6263,7 +6263,7 @@ export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
 export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
   readonly name: "FieldLevelEncryptionProfileSizeExceeded" = "FieldLevelEncryptionProfileSizeExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6285,7 +6285,7 @@ export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
 export class NoSuchPublicKey extends __BaseException {
   readonly name: "NoSuchPublicKey" = "NoSuchPublicKey";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6308,7 +6308,7 @@ export class NoSuchPublicKey extends __BaseException {
 export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionEncryptionEntities" = "TooManyFieldLevelEncryptionEncryptionEntities";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6331,7 +6331,7 @@ export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseExcepti
 export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionFieldPatterns" = "TooManyFieldLevelEncryptionFieldPatterns";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6353,7 +6353,7 @@ export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
 export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
   readonly name: "TooManyFieldLevelEncryptionProfiles" = "TooManyFieldLevelEncryptionProfiles";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6395,7 +6395,7 @@ export interface KeyValueStoreAssociations {
    * <p>The items of the key value store association.</p>
    * @public
    */
-  Items?: KeyValueStoreAssociation[];
+  Items?: KeyValueStoreAssociation[] | undefined;
 }
 
 /**
@@ -6433,7 +6433,7 @@ export interface FunctionConfig {
    * <p>The configuration for the key value store associations.</p>
    * @public
    */
-  KeyValueStoreAssociations?: KeyValueStoreAssociations;
+  KeyValueStoreAssociations?: KeyValueStoreAssociations | undefined;
 }
 
 /**
@@ -6497,13 +6497,13 @@ export interface FunctionMetadata {
    * 			distribution's cache behavior, using the function's ARN.</p>
    * @public
    */
-  Stage?: FunctionStage;
+  Stage?: FunctionStage | undefined;
 
   /**
    * <p>The date and time when the function was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The date and time when the function was most recently updated.</p>
@@ -6527,7 +6527,7 @@ export interface FunctionSummary {
    * <p>The status of the CloudFront function.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Contains configuration information about a CloudFront function.</p>
@@ -6550,20 +6550,20 @@ export interface CreateFunctionResult {
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
    * @public
    */
-  FunctionSummary?: FunctionSummary;
+  FunctionSummary?: FunctionSummary | undefined;
 
   /**
    * <p>The URL of the CloudFront function. Use the URL to manage the function with the CloudFront
    * 			API.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The version identifier for the current version of the CloudFront function.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -6575,7 +6575,7 @@ export interface CreateFunctionResult {
 export class FunctionAlreadyExists extends __BaseException {
   readonly name: "FunctionAlreadyExists" = "FunctionAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6598,7 +6598,7 @@ export class FunctionAlreadyExists extends __BaseException {
 export class FunctionSizeLimitExceeded extends __BaseException {
   readonly name: "FunctionSizeLimitExceeded" = "FunctionSizeLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6622,7 +6622,7 @@ export class FunctionSizeLimitExceeded extends __BaseException {
 export class TooManyFunctions extends __BaseException {
   readonly name: "TooManyFunctions" = "TooManyFunctions";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6644,7 +6644,7 @@ export class TooManyFunctions extends __BaseException {
 export class UnsupportedOperation extends __BaseException {
   readonly name: "UnsupportedOperation" = "UnsupportedOperation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6677,7 +6677,7 @@ export interface Paths {
    * <p>A complex type that contains a list of the paths that you want to invalidate.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -6773,13 +6773,13 @@ export interface CreateInvalidationResult {
    * 			the <code>Invalidation ID</code>.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The invalidation's information.</p>
    * @public
    */
-  Invalidation?: Invalidation;
+  Invalidation?: Invalidation | undefined;
 }
 
 /**
@@ -6790,7 +6790,7 @@ export interface CreateInvalidationResult {
 export class TooManyInvalidationsInProgress extends __BaseException {
   readonly name: "TooManyInvalidationsInProgress" = "TooManyInvalidationsInProgress";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6828,7 +6828,7 @@ export interface KeyGroupConfig {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 }
 
 /**
@@ -6875,19 +6875,19 @@ export interface CreateKeyGroupResult {
    * <p>The key group that was just created.</p>
    * @public
    */
-  KeyGroup?: KeyGroup;
+  KeyGroup?: KeyGroup | undefined;
 
   /**
    * <p>The URL of the key group.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The identifier for this version of the key group.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -6898,7 +6898,7 @@ export interface CreateKeyGroupResult {
 export class KeyGroupAlreadyExists extends __BaseException {
   readonly name: "KeyGroupAlreadyExists" = "KeyGroupAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6922,7 +6922,7 @@ export class KeyGroupAlreadyExists extends __BaseException {
 export class TooManyKeyGroups extends __BaseException {
   readonly name: "TooManyKeyGroups" = "TooManyKeyGroups";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6946,7 +6946,7 @@ export class TooManyKeyGroups extends __BaseException {
 export class TooManyPublicKeysInKeyGroup extends __BaseException {
   readonly name: "TooManyPublicKeysInKeyGroup" = "TooManyPublicKeysInKeyGroup";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7007,13 +7007,13 @@ export interface CreateKeyValueStoreRequest {
    * <p>The comment of the key value store.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The S3 bucket that provides the source for the import. The source must be in a valid JSON format.</p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 }
 
 /**
@@ -7051,7 +7051,7 @@ export interface KeyValueStore {
    * <p>The status of the key value store.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The last-modified time of the key value store.</p>
@@ -7068,19 +7068,19 @@ export interface CreateKeyValueStoreResult {
    * <p>The resulting key value store.</p>
    * @public
    */
-  KeyValueStore?: KeyValueStore;
+  KeyValueStore?: KeyValueStore | undefined;
 
   /**
    * <p>The <code>ETag</code> in the resulting key value store.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The location of the resulting key value store.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 }
 
 /**
@@ -7091,7 +7091,7 @@ export interface CreateKeyValueStoreResult {
 export class EntityAlreadyExists extends __BaseException {
   readonly name: "EntityAlreadyExists" = "EntityAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7113,7 +7113,7 @@ export class EntityAlreadyExists extends __BaseException {
 export class EntityLimitExceeded extends __BaseException {
   readonly name: "EntityLimitExceeded" = "EntityLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7135,7 +7135,7 @@ export class EntityLimitExceeded extends __BaseException {
 export class EntitySizeLimitExceeded extends __BaseException {
   readonly name: "EntitySizeLimitExceeded" = "EntitySizeLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7188,7 +7188,7 @@ export interface MonitoringSubscription {
    * <p>A subscription configuration for additional CloudWatch metrics.</p>
    * @public
    */
-  RealtimeMetricsSubscriptionConfig?: RealtimeMetricsSubscriptionConfig;
+  RealtimeMetricsSubscriptionConfig?: RealtimeMetricsSubscriptionConfig | undefined;
 }
 
 /**
@@ -7218,7 +7218,7 @@ export interface CreateMonitoringSubscriptionResult {
    * 			additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
    * @public
    */
-  MonitoringSubscription?: MonitoringSubscription;
+  MonitoringSubscription?: MonitoringSubscription | undefined;
 }
 
 /**
@@ -7228,7 +7228,7 @@ export interface CreateMonitoringSubscriptionResult {
 export class MonitoringSubscriptionAlreadyExists extends __BaseException {
   readonly name: "MonitoringSubscriptionAlreadyExists" = "MonitoringSubscriptionAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7305,7 +7305,7 @@ export interface OriginAccessControlConfig {
    * <p>A description of the origin access control.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The signing protocol of the origin access control, which determines how CloudFront signs
@@ -7382,7 +7382,7 @@ export interface OriginAccessControl {
    * <p>The origin access control.</p>
    * @public
    */
-  OriginAccessControlConfig?: OriginAccessControlConfig;
+  OriginAccessControlConfig?: OriginAccessControlConfig | undefined;
 }
 
 /**
@@ -7393,19 +7393,19 @@ export interface CreateOriginAccessControlResult {
    * <p>Contains an origin access control.</p>
    * @public
    */
-  OriginAccessControl?: OriginAccessControl;
+  OriginAccessControl?: OriginAccessControl | undefined;
 
   /**
    * <p>The URL of the origin access control.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The version identifier for the current version of the origin access control.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -7415,7 +7415,7 @@ export interface CreateOriginAccessControlResult {
 export class OriginAccessControlAlreadyExists extends __BaseException {
   readonly name: "OriginAccessControlAlreadyExists" = "OriginAccessControlAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7440,7 +7440,7 @@ export class OriginAccessControlAlreadyExists extends __BaseException {
 export class TooManyOriginAccessControls extends __BaseException {
   readonly name: "TooManyOriginAccessControls" = "TooManyOriginAccessControls";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7518,7 +7518,7 @@ export interface OriginRequestPolicyCookiesConfig {
    * <p>Contains a list of cookie names.</p>
    * @public
    */
-  Cookies?: CookieNames;
+  Cookies?: CookieNames | undefined;
 }
 
 /**
@@ -7591,7 +7591,7 @@ export interface OriginRequestPolicyHeadersConfig {
    * <p>Contains a list of HTTP header names.</p>
    * @public
    */
-  Headers?: Headers;
+  Headers?: Headers | undefined;
 }
 
 /**
@@ -7671,7 +7671,7 @@ export interface OriginRequestPolicyQueryStringsConfig {
    * 			are).</p>
    * @public
    */
-  QueryStrings?: QueryStringNames;
+  QueryStrings?: QueryStringNames | undefined;
 }
 
 /**
@@ -7706,7 +7706,7 @@ export interface OriginRequestPolicyConfig {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>A unique name to identify the origin request policy.</p>
@@ -7800,19 +7800,19 @@ export interface CreateOriginRequestPolicyResult {
    * <p>An origin request policy.</p>
    * @public
    */
-  OriginRequestPolicy?: OriginRequestPolicy;
+  OriginRequestPolicy?: OriginRequestPolicy | undefined;
 
   /**
    * <p>The fully qualified URI of the origin request policy just created.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The current version of the origin request policy.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -7824,7 +7824,7 @@ export interface CreateOriginRequestPolicyResult {
 export class OriginRequestPolicyAlreadyExists extends __BaseException {
   readonly name: "OriginRequestPolicyAlreadyExists" = "OriginRequestPolicyAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7848,7 +7848,7 @@ export class OriginRequestPolicyAlreadyExists extends __BaseException {
 export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
   readonly name: "TooManyCookiesInOriginRequestPolicy" = "TooManyCookiesInOriginRequestPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7872,7 +7872,7 @@ export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
 export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
   readonly name: "TooManyHeadersInOriginRequestPolicy" = "TooManyHeadersInOriginRequestPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7896,7 +7896,7 @@ export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
 export class TooManyOriginRequestPolicies extends __BaseException {
   readonly name: "TooManyOriginRequestPolicies" = "TooManyOriginRequestPolicies";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7920,7 +7920,7 @@ export class TooManyOriginRequestPolicies extends __BaseException {
 export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
   readonly name: "TooManyQueryStringsInOriginRequestPolicy" = "TooManyQueryStringsInOriginRequestPolicy";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7964,7 +7964,7 @@ export interface PublicKeyConfig {
    * 			characters.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 }
 
 /**
@@ -8010,19 +8010,19 @@ export interface CreatePublicKeyResult {
    * <p>The public key.</p>
    * @public
    */
-  PublicKey?: PublicKey;
+  PublicKey?: PublicKey | undefined;
 
   /**
    * <p>The URL of the public key.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The identifier for this version of the public key.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -8032,7 +8032,7 @@ export interface CreatePublicKeyResult {
 export class PublicKeyAlreadyExists extends __BaseException {
   readonly name: "PublicKeyAlreadyExists" = "PublicKeyAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8055,7 +8055,7 @@ export class PublicKeyAlreadyExists extends __BaseException {
 export class TooManyPublicKeys extends __BaseException {
   readonly name: "TooManyPublicKeys" = "TooManyPublicKeys";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8111,7 +8111,7 @@ export interface EndPoint {
    * 			log data.</p>
    * @public
    */
-  KinesisStreamConfig?: KinesisStreamConfig;
+  KinesisStreamConfig?: KinesisStreamConfig | undefined;
 }
 
 /**
@@ -8197,7 +8197,7 @@ export interface CreateRealtimeLogConfigResult {
    * <p>A real-time log configuration.</p>
    * @public
    */
-  RealtimeLogConfig?: RealtimeLogConfig;
+  RealtimeLogConfig?: RealtimeLogConfig | undefined;
 }
 
 /**
@@ -8209,7 +8209,7 @@ export interface CreateRealtimeLogConfigResult {
 export class RealtimeLogConfigAlreadyExists extends __BaseException {
   readonly name: "RealtimeLogConfigAlreadyExists" = "RealtimeLogConfigAlreadyExists";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8233,7 +8233,7 @@ export class RealtimeLogConfigAlreadyExists extends __BaseException {
 export class TooManyRealtimeLogConfigs extends __BaseException {
   readonly name: "TooManyRealtimeLogConfigs" = "TooManyRealtimeLogConfigs";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8376,7 +8376,7 @@ export interface ResponseHeadersPolicyAccessControlExposeHeaders {
    * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
    * @public
    */
-  Items?: string[];
+  Items?: string[] | undefined;
 }
 
 /**
@@ -8432,7 +8432,7 @@ export interface ResponseHeadersPolicyCorsConfig {
    * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
    * @public
    */
-  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders;
+  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders | undefined;
 
   /**
    * <p>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code> HTTP
@@ -8441,7 +8441,7 @@ export interface ResponseHeadersPolicyCorsConfig {
    * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a> in the MDN Web Docs.</p>
    * @public
    */
-  AccessControlMaxAgeSec?: number;
+  AccessControlMaxAgeSec?: number | undefined;
 
   /**
    * <p>A Boolean that determines whether CloudFront overrides HTTP response headers received from
@@ -8495,7 +8495,7 @@ export interface ResponseHeadersPolicyCustomHeadersConfig {
    * <p>The list of HTTP response headers and their values.</p>
    * @public
    */
-  Items?: ResponseHeadersPolicyCustomHeader[];
+  Items?: ResponseHeadersPolicyCustomHeader[] | undefined;
 }
 
 /**
@@ -8527,7 +8527,7 @@ export interface ResponseHeadersPolicyRemoveHeadersConfig {
    * <p>The list of HTTP header names.</p>
    * @public
    */
-  Items?: ResponseHeadersPolicyRemoveHeader[];
+  Items?: ResponseHeadersPolicyRemoveHeader[] | undefined;
 }
 
 /**

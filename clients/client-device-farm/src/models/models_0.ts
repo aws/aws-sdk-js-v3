@@ -13,13 +13,13 @@ export interface TrialMinutes {
    * <p>The total number of free trial minutes that the account started with.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 
   /**
    * <p>The number of free trial minutes remaining in the account.</p>
    * @public
    */
-  remaining?: number;
+  remaining?: number | undefined;
 }
 
 /**
@@ -46,32 +46,32 @@ export interface AccountSettings {
    *             container.</p>
    * @public
    */
-  awsAccountNumber?: string;
+  awsAccountNumber?: string | undefined;
 
   /**
    * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
    * @public
    */
-  unmeteredDevices?: Partial<Record<DevicePlatform, number>>;
+  unmeteredDevices?: Partial<Record<DevicePlatform, number>> | undefined;
 
   /**
    * <p>Returns the unmetered remote access devices you have purchased or want to
    *             purchase.</p>
    * @public
    */
-  unmeteredRemoteAccessDevices?: Partial<Record<DevicePlatform, number>>;
+  unmeteredRemoteAccessDevices?: Partial<Record<DevicePlatform, number>> | undefined;
 
   /**
    * <p>The maximum number of minutes a test run executes before it times out.</p>
    * @public
    */
-  maxJobTimeoutMinutes?: number;
+  maxJobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>Information about an AWS account's usage of free trial device minutes.</p>
    * @public
    */
-  trialMinutes?: TrialMinutes;
+  trialMinutes?: TrialMinutes | undefined;
 
   /**
    * <p>The maximum number of device slots that the AWS account can purchase. Each maximum
@@ -80,14 +80,14 @@ export interface AccountSettings {
    *                 <code>ListOfferings</code> command.</p>
    * @public
    */
-  maxSlots?: Record<string, number>;
+  maxSlots?: Record<string, number> | undefined;
 
   /**
    * <p>The default number of minutes (at the account level) a test run executes before it times out. The
    *             default value is 150 minutes.</p>
    * @public
    */
-  defaultJobTimeoutMinutes?: number;
+  defaultJobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -96,7 +96,7 @@ export interface AccountSettings {
    *                 Farm FAQs</i>.</p>
    * @public
    */
-  skipAppResign?: boolean;
+  skipAppResign?: boolean | undefined;
 }
 
 /**
@@ -169,13 +169,13 @@ export interface Artifact {
    * <p>The artifact's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The artifact's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The artifact's type.</p>
@@ -247,20 +247,20 @@ export interface Artifact {
    *          </ul>
    * @public
    */
-  type?: ArtifactType;
+  type?: ArtifactType | undefined;
 
   /**
    * <p>The artifact's file extension.</p>
    * @public
    */
-  extension?: string;
+  extension?: string | undefined;
 
   /**
    * <p>The presigned Amazon S3 URL that can be used with a GET request to download the artifact's
    *             file.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -321,43 +321,43 @@ export interface Counters {
    * <p>The total number of entities.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 
   /**
    * <p>The number of passed entities.</p>
    * @public
    */
-  passed?: number;
+  passed?: number | undefined;
 
   /**
    * <p>The number of failed entities.</p>
    * @public
    */
-  failed?: number;
+  failed?: number | undefined;
 
   /**
    * <p>The number of warned entities.</p>
    * @public
    */
-  warned?: number;
+  warned?: number | undefined;
 
   /**
    * <p>The number of errored entities.</p>
    * @public
    */
-  errored?: number;
+  errored?: number | undefined;
 
   /**
    * <p>The number of stopped entities.</p>
    * @public
    */
-  stopped?: number;
+  stopped?: number | undefined;
 
   /**
    * <p>The number of skipped entities.</p>
    * @public
    */
-  skipped?: number;
+  skipped?: number | undefined;
 }
 
 /**
@@ -370,20 +370,20 @@ export interface CPU {
    * <p>The CPU's frequency.</p>
    * @public
    */
-  frequency?: string;
+  frequency?: string | undefined;
 
   /**
    * <p>The CPU's architecture (for example, x86 or ARM).</p>
    * @public
    */
-  architecture?: string;
+  architecture?: string | undefined;
 
   /**
    * <p>The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2
    *             GHz CPU is expressed as 1200000000.</p>
    * @public
    */
-  clock?: number;
+  clock?: number | undefined;
 }
 
 /**
@@ -538,7 +538,7 @@ export interface Rule {
    *          </dl>
    * @public
    */
-  attribute?: DeviceAttribute;
+  attribute?: DeviceAttribute | undefined;
 
   /**
    * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
@@ -546,13 +546,13 @@ export interface Rule {
    *             descriptions.</p>
    * @public
    */
-  operator?: RuleOperator;
+  operator?: RuleOperator | undefined;
 
   /**
    * <p>The rule's value.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -576,7 +576,7 @@ export interface CreateDevicePoolRequest {
    * <p>The device pool's description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The device pool's rules.</p>
@@ -593,7 +593,7 @@ export interface CreateDevicePoolRequest {
    *             by running tests.</p>
    * @public
    */
-  maxDevices?: number;
+  maxDevices?: number | undefined;
 }
 
 /**
@@ -619,19 +619,19 @@ export interface DevicePool {
    * <p>The device pool's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The device pool's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The device pool's description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The device pool's type.</p>
@@ -648,13 +648,13 @@ export interface DevicePool {
    *          </ul>
    * @public
    */
-  type?: DevicePoolType;
+  type?: DevicePoolType | undefined;
 
   /**
    * <p>Information about the device pool's rules.</p>
    * @public
    */
-  rules?: Rule[];
+  rules?: Rule[] | undefined;
 
   /**
    * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
@@ -665,7 +665,7 @@ export interface DevicePool {
    *             by running tests.</p>
    * @public
    */
-  maxDevices?: number;
+  maxDevices?: number | undefined;
 }
 
 /**
@@ -677,7 +677,7 @@ export interface CreateDevicePoolResult {
    * <p>The newly created device pool.</p>
    * @public
    */
-  devicePool?: DevicePool;
+  devicePool?: DevicePool | undefined;
 }
 
 /**
@@ -754,14 +754,14 @@ export interface CreateInstanceProfileRequest {
    * <p>The description of your instance profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
    *                 <code>false</code> for private devices.</p>
    * @public
    */
-  packageCleanup?: boolean;
+  packageCleanup?: boolean | undefined;
 
   /**
    * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
@@ -770,14 +770,14 @@ export interface CreateInstanceProfileRequest {
    *             <code>true</code>.</p>
    * @public
    */
-  excludeAppPackagesFromCleanup?: string[];
+  excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
    * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
    *                 <code>true</code>.</p>
    * @public
    */
-  rebootAfterUse?: boolean;
+  rebootAfterUse?: boolean | undefined;
 }
 
 /**
@@ -789,14 +789,14 @@ export interface InstanceProfile {
    * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
    *                 <code>false</code> for private devices.</p>
    * @public
    */
-  packageCleanup?: boolean;
+  packageCleanup?: boolean | undefined;
 
   /**
    * <p>An array of strings containing the list of app packages that should not be cleaned up from the device
@@ -805,26 +805,26 @@ export interface InstanceProfile {
    *             <code>true</code>.</p>
    * @public
    */
-  excludeAppPackagesFromCleanup?: string[];
+  excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
    * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
    *                 <code>true</code>.</p>
    * @public
    */
-  rebootAfterUse?: boolean;
+  rebootAfterUse?: boolean | undefined;
 
   /**
    * <p>The name of the instance profile.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the instance profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -835,7 +835,7 @@ export interface CreateInstanceProfileResult {
    * <p>An object that contains information about your instance profile.</p>
    * @public
    */
-  instanceProfile?: InstanceProfile;
+  instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -873,68 +873,68 @@ export interface CreateNetworkProfileRequest {
    * <p>The description of the network profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of network profile to create. Valid values are listed here.</p>
    * @public
    */
-  type?: NetworkProfileType;
+  type?: NetworkProfileType | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  uplinkBandwidthBits?: number;
+  uplinkBandwidthBits?: number | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  downlinkBandwidthBits?: number;
+  downlinkBandwidthBits?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  uplinkDelayMs?: number;
+  uplinkDelayMs?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  downlinkDelayMs?: number;
+  downlinkDelayMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  uplinkJitterMs?: number;
+  uplinkJitterMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  downlinkJitterMs?: number;
+  downlinkJitterMs?: number | undefined;
 
   /**
    * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
    *             percent.</p>
    * @public
    */
-  uplinkLossPercent?: number;
+  uplinkLossPercent?: number | undefined;
 
   /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    * @public
    */
-  downlinkLossPercent?: number;
+  downlinkLossPercent?: number | undefined;
 }
 
 /**
@@ -946,80 +946,80 @@ export interface NetworkProfile {
    * <p>The Amazon Resource Name (ARN) of the network profile.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the network profile.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the network profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of network profile. Valid values are listed here.</p>
    * @public
    */
-  type?: NetworkProfileType;
+  type?: NetworkProfileType | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  uplinkBandwidthBits?: number;
+  uplinkBandwidthBits?: number | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  downlinkBandwidthBits?: number;
+  downlinkBandwidthBits?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  uplinkDelayMs?: number;
+  uplinkDelayMs?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  downlinkDelayMs?: number;
+  downlinkDelayMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  uplinkJitterMs?: number;
+  uplinkJitterMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  downlinkJitterMs?: number;
+  downlinkJitterMs?: number | undefined;
 
   /**
    * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
    *             percent.</p>
    * @public
    */
-  uplinkLossPercent?: number;
+  uplinkLossPercent?: number | undefined;
 
   /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    * @public
    */
-  downlinkLossPercent?: number;
+  downlinkLossPercent?: number | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface CreateNetworkProfileResult {
    *             request.</p>
    * @public
    */
-  networkProfile?: NetworkProfile;
+  networkProfile?: NetworkProfile | undefined;
 }
 
 /**
@@ -1074,13 +1074,13 @@ export interface CreateProjectRequest {
    *             specified execution timeout value unless overridden when scheduling a run.</p>
    * @public
    */
-  defaultJobTimeoutMinutes?: number;
+  defaultJobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -1093,32 +1093,32 @@ export interface Project {
    * <p>The project's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The project's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The default number of minutes (at the project level) a test run executes before it times out. The
    *             default value is 150 minutes.</p>
    * @public
    */
-  defaultJobTimeoutMinutes?: number;
+  defaultJobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>When the project was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -1130,7 +1130,7 @@ export interface CreateProjectResult {
    * <p>The newly created project.</p>
    * @public
    */
-  project?: Project;
+  project?: Project | undefined;
 }
 
 /**
@@ -1140,7 +1140,7 @@ export interface CreateProjectResult {
 export class TagOperationException extends __BaseException {
   readonly name: "TagOperationException" = "TagOperationException";
   readonly $fault: "client" = "client";
-  resourceName?: string;
+  resourceName?: string | undefined;
   /**
    * @internal
    */
@@ -1165,13 +1165,13 @@ export interface CreateRemoteAccessSessionConfiguration {
    * <p>The billing method for the remote access session.</p>
    * @public
    */
-  billingMethod?: BillingMethod;
+  billingMethod?: BillingMethod | undefined;
 
   /**
    * <p>An array of ARNs included in the VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfigurationArns?: string[];
+  vpceConfigurationArns?: string[] | undefined;
 }
 
 /**
@@ -1212,7 +1212,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             remote access session.</p>
    * @public
    */
-  instanceArn?: string;
+  instanceArn?: string | undefined;
 
   /**
    * <p>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting to remote
@@ -1222,7 +1222,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             longer supported</a>.</p>
    * @public
    */
-  sshPublicKey?: string;
+  sshPublicKey?: string | undefined;
 
   /**
    * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
@@ -1231,27 +1231,27 @@ export interface CreateRemoteAccessSessionRequest {
    *             longer supported</a>.</p>
    * @public
    */
-  remoteDebugEnabled?: boolean;
+  remoteDebugEnabled?: boolean | undefined;
 
   /**
    * <p>Set to <code>true</code> to enable remote recording for the remote access
    *             session.</p>
    * @public
    */
-  remoteRecordEnabled?: boolean;
+  remoteRecordEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the app to be recorded in the remote access
    *             session.</p>
    * @public
    */
-  remoteRecordAppArn?: string;
+  remoteRecordAppArn?: string | undefined;
 
   /**
    * <p>The name of the remote access session to create.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Unique identifier for the client. If you want access to multiple devices on the same client, you should
@@ -1261,13 +1261,13 @@ export interface CreateRemoteAccessSessionRequest {
    *             longer supported</a>.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 
   /**
    * <p>The configuration information for the remote access session request.</p>
    * @public
    */
-  configuration?: CreateRemoteAccessSessionConfiguration;
+  configuration?: CreateRemoteAccessSessionConfiguration | undefined;
 
   /**
    * <p>The interaction mode of the remote access session. Valid values are:</p>
@@ -1289,7 +1289,7 @@ export interface CreateRemoteAccessSessionRequest {
    *          </ul>
    * @public
    */
-  interactionMode?: InteractionMode;
+  interactionMode?: InteractionMode | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -1298,7 +1298,7 @@ export interface CreateRemoteAccessSessionRequest {
    *          </p>
    * @public
    */
-  skipAppResign?: boolean;
+  skipAppResign?: boolean | undefined;
 }
 
 /**
@@ -1356,37 +1356,37 @@ export interface DeviceInstance {
    * <p>The Amazon Resource Name (ARN) of the device instance.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ARN of the device.</p>
    * @public
    */
-  deviceArn?: string;
+  deviceArn?: string | undefined;
 
   /**
    * <p>An array of strings that describe the device instance.</p>
    * @public
    */
-  labels?: string[];
+  labels?: string[] | undefined;
 
   /**
    * <p>The status of the device instance. Valid values are listed here.</p>
    * @public
    */
-  status?: InstanceStatus;
+  status?: InstanceStatus | undefined;
 
   /**
    * <p>Unique device identifier for the device instance.</p>
    * @public
    */
-  udid?: string;
+  udid?: string | undefined;
 
   /**
    * <p>A object that contains information about the instance profile.</p>
    * @public
    */
-  instanceProfile?: InstanceProfile;
+  instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -1399,13 +1399,13 @@ export interface Resolution {
    * <p>The screen resolution's width, expressed in pixels.</p>
    * @public
    */
-  width?: number;
+  width?: number | undefined;
 
   /**
    * <p>The screen resolution's height, expressed in pixels.</p>
    * @public
    */
-  height?: number;
+  height?: number | undefined;
 }
 
 /**
@@ -1417,31 +1417,31 @@ export interface Device {
    * <p>The device's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The device's display name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The device's manufacturer name.</p>
    * @public
    */
-  manufacturer?: string;
+  manufacturer?: string | undefined;
 
   /**
    * <p>The device's model name.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The device's model ID.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>The device's form factor.</p>
@@ -1456,7 +1456,7 @@ export interface Device {
    *          </ul>
    * @public
    */
-  formFactor?: DeviceFormFactor;
+  formFactor?: DeviceFormFactor | undefined;
 
   /**
    * <p>The device's platform.</p>
@@ -1471,62 +1471,62 @@ export interface Device {
    *          </ul>
    * @public
    */
-  platform?: DevicePlatform;
+  platform?: DevicePlatform | undefined;
 
   /**
    * <p>The device's operating system type.</p>
    * @public
    */
-  os?: string;
+  os?: string | undefined;
 
   /**
    * <p>Information about the device's CPU.</p>
    * @public
    */
-  cpu?: CPU;
+  cpu?: CPU | undefined;
 
   /**
    * <p>The resolution of the device.</p>
    * @public
    */
-  resolution?: Resolution;
+  resolution?: Resolution | undefined;
 
   /**
    * <p>The device's heap size, expressed in bytes.</p>
    * @public
    */
-  heapSize?: number;
+  heapSize?: number | undefined;
 
   /**
    * <p>The device's total memory size, expressed in bytes.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The device's image name.</p>
    * @public
    */
-  image?: string;
+  image?: string | undefined;
 
   /**
    * <p>The device's carrier.</p>
    * @public
    */
-  carrier?: string;
+  carrier?: string | undefined;
 
   /**
    * <p>The device's radio.</p>
    * @public
    */
-  radio?: string;
+  radio?: string | undefined;
 
   /**
    * <p>Specifies whether remote access has been enabled for the specified
    *             device.</p>
    * @public
    */
-  remoteAccessEnabled?: boolean;
+  remoteAccessEnabled?: boolean | undefined;
 
   /**
    * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
@@ -1535,31 +1535,31 @@ export interface Device {
    *             longer supported</a>.</p>
    * @public
    */
-  remoteDebugEnabled?: boolean;
+  remoteDebugEnabled?: boolean | undefined;
 
   /**
    * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
    * @public
    */
-  fleetType?: string;
+  fleetType?: string | undefined;
 
   /**
    * <p>The name of the fleet to which this device belongs.</p>
    * @public
    */
-  fleetName?: string;
+  fleetName?: string | undefined;
 
   /**
    * <p>The instances that belong to this device.</p>
    * @public
    */
-  instances?: DeviceInstance[];
+  instances?: DeviceInstance[] | undefined;
 
   /**
    * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
    * @public
    */
-  availability?: DeviceAvailability;
+  availability?: DeviceAvailability | undefined;
 }
 
 /**
@@ -1573,21 +1573,21 @@ export interface DeviceMinutes {
    *             tests.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 
   /**
    * <p>When specified, represents only the sum of metered minutes used by the resource to
    *             run tests.</p>
    * @public
    */
-  metered?: number;
+  metered?: number | undefined;
 
   /**
    * <p>When specified, represents only the sum of unmetered minutes used by the resource
    *             to run tests.</p>
    * @public
    */
-  unmetered?: number;
+  unmetered?: number | undefined;
 }
 
 /**
@@ -1639,19 +1639,19 @@ export interface RemoteAccessSession {
    * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the remote access session.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The date and time the remote access session was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The status of the remote access session. Can be any of the following:</p>
@@ -1686,7 +1686,7 @@ export interface RemoteAccessSession {
    *          </ul>
    * @public
    */
-  status?: ExecutionStatus;
+  status?: ExecutionStatus | undefined;
 
   /**
    * <p>The result of the remote access session. Can be any of the following:</p>
@@ -1715,37 +1715,37 @@ export interface RemoteAccessSession {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>A message about the remote access session.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The date and time the remote access session was started.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The date and time the remote access session was stopped.</p>
    * @public
    */
-  stopped?: Date;
+  stopped?: Date | undefined;
 
   /**
    * <p>The device (phone or tablet) used in the remote access session.</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 
   /**
    * <p>The ARN of the instance.</p>
    * @public
    */
-  instanceArn?: string;
+  instanceArn?: string | undefined;
 
   /**
    * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
@@ -1754,20 +1754,20 @@ export interface RemoteAccessSession {
    *             longer supported</a>.</p>
    * @public
    */
-  remoteDebugEnabled?: boolean;
+  remoteDebugEnabled?: boolean | undefined;
 
   /**
    * <p>This flag is set to <code>true</code> if remote recording is enabled for the remote
    *             access session.</p>
    * @public
    */
-  remoteRecordEnabled?: boolean;
+  remoteRecordEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN for the app to be recorded in the remote access session.</p>
    * @public
    */
-  remoteRecordAppArn?: string;
+  remoteRecordAppArn?: string | undefined;
 
   /**
    * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
@@ -1776,7 +1776,7 @@ export interface RemoteAccessSession {
    *             longer supported</a>.</p>
    * @public
    */
-  hostAddress?: string;
+  hostAddress?: string | undefined;
 
   /**
    * <p>Unique identifier of your client for the remote access session. Only returned if
@@ -1785,7 +1785,7 @@ export interface RemoteAccessSession {
    *             longer supported</a>.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 
   /**
    * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
@@ -1793,20 +1793,20 @@ export interface RemoteAccessSession {
    *                 terminology</a>.</p>
    * @public
    */
-  billingMethod?: BillingMethod;
+  billingMethod?: BillingMethod | undefined;
 
   /**
    * <p>The number of minutes a device is used in a remote access session (including setup
    *             and teardown minutes).</p>
    * @public
    */
-  deviceMinutes?: DeviceMinutes;
+  deviceMinutes?: DeviceMinutes | undefined;
 
   /**
    * <p>The endpoint for the remote access sesssion.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>Unique device identifier for the remote device. Only returned if remote debugging
@@ -1815,7 +1815,7 @@ export interface RemoteAccessSession {
    *             longer supported</a>.</p>
    * @public
    */
-  deviceUdid?: string;
+  deviceUdid?: string | undefined;
 
   /**
    * <p>The interaction mode of the remote access session. Valid values are:</p>
@@ -1837,7 +1837,7 @@ export interface RemoteAccessSession {
    *          </ul>
    * @public
    */
-  interactionMode?: InteractionMode;
+  interactionMode?: InteractionMode | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -1846,13 +1846,13 @@ export interface RemoteAccessSession {
    *                 Farm FAQs</i>.</p>
    * @public
    */
-  skipAppResign?: boolean;
+  skipAppResign?: boolean | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -1866,7 +1866,7 @@ export interface CreateRemoteAccessSessionResult {
    *             remote access session is sent.</p>
    * @public
    */
-  remoteAccessSession?: RemoteAccessSession;
+  remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
@@ -1907,13 +1907,13 @@ export interface CreateTestGridProjectRequest {
    * <p>Human-readable description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: TestGridVpcConfig;
+  vpcConfig?: TestGridVpcConfig | undefined;
 }
 
 /**
@@ -1925,31 +1925,31 @@ export interface TestGridProject {
    * <p>The ARN for the project.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>A human-readable name for the project.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A human-readable description for the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: TestGridVpcConfig;
+  vpcConfig?: TestGridVpcConfig | undefined;
 
   /**
    * <p>When the project was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 }
 
 /**
@@ -1960,7 +1960,7 @@ export interface CreateTestGridProjectResult {
    * <p>ARN of the Selenium testing project that was created.</p>
    * @public
    */
-  testGridProject?: TestGridProject;
+  testGridProject?: TestGridProject | undefined;
 }
 
 /**
@@ -2011,13 +2011,13 @@ export interface CreateTestGridUrlResult {
    *          to a <code>RemoteWebDriver</code>. </p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 
   /**
    * <p>The number of seconds the URL from <a>CreateTestGridUrlResult$url</a> stays active.</p>
    * @public
    */
-  expires?: Date;
+  expires?: Date | undefined;
 }
 
 /**
@@ -2186,7 +2186,7 @@ export interface CreateUploadRequest {
    * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 }
 
 /**
@@ -2229,19 +2229,19 @@ export interface Upload {
    * <p>The upload's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The upload's file name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>When the upload was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The upload's type.</p>
@@ -2337,7 +2337,7 @@ export interface Upload {
    *          </ul>
    * @public
    */
-  type?: UploadType;
+  type?: UploadType | undefined;
 
   /**
    * <p>The upload's status.</p>
@@ -2358,13 +2358,13 @@ export interface Upload {
    *          </ul>
    * @public
    */
-  status?: UploadStatus;
+  status?: UploadStatus | undefined;
 
   /**
    * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 
   /**
    * <p>The upload's metadata. For example, for Android, this contains information that is
@@ -2372,19 +2372,19 @@ export interface Upload {
    *             associated app is uploaded.</p>
    * @public
    */
-  metadata?: string;
+  metadata?: string | undefined;
 
   /**
    * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>A message about the upload's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The upload's category. Allowed values include:</p>
@@ -2398,7 +2398,7 @@ export interface Upload {
    *          </ul>
    * @public
    */
-  category?: UploadCategory;
+  category?: UploadCategory | undefined;
 }
 
 /**
@@ -2410,7 +2410,7 @@ export interface CreateUploadResult {
    * <p>The newly created upload.</p>
    * @public
    */
-  upload?: Upload;
+  upload?: Upload | undefined;
 }
 
 /**
@@ -2441,7 +2441,7 @@ export interface CreateVPCEConfigurationRequest {
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfigurationDescription?: string;
+  vpceConfigurationDescription?: string | undefined;
 }
 
 /**
@@ -2453,33 +2453,33 @@ export interface VPCEConfiguration {
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
    *             easily.</p>
    * @public
    */
-  vpceConfigurationName?: string;
+  vpceConfigurationName?: string | undefined;
 
   /**
    * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
    * @public
    */
-  vpceServiceName?: string;
+  vpceServiceName?: string | undefined;
 
   /**
    * <p>The DNS name that maps to the private IP address of the service you want to
    *             access.</p>
    * @public
    */
-  serviceDnsName?: string;
+  serviceDnsName?: string | undefined;
 
   /**
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfigurationDescription?: string;
+  vpceConfigurationDescription?: string | undefined;
 }
 
 /**
@@ -2490,7 +2490,7 @@ export interface CreateVPCEConfigurationResult {
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfiguration?: VPCEConfiguration;
+  vpceConfiguration?: VPCEConfiguration | undefined;
 }
 
 /**
@@ -2521,21 +2521,21 @@ export interface CustomerArtifactPaths {
    *             are pulled from.</p>
    * @public
    */
-  iosPaths?: string[];
+  iosPaths?: string[] | undefined;
 
   /**
    * <p>Comma-separated list of paths on the Android device where the artifacts generated by the customer's
    *             tests are pulled from.</p>
    * @public
    */
-  androidPaths?: string[];
+  androidPaths?: string[] | undefined;
 
   /**
    * <p>Comma-separated list of paths in the test execution environment where the artifacts generated by the
    *             customer's tests are pulled from.</p>
    * @public
    */
-  deviceHostPaths?: string[];
+  deviceHostPaths?: string[] | undefined;
 }
 
 /**
@@ -2733,7 +2733,7 @@ export interface GetAccountSettingsResult {
    * <p>The account settings.</p>
    * @public
    */
-  accountSettings?: AccountSettings;
+  accountSettings?: AccountSettings | undefined;
 }
 
 /**
@@ -2757,7 +2757,7 @@ export interface GetDeviceResult {
    * <p>An object that contains information about the requested device.</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 }
 
 /**
@@ -2780,7 +2780,7 @@ export interface GetDeviceInstanceResult {
    * <p>An object that contains information about your device instance.</p>
    * @public
    */
-  deviceInstance?: DeviceInstance;
+  deviceInstance?: DeviceInstance | undefined;
 }
 
 /**
@@ -2804,7 +2804,7 @@ export interface GetDevicePoolResult {
    * <p>An object that contains information about the requested device pool.</p>
    * @public
    */
-  devicePool?: DevicePool;
+  devicePool?: DevicePool | undefined;
 }
 
 /**
@@ -2837,25 +2837,25 @@ export interface Radios {
    * <p>True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  wifi?: boolean;
+  wifi?: boolean | undefined;
 
   /**
    * <p>True if Bluetooth is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  bluetooth?: boolean;
+  bluetooth?: boolean | undefined;
 
   /**
    * <p>True if NFC is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  nfc?: boolean;
+  nfc?: boolean | undefined;
 
   /**
    * <p>True if GPS is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  gps?: boolean;
+  gps?: boolean | undefined;
 }
 
 /**
@@ -2869,50 +2869,50 @@ export interface ScheduleRunConfiguration {
    *             external data for Android or the app's sandbox for iOS.</p>
    * @public
    */
-  extraDataPackageArn?: string;
+  extraDataPackageArn?: string | undefined;
 
   /**
    * <p>Reserved for internal use.</p>
    * @public
    */
-  networkProfileArn?: string;
+  networkProfileArn?: string | undefined;
 
   /**
    * <p>Information about the locale that is used for the run.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 
   /**
    * <p>Information about the location that is used for the run.</p>
    * @public
    */
-  location?: Location;
+  location?: Location | undefined;
 
   /**
    * <p>An array of ARNs for your VPC endpoint configurations.</p>
    * @public
    */
-  vpceConfigurationArns?: string[];
+  vpceConfigurationArns?: string[] | undefined;
 
   /**
    * <p>Input <code>CustomerArtifactPaths</code> object for the scheduled run
    *             configuration.</p>
    * @public
    */
-  customerArtifactPaths?: CustomerArtifactPaths;
+  customerArtifactPaths?: CustomerArtifactPaths | undefined;
 
   /**
    * <p>Information about the radio states for the run.</p>
    * @public
    */
-  radios?: Radios;
+  radios?: Radios | undefined;
 
   /**
    * <p>A list of upload ARNs for app packages to be installed with your app.</p>
    * @public
    */
-  auxiliaryApps?: string[];
+  auxiliaryApps?: string[] | undefined;
 
   /**
    * <p>Specifies the billing method for a test run: <code>metered</code> or
@@ -2924,7 +2924,7 @@ export interface ScheduleRunConfiguration {
    *         </note>
    * @public
    */
-  billingMethod?: BillingMethod;
+  billingMethod?: BillingMethod | undefined;
 }
 
 /**
@@ -3014,19 +3014,19 @@ export interface ScheduleRunTest {
    * <p>The ARN of the uploaded test to be run.</p>
    * @public
    */
-  testPackageArn?: string;
+  testPackageArn?: string | undefined;
 
   /**
    * <p>The ARN of the YAML-formatted test specification.</p>
    * @public
    */
-  testSpecArn?: string;
+  testSpecArn?: string | undefined;
 
   /**
    * <p>The test's filter.</p>
    * @public
    */
-  filter?: string;
+  filter?: string | undefined;
 
   /**
    * <p>The test's parameters, such as test framework parameters and fixture settings.
@@ -3126,7 +3126,7 @@ export interface ScheduleRunTest {
    *          </ul>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -3144,7 +3144,7 @@ export interface GetDevicePoolCompatibilityRequest {
    * <p>The ARN of the app that is associated with the specified device pool.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>The test type for the specified device pool.</p>
@@ -3195,19 +3195,19 @@ export interface GetDevicePoolCompatibilityRequest {
    *          </ul>
    * @public
    */
-  testType?: TestType;
+  testType?: TestType | undefined;
 
   /**
    * <p>Information about the uploaded test to be run against the device pool.</p>
    * @public
    */
-  test?: ScheduleRunTest;
+  test?: ScheduleRunTest | undefined;
 
   /**
    * <p>An object that contains information about the settings for a run.</p>
    * @public
    */
-  configuration?: ScheduleRunConfiguration;
+  configuration?: ScheduleRunConfiguration | undefined;
 }
 
 /**
@@ -3219,7 +3219,7 @@ export interface IncompatibilityMessage {
    * <p>A message about the incompatibility.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The type of incompatibility.</p>
@@ -3246,7 +3246,7 @@ export interface IncompatibilityMessage {
    *          </ul>
    * @public
    */
-  type?: DeviceAttribute;
+  type?: DeviceAttribute | undefined;
 }
 
 /**
@@ -3258,19 +3258,19 @@ export interface DevicePoolCompatibilityResult {
    * <p>The device (phone or tablet) to return information about.</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 
   /**
    * <p>Whether the result was compatible with the device pool.</p>
    * @public
    */
-  compatible?: boolean;
+  compatible?: boolean | undefined;
 
   /**
    * <p>Information about the compatibility.</p>
    * @public
    */
-  incompatibilityMessages?: IncompatibilityMessage[];
+  incompatibilityMessages?: IncompatibilityMessage[] | undefined;
 }
 
 /**
@@ -3282,13 +3282,13 @@ export interface GetDevicePoolCompatibilityResult {
    * <p>Information about compatible devices.</p>
    * @public
    */
-  compatibleDevices?: DevicePoolCompatibilityResult[];
+  compatibleDevices?: DevicePoolCompatibilityResult[] | undefined;
 
   /**
    * <p>Information about incompatible devices.</p>
    * @public
    */
-  incompatibleDevices?: DevicePoolCompatibilityResult[];
+  incompatibleDevices?: DevicePoolCompatibilityResult[] | undefined;
 }
 
 /**
@@ -3310,7 +3310,7 @@ export interface GetInstanceProfileResult {
    * <p>An object that contains information about an instance profile.</p>
    * @public
    */
-  instanceProfile?: InstanceProfile;
+  instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -3334,13 +3334,13 @@ export interface Job {
    * <p>The job's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The job's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The job's type.</p>
@@ -3391,13 +3391,13 @@ export interface Job {
    *          </ul>
    * @public
    */
-  type?: TestType;
+  type?: TestType | undefined;
 
   /**
    * <p>When the job was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The job's status.</p>
@@ -3433,7 +3433,7 @@ export interface Job {
    *          </ul>
    * @public
    */
-  status?: ExecutionStatus;
+  status?: ExecutionStatus | undefined;
 
   /**
    * <p>The job's result.</p>
@@ -3463,61 +3463,61 @@ export interface Job {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>The job's start time.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The job's stop time.</p>
    * @public
    */
-  stopped?: Date;
+  stopped?: Date | undefined;
 
   /**
    * <p>The job's result counters.</p>
    * @public
    */
-  counters?: Counters;
+  counters?: Counters | undefined;
 
   /**
    * <p>A message about the job's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The device (phone or tablet).</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 
   /**
    * <p>The ARN of the instance.</p>
    * @public
    */
-  instanceArn?: string;
+  instanceArn?: string | undefined;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the job.</p>
    * @public
    */
-  deviceMinutes?: DeviceMinutes;
+  deviceMinutes?: DeviceMinutes | undefined;
 
   /**
    * <p>The endpoint for streaming device video.</p>
    * @public
    */
-  videoEndpoint?: string;
+  videoEndpoint?: string | undefined;
 
   /**
    * <p>This value is set to true if video capture is enabled. Otherwise, it is set to false.</p>
    * @public
    */
-  videoCapture?: boolean;
+  videoCapture?: boolean | undefined;
 }
 
 /**
@@ -3529,7 +3529,7 @@ export interface GetJobResult {
    * <p>An object that contains information about the requested job.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -3551,7 +3551,7 @@ export interface GetNetworkProfileResult {
    * <p>The network profile.</p>
    * @public
    */
-  networkProfile?: NetworkProfile;
+  networkProfile?: NetworkProfile | undefined;
 }
 
 /**
@@ -3565,7 +3565,7 @@ export interface GetOfferingStatusRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3577,13 +3577,13 @@ export interface MonetaryAmount {
    * <p>The numerical amount of an offering or transaction.</p>
    * @public
    */
-  amount?: number;
+  amount?: number | undefined;
 
   /**
    * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
    * @public
    */
-  currencyCode?: CurrencyCode;
+  currencyCode?: CurrencyCode | undefined;
 }
 
 /**
@@ -3608,13 +3608,13 @@ export interface RecurringCharge {
    * <p>The cost of the recurring charge.</p>
    * @public
    */
-  cost?: MonetaryAmount;
+  cost?: MonetaryAmount | undefined;
 
   /**
    * <p>The frequency in which charges recur.</p>
    * @public
    */
-  frequency?: RecurringChargeFrequency;
+  frequency?: RecurringChargeFrequency | undefined;
 }
 
 /**
@@ -3639,31 +3639,31 @@ export interface Offering {
    * <p>The ID that corresponds to a device offering.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A string that describes the offering.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
    * @public
    */
-  type?: OfferingType;
+  type?: OfferingType | undefined;
 
   /**
    * <p>The platform of the device (for example, <code>ANDROID</code> or <code>IOS</code>).</p>
    * @public
    */
-  platform?: DevicePlatform;
+  platform?: DevicePlatform | undefined;
 
   /**
    * <p>Specifies whether there are recurring charges for the offering.</p>
    * @public
    */
-  recurringCharges?: RecurringCharge[];
+  recurringCharges?: RecurringCharge[] | undefined;
 }
 
 /**
@@ -3690,25 +3690,25 @@ export interface OfferingStatus {
    * <p>The type specified for the offering status.</p>
    * @public
    */
-  type?: OfferingTransactionType;
+  type?: OfferingTransactionType | undefined;
 
   /**
    * <p>Represents the metadata of an offering status.</p>
    * @public
    */
-  offering?: Offering;
+  offering?: Offering | undefined;
 
   /**
    * <p>The number of available devices in the offering.</p>
    * @public
    */
-  quantity?: number;
+  quantity?: number | undefined;
 
   /**
    * <p>The date on which the offering is effective.</p>
    * @public
    */
-  effectiveOn?: Date;
+  effectiveOn?: Date | undefined;
 }
 
 /**
@@ -3720,20 +3720,20 @@ export interface GetOfferingStatusResult {
    * <p>When specified, gets the offering status for the current period.</p>
    * @public
    */
-  current?: Record<string, OfferingStatus>;
+  current?: Record<string, OfferingStatus> | undefined;
 
   /**
    * <p>When specified, gets the offering status for the next period.</p>
    * @public
    */
-  nextPeriod?: Record<string, OfferingStatus>;
+  nextPeriod?: Record<string, OfferingStatus> | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3778,7 +3778,7 @@ export interface GetProjectResult {
    * <p>The project to get information about.</p>
    * @public
    */
-  project?: Project;
+  project?: Project | undefined;
 }
 
 /**
@@ -3806,7 +3806,7 @@ export interface GetRemoteAccessSessionResult {
    *             session.</p>
    * @public
    */
-  remoteAccessSession?: RemoteAccessSession;
+  remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
@@ -4002,20 +4002,20 @@ export interface DeviceSelectionResult {
    * <p>The filters in a device selection result.</p>
    * @public
    */
-  filters?: DeviceFilter[];
+  filters?: DeviceFilter[] | undefined;
 
   /**
    * <p>The number of devices that matched the device filter selection criteria.</p>
    * @public
    */
-  matchedDevicesCount?: number;
+  matchedDevicesCount?: number | undefined;
 
   /**
    * <p>The maximum number of devices to be selected by a device filter and included in a test
    *             run.</p>
    * @public
    */
-  maxDevices?: number;
+  maxDevices?: number | undefined;
 }
 
 /**
@@ -4042,13 +4042,13 @@ export interface Run {
    * <p>The run's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The run's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The run's type.</p>
@@ -4099,7 +4099,7 @@ export interface Run {
    *          </ul>
    * @public
    */
-  type?: TestType;
+  type?: TestType | undefined;
 
   /**
    * <p>The run's platform.</p>
@@ -4114,13 +4114,13 @@ export interface Run {
    *          </ul>
    * @public
    */
-  platform?: DevicePlatform;
+  platform?: DevicePlatform | undefined;
 
   /**
    * <p>When the run was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The run's status.</p>
@@ -4156,7 +4156,7 @@ export interface Run {
    *          </ul>
    * @public
    */
-  status?: ExecutionStatus;
+  status?: ExecutionStatus | undefined;
 
   /**
    * <p>The run's result.</p>
@@ -4186,43 +4186,43 @@ export interface Run {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>The run's start time.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The run's stop time.</p>
    * @public
    */
-  stopped?: Date;
+  stopped?: Date | undefined;
 
   /**
    * <p>The run's result counters.</p>
    * @public
    */
-  counters?: Counters;
+  counters?: Counters | undefined;
 
   /**
    * <p>A message about the run's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The total number of jobs for the run.</p>
    * @public
    */
-  totalJobs?: number;
+  totalJobs?: number | undefined;
 
   /**
    * <p>The total number of completed jobs.</p>
    * @public
    */
-  completedJobs?: number;
+  completedJobs?: number | undefined;
 
   /**
    * <p>Specifies the billing method for a test run: <code>metered</code> or
@@ -4234,19 +4234,19 @@ export interface Run {
    *         </note>
    * @public
    */
-  billingMethod?: BillingMethod;
+  billingMethod?: BillingMethod | undefined;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
    * @public
    */
-  deviceMinutes?: DeviceMinutes;
+  deviceMinutes?: DeviceMinutes | undefined;
 
   /**
    * <p>The network profile being used for a test run.</p>
    * @public
    */
-  networkProfile?: NetworkProfile;
+  networkProfile?: NetworkProfile | undefined;
 
   /**
    * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
@@ -4254,76 +4254,76 @@ export interface Run {
    *             to.</p>
    * @public
    */
-  parsingResultUrl?: string;
+  parsingResultUrl?: string | undefined;
 
   /**
    * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
    *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
    * @public
    */
-  resultCode?: ExecutionResultCode;
+  resultCode?: ExecutionResultCode | undefined;
 
   /**
    * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
    *             seed value between tests ensures identical event sequences.</p>
    * @public
    */
-  seed?: number;
+  seed?: number | undefined;
 
   /**
    * <p>An app to upload or that has been uploaded.</p>
    * @public
    */
-  appUpload?: string;
+  appUpload?: string | undefined;
 
   /**
    * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
    *             test should perform.</p>
    * @public
    */
-  eventCount?: number;
+  eventCount?: number | undefined;
 
   /**
    * <p>The number of minutes the job executes before it times out.</p>
    * @public
    */
-  jobTimeoutMinutes?: number;
+  jobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>The ARN of the device pool for the run.</p>
    * @public
    */
-  devicePoolArn?: string;
+  devicePoolArn?: string | undefined;
 
   /**
    * <p>Information about the locale that is used for the run.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 
   /**
    * <p>Information about the radio states for the run.</p>
    * @public
    */
-  radios?: Radios;
+  radios?: Radios | undefined;
 
   /**
    * <p>Information about the location that is used for the run.</p>
    * @public
    */
-  location?: Location;
+  location?: Location | undefined;
 
   /**
    * <p>Output <code>CustomerArtifactPaths</code> object for the test run.</p>
    * @public
    */
-  customerArtifactPaths?: CustomerArtifactPaths;
+  customerArtifactPaths?: CustomerArtifactPaths | undefined;
 
   /**
    * <p>The Device Farm console URL for the recording of the run.</p>
    * @public
    */
-  webUrl?: string;
+  webUrl?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -4332,25 +4332,25 @@ export interface Run {
    *                 Farm FAQs</i>.</p>
    * @public
    */
-  skipAppResign?: boolean;
+  skipAppResign?: boolean | undefined;
 
   /**
    * <p>The ARN of the YAML-formatted test specification for the run.</p>
    * @public
    */
-  testSpecArn?: string;
+  testSpecArn?: string | undefined;
 
   /**
    * <p>The results of a device filter used to select the devices for a test run.</p>
    * @public
    */
-  deviceSelectionResult?: DeviceSelectionResult;
+  deviceSelectionResult?: DeviceSelectionResult | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -4362,7 +4362,7 @@ export interface GetRunResult {
    * <p>The run to get results from.</p>
    * @public
    */
-  run?: Run;
+  run?: Run | undefined;
 }
 
 /**
@@ -4386,13 +4386,13 @@ export interface Suite {
    * <p>The suite's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The suite's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The suite's type.</p>
@@ -4443,13 +4443,13 @@ export interface Suite {
    *          </ul>
    * @public
    */
-  type?: TestType;
+  type?: TestType | undefined;
 
   /**
    * <p>When the suite was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The suite's status.</p>
@@ -4485,7 +4485,7 @@ export interface Suite {
    *          </ul>
    * @public
    */
-  status?: ExecutionStatus;
+  status?: ExecutionStatus | undefined;
 
   /**
    * <p>The suite's result.</p>
@@ -4515,38 +4515,38 @@ export interface Suite {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>The suite's start time.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The suite's stop time.</p>
    * @public
    */
-  stopped?: Date;
+  stopped?: Date | undefined;
 
   /**
    * <p>The suite's result counters.</p>
    * @public
    */
-  counters?: Counters;
+  counters?: Counters | undefined;
 
   /**
    * <p>A message about the suite's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the test
    *             suite.</p>
    * @public
    */
-  deviceMinutes?: DeviceMinutes;
+  deviceMinutes?: DeviceMinutes | undefined;
 }
 
 /**
@@ -4558,7 +4558,7 @@ export interface GetSuiteResult {
    * <p>A collection of one or more tests.</p>
    * @public
    */
-  suite?: Suite;
+  suite?: Suite | undefined;
 }
 
 /**
@@ -4582,13 +4582,13 @@ export interface Test {
    * <p>The test's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The test's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The test's type.</p>
@@ -4639,13 +4639,13 @@ export interface Test {
    *          </ul>
    * @public
    */
-  type?: TestType;
+  type?: TestType | undefined;
 
   /**
    * <p>When the test was created.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The test's status.</p>
@@ -4681,7 +4681,7 @@ export interface Test {
    *          </ul>
    * @public
    */
-  status?: ExecutionStatus;
+  status?: ExecutionStatus | undefined;
 
   /**
    * <p>The test's result.</p>
@@ -4711,37 +4711,37 @@ export interface Test {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>The test's start time.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The test's stop time.</p>
    * @public
    */
-  stopped?: Date;
+  stopped?: Date | undefined;
 
   /**
    * <p>The test's result counters.</p>
    * @public
    */
-  counters?: Counters;
+  counters?: Counters | undefined;
 
   /**
    * <p>A message about the test's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
    * @public
    */
-  deviceMinutes?: DeviceMinutes;
+  deviceMinutes?: DeviceMinutes | undefined;
 }
 
 /**
@@ -4753,7 +4753,7 @@ export interface GetTestResult {
    * <p>A test condition that is evaluated.</p>
    * @public
    */
-  test?: Test;
+  test?: Test | undefined;
 }
 
 /**
@@ -4775,7 +4775,7 @@ export interface GetTestGridProjectResult {
    * <p>A <a>TestGridProject</a>.</p>
    * @public
    */
-  testGridProject?: TestGridProject;
+  testGridProject?: TestGridProject | undefined;
 }
 
 /**
@@ -4786,19 +4786,19 @@ export interface GetTestGridSessionRequest {
    * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
    * @public
    */
-  projectArn?: string;
+  projectArn?: string | undefined;
 
   /**
    * <p>An ID associated with this session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
    * @public
    */
-  sessionArn?: string;
+  sessionArn?: string | undefined;
 }
 
 /**
@@ -4826,37 +4826,37 @@ export interface TestGridSession {
    * <p>The ARN of the session.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The state of the session.</p>
    * @public
    */
-  status?: TestGridSessionStatus;
+  status?: TestGridSessionStatus | undefined;
 
   /**
    * <p>The time that the session was started.</p>
    * @public
    */
-  created?: Date;
+  created?: Date | undefined;
 
   /**
    * <p>The time the session ended.</p>
    * @public
    */
-  ended?: Date;
+  ended?: Date | undefined;
 
   /**
    * <p>The number of billed minutes that were used for this session. </p>
    * @public
    */
-  billingMinutes?: number;
+  billingMinutes?: number | undefined;
 
   /**
    * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
    * @public
    */
-  seleniumProperties?: string;
+  seleniumProperties?: string | undefined;
 }
 
 /**
@@ -4867,7 +4867,7 @@ export interface GetTestGridSessionResult {
    * <p>The <a>TestGridSession</a> that was requested.</p>
    * @public
    */
-  testGridSession?: TestGridSession;
+  testGridSession?: TestGridSession | undefined;
 }
 
 /**
@@ -4892,7 +4892,7 @@ export interface GetUploadResult {
    *             uploaded.</p>
    * @public
    */
-  upload?: Upload;
+  upload?: Upload | undefined;
 }
 
 /**
@@ -4915,7 +4915,7 @@ export interface GetVPCEConfigurationResult {
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfiguration?: VPCEConfiguration;
+  vpceConfiguration?: VPCEConfiguration | undefined;
 }
 
 /**
@@ -4948,7 +4948,7 @@ export interface InstallToRemoteAccessSessionResult {
    * <p>An app to upload or that has been uploaded.</p>
    * @public
    */
-  appUpload?: Upload;
+  appUpload?: Upload | undefined;
 }
 
 /**
@@ -4985,7 +4985,7 @@ export interface ListArtifactsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4997,7 +4997,7 @@ export interface ListArtifactsResult {
    * <p>Information about the artifacts.</p>
    * @public
    */
-  artifacts?: Artifact[];
+  artifacts?: Artifact[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5005,7 +5005,7 @@ export interface ListArtifactsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5016,14 +5016,14 @@ export interface ListDeviceInstancesRequest {
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5034,14 +5034,14 @@ export interface ListDeviceInstancesResult {
    * <p>An object that contains information about your device instances.</p>
    * @public
    */
-  deviceInstances?: DeviceInstance[];
+  deviceInstances?: DeviceInstance[] | undefined;
 
   /**
    * <p>An identifier that can be used in the next call to this operation to return the next
    *             set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5070,14 +5070,14 @@ export interface ListDevicePoolsRequest {
    *          </ul>
    * @public
    */
-  type?: DevicePoolType;
+  type?: DevicePoolType | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5089,7 +5089,7 @@ export interface ListDevicePoolsResult {
    * <p>Information about the device pools.</p>
    * @public
    */
-  devicePools?: DevicePool[];
+  devicePools?: DevicePool[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5097,7 +5097,7 @@ export interface ListDevicePoolsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5109,14 +5109,14 @@ export interface ListDevicesRequest {
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Used to select a set of devices. A filter is made up of an attribute, an operator, and
@@ -5212,7 +5212,7 @@ export interface ListDevicesRequest {
    *          </ul>
    * @public
    */
-  filters?: DeviceFilter[];
+  filters?: DeviceFilter[] | undefined;
 }
 
 /**
@@ -5224,7 +5224,7 @@ export interface ListDevicesResult {
    * <p>Information about the devices.</p>
    * @public
    */
-  devices?: Device[];
+  devices?: Device[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5232,7 +5232,7 @@ export interface ListDevicesResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5243,14 +5243,14 @@ export interface ListInstanceProfilesRequest {
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5261,14 +5261,14 @@ export interface ListInstanceProfilesResult {
    * <p>An object that contains information about your instance profiles.</p>
    * @public
    */
-  instanceProfiles?: InstanceProfile[];
+  instanceProfiles?: InstanceProfile[] | undefined;
 
   /**
    * <p>An identifier that can be used in the next call to this operation to return the next
    *             set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5287,7 +5287,7 @@ export interface ListJobsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5299,7 +5299,7 @@ export interface ListJobsResult {
    * <p>Information about the jobs.</p>
    * @public
    */
-  jobs?: Job[];
+  jobs?: Job[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5307,7 +5307,7 @@ export interface ListJobsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5325,14 +5325,14 @@ export interface ListNetworkProfilesRequest {
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    * @public
    */
-  type?: NetworkProfileType;
+  type?: NetworkProfileType | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5343,14 +5343,14 @@ export interface ListNetworkProfilesResult {
    * <p>A list of the available network profiles.</p>
    * @public
    */
-  networkProfiles?: NetworkProfile[];
+  networkProfiles?: NetworkProfile[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5362,7 +5362,7 @@ export interface ListOfferingPromotionsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5374,13 +5374,13 @@ export interface OfferingPromotion {
    * <p>The ID of the offering promotion.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A string that describes the offering promotion.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5391,14 +5391,14 @@ export interface ListOfferingPromotionsResult {
    * <p>Information about the offering promotions.</p>
    * @public
    */
-  offeringPromotions?: OfferingPromotion[];
+  offeringPromotions?: OfferingPromotion[] | undefined;
 
   /**
    * <p>An identifier to be used in the next call to this operation, to return the next set
    *             of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5411,7 +5411,7 @@ export interface ListOfferingsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5423,14 +5423,14 @@ export interface ListOfferingsResult {
    * <p>A value that represents the list offering results.</p>
    * @public
    */
-  offerings?: Offering[];
+  offerings?: Offering[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5443,7 +5443,7 @@ export interface ListOfferingTransactionsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5455,31 +5455,31 @@ export interface OfferingTransaction {
    * <p>The status of an offering transaction.</p>
    * @public
    */
-  offeringStatus?: OfferingStatus;
+  offeringStatus?: OfferingStatus | undefined;
 
   /**
    * <p>The transaction ID of the offering transaction.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>The ID that corresponds to a device offering promotion.</p>
    * @public
    */
-  offeringPromotionId?: string;
+  offeringPromotionId?: string | undefined;
 
   /**
    * <p>The date on which an offering transaction was created.</p>
    * @public
    */
-  createdOn?: Date;
+  createdOn?: Date | undefined;
 
   /**
    * <p>The cost of an offering transaction.</p>
    * @public
    */
-  cost?: MonetaryAmount;
+  cost?: MonetaryAmount | undefined;
 }
 
 /**
@@ -5492,14 +5492,14 @@ export interface ListOfferingTransactionsResult {
    *             Farm.</p>
    * @public
    */
-  offeringTransactions?: OfferingTransaction[];
+  offeringTransactions?: OfferingTransaction[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5513,14 +5513,14 @@ export interface ListProjectsRequest {
    *             ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5532,7 +5532,7 @@ export interface ListProjectsResult {
    * <p>Information about the projects.</p>
    * @public
    */
-  projects?: Project[];
+  projects?: Project[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5540,7 +5540,7 @@ export interface ListProjectsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5561,7 +5561,7 @@ export interface ListRemoteAccessSessionsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5575,14 +5575,14 @@ export interface ListRemoteAccessSessionsResult {
    *             requesting.</p>
    * @public
    */
-  remoteAccessSessions?: RemoteAccessSession[];
+  remoteAccessSessions?: RemoteAccessSession[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5602,7 +5602,7 @@ export interface ListRunsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5614,7 +5614,7 @@ export interface ListRunsResult {
    * <p>Information about the runs.</p>
    * @public
    */
-  runs?: Run[];
+  runs?: Run[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5622,7 +5622,7 @@ export interface ListRunsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5641,7 +5641,7 @@ export interface ListSamplesRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5682,7 +5682,7 @@ export interface Sample {
    * <p>The sample's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The sample's type.</p>
@@ -5747,14 +5747,14 @@ export interface Sample {
    *          </ul>
    * @public
    */
-  type?: SampleType;
+  type?: SampleType | undefined;
 
   /**
    * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
    *             file.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -5766,7 +5766,7 @@ export interface ListSamplesResult {
    * <p>Information about the samples.</p>
    * @public
    */
-  samples?: Sample[];
+  samples?: Sample[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5774,7 +5774,7 @@ export interface ListSamplesResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5793,7 +5793,7 @@ export interface ListSuitesRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5805,7 +5805,7 @@ export interface ListSuitesResult {
    * <p>Information about the suites.</p>
    * @public
    */
-  suites?: Suite[];
+  suites?: Suite[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -5813,7 +5813,7 @@ export interface ListSuitesResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5862,7 +5862,7 @@ export interface ListTagsForResourceResponse {
    *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5873,13 +5873,13 @@ export interface ListTestGridProjectsRequest {
    * <p>Return no more than this number of results.</p>
    * @public
    */
-  maxResult?: number;
+  maxResult?: number | undefined;
 
   /**
    * <p>From a response, used to continue a paginated listing. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5890,14 +5890,14 @@ export interface ListTestGridProjectsResult {
    * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
    * @public
    */
-  testGridProjects?: TestGridProject[];
+  testGridProjects?: TestGridProject[] | undefined;
 
   /**
    * <p>Used for pagination. Pass into <a>ListTestGridProjects</a> to get more results in a paginated
    *          request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5914,13 +5914,13 @@ export interface ListTestGridSessionActionsRequest {
    * <p>The maximum number of sessions to return per response.</p>
    * @public
    */
-  maxResult?: number;
+  maxResult?: number | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5932,31 +5932,31 @@ export interface TestGridSessionAction {
    * <p>The action taken by the session.</p>
    * @public
    */
-  action?: string;
+  action?: string | undefined;
 
   /**
    * <p>The time that the session invoked the action.</p>
    * @public
    */
-  started?: Date;
+  started?: Date | undefined;
 
   /**
    * <p>The time, in milliseconds, that the action took to complete in the browser.</p>
    * @public
    */
-  duration?: number;
+  duration?: number | undefined;
 
   /**
    * <p>HTTP status code returned to the browser when the action was taken.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>HTTP method that the browser used to make the request.</p>
    * @public
    */
-  requestMethod?: string;
+  requestMethod?: string | undefined;
 }
 
 /**
@@ -5967,13 +5967,13 @@ export interface ListTestGridSessionActionsResult {
    * <p>The action taken by the session.</p>
    * @public
    */
-  actions?: TestGridSessionAction[];
+  actions?: TestGridSessionAction[] | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6005,19 +6005,19 @@ export interface ListTestGridSessionArtifactsRequest {
    * <p>Limit results to a specified type of artifact.</p>
    * @public
    */
-  type?: TestGridSessionArtifactCategory;
+  type?: TestGridSessionArtifactCategory | undefined;
 
   /**
    * <p>The maximum number of results to be returned by a request.</p>
    * @public
    */
-  maxResult?: number;
+  maxResult?: number | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6049,19 +6049,19 @@ export interface TestGridSessionArtifact {
    * <p>The file name of the artifact.</p>
    * @public
    */
-  filename?: string;
+  filename?: string | undefined;
 
   /**
    * <p>The kind of artifact.</p>
    * @public
    */
-  type?: TestGridSessionArtifactType;
+  type?: TestGridSessionArtifactType | undefined;
 
   /**
    * <p>A semi-stable URL to the content of the object.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -6072,13 +6072,13 @@ export interface ListTestGridSessionArtifactsResult {
    * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
    * @public
    */
-  artifacts?: TestGridSessionArtifact[];
+  artifacts?: TestGridSessionArtifact[] | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6095,43 +6095,43 @@ export interface ListTestGridSessionsRequest {
    * <p>Return only sessions in this state.</p>
    * @public
    */
-  status?: TestGridSessionStatus;
+  status?: TestGridSessionStatus | undefined;
 
   /**
    * <p>Return only sessions created after this time.</p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Return only  sessions created before this time.</p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Return only sessions that ended after this time.</p>
    * @public
    */
-  endTimeAfter?: Date;
+  endTimeAfter?: Date | undefined;
 
   /**
    * <p>Return only sessions that ended before this time.</p>
    * @public
    */
-  endTimeBefore?: Date;
+  endTimeBefore?: Date | undefined;
 
   /**
    * <p>Return only this many results at a time.</p>
    * @public
    */
-  maxResult?: number;
+  maxResult?: number | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6142,13 +6142,13 @@ export interface ListTestGridSessionsResult {
    * <p>The sessions that match the criteria in a <a>ListTestGridSessionsRequest</a>. </p>
    * @public
    */
-  testGridSessions?: TestGridSession[];
+  testGridSessions?: TestGridSession[] | undefined;
 
   /**
    * <p>Pagination token.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6167,7 +6167,7 @@ export interface ListTestsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6179,7 +6179,7 @@ export interface ListTestsResult {
    * <p>Information about the tests.</p>
    * @public
    */
-  tests?: Test[];
+  tests?: Test[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -6187,7 +6187,7 @@ export interface ListTestsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6206,7 +6206,7 @@ export interface ListUniqueProblemsRequest {
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6218,13 +6218,13 @@ export interface ProblemDetail {
    * <p>The problem detail's ARN.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The problem detail's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -6236,31 +6236,31 @@ export interface Problem {
    * <p>Information about the associated run.</p>
    * @public
    */
-  run?: ProblemDetail;
+  run?: ProblemDetail | undefined;
 
   /**
    * <p>Information about the associated job.</p>
    * @public
    */
-  job?: ProblemDetail;
+  job?: ProblemDetail | undefined;
 
   /**
    * <p>Information about the associated suite.</p>
    * @public
    */
-  suite?: ProblemDetail;
+  suite?: ProblemDetail | undefined;
 
   /**
    * <p>Information about the associated test.</p>
    * @public
    */
-  test?: ProblemDetail;
+  test?: ProblemDetail | undefined;
 
   /**
    * <p>Information about the associated device.</p>
    * @public
    */
-  device?: Device;
+  device?: Device | undefined;
 
   /**
    * <p>The problem's result.</p>
@@ -6290,13 +6290,13 @@ export interface Problem {
    *          </ul>
    * @public
    */
-  result?: ExecutionResult;
+  result?: ExecutionResult | undefined;
 
   /**
    * <p>A message about the problem's result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -6308,13 +6308,13 @@ export interface UniqueProblem {
    * <p>A message about the unique problems' result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Information about the problems.</p>
    * @public
    */
-  problems?: Problem[];
+  problems?: Problem[] | undefined;
 }
 
 /**
@@ -6350,7 +6350,7 @@ export interface ListUniqueProblemsResult {
    *          </ul>
    * @public
    */
-  uniqueProblems?: Partial<Record<ExecutionResult, UniqueProblem[]>>;
+  uniqueProblems?: Partial<Record<ExecutionResult, UniqueProblem[]>> | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -6358,7 +6358,7 @@ export interface ListUniqueProblemsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6467,14 +6467,14 @@ export interface ListUploadsRequest {
    *          </ul>
    * @public
    */
-  type?: UploadType;
+  type?: UploadType | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6486,7 +6486,7 @@ export interface ListUploadsResult {
    * <p>Information about the uploads.</p>
    * @public
    */
-  uploads?: Upload[];
+  uploads?: Upload[] | undefined;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -6494,7 +6494,7 @@ export interface ListUploadsResult {
    *             list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6505,14 +6505,14 @@ export interface ListVPCEConfigurationsRequest {
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6524,14 +6524,14 @@ export interface ListVPCEConfigurationsResult {
    *             configuration.</p>
    * @public
    */
-  vpceConfigurations?: VPCEConfiguration[];
+  vpceConfigurations?: VPCEConfiguration[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6555,7 +6555,7 @@ export interface PurchaseOfferingRequest {
    * <p>The ID of the offering promotion to be applied to the purchase.</p>
    * @public
    */
-  offeringPromotionId?: string;
+  offeringPromotionId?: string | undefined;
 }
 
 /**
@@ -6567,7 +6567,7 @@ export interface PurchaseOfferingResult {
    * <p>Represents the offering transaction for the purchase result.</p>
    * @public
    */
-  offeringTransaction?: OfferingTransaction;
+  offeringTransaction?: OfferingTransaction | undefined;
 }
 
 /**
@@ -6597,7 +6597,7 @@ export interface RenewOfferingResult {
    * <p>Represents the status of the offering transaction for the renewal.</p>
    * @public
    */
-  offeringTransaction?: OfferingTransaction;
+  offeringTransaction?: OfferingTransaction | undefined;
 }
 
 /**
@@ -6770,25 +6770,25 @@ export interface ExecutionConfiguration {
    * <p>The number of minutes a test run executes before it times out.</p>
    * @public
    */
-  jobTimeoutMinutes?: number;
+  jobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  accountsCleanup?: boolean;
+  accountsCleanup?: boolean | undefined;
 
   /**
    * <p>True if app package cleanup is enabled at the beginning of the test. Otherwise, false.</p>
    * @public
    */
-  appPackagesCleanup?: boolean;
+  appPackagesCleanup?: boolean | undefined;
 
   /**
    * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
    * @public
    */
-  videoCapture?: boolean;
+  videoCapture?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -6797,7 +6797,7 @@ export interface ExecutionConfiguration {
    *                 Farm FAQs</i>.</p>
    * @public
    */
-  skipAppResign?: boolean;
+  skipAppResign?: boolean | undefined;
 }
 
 /**
@@ -6816,13 +6816,13 @@ export interface ScheduleRunRequest {
    *             See <a>ListUploads</a>.</p>
    * @public
    */
-  appArn?: string;
+  appArn?: string | undefined;
 
   /**
    * <p>The ARN of the device pool for the run to be scheduled.</p>
    * @public
    */
-  devicePoolArn?: string;
+  devicePoolArn?: string | undefined;
 
   /**
    * <p>The filter criteria used to dynamically select a set of devices for a test run and the maximum number of
@@ -6835,13 +6835,13 @@ export interface ScheduleRunRequest {
    *             request.</p>
    * @public
    */
-  deviceSelectionConfiguration?: DeviceSelectionConfiguration;
+  deviceSelectionConfiguration?: DeviceSelectionConfiguration | undefined;
 
   /**
    * <p>The name for the run to be scheduled.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Information about the test for the run to be scheduled.</p>
@@ -6853,14 +6853,14 @@ export interface ScheduleRunRequest {
    * <p>Information about the settings for the run to be scheduled.</p>
    * @public
    */
-  configuration?: ScheduleRunConfiguration;
+  configuration?: ScheduleRunConfiguration | undefined;
 
   /**
    * <p>Specifies configuration information about a test run, such as the execution timeout
    *             (in minutes).</p>
    * @public
    */
-  executionConfiguration?: ExecutionConfiguration;
+  executionConfiguration?: ExecutionConfiguration | undefined;
 }
 
 /**
@@ -6872,7 +6872,7 @@ export interface ScheduleRunResult {
    * <p>Information about the scheduled run.</p>
    * @public
    */
-  run?: Run;
+  run?: Run | undefined;
 }
 
 /**
@@ -6894,7 +6894,7 @@ export interface StopJobResult {
    * <p>The job that was stopped.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -6920,7 +6920,7 @@ export interface StopRemoteAccessSessionResult {
    *             stopping.</p>
    * @public
    */
-  remoteAccessSession?: RemoteAccessSession;
+  remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
@@ -6944,7 +6944,7 @@ export interface StopRunResult {
    * <p>The run that was stopped.</p>
    * @public
    */
-  run?: Run;
+  run?: Run | undefined;
 }
 
 /**
@@ -6955,7 +6955,7 @@ export interface StopRunResult {
 export class TagPolicyException extends __BaseException {
   readonly name: "TagPolicyException" = "TagPolicyException";
   readonly $fault: "client" = "client";
-  resourceName?: string;
+  resourceName?: string | undefined;
   /**
    * @internal
    */
@@ -7005,7 +7005,7 @@ export interface TagResourceResponse {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  resourceName?: string;
+  resourceName?: string | undefined;
   /**
    * @internal
    */
@@ -7060,13 +7060,13 @@ export interface UpdateDeviceInstanceRequest {
    * <p>The ARN of the profile that you want to associate with the device instance.</p>
    * @public
    */
-  profileArn?: string;
+  profileArn?: string | undefined;
 
   /**
    * <p>An array of strings that you want to associate with the device instance.</p>
    * @public
    */
-  labels?: string[];
+  labels?: string[] | undefined;
 }
 
 /**
@@ -7077,7 +7077,7 @@ export interface UpdateDeviceInstanceResult {
    * <p>An object that contains information about your device instance.</p>
    * @public
    */
-  deviceInstance?: DeviceInstance;
+  deviceInstance?: DeviceInstance | undefined;
 }
 
 /**
@@ -7095,20 +7095,20 @@ export interface UpdateDevicePoolRequest {
    * <p>A string that represents the name of the device pool to update.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A description of the device pool to update.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
    *             your request, the update replaces the existing rules.</p>
    * @public
    */
-  rules?: Rule[];
+  rules?: Rule[] | undefined;
 
   /**
    * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds
@@ -7121,7 +7121,7 @@ export interface UpdateDevicePoolRequest {
    *                 <code>clearMaxDevices</code> parameter in the same request.</p>
    * @public
    */
-  maxDevices?: number;
+  maxDevices?: number | undefined;
 
   /**
    * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
@@ -7132,7 +7132,7 @@ export interface UpdateDevicePoolRequest {
    *             parameter in the same request.</p>
    * @public
    */
-  clearMaxDevices?: boolean;
+  clearMaxDevices?: boolean | undefined;
 }
 
 /**
@@ -7144,7 +7144,7 @@ export interface UpdateDevicePoolResult {
    * <p>The device pool you just updated.</p>
    * @public
    */
-  devicePool?: DevicePool;
+  devicePool?: DevicePool | undefined;
 }
 
 /**
@@ -7161,20 +7161,20 @@ export interface UpdateInstanceProfileRequest {
    * <p>The updated name for your instance profile.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The updated description for your instance profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The updated choice for whether you want to specify package cleanup. The default value
    *             is <code>false</code> for private devices.</p>
    * @public
    */
-  packageCleanup?: boolean;
+  packageCleanup?: boolean | undefined;
 
   /**
    * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
@@ -7183,14 +7183,14 @@ export interface UpdateInstanceProfileRequest {
    *                 <code>true</code>.</p>
    * @public
    */
-  excludeAppPackagesFromCleanup?: string[];
+  excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
    * <p>The updated choice for whether you want to reboot the device after use. The default
    *             value is <code>true</code>.</p>
    * @public
    */
-  rebootAfterUse?: boolean;
+  rebootAfterUse?: boolean | undefined;
 }
 
 /**
@@ -7201,7 +7201,7 @@ export interface UpdateInstanceProfileResult {
    * <p>An object that contains information about your instance profile.</p>
    * @public
    */
-  instanceProfile?: InstanceProfile;
+  instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -7220,75 +7220,75 @@ export interface UpdateNetworkProfileRequest {
    *             information.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the network profile about which you are returning
    *             information.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    * @public
    */
-  type?: NetworkProfileType;
+  type?: NetworkProfileType | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  uplinkBandwidthBits?: number;
+  uplinkBandwidthBits?: number | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    * @public
    */
-  downlinkBandwidthBits?: number;
+  downlinkBandwidthBits?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  uplinkDelayMs?: number;
+  uplinkDelayMs?: number | undefined;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    * @public
    */
-  downlinkDelayMs?: number;
+  downlinkDelayMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  uplinkJitterMs?: number;
+  uplinkJitterMs?: number | undefined;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    * @public
    */
-  downlinkJitterMs?: number;
+  downlinkJitterMs?: number | undefined;
 
   /**
    * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
    *             percent.</p>
    * @public
    */
-  uplinkLossPercent?: number;
+  uplinkLossPercent?: number | undefined;
 
   /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    * @public
    */
-  downlinkLossPercent?: number;
+  downlinkLossPercent?: number | undefined;
 }
 
 /**
@@ -7299,7 +7299,7 @@ export interface UpdateNetworkProfileResult {
    * <p>A list of the available network profiles.</p>
    * @public
    */
-  networkProfile?: NetworkProfile;
+  networkProfile?: NetworkProfile | undefined;
 }
 
 /**
@@ -7317,19 +7317,19 @@ export interface UpdateProjectRequest {
    * <p>A string that represents the new name of the project that you are updating.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The number of minutes a test run in the project executes before it times out.</p>
    * @public
    */
-  defaultJobTimeoutMinutes?: number;
+  defaultJobTimeoutMinutes?: number | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -7341,7 +7341,7 @@ export interface UpdateProjectResult {
    * <p>The project to update.</p>
    * @public
    */
-  project?: Project;
+  project?: Project | undefined;
 }
 
 /**
@@ -7358,19 +7358,19 @@ export interface UpdateTestGridProjectRequest {
    * <p>Human-readable name for the project.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Human-readable description for the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The VPC security groups and subnets that are attached to a project.</p>
    * @public
    */
-  vpcConfig?: TestGridVpcConfig;
+  vpcConfig?: TestGridVpcConfig | undefined;
 }
 
 /**
@@ -7381,7 +7381,7 @@ export interface UpdateTestGridProjectResult {
    * <p>The project, including updated information.</p>
    * @public
    */
-  testGridProject?: TestGridProject;
+  testGridProject?: TestGridProject | undefined;
 }
 
 /**
@@ -7399,19 +7399,19 @@ export interface UpdateUploadRequest {
    *             name must end with the <code>.yaml</code> or <code>.yml</code> file extension.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
    * @public
    */
-  editContent?: boolean;
+  editContent?: boolean | undefined;
 }
 
 /**
@@ -7422,7 +7422,7 @@ export interface UpdateUploadResult {
    * <p>A test spec uploaded to Device Farm.</p>
    * @public
    */
-  upload?: Upload;
+  upload?: Upload | undefined;
 }
 
 /**
@@ -7441,26 +7441,26 @@ export interface UpdateVPCEConfigurationRequest {
    *             easily.</p>
    * @public
    */
-  vpceConfigurationName?: string;
+  vpceConfigurationName?: string | undefined;
 
   /**
    * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
    * @public
    */
-  vpceServiceName?: string;
+  vpceServiceName?: string | undefined;
 
   /**
    * <p>The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already
    *             be in use on the internet.</p>
    * @public
    */
-  serviceDnsName?: string;
+  serviceDnsName?: string | undefined;
 
   /**
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfigurationDescription?: string;
+  vpceConfigurationDescription?: string | undefined;
 }
 
 /**
@@ -7471,7 +7471,7 @@ export interface UpdateVPCEConfigurationResult {
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    * @public
    */
-  vpceConfiguration?: VPCEConfiguration;
+  vpceConfiguration?: VPCEConfiguration | undefined;
 }
 
 /**

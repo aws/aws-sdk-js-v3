@@ -34,13 +34,13 @@ export interface IsolineAllowOptions {
    * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
    * @public
    */
-  Hot?: boolean;
+  Hot?: boolean | undefined;
 
   /**
    * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
    * @public
    */
-  Hov?: boolean;
+  Hov?: boolean | undefined;
 }
 
 /**
@@ -100,33 +100,33 @@ export interface IsolineAvoidanceAreaGeometry {
    *          represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>
    * @public
    */
-  Corridor?: Corridor;
+  Corridor?: Corridor | undefined;
 
   /**
    * <p>A list of Polygon will be excluded for calculating isolines, the list can only contain 1 polygon.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 
   /**
    * <p>Geometry defined as an encoded corridor – a polyline with a radius that defines the width of the corridor. For more information on polyline
    * encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
-  PolylineCorridor?: PolylineCorridor;
+  PolylineCorridor?: PolylineCorridor | undefined;
 
   /**
    * <p>A list of PolylinePolygon's that are excluded for calculating isolines, the list can only contain 1 polygon. For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.
    * </p>
    * @public
    */
-  PolylinePolygon?: string[];
+  PolylinePolygon?: string[] | undefined;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface IsolineAvoidanceArea {
    * <p>Exceptions to the provided avoidance geometry, to be included while calculating the route.</p>
    * @public
    */
-  Except?: IsolineAvoidanceAreaGeometry[];
+  Except?: IsolineAvoidanceAreaGeometry[] | undefined;
 
   /**
    * <p>Geometry of the area to be avoided.</p>
@@ -171,7 +171,7 @@ export interface IsolineAvoidanceZoneCategory {
    * <p>Zone category to be avoided.</p>
    * @public
    */
-  Category?: IsolineZoneCategory;
+  Category?: IsolineZoneCategory | undefined;
 }
 
 /**
@@ -185,49 +185,49 @@ export interface IsolineAvoidanceOptions {
    * <p>Areas to be avoided.</p>
    * @public
    */
-  Areas?: IsolineAvoidanceArea[];
+  Areas?: IsolineAvoidanceArea[] | undefined;
 
   /**
    * <p>Avoid car-shuttle-trains while calculating the route.</p>
    * @public
    */
-  CarShuttleTrains?: boolean;
+  CarShuttleTrains?: boolean | undefined;
 
   /**
    * <p>Avoid controlled access highways while calculating the route.</p>
    * @public
    */
-  ControlledAccessHighways?: boolean;
+  ControlledAccessHighways?: boolean | undefined;
 
   /**
    * <p>Avoid dirt roads while calculating the route.</p>
    * @public
    */
-  DirtRoads?: boolean;
+  DirtRoads?: boolean | undefined;
 
   /**
    * <p>Avoid ferries while calculating the route.</p>
    * @public
    */
-  Ferries?: boolean;
+  Ferries?: boolean | undefined;
 
   /**
    * <p>Avoid roads that have seasonal closure while calculating the route.</p>
    * @public
    */
-  SeasonalClosure?: boolean;
+  SeasonalClosure?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollRoads?: boolean;
+  TollRoads?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollTransponders?: boolean;
+  TollTransponders?: boolean | undefined;
 
   /**
    * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
@@ -237,25 +237,25 @@ export interface IsolineAvoidanceOptions {
    *          </note>
    * @public
    */
-  TruckRoadTypes?: string[];
+  TruckRoadTypes?: string[] | undefined;
 
   /**
    * <p>Avoid tunnels while calculating the route.</p>
    * @public
    */
-  Tunnels?: boolean;
+  Tunnels?: boolean | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  UTurns?: boolean;
+  UTurns?: boolean | undefined;
 
   /**
    * <p>Zone categories to be avoided.</p>
    * @public
    */
-  ZoneCategories?: IsolineAvoidanceZoneCategory[];
+  ZoneCategories?: IsolineAvoidanceZoneCategory[] | undefined;
 }
 
 /**
@@ -281,7 +281,7 @@ export interface IsolineMatchingOptions {
    * <p>Attempts to match the provided position to a road similar to the provided name.</p>
    * @public
    */
-  NameHint?: string;
+  NameHint?: string | undefined;
 
   /**
    * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
@@ -290,7 +290,7 @@ export interface IsolineMatchingOptions {
    *          </p>
    * @public
    */
-  OnRoadThreshold?: number;
+  OnRoadThreshold?: number | undefined;
 
   /**
    * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
@@ -299,13 +299,13 @@ export interface IsolineMatchingOptions {
    *          </p>
    * @public
    */
-  Radius?: number;
+  Radius?: number | undefined;
 
   /**
    * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
    * @public
    */
-  Strategy?: MatchingStrategy;
+  Strategy?: MatchingStrategy | undefined;
 }
 
 /**
@@ -340,7 +340,7 @@ export interface IsolineSideOfStreetOptions {
    *          </p>
    * @public
    */
-  UseWith?: SideOfStreetMatchingStrategy;
+  UseWith?: SideOfStreetMatchingStrategy | undefined;
 }
 
 /**
@@ -352,25 +352,25 @@ export interface IsolineDestinationOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: IsolineMatchingOptions;
+  Matching?: IsolineMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: IsolineSideOfStreetOptions;
+  SideOfStreet?: IsolineSideOfStreetOptions | undefined;
 }
 
 /**
@@ -396,7 +396,7 @@ export interface IsolineGranularityOptions {
    * <p>Maximum number of points of returned Isoline.</p>
    * @public
    */
-  MaxPoints?: number;
+  MaxPoints?: number | undefined;
 
   /**
    * <p>Maximum resolution of the returned isoline.</p>
@@ -405,7 +405,7 @@ export interface IsolineGranularityOptions {
    *          </p>
    * @public
    */
-  MaxResolution?: number;
+  MaxResolution?: number | undefined;
 }
 
 /**
@@ -447,25 +447,25 @@ export interface IsolineOriginOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: IsolineMatchingOptions;
+  Matching?: IsolineMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: IsolineSideOfStreetOptions;
+  SideOfStreet?: IsolineSideOfStreetOptions | undefined;
 }
 
 /**
@@ -478,13 +478,13 @@ export interface IsolineThresholds {
    * <p>Distance to be used for the isoline calculation.</p>
    * @public
    */
-  Distance?: number[];
+  Distance?: number[] | undefined;
 
   /**
    * <p>Time to be used for the isoline calculation.</p>
    * @public
    */
-  Time?: number[];
+  Time?: number[] | undefined;
 }
 
 /**
@@ -513,7 +513,7 @@ export interface IsolineTrafficOptions {
    *          </p>
    * @public
    */
-  FlowEventThresholdOverride?: number;
+  FlowEventThresholdOverride?: number | undefined;
 
   /**
    * <p>Determines if traffic should be used or ignored while calculating the route.</p>
@@ -521,7 +521,7 @@ export interface IsolineTrafficOptions {
    *          </p>
    * @public
    */
-  Usage?: TrafficUsage;
+  Usage?: TrafficUsage | undefined;
 }
 
 /**
@@ -564,7 +564,7 @@ export interface IsolineVehicleLicensePlate {
    * <p>The last character of the License Plate.</p>
    * @public
    */
-  LastCharacter?: string;
+  LastCharacter?: string | undefined;
 }
 
 /**
@@ -576,13 +576,13 @@ export interface IsolineCarOptions {
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: IsolineEngineType;
+  EngineType?: IsolineEngineType | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: IsolineVehicleLicensePlate;
+  LicensePlate?: IsolineVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed.</p>
@@ -591,7 +591,7 @@ export interface IsolineCarOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -599,7 +599,7 @@ export interface IsolineCarOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -611,13 +611,13 @@ export interface IsolineScooterOptions {
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: IsolineEngineType;
+  EngineType?: IsolineEngineType | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: IsolineVehicleLicensePlate;
+  LicensePlate?: IsolineVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed specified.</p>
@@ -626,7 +626,7 @@ export interface IsolineScooterOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -634,7 +634,7 @@ export interface IsolineScooterOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -669,7 +669,7 @@ export interface IsolineTrailerOptions {
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: number;
+  AxleCount?: number | undefined;
 
   /**
    * <p>Number of trailers attached to the vehicle.</p>
@@ -677,7 +677,7 @@ export interface IsolineTrailerOptions {
    *          </p>
    * @public
    */
-  TrailerCount?: number;
+  TrailerCount?: number | undefined;
 }
 
 /**
@@ -710,7 +710,7 @@ export interface WeightPerAxleGroup {
    *          </p>
    * @public
    */
-  Single?: number;
+  Single?: number | undefined;
 
   /**
    * <p>Weight for tandem axle group.</p>
@@ -719,7 +719,7 @@ export interface WeightPerAxleGroup {
    *          </p>
    * @public
    */
-  Tandem?: number;
+  Tandem?: number | undefined;
 
   /**
    * <p>Weight for triple axle group.</p>
@@ -728,7 +728,7 @@ export interface WeightPerAxleGroup {
    *          </p>
    * @public
    */
-  Triple?: number;
+  Triple?: number | undefined;
 
   /**
    * <p>Weight for quad axle group.</p>
@@ -737,7 +737,7 @@ export interface WeightPerAxleGroup {
    *          </p>
    * @public
    */
-  Quad?: number;
+  Quad?: number | undefined;
 
   /**
    * <p>Weight for quad quint group.</p>
@@ -746,7 +746,7 @@ export interface WeightPerAxleGroup {
    *          </p>
    * @public
    */
-  Quint?: number;
+  Quint?: number | undefined;
 }
 
 /**
@@ -758,13 +758,13 @@ export interface IsolineTruckOptions {
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: number;
+  AxleCount?: number | undefined;
 
   /**
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: IsolineEngineType;
+  EngineType?: IsolineEngineType | undefined;
 
   /**
    * <p>Gross weight of the vehicle including trailers, and goods at capacity.</p>
@@ -773,13 +773,13 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  GrossWeight?: number;
+  GrossWeight?: number | undefined;
 
   /**
    * <p>List of Hazardous cargo contained in the vehicle.</p>
    * @public
    */
-  HazardousCargos?: IsolineHazardousCargoType[];
+  HazardousCargos?: IsolineHazardousCargoType[] | undefined;
 
   /**
    * <p>Height of the vehicle.</p>
@@ -788,7 +788,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>Height of the vehicle above its first axle.</p>
@@ -797,7 +797,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  HeightAboveFirstAxle?: number;
+  HeightAboveFirstAxle?: number | undefined;
 
   /**
    * <p>Kingpin to rear axle length of the vehicle.</p>
@@ -806,7 +806,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  KpraLength?: number;
+  KpraLength?: number | undefined;
 
   /**
    * <p>Length of the vehicle.</p>
@@ -815,13 +815,13 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: IsolineVehicleLicensePlate;
+  LicensePlate?: IsolineVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed specified.</p>
@@ -830,7 +830,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -838,7 +838,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 
   /**
    * <p>Payload capacity of the vehicle and trailers attached.</p>
@@ -847,25 +847,25 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  PayloadCapacity?: number;
+  PayloadCapacity?: number | undefined;
 
   /**
    * <p>Number of tires on the vehicle.</p>
    * @public
    */
-  TireCount?: number;
+  TireCount?: number | undefined;
 
   /**
    * <p>Trailer options corresponding to the vehicle.</p>
    * @public
    */
-  Trailer?: IsolineTrailerOptions;
+  Trailer?: IsolineTrailerOptions | undefined;
 
   /**
    * <p>Type of the truck.</p>
    * @public
    */
-  TruckType?: IsolineTruckType;
+  TruckType?: IsolineTruckType | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -935,7 +935,7 @@ export interface IsolineTruckOptions {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 
   /**
    * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
@@ -944,7 +944,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxle?: number;
+  WeightPerAxle?: number | undefined;
 
   /**
    * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
@@ -953,7 +953,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxleGroup?: WeightPerAxleGroup;
+  WeightPerAxleGroup?: WeightPerAxleGroup | undefined;
 
   /**
    * <p>Width of the vehicle.</p>
@@ -962,7 +962,7 @@ export interface IsolineTruckOptions {
    *          </p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 }
 
 /**
@@ -974,19 +974,19 @@ export interface IsolineTravelModeOptions {
    * <p>Travel mode options when the provided travel mode is "Car"</p>
    * @public
    */
-  Car?: IsolineCarOptions;
+  Car?: IsolineCarOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Scooter"</p>
    * @public
    */
-  Scooter?: IsolineScooterOptions;
+  Scooter?: IsolineScooterOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Truck"</p>
    * @public
    */
-  Truck?: IsolineTruckOptions;
+  Truck?: IsolineTruckOptions | undefined;
 }
 
 /**
@@ -997,7 +997,7 @@ export interface CalculateIsolinesRequest {
    * <p>Features that are allowed while calculating. a route</p>
    * @public
    */
-  Allow?: IsolineAllowOptions;
+  Allow?: IsolineAllowOptions | undefined;
 
   /**
    * <p>Time of arrival at the destination.</p>
@@ -1012,7 +1012,7 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  ArrivalTime?: string;
+  ArrivalTime?: string | undefined;
 
   /**
    * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
@@ -1020,13 +1020,13 @@ export interface CalculateIsolinesRequest {
    *          returned response produces a notice for the violation.</p>
    * @public
    */
-  Avoid?: IsolineAvoidanceOptions;
+  Avoid?: IsolineAvoidanceOptions | undefined;
 
   /**
    * <p>Uses the current time as the time of departure.</p>
    * @public
    */
-  DepartNow?: boolean;
+  DepartNow?: boolean | undefined;
 
   /**
    * <p>Time of departure from thr origin.</p>
@@ -1041,19 +1041,19 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  DepartureTime?: string;
+  DepartureTime?: string | undefined;
 
   /**
    * <p>The final position for the route. In the World Geodetic System (WGS 84) format: <code>[longitude, latitude]</code>.</p>
    * @public
    */
-  Destination?: number[];
+  Destination?: number[] | undefined;
 
   /**
    * <p>Destination related options.</p>
    * @public
    */
-  DestinationOptions?: IsolineDestinationOptions;
+  DestinationOptions?: IsolineDestinationOptions | undefined;
 
   /**
    * <p>The format of the returned IsolineGeometry. </p>
@@ -1061,20 +1061,20 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  IsolineGeometryFormat?: GeometryFormat;
+  IsolineGeometryFormat?: GeometryFormat | undefined;
 
   /**
    * <p>Defines the granularity of the returned Isoline</p>
    * @public
    */
-  IsolineGranularity?: IsolineGranularityOptions;
+  IsolineGranularity?: IsolineGranularityOptions | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Specifies the optimization criteria for when calculating an isoline. AccurateCalculation generates an isoline of higher granularity that is more precise.
@@ -1084,7 +1084,7 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  OptimizeIsolineFor?: IsolineOptimizationObjective;
+  OptimizeIsolineFor?: IsolineOptimizationObjective | undefined;
 
   /**
    * <p>Specifies the optimization criteria for calculating a route.</p>
@@ -1092,19 +1092,19 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  OptimizeRoutingFor?: RoutingObjective;
+  OptimizeRoutingFor?: RoutingObjective | undefined;
 
   /**
    * <p>The start position for the route.</p>
    * @public
    */
-  Origin?: number[];
+  Origin?: number[] | undefined;
 
   /**
    * <p>Origin related options.</p>
    * @public
    */
-  OriginOptions?: IsolineOriginOptions;
+  OriginOptions?: IsolineOriginOptions | undefined;
 
   /**
    * <p>Threshold to be used for the isoline calculation. Up to
@@ -1117,7 +1117,7 @@ export interface CalculateIsolinesRequest {
    * <p>Traffic related options.</p>
    * @public
    */
-  Traffic?: IsolineTrafficOptions;
+  Traffic?: IsolineTrafficOptions | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route.
@@ -1129,13 +1129,13 @@ export interface CalculateIsolinesRequest {
    *          </p>
    * @public
    */
-  TravelMode?: IsolineTravelMode;
+  TravelMode?: IsolineTravelMode | undefined;
 
   /**
    * <p>Travel mode related options for the provided travel mode.</p>
    * @public
    */
-  TravelModeOptions?: IsolineTravelModeOptions;
+  TravelModeOptions?: IsolineTravelModeOptions | undefined;
 }
 
 /**
@@ -1150,7 +1150,7 @@ export interface IsolineConnectionGeometry {
    *          </note>
    * @public
    */
-  LineString?: number[][];
+  LineString?: number[][] | undefined;
 
   /**
    * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
@@ -1159,7 +1159,7 @@ export interface IsolineConnectionGeometry {
    *          </note>
    * @public
    */
-  Polyline?: string;
+  Polyline?: string | undefined;
 }
 
 /**
@@ -1195,7 +1195,7 @@ export interface IsolineShapeGeometry {
    * <p>A list of Isoline Polygons, for each isoline polygon, it contains polygons of the first linear ring (the outer ring) and from 2nd item to the last item (the inner rings).</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 
   /**
    * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon
@@ -1203,7 +1203,7 @@ export interface IsolineShapeGeometry {
    *       For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
-  PolylinePolygon?: string[];
+  PolylinePolygon?: string[] | undefined;
 }
 
 /**
@@ -1221,7 +1221,7 @@ export interface Isoline {
    * <p>Distance threshold corresponding to the calculated Isoline.</p>
    * @public
    */
-  DistanceThreshold?: number;
+  DistanceThreshold?: number | undefined;
 
   /**
    * <p>Geometries for the Calculated isolines.</p>
@@ -1233,7 +1233,7 @@ export interface Isoline {
    * <p>Time threshold corresponding to the calculated isoline.</p>
    * @public
    */
-  TimeThreshold?: number;
+  TimeThreshold?: number | undefined;
 }
 
 /**
@@ -1253,7 +1253,7 @@ export interface CalculateIsolinesResponse {
    *          </p>
    * @public
    */
-  ArrivalTime?: string;
+  ArrivalTime?: string | undefined;
 
   /**
    * <p>Time of departure from thr origin.</p>
@@ -1268,7 +1268,7 @@ export interface CalculateIsolinesResponse {
    *          </p>
    * @public
    */
-  DepartureTime?: string;
+  DepartureTime?: string | undefined;
 
   /**
    * <p>The format of the returned IsolineGeometry. </p>
@@ -1294,13 +1294,13 @@ export interface CalculateIsolinesResponse {
    * <p>Snapped destination that was used for the Isoline calculation.</p>
    * @public
    */
-  SnappedDestination?: number[];
+  SnappedDestination?: number[] | undefined;
 
   /**
    * <p>Snapped origin that was used for the Isoline calculation.</p>
    * @public
    */
-  SnappedOrigin?: number[];
+  SnappedOrigin?: number[] | undefined;
 }
 
 /**
@@ -1451,13 +1451,13 @@ export interface RouteMatrixAllowOptions {
    * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
    * @public
    */
-  Hot?: boolean;
+  Hot?: boolean | undefined;
 
   /**
    * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
    * @public
    */
-  Hov?: boolean;
+  Hov?: boolean | undefined;
 }
 
 /**
@@ -1471,13 +1471,13 @@ export interface RouteMatrixAvoidanceAreaGeometry {
    *          represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>Geometry defined as a polygon with only one linear ring.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 
   /**
    * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains
@@ -1485,7 +1485,7 @@ export interface RouteMatrixAvoidanceAreaGeometry {
    *          item (the inner rings). For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
-  PolylinePolygon?: string[];
+  PolylinePolygon?: string[] | undefined;
 }
 
 /**
@@ -1524,7 +1524,7 @@ export interface RouteMatrixAvoidanceZoneCategory {
    * <p>Zone category to be avoided.</p>
    * @public
    */
-  Category?: RouteMatrixZoneCategory;
+  Category?: RouteMatrixZoneCategory | undefined;
 }
 
 /**
@@ -1536,43 +1536,43 @@ export interface RouteMatrixAvoidanceOptions {
    * <p>Areas to be avoided.</p>
    * @public
    */
-  Areas?: RouteMatrixAvoidanceArea[];
+  Areas?: RouteMatrixAvoidanceArea[] | undefined;
 
   /**
    * <p>Avoid car-shuttle-trains while calculating the route.</p>
    * @public
    */
-  CarShuttleTrains?: boolean;
+  CarShuttleTrains?: boolean | undefined;
 
   /**
    * <p>Avoid controlled access highways while calculating the route.</p>
    * @public
    */
-  ControlledAccessHighways?: boolean;
+  ControlledAccessHighways?: boolean | undefined;
 
   /**
    * <p>Avoid dirt roads while calculating the route.</p>
    * @public
    */
-  DirtRoads?: boolean;
+  DirtRoads?: boolean | undefined;
 
   /**
    * <p>Avoid ferries while calculating the route.</p>
    * @public
    */
-  Ferries?: boolean;
+  Ferries?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollRoads?: boolean;
+  TollRoads?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollTransponders?: boolean;
+  TollTransponders?: boolean | undefined;
 
   /**
    * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
@@ -1582,25 +1582,25 @@ export interface RouteMatrixAvoidanceOptions {
    *          </note>
    * @public
    */
-  TruckRoadTypes?: string[];
+  TruckRoadTypes?: string[] | undefined;
 
   /**
    * <p>Avoid tunnels while calculating the route.</p>
    * @public
    */
-  Tunnels?: boolean;
+  Tunnels?: boolean | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  UTurns?: boolean;
+  UTurns?: boolean | undefined;
 
   /**
    * <p>Zone categories to be avoided.</p>
    * @public
    */
-  ZoneCategories?: RouteMatrixAvoidanceZoneCategory[];
+  ZoneCategories?: RouteMatrixAvoidanceZoneCategory[] | undefined;
 }
 
 /**
@@ -1612,7 +1612,7 @@ export interface RouteMatrixMatchingOptions {
    * <p>Attempts to match the provided position to a road similar to the provided name.</p>
    * @public
    */
-  NameHint?: string;
+  NameHint?: string | undefined;
 
   /**
    * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
@@ -1621,7 +1621,7 @@ export interface RouteMatrixMatchingOptions {
    *          </p>
    * @public
    */
-  OnRoadThreshold?: number;
+  OnRoadThreshold?: number | undefined;
 
   /**
    * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
@@ -1630,13 +1630,13 @@ export interface RouteMatrixMatchingOptions {
    *          </p>
    * @public
    */
-  Radius?: number;
+  Radius?: number | undefined;
 
   /**
    * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
    * @public
    */
-  Strategy?: MatchingStrategy;
+  Strategy?: MatchingStrategy | undefined;
 }
 
 /**
@@ -1656,7 +1656,7 @@ export interface RouteMatrixSideOfStreetOptions {
    *          </p>
    * @public
    */
-  UseWith?: SideOfStreetMatchingStrategy;
+  UseWith?: SideOfStreetMatchingStrategy | undefined;
 }
 
 /**
@@ -1668,25 +1668,25 @@ export interface RouteMatrixDestinationOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: RouteMatrixMatchingOptions;
+  Matching?: RouteMatrixMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteMatrixSideOfStreetOptions;
+  SideOfStreet?: RouteMatrixSideOfStreetOptions | undefined;
 }
 
 /**
@@ -1698,7 +1698,7 @@ export interface RouteMatrixDestination {
    * <p>Destination related options.</p>
    * @public
    */
-  Options?: RouteMatrixDestinationOptions;
+  Options?: RouteMatrixDestinationOptions | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -1728,25 +1728,25 @@ export interface RouteMatrixOriginOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: RouteMatrixMatchingOptions;
+  Matching?: RouteMatrixMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteMatrixSideOfStreetOptions;
+  SideOfStreet?: RouteMatrixSideOfStreetOptions | undefined;
 }
 
 /**
@@ -1758,7 +1758,7 @@ export interface RouteMatrixOrigin {
    * <p>Origin related options.</p>
    * @public
    */
-  Options?: RouteMatrixOriginOptions;
+  Options?: RouteMatrixOriginOptions | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -1776,13 +1776,13 @@ export interface RouteMatrixAutoCircle {
    * <p>The margin provided for the calculation.</p>
    * @public
    */
-  Margin?: number;
+  Margin?: number | undefined;
 
   /**
    * <p>The maximum size of the radius provided for the calculation.</p>
    * @public
    */
-  MaxRadius?: number;
+  MaxRadius?: number | undefined;
 }
 
 /**
@@ -1816,13 +1816,13 @@ export interface RouteMatrixBoundaryGeometry {
    * <p>Provides the circle that was used while calculating the route.</p>
    * @public
    */
-  AutoCircle?: RouteMatrixAutoCircle;
+  AutoCircle?: RouteMatrixAutoCircle | undefined;
 
   /**
    * <p>Geometry defined as a circle. When request routing boundary was set as <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
    * @public
    */
-  Circle?: Circle;
+  Circle?: Circle | undefined;
 
   /**
    * <p>Geometry defined as a bounding box. The first pair represents the X and Y coordinates
@@ -1830,13 +1830,13 @@ export interface RouteMatrixBoundaryGeometry {
    *          represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>Geometry defined as a polygon with only one linear ring.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 }
 
 /**
@@ -1848,13 +1848,13 @@ export interface RouteMatrixBoundary {
    * <p>Geometry of the area to be avoided.</p>
    * @public
    */
-  Geometry?: RouteMatrixBoundaryGeometry;
+  Geometry?: RouteMatrixBoundaryGeometry | undefined;
 
   /**
    * <p>No restrictions in terms of a routing boundary, and is typically used for longer routes.</p>
    * @public
    */
-  Unbounded?: boolean;
+  Unbounded?: boolean | undefined;
 }
 
 /**
@@ -1870,7 +1870,7 @@ export interface RouteMatrixTrafficOptions {
    *       While flow traffic event is valid it will be used over the historical traffic data. </p>
    * @public
    */
-  FlowEventThresholdOverride?: number;
+  FlowEventThresholdOverride?: number | undefined;
 
   /**
    * <p>Determines if traffic should be used or ignored while calculating the route.</p>
@@ -1878,7 +1878,7 @@ export interface RouteMatrixTrafficOptions {
    *          </p>
    * @public
    */
-  Usage?: TrafficUsage;
+  Usage?: TrafficUsage | undefined;
 }
 
 /**
@@ -1906,7 +1906,7 @@ export interface RouteMatrixVehicleLicensePlate {
    * <p>The last character of the License Plate.</p>
    * @public
    */
-  LastCharacter?: string;
+  LastCharacter?: string | undefined;
 }
 
 /**
@@ -1918,7 +1918,7 @@ export interface RouteMatrixCarOptions {
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteMatrixVehicleLicensePlate;
+  LicensePlate?: RouteMatrixVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed</p>
@@ -1927,7 +1927,7 @@ export interface RouteMatrixCarOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -1935,7 +1935,7 @@ export interface RouteMatrixCarOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -1947,7 +1947,7 @@ export interface RouteMatrixScooterOptions {
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteMatrixVehicleLicensePlate;
+  LicensePlate?: RouteMatrixVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed.</p>
@@ -1956,7 +1956,7 @@ export interface RouteMatrixScooterOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -1964,7 +1964,7 @@ export interface RouteMatrixScooterOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -2002,7 +2002,7 @@ export interface RouteMatrixTrailerOptions {
    *          </p>
    * @public
    */
-  TrailerCount?: number;
+  TrailerCount?: number | undefined;
 }
 
 /**
@@ -2029,7 +2029,7 @@ export interface RouteMatrixTruckOptions {
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: number;
+  AxleCount?: number | undefined;
 
   /**
    * <p>Gross weight of the vehicle including trailers, and goods at capacity.</p>
@@ -2038,13 +2038,13 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  GrossWeight?: number;
+  GrossWeight?: number | undefined;
 
   /**
    * <p>List of Hazardous cargo contained in the vehicle.</p>
    * @public
    */
-  HazardousCargos?: RouteMatrixHazardousCargoType[];
+  HazardousCargos?: RouteMatrixHazardousCargoType[] | undefined;
 
   /**
    * <p>Height of the vehicle.</p>
@@ -2053,7 +2053,7 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>Kingpin to rear axle length of the vehicle</p>
@@ -2062,7 +2062,7 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  KpraLength?: number;
+  KpraLength?: number | undefined;
 
   /**
    * <p>Length of the vehicle.</p>
@@ -2071,13 +2071,13 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteMatrixVehicleLicensePlate;
+  LicensePlate?: RouteMatrixVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed</p>
@@ -2086,7 +2086,7 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -2094,7 +2094,7 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 
   /**
    * <p>Payload capacity of the vehicle and trailers attached.</p>
@@ -2103,19 +2103,19 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  PayloadCapacity?: number;
+  PayloadCapacity?: number | undefined;
 
   /**
    * <p>Trailer options corresponding to the vehicle.</p>
    * @public
    */
-  Trailer?: RouteMatrixTrailerOptions;
+  Trailer?: RouteMatrixTrailerOptions | undefined;
 
   /**
    * <p>Type of the truck.</p>
    * @public
    */
-  TruckType?: RouteMatrixTruckType;
+  TruckType?: RouteMatrixTruckType | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -2185,7 +2185,7 @@ export interface RouteMatrixTruckOptions {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 
   /**
    * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
@@ -2194,13 +2194,13 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxle?: number;
+  WeightPerAxle?: number | undefined;
 
   /**
    * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
    * @public
    */
-  WeightPerAxleGroup?: WeightPerAxleGroup;
+  WeightPerAxleGroup?: WeightPerAxleGroup | undefined;
 
   /**
    * <p>Width of the vehicle.</p>
@@ -2209,7 +2209,7 @@ export interface RouteMatrixTruckOptions {
    *          </p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 }
 
 /**
@@ -2221,19 +2221,19 @@ export interface RouteMatrixTravelModeOptions {
    * <p>Travel mode options when the provided travel mode is "Car"</p>
    * @public
    */
-  Car?: RouteMatrixCarOptions;
+  Car?: RouteMatrixCarOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Scooter"</p>
    * @public
    */
-  Scooter?: RouteMatrixScooterOptions;
+  Scooter?: RouteMatrixScooterOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Truck"</p>
    * @public
    */
-  Truck?: RouteMatrixTruckOptions;
+  Truck?: RouteMatrixTruckOptions | undefined;
 }
 
 /**
@@ -2244,7 +2244,7 @@ export interface CalculateRouteMatrixRequest {
    * <p>Features that are allowed while calculating. a route</p>
    * @public
    */
-  Allow?: RouteMatrixAllowOptions;
+  Allow?: RouteMatrixAllowOptions | undefined;
 
   /**
    * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
@@ -2252,13 +2252,13 @@ export interface CalculateRouteMatrixRequest {
    *          returned response produces a notice for the violation.</p>
    * @public
    */
-  Avoid?: RouteMatrixAvoidanceOptions;
+  Avoid?: RouteMatrixAvoidanceOptions | undefined;
 
   /**
    * <p>Uses the current time as the time of departure.</p>
    * @public
    */
-  DepartNow?: boolean;
+  DepartNow?: boolean | undefined;
 
   /**
    * <p>Time of departure from thr origin.</p>
@@ -2273,7 +2273,7 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  DepartureTime?: string;
+  DepartureTime?: string | undefined;
 
   /**
    * <p>List of destinations for the route.</p>
@@ -2285,14 +2285,14 @@ export interface CalculateRouteMatrixRequest {
    * <p>Features to be strictly excluded while calculating the route.</p>
    * @public
    */
-  Exclude?: RouteMatrixExclusionOptions;
+  Exclude?: RouteMatrixExclusionOptions | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Specifies the optimization criteria for calculating a route.</p>
@@ -2300,7 +2300,7 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  OptimizeRoutingFor?: RoutingObjective;
+  OptimizeRoutingFor?: RoutingObjective | undefined;
 
   /**
    * <p>The position in longitude and latitude for the origin.</p>
@@ -2322,7 +2322,7 @@ export interface CalculateRouteMatrixRequest {
    * <p>Traffic related options.</p>
    * @public
    */
-  Traffic?: RouteMatrixTrafficOptions;
+  Traffic?: RouteMatrixTrafficOptions | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route.
@@ -2331,13 +2331,13 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    * @public
    */
-  TravelMode?: RouteMatrixTravelMode;
+  TravelMode?: RouteMatrixTravelMode | undefined;
 
   /**
    * <p>Travel mode related options for the provided travel mode.</p>
    * @public
    */
-  TravelModeOptions?: RouteMatrixTravelModeOptions;
+  TravelModeOptions?: RouteMatrixTravelModeOptions | undefined;
 }
 
 /**
@@ -2385,7 +2385,7 @@ export interface RouteMatrixEntry {
    * <p>Error code that occurred during calculation of the route.</p>
    * @public
    */
-  Error?: RouteMatrixErrorCode;
+  Error?: RouteMatrixErrorCode | undefined;
 }
 
 /**
@@ -2429,13 +2429,13 @@ export interface RouteAllowOptions {
    * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
    * @public
    */
-  Hot?: boolean;
+  Hot?: boolean | undefined;
 
   /**
    * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
    * @public
    */
-  Hov?: boolean;
+  Hov?: boolean | undefined;
 }
 
 /**
@@ -2447,7 +2447,7 @@ export interface RouteAvoidanceAreaGeometry {
    * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>
    * @public
    */
-  Corridor?: Corridor;
+  Corridor?: Corridor | undefined;
 
   /**
    * <p>Geometry defined as a bounding box. The first pair represents the X and Y coordinates
@@ -2455,20 +2455,20 @@ export interface RouteAvoidanceAreaGeometry {
    *          represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 
   /**
    * <p>Geometry defined as a polygon with only one linear ring.</p>
    * @public
    */
-  Polygon?: number[][][];
+  Polygon?: number[][][] | undefined;
 
   /**
    * <p>Geometry defined as an encoded corridor - an encoded polyline with a radius that defines
    *          the width of the corridor.</p>
    * @public
    */
-  PolylineCorridor?: PolylineCorridor;
+  PolylineCorridor?: PolylineCorridor | undefined;
 
   /**
    * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon
@@ -2476,7 +2476,7 @@ export interface RouteAvoidanceAreaGeometry {
    *       For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
-  PolylinePolygon?: string[];
+  PolylinePolygon?: string[] | undefined;
 }
 
 /**
@@ -2488,7 +2488,7 @@ export interface RouteAvoidanceArea {
    * <p>Exceptions to the provided avoidance geometry, to be included while calculating the route.</p>
    * @public
    */
-  Except?: RouteAvoidanceAreaGeometry[];
+  Except?: RouteAvoidanceAreaGeometry[] | undefined;
 
   /**
    * <p>Geometry of the area to be avoided.</p>
@@ -2533,49 +2533,49 @@ export interface RouteAvoidanceOptions {
    * <p>Areas to be avoided.</p>
    * @public
    */
-  Areas?: RouteAvoidanceArea[];
+  Areas?: RouteAvoidanceArea[] | undefined;
 
   /**
    * <p>Avoid car-shuttle-trains while calculating the route.</p>
    * @public
    */
-  CarShuttleTrains?: boolean;
+  CarShuttleTrains?: boolean | undefined;
 
   /**
    * <p>Avoid controlled access highways while calculating the route.</p>
    * @public
    */
-  ControlledAccessHighways?: boolean;
+  ControlledAccessHighways?: boolean | undefined;
 
   /**
    * <p>Avoid dirt roads while calculating the route.</p>
    * @public
    */
-  DirtRoads?: boolean;
+  DirtRoads?: boolean | undefined;
 
   /**
    * <p>Avoid ferries while calculating the route.</p>
    * @public
    */
-  Ferries?: boolean;
+  Ferries?: boolean | undefined;
 
   /**
    * <p>Avoid roads that have seasonal closure while calculating the route.</p>
    * @public
    */
-  SeasonalClosure?: boolean;
+  SeasonalClosure?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollRoads?: boolean;
+  TollRoads?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollTransponders?: boolean;
+  TollTransponders?: boolean | undefined;
 
   /**
    * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
@@ -2585,25 +2585,25 @@ export interface RouteAvoidanceOptions {
    *          </note>
    * @public
    */
-  TruckRoadTypes?: string[];
+  TruckRoadTypes?: string[] | undefined;
 
   /**
    * <p>Avoid tunnels while calculating the route.</p>
    * @public
    */
-  Tunnels?: boolean;
+  Tunnels?: boolean | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  UTurns?: boolean;
+  UTurns?: boolean | undefined;
 
   /**
    * <p>Zone categories to be avoided.</p>
    * @public
    */
-  ZoneCategories?: RouteAvoidanceZoneCategory[];
+  ZoneCategories?: RouteAvoidanceZoneCategory[] | undefined;
 }
 
 /**
@@ -2615,7 +2615,7 @@ export interface RouteMatchingOptions {
    * <p>Attempts to match the provided position to a road similar to the provided name.</p>
    * @public
    */
-  NameHint?: string;
+  NameHint?: string | undefined;
 
   /**
    * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
@@ -2624,7 +2624,7 @@ export interface RouteMatchingOptions {
    *          </p>
    * @public
    */
-  OnRoadThreshold?: number;
+  OnRoadThreshold?: number | undefined;
 
   /**
    * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
@@ -2633,13 +2633,13 @@ export interface RouteMatchingOptions {
    *          </p>
    * @public
    */
-  Radius?: number;
+  Radius?: number | undefined;
 
   /**
    * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
    * @public
    */
-  Strategy?: MatchingStrategy;
+  Strategy?: MatchingStrategy | undefined;
 }
 
 /**
@@ -2659,7 +2659,7 @@ export interface RouteSideOfStreetOptions {
    *          </p>
    * @public
    */
-  UseWith?: SideOfStreetMatchingStrategy;
+  UseWith?: SideOfStreetMatchingStrategy | undefined;
 }
 
 /**
@@ -2671,31 +2671,31 @@ export interface RouteDestinationOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  AvoidUTurns?: boolean;
+  AvoidUTurns?: boolean | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: RouteMatchingOptions;
+  Matching?: RouteMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteSideOfStreetOptions;
+  SideOfStreet?: RouteSideOfStreetOptions | undefined;
 
   /**
    * <p>Duration of the stop.</p>
@@ -2704,7 +2704,7 @@ export interface RouteDestinationOptions {
    *          </p>
    * @public
    */
-  StopDuration?: number;
+  StopDuration?: number | undefined;
 }
 
 /**
@@ -2741,7 +2741,7 @@ export interface RouteDriverOptions {
    * <p>Driver work-rest schedule. Stops are added to fulfil the provided rest schedule.</p>
    * @public
    */
-  Schedule?: RouteDriverScheduleInterval[];
+  Schedule?: RouteDriverScheduleInterval[] | undefined;
 }
 
 /**
@@ -2800,31 +2800,31 @@ export interface RouteOriginOptions {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  AvoidUTurns?: boolean;
+  AvoidUTurns?: boolean | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: RouteMatchingOptions;
+  Matching?: RouteMatchingOptions | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteSideOfStreetOptions;
+  SideOfStreet?: RouteSideOfStreetOptions | undefined;
 }
 
 /**
@@ -2875,7 +2875,7 @@ export interface RouteEmissionType {
    * <p>The CO 2  emission classes.</p>
    * @public
    */
-  Co2EmissionClass?: string;
+  Co2EmissionClass?: string | undefined;
 
   /**
    * <p>Type of the emission.</p>
@@ -2910,19 +2910,19 @@ export interface RouteTollOptions {
    *          impacts toll calculation, and if true the price with transponders is used.</p>
    * @public
    */
-  AllTransponders?: boolean;
+  AllTransponders?: boolean | undefined;
 
   /**
    * <p>Specifies if the user has valid vignettes with access for all toll roads. If a user has a vignette for a toll road, then toll cost for that road is omitted since no further payment is necessary.</p>
    * @public
    */
-  AllVignettes?: boolean;
+  AllVignettes?: boolean | undefined;
 
   /**
    * <p>Currency code corresponding to the price. This is the same as Currency specified in the request.</p>
    * @public
    */
-  Currency?: string;
+  Currency?: string | undefined;
 
   /**
    * <p>Emission type of the vehicle for toll cost calculation.</p>
@@ -2931,13 +2931,13 @@ export interface RouteTollOptions {
    *          </p>
    * @public
    */
-  EmissionType?: RouteEmissionType;
+  EmissionType?: RouteEmissionType | undefined;
 
   /**
    * <p>Vehicle category for toll cost calculation.</p>
    * @public
    */
-  VehicleCategory?: RouteTollVehicleCategory;
+  VehicleCategory?: RouteTollVehicleCategory | undefined;
 }
 
 /**
@@ -2954,7 +2954,7 @@ export interface RouteTrafficOptions {
    *       While flow traffic event is valid it will be used over the historical traffic data. </p>
    * @public
    */
-  FlowEventThresholdOverride?: number;
+  FlowEventThresholdOverride?: number | undefined;
 
   /**
    * <p>Determines if traffic should be used or ignored while calculating the route.</p>
@@ -2962,7 +2962,7 @@ export interface RouteTrafficOptions {
    *          </p>
    * @public
    */
-  Usage?: TrafficUsage;
+  Usage?: TrafficUsage | undefined;
 }
 
 /**
@@ -3006,7 +3006,7 @@ export interface RouteVehicleLicensePlate {
    * <p>The last character of the License Plate.</p>
    * @public
    */
-  LastCharacter?: string;
+  LastCharacter?: string | undefined;
 }
 
 /**
@@ -3018,13 +3018,13 @@ export interface RouteCarOptions {
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: RouteEngineType;
+  EngineType?: RouteEngineType | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteVehicleLicensePlate;
+  LicensePlate?: RouteVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed specified.</p>
@@ -3033,7 +3033,7 @@ export interface RouteCarOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -3041,7 +3041,7 @@ export interface RouteCarOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -3053,7 +3053,7 @@ export interface RoutePedestrianOptions {
    * <p>Walking speed in Kilometers per hour.</p>
    * @public
    */
-  Speed?: number;
+  Speed?: number | undefined;
 }
 
 /**
@@ -3065,13 +3065,13 @@ export interface RouteScooterOptions {
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: RouteEngineType;
+  EngineType?: RouteEngineType | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteVehicleLicensePlate;
+  LicensePlate?: RouteVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed</p>
@@ -3080,7 +3080,7 @@ export interface RouteScooterOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -3088,7 +3088,7 @@ export interface RouteScooterOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 }
 
 /**
@@ -3123,7 +3123,7 @@ export interface RouteTrailerOptions {
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: number;
+  AxleCount?: number | undefined;
 
   /**
    * <p>Number of trailers attached to the vehicle.</p>
@@ -3131,7 +3131,7 @@ export interface RouteTrailerOptions {
    *          </p>
    * @public
    */
-  TrailerCount?: number;
+  TrailerCount?: number | undefined;
 }
 
 /**
@@ -3158,13 +3158,13 @@ export interface RouteTruckOptions {
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: number;
+  AxleCount?: number | undefined;
 
   /**
    * <p>Engine type of the vehicle.</p>
    * @public
    */
-  EngineType?: RouteEngineType;
+  EngineType?: RouteEngineType | undefined;
 
   /**
    * <p>Gross weight of the vehicle including trailers, and goods at capacity.</p>
@@ -3173,13 +3173,13 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  GrossWeight?: number;
+  GrossWeight?: number | undefined;
 
   /**
    * <p>List of Hazardous cargo contained in the vehicle.</p>
    * @public
    */
-  HazardousCargos?: RouteHazardousCargoType[];
+  HazardousCargos?: RouteHazardousCargoType[] | undefined;
 
   /**
    * <p>Height of the vehicle.</p>
@@ -3188,7 +3188,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>Height of the vehicle above its first axle.</p>
@@ -3197,7 +3197,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  HeightAboveFirstAxle?: number;
+  HeightAboveFirstAxle?: number | undefined;
 
   /**
    * <p>Kingpin to rear axle length of the vehicle.</p>
@@ -3206,7 +3206,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  KpraLength?: number;
+  KpraLength?: number | undefined;
 
   /**
    * <p>Length of the vehicle.</p>
@@ -3215,13 +3215,13 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>The vehicle License Plate.</p>
    * @public
    */
-  LicensePlate?: RouteVehicleLicensePlate;
+  LicensePlate?: RouteVehicleLicensePlate | undefined;
 
   /**
    * <p>Maximum speed</p>
@@ -3230,7 +3230,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -3238,7 +3238,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  Occupancy?: number;
+  Occupancy?: number | undefined;
 
   /**
    * <p>Payload capacity of the vehicle and trailers attached.</p>
@@ -3247,25 +3247,25 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  PayloadCapacity?: number;
+  PayloadCapacity?: number | undefined;
 
   /**
    * <p>Number of tires on the vehicle.</p>
    * @public
    */
-  TireCount?: number;
+  TireCount?: number | undefined;
 
   /**
    * <p>Trailer options corresponding to the vehicle.</p>
    * @public
    */
-  Trailer?: RouteTrailerOptions;
+  Trailer?: RouteTrailerOptions | undefined;
 
   /**
    * <p>Type of the truck.</p>
    * @public
    */
-  TruckType?: RouteTruckType;
+  TruckType?: RouteTruckType | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -3335,7 +3335,7 @@ export interface RouteTruckOptions {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 
   /**
    * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
@@ -3344,7 +3344,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxle?: number;
+  WeightPerAxle?: number | undefined;
 
   /**
    * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
@@ -3353,7 +3353,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxleGroup?: WeightPerAxleGroup;
+  WeightPerAxleGroup?: WeightPerAxleGroup | undefined;
 
   /**
    * <p>Width of the vehicle.</p>
@@ -3362,7 +3362,7 @@ export interface RouteTruckOptions {
    *          </p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 }
 
 /**
@@ -3374,25 +3374,25 @@ export interface RouteTravelModeOptions {
    * <p>Travel mode options when the provided travel mode is "Car"</p>
    * @public
    */
-  Car?: RouteCarOptions;
+  Car?: RouteCarOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Pedestrian"</p>
    * @public
    */
-  Pedestrian?: RoutePedestrianOptions;
+  Pedestrian?: RoutePedestrianOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Scooter"</p>
    * @public
    */
-  Scooter?: RouteScooterOptions;
+  Scooter?: RouteScooterOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Truck"</p>
    * @public
    */
-  Truck?: RouteTruckOptions;
+  Truck?: RouteTruckOptions | undefined;
 }
 
 /**
@@ -3418,31 +3418,31 @@ export interface RouteWaypoint {
    * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
    * @public
    */
-  AvoidActionsForDistance?: number;
+  AvoidActionsForDistance?: number | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  AvoidUTurns?: boolean;
+  AvoidUTurns?: boolean | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to the road network.</p>
    * @public
    */
-  Matching?: RouteMatchingOptions;
+  Matching?: RouteMatchingOptions | undefined;
 
   /**
    * <p>If the waypoint should not be treated as a stop. If yes, the waypoint is passed through and doesn't split the route into different legs.</p>
    * @public
    */
-  PassThrough?: boolean;
+  PassThrough?: boolean | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -3454,7 +3454,7 @@ export interface RouteWaypoint {
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteSideOfStreetOptions;
+  SideOfStreet?: RouteSideOfStreetOptions | undefined;
 
   /**
    * <p>Duration of the stop.</p>
@@ -3463,7 +3463,7 @@ export interface RouteWaypoint {
    *          </p>
    * @public
    */
-  StopDuration?: number;
+  StopDuration?: number | undefined;
 }
 
 /**
@@ -3474,7 +3474,7 @@ export interface CalculateRoutesRequest {
    * <p>Features that are allowed while calculating. a route</p>
    * @public
    */
-  Allow?: RouteAllowOptions;
+  Allow?: RouteAllowOptions | undefined;
 
   /**
    * <p>Time of arrival at the destination.</p>
@@ -3489,7 +3489,7 @@ export interface CalculateRoutesRequest {
    *          </p>
    * @public
    */
-  ArrivalTime?: string;
+  ArrivalTime?: string | undefined;
 
   /**
    * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
@@ -3497,13 +3497,13 @@ export interface CalculateRoutesRequest {
    *          returned response produces a notice for the violation.</p>
    * @public
    */
-  Avoid?: RouteAvoidanceOptions;
+  Avoid?: RouteAvoidanceOptions | undefined;
 
   /**
    * <p>Uses the current time as the time of departure.</p>
    * @public
    */
-  DepartNow?: boolean;
+  DepartNow?: boolean | undefined;
 
   /**
    * <p>Time of departure from thr origin.</p>
@@ -3518,7 +3518,7 @@ export interface CalculateRoutesRequest {
    *          </p>
    * @public
    */
-  DepartureTime?: string;
+  DepartureTime?: string | undefined;
 
   /**
    * <p>The final position for the route. In the World Geodetic System (WGS 84) format: <code>[longitude, latitude]</code>.</p>
@@ -3530,32 +3530,32 @@ export interface CalculateRoutesRequest {
    * <p>Destination related options.</p>
    * @public
    */
-  DestinationOptions?: RouteDestinationOptions;
+  DestinationOptions?: RouteDestinationOptions | undefined;
 
   /**
    * <p>Driver related options.</p>
    * @public
    */
-  Driver?: RouteDriverOptions;
+  Driver?: RouteDriverOptions | undefined;
 
   /**
    * <p>Features to be strictly excluded while calculating the route.</p>
    * @public
    */
-  Exclude?: RouteExclusionOptions;
+  Exclude?: RouteExclusionOptions | undefined;
 
   /**
    * <p>Measurement system to be used for instructions within steps in the response.</p>
    * @public
    */
-  InstructionsMeasurementSystem?: MeasurementSystem;
+  InstructionsMeasurementSystem?: MeasurementSystem | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>List of languages for instructions within steps in the response.</p>
@@ -3564,7 +3564,7 @@ export interface CalculateRoutesRequest {
    *          </note>
    * @public
    */
-  Languages?: string[];
+  Languages?: string[] | undefined;
 
   /**
    * <p>A list of optional additional parameters such as timezone that can be requested for each result.</p>
@@ -3608,7 +3608,7 @@ export interface CalculateRoutesRequest {
    *          </ul>
    * @public
    */
-  LegAdditionalFeatures?: RouteLegAdditionalFeature[];
+  LegAdditionalFeatures?: RouteLegAdditionalFeature[] | undefined;
 
   /**
    * <p>Specifies the format of the geometry returned for each leg of the route. You can
@@ -3623,13 +3623,13 @@ export interface CalculateRoutesRequest {
    *      which is easier to decode but may be less precise and result in larger payloads.</p>
    * @public
    */
-  LegGeometryFormat?: GeometryFormat;
+  LegGeometryFormat?: GeometryFormat | undefined;
 
   /**
    * <p>Maximum number of alternative routes to be provided in the response, if available.</p>
    * @public
    */
-  MaxAlternatives?: number;
+  MaxAlternatives?: number | undefined;
 
   /**
    * <p>Specifies the optimization criteria for calculating a route.</p>
@@ -3637,7 +3637,7 @@ export interface CalculateRoutesRequest {
    *          </p>
    * @public
    */
-  OptimizeRoutingFor?: RoutingObjective;
+  OptimizeRoutingFor?: RoutingObjective | undefined;
 
   /**
    * <p>The start position for the route.</p>
@@ -3649,25 +3649,25 @@ export interface CalculateRoutesRequest {
    * <p>Origin related options.</p>
    * @public
    */
-  OriginOptions?: RouteOriginOptions;
+  OriginOptions?: RouteOriginOptions | undefined;
 
   /**
    * <p>A list of optional features such as SpeedLimit that can be requested for a Span. A span is a section of a Leg for which the requested features have the same values.</p>
    * @public
    */
-  SpanAdditionalFeatures?: RouteSpanAdditionalFeature[];
+  SpanAdditionalFeatures?: RouteSpanAdditionalFeature[] | undefined;
 
   /**
    * <p>Toll related options.</p>
    * @public
    */
-  Tolls?: RouteTollOptions;
+  Tolls?: RouteTollOptions | undefined;
 
   /**
    * <p>Traffic related options.</p>
    * @public
    */
-  Traffic?: RouteTrafficOptions;
+  Traffic?: RouteTrafficOptions | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route.
@@ -3676,13 +3676,13 @@ export interface CalculateRoutesRequest {
    *          </p>
    * @public
    */
-  TravelMode?: RouteTravelMode;
+  TravelMode?: RouteTravelMode | undefined;
 
   /**
    * <p>Travel mode related options for the provided travel mode.</p>
    * @public
    */
-  TravelModeOptions?: RouteTravelModeOptions;
+  TravelModeOptions?: RouteTravelModeOptions | undefined;
 
   /**
    * <p>Type of step returned by the response.
@@ -3690,13 +3690,13 @@ export interface CalculateRoutesRequest {
    * TurnByTurn provides detailed instructions with more granularity intended for a turn based naviagtion system.</p>
    * @public
    */
-  TravelStepType?: RouteTravelStepType;
+  TravelStepType?: RouteTravelStepType | undefined;
 
   /**
    * <p>List of waypoints between the Origin and Destination.</p>
    * @public
    */
-  Waypoints?: RouteWaypoint[];
+  Waypoints?: RouteWaypoint[] | undefined;
 }
 
 /**
@@ -3743,7 +3743,7 @@ export interface RouteResponseNotice {
    * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
-  Impact?: RouteNoticeImpact;
+  Impact?: RouteNoticeImpact | undefined;
 }
 
 /**
@@ -3781,7 +3781,7 @@ export interface RouteFerryAfterTravelStep {
    *          </note>
    * @public
    */
-  Instruction?: string;
+  Instruction?: string | undefined;
 
   /**
    * <p>Type of the step.</p>
@@ -3799,13 +3799,13 @@ export interface RouteFerryPlace {
    * <p>The name of the place.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Position provided in the request.</p>
    * @public
    */
-  OriginalPosition?: number[];
+  OriginalPosition?: number[] | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -3817,7 +3817,7 @@ export interface RouteFerryPlace {
    * <p>Index of the waypoint in the request.</p>
    * @public
    */
-  WaypointIndex?: number;
+  WaypointIndex?: number | undefined;
 }
 
 /**
@@ -3835,7 +3835,7 @@ export interface RouteFerryArrival {
    * <p>The time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -3873,7 +3873,7 @@ export interface RouteFerryBeforeTravelStep {
    *          </note>
    * @public
    */
-  Instruction?: string;
+  Instruction?: string | undefined;
 
   /**
    * <p>Type of the step.</p>
@@ -3897,7 +3897,7 @@ export interface RouteFerryDeparture {
    * <p>The time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -3932,7 +3932,7 @@ export interface RouteFerryNotice {
    * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
-  Impact?: RouteNoticeImpact;
+  Impact?: RouteNoticeImpact | undefined;
 }
 
 /**
@@ -3944,7 +3944,7 @@ export interface RoutePassThroughPlace {
    * <p>Position provided in the request.</p>
    * @public
    */
-  OriginalPosition?: number[];
+  OriginalPosition?: number[] | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -3956,7 +3956,7 @@ export interface RoutePassThroughPlace {
    * <p>Index of the waypoint in the request.</p>
    * @public
    */
-  WaypointIndex?: number;
+  WaypointIndex?: number | undefined;
 }
 
 /**
@@ -3968,7 +3968,7 @@ export interface RoutePassThroughWaypoint {
    * <p>Offset in the leg geometry corresponding to the start of this step.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>The place details.</p>
@@ -3988,7 +3988,7 @@ export interface LocalizedString {
    *          provided.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The value of the localized string.</p>
@@ -4006,13 +4006,13 @@ export interface RouteFerrySpan {
    * <p>3 letter Country code corresponding to the Span.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
@@ -4021,25 +4021,25 @@ export interface RouteFerrySpan {
    *          </p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>Offset in the leg geometry corresponding to the start of this span.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Provides an array of names of the ferry span in available languages.</p>
    * @public
    */
-  Names?: LocalizedString[];
+  Names?: LocalizedString[] | undefined;
 
   /**
    * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -4087,13 +4087,13 @@ export interface RouteFerrySummary {
    * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
    * @public
    */
-  Overview?: RouteFerryOverviewSummary;
+  Overview?: RouteFerryOverviewSummary | undefined;
 
   /**
    * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
    * @public
    */
-  TravelOnly?: RouteFerryTravelOnlySummary;
+  TravelOnly?: RouteFerryTravelOnlySummary | undefined;
 }
 
 /**
@@ -4120,7 +4120,7 @@ export interface RouteFerryTravelStep {
    * <p>Distance of the step.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the step.</p>
@@ -4135,7 +4135,7 @@ export interface RouteFerryTravelStep {
    * <p>Offset in the leg geometry corresponding to the start of this step.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Brief description of the step in the requested language.</p>
@@ -4144,7 +4144,7 @@ export interface RouteFerryTravelStep {
    *          </note>
    * @public
    */
-  Instruction?: string;
+  Instruction?: string | undefined;
 
   /**
    * <p>Type of the step.</p>
@@ -4199,7 +4199,7 @@ export interface RouteFerryLegDetails {
    * <p>Route name of the ferry line.</p>
    * @public
    */
-  RouteName?: string;
+  RouteName?: string | undefined;
 
   /**
    * <p>Spans that were computed for the requested SpanAdditionalFeatures.</p>
@@ -4211,7 +4211,7 @@ export interface RouteFerryLegDetails {
    * <p>Summarized details of the leg.</p>
    * @public
    */
-  Summary?: RouteFerrySummary;
+  Summary?: RouteFerrySummary | undefined;
 
   /**
    * <p>Steps of a leg that must be performed before the travel portion of the leg.</p>
@@ -4232,7 +4232,7 @@ export interface RouteLegGeometry {
    *          </note>
    * @public
    */
-  LineString?: number[][];
+  LineString?: number[][] | undefined;
 
   /**
    * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
@@ -4241,7 +4241,7 @@ export interface RouteLegGeometry {
    *          </note>
    * @public
    */
-  Polyline?: string;
+  Polyline?: string | undefined;
 }
 
 /**
@@ -4267,13 +4267,13 @@ export interface RoutePedestrianPlace {
    * <p>The name of the place.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Position provided in the request.</p>
    * @public
    */
-  OriginalPosition?: number[];
+  OriginalPosition?: number[] | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -4285,13 +4285,13 @@ export interface RoutePedestrianPlace {
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteSideOfStreet;
+  SideOfStreet?: RouteSideOfStreet | undefined;
 
   /**
    * <p>Index of the waypoint in the request.</p>
    * @public
    */
-  WaypointIndex?: number;
+  WaypointIndex?: number | undefined;
 }
 
 /**
@@ -4318,7 +4318,7 @@ export interface RoutePedestrianArrival {
    * <p>The time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -4345,7 +4345,7 @@ export interface RoutePedestrianDeparture {
    * <p>The time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -4380,7 +4380,7 @@ export interface RoutePedestrianNotice {
    * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
-  Impact?: RouteNoticeImpact;
+  Impact?: RouteNoticeImpact | undefined;
 }
 
 /**
@@ -4398,7 +4398,7 @@ export interface RouteSpanDynamicSpeedDetails {
    *          </p>
    * @public
    */
-  BestCaseSpeed?: number;
+  BestCaseSpeed?: number | undefined;
 
   /**
    * <p>Estimated time to turn from this span into the next. </p>
@@ -4407,7 +4407,7 @@ export interface RouteSpanDynamicSpeedDetails {
    *          </p>
    * @public
    */
-  TurnDuration?: number;
+  TurnDuration?: number | undefined;
 
   /**
    * <p>Estimated speed while traversing the span under typical traffic congestion.</p>
@@ -4416,7 +4416,7 @@ export interface RouteSpanDynamicSpeedDetails {
    *          </p>
    * @public
    */
-  TypicalSpeed?: number;
+  TypicalSpeed?: number | undefined;
 }
 
 /**
@@ -4487,13 +4487,13 @@ export interface RouteNumber {
    * <p>Directional identifier of the route.</p>
    * @public
    */
-  Direction?: RouteDirection;
+  Direction?: RouteDirection | undefined;
 
   /**
    * <p>List of languages for instructions corresponding to the route number.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The route number.</p>
@@ -4517,13 +4517,13 @@ export interface RouteSpanSpeedLimitDetails {
    *          </p>
    * @public
    */
-  MaxSpeed?: number;
+  MaxSpeed?: number | undefined;
 
   /**
    * <p>If the span doesn't have a speed limit like the Autobahn.</p>
    * @public
    */
-  Unlimited?: boolean;
+  Unlimited?: boolean | undefined;
 }
 
 /**
@@ -4538,19 +4538,19 @@ export interface RoutePedestrianSpan {
    *          </p>
    * @public
    */
-  BestCaseDuration?: number;
+  BestCaseDuration?: number | undefined;
 
   /**
    * <p>3 letter Country code corresponding to the Span.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
@@ -4559,7 +4559,7 @@ export interface RoutePedestrianSpan {
    *          </p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>Dynamic speed details corresponding to the span.</p>
@@ -4568,55 +4568,55 @@ export interface RoutePedestrianSpan {
    *          </p>
    * @public
    */
-  DynamicSpeed?: RouteSpanDynamicSpeedDetails;
+  DynamicSpeed?: RouteSpanDynamicSpeedDetails | undefined;
 
   /**
    * <p>Functional classification of the road segment corresponding to the span.</p>
    * @public
    */
-  FunctionalClassification?: number;
+  FunctionalClassification?: number | undefined;
 
   /**
    * <p>Offset in the leg geometry corresponding to the start of this span.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Incidents corresponding to the span. These index into the Incidents in the parent Leg.</p>
    * @public
    */
-  Incidents?: number[];
+  Incidents?: number[] | undefined;
 
   /**
    * <p>Provides an array of names of the pedestrian span in available languages.</p>
    * @public
    */
-  Names?: LocalizedString[];
+  Names?: LocalizedString[] | undefined;
 
   /**
    * <p>Access attributes for a pedestrian corresponding to the span.</p>
    * @public
    */
-  PedestrianAccess?: RouteSpanPedestrianAccessAttribute[];
+  PedestrianAccess?: RouteSpanPedestrianAccessAttribute[] | undefined;
 
   /**
    * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Attributes for the road segment corresponding to the span. </p>
    * @public
    */
-  RoadAttributes?: RouteSpanRoadAttribute[];
+  RoadAttributes?: RouteSpanRoadAttribute[] | undefined;
 
   /**
    * <p>Designated route name or number corresponding to the span.</p>
    * @public
    */
-  RouteNumbers?: RouteNumber[];
+  RouteNumbers?: RouteNumber[] | undefined;
 
   /**
    * <p>Speed limit details corresponding to the span.</p>
@@ -4625,7 +4625,7 @@ export interface RoutePedestrianSpan {
    *          </p>
    * @public
    */
-  SpeedLimit?: RouteSpanSpeedLimitDetails;
+  SpeedLimit?: RouteSpanSpeedLimitDetails | undefined;
 
   /**
    * <p>Duration of the computed span under typical traffic congestion.</p>
@@ -4634,7 +4634,7 @@ export interface RoutePedestrianSpan {
    *          </p>
    * @public
    */
-  TypicalDuration?: number;
+  TypicalDuration?: number | undefined;
 }
 
 /**
@@ -4679,13 +4679,13 @@ export interface RoutePedestrianSummary {
    * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
    * @public
    */
-  Overview?: RoutePedestrianOverviewSummary;
+  Overview?: RoutePedestrianOverviewSummary | undefined;
 
   /**
    * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
    * @public
    */
-  TravelOnly?: RoutePedestrianTravelOnlySummary;
+  TravelOnly?: RoutePedestrianTravelOnlySummary | undefined;
 }
 
 /**
@@ -4742,7 +4742,7 @@ export interface RouteRoad {
    * <p>The type of road.</p>
    * @public
    */
-  Type?: RouteRoadType;
+  Type?: RouteRoadType | undefined;
 }
 
 /**
@@ -4790,19 +4790,19 @@ export interface RouteKeepStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -4820,19 +4820,19 @@ export interface RouteRoundaboutEnterStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -4850,19 +4850,19 @@ export interface RouteRoundaboutExitStepDetails {
    * <p>Exit to be taken.</p>
    * @public
    */
-  RelativeExit?: number;
+  RelativeExit?: number | undefined;
 
   /**
    * <p>Angle of the roundabout.</p>
    * @public
    */
-  RoundaboutAngle?: number;
+  RoundaboutAngle?: number | undefined;
 
   /**
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 }
 
 /**
@@ -4880,19 +4880,19 @@ export interface RouteRoundaboutPassStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -4904,13 +4904,13 @@ export interface RouteSignpostLabel {
    * <p>Route number of the road.</p>
    * @public
    */
-  RouteNumber?: RouteNumber;
+  RouteNumber?: RouteNumber | undefined;
 
   /**
    * <p>The Signpost text.</p>
    * @public
    */
-  Text?: LocalizedString;
+  Text?: LocalizedString | undefined;
 }
 
 /**
@@ -4940,19 +4940,19 @@ export interface RouteTurnStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -4988,19 +4988,19 @@ export interface RoutePedestrianTravelStep {
    * <p>Details related to the continue step.</p>
    * @public
    */
-  ContinueStepDetails?: RouteContinueStepDetails;
+  ContinueStepDetails?: RouteContinueStepDetails | undefined;
 
   /**
    * <p>Details of the current road. See RouteRoad for details of sub-attributes.</p>
    * @public
    */
-  CurrentRoad?: RouteRoad;
+  CurrentRoad?: RouteRoad | undefined;
 
   /**
    * <p>Distance of the step.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the step.</p>
@@ -5015,13 +5015,13 @@ export interface RoutePedestrianTravelStep {
    * <p>Exit number of the road exit, if applicable.</p>
    * @public
    */
-  ExitNumber?: LocalizedString[];
+  ExitNumber?: LocalizedString[] | undefined;
 
   /**
    * <p>Offset in the leg geometry corresponding to the start of this step.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Brief description of the step in the requested language.</p>
@@ -5030,49 +5030,49 @@ export interface RoutePedestrianTravelStep {
    *          </note>
    * @public
    */
-  Instruction?: string;
+  Instruction?: string | undefined;
 
   /**
    * <p>Details that are specific to a Keep step.</p>
    * @public
    */
-  KeepStepDetails?: RouteKeepStepDetails;
+  KeepStepDetails?: RouteKeepStepDetails | undefined;
 
   /**
    * <p>Details of the next road. See RouteRoad for details of sub-attributes.</p>
    * @public
    */
-  NextRoad?: RouteRoad;
+  NextRoad?: RouteRoad | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Enter step.</p>
    * @public
    */
-  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails;
+  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Exit step.</p>
    * @public
    */
-  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails;
+  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Pass step.</p>
    * @public
    */
-  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails;
+  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
 
   /**
    * <p>Sign post information of the action, applicable only for TurnByTurn steps. See RouteSignpost for details of sub-attributes.</p>
    * @public
    */
-  Signpost?: RouteSignpost;
+  Signpost?: RouteSignpost | undefined;
 
   /**
    * <p>Details that are specific to a turn step.</p>
    * @public
    */
-  TurnStepDetails?: RouteTurnStepDetails;
+  TurnStepDetails?: RouteTurnStepDetails | undefined;
 
   /**
    * <p>Type of the step.</p>
@@ -5120,7 +5120,7 @@ export interface RoutePedestrianLegDetails {
    * <p>Summarized details of the leg.</p>
    * @public
    */
-  Summary?: RoutePedestrianSummary;
+  Summary?: RoutePedestrianSummary | undefined;
 
   /**
    * <p>Steps of a leg that must be performed before the travel portion of the leg.</p>
@@ -5170,13 +5170,13 @@ export interface RouteVehiclePlace {
    * <p>The name of the place.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Position provided in the request.</p>
    * @public
    */
-  OriginalPosition?: number[];
+  OriginalPosition?: number[] | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -5188,13 +5188,13 @@ export interface RouteVehiclePlace {
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: RouteSideOfStreet;
+  SideOfStreet?: RouteSideOfStreet | undefined;
 
   /**
    * <p>Index of the waypoint in the request.</p>
    * @public
    */
-  WaypointIndex?: number;
+  WaypointIndex?: number | undefined;
 }
 
 /**
@@ -5212,7 +5212,7 @@ export interface RouteVehicleArrival {
    * <p>The time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -5230,7 +5230,7 @@ export interface RouteVehicleDeparture {
    * <p>The departure time.</p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 }
 
 /**
@@ -5282,13 +5282,13 @@ export interface RouteVehicleIncident {
    * <p>Brief readable description of the incident.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>End timestamp of the incident.</p>
    * @public
    */
-  EndTime?: string;
+  EndTime?: string | undefined;
 
   /**
    * <p>Severity of the incident
@@ -5298,19 +5298,19 @@ export interface RouteVehicleIncident {
    * Low - Low on duration, for example slightly increased traffic</p>
    * @public
    */
-  Severity?: RouteVehicleIncidentSeverity;
+  Severity?: RouteVehicleIncidentSeverity | undefined;
 
   /**
    * <p>Start time of the incident.</p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>Type of the incident.</p>
    * @public
    */
-  Type?: RouteVehicleIncidentType;
+  Type?: RouteVehicleIncidentType | undefined;
 }
 
 /**
@@ -5361,13 +5361,13 @@ export interface RouteNoticeDetailRange {
    * <p>Minimum value for the range.</p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>Maximum value for the range.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -5419,13 +5419,13 @@ export interface RouteViolatedConstraints {
    * <p>This restriction applies to truck cargo, where the resulting route excludes roads on which hazardous materials are prohibited from being transported.</p>
    * @public
    */
-  AllHazardsRestricted?: boolean;
+  AllHazardsRestricted?: boolean | undefined;
 
   /**
    * <p>Total number of axles of the vehicle.</p>
    * @public
    */
-  AxleCount?: RouteNoticeDetailRange;
+  AxleCount?: RouteNoticeDetailRange | undefined;
 
   /**
    * <p>List of Hazardous cargo contained in the vehicle.</p>
@@ -5437,7 +5437,7 @@ export interface RouteViolatedConstraints {
    * <p>The maximum height of the vehicle.</p>
    * @public
    */
-  MaxHeight?: number;
+  MaxHeight?: number | undefined;
 
   /**
    * <p>The maximum Kpra length of the vehicle.</p>
@@ -5446,13 +5446,13 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  MaxKpraLength?: number;
+  MaxKpraLength?: number | undefined;
 
   /**
    * <p>The maximum length of the vehicle.</p>
    * @public
    */
-  MaxLength?: number;
+  MaxLength?: number | undefined;
 
   /**
    * <p>The maximum load capacity of the vehicle.</p>
@@ -5461,7 +5461,7 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  MaxPayloadCapacity?: number;
+  MaxPayloadCapacity?: number | undefined;
 
   /**
    * <p>The maximum weight of the route.</p>
@@ -5470,7 +5470,7 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  MaxWeight?: RouteWeightConstraint;
+  MaxWeight?: RouteWeightConstraint | undefined;
 
   /**
    * <p>The maximum weight per axle of the vehicle.</p>
@@ -5479,7 +5479,7 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  MaxWeightPerAxle?: number;
+  MaxWeightPerAxle?: number | undefined;
 
   /**
    * <p>The maximum weight per axle group of the vehicle.</p>
@@ -5488,13 +5488,13 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  MaxWeightPerAxleGroup?: WeightPerAxleGroup;
+  MaxWeightPerAxleGroup?: WeightPerAxleGroup | undefined;
 
   /**
    * <p>The maximum width of the vehicle.</p>
    * @public
    */
-  MaxWidth?: number;
+  MaxWidth?: number | undefined;
 
   /**
    * <p>The number of occupants in the vehicle.</p>
@@ -5502,19 +5502,19 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  Occupancy?: RouteNoticeDetailRange;
+  Occupancy?: RouteNoticeDetailRange | undefined;
 
   /**
    * <p>Access radius restrictions based on time.</p>
    * @public
    */
-  RestrictedTimes?: string;
+  RestrictedTimes?: string | undefined;
 
   /**
    * <p>The time dependent constraint.</p>
    * @public
    */
-  TimeDependent?: boolean;
+  TimeDependent?: boolean | undefined;
 
   /**
    * <p>Number of trailers attached to the vehicle.</p>
@@ -5522,13 +5522,13 @@ export interface RouteViolatedConstraints {
    *          </p>
    * @public
    */
-  TrailerCount?: RouteNoticeDetailRange;
+  TrailerCount?: RouteNoticeDetailRange | undefined;
 
   /**
    * <p>Travel mode corresponding to the leg.</p>
    * @public
    */
-  TravelMode?: boolean;
+  TravelMode?: boolean | undefined;
 
   /**
    * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
@@ -5538,13 +5538,13 @@ export interface RouteViolatedConstraints {
    *          </note>
    * @public
    */
-  TruckRoadType?: string;
+  TruckRoadType?: string | undefined;
 
   /**
    * <p>Type of the truck.</p>
    * @public
    */
-  TruckType?: RouteTruckType;
+  TruckType?: RouteTruckType | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -5614,7 +5614,7 @@ export interface RouteViolatedConstraints {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 }
 
 /**
@@ -5626,13 +5626,13 @@ export interface RouteVehicleNoticeDetail {
    * <p>The notice title.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>Any violated constraints.</p>
    * @public
    */
-  ViolatedConstraints?: RouteViolatedConstraints;
+  ViolatedConstraints?: RouteViolatedConstraints | undefined;
 }
 
 /**
@@ -5656,7 +5656,7 @@ export interface RouteVehicleNotice {
    * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
-  Impact?: RouteNoticeImpact;
+  Impact?: RouteNoticeImpact | undefined;
 }
 
 /**
@@ -5749,25 +5749,25 @@ export interface RouteVehicleSpan {
    *          </p>
    * @public
    */
-  BestCaseDuration?: number;
+  BestCaseDuration?: number | undefined;
 
   /**
    * <p>Access attributes for a car corresponding to the span.</p>
    * @public
    */
-  CarAccess?: RouteSpanCarAccessAttribute[];
+  CarAccess?: RouteSpanCarAccessAttribute[] | undefined;
 
   /**
    * <p>3 letter Country code corresponding to the Span.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
@@ -5776,7 +5776,7 @@ export interface RouteVehicleSpan {
    *          </p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>Dynamic speed details corresponding to the span.</p>
@@ -5785,73 +5785,73 @@ export interface RouteVehicleSpan {
    *          </p>
    * @public
    */
-  DynamicSpeed?: RouteSpanDynamicSpeedDetails;
+  DynamicSpeed?: RouteSpanDynamicSpeedDetails | undefined;
 
   /**
    * <p>Functional classification of the road segment corresponding to the span.</p>
    * @public
    */
-  FunctionalClassification?: number;
+  FunctionalClassification?: number | undefined;
 
   /**
    * <p>Attributes corresponding to a gate. The gate is present at the end of the returned span.</p>
    * @public
    */
-  Gate?: RouteSpanGateAttribute;
+  Gate?: RouteSpanGateAttribute | undefined;
 
   /**
    * <p>Offset in the leg geometry corresponding to the start of this span.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Incidents corresponding to the span. These index into the Incidents in the parent Leg.</p>
    * @public
    */
-  Incidents?: number[];
+  Incidents?: number[] | undefined;
 
   /**
    * <p>Provides an array of names of the vehicle span in available languages.</p>
    * @public
    */
-  Names?: LocalizedString[];
+  Names?: LocalizedString[] | undefined;
 
   /**
    * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
    * @public
    */
-  Notices?: number[];
+  Notices?: number[] | undefined;
 
   /**
    * <p>Attributes corresponding to a railway crossing. The gate is present at the end of the returned span.</p>
    * @public
    */
-  RailwayCrossing?: RouteSpanRailwayCrossingAttribute;
+  RailwayCrossing?: RouteSpanRailwayCrossingAttribute | undefined;
 
   /**
    * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Attributes for the road segment corresponding to the span. </p>
    * @public
    */
-  RoadAttributes?: RouteSpanRoadAttribute[];
+  RoadAttributes?: RouteSpanRoadAttribute[] | undefined;
 
   /**
    * <p>Designated route name or number corresponding to the span.</p>
    * @public
    */
-  RouteNumbers?: RouteNumber[];
+  RouteNumbers?: RouteNumber[] | undefined;
 
   /**
    * <p>Access attributes for a scooter corresponding to the span.</p>
    * @public
    */
-  ScooterAccess?: RouteSpanScooterAccessAttribute[];
+  ScooterAccess?: RouteSpanScooterAccessAttribute[] | undefined;
 
   /**
    * <p>Speed limit details corresponding to the span.</p>
@@ -5860,19 +5860,19 @@ export interface RouteVehicleSpan {
    *          </p>
    * @public
    */
-  SpeedLimit?: RouteSpanSpeedLimitDetails;
+  SpeedLimit?: RouteSpanSpeedLimitDetails | undefined;
 
   /**
    * <p>Toll systems are authorities that collect payments for the toll.</p>
    * @public
    */
-  TollSystems?: number[];
+  TollSystems?: number[] | undefined;
 
   /**
    * <p>Access attributes for a truck corresponding to the span.</p>
    * @public
    */
-  TruckAccess?: RouteSpanTruckAccessAttribute[];
+  TruckAccess?: RouteSpanTruckAccessAttribute[] | undefined;
 
   /**
    * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
@@ -5882,7 +5882,7 @@ export interface RouteVehicleSpan {
    *          </note>
    * @public
    */
-  TruckRoadTypes?: number[];
+  TruckRoadTypes?: number[] | undefined;
 
   /**
    * <p>Duration of the computed span under typical traffic congestion. </p>
@@ -5891,13 +5891,13 @@ export interface RouteVehicleSpan {
    *          </p>
    * @public
    */
-  TypicalDuration?: number;
+  TypicalDuration?: number | undefined;
 
   /**
    * <p>Zones corresponding to this leg of the route.</p>
    * @public
    */
-  Zones?: number[];
+  Zones?: number[] | undefined;
 }
 
 /**
@@ -5912,7 +5912,7 @@ export interface RouteVehicleOverviewSummary {
    *          </p>
    * @public
    */
-  BestCaseDuration?: number;
+  BestCaseDuration?: number | undefined;
 
   /**
    * <p>Distance of the step.</p>
@@ -5936,7 +5936,7 @@ export interface RouteVehicleOverviewSummary {
    *          </p>
    * @public
    */
-  TypicalDuration?: number;
+  TypicalDuration?: number | undefined;
 }
 
 /**
@@ -5951,7 +5951,7 @@ export interface RouteVehicleTravelOnlySummary {
    *          </p>
    * @public
    */
-  BestCaseDuration?: number;
+  BestCaseDuration?: number | undefined;
 
   /**
    * <p>Duration of the step.</p>
@@ -5969,7 +5969,7 @@ export interface RouteVehicleTravelOnlySummary {
    *          </p>
    * @public
    */
-  TypicalDuration?: number;
+  TypicalDuration?: number | undefined;
 }
 
 /**
@@ -5981,13 +5981,13 @@ export interface RouteVehicleSummary {
    * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
    * @public
    */
-  Overview?: RouteVehicleOverviewSummary;
+  Overview?: RouteVehicleOverviewSummary | undefined;
 
   /**
    * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
    * @public
    */
-  TravelOnly?: RouteVehicleTravelOnlySummary;
+  TravelOnly?: RouteVehicleTravelOnlySummary | undefined;
 }
 
 /**
@@ -5999,7 +5999,7 @@ export interface RouteTollPaymentSite {
    * <p>Name of the payment site.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -6050,7 +6050,7 @@ export interface RouteTollPrice {
    *          </p>
    * @public
    */
-  PerDuration?: number;
+  PerDuration?: number | undefined;
 
   /**
    * <p>If the price is a range or an exact value. If any of the toll fares making up the route is a range, the overall price is also a range.</p>
@@ -6062,7 +6062,7 @@ export interface RouteTollPrice {
    * <p>Price range with a minimum and maximum value, if a range.</p>
    * @public
    */
-  RangeValue?: RouteTollPriceValueRange;
+  RangeValue?: RouteTollPriceValueRange | undefined;
 
   /**
    * <p>Exact price, if not a range.</p>
@@ -6104,7 +6104,7 @@ export interface RouteTollPassValidityPeriod {
    * <p>Counts for the validity period.</p>
    * @public
    */
-  PeriodCount?: number;
+  PeriodCount?: number | undefined;
 }
 
 /**
@@ -6116,31 +6116,31 @@ export interface RouteTollPass {
    * <p>If the pass includes the rate for the return leg of the trip.</p>
    * @public
    */
-  IncludesReturnTrip?: boolean;
+  IncludesReturnTrip?: boolean | undefined;
 
   /**
    * <p>If the pass is only valid for senior persons.</p>
    * @public
    */
-  SeniorPass?: boolean;
+  SeniorPass?: boolean | undefined;
 
   /**
    * <p>If the toll pass can be transferred, and how many times.</p>
    * @public
    */
-  TransferCount?: number;
+  TransferCount?: number | undefined;
 
   /**
    * <p>Number of trips the pass is valid for.</p>
    * @public
    */
-  TripCount?: number;
+  TripCount?: number | undefined;
 
   /**
    * <p>Period for which the pass is valid.</p>
    * @public
    */
-  ValidityPeriod?: RouteTollPassValidityPeriod;
+  ValidityPeriod?: RouteTollPassValidityPeriod | undefined;
 }
 
 /**
@@ -6172,7 +6172,7 @@ export interface RouteTransponder {
    * <p>Names of the toll system collecting the toll.</p>
    * @public
    */
-  SystemName?: string;
+  SystemName?: string | undefined;
 }
 
 /**
@@ -6184,13 +6184,13 @@ export interface RouteTollRate {
    * <p>Time when the rate is valid.</p>
    * @public
    */
-  ApplicableTimes?: string;
+  ApplicableTimes?: string | undefined;
 
   /**
    * <p>Price in the converted currency as specified in the request.</p>
    * @public
    */
-  ConvertedPrice?: RouteTollPrice;
+  ConvertedPrice?: RouteTollPrice | undefined;
 
   /**
    * <p>The Toll rate Id.</p>
@@ -6214,7 +6214,7 @@ export interface RouteTollRate {
    * <p>Details if the toll rate can be a pass that supports multiple trips.</p>
    * @public
    */
-  Pass?: RouteTollPass;
+  Pass?: RouteTollPass | undefined;
 
   /**
    * <p>Accepted payment methods at the toll.</p>
@@ -6238,7 +6238,7 @@ export interface RouteToll {
    * <p>The alpha-2 or alpha-3 character code for the country.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>Locations or sites where the toll fare is collected.</p>
@@ -6268,7 +6268,7 @@ export interface RouteTollSystem {
    * <p>The toll system name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6286,19 +6286,19 @@ export interface RouteContinueHighwayStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -6316,19 +6316,19 @@ export interface RouteEnterHighwayStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -6346,25 +6346,25 @@ export interface RouteExitStepDetails {
    * <p>Exit to be taken.</p>
    * @public
    */
-  RelativeExit?: number;
+  RelativeExit?: number | undefined;
 
   /**
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -6382,19 +6382,19 @@ export interface RouteRampStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -6437,19 +6437,19 @@ export interface RouteUTurnStepDetails {
    * <p>Steering direction for the step.</p>
    * @public
    */
-  SteeringDirection?: RouteSteeringDirection;
+  SteeringDirection?: RouteSteeringDirection | undefined;
 
   /**
    * <p>Angle of the turn.</p>
    * @public
    */
-  TurnAngle?: number;
+  TurnAngle?: number | undefined;
 
   /**
    * <p>Intensity of the turn.</p>
    * @public
    */
-  TurnIntensity?: RouteTurnIntensity;
+  TurnIntensity?: RouteTurnIntensity | undefined;
 }
 
 /**
@@ -6461,25 +6461,25 @@ export interface RouteVehicleTravelStep {
    * <p>Details that are specific to a Continue Highway step.</p>
    * @public
    */
-  ContinueHighwayStepDetails?: RouteContinueHighwayStepDetails;
+  ContinueHighwayStepDetails?: RouteContinueHighwayStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Continue step.</p>
    * @public
    */
-  ContinueStepDetails?: RouteContinueStepDetails;
+  ContinueStepDetails?: RouteContinueStepDetails | undefined;
 
   /**
    * <p>Details of the current road.</p>
    * @public
    */
-  CurrentRoad?: RouteRoad;
+  CurrentRoad?: RouteRoad | undefined;
 
   /**
    * <p>Distance of the step.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the step.</p>
@@ -6494,25 +6494,25 @@ export interface RouteVehicleTravelStep {
    * <p>Details that are specific to a Enter Highway step.</p>
    * @public
    */
-  EnterHighwayStepDetails?: RouteEnterHighwayStepDetails;
+  EnterHighwayStepDetails?: RouteEnterHighwayStepDetails | undefined;
 
   /**
    * <p>Exit number of the road exit, if applicable.</p>
    * @public
    */
-  ExitNumber?: LocalizedString[];
+  ExitNumber?: LocalizedString[] | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Exit step.</p>
    * @public
    */
-  ExitStepDetails?: RouteExitStepDetails;
+  ExitStepDetails?: RouteExitStepDetails | undefined;
 
   /**
    * <p>Offset in the leg geometry corresponding to the start of this step.</p>
    * @public
    */
-  GeometryOffset?: number;
+  GeometryOffset?: number | undefined;
 
   /**
    * <p>Brief description of the step in the requested language.</p>
@@ -6521,55 +6521,55 @@ export interface RouteVehicleTravelStep {
    *          </note>
    * @public
    */
-  Instruction?: string;
+  Instruction?: string | undefined;
 
   /**
    * <p>Details that are specific to a Keep step.</p>
    * @public
    */
-  KeepStepDetails?: RouteKeepStepDetails;
+  KeepStepDetails?: RouteKeepStepDetails | undefined;
 
   /**
    * <p>Details of the next road. See RouteRoad for details of sub-attributes.</p>
    * @public
    */
-  NextRoad?: RouteRoad;
+  NextRoad?: RouteRoad | undefined;
 
   /**
    * <p>Details that are specific to a Ramp step.</p>
    * @public
    */
-  RampStepDetails?: RouteRampStepDetails;
+  RampStepDetails?: RouteRampStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Enter step.</p>
    * @public
    */
-  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails;
+  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Exit step.</p>
    * @public
    */
-  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails;
+  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails | undefined;
 
   /**
    * <p>Details that are specific to a Roundabout Pass step.</p>
    * @public
    */
-  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails;
+  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
 
   /**
    * <p>Sign post information of the action, applicable only for TurnByTurn steps. See RouteSignpost for details of sub-attributes.</p>
    * @public
    */
-  Signpost?: RouteSignpost;
+  Signpost?: RouteSignpost | undefined;
 
   /**
    * <p>Details that are specific to a Turn step.</p>
    * @public
    */
-  TurnStepDetails?: RouteTurnStepDetails;
+  TurnStepDetails?: RouteTurnStepDetails | undefined;
 
   /**
    * <p>Type of the step.</p>
@@ -6581,7 +6581,7 @@ export interface RouteVehicleTravelStep {
    * <p>Details that are specific to a Turn step.</p>
    * @public
    */
-  UTurnStepDetails?: RouteUTurnStepDetails;
+  UTurnStepDetails?: RouteUTurnStepDetails | undefined;
 }
 
 /**
@@ -6593,13 +6593,13 @@ export interface RouteZone {
    * <p>The zone category.</p>
    * @public
    */
-  Category?: RouteZoneCategory;
+  Category?: RouteZoneCategory | undefined;
 
   /**
    * <p>The name of the zone.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6647,7 +6647,7 @@ export interface RouteVehicleLegDetails {
    * <p>Summarized details of the leg.</p>
    * @public
    */
-  Summary?: RouteVehicleSummary;
+  Summary?: RouteVehicleSummary | undefined;
 
   /**
    * <p>Toll related options.</p>
@@ -6695,7 +6695,7 @@ export interface RouteLeg {
    *          information that is specific</p>
    * @public
    */
-  FerryLegDetails?: RouteFerryLegDetails;
+  FerryLegDetails?: RouteFerryLegDetails | undefined;
 
   /**
    * <p>Geometry of the area to be avoided.</p>
@@ -6707,13 +6707,13 @@ export interface RouteLeg {
    * <p>List of languages for instructions within steps in the response.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>Details related to the pedestrian leg.</p>
    * @public
    */
-  PedestrianLegDetails?: RoutePedestrianLegDetails;
+  PedestrianLegDetails?: RoutePedestrianLegDetails | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route.
@@ -6734,7 +6734,7 @@ export interface RouteLeg {
    * <p>Details related to the vehicle leg.</p>
    * @public
    */
-  VehicleLegDetails?: RouteVehicleLegDetails;
+  VehicleLegDetails?: RouteVehicleLegDetails | undefined;
 }
 
 /**
@@ -6746,13 +6746,13 @@ export interface RouteMajorRoadLabel {
    * <p>Name of the road (localized).</p>
    * @public
    */
-  RoadName?: LocalizedString;
+  RoadName?: LocalizedString | undefined;
 
   /**
    * <p>Route number of the road.</p>
    * @public
    */
-  RouteNumber?: RouteNumber;
+  RouteNumber?: RouteNumber | undefined;
 }
 
 /**
@@ -6782,7 +6782,7 @@ export interface RouteTollPriceSummary {
    * <p>Price range with a minimum and maximum value, if a range.</p>
    * @public
    */
-  RangeValue?: RouteTollPriceValueRange;
+  RangeValue?: RouteTollPriceValueRange | undefined;
 
   /**
    * <p>Exact price, if not a range.</p>
@@ -6801,7 +6801,7 @@ export interface RouteTollSummary {
    *          today.</p>
    * @public
    */
-  Total?: RouteTollPriceSummary;
+  Total?: RouteTollPriceSummary | undefined;
 }
 
 /**
@@ -6813,7 +6813,7 @@ export interface RouteSummary {
    * <p>Distance of the route.</p>
    * @public
    */
-  Distance?: number;
+  Distance?: number | undefined;
 
   /**
    * <p>Duration of the route.</p>
@@ -6822,13 +6822,13 @@ export interface RouteSummary {
    *          </p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>Toll summary for the complete route.</p>
    * @public
    */
-  Tolls?: RouteTollSummary;
+  Tolls?: RouteTollSummary | undefined;
 }
 
 /**
@@ -6853,7 +6853,7 @@ export interface Route {
    * <p>Summarized details of the leg.</p>
    * @public
    */
-  Summary?: RouteSummary;
+  Summary?: RouteSummary | undefined;
 }
 
 /**
@@ -6915,7 +6915,7 @@ export interface WaypointOptimizationAvoidanceAreaGeometry {
    *          represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
    * @public
    */
-  BoundingBox?: number[];
+  BoundingBox?: number[] | undefined;
 }
 
 /**
@@ -6939,49 +6939,49 @@ export interface WaypointOptimizationAvoidanceOptions {
    * <p>Areas to be avoided.</p>
    * @public
    */
-  Areas?: WaypointOptimizationAvoidanceArea[];
+  Areas?: WaypointOptimizationAvoidanceArea[] | undefined;
 
   /**
    * <p>Avoidance options for cars-shuttles-trains.</p>
    * @public
    */
-  CarShuttleTrains?: boolean;
+  CarShuttleTrains?: boolean | undefined;
 
   /**
    * <p>Avoid controlled access highways while calculating the route.</p>
    * @public
    */
-  ControlledAccessHighways?: boolean;
+  ControlledAccessHighways?: boolean | undefined;
 
   /**
    * <p>Avoid dirt roads while calculating the route.</p>
    * @public
    */
-  DirtRoads?: boolean;
+  DirtRoads?: boolean | undefined;
 
   /**
    * <p>Avoidance options for ferries.</p>
    * @public
    */
-  Ferries?: boolean;
+  Ferries?: boolean | undefined;
 
   /**
    * <p>Avoids roads where the specified toll transponders are the only mode of payment.</p>
    * @public
    */
-  TollRoads?: boolean;
+  TollRoads?: boolean | undefined;
 
   /**
    * <p>Avoid tunnels while calculating the route.</p>
    * @public
    */
-  Tunnels?: boolean;
+  Tunnels?: boolean | undefined;
 
   /**
    * <p>Avoid U-turns for calculation on highways and motorways.</p>
    * @public
    */
-  UTurns?: boolean;
+  UTurns?: boolean | undefined;
 }
 
 /**
@@ -7037,7 +7037,7 @@ export interface WaypointOptimizationSideOfStreetOptions {
    *          </p>
    * @public
    */
-  UseWith?: SideOfStreetMatchingStrategy;
+  UseWith?: SideOfStreetMatchingStrategy | undefined;
 }
 
 /**
@@ -7049,25 +7049,25 @@ export interface WaypointOptimizationDestinationOptions {
    * <p>Access hours corresponding to when a waypoint can be visited.</p>
    * @public
    */
-  AccessHours?: WaypointOptimizationAccessHours;
+  AccessHours?: WaypointOptimizationAccessHours | undefined;
 
   /**
    * <p>Appointment time at the destination.</p>
    * @public
    */
-  AppointmentTime?: string;
+  AppointmentTime?: string | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>The waypoint Id.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Service time spent at the destination. At an appointment, the service time should be the appointment duration.</p>
@@ -7076,13 +7076,13 @@ export interface WaypointOptimizationDestinationOptions {
    *          </p>
    * @public
    */
-  ServiceDuration?: number;
+  ServiceDuration?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: WaypointOptimizationSideOfStreetOptions;
+  SideOfStreet?: WaypointOptimizationSideOfStreetOptions | undefined;
 }
 
 /**
@@ -7168,20 +7168,20 @@ export interface WaypointOptimizationDriverOptions {
    * <p>Driver work-rest schedules defined by a short and long cycle. A rest needs to be taken after the short work duration. The short cycle can be repeated until you hit the long work duration, at which point the long rest duration should be taken before restarting.</p>
    * @public
    */
-  RestCycles?: WaypointOptimizationRestCycles;
+  RestCycles?: WaypointOptimizationRestCycles | undefined;
 
   /**
    * <p>Pre defined rest profiles for a driver schedule. The only currently supported profile is
    *          EU.</p>
    * @public
    */
-  RestProfile?: WaypointOptimizationRestProfile;
+  RestProfile?: WaypointOptimizationRestProfile | undefined;
 
   /**
    * <p>If the service time provided at a waypoint/destination should be considered as rest or work. This contributes to the total time breakdown returned within the response.</p>
    * @public
    */
-  TreatServiceTimeAs?: WaypointOptimizationServiceTimeTreatment;
+  TreatServiceTimeAs?: WaypointOptimizationServiceTimeTreatment | undefined;
 }
 
 /**
@@ -7220,7 +7220,7 @@ export interface WaypointOptimizationOriginOptions {
    * <p>The Origin Id.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -7234,7 +7234,7 @@ export interface WaypointOptimizationTrafficOptions {
    *          </p>
    * @public
    */
-  Usage?: TrafficUsage;
+  Usage?: TrafficUsage | undefined;
 }
 
 /**
@@ -7266,7 +7266,7 @@ export interface WaypointOptimizationPedestrianOptions {
    *          </p>
    * @public
    */
-  Speed?: number;
+  Speed?: number | undefined;
 }
 
 /**
@@ -7304,7 +7304,7 @@ export interface WaypointOptimizationTrailerOptions {
    *          </p>
    * @public
    */
-  TrailerCount?: number;
+  TrailerCount?: number | undefined;
 }
 
 /**
@@ -7334,13 +7334,13 @@ export interface WaypointOptimizationTruckOptions {
    *          </p>
    * @public
    */
-  GrossWeight?: number;
+  GrossWeight?: number | undefined;
 
   /**
    * <p>List of Hazardous cargo contained in the vehicle.</p>
    * @public
    */
-  HazardousCargos?: WaypointOptimizationHazardousCargoType[];
+  HazardousCargos?: WaypointOptimizationHazardousCargoType[] | undefined;
 
   /**
    * <p>Height of the vehicle.</p>
@@ -7349,7 +7349,7 @@ export interface WaypointOptimizationTruckOptions {
    *          </p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>Length of the vehicle.</p>
@@ -7358,19 +7358,19 @@ export interface WaypointOptimizationTruckOptions {
    *          </p>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>Trailer options corresponding to the vehicle.</p>
    * @public
    */
-  Trailer?: WaypointOptimizationTrailerOptions;
+  Trailer?: WaypointOptimizationTrailerOptions | undefined;
 
   /**
    * <p>Type of the truck.</p>
    * @public
    */
-  TruckType?: WaypointOptimizationTruckType;
+  TruckType?: WaypointOptimizationTruckType | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -7440,7 +7440,7 @@ export interface WaypointOptimizationTruckOptions {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 
   /**
    * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
@@ -7449,7 +7449,7 @@ export interface WaypointOptimizationTruckOptions {
    *          </p>
    * @public
    */
-  WeightPerAxle?: number;
+  WeightPerAxle?: number | undefined;
 
   /**
    * <p>Width of the vehicle.</p>
@@ -7458,7 +7458,7 @@ export interface WaypointOptimizationTruckOptions {
    *          </p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 }
 
 /**
@@ -7470,13 +7470,13 @@ export interface WaypointOptimizationTravelModeOptions {
    * <p>Travel mode options when the provided travel mode is "Pedestrian"</p>
    * @public
    */
-  Pedestrian?: WaypointOptimizationPedestrianOptions;
+  Pedestrian?: WaypointOptimizationPedestrianOptions | undefined;
 
   /**
    * <p>Travel mode options when the provided travel mode is "Truck"</p>
    * @public
    */
-  Truck?: WaypointOptimizationTruckOptions;
+  Truck?: WaypointOptimizationTruckOptions | undefined;
 }
 
 /**
@@ -7488,31 +7488,31 @@ export interface WaypointOptimizationWaypoint {
    * <p>Access hours corresponding to when a waypoint can be visited.</p>
    * @public
    */
-  AccessHours?: WaypointOptimizationAccessHours;
+  AccessHours?: WaypointOptimizationAccessHours | undefined;
 
   /**
    * <p>Appointment time at the waypoint.</p>
    * @public
    */
-  AppointmentTime?: string;
+  AppointmentTime?: string | undefined;
 
   /**
    * <p>Constraint defining what waypoints are to be visited after this waypoint.</p>
    * @public
    */
-  Before?: number[];
+  Before?: number[] | undefined;
 
   /**
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>The waypoint Id.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -7527,13 +7527,13 @@ export interface WaypointOptimizationWaypoint {
    *          </p>
    * @public
    */
-  ServiceDuration?: number;
+  ServiceDuration?: number | undefined;
 
   /**
    * <p>Options to configure matching the provided position to a side of the street.</p>
    * @public
    */
-  SideOfStreet?: WaypointOptimizationSideOfStreetOptions;
+  SideOfStreet?: WaypointOptimizationSideOfStreetOptions | undefined;
 }
 
 /**
@@ -7545,7 +7545,7 @@ export interface OptimizeWaypointsRequest {
    *          avoidance can't be satisfied for a particular case, this setting is ignored.</p>
    * @public
    */
-  Avoid?: WaypointOptimizationAvoidanceOptions;
+  Avoid?: WaypointOptimizationAvoidanceOptions | undefined;
 
   /**
    * <p>Departure time from the waypoint.</p>
@@ -7560,46 +7560,46 @@ export interface OptimizeWaypointsRequest {
    *          </p>
    * @public
    */
-  DepartureTime?: string;
+  DepartureTime?: string | undefined;
 
   /**
    * <p>The final position for the route in the World Geodetic System (WGS 84) format:
    *             <code>[longitude, latitude]</code>.</p>
    * @public
    */
-  Destination?: number[];
+  Destination?: number[] | undefined;
 
   /**
    * <p>Destination related options.</p>
    * @public
    */
-  DestinationOptions?: WaypointOptimizationDestinationOptions;
+  DestinationOptions?: WaypointOptimizationDestinationOptions | undefined;
 
   /**
    * <p>Driver related options.</p>
    * @public
    */
-  Driver?: WaypointOptimizationDriverOptions;
+  Driver?: WaypointOptimizationDriverOptions | undefined;
 
   /**
    * <p>Features to be strictly excluded while calculating the route.</p>
    * @public
    */
-  Exclude?: WaypointOptimizationExclusionOptions;
+  Exclude?: WaypointOptimizationExclusionOptions | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Specifies the optimization criteria for the calculated sequence.</p>
    *          <p>Default Value: <code>FastestRoute</code>.</p>
    * @public
    */
-  OptimizeSequencingFor?: WaypointOptimizationSequencingObjective;
+  OptimizeSequencingFor?: WaypointOptimizationSequencingObjective | undefined;
 
   /**
    * <p>The start position for the route.</p>
@@ -7611,13 +7611,13 @@ export interface OptimizeWaypointsRequest {
    * <p>Origin related options.</p>
    * @public
    */
-  OriginOptions?: WaypointOptimizationOriginOptions;
+  OriginOptions?: WaypointOptimizationOriginOptions | undefined;
 
   /**
    * <p>Traffic-related options.</p>
    * @public
    */
-  Traffic?: WaypointOptimizationTrafficOptions;
+  Traffic?: WaypointOptimizationTrafficOptions | undefined;
 
   /**
    * <p>Specifies the mode of transport when calculating a route.
@@ -7626,19 +7626,19 @@ export interface OptimizeWaypointsRequest {
    *          </p>
    * @public
    */
-  TravelMode?: WaypointOptimizationTravelMode;
+  TravelMode?: WaypointOptimizationTravelMode | undefined;
 
   /**
    * <p>Travel mode related options for the provided travel mode.</p>
    * @public
    */
-  TravelModeOptions?: WaypointOptimizationTravelModeOptions;
+  TravelModeOptions?: WaypointOptimizationTravelModeOptions | undefined;
 
   /**
    * <p>List of waypoints between the <code>Origin</code> and <code>Destination</code>.</p>
    * @public
    */
-  Waypoints?: WaypointOptimizationWaypoint[];
+  Waypoints?: WaypointOptimizationWaypoint[] | undefined;
 }
 
 /**
@@ -7717,13 +7717,13 @@ export interface WaypointOptimizationFailedConstraint {
    * <p>The failed constraint.</p>
    * @public
    */
-  Constraint?: WaypointOptimizationConstraint;
+  Constraint?: WaypointOptimizationConstraint | undefined;
 
   /**
    * <p>Reason for the failed constraint.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -7768,7 +7768,7 @@ export interface WaypointOptimizationOptimizedWaypoint {
    *          </p>
    * @public
    */
-  ArrivalTime?: string;
+  ArrivalTime?: string | undefined;
 
   /**
    * <p>Estimated time of departure from thr origin.</p>
@@ -7899,7 +7899,7 @@ export interface RoadSnapTracePoint {
    * <p>GPS Heading at the position.</p>
    * @public
    */
-  Heading?: number;
+  Heading?: number | undefined;
 
   /**
    * <p>Position defined as <code>[longitude, latitude]</code>.</p>
@@ -7914,13 +7914,13 @@ export interface RoadSnapTracePoint {
    *          </p>
    * @public
    */
-  Speed?: number;
+  Speed?: number | undefined;
 
   /**
    * <p>Timestamp of the event.</p>
    * @public
    */
-  Timestamp?: string;
+  Timestamp?: string | undefined;
 }
 
 /**
@@ -7973,7 +7973,7 @@ export interface RoadSnapTrailerOptions {
    *          </p>
    * @public
    */
-  TrailerCount?: number;
+  TrailerCount?: number | undefined;
 }
 
 /**
@@ -7988,13 +7988,13 @@ export interface RoadSnapTruckOptions {
    *          </p>
    * @public
    */
-  GrossWeight?: number;
+  GrossWeight?: number | undefined;
 
   /**
    * <p>List of Hazardous cargos contained in the vehicle.</p>
    * @public
    */
-  HazardousCargos?: RoadSnapHazardousCargoType[];
+  HazardousCargos?: RoadSnapHazardousCargoType[] | undefined;
 
   /**
    * <p>Height of the vehicle.</p>
@@ -8003,7 +8003,7 @@ export interface RoadSnapTruckOptions {
    *          </p>
    * @public
    */
-  Height?: number;
+  Height?: number | undefined;
 
   /**
    * <p>Length of the vehicle.</p>
@@ -8012,13 +8012,13 @@ export interface RoadSnapTruckOptions {
    *          </p>
    * @public
    */
-  Length?: number;
+  Length?: number | undefined;
 
   /**
    * <p>Trailer options corresponding to the vehicle.</p>
    * @public
    */
-  Trailer?: RoadSnapTrailerOptions;
+  Trailer?: RoadSnapTrailerOptions | undefined;
 
   /**
    * <p>The tunnel restriction code.</p>
@@ -8088,13 +8088,13 @@ export interface RoadSnapTruckOptions {
    *          </ul>
    * @public
    */
-  TunnelRestrictionCode?: string;
+  TunnelRestrictionCode?: string | undefined;
 
   /**
    * <p>Width of the vehicle in centimenters.</p>
    * @public
    */
-  Width?: number;
+  Width?: number | undefined;
 }
 
 /**
@@ -8106,7 +8106,7 @@ export interface RoadSnapTravelModeOptions {
    * <p>Travel mode options when the provided travel mode is "Truck".</p>
    * @public
    */
-  Truck?: RoadSnapTruckOptions;
+  Truck?: RoadSnapTruckOptions | undefined;
 }
 
 /**
@@ -8118,7 +8118,7 @@ export interface SnapToRoadsRequest {
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Chooses what the returned SnappedGeometry format should be.</p>
@@ -8126,7 +8126,7 @@ export interface SnapToRoadsRequest {
    *          </p>
    * @public
    */
-  SnappedGeometryFormat?: GeometryFormat;
+  SnappedGeometryFormat?: GeometryFormat | undefined;
 
   /**
    * <p>The radius around the provided tracepoint that is considered for snapping.</p>
@@ -8137,7 +8137,7 @@ export interface SnapToRoadsRequest {
    *          </p>
    * @public
    */
-  SnapRadius?: number;
+  SnapRadius?: number | undefined;
 
   /**
    * <p>List of trace points to be snapped onto the road network.</p>
@@ -8152,13 +8152,13 @@ export interface SnapToRoadsRequest {
    *          </p>
    * @public
    */
-  TravelMode?: RoadSnapTravelMode;
+  TravelMode?: RoadSnapTravelMode | undefined;
 
   /**
    * <p>Travel mode related options for the provided travel mode.</p>
    * @public
    */
-  TravelModeOptions?: RoadSnapTravelModeOptions;
+  TravelModeOptions?: RoadSnapTravelModeOptions | undefined;
 }
 
 /**
@@ -8216,7 +8216,7 @@ export interface RoadSnapSnappedGeometry {
    *          </note>
    * @public
    */
-  LineString?: number[][];
+  LineString?: number[][] | undefined;
 
   /**
    * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
@@ -8225,7 +8225,7 @@ export interface RoadSnapSnappedGeometry {
    *          </note>
    * @public
    */
-  Polyline?: string;
+  Polyline?: string | undefined;
 }
 
 /**
@@ -8272,7 +8272,7 @@ export interface SnapToRoadsResponse {
    * <p>The interpolated geometry for the snapped route onto the road network.</p>
    * @public
    */
-  SnappedGeometry?: RoadSnapSnappedGeometry;
+  SnappedGeometry?: RoadSnapSnappedGeometry | undefined;
 
   /**
    * <p>Specifies the format of the geometry returned for each leg of the route.</p>

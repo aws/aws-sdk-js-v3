@@ -12,13 +12,13 @@ export interface ReplicaRegionType {
    * <p>A Region code. For a list of Region codes, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints">Name and code of Regions</a>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses <code>aws/secretsmanager</code>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -30,19 +30,19 @@ export interface APIErrorType {
    * <p>The ARN or name of the secret.</p>
    * @public
    */
-  SecretId?: string;
+  SecretId?: string | undefined;
 
   /**
    * <p>The error Secrets Manager encountered while retrieving an individual secret as part of <a>BatchGetSecretValue</a>, for example <code>ResourceNotFoundException</code>,<code>InvalidParameterException</code>, <code>InvalidRequestException</code>, <code>DecryptionFailure</code>, or <code>AccessDeniedException</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>A message describing the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -103,14 +103,14 @@ export interface Filter {
    *          </ul>
    * @public
    */
-  Key?: FilterNameStringType;
+  Key?: FilterNameStringType | undefined;
 
   /**
    * <p>The keyword to filter for.</p>
    *          <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -121,13 +121,13 @@ export interface BatchGetSecretValueRequest {
    * <p>The ARN or names of the secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>
    * @public
    */
-  SecretIdList?: string[];
+  SecretIdList?: string[] | undefined;
 
   /**
    * <p>The filters to choose which secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The number of results to include in the response.</p>
@@ -136,7 +136,7 @@ export interface BatchGetSecretValueRequest {
    *     <code>NextToken</code>. To use this parameter, you must also use the <code>Filters</code> parameter.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where the output should continue from, if a
@@ -144,7 +144,7 @@ export interface BatchGetSecretValueRequest {
    *     with this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -156,19 +156,19 @@ export interface SecretValueEntry {
    * <p>The Amazon Resource Name (ARN) of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The friendly name of the secret.  </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique version identifier of this version of the secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The decrypted secret value, if the secret value was originally provided as
@@ -177,27 +177,27 @@ export interface SecretValueEntry {
    *       string.</p>
    * @public
    */
-  SecretBinary?: Uint8Array;
+  SecretBinary?: Uint8Array | undefined;
 
   /**
    * <p>The decrypted secret value, if the secret value was originally provided as a string or
    *       through the Secrets Manager console.</p>
    * @public
    */
-  SecretString?: string;
+  SecretString?: string | undefined;
 
   /**
    * <p>A list of all of the staging labels currently attached to this version of the
    *       secret.</p>
    * @public
    */
-  VersionStages?: string[];
+  VersionStages?: string[] | undefined;
 
   /**
    * <p>The date the secret was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface BatchGetSecretValueResponse {
    * <p>A list of secret values.</p>
    * @public
    */
-  SecretValues?: SecretValueEntry[];
+  SecretValues?: SecretValueEntry[] | undefined;
 
   /**
    * <p>Secrets Manager includes this value if
@@ -218,13 +218,13 @@ export interface BatchGetSecretValueResponse {
    *     with this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of errors Secrets Manager encountered while attempting to retrieve individual secrets.</p>
    * @public
    */
-  Errors?: APIErrorType[];
+  Errors?: APIErrorType[] | undefined;
 }
 
 /**
@@ -234,7 +234,7 @@ export interface BatchGetSecretValueResponse {
 export class DecryptionFailure extends __BaseException {
   readonly name: "DecryptionFailure" = "DecryptionFailure";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -256,7 +256,7 @@ export class DecryptionFailure extends __BaseException {
 export class InternalServiceError extends __BaseException {
   readonly name: "InternalServiceError" = "InternalServiceError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -278,7 +278,7 @@ export class InternalServiceError extends __BaseException {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -300,7 +300,7 @@ export class InvalidNextTokenException extends __BaseException {
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -337,7 +337,7 @@ export class InvalidParameterException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -359,7 +359,7 @@ export class InvalidRequestException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -395,13 +395,13 @@ export interface CancelRotateSecretResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier of the version of the secret created during the rotation. This
@@ -411,7 +411,7 @@ export interface CancelRotateSecretResponse {
    *       starting future rotations.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -423,13 +423,13 @@ export interface Tag {
    * <p>The key identifier, or name, of the tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The string value associated with the key of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -476,13 +476,13 @@ export interface CreateSecretRequest {
    *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The description of the secret.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
@@ -497,7 +497,7 @@ export interface CreateSecretRequest {
    *       and use a customer managed KMS key. </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The binary data to encrypt and store in the new version of
@@ -509,7 +509,7 @@ export interface CreateSecretRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretBinary?: Uint8Array;
+  SecretBinary?: Uint8Array | undefined;
 
   /**
    * <p>The text data to encrypt and store in this new version of
@@ -522,7 +522,7 @@ export interface CreateSecretRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretString?: string;
+  SecretString?: string | undefined;
 
   /**
    * <p>A list of tags to attach to the secret. Each tag
@@ -546,20 +546,20 @@ export interface CreateSecretRequest {
    *       Reference guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A list of Regions and KMS keys to replicate secrets.</p>
    * @public
    */
-  AddReplicaRegions?: ReplicaRegionType[];
+  AddReplicaRegions?: ReplicaRegionType[] | undefined;
 
   /**
    * <p>Specifies whether to overwrite a secret with the same name in the
    *       destination Region. By default, secrets aren't overwritten.</p>
    * @public
    */
-  ForceOverwriteReplicaSecret?: boolean;
+  ForceOverwriteReplicaSecret?: boolean | undefined;
 }
 
 /**
@@ -586,32 +586,32 @@ export interface ReplicationStatusType {
    * <p>The Region where replication occurs.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Can be an <code>ARN</code>, <code>Key ID</code>, or <code>Alias</code>. </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The status can be <code>InProgress</code>, <code>Failed</code>, or <code>InSync</code>.</p>
    * @public
    */
-  Status?: StatusType;
+  Status?: StatusType | undefined;
 
   /**
    * <p>Status message such as "<i>Secret with this name already exists in this
    *       region</i>".</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    * @public
    */
-  LastAccessedDate?: Date;
+  LastAccessedDate?: Date | undefined;
 }
 
 /**
@@ -625,19 +625,19 @@ export interface CreateSecretResponse {
    *       are different.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the new secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier associated with the version of the new secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>A list of the replicas of this secret and their status:</p>
@@ -657,7 +657,7 @@ export interface CreateSecretResponse {
    *          </ul>
    * @public
    */
-  ReplicationStatus?: ReplicationStatusType[];
+  ReplicationStatus?: ReplicationStatusType[] | undefined;
 }
 
 /**
@@ -669,7 +669,7 @@ export interface CreateSecretResponse {
 export class EncryptionFailure extends __BaseException {
   readonly name: "EncryptionFailure" = "EncryptionFailure";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -691,7 +691,7 @@ export class EncryptionFailure extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -713,7 +713,7 @@ export class LimitExceededException extends __BaseException {
 export class MalformedPolicyDocumentException extends __BaseException {
   readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -735,7 +735,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 export class PreconditionNotMetException extends __BaseException {
   readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -757,7 +757,7 @@ export class PreconditionNotMetException extends __BaseException {
 export class ResourceExistsException extends __BaseException {
   readonly name: "ResourceExistsException" = "ResourceExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -793,13 +793,13 @@ export interface DeleteResourcePolicyResponse {
    * <p>The ARN of the secret that the resource-based policy was deleted for.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret that the resource-based policy was deleted for.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -820,7 +820,7 @@ export interface DeleteSecretRequest {
    *       in the same call. If you don't use either, then by default Secrets Manager uses a 30 day recovery window.</p>
    * @public
    */
-  RecoveryWindowInDays?: number;
+  RecoveryWindowInDays?: number | undefined;
 
   /**
    * <p>Specifies whether to delete the secret without any recovery window. You
@@ -839,7 +839,7 @@ export interface DeleteSecretRequest {
    *          </important>
    * @public
    */
-  ForceDeleteWithoutRecovery?: boolean;
+  ForceDeleteWithoutRecovery?: boolean | undefined;
 }
 
 /**
@@ -850,13 +850,13 @@ export interface DeleteSecretResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The date and time after which this secret Secrets Manager can permanently delete this secret,
@@ -864,7 +864,7 @@ export interface DeleteSecretResponse {
    *       plus the number of days in <code>RecoveryWindowInDays</code>.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 }
 
 /**
@@ -898,7 +898,7 @@ export interface RotationRulesType {
    *       <code>ScheduleExpression</code>.</p>
    * @public
    */
-  AutomaticallyAfterDays?: number;
+  AutomaticallyAfterDays?: number | undefined;
 
   /**
    * <p>The length of the rotation window in hours, for example <code>3h</code> for a three
@@ -911,7 +911,7 @@ export interface RotationRulesType {
    *       in Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>.</p>
    * @public
    */
-  Duration?: string;
+  Duration?: string | undefined;
 
   /**
    * <p>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule for
@@ -934,7 +934,7 @@ export interface RotationRulesType {
    *       rotation window must not extend into the next UTC day or into the next rotation window.</p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 }
 
 /**
@@ -945,19 +945,19 @@ export interface DescribeSecretResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the secret.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The key ID or alias ARN of the KMS key that Secrets Manager uses to encrypt the secret value.
@@ -965,7 +965,7 @@ export interface DescribeSecretResponse {
    *       this field is omitted. Secrets created using the console use an KMS key ID.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether automatic rotation is turned on for this secret.  If the secret has never been configured for rotation, Secrets Manager returns null.</p>
@@ -973,14 +973,14 @@ export interface DescribeSecretResponse {
    *       rotation, use <a>CancelRotateSecret</a>.</p>
    * @public
    */
-  RotationEnabled?: boolean;
+  RotationEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the Lambda function that Secrets Manager invokes to rotate the
    *       secret. </p>
    * @public
    */
-  RotationLambdaARN?: string;
+  RotationLambdaARN?: string | undefined;
 
   /**
    * <p>The rotation schedule and Lambda function for this secret. If the secret previously had rotation turned on, but
@@ -988,26 +988,26 @@ export interface DescribeSecretResponse {
    *     rotation turned on, this field is omitted.</p>
    * @public
    */
-  RotationRules?: RotationRulesType;
+  RotationRules?: RotationRulesType | undefined;
 
   /**
    * <p>The last date and time that Secrets Manager rotated the secret.
    *       If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    * @public
    */
-  LastRotatedDate?: Date;
+  LastRotatedDate?: Date | undefined;
 
   /**
    * <p>The last date and time that this secret was modified in any way.</p>
    * @public
    */
-  LastChangedDate?: Date;
+  LastChangedDate?: Date | undefined;
 
   /**
    * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    * @public
    */
-  LastAccessedDate?: Date;
+  LastAccessedDate?: Date | undefined;
 
   /**
    * <p>The date the secret is scheduled for deletion. If it is not scheduled for deletion, this
@@ -1018,21 +1018,21 @@ export interface DescribeSecretResponse {
    *       value, is not accessible. To cancel a scheduled deletion and restore access to the secret, use <a>RestoreSecret</a>.</p>
    * @public
    */
-  DeletedDate?: Date;
+  DeletedDate?: Date | undefined;
 
   /**
    * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null. If rotation fails, Secrets Manager retries the entire rotation process multiple times. If rotation is unsuccessful, this date may be in the past.</p>
    *          <p>This date represents the latest date that rotation will occur, but it is not an approximate rotation date. In some cases, for example if you turn off automatic rotation and then turn it back on, the next rotation may occur much sooner than this date.</p>
    * @public
    */
-  NextRotationDate?: Date;
+  NextRotationDate?: Date | undefined;
 
   /**
    * <p>The list of tags attached to the secret. To add tags to a
    *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A list of the versions of the secret that have staging labels attached.
@@ -1062,25 +1062,25 @@ export interface DescribeSecretResponse {
    *          <p>For more information about rotation and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation works</a>.</p>
    * @public
    */
-  VersionIdsToStages?: Record<string, string[]>;
+  VersionIdsToStages?: Record<string, string[]> | undefined;
 
   /**
    * <p>The ID of the service that created this secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
    * @public
    */
-  OwningService?: string;
+  OwningService?: string | undefined;
 
   /**
    * <p>The date the secret was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 
   /**
    * <p>The Region the secret is in. If a secret is replicated to other Regions, the replicas are listed in <code>ReplicationStatus</code>. </p>
    * @public
    */
-  PrimaryRegion?: string;
+  PrimaryRegion?: string | undefined;
 
   /**
    * <p>A list of the replicas of this secret and their status: </p>
@@ -1100,7 +1100,7 @@ export interface DescribeSecretResponse {
    *          </ul>
    * @public
    */
-  ReplicationStatus?: ReplicationStatusType[];
+  ReplicationStatus?: ReplicationStatusType[] | undefined;
 }
 
 /**
@@ -1112,20 +1112,20 @@ export interface GetRandomPasswordRequest {
    *       default length is 32 characters.</p>
    * @public
    */
-  PasswordLength?: number;
+  PasswordLength?: number | undefined;
 
   /**
    * <p>A string of the characters that you don't want in the password.</p>
    * @public
    */
-  ExcludeCharacters?: string;
+  ExcludeCharacters?: string | undefined;
 
   /**
    * <p>Specifies whether to exclude numbers from the password. If you don't
    *       include this switch, the password can contain numbers.</p>
    * @public
    */
-  ExcludeNumbers?: boolean;
+  ExcludeNumbers?: boolean | undefined;
 
   /**
    * <p>Specifies whether to exclude the following punctuation characters from the password:
@@ -1133,35 +1133,35 @@ export interface GetRandomPasswordRequest {
    *       If you don't include this switch, the password can contain punctuation.</p>
    * @public
    */
-  ExcludePunctuation?: boolean;
+  ExcludePunctuation?: boolean | undefined;
 
   /**
    * <p>Specifies whether to exclude uppercase letters from the password. If you
    *       don't include this switch, the password can contain uppercase letters.</p>
    * @public
    */
-  ExcludeUppercase?: boolean;
+  ExcludeUppercase?: boolean | undefined;
 
   /**
    * <p>Specifies whether to exclude lowercase letters from the password. If
    *       you don't include this switch, the password can contain lowercase letters.</p>
    * @public
    */
-  ExcludeLowercase?: boolean;
+  ExcludeLowercase?: boolean | undefined;
 
   /**
    * <p>Specifies whether to include the space character. If you
    *       include this switch, the password can contain space characters.</p>
    * @public
    */
-  IncludeSpace?: boolean;
+  IncludeSpace?: boolean | undefined;
 
   /**
    * <p>Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
    *       If you don't include this switch, the password contains at least one of every character type.</p>
    * @public
    */
-  RequireEachIncludedType?: boolean;
+  RequireEachIncludedType?: boolean | undefined;
 }
 
 /**
@@ -1172,7 +1172,7 @@ export interface GetRandomPasswordResponse {
    * <p>A string with the password.</p>
    * @public
    */
-  RandomPassword?: string;
+  RandomPassword?: string | undefined;
 }
 
 /**
@@ -1196,13 +1196,13 @@ export interface GetResourcePolicyResponse {
    * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret that the resource-based policy was retrieved for.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A JSON-formatted string that contains the permissions policy
@@ -1210,7 +1210,7 @@ export interface GetResourcePolicyResponse {
    *         Secrets Manager</a>.</p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface GetSecretValueRequest {
    *       32 hexadecimal digits.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The staging label of the version of the secret to retrieve. </p>
@@ -1244,7 +1244,7 @@ export interface GetSecretValueRequest {
    *       <code>VersionId</code>, Secrets Manager returns the <code>AWSCURRENT</code> version.</p>
    * @public
    */
-  VersionStage?: string;
+  VersionStage?: string | undefined;
 }
 
 /**
@@ -1255,19 +1255,19 @@ export interface GetSecretValueResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The friendly name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier of this version of the secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The decrypted secret value, if the secret value was originally provided as
@@ -1278,7 +1278,7 @@ export interface GetSecretValueResponse {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretBinary?: Uint8Array;
+  SecretBinary?: Uint8Array | undefined;
 
   /**
    * <p>The decrypted secret value, if the secret value was originally provided as a string or
@@ -1288,14 +1288,14 @@ export interface GetSecretValueResponse {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretString?: string;
+  SecretString?: string | undefined;
 
   /**
    * <p>A list of all of the staging labels currently attached to this version of the
    *       secret.</p>
    * @public
    */
-  VersionStages?: string[];
+  VersionStages?: string[] | undefined;
 
   /**
    * <p>The date and time that this version of the secret was created. If you don't specify
@@ -1303,7 +1303,7 @@ export interface GetSecretValueResponse {
    *       <code>AWSCURRENT</code> version.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 }
 
 /**
@@ -1328,7 +1328,7 @@ export interface ListSecretsRequest {
    * <p>Specifies whether to include secrets scheduled for deletion. By default, secrets scheduled for deletion aren't included.</p>
    * @public
    */
-  IncludePlannedDeletion?: boolean;
+  IncludePlannedDeletion?: boolean | undefined;
 
   /**
    * <p>The number of results to include in the response.</p>
@@ -1337,7 +1337,7 @@ export interface ListSecretsRequest {
    *       <code>NextToken</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where the output should continue from, if a
@@ -1345,19 +1345,19 @@ export interface ListSecretsRequest {
    *       with this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The filters to apply to the list of secrets.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Secrets are listed by <code>CreatedDate</code>. </p>
    * @public
    */
-  SortOrder?: SortOrderType;
+  SortOrder?: SortOrderType | undefined;
 }
 
 /**
@@ -1372,32 +1372,32 @@ export interface SecretListEntry {
    * <p>The Amazon Resource Name (ARN) of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The friendly name of the secret.  </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The user-provided description of the secret.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key that Secrets Manager uses to encrypt the secret value. If the secret is encrypted with
    *       the Amazon Web Services managed key <code>aws/secretsmanager</code>, this field is omitted.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether automatic, scheduled rotation is enabled for this secret.</p>
    * @public
    */
-  RotationEnabled?: boolean;
+  RotationEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN of an Amazon Web Services Lambda function invoked by Secrets Manager to rotate and expire the
@@ -1406,31 +1406,31 @@ export interface SecretListEntry {
    *             </a>.</p>
    * @public
    */
-  RotationLambdaARN?: string;
+  RotationLambdaARN?: string | undefined;
 
   /**
    * <p>A structure that defines the rotation configuration for the secret.</p>
    * @public
    */
-  RotationRules?: RotationRulesType;
+  RotationRules?: RotationRulesType | undefined;
 
   /**
    * <p>The most recent date and time that the Secrets Manager rotation process was successfully completed. This value is null if the secret hasn't ever rotated.</p>
    * @public
    */
-  LastRotatedDate?: Date;
+  LastRotatedDate?: Date | undefined;
 
   /**
    * <p>The last date and time that this secret was modified in any way.</p>
    * @public
    */
-  LastChangedDate?: Date;
+  LastChangedDate?: Date | undefined;
 
   /**
    * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    * @public
    */
-  LastAccessedDate?: Date;
+  LastAccessedDate?: Date | undefined;
 
   /**
    * <p>The date and time the deletion of the secret occurred. Not present on active secrets. The
@@ -1440,13 +1440,13 @@ export interface SecretListEntry {
    *             </a> operation.</p>
    * @public
    */
-  DeletedDate?: Date;
+  DeletedDate?: Date | undefined;
 
   /**
    * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    * @public
    */
-  NextRotationDate?: Date;
+  NextRotationDate?: Date | undefined;
 
   /**
    * <p>The list of user-defined tags associated with the secret. To add tags to a
@@ -1458,7 +1458,7 @@ export interface SecretListEntry {
    *             </a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A list of all of the currently assigned <code>SecretVersionStage</code> staging labels and
@@ -1470,25 +1470,25 @@ export interface SecretListEntry {
    *          </note>
    * @public
    */
-  SecretVersionsToStages?: Record<string, string[]>;
+  SecretVersionsToStages?: Record<string, string[]> | undefined;
 
   /**
    * <p>Returns the name of the service that created the secret.</p>
    * @public
    */
-  OwningService?: string;
+  OwningService?: string | undefined;
 
   /**
    * <p>The date and time when a secret was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 
   /**
    * <p>The Region where Secrets Manager originated the secret.</p>
    * @public
    */
-  PrimaryRegion?: string;
+  PrimaryRegion?: string | undefined;
 }
 
 /**
@@ -1499,7 +1499,7 @@ export interface ListSecretsResponse {
    * <p>A list of the secrets in the account.</p>
    * @public
    */
-  SecretList?: SecretListEntry[];
+  SecretList?: SecretListEntry[] | undefined;
 
   /**
    * <p>Secrets Manager includes this value if
@@ -1509,7 +1509,7 @@ export interface ListSecretsResponse {
    *       with this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1530,7 +1530,7 @@ export interface ListSecretVersionIdsRequest {
    *       To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where the output should continue from, if a previous call
@@ -1538,7 +1538,7 @@ export interface ListSecretVersionIdsRequest {
    *       this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies whether to include versions of secrets that don't have any
@@ -1546,7 +1546,7 @@ export interface ListSecretVersionIdsRequest {
    *       deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
    * @public
    */
-  IncludeDeprecated?: boolean;
+  IncludeDeprecated?: boolean | undefined;
 }
 
 /**
@@ -1558,33 +1558,33 @@ export interface SecretVersionsListEntry {
    * <p>The unique version identifier of this version of the secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>An array of staging labels that are currently associated with this version of the
    *       secret.</p>
    * @public
    */
-  VersionStages?: string[];
+  VersionStages?: string[] | undefined;
 
   /**
    * <p>The date that this version of the secret was last accessed. Note that the resolution of
    *       this field is at the date level and does not include the time.</p>
    * @public
    */
-  LastAccessedDate?: Date;
+  LastAccessedDate?: Date | undefined;
 
   /**
    * <p>The date and time this version of the secret was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 
   /**
    * <p>The KMS keys used to encrypt the secret version.</p>
    * @public
    */
-  KmsKeyIds?: string[];
+  KmsKeyIds?: string[] | undefined;
 }
 
 /**
@@ -1595,7 +1595,7 @@ export interface ListSecretVersionIdsResponse {
    * <p>A list of the versions of the secret.</p>
    * @public
    */
-  Versions?: SecretVersionsListEntry[];
+  Versions?: SecretVersionsListEntry[] | undefined;
 
   /**
    * <p>Secrets Manager includes this value if there's more output available than what is included
@@ -1604,19 +1604,19 @@ export interface ListSecretVersionIdsResponse {
    *       call <code>ListSecretVersionIds</code> again with this value. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1626,7 +1626,7 @@ export interface ListSecretVersionIdsResponse {
 export class PublicPolicyException extends __BaseException {
   readonly name: "PublicPolicyException" = "PublicPolicyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1677,7 +1677,7 @@ export interface PutResourcePolicyRequest {
    *          </important>
    * @public
    */
-  BlockPublicPolicy?: boolean;
+  BlockPublicPolicy?: boolean | undefined;
 }
 
 /**
@@ -1688,13 +1688,13 @@ export interface PutResourcePolicyResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1737,7 +1737,7 @@ export interface PutSecretValueRequest {
    *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The binary data to encrypt and store in the new version of
@@ -1749,7 +1749,7 @@ export interface PutSecretValueRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretBinary?: Uint8Array;
+  SecretBinary?: Uint8Array | undefined;
 
   /**
    * <p>The text to encrypt and store in the new version of the secret. </p>
@@ -1758,7 +1758,7 @@ export interface PutSecretValueRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretString?: string;
+  SecretString?: string | undefined;
 
   /**
    * <p>A list of staging labels to attach to this version of the
@@ -1773,14 +1773,14 @@ export interface PutSecretValueRequest {
    *       moves the staging label <code>AWSCURRENT</code> to this version.</p>
    * @public
    */
-  VersionStages?: string[];
+  VersionStages?: string[] | undefined;
 
   /**
    * <p>A unique identifier that indicates the source of the request. For cross-account rotation (when you rotate a secret in one account by using a Lambda rotation function in another account) and the Lambda rotation function assumes an IAM role to call Secrets Manager, Secrets Manager validates the identity with the rotation token. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">How rotation works</a>.</p>
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  RotationToken?: string;
+  RotationToken?: string | undefined;
 }
 
 /**
@@ -1791,19 +1791,19 @@ export interface PutSecretValueResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier of the version of the secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The list of staging labels that are currently attached to this version of the secret.
@@ -1811,7 +1811,7 @@ export interface PutSecretValueResponse {
    *       process.</p>
    * @public
    */
-  VersionStages?: string[];
+  VersionStages?: string[] | undefined;
 }
 
 /**
@@ -1839,13 +1839,13 @@ export interface RemoveRegionsFromReplicationResponse {
    * <p>The ARN of the primary secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The status of replicas for this secret after you remove Regions.</p>
    * @public
    */
-  ReplicationStatus?: ReplicationStatusType[];
+  ReplicationStatus?: ReplicationStatusType[] | undefined;
 }
 
 /**
@@ -1868,7 +1868,7 @@ export interface ReplicateSecretToRegionsRequest {
    * <p>Specifies whether to overwrite a secret with the same name in the destination Region. By default, secrets aren't overwritten.</p>
    * @public
    */
-  ForceOverwriteReplicaSecret?: boolean;
+  ForceOverwriteReplicaSecret?: boolean | undefined;
 }
 
 /**
@@ -1879,13 +1879,13 @@ export interface ReplicateSecretToRegionsResponse {
    * <p>The ARN of the primary secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The status of replication.</p>
    * @public
    */
-  ReplicationStatus?: ReplicationStatusType[];
+  ReplicationStatus?: ReplicationStatusType[] | undefined;
 }
 
 /**
@@ -1909,13 +1909,13 @@ export interface RestoreSecretResponse {
    * <p>The ARN of the secret that was restored.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret that was restored.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1940,20 +1940,20 @@ export interface RotateSecretRequest {
    *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>For secrets that use a Lambda rotation function to rotate, the ARN of the Lambda rotation function. </p>
    *          <p>For secrets that use <i>managed rotation</i>, omit this field. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html">Managed rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
    * @public
    */
-  RotationLambdaARN?: string;
+  RotationLambdaARN?: string | undefined;
 
   /**
    * <p>A structure that defines the rotation configuration for this secret.</p>
    * @public
    */
-  RotationRules?: RotationRulesType;
+  RotationRules?: RotationRulesType | undefined;
 
   /**
    * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
@@ -1965,7 +1965,7 @@ export interface RotateSecretRequest {
    *          <p>By default, Secrets Manager rotates the secret immediately.</p>
    * @public
    */
-  RotateImmediately?: boolean;
+  RotateImmediately?: boolean | undefined;
 }
 
 /**
@@ -1976,19 +1976,19 @@ export interface RotateSecretResponse {
    * <p>The ARN of the secret.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the new version of the secret.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -2010,7 +2010,7 @@ export interface StopReplicationToReplicaResponse {
    * <p>The ARN of the promoted secret. The ARN is the same as the original primary secret except the Region is changed.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -2084,13 +2084,13 @@ export interface UpdateSecretRequest {
    *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The description of the secret.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager
@@ -2112,7 +2112,7 @@ export interface UpdateSecretRequest {
    *          </important>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The binary data to encrypt and store in the new
@@ -2125,7 +2125,7 @@ export interface UpdateSecretRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretBinary?: Uint8Array;
+  SecretBinary?: Uint8Array | undefined;
 
   /**
    * <p>The text data to encrypt and store in the new
@@ -2135,7 +2135,7 @@ export interface UpdateSecretRequest {
    *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
-  SecretString?: string;
+  SecretString?: string | undefined;
 }
 
 /**
@@ -2146,20 +2146,20 @@ export interface UpdateSecretResponse {
    * <p>The ARN of the secret that was updated.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If Secrets Manager created a new version of the secret during this operation, then <code>VersionId</code>
    *       contains the unique identifier of the new version.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -2188,7 +2188,7 @@ export interface UpdateSecretVersionStageRequest {
    *       or the version ID does not match, then the operation fails.</p>
    * @public
    */
-  RemoveFromVersionId?: string;
+  RemoveFromVersionId?: string | undefined;
 
   /**
    * <p>The ID of the version to add the staging label to. To
@@ -2197,7 +2197,7 @@ export interface UpdateSecretVersionStageRequest {
    *       must also specify the <code>RemoveFromVersionId</code> parameter. </p>
    * @public
    */
-  MoveToVersionId?: string;
+  MoveToVersionId?: string | undefined;
 }
 
 /**
@@ -2208,13 +2208,13 @@ export interface UpdateSecretVersionStageResponse {
    * <p>The ARN of the secret that was updated.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the secret that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -2225,7 +2225,7 @@ export interface ValidateResourcePolicyRequest {
    * <p>The ARN or name of the secret with the resource-based policy you want to validate.</p>
    * @public
    */
-  SecretId?: string;
+  SecretId?: string | undefined;
 
   /**
    * <p>A JSON-formatted string that contains an Amazon Web Services
@@ -2245,13 +2245,13 @@ export interface ValidationErrorsEntry {
    * <p>Checks the name of the policy.</p>
    * @public
    */
-  CheckName?: string;
+  CheckName?: string | undefined;
 
   /**
    * <p>Displays error messages if validation encounters problems during validation of the resource policy.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -2262,13 +2262,13 @@ export interface ValidateResourcePolicyResponse {
    * <p>True if your policy passes validation, otherwise false.</p>
    * @public
    */
-  PolicyValidationPassed?: boolean;
+  PolicyValidationPassed?: boolean | undefined;
 
   /**
    * <p>Validation errors if your policy didn't pass validation.</p>
    * @public
    */
-  ValidationErrors?: ValidationErrorsEntry[];
+  ValidationErrors?: ValidationErrorsEntry[] | undefined;
 }
 
 /**

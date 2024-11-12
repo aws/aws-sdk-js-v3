@@ -69,19 +69,19 @@ export interface AWSAccount {
    * <p> The identifier for the Amazon Web Services account. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The email address that's associated with the Amazon Web Services account. </p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 
   /**
    * <p> The name of the Amazon Web Services account. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -94,19 +94,19 @@ export interface ControlComment {
    * <p> The name of the user who authored the comment. </p>
    * @public
    */
-  authorName?: string;
+  authorName?: string | undefined;
 
   /**
    * <p> The body text of a control comment. </p>
    * @public
    */
-  commentBody?: string;
+  commentBody?: string | undefined;
 
   /**
    * <p> The time when the comment was posted. </p>
    * @public
    */
-  postedDate?: Date;
+  postedDate?: Date | undefined;
 }
 
 /**
@@ -149,55 +149,55 @@ export interface AssessmentControl {
    * <p> The identifier for the control. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the control. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the control. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The status of the control. </p>
    * @public
    */
-  status?: ControlStatus;
+  status?: ControlStatus | undefined;
 
   /**
    * <p> The response of the control. </p>
    * @public
    */
-  response?: ControlResponse;
+  response?: ControlResponse | undefined;
 
   /**
    * <p> The list of comments that's attached to the control. </p>
    * @public
    */
-  comments?: ControlComment[];
+  comments?: ControlComment[] | undefined;
 
   /**
    * <p> The list of data sources for the evidence. </p>
    * @public
    */
-  evidenceSources?: string[];
+  evidenceSources?: string[] | undefined;
 
   /**
    * <p> The amount of evidence that's collected for the control. </p>
    * @public
    */
-  evidenceCount?: number;
+  evidenceCount?: number | undefined;
 
   /**
    * <p> The amount of evidence in the assessment report. </p>
    * @public
    */
-  assessmentReportEvidenceCount?: number;
+  assessmentReportEvidenceCount?: number | undefined;
 }
 
 /**
@@ -238,31 +238,31 @@ export interface Delegation {
    * <p> The unique identifier for the delegation. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the assessment that's associated with the delegation. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The identifier for the assessment that's associated with the delegation. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p> The status of the delegation. </p>
    * @public
    */
-  status?: DelegationStatus;
+  status?: DelegationStatus | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p> The type of customer persona. </p>
@@ -276,37 +276,37 @@ export interface Delegation {
    *          </note>
    * @public
    */
-  roleType?: RoleType;
+  roleType?: RoleType | undefined;
 
   /**
    * <p> Specifies when the delegation was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> Specifies when the delegation was last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 
   /**
    * <p> The identifier for the control set that's associated with the delegation. </p>
    * @public
    */
-  controlSetId?: string;
+  controlSetId?: string | undefined;
 
   /**
    * <p> The comment that's related to the delegation. </p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
    * <p> The user or role that created the delegation. </p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 }
 
 /**
@@ -361,51 +361,51 @@ export interface AssessmentControlSet {
    *          plain string format. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The description for the control set. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The current status of the control set. </p>
    * @public
    */
-  status?: ControlSetStatus;
+  status?: ControlSetStatus | undefined;
 
   /**
    * <p> The roles that are associated with the control set. </p>
    * @public
    */
-  roles?: Role[];
+  roles?: Role[] | undefined;
 
   /**
    * <p> The list of controls that's contained with the control set. </p>
    * @public
    */
-  controls?: AssessmentControl[];
+  controls?: AssessmentControl[] | undefined;
 
   /**
    * <p> The delegations that are associated with the control set. </p>
    * @public
    */
-  delegations?: Delegation[];
+  delegations?: Delegation[] | undefined;
 
   /**
    * <p> The total number of evidence objects that are retrieved automatically for the control
    *          set. </p>
    * @public
    */
-  systemEvidenceCount?: number;
+  systemEvidenceCount?: number | undefined;
 
   /**
    * <p> The total number of evidence objects that are uploaded manually to the control set.
    *       </p>
    * @public
    */
-  manualEvidenceCount?: number;
+  manualEvidenceCount?: number | undefined;
 }
 
 /**
@@ -417,26 +417,26 @@ export interface FrameworkMetadata {
    * <p> The name of the framework. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the framework. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The logo that's associated with the framework. </p>
    * @public
    */
-  logo?: string;
+  logo?: string | undefined;
 
   /**
    * <p> The compliance standard that's associated with the framework. For example, this could
    *          be PCI DSS or HIPAA. </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 }
 
 /**
@@ -449,25 +449,25 @@ export interface AssessmentFramework {
    * <p> The unique identifier for the framework. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the framework. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The metadata of a framework, such as the name, ID, or description. </p>
    * @public
    */
-  metadata?: FrameworkMetadata;
+  metadata?: FrameworkMetadata | undefined;
 
   /**
    * <p> The control sets that are associated with the framework. </p>
    * @public
    */
-  controlSets?: AssessmentControlSet[];
+  controlSets?: AssessmentControlSet[] | undefined;
 }
 
 /**
@@ -494,13 +494,13 @@ export interface AssessmentReportsDestination {
    * <p> The destination type, such as Amazon S3. </p>
    * @public
    */
-  destinationType?: AssessmentReportDestinationType;
+  destinationType?: AssessmentReportDestinationType | undefined;
 
   /**
    * <p> The destination bucket where Audit Manager stores assessment reports. </p>
    * @public
    */
-  destination?: string;
+  destination?: string | undefined;
 }
 
 /**
@@ -527,7 +527,7 @@ export interface AWSService {
    * <p> The name of the Amazon Web Service. </p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 }
 
 /**
@@ -551,7 +551,7 @@ export interface Scope {
    *       </p>
    * @public
    */
-  awsAccounts?: AWSAccount[];
+  awsAccounts?: AWSAccount[] | undefined;
 
   /**
    * @deprecated
@@ -565,7 +565,7 @@ export interface Scope {
    *          </important>
    * @public
    */
-  awsServices?: AWSService[];
+  awsServices?: AWSService[] | undefined;
 }
 
 /**
@@ -591,69 +591,69 @@ export interface AssessmentMetadata {
    * <p> The name of the assessment. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The unique identifier for the assessment. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The description of the assessment. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The name of the compliance standard that's related to the assessment, such as PCI-DSS.
    *       </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The overall status of the assessment. </p>
    * @public
    */
-  status?: AssessmentStatus;
+  status?: AssessmentStatus | undefined;
 
   /**
    * <p> The destination that evidence reports are stored in for the assessment. </p>
    * @public
    */
-  assessmentReportsDestination?: AssessmentReportsDestination;
+  assessmentReportsDestination?: AssessmentReportsDestination | undefined;
 
   /**
    * <p> The wrapper of Amazon Web Services accounts and services that are in scope for the
    *          assessment. </p>
    * @public
    */
-  scope?: Scope;
+  scope?: Scope | undefined;
 
   /**
    * <p> The roles that are associated with the assessment. </p>
    * @public
    */
-  roles?: Role[];
+  roles?: Role[] | undefined;
 
   /**
    * <p> The delegations that are associated with the assessment. </p>
    * @public
    */
-  delegations?: Delegation[];
+  delegations?: Delegation[] | undefined;
 
   /**
    * <p> Specifies when the assessment was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> The time of the most recent update. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -666,31 +666,31 @@ export interface Assessment {
    * <p> The Amazon Resource Name (ARN) of the assessment. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The Amazon Web Services account that's associated with the assessment. </p>
    * @public
    */
-  awsAccount?: AWSAccount;
+  awsAccount?: AWSAccount | undefined;
 
   /**
    * <p> The metadata for the assessment. </p>
    * @public
    */
-  metadata?: AssessmentMetadata;
+  metadata?: AssessmentMetadata | undefined;
 
   /**
    * <p> The framework that the assessment was created from. </p>
    * @public
    */
-  framework?: AssessmentFramework;
+  framework?: AssessmentFramework | undefined;
 
   /**
    * <p> The tags that are associated with the assessment. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -702,73 +702,73 @@ export interface AssessmentEvidenceFolder {
    * <p> The name of the evidence folder. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The date when the first evidence was added to the evidence folder. </p>
    * @public
    */
-  date?: Date;
+  date?: Date | undefined;
 
   /**
    * <p> The identifier for the assessment. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p> The identifier for the control set. </p>
    * @public
    */
-  controlSetId?: string;
+  controlSetId?: string | undefined;
 
   /**
    * <p> The unique identifier for the control. </p>
    * @public
    */
-  controlId?: string;
+  controlId?: string | undefined;
 
   /**
    * <p> The identifier for the folder that the evidence is stored in. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The Amazon Web Service that the evidence was collected from. </p>
    * @public
    */
-  dataSource?: string;
+  dataSource?: string | undefined;
 
   /**
    * <p> The name of the user who created the evidence folder. </p>
    * @public
    */
-  author?: string;
+  author?: string | undefined;
 
   /**
    * <p> The total amount of evidence in the evidence folder. </p>
    * @public
    */
-  totalEvidence?: number;
+  totalEvidence?: number | undefined;
 
   /**
    * <p> The total count of evidence that's included in the assessment report. </p>
    * @public
    */
-  assessmentReportSelectionCount?: number;
+  assessmentReportSelectionCount?: number | undefined;
 
   /**
    * <p> The name of the control. </p>
    * @public
    */
-  controlName?: string;
+  controlName?: string | undefined;
 
   /**
    * <p> The amount of evidence that's included in the evidence folder. </p>
    * @public
    */
-  evidenceResourcesIncludedCount?: number;
+  evidenceResourcesIncludedCount?: number | undefined;
 
   /**
    * <p> The number of evidence that falls under the configuration data category. This evidence
@@ -776,42 +776,42 @@ export interface AssessmentEvidenceFolder {
    *             Amazon EC2, Amazon S3, or IAM. </p>
    * @public
    */
-  evidenceByTypeConfigurationDataCount?: number;
+  evidenceByTypeConfigurationDataCount?: number | undefined;
 
   /**
    * <p> The number of evidence that falls under the manual category. This evidence is imported
    *          manually. </p>
    * @public
    */
-  evidenceByTypeManualCount?: number;
+  evidenceByTypeManualCount?: number | undefined;
 
   /**
    * <p> The number of evidence that falls under the compliance check category. This evidence is
    *          collected from Config or Security Hub. </p>
    * @public
    */
-  evidenceByTypeComplianceCheckCount?: number;
+  evidenceByTypeComplianceCheckCount?: number | undefined;
 
   /**
    * <p> The total number of issues that were reported directly from Security Hub,
    *             Config, or both. </p>
    * @public
    */
-  evidenceByTypeComplianceCheckIssuesCount?: number;
+  evidenceByTypeComplianceCheckIssuesCount?: number | undefined;
 
   /**
    * <p> The number of evidence that falls under the user activity category. This evidence is
    *          collected from CloudTrail logs. </p>
    * @public
    */
-  evidenceByTypeUserActivityCount?: number;
+  evidenceByTypeUserActivityCount?: number | undefined;
 
   /**
    * <p> The total number of Amazon Web Services resources that were assessed to generate the
    *          evidence. </p>
    * @public
    */
-  evidenceAwsServiceSourceCount?: number;
+  evidenceAwsServiceSourceCount?: number | undefined;
 }
 
 /**
@@ -837,68 +837,68 @@ export interface AssessmentFrameworkMetadata {
    * <p> The Amazon Resource Name (ARN) of the framework. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The unique identifier for the framework. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The framework type, such as a standard framework or a custom framework. </p>
    * @public
    */
-  type?: FrameworkType;
+  type?: FrameworkType | undefined;
 
   /**
    * <p> The name of the framework. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the framework. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The logo that's associated with the framework. </p>
    * @public
    */
-  logo?: string;
+  logo?: string | undefined;
 
   /**
    * <p> The compliance type that the new custom framework supports, such as CIS or HIPAA.
    *       </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The number of controls that are associated with the framework. </p>
    * @public
    */
-  controlsCount?: number;
+  controlsCount?: number | undefined;
 
   /**
    * <p> The number of control sets that are associated with the framework. </p>
    * @public
    */
-  controlSetsCount?: number;
+  controlSetsCount?: number | undefined;
 
   /**
    * <p> The time when the framework was created. </p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The time when the framework was most recently updated. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -930,92 +930,92 @@ export interface AssessmentFrameworkShareRequest {
    * <p> The unique identifier for the share request. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The unique identifier for the shared custom framework. </p>
    * @public
    */
-  frameworkId?: string;
+  frameworkId?: string | undefined;
 
   /**
    * <p> The name of the custom framework that the share request is for. </p>
    * @public
    */
-  frameworkName?: string;
+  frameworkName?: string | undefined;
 
   /**
    * <p>The description of the shared custom framework.</p>
    * @public
    */
-  frameworkDescription?: string;
+  frameworkDescription?: string | undefined;
 
   /**
    * <p> The status of the share request. </p>
    * @public
    */
-  status?: ShareRequestStatus;
+  status?: ShareRequestStatus | undefined;
 
   /**
    * <p> The Amazon Web Services account of the sender. </p>
    * @public
    */
-  sourceAccount?: string;
+  sourceAccount?: string | undefined;
 
   /**
    * <p> The Amazon Web Services account of the recipient. </p>
    * @public
    */
-  destinationAccount?: string;
+  destinationAccount?: string | undefined;
 
   /**
    * <p> The Amazon Web Services Region of the recipient. </p>
    * @public
    */
-  destinationRegion?: string;
+  destinationRegion?: string | undefined;
 
   /**
    * <p> The time when the share request expires. </p>
    * @public
    */
-  expirationTime?: Date;
+  expirationTime?: Date | undefined;
 
   /**
    * <p> The time when the share request was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> Specifies when the share request was last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 
   /**
    * <p> An optional comment from the sender about the share request. </p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
    * <p>The number of standard controls that are part of the shared custom framework. </p>
    * @public
    */
-  standardControlsCount?: number;
+  standardControlsCount?: number | undefined;
 
   /**
    * <p>The number of custom controls that are part of the shared custom framework.</p>
    * @public
    */
-  customControlsCount?: number;
+  customControlsCount?: number | undefined;
 
   /**
    * <p>The compliance type that the shared custom framework supports, such as CIS or
    *          HIPAA.</p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 }
 
 /**
@@ -1028,50 +1028,50 @@ export interface AssessmentMetadataItem {
    * <p> The name of the assessment. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The unique identifier for the assessment. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the compliance standard that's related to the assessment, such as PCI-DSS.
    *       </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The current status of the assessment. </p>
    * @public
    */
-  status?: AssessmentStatus;
+  status?: AssessmentStatus | undefined;
 
   /**
    * <p> The roles that are associated with the assessment. </p>
    * @public
    */
-  roles?: Role[];
+  roles?: Role[] | undefined;
 
   /**
    * <p> The delegations that are associated with the assessment. </p>
    * @public
    */
-  delegations?: Delegation[];
+  delegations?: Delegation[] | undefined;
 
   /**
    * <p> Specifies when the assessment was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> The time of the most recent update. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -1101,55 +1101,55 @@ export interface AssessmentReport {
    * <p> The unique identifier for the assessment report. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name that's given to the assessment report. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the specified assessment report. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The identifier for the specified Amazon Web Services account. </p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p> The identifier for the specified assessment. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p> The name of the associated assessment. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The name of the user who created the assessment report. </p>
    * @public
    */
-  author?: string;
+  author?: string | undefined;
 
   /**
    * <p> The current status of the specified assessment report. </p>
    * @public
    */
-  status?: AssessmentReportStatus;
+  status?: AssessmentReportStatus | undefined;
 
   /**
    * <p> Specifies when the assessment report was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 }
 
 /**
@@ -1162,19 +1162,19 @@ export interface AssessmentReportEvidenceError {
    * <p> The identifier for the evidence. </p>
    * @public
    */
-  evidenceId?: string;
+  evidenceId?: string | undefined;
 
   /**
    * <p> The error code that was returned. </p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p> The error message that was returned. </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1186,49 +1186,49 @@ export interface AssessmentReportMetadata {
    * <p> The unique identifier for the assessment report. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the assessment report. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the assessment report. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The unique identifier for the associated assessment. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p>The name of the associated assessment. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The name of the user who created the assessment report. </p>
    * @public
    */
-  author?: string;
+  author?: string | undefined;
 
   /**
    * <p> The current status of the assessment report. </p>
    * @public
    */
-  status?: AssessmentReportStatus;
+  status?: AssessmentReportStatus | undefined;
 
   /**
    * <p> Specifies when the assessment report was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 }
 
 /**
@@ -1353,13 +1353,13 @@ export class ValidationException extends __BaseException {
    * <p> The reason the request failed validation. </p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p> The fields that caused the error, if applicable. </p>
    * @public
    */
-  fields?: ValidationExceptionField[];
+  fields?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -1407,14 +1407,14 @@ export interface BatchAssociateAssessmentReportEvidenceResponse {
    * <p> The list of evidence identifiers. </p>
    * @public
    */
-  evidenceIds?: string[];
+  evidenceIds?: string[] | undefined;
 
   /**
    * <p> A list of errors that the <code>BatchAssociateAssessmentReportEvidence</code> API
    *          returned. </p>
    * @public
    */
-  errors?: AssessmentReportEvidenceError[];
+  errors?: AssessmentReportEvidenceError[] | undefined;
 }
 
 /**
@@ -1427,19 +1427,19 @@ export interface CreateDelegationRequest {
    * <p> A comment that's related to the delegation request. </p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
    * <p> The unique identifier for the control set. </p>
    * @public
    */
-  controlSetId?: string;
+  controlSetId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p> The type of customer persona. </p>
@@ -1453,7 +1453,7 @@ export interface CreateDelegationRequest {
    *          </note>
    * @public
    */
-  roleType?: RoleType;
+  roleType?: RoleType | undefined;
 }
 
 /**
@@ -1483,21 +1483,21 @@ export interface BatchCreateDelegationByAssessmentError {
    * <p> The API request to batch create delegations in Audit Manager. </p>
    * @public
    */
-  createDelegationRequest?: CreateDelegationRequest;
+  createDelegationRequest?: CreateDelegationRequest | undefined;
 
   /**
    * <p> The error code that the <code>BatchCreateDelegationByAssessment</code> API returned.
    *       </p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p> The error message that the <code>BatchCreateDelegationByAssessment</code> API returned.
    *       </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1508,14 +1508,14 @@ export interface BatchCreateDelegationByAssessmentResponse {
    * <p> The delegations that are associated with the assessment. </p>
    * @public
    */
-  delegations?: Delegation[];
+  delegations?: Delegation[] | undefined;
 
   /**
    * <p> A list of errors that the <code>BatchCreateDelegationByAssessment</code> API returned.
    *       </p>
    * @public
    */
-  errors?: BatchCreateDelegationByAssessmentError[];
+  errors?: BatchCreateDelegationByAssessmentError[] | undefined;
 }
 
 /**
@@ -1545,21 +1545,21 @@ export interface BatchDeleteDelegationByAssessmentError {
    * <p> The identifier for the delegation. </p>
    * @public
    */
-  delegationId?: string;
+  delegationId?: string | undefined;
 
   /**
    * <p> The error code that the <code>BatchDeleteDelegationByAssessment</code> API returned.
    *       </p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p> The error message that the <code>BatchDeleteDelegationByAssessment</code> API returned.
    *       </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1571,7 +1571,7 @@ export interface BatchDeleteDelegationByAssessmentResponse {
    *       </p>
    * @public
    */
-  errors?: BatchDeleteDelegationByAssessmentError[];
+  errors?: BatchDeleteDelegationByAssessmentError[] | undefined;
 }
 
 /**
@@ -1605,14 +1605,14 @@ export interface BatchDisassociateAssessmentReportEvidenceResponse {
    * <p> The identifier for the evidence. </p>
    * @public
    */
-  evidenceIds?: string[];
+  evidenceIds?: string[] | undefined;
 
   /**
    * <p> A list of errors that the <code>BatchDisassociateAssessmentReportEvidence</code> API
    *          returned. </p>
    * @public
    */
-  errors?: AssessmentReportEvidenceError[];
+  errors?: AssessmentReportEvidenceError[] | undefined;
 }
 
 /**
@@ -1626,13 +1626,13 @@ export interface ManualEvidence {
    * <p>The S3 URL of the object that's imported as manual evidence. </p>
    * @public
    */
-  s3ResourcePath?: string;
+  s3ResourcePath?: string | undefined;
 
   /**
    * <p>The plain text response that's entered and saved as manual evidence.</p>
    * @public
    */
-  textResponse?: string;
+  textResponse?: string | undefined;
 
   /**
    * <p>The name of the file that's uploaded as manual evidence. This name is populated using
@@ -1641,7 +1641,7 @@ export interface ManualEvidence {
    *             </a> API response.</p>
    * @public
    */
-  evidenceFileName?: string;
+  evidenceFileName?: string | undefined;
 }
 
 /**
@@ -1683,21 +1683,21 @@ export interface BatchImportEvidenceToAssessmentControlError {
    * <p> Manual evidence that can't be collected automatically by Audit Manager. </p>
    * @public
    */
-  manualEvidence?: ManualEvidence;
+  manualEvidence?: ManualEvidence | undefined;
 
   /**
    * <p> The error code that the <code>BatchImportEvidenceToAssessmentControl</code> API
    *          returned. </p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p> The error message that the <code>BatchImportEvidenceToAssessmentControl</code> API
    *          returned. </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1709,7 +1709,7 @@ export interface BatchImportEvidenceToAssessmentControlResponse {
    *          returned. </p>
    * @public
    */
-  errors?: BatchImportEvidenceToAssessmentControlError[];
+  errors?: BatchImportEvidenceToAssessmentControlError[] | undefined;
 }
 
 /**
@@ -1746,7 +1746,7 @@ export interface CreateAssessmentRequest {
    * <p> The optional description of the assessment to be created. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The assessment report storage destination for the assessment that's being created.
@@ -1788,7 +1788,7 @@ export interface CreateAssessmentRequest {
    * <p> The tags that are associated with the assessment. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1800,7 +1800,7 @@ export interface CreateAssessmentResponse {
    *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
    * @public
    */
-  assessment?: Assessment;
+  assessment?: Assessment | undefined;
 }
 
 /**
@@ -1855,7 +1855,7 @@ export interface CreateAssessmentFrameworkControlSet {
    *       </p>
    * @public
    */
-  controls?: CreateAssessmentFrameworkControl[];
+  controls?: CreateAssessmentFrameworkControl[] | undefined;
 }
 
 /**
@@ -1872,14 +1872,14 @@ export interface CreateAssessmentFrameworkRequest {
    * <p> An optional description for the new custom framework. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The compliance type that the new custom framework supports, such as CIS or HIPAA.
    *       </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The control sets that are associated with the framework. </p>
@@ -1891,7 +1891,7 @@ export interface CreateAssessmentFrameworkRequest {
    * <p> The tags that are associated with the framework. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1992,7 +1992,7 @@ export interface SourceKeyword {
    *          </ul>
    * @public
    */
-  keywordInputType?: KeywordInputType;
+  keywordInputType?: KeywordInputType | undefined;
 
   /**
    * <p> The value of the keyword that's used when mapping a control data source. For example,
@@ -2103,7 +2103,7 @@ export interface SourceKeyword {
    *          </important>
    * @public
    */
-  keywordValue?: string;
+  keywordValue?: string | undefined;
 }
 
 /**
@@ -2149,19 +2149,19 @@ export interface ControlMappingSource {
    * <p> The unique identifier for the source. </p>
    * @public
    */
-  sourceId?: string;
+  sourceId?: string | undefined;
 
   /**
    * <p> The name of the source. </p>
    * @public
    */
-  sourceName?: string;
+  sourceName?: string | undefined;
 
   /**
    * <p> The description of the source. </p>
    * @public
    */
-  sourceDescription?: string;
+  sourceDescription?: string | undefined;
 
   /**
    * <p>The setup option for the data source. This option reflects if the evidence collection
@@ -2170,7 +2170,7 @@ export interface ControlMappingSource {
    *          the correct value based on the <code>sourceType</code> that you specify.</p>
    * @public
    */
-  sourceSetUpOption?: SourceSetUpOption;
+  sourceSetUpOption?: SourceSetUpOption | undefined;
 
   /**
    * <p> Specifies which type of data source is used to collect evidence. </p>
@@ -2188,7 +2188,7 @@ export interface ControlMappingSource {
    *          </ul>
    * @public
    */
-  sourceType?: SourceType;
+  sourceType?: SourceType | undefined;
 
   /**
    * <p>A keyword that relates to the control data source.</p>
@@ -2224,19 +2224,19 @@ export interface ControlMappingSource {
    *          </ul>
    * @public
    */
-  sourceKeyword?: SourceKeyword;
+  sourceKeyword?: SourceKeyword | undefined;
 
   /**
    * <p>Specifies how often evidence is collected from the control mapping source. </p>
    * @public
    */
-  sourceFrequency?: SourceFrequency;
+  sourceFrequency?: SourceFrequency | undefined;
 
   /**
    * <p> The instructions for troubleshooting the control. </p>
    * @public
    */
-  troubleshootingText?: string;
+  troubleshootingText?: string | undefined;
 }
 
 /**
@@ -2277,93 +2277,93 @@ export interface Control {
    * <p> The Amazon Resource Name (ARN) of the control. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The unique identifier for the control. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> Specifies whether the control is a standard control or a custom control.</p>
    * @public
    */
-  type?: ControlType;
+  type?: ControlType | undefined;
 
   /**
    * <p> The name of the control. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The description of the control. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The steps that you should follow to determine if the control has been satisfied.
    *       </p>
    * @public
    */
-  testingInformation?: string;
+  testingInformation?: string | undefined;
 
   /**
    * <p> The title of the action plan for remediating the control. </p>
    * @public
    */
-  actionPlanTitle?: string;
+  actionPlanTitle?: string | undefined;
 
   /**
    * <p> The recommended actions to carry out if the control isn't fulfilled. </p>
    * @public
    */
-  actionPlanInstructions?: string;
+  actionPlanInstructions?: string | undefined;
 
   /**
    * <p> The data source types that determine where Audit Manager collects evidence from for
    *          the control. </p>
    * @public
    */
-  controlSources?: string;
+  controlSources?: string | undefined;
 
   /**
    * <p> The data mapping sources for the control. </p>
    * @public
    */
-  controlMappingSources?: ControlMappingSource[];
+  controlMappingSources?: ControlMappingSource[] | undefined;
 
   /**
    * <p> The time when the control was created. </p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The time when the control was most recently updated. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The user or role that created the control. </p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p> The user or role that most recently updated the control. </p>
    * @public
    */
-  lastUpdatedBy?: string;
+  lastUpdatedBy?: string | undefined;
 
   /**
    * <p> The tags associated with the control. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The state of the control. The <code>END_OF_SUPPORT</code> state is applicable to
@@ -2372,7 +2372,7 @@ export interface Control {
    *          control.</p>
    * @public
    */
-  state?: ControlState;
+  state?: ControlState | undefined;
 }
 
 /**
@@ -2385,19 +2385,19 @@ export interface ControlSet {
    *          plain string format. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the control set. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The list of controls within the control set. </p>
    * @public
    */
-  controls?: Control[];
+  controls?: Control[] | undefined;
 }
 
 /**
@@ -2410,85 +2410,85 @@ export interface Framework {
    * <p> The Amazon Resource Name (ARN) of the framework. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The unique identifier for the framework. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the framework. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> Specifies whether the framework is a standard framework or a custom framework.</p>
    * @public
    */
-  type?: FrameworkType;
+  type?: FrameworkType | undefined;
 
   /**
    * <p> The compliance type that the framework supports, such as CIS or HIPAA. </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The description of the framework. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The logo that's associated with the framework. </p>
    * @public
    */
-  logo?: string;
+  logo?: string | undefined;
 
   /**
    * <p> The control data sources where Audit Manager collects evidence from.</p>
    * @public
    */
-  controlSources?: string;
+  controlSources?: string | undefined;
 
   /**
    * <p> The control sets that are associated with the framework. </p>
    * @public
    */
-  controlSets?: ControlSet[];
+  controlSets?: ControlSet[] | undefined;
 
   /**
    * <p> The time when the framework was created. </p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The time when the framework was most recently updated. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The user or role that created the framework. </p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p> The user or role that most recently updated the framework. </p>
    * @public
    */
-  lastUpdatedBy?: string;
+  lastUpdatedBy?: string | undefined;
 
   /**
    * <p> The tags that are associated with the framework. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2500,7 +2500,7 @@ export interface CreateAssessmentFrameworkResponse {
    *          returned. </p>
    * @public
    */
-  framework?: Framework;
+  framework?: Framework | undefined;
 }
 
 /**
@@ -2517,7 +2517,7 @@ export interface CreateAssessmentReportRequest {
    * <p> The description of the assessment report. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The identifier for the assessment. </p>
@@ -2538,7 +2538,7 @@ export interface CreateAssessmentReportRequest {
    *          </p>
    * @public
    */
-  queryStatement?: string;
+  queryStatement?: string | undefined;
 }
 
 /**
@@ -2550,7 +2550,7 @@ export interface CreateAssessmentReportResponse {
    *       </p>
    * @public
    */
-  assessmentReport?: AssessmentReport;
+  assessmentReport?: AssessmentReport | undefined;
 }
 
 /**
@@ -2563,14 +2563,14 @@ export interface CreateControlMappingSource {
    * <p> The name of the control mapping data source. </p>
    * @public
    */
-  sourceName?: string;
+  sourceName?: string | undefined;
 
   /**
    * <p> The description of the data source that determines where Audit Manager collects
    *          evidence from for the control. </p>
    * @public
    */
-  sourceDescription?: string;
+  sourceDescription?: string | undefined;
 
   /**
    * <p>The setup option for the data source. This option reflects if the evidence collection
@@ -2579,7 +2579,7 @@ export interface CreateControlMappingSource {
    *          the correct value based on the <code>sourceType</code> that you specify.</p>
    * @public
    */
-  sourceSetUpOption?: SourceSetUpOption;
+  sourceSetUpOption?: SourceSetUpOption | undefined;
 
   /**
    * <p> Specifies which type of data source is used to collect evidence. </p>
@@ -2597,7 +2597,7 @@ export interface CreateControlMappingSource {
    *          </ul>
    * @public
    */
-  sourceType?: SourceType;
+  sourceType?: SourceType | undefined;
 
   /**
    * <p>A keyword that relates to the control data source.</p>
@@ -2633,19 +2633,19 @@ export interface CreateControlMappingSource {
    *          </ul>
    * @public
    */
-  sourceKeyword?: SourceKeyword;
+  sourceKeyword?: SourceKeyword | undefined;
 
   /**
    * <p>Specifies how often evidence is collected from the control mapping source. </p>
    * @public
    */
-  sourceFrequency?: SourceFrequency;
+  sourceFrequency?: SourceFrequency | undefined;
 
   /**
    * <p> The instructions for troubleshooting the control. </p>
    * @public
    */
-  troubleshootingText?: string;
+  troubleshootingText?: string | undefined;
 }
 
 /**
@@ -2662,25 +2662,25 @@ export interface CreateControlRequest {
    * <p> The description of the control. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The steps to follow to determine if the control is satisfied. </p>
    * @public
    */
-  testingInformation?: string;
+  testingInformation?: string | undefined;
 
   /**
    * <p> The title of the action plan for remediating the control. </p>
    * @public
    */
-  actionPlanTitle?: string;
+  actionPlanTitle?: string | undefined;
 
   /**
    * <p> The recommended actions to carry out if the control isn't fulfilled. </p>
    * @public
    */
-  actionPlanInstructions?: string;
+  actionPlanInstructions?: string | undefined;
 
   /**
    * <p> The data mapping sources for the control. </p>
@@ -2692,7 +2692,7 @@ export interface CreateControlRequest {
    * <p> The tags that are associated with the control. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2703,7 +2703,7 @@ export interface CreateControlResponse {
    * <p> The new control that the <code>CreateControl</code> API returned. </p>
    * @public
    */
-  control?: Control;
+  control?: Control | undefined;
 }
 
 /**
@@ -2825,7 +2825,7 @@ export interface DeregisterAccountResponse {
    * <p> The registration status of the account. </p>
    * @public
    */
-  status?: AccountStatus;
+  status?: AccountStatus | undefined;
 }
 
 /**
@@ -2836,7 +2836,7 @@ export interface DeregisterOrganizationAdminAccountRequest {
    * <p> The identifier for the administrator account. </p>
    * @public
    */
-  adminAccountId?: string;
+  adminAccountId?: string | undefined;
 }
 
 /**
@@ -2879,7 +2879,7 @@ export interface GetAccountStatusResponse {
    * <p> The status of the Amazon Web Services account. </p>
    * @public
    */
-  status?: AccountStatus;
+  status?: AccountStatus | undefined;
 }
 
 /**
@@ -2902,14 +2902,14 @@ export interface GetAssessmentResponse {
    *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
    * @public
    */
-  assessment?: Assessment;
+  assessment?: Assessment | undefined;
 
   /**
    * <p> The wrapper that contains the Audit Manager role information of the current user.
    *          This includes the role type and IAM Amazon Resource Name (ARN). </p>
    * @public
    */
-  userRole?: Role;
+  userRole?: Role | undefined;
 }
 
 /**
@@ -2931,7 +2931,7 @@ export interface GetAssessmentFrameworkResponse {
    * <p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>
    * @public
    */
-  framework?: Framework;
+  framework?: Framework | undefined;
 }
 
 /**
@@ -2961,13 +2961,13 @@ export interface URL {
    * <p> The name or word that's used as a hyperlink to the URL. </p>
    * @public
    */
-  hyperlinkName?: string;
+  hyperlinkName?: string | undefined;
 
   /**
    * <p> The unique identifier for the internet resource. </p>
    * @public
    */
-  link?: string;
+  link?: string | undefined;
 }
 
 /**
@@ -2979,7 +2979,7 @@ export interface GetAssessmentReportUrlResponse {
    *          resource on the internet. </p>
    * @public
    */
-  preSignedUrl?: URL;
+  preSignedUrl?: URL | undefined;
 }
 
 /**
@@ -2996,25 +2996,25 @@ export interface GetChangeLogsRequest {
    * <p> The unique identifier for the control set. </p>
    * @public
    */
-  controlSetId?: string;
+  controlSetId?: string | undefined;
 
   /**
    * <p> The unique identifier for the control. </p>
    * @public
    */
-  controlId?: string;
+  controlId?: string | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3044,32 +3044,32 @@ export interface ChangeLog {
    * <p> The object that was changed, such as an assessment, control, or control set. </p>
    * @public
    */
-  objectType?: ObjectTypeEnum;
+  objectType?: ObjectTypeEnum | undefined;
 
   /**
    * <p> The name of the object that changed. This could be the name of an assessment, control,
    *          or control set.</p>
    * @public
    */
-  objectName?: string;
+  objectName?: string | undefined;
 
   /**
    * <p> The action that was performed. </p>
    * @public
    */
-  action?: ActionEnum;
+  action?: ActionEnum | undefined;
 
   /**
    * <p> The time when the action was performed and the changelog record was created. </p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The user or role that performed the action. </p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 }
 
 /**
@@ -3080,13 +3080,13 @@ export interface GetChangeLogsResponse {
    * <p>The list of user activity for the control. </p>
    * @public
    */
-  changeLogs?: ChangeLog[];
+  changeLogs?: ChangeLog[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3108,7 +3108,7 @@ export interface GetControlResponse {
    * <p> The details of the control that the <code>GetControl</code> API returned. </p>
    * @public
    */
-  control?: Control;
+  control?: Control | undefined;
 }
 
 /**
@@ -3119,13 +3119,13 @@ export interface GetDelegationsRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3137,43 +3137,43 @@ export interface DelegationMetadata {
    * <p> The unique identifier for the delegation. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the associated assessment. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The unique identifier for the assessment. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p> The current status of the delegation. </p>
    * @public
    */
-  status?: DelegationStatus;
+  status?: DelegationStatus | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p> Specifies when the delegation was created. </p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p> Specifies the name of the control set that was delegated for review. </p>
    * @public
    */
-  controlSetName?: string;
+  controlSetName?: string | undefined;
 }
 
 /**
@@ -3184,13 +3184,13 @@ export interface GetDelegationsResponse {
    * <p> The list of delegations that the <code>GetDelegations</code> API returned. </p>
    * @public
    */
-  delegations?: DelegationMetadata[];
+  delegations?: DelegationMetadata[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3231,13 +3231,13 @@ export interface Resource {
    * <p> The Amazon Resource Name (ARN) for the resource. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The value of the resource. </p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p> The evaluation status for a resource that was assessed when collecting compliance check
@@ -3263,7 +3263,7 @@ export interface Resource {
    *          </ul>
    * @public
    */
-  complianceCheck?: string;
+  complianceCheck?: string | undefined;
 }
 
 /**
@@ -3277,43 +3277,43 @@ export interface Evidence {
    * <p> The data source where the evidence was collected from. </p>
    * @public
    */
-  dataSource?: string;
+  dataSource?: string | undefined;
 
   /**
    * <p> The identifier for the Amazon Web Services account. </p>
    * @public
    */
-  evidenceAwsAccountId?: string;
+  evidenceAwsAccountId?: string | undefined;
 
   /**
    * <p> The timestamp that represents when the evidence was collected. </p>
    * @public
    */
-  time?: Date;
+  time?: Date | undefined;
 
   /**
    * <p> The Amazon Web Service that the evidence is collected from. </p>
    * @public
    */
-  eventSource?: string;
+  eventSource?: string | undefined;
 
   /**
    * <p> The name of the evidence event. </p>
    * @public
    */
-  eventName?: string;
+  eventName?: string | undefined;
 
   /**
    * <p> The type of automated evidence. </p>
    * @public
    */
-  evidenceByType?: string;
+  evidenceByType?: string | undefined;
 
   /**
    * <p> The list of resources that are assessed to generate the evidence. </p>
    * @public
    */
-  resourcesIncluded?: Resource[];
+  resourcesIncluded?: Resource[] | undefined;
 
   /**
    * <p> The names and values that are used by the evidence event. This includes an attribute
@@ -3321,14 +3321,14 @@ export interface Evidence {
    *          or <code>false</code>). </p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p> The unique identifier for the user or role that's associated with
    *          the evidence. </p>
    * @public
    */
-  iamId?: string;
+  iamId?: string | undefined;
 
   /**
    * <p>The evaluation status for automated evidence that falls under the compliance check
@@ -3355,38 +3355,38 @@ export interface Evidence {
    *          </ul>
    * @public
    */
-  complianceCheck?: string;
+  complianceCheck?: string | undefined;
 
   /**
    * <p> The Amazon Web Services account that the evidence is collected from, and its
    *          organization path. </p>
    * @public
    */
-  awsOrganization?: string;
+  awsOrganization?: string | undefined;
 
   /**
    * <p> The identifier for the Amazon Web Services account. </p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p> The identifier for the folder that the evidence is stored in. </p>
    * @public
    */
-  evidenceFolderId?: string;
+  evidenceFolderId?: string | undefined;
 
   /**
    * <p> The identifier for the evidence. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> Specifies whether the evidence is included in the assessment report. </p>
    * @public
    */
-  assessmentReportSelection?: string;
+  assessmentReportSelection?: string | undefined;
 }
 
 /**
@@ -3397,7 +3397,7 @@ export interface GetEvidenceResponse {
    * <p> The evidence that the <code>GetEvidence</code> API returned. </p>
    * @public
    */
-  evidence?: Evidence;
+  evidence?: Evidence | undefined;
 }
 
 /**
@@ -3426,13 +3426,13 @@ export interface GetEvidenceByEvidenceFolderRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3444,13 +3444,13 @@ export interface GetEvidenceByEvidenceFolderResponse {
    *       </p>
    * @public
    */
-  evidence?: Evidence[];
+  evidence?: Evidence[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3474,13 +3474,13 @@ export interface GetEvidenceFileUploadUrlResponse {
    *          for.</p>
    * @public
    */
-  evidenceFileName?: string;
+  evidenceFileName?: string | undefined;
 
   /**
    * <p>The presigned URL that was generated.</p>
    * @public
    */
-  uploadUrl?: string;
+  uploadUrl?: string | undefined;
 }
 
 /**
@@ -3514,7 +3514,7 @@ export interface GetEvidenceFolderResponse {
    * <p> The folder that the evidence is stored in. </p>
    * @public
    */
-  evidenceFolder?: AssessmentEvidenceFolder;
+  evidenceFolder?: AssessmentEvidenceFolder | undefined;
 }
 
 /**
@@ -3531,13 +3531,13 @@ export interface GetEvidenceFoldersByAssessmentRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3549,13 +3549,13 @@ export interface GetEvidenceFoldersByAssessmentResponse {
    *          returned. </p>
    * @public
    */
-  evidenceFolders?: AssessmentEvidenceFolder[];
+  evidenceFolders?: AssessmentEvidenceFolder[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3584,13 +3584,13 @@ export interface GetEvidenceFoldersByAssessmentControlRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3602,13 +3602,13 @@ export interface GetEvidenceFoldersByAssessmentControlResponse {
    *             <code>GetEvidenceFoldersByAssessmentControl</code> API returned. </p>
    * @public
    */
-  evidenceFolders?: AssessmentEvidenceFolder[];
+  evidenceFolders?: AssessmentEvidenceFolder[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3652,7 +3652,7 @@ export interface Insights {
    * <p>The number of active assessments in Audit Manager. </p>
    * @public
    */
-  activeAssessmentsCount?: number;
+  activeAssessmentsCount?: number | undefined;
 
   /**
    * <p>The number of compliance check evidence that Audit Manager classified as
@@ -3661,7 +3661,7 @@ export interface Insights {
    *          from Config with a <i>Non-compliant</i> ruling. </p>
    * @public
    */
-  noncompliantEvidenceCount?: number;
+  noncompliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of compliance check evidence that Audit Manager classified as compliant
@@ -3670,7 +3670,7 @@ export interface Insights {
    *             Config with a <i>Compliant</i> ruling. </p>
    * @public
    */
-  compliantEvidenceCount?: number;
+  compliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of evidence without a compliance check ruling. Evidence is inconclusive when
@@ -3684,26 +3684,26 @@ export interface Insights {
    *          </note>
    * @public
    */
-  inconclusiveEvidenceCount?: number;
+  inconclusiveEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of assessment controls that collected non-compliant evidence on the
    *             <code>lastUpdated</code> date. </p>
    * @public
    */
-  assessmentControlsCountByNoncompliantEvidence?: number;
+  assessmentControlsCountByNoncompliantEvidence?: number | undefined;
 
   /**
    * <p>The total number of controls across all active assessments. </p>
    * @public
    */
-  totalAssessmentControlsCount?: number;
+  totalAssessmentControlsCount?: number | undefined;
 
   /**
    * <p>The time when the cross-assessment insights were last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -3714,7 +3714,7 @@ export interface GetInsightsResponse {
    * <p>The analytics data that the <code>GetInsights</code> API returned. </p>
    * @public
    */
-  insights?: Insights;
+  insights?: Insights | undefined;
 }
 
 /**
@@ -3768,7 +3768,7 @@ export interface InsightsByAssessment {
    *             <i>Non-compliant</i> ruling. </p>
    * @public
    */
-  noncompliantEvidenceCount?: number;
+  noncompliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of compliance check evidence that Audit Manager classified as compliant.
@@ -3777,7 +3777,7 @@ export interface InsightsByAssessment {
    *             <i>Compliant</i> ruling. </p>
    * @public
    */
-  compliantEvidenceCount?: number;
+  compliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The amount of evidence without a compliance check ruling. Evidence is inconclusive if
@@ -3792,26 +3792,26 @@ export interface InsightsByAssessment {
    *          </note>
    * @public
    */
-  inconclusiveEvidenceCount?: number;
+  inconclusiveEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of assessment controls that collected non-compliant evidence on the
    *             <code>lastUpdated</code> date. </p>
    * @public
    */
-  assessmentControlsCountByNoncompliantEvidence?: number;
+  assessmentControlsCountByNoncompliantEvidence?: number | undefined;
 
   /**
    * <p>The total number of controls in the assessment. </p>
    * @public
    */
-  totalAssessmentControlsCount?: number;
+  totalAssessmentControlsCount?: number | undefined;
 
   /**
    * <p>The time when the assessment insights were last updated.</p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -3823,7 +3823,7 @@ export interface GetInsightsByAssessmentResponse {
    *          returned. </p>
    * @public
    */
-  insights?: InsightsByAssessment;
+  insights?: InsightsByAssessment | undefined;
 }
 
 /**
@@ -3839,13 +3839,13 @@ export interface GetOrganizationAdminAccountResponse {
    * <p> The identifier for the administrator account. </p>
    * @public
    */
-  adminAccountId?: string;
+  adminAccountId?: string | undefined;
 
   /**
    * <p> The identifier for the organization. </p>
    * @public
    */
-  organizationId?: string;
+  organizationId?: string | undefined;
 }
 
 /**
@@ -3862,26 +3862,26 @@ export interface ServiceMetadata {
    * <p> The name of the Amazon Web Service. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The display name of the Amazon Web Service. </p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p> The description of the Amazon Web Service. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The category that the Amazon Web Service belongs to, such as compute, storage,
    *          or database. </p>
    * @public
    */
-  category?: string;
+  category?: string | undefined;
 }
 
 /**
@@ -3892,7 +3892,7 @@ export interface GetServicesInScopeResponse {
    * <p> The metadata that's associated with the Amazon Web Service. </p>
    * @public
    */
-  serviceMetadata?: ServiceMetadata[];
+  serviceMetadata?: ServiceMetadata[] | undefined;
 }
 
 /**
@@ -3948,13 +3948,13 @@ export interface DefaultExportDestination {
    * <p>The destination type, such as Amazon S3.</p>
    * @public
    */
-  destinationType?: ExportDestinationType;
+  destinationType?: ExportDestinationType | undefined;
 
   /**
    * <p>The destination bucket where Audit Manager stores exported files.</p>
    * @public
    */
-  destination?: string;
+  destination?: string | undefined;
 }
 
 /**
@@ -4007,7 +4007,7 @@ export interface DeregistrationPolicy {
    *          </ul>
    * @public
    */
-  deleteResources?: DeleteResources;
+  deleteResources?: DeleteResources | undefined;
 }
 
 /**
@@ -4056,7 +4056,7 @@ export interface EvidenceFinderEnablement {
    *          finder runs queries against.</p>
    * @public
    */
-  eventDataStoreArn?: string;
+  eventDataStoreArn?: string | undefined;
 
   /**
    * <p>The current status of the evidence finder feature and the related event data store. </p>
@@ -4089,7 +4089,7 @@ export interface EvidenceFinderEnablement {
    *          </ul>
    * @public
    */
-  enablementStatus?: EvidenceFinderEnablementStatus;
+  enablementStatus?: EvidenceFinderEnablementStatus | undefined;
 
   /**
    * <p>The current status of the evidence data backfill process. </p>
@@ -4113,13 +4113,13 @@ export interface EvidenceFinderEnablement {
    *          </ul>
    * @public
    */
-  backfillStatus?: EvidenceFinderBackfillStatus;
+  backfillStatus?: EvidenceFinderBackfillStatus | undefined;
 
   /**
    * <p>Represents any errors that occurred when enabling or disabling evidence finder. </p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 }
 
 /**
@@ -4131,50 +4131,50 @@ export interface Settings {
    * <p> Specifies whether Organizations is enabled. </p>
    * @public
    */
-  isAwsOrgEnabled?: boolean;
+  isAwsOrgEnabled?: boolean | undefined;
 
   /**
    * <p> The designated Amazon Simple Notification Service (Amazon SNS) topic. </p>
    * @public
    */
-  snsTopic?: string;
+  snsTopic?: string | undefined;
 
   /**
    * <p>The default S3 destination bucket for storing assessment reports.</p>
    * @public
    */
-  defaultAssessmentReportsDestination?: AssessmentReportsDestination;
+  defaultAssessmentReportsDestination?: AssessmentReportsDestination | undefined;
 
   /**
    * <p> The designated default audit owners. </p>
    * @public
    */
-  defaultProcessOwners?: Role[];
+  defaultProcessOwners?: Role[] | undefined;
 
   /**
    * <p> The KMS key details. </p>
    * @public
    */
-  kmsKey?: string;
+  kmsKey?: string | undefined;
 
   /**
    * <p>The current evidence finder status and event data store details.</p>
    * @public
    */
-  evidenceFinderEnablement?: EvidenceFinderEnablement;
+  evidenceFinderEnablement?: EvidenceFinderEnablement | undefined;
 
   /**
    * <p>The deregistration policy for your Audit Manager data. You can
    *       use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
    * @public
    */
-  deregistrationPolicy?: DeregistrationPolicy;
+  deregistrationPolicy?: DeregistrationPolicy | undefined;
 
   /**
    * <p>The default S3 destination bucket for storing evidence finder exports.</p>
    * @public
    */
-  defaultExportDestination?: DefaultExportDestination;
+  defaultExportDestination?: DefaultExportDestination | undefined;
 }
 
 /**
@@ -4185,7 +4185,7 @@ export interface GetSettingsResponse {
    * <p> The settings object that holds all supported Audit Manager settings. </p>
    * @public
    */
-  settings?: Settings;
+  settings?: Settings | undefined;
 }
 
 /**
@@ -4214,13 +4214,13 @@ export interface ListAssessmentControlInsightsByControlDomainRequest {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4235,7 +4235,7 @@ export interface EvidenceInsights {
    *             <i>Non-compliant</i> ruling. </p>
    * @public
    */
-  noncompliantEvidenceCount?: number;
+  noncompliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of compliance check evidence that Audit Manager classified as compliant.
@@ -4244,7 +4244,7 @@ export interface EvidenceInsights {
    *             <i>Compliant</i> ruling. </p>
    * @public
    */
-  compliantEvidenceCount?: number;
+  compliantEvidenceCount?: number | undefined;
 
   /**
    * <p>The number of evidence that a compliance check ruling isn't available for. Evidence is
@@ -4258,7 +4258,7 @@ export interface EvidenceInsights {
    *          </note>
    * @public
    */
-  inconclusiveEvidenceCount?: number;
+  inconclusiveEvidenceCount?: number | undefined;
 }
 
 /**
@@ -4273,32 +4273,32 @@ export interface ControlInsightsMetadataByAssessmentItem {
    * <p>The name of the assessment control. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The unique identifier for the assessment control. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A breakdown of the compliance check status for the evidence that’s associated with the
    *          assessment control. </p>
    * @public
    */
-  evidenceInsights?: EvidenceInsights;
+  evidenceInsights?: EvidenceInsights | undefined;
 
   /**
    * <p>The name of the control set that the assessment control belongs to. </p>
    * @public
    */
-  controlSetName?: string;
+  controlSetName?: string | undefined;
 
   /**
    * <p>The time when the assessment control insights were last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -4310,13 +4310,13 @@ export interface ListAssessmentControlInsightsByControlDomainResponse {
    *             <code>ListAssessmentControlInsightsByControlDomain</code> API returned. </p>
    * @public
    */
-  controlInsightsByAssessment?: ControlInsightsMetadataByAssessmentItem[];
+  controlInsightsByAssessment?: ControlInsightsMetadataByAssessmentItem[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4333,13 +4333,13 @@ export interface ListAssessmentFrameworksRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4351,13 +4351,13 @@ export interface ListAssessmentFrameworksResponse {
    *          framework.</p>
    * @public
    */
-  frameworkMetadataList?: AssessmentFrameworkMetadata[];
+  frameworkMetadataList?: AssessmentFrameworkMetadata[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4374,13 +4374,13 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4392,13 +4392,13 @@ export interface ListAssessmentFrameworkShareRequestsResponse {
    *          API returned. </p>
    * @public
    */
-  assessmentFrameworkShareRequests?: AssessmentFrameworkShareRequest[];
+  assessmentFrameworkShareRequests?: AssessmentFrameworkShareRequest[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4409,13 +4409,13 @@ export interface ListAssessmentReportsRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4427,13 +4427,13 @@ export interface ListAssessmentReportsResponse {
    *          returned. </p>
    * @public
    */
-  assessmentReports?: AssessmentReportMetadata[];
+  assessmentReports?: AssessmentReportMetadata[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4444,19 +4444,19 @@ export interface ListAssessmentsRequest {
    * <p> The current status of the assessment.</p>
    * @public
    */
-  status?: AssessmentStatus;
+  status?: AssessmentStatus | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4468,13 +4468,13 @@ export interface ListAssessmentsResponse {
    *          assessment.</p>
    * @public
    */
-  assessmentMetadata?: AssessmentMetadataItem[];
+  assessmentMetadata?: AssessmentMetadataItem[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4485,13 +4485,13 @@ export interface ListControlDomainInsightsRequest {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4505,7 +4505,7 @@ export interface ControlDomainInsights {
    * <p>The name of the control domain. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The unique identifier for the control domain. Audit Manager supports the control
@@ -4516,33 +4516,33 @@ export interface ControlDomainInsights {
    *          Reference.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The number of controls in the control domain that collected non-compliant evidence on
    *          the <code>lastUpdated</code> date. </p>
    * @public
    */
-  controlsCountByNoncompliantEvidence?: number;
+  controlsCountByNoncompliantEvidence?: number | undefined;
 
   /**
    * <p>The total number of controls in the control domain. </p>
    * @public
    */
-  totalControlsCount?: number;
+  totalControlsCount?: number | undefined;
 
   /**
    * <p>A breakdown of the compliance check status for the evidence that’s associated with the
    *          control domain. </p>
    * @public
    */
-  evidenceInsights?: EvidenceInsights;
+  evidenceInsights?: EvidenceInsights | undefined;
 
   /**
    * <p>The time when the control domain insights were last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -4554,13 +4554,13 @@ export interface ListControlDomainInsightsResponse {
    *          returned. </p>
    * @public
    */
-  controlDomainInsights?: ControlDomainInsights[];
+  controlDomainInsights?: ControlDomainInsights[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4577,13 +4577,13 @@ export interface ListControlDomainInsightsByAssessmentRequest {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4595,13 +4595,13 @@ export interface ListControlDomainInsightsByAssessmentResponse {
    *             <code>ListControlDomainInsightsByAssessment</code> API returned. </p>
    * @public
    */
-  controlDomainInsights?: ControlDomainInsights[];
+  controlDomainInsights?: ControlDomainInsights[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4624,13 +4624,13 @@ export interface ListControlInsightsByControlDomainRequest {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4645,26 +4645,26 @@ export interface ControlInsightsMetadataItem {
    * <p>The name of the control. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The unique identifier for the control. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>A breakdown of the compliance check status for the evidence that’s associated with the
    *          control. </p>
    * @public
    */
-  evidenceInsights?: EvidenceInsights;
+  evidenceInsights?: EvidenceInsights | undefined;
 
   /**
    * <p>The time when the control insights were last updated. </p>
    * @public
    */
-  lastUpdated?: Date;
+  lastUpdated?: Date | undefined;
 }
 
 /**
@@ -4676,13 +4676,13 @@ export interface ListControlInsightsByControlDomainResponse {
    *          returned. </p>
    * @public
    */
-  controlInsightsMetadata?: ControlInsightsMetadataItem[];
+  controlInsightsMetadata?: ControlInsightsMetadataItem[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4699,13 +4699,13 @@ export interface ListControlsRequest {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A filter that narrows the list of controls to a specific resource from the Amazon Web Services
@@ -4730,7 +4730,7 @@ export interface ListControlsRequest {
    *          custom controls that don't belong to any control domain or control objective.</p>
    * @public
    */
-  controlCatalogId?: string;
+  controlCatalogId?: string | undefined;
 }
 
 /**
@@ -4742,38 +4742,38 @@ export interface ControlMetadata {
    * <p> The Amazon Resource Name (ARN) of the control. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p> The unique identifier for the control. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the control. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The data source that determines where Audit Manager collects evidence from for the
    *          control. </p>
    * @public
    */
-  controlSources?: string;
+  controlSources?: string | undefined;
 
   /**
    * <p> The time when the control was created. </p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p> The time when the control was most recently updated. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -4785,13 +4785,13 @@ export interface ListControlsResponse {
    *          control.</p>
    * @public
    */
-  controlMetadataList?: ControlMetadata[];
+  controlMetadataList?: ControlMetadata[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4825,13 +4825,13 @@ export interface ListKeywordsForDataSourceRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4842,13 +4842,13 @@ export interface ListKeywordsForDataSourceResponse {
    * <p>The list of keywords for the control mapping source.</p>
    * @public
    */
-  keywords?: string[];
+  keywords?: string[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4859,13 +4859,13 @@ export interface ListNotificationsRequest {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4879,49 +4879,49 @@ export interface Notification {
    * <p> The unique identifier for the notification. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The identifier for the assessment. </p>
    * @public
    */
-  assessmentId?: string;
+  assessmentId?: string | undefined;
 
   /**
    * <p> The name of the related assessment. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The identifier for the control set. </p>
    * @public
    */
-  controlSetId?: string;
+  controlSetId?: string | undefined;
 
   /**
    * <p> Specifies the name of the control set that the notification is about. </p>
    * @public
    */
-  controlSetName?: string;
+  controlSetName?: string | undefined;
 
   /**
    * <p> The description of the notification. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The time when the notification was sent. </p>
    * @public
    */
-  eventTime?: Date;
+  eventTime?: Date | undefined;
 
   /**
    * <p> The sender of the notification. </p>
    * @public
    */
-  source?: string;
+  source?: string | undefined;
 }
 
 /**
@@ -4932,13 +4932,13 @@ export interface ListNotificationsResponse {
    * <p> The returned list of notifications. </p>
    * @public
    */
-  notifications?: Notification[];
+  notifications?: Notification[] | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4960,7 +4960,7 @@ export interface ListTagsForResourceResponse {
    * <p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4971,13 +4971,13 @@ export interface RegisterAccountRequest {
    * <p> The KMS key details. </p>
    * @public
    */
-  kmsKey?: string;
+  kmsKey?: string | undefined;
 
   /**
    * <p> The delegated administrator account for Audit Manager. </p>
    * @public
    */
-  delegatedAdminAccount?: string;
+  delegatedAdminAccount?: string | undefined;
 }
 
 /**
@@ -4988,7 +4988,7 @@ export interface RegisterAccountResponse {
    * <p> The status of the account registration request. </p>
    * @public
    */
-  status?: AccountStatus;
+  status?: AccountStatus | undefined;
 }
 
 /**
@@ -5010,13 +5010,13 @@ export interface RegisterOrganizationAdminAccountResponse {
    * <p> The identifier for the delegated administrator account. </p>
    * @public
    */
-  adminAccountId?: string;
+  adminAccountId?: string | undefined;
 
   /**
    * <p> The identifier for the organization. </p>
    * @public
    */
-  organizationId?: string;
+  organizationId?: string | undefined;
 }
 
 /**
@@ -5045,7 +5045,7 @@ export interface StartAssessmentFrameworkShareRequest {
    * <p> An optional comment from the sender about the share request. </p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 }
 
 /**
@@ -5057,7 +5057,7 @@ export interface StartAssessmentFrameworkShareResponse {
    *       </p>
    * @public
    */
-  assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
+  assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest | undefined;
 }
 
 /**
@@ -5118,13 +5118,13 @@ export interface UpdateAssessmentRequest {
    * <p> The name of the assessment to be updated. </p>
    * @public
    */
-  assessmentName?: string;
+  assessmentName?: string | undefined;
 
   /**
    * <p> The description of the assessment. </p>
    * @public
    */
-  assessmentDescription?: string;
+  assessmentDescription?: string | undefined;
 
   /**
    * <p> The scope of the assessment. </p>
@@ -5137,13 +5137,13 @@ export interface UpdateAssessmentRequest {
    *       </p>
    * @public
    */
-  assessmentReportsDestination?: AssessmentReportsDestination;
+  assessmentReportsDestination?: AssessmentReportsDestination | undefined;
 
   /**
    * <p> The list of roles for the assessment. </p>
    * @public
    */
-  roles?: Role[];
+  roles?: Role[] | undefined;
 }
 
 /**
@@ -5155,7 +5155,7 @@ export interface UpdateAssessmentResponse {
    *          updated assessment.</p>
    * @public
    */
-  assessment?: Assessment;
+  assessment?: Assessment | undefined;
 }
 
 /**
@@ -5184,13 +5184,13 @@ export interface UpdateAssessmentControlRequest {
    * <p> The status of the control. </p>
    * @public
    */
-  controlStatus?: ControlStatus;
+  controlStatus?: ControlStatus | undefined;
 
   /**
    * <p> The comment body text for the control. </p>
    * @public
    */
-  commentBody?: string;
+  commentBody?: string | undefined;
 }
 
 /**
@@ -5202,7 +5202,7 @@ export interface UpdateAssessmentControlResponse {
    *          returned. </p>
    * @public
    */
-  control?: AssessmentControl;
+  control?: AssessmentControl | undefined;
 }
 
 /**
@@ -5243,7 +5243,7 @@ export interface UpdateAssessmentControlSetStatusResponse {
    *             <code>UpdateAssessmentControlSetStatus</code> API returned. </p>
    * @public
    */
-  controlSet?: AssessmentControlSet;
+  controlSet?: AssessmentControlSet | undefined;
 }
 
 /**
@@ -5255,7 +5255,7 @@ export interface UpdateAssessmentFrameworkControlSet {
    * <p> The unique identifier for the control set. </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p> The name of the control set. </p>
@@ -5290,14 +5290,14 @@ export interface UpdateAssessmentFrameworkRequest {
    * <p> The description of the updated framework. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The compliance type that the new custom framework supports, such as CIS or HIPAA.
    *       </p>
    * @public
    */
-  complianceType?: string;
+  complianceType?: string | undefined;
 
   /**
    * <p> The control sets that are associated with the framework. </p>
@@ -5314,7 +5314,7 @@ export interface UpdateAssessmentFrameworkResponse {
    * <p> The name of the framework. </p>
    * @public
    */
-  framework?: Framework;
+  framework?: Framework | undefined;
 }
 
 /**
@@ -5364,7 +5364,7 @@ export interface UpdateAssessmentFrameworkShareResponse {
    *             <code>UpdateAssessmentFrameworkShare</code> operation. </p>
    * @public
    */
-  assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
+  assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest | undefined;
 }
 
 /**
@@ -5393,7 +5393,7 @@ export interface UpdateAssessmentStatusResponse {
    *          returned. </p>
    * @public
    */
-  assessment?: Assessment;
+  assessment?: Assessment | undefined;
 }
 
 /**
@@ -5416,25 +5416,25 @@ export interface UpdateControlRequest {
    * <p> The optional description of the control. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> The steps that you should follow to determine if the control is met. </p>
    * @public
    */
-  testingInformation?: string;
+  testingInformation?: string | undefined;
 
   /**
    * <p> The title of the action plan for remediating the control. </p>
    * @public
    */
-  actionPlanTitle?: string;
+  actionPlanTitle?: string | undefined;
 
   /**
    * <p> The recommended actions to carry out if the control isn't fulfilled. </p>
    * @public
    */
-  actionPlanInstructions?: string;
+  actionPlanInstructions?: string | undefined;
 
   /**
    * <p> The data mapping sources for the control. </p>
@@ -5452,7 +5452,7 @@ export interface UpdateControlResponse {
    *       </p>
    * @public
    */
-  control?: Control;
+  control?: Control | undefined;
 }
 
 /**
@@ -5464,25 +5464,25 @@ export interface UpdateSettingsRequest {
    *          notifications to. </p>
    * @public
    */
-  snsTopic?: string;
+  snsTopic?: string | undefined;
 
   /**
    * <p> The default S3 destination bucket for storing assessment reports. </p>
    * @public
    */
-  defaultAssessmentReportsDestination?: AssessmentReportsDestination;
+  defaultAssessmentReportsDestination?: AssessmentReportsDestination | undefined;
 
   /**
    * <p> A list of the default audit owners. </p>
    * @public
    */
-  defaultProcessOwners?: Role[];
+  defaultProcessOwners?: Role[] | undefined;
 
   /**
    * <p> The KMS key details. </p>
    * @public
    */
-  kmsKey?: string;
+  kmsKey?: string | undefined;
 
   /**
    * <p>Specifies whether the evidence finder feature is enabled. Change this attribute to
@@ -5495,20 +5495,20 @@ export interface UpdateSettingsRequest {
    *          </important>
    * @public
    */
-  evidenceFinderEnabled?: boolean;
+  evidenceFinderEnabled?: boolean | undefined;
 
   /**
    * <p>The deregistration policy for your Audit Manager data. You can
    *          use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
    * @public
    */
-  deregistrationPolicy?: DeregistrationPolicy;
+  deregistrationPolicy?: DeregistrationPolicy | undefined;
 
   /**
    * <p> The default S3 destination bucket for storing evidence finder exports. </p>
    * @public
    */
-  defaultExportDestination?: DefaultExportDestination;
+  defaultExportDestination?: DefaultExportDestination | undefined;
 }
 
 /**
@@ -5519,7 +5519,7 @@ export interface UpdateSettingsResponse {
    * <p> The current list of settings. </p>
    * @public
    */
-  settings?: Settings;
+  settings?: Settings | undefined;
 }
 
 /**
@@ -5542,32 +5542,32 @@ export interface ValidateAssessmentReportIntegrityResponse {
    * <p> Specifies whether the signature key is valid. </p>
    * @public
    */
-  signatureValid?: boolean;
+  signatureValid?: boolean | undefined;
 
   /**
    * <p> The signature algorithm that's used to code sign the assessment report file. </p>
    * @public
    */
-  signatureAlgorithm?: string;
+  signatureAlgorithm?: string | undefined;
 
   /**
    * <p> The date and time signature that specifies when the assessment report was created.
    *       </p>
    * @public
    */
-  signatureDateTime?: string;
+  signatureDateTime?: string | undefined;
 
   /**
    * <p> The unique identifier for the validation signature key. </p>
    * @public
    */
-  signatureKeyId?: string;
+  signatureKeyId?: string | undefined;
 
   /**
    * <p> Represents any errors that occurred when validating the assessment report. </p>
    * @public
    */
-  validationErrors?: string[];
+  validationErrors?: string[] | undefined;
 }
 
 /**

@@ -10,12 +10,12 @@ import { OAMServiceException as __BaseException } from "./OAMServiceException";
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
   /**
    * @internal
    */
@@ -167,14 +167,14 @@ export interface LinkConfiguration {
    *       the source account to the monitoring account.</p>
    * @public
    */
-  LogGroupConfiguration?: LogGroupConfiguration;
+  LogGroupConfiguration?: LogGroupConfiguration | undefined;
 
   /**
    * <p>Use this structure to filter which metric namespaces are to be shared from
    *       the source account to the monitoring account.</p>
    * @public
    */
-  MetricConfiguration?: MetricConfiguration;
+  MetricConfiguration?: MetricConfiguration | undefined;
 }
 
 /**
@@ -244,14 +244,14 @@ export interface CreateLinkInput {
    *        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from
    *     the source account to the monitoring account.</p>
    * @public
    */
-  LinkConfiguration?: LinkConfiguration;
+  LinkConfiguration?: LinkConfiguration | undefined;
 }
 
 /**
@@ -262,51 +262,51 @@ export interface CreateLinkOutput {
    * <p>The ARN of the link that is newly created.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The label that you assigned to this link. If the <code>labelTemplate</code> includes variables,
    *         this field displays the variables resolved to their actual values.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The exact label template that you specified, with the variables not resolved.</p>
    * @public
    */
-  LabelTemplate?: string;
+  LabelTemplate?: string | undefined;
 
   /**
    * <p>The resource types supported by this link.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The ARN of the sink that is used for this link.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 
   /**
    * <p>The tags assigned to the link.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
    *       the source account to the monitoring account.</p>
    * @public
    */
-  LinkConfiguration?: LinkConfiguration;
+  LinkConfiguration?: LinkConfiguration | undefined;
 }
 
 /**
@@ -316,12 +316,12 @@ export interface CreateLinkOutput {
 export class InternalServiceFault extends __BaseException {
   readonly name: "InternalServiceFault" = "InternalServiceFault";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
   /**
    * @internal
    */
@@ -348,7 +348,7 @@ export class InvalidParameterException extends __BaseException {
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
 
   /**
    * @internal
@@ -375,7 +375,7 @@ export class MissingRequiredParameterException extends __BaseException {
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
 
   /**
    * @internal
@@ -398,12 +398,12 @@ export class MissingRequiredParameterException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
   /**
    * @internal
    */
@@ -438,7 +438,7 @@ export interface CreateSinkInput {
    *        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -449,25 +449,25 @@ export interface CreateSinkOutput {
    * <p>The ARN of the sink that is newly created.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the sink.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The tags assigned to the sink.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -493,12 +493,12 @@ export interface DeleteLinkOutput {}
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The name of the exception.</p>
    * @public
    */
-  amznErrorType?: string;
+  amznErrorType?: string | undefined;
   /**
    * @internal
    */
@@ -549,50 +549,50 @@ export interface GetLinkOutput {
    * <p>The ARN of the link.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The label that you assigned to this link, with the variables resolved to their actual values.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
    * @public
    */
-  LabelTemplate?: string;
+  LabelTemplate?: string | undefined;
 
   /**
    * <p>The resource types supported by this link.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The ARN of the sink that is used for this link.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 
   /**
    * <p>The tags assigned to the link.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
    *       the source account to the monitoring account.</p>
    * @public
    */
-  LinkConfiguration?: LinkConfiguration;
+  LinkConfiguration?: LinkConfiguration | undefined;
 }
 
 /**
@@ -614,25 +614,25 @@ export interface GetSinkOutput {
    * <p>The ARN of the sink.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the sink.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The tags assigned to the sink.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -654,19 +654,19 @@ export interface GetSinkPolicyOutput {
    * <p>The ARN of the sink.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  SinkId?: string;
+  SinkId?: string | undefined;
 
   /**
    * <p>The policy that you specified, in JSON format.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -677,13 +677,13 @@ export interface ListAttachedLinksInput {
    * <p>Limits the number of returned links to the specified number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The ARN of the sink that you want to retrieve links for.</p>
@@ -702,19 +702,19 @@ export interface ListAttachedLinksItem {
    * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The ARN of the link.</p>
    * @public
    */
-  LinkArn?: string;
+  LinkArn?: string | undefined;
 
   /**
    * <p>The resource types supported by this link.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -731,7 +731,7 @@ export interface ListAttachedLinksOutput {
    * <p>The token to use when requesting the next set of links.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -742,13 +742,13 @@ export interface ListLinksInput {
    * <p>Limits the number of returned links to the specified number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -760,31 +760,31 @@ export interface ListLinksItem {
    * <p>The ARN of the link.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The resource types supported by this link.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The ARN of the sink that this link is attached to.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 }
 
 /**
@@ -801,7 +801,7 @@ export interface ListLinksOutput {
    * <p>The token to use when requesting the next set of links.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -812,13 +812,13 @@ export interface ListSinksInput {
    * <p>Limits the number of returned links to the specified number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -830,19 +830,19 @@ export interface ListSinksItem {
    * <p>The ARN of the sink.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the sink.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -859,7 +859,7 @@ export interface ListSinksOutput {
    * <p>The token to use when requesting the next set of sinks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -897,7 +897,7 @@ export interface ListTagsForResourceOutput {
    * <p>The list of tags associated with the requested resource.&gt;</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -907,7 +907,7 @@ export interface ListTagsForResourceOutput {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -950,19 +950,19 @@ export interface PutSinkPolicyOutput {
    * <p>The ARN of the sink.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  SinkId?: string;
+  SinkId?: string | undefined;
 
   /**
    * <p>The policy that you specified.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -1004,7 +1004,7 @@ export interface TagResourceOutput {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1074,7 +1074,7 @@ export interface UpdateLinkInput {
    *       the source account to the monitoring account.</p>
    * @public
    */
-  LinkConfiguration?: LinkConfiguration;
+  LinkConfiguration?: LinkConfiguration | undefined;
 }
 
 /**
@@ -1085,48 +1085,48 @@ export interface UpdateLinkOutput {
    * <p>The ARN of the link that you have updated.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The label assigned to this link, with the variables resolved to their actual values.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
    * @public
    */
-  LabelTemplate?: string;
+  LabelTemplate?: string | undefined;
 
   /**
    * <p>The resource types now supported by this link.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The ARN of the sink that is used for this link.</p>
    * @public
    */
-  SinkArn?: string;
+  SinkArn?: string | undefined;
 
   /**
    * <p>The tags assigned to the link.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
    *       the source account to the monitoring account.</p>
    * @public
    */
-  LinkConfiguration?: LinkConfiguration;
+  LinkConfiguration?: LinkConfiguration | undefined;
 }

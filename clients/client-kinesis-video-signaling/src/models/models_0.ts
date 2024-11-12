@@ -11,7 +11,7 @@ import { KinesisVideoSignalingServiceException as __BaseException } from "./Kine
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -54,20 +54,20 @@ export interface GetIceServerConfigRequest {
    * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
    * @public
    */
-  ClientId?: string;
+  ClientId?: string | undefined;
 
   /**
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
    * @public
    */
-  Service?: Service;
+  Service?: Service | undefined;
 
   /**
    * <p>An optional user ID to be associated with the credentials.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 }
 
 /**
@@ -80,26 +80,26 @@ export interface IceServer {
    *             addresses and/or protocols that can be used to reach the TURN server.</p>
    * @public
    */
-  Uris?: string[];
+  Uris?: string[] | undefined;
 
   /**
    * <p>A username to login to the ICE server.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>A password to login to the ICE server.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The period of time, in seconds, during which the username and password are
    *             valid.</p>
    * @public
    */
-  Ttl?: number;
+  Ttl?: number | undefined;
 }
 
 /**
@@ -110,7 +110,7 @@ export interface GetIceServerConfigResponse {
    * <p>The list of ICE server information objects.</p>
    * @public
    */
-  IceServerList?: IceServer[];
+  IceServerList?: IceServer[] | undefined;
 }
 
 /**
@@ -120,7 +120,7 @@ export interface GetIceServerConfigResponse {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -162,7 +162,7 @@ export class InvalidClientException extends __BaseException {
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -184,7 +184,7 @@ export class NotAuthorizedException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -253,5 +253,5 @@ export interface SendAlexaOfferToMasterResponse {
    * <p>The base64-encoded SDP answer content.</p>
    * @public
    */
-  Answer?: string;
+  Answer?: string | undefined;
 }

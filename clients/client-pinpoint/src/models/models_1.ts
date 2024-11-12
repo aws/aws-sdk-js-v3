@@ -121,13 +121,13 @@ export interface GetCampaignVersionsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -199,7 +199,7 @@ export interface GetEmailTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -305,13 +305,13 @@ export interface GetExportJobsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -389,13 +389,13 @@ export interface GetImportJobsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -413,7 +413,7 @@ export interface ImportJobsResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -453,19 +453,19 @@ export interface InAppMessage {
    * <p>In-app message content.</p>
    * @public
    */
-  Content?: InAppMessageContent[];
+  Content?: InAppMessageContent[] | undefined;
 
   /**
    * <p>Custom config to be sent to SDK.</p>
    * @public
    */
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Record<string, string> | undefined;
 
   /**
    * <p>The layout of the message.</p>
    * @public
    */
-  Layout?: Layout;
+  Layout?: Layout | undefined;
 }
 
 /**
@@ -477,19 +477,19 @@ export interface InAppCampaignSchedule {
    * <p>The scheduled time after which the in-app message should not be shown. Timestamp is in ISO 8601 format.</p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 
   /**
    * <p>The event filter the SDK has to use to show the in-app message in the application.</p>
    * @public
    */
-  EventFilter?: CampaignEventFilter;
+  EventFilter?: CampaignEventFilter | undefined;
 
   /**
    * <p>Time during which the in-app message should not be shown to the user.</p>
    * @public
    */
-  QuietTime?: QuietTime;
+  QuietTime?: QuietTime | undefined;
 }
 
 /**
@@ -501,49 +501,49 @@ export interface InAppMessageCampaign {
    * <p>Campaign id of the corresponding campaign.</p>
    * @public
    */
-  CampaignId?: string;
+  CampaignId?: string | undefined;
 
   /**
    * <p>Daily cap which controls the number of times any in-app messages can be shown to the endpoint during a day.</p>
    * @public
    */
-  DailyCap?: number;
+  DailyCap?: number | undefined;
 
   /**
    * <p>In-app message content with all fields required for rendering an in-app message.</p>
    * @public
    */
-  InAppMessage?: InAppMessage;
+  InAppMessage?: InAppMessage | undefined;
 
   /**
    * <p>Priority of the in-app message.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>Schedule of the campaign.</p>
    * @public
    */
-  Schedule?: InAppCampaignSchedule;
+  Schedule?: InAppCampaignSchedule | undefined;
 
   /**
    * <p>Session cap which controls the number of times an in-app message can be shown to the endpoint during an application session.</p>
    * @public
    */
-  SessionCap?: number;
+  SessionCap?: number | undefined;
 
   /**
    * <p>Total cap which controls the number of times an in-app message can be shown to the endpoint.</p>
    * @public
    */
-  TotalCap?: number;
+  TotalCap?: number | undefined;
 
   /**
    * <p>Treatment id of the campaign.</p>
    * @public
    */
-  TreatmentId?: string;
+  TreatmentId?: string | undefined;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface InAppMessagesResponse {
    * <p>List of targeted in-app message campaigns.</p>
    * @public
    */
-  InAppMessageCampaigns?: InAppMessageCampaign[];
+  InAppMessageCampaigns?: InAppMessageCampaign[] | undefined;
 }
 
 /**
@@ -583,7 +583,7 @@ export interface GetInAppTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -595,13 +595,13 @@ export interface InAppTemplateResponse {
    * <p>The resource arn of the template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The content of the message, can include up to 5 modals. Each modal must contain a message, a header, and background color. ImageUrl and buttons are optional.</p>
    * @public
    */
-  Content?: InAppMessageContent[];
+  Content?: InAppMessageContent[] | undefined;
 
   /**
    * <p>The creation date of the template.</p>
@@ -613,7 +613,7 @@ export interface InAppTemplateResponse {
    * <p>Custom config to be sent to client.</p>
    * @public
    */
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Record<string, string> | undefined;
 
   /**
    * <p>The last modified date of the template.</p>
@@ -625,19 +625,19 @@ export interface InAppTemplateResponse {
    * <p>The layout of the message.</p>
    * @public
    */
-  Layout?: Layout;
+  Layout?: Layout | undefined;
 
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The description of the template.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the template.</p>
@@ -655,7 +655,7 @@ export interface InAppTemplateResponse {
    * <p>The version id of the template.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -711,7 +711,7 @@ export interface GetJourneyDateRangeKpiRequest {
    * <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The unique identifier for the journey.</p>
@@ -729,19 +729,19 @@ export interface GetJourneyDateRangeKpiRequest {
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 }
 
 /**
@@ -783,7 +783,7 @@ export interface JourneyDateRangeKpiResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
@@ -829,13 +829,13 @@ export interface GetJourneyExecutionActivityMetricsRequest {
    * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 }
 
 /**
@@ -911,13 +911,13 @@ export interface GetJourneyExecutionMetricsRequest {
    * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 }
 
 /**
@@ -987,13 +987,13 @@ export interface GetJourneyRunExecutionActivityMetricsRequest {
    * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The unique identifier for the journey run.</p>
@@ -1081,13 +1081,13 @@ export interface GetJourneyRunExecutionMetricsRequest {
    * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The unique identifier for the journey run.</p>
@@ -1163,13 +1163,13 @@ export interface GetJourneyRunsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1233,7 +1233,7 @@ export interface JourneyRunsResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface GetPushTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1273,25 +1273,25 @@ export interface PushNotificationTemplateResponse {
    * <p>The message template that's used for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
    * @public
    */
-  ADM?: AndroidPushNotificationTemplate;
+  ADM?: AndroidPushNotificationTemplate | undefined;
 
   /**
    * <p>The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
    * @public
    */
-  APNS?: APNSPushNotificationTemplate;
+  APNS?: APNSPushNotificationTemplate | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the message template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The message template that's used for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
    * @public
    */
-  Baidu?: AndroidPushNotificationTemplate;
+  Baidu?: AndroidPushNotificationTemplate | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was created.</p>
@@ -1303,19 +1303,19 @@ export interface PushNotificationTemplateResponse {
    * <p>The default message template that's used for push notification channels.</p>
    * @public
    */
-  Default?: DefaultPushNotificationTemplate;
+  Default?: DefaultPushNotificationTemplate | undefined;
 
   /**
    * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
    * @public
    */
-  DefaultSubstitutions?: string;
+  DefaultSubstitutions?: string | undefined;
 
   /**
    * <p>The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
    * @public
    */
-  GCM?: AndroidPushNotificationTemplate;
+  GCM?: AndroidPushNotificationTemplate | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
@@ -1327,19 +1327,19 @@ export interface PushNotificationTemplateResponse {
    * <p>The unique identifier for the recommender model that's used by the message template.</p>
    * @public
    */
-  RecommenderId?: string;
+  RecommenderId?: string | undefined;
 
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The custom description of the message template.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the message template.</p>
@@ -1357,7 +1357,7 @@ export interface PushNotificationTemplateResponse {
    * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1401,13 +1401,13 @@ export interface GetRecommenderConfigurationsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1425,7 +1425,7 @@ export interface ListRecommenderConfigurationsResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1481,7 +1481,7 @@ export interface GetSegmentExportJobsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The unique identifier for the segment.</p>
@@ -1493,7 +1493,7 @@ export interface GetSegmentExportJobsRequest {
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1521,7 +1521,7 @@ export interface GetSegmentImportJobsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The unique identifier for the segment.</p>
@@ -1533,7 +1533,7 @@ export interface GetSegmentImportJobsRequest {
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1561,13 +1561,13 @@ export interface GetSegmentsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1585,7 +1585,7 @@ export interface SegmentsResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1647,7 +1647,7 @@ export interface GetSegmentVersionsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The unique identifier for the segment.</p>
@@ -1659,7 +1659,7 @@ export interface GetSegmentVersionsRequest {
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -1709,7 +1709,7 @@ export interface GetSmsTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1721,13 +1721,13 @@ export interface SMSTemplateResponse {
    * <p>The Amazon Resource Name (ARN) of the message template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The message body that's used in text messages that are based on the message template.</p>
    * @public
    */
-  Body?: string;
+  Body?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was created.</p>
@@ -1739,7 +1739,7 @@ export interface SMSTemplateResponse {
    * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
    * @public
    */
-  DefaultSubstitutions?: string;
+  DefaultSubstitutions?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
@@ -1751,19 +1751,19 @@ export interface SMSTemplateResponse {
    * <p>The unique identifier for the recommender model that's used by the message template.</p>
    * @public
    */
-  RecommenderId?: string;
+  RecommenderId?: string | undefined;
 
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The custom description of the message template.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the message template.</p>
@@ -1781,7 +1781,7 @@ export interface SMSTemplateResponse {
    * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1859,7 +1859,7 @@ export interface GetVoiceTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1871,13 +1871,13 @@ export interface VoiceTemplateResponse {
    * <p>The Amazon Resource Name (ARN) of the message template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The text of the script that's used in messages that are based on the message template, in plain text format.</p>
    * @public
    */
-  Body?: string;
+  Body?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was created.</p>
@@ -1889,13 +1889,13 @@ export interface VoiceTemplateResponse {
    * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
    * @public
    */
-  DefaultSubstitutions?: string;
+  DefaultSubstitutions?: string | undefined;
 
   /**
    * <p>The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
    * @public
    */
-  LanguageCode?: string;
+  LanguageCode?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
@@ -1907,13 +1907,13 @@ export interface VoiceTemplateResponse {
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The custom description of the message template.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the message template.</p>
@@ -1931,13 +1931,13 @@ export interface VoiceTemplateResponse {
    * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The name of the voice that's used when delivering messages that are based on the message template. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
    * @public
    */
-  VoiceId?: string;
+  VoiceId?: string | undefined;
 }
 
 /**
@@ -1966,7 +1966,7 @@ export interface JourneysResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1978,7 +1978,7 @@ export interface JourneyStateRequest {
    * <p>The status of the journey. Currently, Supported values are ACTIVE, PAUSED, and CANCELLED</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p> <p>When the journey is paused, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Endpoints will stop entering journeys when the journey is paused and will resume entering the journey after the journey is resumed. For wait activities, wait time is paused when the journey is paused. Currently, PAUSED only supports journeys with a segment refresh interval.</p>
    * @public
    */
-  State?: State;
+  State?: State | undefined;
 }
 
 /**
@@ -1995,13 +1995,13 @@ export interface ListJourneysRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    * @public
    */
-  Token?: string;
+  Token?: string | undefined;
 }
 
 /**
@@ -2024,7 +2024,7 @@ export interface TemplateResponse {
    * <p>The Amazon Resource Name (ARN) of the message template. This value isn't included in a TemplateResponse object. To retrieve the ARN of a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the ARN for.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was created.</p>
@@ -2036,7 +2036,7 @@ export interface TemplateResponse {
    * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object isn't included in a TemplateResponse object. To retrieve this object for a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the object for.</p>
    * @public
    */
-  DefaultSubstitutions?: string;
+  DefaultSubstitutions?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
@@ -2048,13 +2048,13 @@ export interface TemplateResponse {
    * <p>A map of key-value pairs that identifies the tags that are associated with the message template. This object isn't included in a TemplateResponse object. To retrieve this object for a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the object for.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The custom description of the message template. This value isn't included in a TemplateResponse object. To retrieve the description of a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the description for.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the message template.</p>
@@ -2072,7 +2072,7 @@ export interface TemplateResponse {
    * <p>The unique identifier, as an integer, for the active version of the message template.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -2090,7 +2090,7 @@ export interface TemplateVersionResponse {
    * <p>A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
    * @public
    */
-  DefaultSubstitutions?: string;
+  DefaultSubstitutions?: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the version of the message template was last modified.</p>
@@ -2102,7 +2102,7 @@ export interface TemplateVersionResponse {
    * <p>The custom description of the version of the message template.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The name of the message template.</p>
@@ -2120,7 +2120,7 @@ export interface TemplateVersionResponse {
    * <p>The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -2165,25 +2165,25 @@ export interface ListTemplatesRequest {
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
    * @public
    */
-  TemplateType?: string;
+  TemplateType?: string | undefined;
 }
 
 /**
@@ -2201,7 +2201,7 @@ export interface TemplatesResponse {
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2223,13 +2223,13 @@ export interface ListTemplateVersionsRequest {
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    * @public
    */
-  PageSize?: string;
+  PageSize?: string | undefined;
 
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -2259,19 +2259,19 @@ export interface TemplateVersionsResponse {
    * <p>The message that's returned from the API for the request to retrieve information about all the versions of the message template.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The unique identifier for the request to retrieve information about all the versions of the message template.</p>
    * @public
    */
-  RequestID?: string;
+  RequestID?: string | undefined;
 }
 
 /**
@@ -2300,7 +2300,7 @@ export interface MessageResult {
    * <p>The unique identifier for the message that was sent.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>The downstream service status code for delivering the message.</p>
@@ -2312,13 +2312,13 @@ export interface MessageResult {
    * <p>The status message for delivering the message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.</p>
    * @public
    */
-  UpdatedToken?: string;
+  UpdatedToken?: string | undefined;
 }
 
 /**
@@ -2330,19 +2330,19 @@ export interface MessageRequest {
    * <p>A map of key-value pairs, where each key is an address and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object. An address can be a push notification token, a phone number, or an email address. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object to tailor the message for an address by specifying settings such as content overrides and message variables.</p>
    * @public
    */
-  Addresses?: Record<string, AddressConfiguration>;
+  Addresses?: Record<string, AddressConfiguration> | undefined;
 
   /**
    * <p>A map of custom attributes to attach to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
    * <p>A map of key-value pairs, where each key is an endpoint ID and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.</p>
    * @public
    */
-  Endpoints?: Record<string, EndpointSendConfiguration>;
+  Endpoints?: Record<string, EndpointSendConfiguration> | undefined;
 
   /**
    * <p>The settings and content for the default message and any default messages that you defined for specific channels.</p>
@@ -2354,13 +2354,13 @@ export interface MessageRequest {
    * <p>The message template to use for the message.</p>
    * @public
    */
-  TemplateConfiguration?: TemplateConfiguration;
+  TemplateConfiguration?: TemplateConfiguration | undefined;
 
   /**
    * <p>The unique identifier for tracing the message. This identifier is visible to message recipients.</p>
    * @public
    */
-  TraceId?: string;
+  TraceId?: string | undefined;
 }
 
 /**
@@ -2378,19 +2378,19 @@ export interface MessageResponse {
    * <p>A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.</p>
    * @public
    */
-  EndpointResult?: Record<string, EndpointMessageResult>;
+  EndpointResult?: Record<string, EndpointMessageResult> | undefined;
 
   /**
    * <p>The identifier for the original request that the message was delivered for.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.</p>
    * @public
    */
-  Result?: Record<string, MessageResult>;
+  Result?: Record<string, MessageResult> | undefined;
 }
 
 /**
@@ -2402,13 +2402,13 @@ export interface NumberValidateRequest {
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 }
 
 /**
@@ -2420,86 +2420,86 @@ export interface NumberValidateResponse {
    * <p>The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.</p>
    * @public
    */
-  Carrier?: string;
+  Carrier?: string | undefined;
 
   /**
    * <p>The name of the city where the phone number was originally registered.</p>
    * @public
    */
-  City?: string;
+  City?: string | undefined;
 
   /**
    * <p>The cleansed phone number, in E.164 format, for the location where the phone number was originally registered.</p>
    * @public
    */
-  CleansedPhoneNumberE164?: string;
+  CleansedPhoneNumberE164?: string | undefined;
 
   /**
    * <p>The cleansed phone number, in the format for the location where the phone number was originally registered.</p>
    * @public
    */
-  CleansedPhoneNumberNational?: string;
+  CleansedPhoneNumberNational?: string | undefined;
 
   /**
    * <p>The name of the country or region where the phone number was originally registered.</p>
    * @public
    */
-  Country?: string;
+  Country?: string | undefined;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.</p>
    * @public
    */
-  CountryCodeIso2?: string;
+  CountryCodeIso2?: string | undefined;
 
   /**
    * <p>The numeric code for the country or region where the phone number was originally registered.</p>
    * @public
    */
-  CountryCodeNumeric?: string;
+  CountryCodeNumeric?: string | undefined;
 
   /**
    * <p>The name of the county where the phone number was originally registered.</p>
    * @public
    */
-  County?: string;
+  County?: string | undefined;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the request body.</p>
    * @public
    */
-  OriginalCountryCodeIso2?: string;
+  OriginalCountryCodeIso2?: string | undefined;
 
   /**
    * <p>The phone number that was sent in the request body.</p>
    * @public
    */
-  OriginalPhoneNumber?: string;
+  OriginalPhoneNumber?: string | undefined;
 
   /**
    * <p>The description of the phone type. Valid values are: MOBILE, LANDLINE, VOIP,
    *                   INVALID, PREPAID, and OTHER.</p>
    * @public
    */
-  PhoneType?: string;
+  PhoneType?: string | undefined;
 
   /**
    * <p>The phone type, represented by an integer. Valid values are: 0 (mobile), 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).</p>
    * @public
    */
-  PhoneTypeCode?: number;
+  PhoneTypeCode?: number | undefined;
 
   /**
    * <p>The time zone for the location where the phone number was originally registered.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>The postal or ZIP code for the location where the phone number was originally registered.</p>
    * @public
    */
-  ZipCode?: string;
+  ZipCode?: string | undefined;
 }
 
 /**
@@ -2609,7 +2609,7 @@ export interface UpdateAttributesRequest {
    * <p>An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.</p>
    * @public
    */
-  Blacklist?: string[];
+  Blacklist?: string[] | undefined;
 }
 
 /**
@@ -2683,7 +2683,7 @@ export interface SendOTPMessageRequestParameters {
    * <p>The attempts allowed to validate an OTP.</p>
    * @public
    */
-  AllowedAttempts?: number;
+  AllowedAttempts?: number | undefined;
 
   /**
    * <p>The brand name that will be substituted into the OTP message body. Should be owned by calling AWS account.</p>
@@ -2701,7 +2701,7 @@ export interface SendOTPMessageRequestParameters {
    * <p>The number of characters in the generated OTP.</p>
    * @public
    */
-  CodeLength?: number;
+  CodeLength?: number | undefined;
 
   /**
    * <p>The destination identity to send OTP to.</p>
@@ -2713,13 +2713,13 @@ export interface SendOTPMessageRequestParameters {
    * <p>A unique Entity ID received from DLT after entity registration is approved.</p>
    * @public
    */
-  EntityId?: string;
+  EntityId?: string | undefined;
 
   /**
    * <p>The language to be used for the outgoing message body containing the OTP.</p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>The origination identity used to send OTP from.</p>
@@ -2737,13 +2737,13 @@ export interface SendOTPMessageRequestParameters {
    * <p>A unique Template ID received from DLT after entity registration is approved.</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>The time in minutes before the OTP is no longer valid.</p>
    * @public
    */
-  ValidityPeriod?: number;
+  ValidityPeriod?: number | undefined;
 }
 
 /**
@@ -2783,7 +2783,7 @@ export interface SendUsersMessageRequest {
    * <p>A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
    * <p>The settings and content for the default message and any default messages that you defined for specific channels.</p>
@@ -2795,13 +2795,13 @@ export interface SendUsersMessageRequest {
    * <p>The message template to use for the message.</p>
    * @public
    */
-  TemplateConfiguration?: TemplateConfiguration;
+  TemplateConfiguration?: TemplateConfiguration | undefined;
 
   /**
    * <p>The unique identifier for tracing the message. This identifier is visible to message recipients.</p>
    * @public
    */
-  TraceId?: string;
+  TraceId?: string | undefined;
 
   /**
    * <p>A map that associates user IDs with <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> objects. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for a user by specifying settings such as content overrides and message variables.</p>
@@ -2842,13 +2842,13 @@ export interface SendUsersMessageResponse {
    * <p>The unique identifier that was assigned to the message request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.</p>
    * @public
    */
-  Result?: Record<string, Record<string, EndpointMessageResult>>;
+  Result?: Record<string, Record<string, EndpointMessageResult>> | undefined;
 }
 
 /**
@@ -3045,32 +3045,32 @@ export interface WriteApplicationSettingsRequest {
    * <p>The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.</p> <p>To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link  linkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource.</p>
    * @public
    */
-  CampaignHook?: CampaignHook;
+  CampaignHook?: CampaignHook | undefined;
 
   /**
    * <p>Specifies whether to enable application-related alarms in Amazon CloudWatch.</p>
    * @public
    */
-  CloudWatchMetricsEnabled?: boolean;
+  CloudWatchMetricsEnabled?: boolean | undefined;
 
-  EventTaggingEnabled?: boolean;
+  EventTaggingEnabled?: boolean | undefined;
   /**
    * <p>The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link  linkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <link  linkend="apps-application-id-journeys-journey-id">Journey</link> resource, respectively.</p>
    * @public
    */
-  Limits?: CampaignLimits;
+  Limits?: CampaignLimits | undefined;
 
   /**
    * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p> <p>To override the default quiet time settings for a specific campaign or journey, use the <link  linkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <link  linkend="apps-application-id-journeys-journey-id">Journey</link> resource to define a custom quiet time for the campaign or journey.</p>
    * @public
    */
-  QuietTime?: QuietTime;
+  QuietTime?: QuietTime | undefined;
 
   /**
    * <p>The default sending limits for journeys in the application. These limits apply to each journey for the application but can be overridden, on a per journey basis, with the JourneyLimits resource.</p>
    * @public
    */
-  JourneyLimits?: ApplicationSettingsJourneyLimits;
+  JourneyLimits?: ApplicationSettingsJourneyLimits | undefined;
 }
 
 /**
@@ -3199,7 +3199,7 @@ export interface UpdateEmailTemplateRequest {
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -3217,7 +3217,7 @@ export interface UpdateEmailTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3329,7 +3329,7 @@ export interface UpdateInAppTemplateRequest {
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>InApp Template Request.</p>
@@ -3347,7 +3347,7 @@ export interface UpdateInAppTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3437,7 +3437,7 @@ export interface UpdatePushTemplateRequest {
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -3455,7 +3455,7 @@ export interface UpdatePushTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3478,25 +3478,25 @@ export interface UpdateRecommenderConfigurationShape {
    * <p>A map of key-value pairs that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>In the map, the key is the name of a custom attribute and the value is a custom display name for that attribute. The display name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The following restrictions apply to these names:</p> <ul><li><p>An attribute name must start with a letter or number and it can contain up to 50 characters. The characters can be letters, numbers, underscores (_), or hyphens (-). Attribute names are case sensitive and must be unique.</p></li> <li><p>An attribute display name must start with a letter or number and it can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p></li></ul> <p>This object is required if the configuration invokes an AWS Lambda function (RecommendationTransformerUri) to process recommendation data. Otherwise, don't include this object in your request.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>A custom description of the configuration for the recommender model. The description can contain up to 128 characters. The characters can be letters, numbers, spaces, or the following symbols: _ ; () , ‐.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A custom name of the configuration for the recommender model. The name must start with a letter or number and it can contain up to 128 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of Amazon Pinpoint ID to associate with unique user IDs in the recommender model. This value enables the model to use attribute and event data that’s specific to a particular endpoint or user in an Amazon Pinpoint application. Valid values are:</p> <ul><li><p>PINPOINT_ENDPOINT_ID - Associate each user in the model with a particular endpoint in Amazon Pinpoint. The data is correlated based on endpoint IDs in Amazon Pinpoint. This is the default value.</p></li> <li><p>PINPOINT_USER_ID - Associate each user in the model with a particular user and endpoint in Amazon Pinpoint. The data is correlated based on user IDs in Amazon Pinpoint. If you specify this value, an endpoint definition in Amazon Pinpoint has to specify both a user ID (UserId) and an endpoint ID. Otherwise, messages won’t be sent to the user's endpoint.</p></li></ul>
    * @public
    */
-  RecommendationProviderIdType?: string;
+  RecommendationProviderIdType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.</p>
@@ -3514,19 +3514,19 @@ export interface UpdateRecommenderConfigurationShape {
    * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function to invoke for additional processing of recommendation data that's retrieved from the recommender model.</p>
    * @public
    */
-  RecommendationTransformerUri?: string;
+  RecommendationTransformerUri?: string | undefined;
 
   /**
    * <p>A custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This value is required if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p> <p>This name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The name can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-). These restrictions don't apply to attribute values.</p>
    * @public
    */
-  RecommendationsDisplayName?: string;
+  RecommendationsDisplayName?: string | undefined;
 
   /**
    * <p>The number of recommended items to retrieve from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables. The minimum value is 1. The maximum value is 5. The default value is 5.</p> <p>To use multiple recommended items and custom attributes with message variables, you have to use an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
    * @public
    */
-  RecommendationsPerMessage?: number;
+  RecommendationsPerMessage?: number | undefined;
 }
 
 /**
@@ -3600,19 +3600,19 @@ export interface SMSChannelRequest {
    * <p>Specifies whether to enable the SMS channel for the application.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The identity that you want to display on recipients' devices when they receive messages from the SMS channel.</p>
    * @public
    */
-  SenderId?: string;
+  SenderId?: string | undefined;
 
   /**
    * <p>The registered short code that you want to use when you send messages through the SMS channel.</p>
    * @public
    */
-  ShortCode?: string;
+  ShortCode?: string | undefined;
 }
 
 /**
@@ -3651,7 +3651,7 @@ export interface UpdateSmsTemplateRequest {
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
@@ -3669,7 +3669,7 @@ export interface UpdateSmsTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3692,7 +3692,7 @@ export interface TemplateActiveVersionRequest {
    * <p>The version of the message template to use as the active version of the template. Valid values are: latest, for the most recent version of the template; or, the unique identifier for any existing version of the template. If you specify an identifier, the value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -3738,7 +3738,7 @@ export interface VoiceChannelRequest {
    * <p>Specifies whether to enable the voice channel for the application.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -3777,7 +3777,7 @@ export interface UpdateVoiceTemplateRequest {
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -3789,7 +3789,7 @@ export interface UpdateVoiceTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
@@ -3859,7 +3859,7 @@ export interface VerificationResponse {
    * <p>Specifies whether the OTP is valid or not.</p>
    * @public
    */
-  Valid?: boolean;
+  Valid?: boolean | undefined;
 }
 
 /**

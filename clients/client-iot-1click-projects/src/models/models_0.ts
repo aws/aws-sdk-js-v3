@@ -148,7 +148,7 @@ export interface CreatePlacementRequest {
    *       function) for the placement.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -165,14 +165,14 @@ export interface DeviceTemplate {
    * <p>The device type, which currently must be <code>"button"</code>.</p>
    * @public
    */
-  deviceType?: string;
+  deviceType?: string | undefined;
 
   /**
    * <p>An optional Lambda function to invoke instead of the default Lambda function provided by
    *       the placement template.</p>
    * @public
    */
-  callbackOverrides?: Record<string, string>;
+  callbackOverrides?: Record<string, string> | undefined;
 }
 
 /**
@@ -185,14 +185,14 @@ export interface PlacementTemplate {
    *       template.</p>
    * @public
    */
-  defaultAttributes?: Record<string, string>;
+  defaultAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>An object specifying the <a>DeviceTemplate</a> for all placements using this
    *         (<a>PlacementTemplate</a>) template.</p>
    * @public
    */
-  deviceTemplates?: Record<string, DeviceTemplate>;
+  deviceTemplates?: Record<string, DeviceTemplate> | undefined;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface CreateProjectRequest {
    * <p>An optional description for the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The schema defining the placement to be created. A placement template defines placement
@@ -218,7 +218,7 @@ export interface CreateProjectRequest {
    *       device templates using the <code>UpdateProject</code> API.</p>
    * @public
    */
-  placementTemplate?: PlacementTemplate;
+  placementTemplate?: PlacementTemplate | undefined;
 
   /**
    * <p>Optional tags (metadata key/value pairs) to be associated with the project. For example,
@@ -226,7 +226,7 @@ export interface CreateProjectRequest {
    *         Strategies</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -381,7 +381,7 @@ export interface ProjectDescription {
    * <p>The ARN of the project.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the project for which to obtain information from.</p>
@@ -393,7 +393,7 @@ export interface ProjectDescription {
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date when the project was originally created, in UNIX epoch time format.</p>
@@ -412,13 +412,13 @@ export interface ProjectDescription {
    * <p>An object describing the project's placement specifications.</p>
    * @public
    */
-  placementTemplate?: PlacementTemplate;
+  placementTemplate?: PlacementTemplate | undefined;
 
   /**
    * <p>The tags (metadata key/value pairs) associated with the project.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -502,14 +502,14 @@ export interface ListPlacementsRequest {
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per request. If not set, a default value of 100 is
    *       used.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -559,7 +559,7 @@ export interface ListPlacementsResponse {
    *       are no further results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -570,14 +570,14 @@ export interface ListProjectsRequest {
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per request. If not set, a default value of 100 is
    *       used.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface ProjectSummary {
    * <p>The ARN of the project.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the project being summarized.</p>
@@ -615,7 +615,7 @@ export interface ProjectSummary {
    * <p>The tags (metadata key/value pairs) associated with the project.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface ListProjectsResponse {
    *       are no further results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -655,7 +655,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -724,7 +724,7 @@ export interface UpdatePlacementRequest {
    *       key/value pairs is 50.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -746,7 +746,7 @@ export interface UpdateProjectRequest {
    * <p>An optional user-defined description for the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An object defining the project update. Once a project has been created, you cannot add
@@ -755,7 +755,7 @@ export interface UpdateProjectRequest {
    *       API.</p>
    * @public
    */
-  placementTemplate?: PlacementTemplate;
+  placementTemplate?: PlacementTemplate | undefined;
 }
 
 /**

@@ -108,32 +108,6 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  *   }
  * }
  * *\/
- * // example id: to-update-a-key-value-store-1699751822090
- * ```
- *
- * @example To update a KeyValueStore
- * ```javascript
- * // Use the following command to update a KeyValueStore.
- * const input = {
- *   "Comment": "my-changed-comment",
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
- * };
- * const command = new UpdateKeyValueStoreCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "E3UN6WX5RRO2AG",
- *   "KeyValueStore": {
- *     "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "Comment": "my-changed-comment",
- *     "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "LastModifiedTime": "2023-11-07T18:45:21.069Z",
- *     "Name": "my-keyvaluestore-name",
- *     "Status": "READY"
- *   }
- * }
- * *\/
  * // example id: example-1
  * ```
  *

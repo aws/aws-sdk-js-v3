@@ -67,13 +67,13 @@ export interface S3Location {
    * <p>Specifies the name of the Amazon S3 bucket.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key for the file location.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 }
 
 /**
@@ -191,13 +191,13 @@ export interface X12Details {
    * <p>Returns an enumerated type where each value identifies an X12 transaction set. Transaction sets are maintained by the X12 Accredited Standards Committee.</p>
    * @public
    */
-  transactionSet?: X12TransactionSet;
+  transactionSet?: X12TransactionSet | undefined;
 
   /**
    * <p>Returns the version to use for the specified X12 transaction set.</p>
    * @public
    */
-  version?: X12Version;
+  version?: X12Version | undefined;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface EdiConfiguration {
    * <p>Specifies whether this is capability is for inbound or outbound transformations.</p>
    * @public
    */
-  capabilityDirection?: CapabilityDirection;
+  capabilityDirection?: CapabilityDirection | undefined;
 
   /**
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
@@ -373,19 +373,19 @@ export interface CreateCapabilityRequest {
    * <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
    * @public
    */
-  instructionsDocuments?: S3Location[];
+  instructionsDocuments?: S3Location[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -426,7 +426,7 @@ export interface CreateCapabilityResponse {
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
    * @public
    */
-  instructionsDocuments?: S3Location[];
+  instructionsDocuments?: S3Location[] | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the capability.</p>
@@ -447,7 +447,7 @@ export class InternalServerException extends __BaseException {
    * <p>The server attempts to retry a failed command.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -543,7 +543,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The server attempts to retry a command that was throttled.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -641,7 +641,7 @@ export interface GetCapabilityResponse {
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
    * @public
    */
-  instructionsDocuments?: S3Location[];
+  instructionsDocuments?: S3Location[] | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the capability.</p>
@@ -653,7 +653,7 @@ export interface GetCapabilityResponse {
    * <p>Returns a timestamp for last time the capability was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -665,13 +665,13 @@ export interface ListCapabilitiesRequest {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of capabilities to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -707,7 +707,7 @@ export interface CapabilitySummary {
    * <p>Returns a timestamp that identifies the most recent date and time that the capability was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -725,7 +725,7 @@ export interface ListCapabilitiesResponse {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -742,19 +742,19 @@ export interface UpdateCapabilityRequest {
    * <p>Specifies a new name for the capability, to replace the existing name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies a structure that contains the details for a capability.</p>
    * @public
    */
-  configuration?: CapabilityConfiguration;
+  configuration?: CapabilityConfiguration | undefined;
 
   /**
    * <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
    * @public
    */
-  instructionsDocuments?: S3Location[];
+  instructionsDocuments?: S3Location[] | undefined;
 }
 
 /**
@@ -795,7 +795,7 @@ export interface UpdateCapabilityResponse {
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
    * @public
    */
-  instructionsDocuments?: S3Location[];
+  instructionsDocuments?: S3Location[] | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the capability.</p>
@@ -807,7 +807,7 @@ export interface UpdateCapabilityResponse {
    * <p>Returns a timestamp for last time the capability was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -873,7 +873,7 @@ export interface CreateStarterMappingTemplateRequest {
    * <p>Specify the location of the sample EDI file that is used to generate the mapping template.</p>
    * @public
    */
-  outputSampleLocation?: S3Location;
+  outputSampleLocation?: S3Location | undefined;
 
   /**
    * <p>Specify the format for the mapping template: either JSONATA or XSLT.</p>
@@ -951,14 +951,14 @@ export interface GetTransformerJobResponse {
    *          generated by the service.</p>
    * @public
    */
-  outputFiles?: S3Location[];
+  outputFiles?: S3Location[] | undefined;
 
   /**
    * <p>Returns an optional error message, which gets populated when the job is not run
    *          successfully.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -980,7 +980,7 @@ export interface ListTagsForResourceResponse {
    * <p>Returns the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -993,19 +993,19 @@ export interface X12Delimiters {
    * <p>The component, or sub-element, separator. The default value is <code>:</code> (colon).</p>
    * @public
    */
-  componentSeparator?: string;
+  componentSeparator?: string | undefined;
 
   /**
    * <p>The data element separator. The default value is <code>*</code> (asterisk).</p>
    * @public
    */
-  dataElementSeparator?: string;
+  dataElementSeparator?: string | undefined;
 
   /**
    * <p>The segment terminator. The default value is <code>~</code> (tilde).</p>
    * @public
    */
-  segmentTerminator?: string;
+  segmentTerminator?: string | undefined;
 }
 
 /**
@@ -1017,19 +1017,19 @@ export interface X12FunctionalGroupHeaders {
    * <p>A value representing the code used to identify the party transmitting a message, at position GS-02.</p>
    * @public
    */
-  applicationSenderCode?: string;
+  applicationSenderCode?: string | undefined;
 
   /**
    * <p>A value representing the code used to identify the party receiving a message, at position GS-03.</p>
    * @public
    */
-  applicationReceiverCode?: string;
+  applicationReceiverCode?: string | undefined;
 
   /**
    * <p>A code that identifies the issuer of the standard, at position GS-07.</p>
    * @public
    */
-  responsibleAgencyCode?: string;
+  responsibleAgencyCode?: string | undefined;
 }
 
 /**
@@ -1044,25 +1044,25 @@ export interface X12InterchangeControlHeaders {
    * <p>Located at position ISA-05 in the header. Qualifier for the sender ID. Together, the ID and qualifier uniquely identify the sending trading partner.</p>
    * @public
    */
-  senderIdQualifier?: string;
+  senderIdQualifier?: string | undefined;
 
   /**
    * <p>Located at position ISA-06 in the header. This value (along with the <code>senderIdQualifier</code>) identifies the sender of the interchange. </p>
    * @public
    */
-  senderId?: string;
+  senderId?: string | undefined;
 
   /**
    * <p>Located at position ISA-07 in the header. Qualifier for the receiver ID. Together, the ID and qualifier uniquely identify the receiving trading partner.</p>
    * @public
    */
-  receiverIdQualifier?: string;
+  receiverIdQualifier?: string | undefined;
 
   /**
    * <p>Located at position ISA-08 in the header. This value (along with the <code>receiverIdQualifier</code>) identifies the intended recipient of the interchange. </p>
    * @public
    */
-  receiverId?: string;
+  receiverId?: string | undefined;
 
   /**
    * <p>Located at position ISA-11 in the header. This string makes it easier when you need to group similar adjacent element values together without using extra segments.</p>
@@ -1073,13 +1073,13 @@ export interface X12InterchangeControlHeaders {
    *          </note>
    * @public
    */
-  repetitionSeparator?: string;
+  repetitionSeparator?: string | undefined;
 
   /**
    * <p>Located at position ISA-14 in the header. The value "1" indicates that the sender is requesting an interchange acknowledgment at receipt of the interchange. The value "0" is used otherwise.</p>
    * @public
    */
-  acknowledgmentRequestedCode?: string;
+  acknowledgmentRequestedCode?: string | undefined;
 
   /**
    * <p>Located at position ISA-15 in the header. Specifies how this interchange is being used:</p>
@@ -1099,7 +1099,7 @@ export interface X12InterchangeControlHeaders {
    *          </ul>
    * @public
    */
-  usageIndicatorCode?: string;
+  usageIndicatorCode?: string | undefined;
 }
 
 /**
@@ -1111,25 +1111,25 @@ export interface X12OutboundEdiHeaders {
    * <p>In X12 EDI messages, delimiters are used to mark the end of segments or elements, and are defined in the interchange control header.</p>
    * @public
    */
-  interchangeControlHeaders?: X12InterchangeControlHeaders;
+  interchangeControlHeaders?: X12InterchangeControlHeaders | undefined;
 
   /**
    * <p>The functional group headers for the X12 object.</p>
    * @public
    */
-  functionalGroupHeaders?: X12FunctionalGroupHeaders;
+  functionalGroupHeaders?: X12FunctionalGroupHeaders | undefined;
 
   /**
    * <p>The delimiters, for example semicolon (<code>;</code>), that separates sections of the headers for the X12 object.</p>
    * @public
    */
-  delimiters?: X12Delimiters;
+  delimiters?: X12Delimiters | undefined;
 
   /**
    * <p>Specifies whether or not to validate the EDI for this X12 object: <code>TRUE</code> or <code>FALSE</code>.</p>
    * @public
    */
-  validateEdi?: boolean;
+  validateEdi?: boolean | undefined;
 }
 
 /**
@@ -1153,7 +1153,7 @@ export interface X12Envelope {
    * <p>A container for the X12 outbound EDI headers.</p>
    * @public
    */
-  common?: X12OutboundEdiHeaders;
+  common?: X12OutboundEdiHeaders | undefined;
 }
 
 /**
@@ -1203,7 +1203,7 @@ export interface CapabilityOptions {
    * <p>A structure that contains the outbound EDI options.</p>
    * @public
    */
-  outboundEdi?: OutboundEdiOptions;
+  outboundEdi?: OutboundEdiOptions | undefined;
 }
 
 /**
@@ -1232,7 +1232,7 @@ export interface CreatePartnershipRequest {
    * <p>Specifies the phone number associated with the partnership.</p>
    * @public
    */
-  phone?: string;
+  phone?: string | undefined;
 
   /**
    * <p>Specifies a list of the capabilities associated with this partnership.</p>
@@ -1244,19 +1244,19 @@ export interface CreatePartnershipRequest {
    * <p>Specify the structure that contains the details for the associated capabilities.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1285,37 +1285,37 @@ export interface CreatePartnershipResponse {
    * <p>Returns a descriptive name for the partnership.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Returns the email address associated with this trading partner.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns the phone number associated with the partnership.</p>
    * @public
    */
-  phone?: string;
+  phone?: string | undefined;
 
   /**
    * <p>Returns one or more capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities?: string[] | undefined;
 
   /**
    * <p>Returns the structure that contains the details for the associated capabilities.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 
   /**
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
    * @public
    */
-  tradingPartnerId?: string;
+  tradingPartnerId?: string | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
@@ -1372,37 +1372,37 @@ export interface GetPartnershipResponse {
    * <p>Returns the display name of the partnership</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Returns the email address associated with this trading partner.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns the phone number associated with the partnership.</p>
    * @public
    */
-  phone?: string;
+  phone?: string | undefined;
 
   /**
    * <p>Returns one or more capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities?: string[] | undefined;
 
   /**
    * <p>Contains the details for an Outbound EDI capability.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 
   /**
    * <p>Returns the unique identifier for the partner for this partnership.</p>
    * @public
    */
-  tradingPartnerId?: string;
+  tradingPartnerId?: string | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
@@ -1414,7 +1414,7 @@ export interface GetPartnershipResponse {
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -1425,20 +1425,20 @@ export interface ListPartnershipsRequest {
    * <p>Specifies the unique, system-generated identifier for the profile connected to this partnership.</p>
    * @public
    */
-  profileId?: string;
+  profileId?: string | undefined;
 
   /**
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of capabilities to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1463,25 +1463,25 @@ export interface PartnershipSummary {
    * <p>Returns the name of the partnership.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Returns one or more capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities?: string[] | undefined;
 
   /**
    * <p>Contains the details for an Outbound EDI capability.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 
   /**
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
    * @public
    */
-  tradingPartnerId?: string;
+  tradingPartnerId?: string | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
@@ -1493,7 +1493,7 @@ export interface PartnershipSummary {
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -1511,7 +1511,7 @@ export interface ListPartnershipsResponse {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1528,19 +1528,19 @@ export interface UpdatePartnershipRequest {
    * <p>The name of the partnership, used to identify it.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>List of the capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities?: string[] | undefined;
 
   /**
    * <p>To update, specify the structure that contains the details for the associated capabilities.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 }
 
 /**
@@ -1569,37 +1569,37 @@ export interface UpdatePartnershipResponse {
    * <p>The name of the partnership, used to identify it.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Returns the email address associated with this trading partner.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns the phone number associated with the partnership.</p>
    * @public
    */
-  phone?: string;
+  phone?: string | undefined;
 
   /**
    * <p>Returns one or more capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities?: string[] | undefined;
 
   /**
    * <p>Returns the structure that contains the details for the associated capabilities.</p>
    * @public
    */
-  capabilityOptions?: CapabilityOptions;
+  capabilityOptions?: CapabilityOptions | undefined;
 
   /**
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
    * @public
    */
-  tradingPartnerId?: string;
+  tradingPartnerId?: string | undefined;
 
   /**
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
@@ -1611,7 +1611,7 @@ export interface UpdatePartnershipResponse {
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -1642,7 +1642,7 @@ export interface CreateProfileRequest {
    * <p>Specifies the email address associated with this customer profile.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Specifies the phone number associated with the profile.</p>
@@ -1666,13 +1666,13 @@ export interface CreateProfileRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1713,19 +1713,19 @@ export interface CreateProfileResponse {
    * <p>Returns the email address associated with this customer profile.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns whether or not logging is turned on for this profile.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>Returns the name of the logging group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Returns a timestamp representing the time the profile was created.</p>
@@ -1782,7 +1782,7 @@ export interface GetProfileResponse {
    * <p>Returns the email address associated with this customer profile.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns the phone number associated with the profile.</p>
@@ -1800,13 +1800,13 @@ export interface GetProfileResponse {
    * <p>Returns whether or not logging is enabled for this profile.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>Returns the name of the logging group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the transformer.</p>
@@ -1818,7 +1818,7 @@ export interface GetProfileResponse {
    * <p>Returns a timestamp for last time the profile was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -1830,13 +1830,13 @@ export interface ListProfilesRequest {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of profiles to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1867,13 +1867,13 @@ export interface ProfileSummary {
    * <p>Specifies whether or not logging is enabled for this profile.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>Returns the name of the logging group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Returns the timestamp for creation date and time of the profile.</p>
@@ -1885,7 +1885,7 @@ export interface ProfileSummary {
    * <p>Returns the timestamp that identifies the most recent date and time that the profile was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -1903,7 +1903,7 @@ export interface ListProfilesResponse {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1920,25 +1920,25 @@ export interface UpdateProfileRequest {
    * <p>The name of the profile, used to identify it.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies the email address associated with this customer profile.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Specifies the phone number associated with the profile.</p>
    * @public
    */
-  phone?: string;
+  phone?: string | undefined;
 
   /**
    * <p>Specifies the name for the business associated with this profile.</p>
    * @public
    */
-  businessName?: string;
+  businessName?: string | undefined;
 }
 
 /**
@@ -1967,7 +1967,7 @@ export interface UpdateProfileResponse {
    * <p>Returns the email address associated with this customer profile.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>Returns the phone number associated with the profile.</p>
@@ -1985,13 +1985,13 @@ export interface UpdateProfileResponse {
    * <p>Specifies whether or not logging is enabled for this profile.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 
   /**
    * <p>Returns the name of the logging group.</p>
    * @public
    */
-  logGroupName?: string;
+  logGroupName?: string | undefined;
 
   /**
    * <p>Returns a timestamp for creation date and time of the profile.</p>
@@ -2003,7 +2003,7 @@ export interface UpdateProfileResponse {
    * <p>Returns a timestamp for last time the profile was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -2032,7 +2032,7 @@ export interface StartTransformerJobRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2243,14 +2243,14 @@ export interface ConversionTarget {
    * <p>A structure that contains the formatting details for the conversion target.</p>
    * @public
    */
-  formatDetails?: ConversionTargetFormatDetails;
+  formatDetails?: ConversionTargetFormatDetails | undefined;
 
   /**
    * Customer uses this to provide a sample on what should file look like after conversion
    * X12 EDI use case around this would be discovering the file syntax
    * @public
    */
-  outputSampleFile?: OutputSampleFileSource;
+  outputSampleFile?: OutputSampleFileSource | undefined;
 }
 
 /**
@@ -2284,7 +2284,7 @@ export interface TestConversionResponse {
    * <p>Returns an array of strings, each containing a message that Amazon Web Services B2B Data Interchange generates during the conversion.</p>
    * @public
    */
-  validationMessages?: string[];
+  validationMessages?: string[] | undefined;
 }
 
 /**
@@ -2443,7 +2443,7 @@ export interface InputConversion {
    * <p>A structure that contains the formatting options for an inbound transformer.</p>
    * @public
    */
-  formatOptions?: FormatOptions;
+  formatOptions?: FormatOptions | undefined;
 }
 
 /**
@@ -2475,7 +2475,7 @@ export interface Mapping {
    * <p>A string that represents the mapping template, in the transformation language specified in <code>templateLanguage</code>.</p>
    * @public
    */
-  template?: string;
+  template?: string | undefined;
 }
 
 /**
@@ -2506,7 +2506,7 @@ export interface OutputConversion {
    * <p>A structure that contains the X12 transaction set and version for the transformer output.</p>
    * @public
    */
-  formatOptions?: FormatOptions;
+  formatOptions?: FormatOptions | undefined;
 }
 
 /**
@@ -2518,13 +2518,13 @@ export interface SampleDocumentKeys {
    * <p>An array of keys for your input sample documents.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>An array of keys for your output sample documents.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 }
 
 /**
@@ -2559,13 +2559,13 @@ export interface CreateTransformerRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * @deprecated
@@ -2573,7 +2573,7 @@ export interface CreateTransformerRequest {
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -2584,7 +2584,7 @@ export interface CreateTransformerRequest {
    *          </note>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -2592,7 +2592,7 @@ export interface CreateTransformerRequest {
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -2600,31 +2600,31 @@ export interface CreateTransformerRequest {
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>Specify  the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Specify the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>A structure that contains the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Specify a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**
@@ -2683,7 +2683,7 @@ export interface CreateTransformerResponse {
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -2691,7 +2691,7 @@ export interface CreateTransformerResponse {
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -2699,7 +2699,7 @@ export interface CreateTransformerResponse {
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -2707,31 +2707,31 @@ export interface CreateTransformerResponse {
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>Returns the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>Returns the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**
@@ -2796,7 +2796,7 @@ export interface GetTransformerResponse {
    * <p>Returns a timestamp for last time the transformer was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * @deprecated
@@ -2804,7 +2804,7 @@ export interface GetTransformerResponse {
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -2812,7 +2812,7 @@ export interface GetTransformerResponse {
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -2820,7 +2820,7 @@ export interface GetTransformerResponse {
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -2828,31 +2828,31 @@ export interface GetTransformerResponse {
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>Returns the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>Returns the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**
@@ -2864,13 +2864,13 @@ export interface ListTransformersRequest {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the number of items to return for the API response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2910,7 +2910,7 @@ export interface TransformerSummary {
    * <p>Returns a timestamp representing the date and time for the most recent change for the transformer object.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * @deprecated
@@ -2918,7 +2918,7 @@ export interface TransformerSummary {
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -2926,7 +2926,7 @@ export interface TransformerSummary {
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -2934,7 +2934,7 @@ export interface TransformerSummary {
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -2942,31 +2942,31 @@ export interface TransformerSummary {
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>Returns a structure that contains the format options for the transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>Returns the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**
@@ -2986,7 +2986,7 @@ export interface ListTransformersResponse {
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3003,13 +3003,13 @@ export interface UpdateTransformerRequest {
    * <p>Specify a new name for the transformer, if you want to update it.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies the transformer's status. You can update the state of the transformer, from <code>active</code> to <code>inactive</code>, or <code>inactive</code> to <code>active</code>.</p>
    * @public
    */
-  status?: TransformerStatus;
+  status?: TransformerStatus | undefined;
 
   /**
    * @deprecated
@@ -3017,7 +3017,7 @@ export interface UpdateTransformerRequest {
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -3028,7 +3028,7 @@ export interface UpdateTransformerRequest {
    *          </note>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -3036,7 +3036,7 @@ export interface UpdateTransformerRequest {
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -3044,31 +3044,31 @@ export interface UpdateTransformerRequest {
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>To update, specify the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Specify the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>To update, specify the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Specify a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**
@@ -3119,7 +3119,7 @@ export interface UpdateTransformerResponse {
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
    * @public
    */
-  fileFormat?: FileFormat;
+  fileFormat?: FileFormat | undefined;
 
   /**
    * @deprecated
@@ -3127,7 +3127,7 @@ export interface UpdateTransformerResponse {
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
-  mappingTemplate?: string;
+  mappingTemplate?: string | undefined;
 
   /**
    * @deprecated
@@ -3135,7 +3135,7 @@ export interface UpdateTransformerResponse {
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
    * @public
    */
-  ediType?: EdiType;
+  ediType?: EdiType | undefined;
 
   /**
    * @deprecated
@@ -3143,31 +3143,31 @@ export interface UpdateTransformerResponse {
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
    * @public
    */
-  sampleDocument?: string;
+  sampleDocument?: string | undefined;
 
   /**
    * <p>Returns the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
-  inputConversion?: InputConversion;
+  inputConversion?: InputConversion | undefined;
 
   /**
    * <p>Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).</p>
    * @public
    */
-  mapping?: Mapping;
+  mapping?: Mapping | undefined;
 
   /**
    * <p>Returns the <code>OutputConversion</code> object, which contains the format options for the outbound transformation.</p>
    * @public
    */
-  outputConversion?: OutputConversion;
+  outputConversion?: OutputConversion | undefined;
 
   /**
    * <p>Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.</p>
    * @public
    */
-  sampleDocuments?: SampleDocuments;
+  sampleDocuments?: SampleDocuments | undefined;
 }
 
 /**

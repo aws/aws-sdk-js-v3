@@ -30,33 +30,33 @@ export interface AliasListEntry {
    * <p>String that contains the alias. This value begins with <code>alias/</code>.</p>
    * @public
    */
-  AliasName?: string;
+  AliasName?: string | undefined;
 
   /**
    * <p>String that contains the key ARN.</p>
    * @public
    */
-  AliasArn?: string;
+  AliasArn?: string | undefined;
 
   /**
    * <p>String that contains the key identifier of the KMS key associated with the alias.</p>
    * @public
    */
-  TargetKeyId?: string;
+  TargetKeyId?: string | undefined;
 
   /**
    * <p>Date and time that the alias was most recently created in the account and Region.
    *       Formatted as Unix time.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>Date and time that the alias was most recently associated with a KMS key in the account
    *       and Region. Formatted as Unix time.</p>
    * @public
    */
-  LastUpdatedDate?: Date;
+  LastUpdatedDate?: Date | undefined;
 }
 
 /**
@@ -112,7 +112,7 @@ export interface CancelKeyDeletionResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is canceled.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -700,7 +700,7 @@ export interface CreateCustomKeyStoreRequest {
    *       custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
    * @public
    */
-  CloudHsmClusterId?: string;
+  CloudHsmClusterId?: string | undefined;
 
   /**
    * <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom
@@ -710,7 +710,7 @@ export interface CreateCustomKeyStoreRequest {
    *         cluster</a>.</p>
    * @public
    */
-  TrustAnchorCertificate?: string;
+  TrustAnchorCertificate?: string | undefined;
 
   /**
    * <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is
@@ -725,7 +725,7 @@ export interface CreateCustomKeyStoreRequest {
    *       the password in the CloudHSM cluster.</p>
    * @public
    */
-  KeyStorePassword?: string;
+  KeyStorePassword?: string | undefined;
 
   /**
    * <p>Specifies the type of custom key store. The default value is
@@ -736,7 +736,7 @@ export interface CreateCustomKeyStoreRequest {
    *       store is created.</p>
    * @public
    */
-  CustomKeyStoreType?: CustomKeyStoreType;
+  CustomKeyStoreType?: CustomKeyStoreType | undefined;
 
   /**
    * <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy
@@ -777,7 +777,7 @@ export interface CreateCustomKeyStoreRequest {
    *          </ul>
    * @public
    */
-  XksProxyUriEndpoint?: string;
+  XksProxyUriEndpoint?: string | undefined;
 
   /**
    * <p>Specifies the base path to the proxy APIs for this external key store. To find this value,
@@ -799,7 +799,7 @@ export interface CreateCustomKeyStoreRequest {
    *          </ul>
    * @public
    */
-  XksProxyUriPath?: string;
+  XksProxyUriPath?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to
@@ -820,7 +820,7 @@ export interface CreateCustomKeyStoreRequest {
    *          </ul>
    * @public
    */
-  XksProxyVpcEndpointServiceName?: string;
+  XksProxyVpcEndpointServiceName?: string | undefined;
 
   /**
    * <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This
@@ -837,7 +837,7 @@ export interface CreateCustomKeyStoreRequest {
    *       operation to provide the new credential to KMS.</p>
    * @public
    */
-  XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType;
+  XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType | undefined;
 
   /**
    * <p>Indicates how KMS communicates with the external key store proxy. This parameter is
@@ -858,7 +858,7 @@ export interface CreateCustomKeyStoreRequest {
    *       your corporate data center.</p>
    * @public
    */
-  XksProxyConnectivity?: XksProxyConnectivityType;
+  XksProxyConnectivity?: XksProxyConnectivityType | undefined;
 }
 
 /**
@@ -869,7 +869,7 @@ export interface CreateCustomKeyStoreResponse {
    * <p>A unique identifier for the new custom key store.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 }
 
 /**
@@ -1155,7 +1155,7 @@ export interface GrantConstraints {
    *       can include additional key-value pairs.</p>
    * @public
    */
-  EncryptionContextSubset?: Record<string, string>;
+  EncryptionContextSubset?: Record<string, string> | undefined;
 
   /**
    * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a>
@@ -1163,7 +1163,7 @@ export interface GrantConstraints {
    *       same as the encryption context specified in this constraint.</p>
    * @public
    */
-  EncryptionContextEquals?: Record<string, string>;
+  EncryptionContextEquals?: Record<string, string> | undefined;
 }
 
 /**
@@ -1247,7 +1247,7 @@ export interface CreateGrantRequest {
    *         revoking grants</a> in the <i>Key Management Service Developer Guide</i>. </p>
    * @public
    */
-  RetiringPrincipal?: string;
+  RetiringPrincipal?: string | undefined;
 
   /**
    * <p>A list of operations that the grant permits. </p>
@@ -1290,7 +1290,7 @@ export interface CreateGrantRequest {
    *             </i>. </p>
    * @public
    */
-  Constraints?: GrantConstraints;
+  Constraints?: GrantConstraints | undefined;
 
   /**
    * <p>A list of grant tokens. </p>
@@ -1298,7 +1298,7 @@ export interface CreateGrantRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>A friendly name for the grant. Use this value to prevent the unintended creation of
@@ -1316,14 +1316,14 @@ export interface CreateGrantRequest {
    *       All grant tokens for the same grant ID can be used interchangeably.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -1336,14 +1336,14 @@ export interface CreateGrantResponse {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantToken?: string;
+  GrantToken?: string | undefined;
 
   /**
    * <p>The unique identifier for the grant.</p>
    *          <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
    * @public
    */
-  GrantId?: string;
+  GrantId?: string | undefined;
 }
 
 /**
@@ -1544,7 +1544,7 @@ export interface CreateKeyRequest {
    *             </i>.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 
   /**
    * <p>A description of the KMS key. Use a description that helps you decide whether the KMS key
@@ -1555,7 +1555,7 @@ export interface CreateKeyRequest {
    *          <p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
@@ -1590,7 +1590,7 @@ export interface CreateKeyRequest {
    *          </ul>
    * @public
    */
-  KeyUsage?: KeyUsageType;
+  KeyUsage?: KeyUsageType | undefined;
 
   /**
    * @deprecated
@@ -1601,7 +1601,7 @@ export interface CreateKeyRequest {
    *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
    * @public
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
 
   /**
    * <p>Specifies the type of KMS key to create. The default value,
@@ -1719,7 +1719,7 @@ export interface CreateKeyRequest {
    *          </ul>
    * @public
    */
-  KeySpec?: KeySpec;
+  KeySpec?: KeySpec | undefined;
 
   /**
    * <p>The source of the key material for the KMS key. You cannot change the origin after you
@@ -1743,7 +1743,7 @@ export interface CreateKeyRequest {
    *         <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
    * @public
    */
-  Origin?: OriginType;
+  Origin?: OriginType | undefined;
 
   /**
    * <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of
@@ -1757,7 +1757,7 @@ export interface CreateKeyRequest {
    *       specify an external key that serves as key material for the KMS key.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 
   /**
    * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
@@ -1771,7 +1771,7 @@ export interface CreateKeyRequest {
    *       request on the KMS key.</p>
    * @public
    */
-  BypassPolicyLockoutSafetyCheck?: boolean;
+  BypassPolicyLockoutSafetyCheck?: boolean | undefined;
 
   /**
    * <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
@@ -1792,7 +1792,7 @@ export interface CreateKeyRequest {
    *               see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You
@@ -1811,7 +1811,7 @@ export interface CreateKeyRequest {
    *       a custom key store.</p>
    * @public
    */
-  MultiRegion?: boolean;
+  MultiRegion?: boolean | undefined;
 
   /**
    * <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key</a> that
@@ -1836,7 +1836,7 @@ export interface CreateKeyRequest {
    *         encryption</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  XksKeyId?: string;
+  XksKeyId?: string | undefined;
 }
 
 /**
@@ -1955,13 +1955,13 @@ export interface MultiRegionKey {
    * <p>Displays the key ARN of a primary or replica key of a multi-Region key.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -1977,21 +1977,21 @@ export interface MultiRegionConfiguration {
    *       key.</p>
    * @public
    */
-  MultiRegionKeyType?: MultiRegionKeyType;
+  MultiRegionKeyType?: MultiRegionKeyType | undefined;
 
   /**
    * <p>Displays the key ARN and Region of the primary key. This field includes the current KMS
    *       key if it is the primary key.</p>
    * @public
    */
-  PrimaryKey?: MultiRegionKey;
+  PrimaryKey?: MultiRegionKey | undefined;
 
   /**
    * <p>displays the key ARNs and Regions of all replica keys. This field includes the current KMS
    *       key if it is a replica key.</p>
    * @public
    */
-  ReplicaKeys?: MultiRegionKey[];
+  ReplicaKeys?: MultiRegionKey[] | undefined;
 }
 
 /**
@@ -2034,7 +2034,7 @@ export interface XksKeyConfigurationType {
    *       key store proxy uses to identify the external key.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -2047,7 +2047,7 @@ export interface KeyMetadata {
    * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
    * @public
    */
-  AWSAccountId?: string;
+  AWSAccountId?: string | undefined;
 
   /**
    * <p>The globally unique identifier for the KMS key.</p>
@@ -2060,32 +2060,32 @@ export interface KeyMetadata {
    *         Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time when the KMS key was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is
    *         <code>Enabled</code> this value is true, otherwise it is false.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The description of the KMS key.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
    * @public
    */
-  KeyUsage?: KeyUsageType;
+  KeyUsage?: KeyUsageType | undefined;
 
   /**
    * <p>The current status of the KMS key.</p>
@@ -2093,7 +2093,7 @@ export interface KeyMetadata {
    *       the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KeyState?: KeyState;
+  KeyState?: KeyState | undefined;
 
   /**
    * <p>The date and time after which KMS deletes this KMS key. This value is present only when
@@ -2104,7 +2104,7 @@ export interface KeyMetadata {
    *       period is displayed in the <code>PendingDeletionWindowInDays</code> field.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 
   /**
    * <p>The time at which the imported key material expires. When the key material expires, KMS
@@ -2113,7 +2113,7 @@ export interface KeyMetadata {
    *       is <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
    * @public
    */
-  ValidTo?: Date;
+  ValidTo?: Date | undefined;
 
   /**
    * <p>The source of the key material for the KMS key. When this value is <code>AWS_KMS</code>,
@@ -2123,14 +2123,14 @@ export interface KeyMetadata {
    *       a custom key store.</p>
    * @public
    */
-  Origin?: OriginType;
+  Origin?: OriginType | undefined;
 
   /**
    * <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the KMS key. This field is
    *       present only when the KMS key is created in a custom key store.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 
   /**
    * <p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key. When
@@ -2139,21 +2139,21 @@ export interface KeyMetadata {
    *       an CloudHSM key store.</p>
    * @public
    */
-  CloudHsmClusterId?: string;
+  CloudHsmClusterId?: string | undefined;
 
   /**
    * <p>Specifies whether the KMS key's key material expires. This value is present only when
    *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
    * @public
    */
-  ExpirationModel?: ExpirationModelType;
+  ExpirationModel?: ExpirationModelType | undefined;
 
   /**
    * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or
    *       Amazon Web Services managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KeyManager?: KeyManagerType;
+  KeyManager?: KeyManagerType | undefined;
 
   /**
    * @deprecated
@@ -2164,13 +2164,13 @@ export interface KeyMetadata {
    *       avoid breaking changes, KMS supports both fields.</p>
    * @public
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
 
   /**
    * <p>Describes the type of key material in the KMS key.</p>
    * @public
    */
-  KeySpec?: KeySpec;
+  KeySpec?: KeySpec | undefined;
 
   /**
    * <p>The encryption algorithms that the KMS key supports. You cannot use the KMS key with other
@@ -2179,7 +2179,7 @@ export interface KeyMetadata {
    *         <code>ENCRYPT_DECRYPT</code>.</p>
    * @public
    */
-  EncryptionAlgorithms?: EncryptionAlgorithmSpec[];
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec[] | undefined;
 
   /**
    * <p>The signing algorithms that the KMS key supports. You cannot use the KMS key with other
@@ -2188,13 +2188,13 @@ export interface KeyMetadata {
    *         <code>SIGN_VERIFY</code>.</p>
    * @public
    */
-  SigningAlgorithms?: SigningAlgorithmSpec[];
+  SigningAlgorithms?: SigningAlgorithmSpec[] | undefined;
 
   /**
    * <p>The key agreement algorithm used to derive a shared secret.</p>
    * @public
    */
-  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[];
+  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[] | undefined;
 
   /**
    * <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional
@@ -2203,7 +2203,7 @@ export interface KeyMetadata {
    *          <p>For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  MultiRegion?: boolean;
+  MultiRegion?: boolean | undefined;
 
   /**
    * <p>Lists the primary and replica keys in same multi-Region key. This field is present only
@@ -2229,7 +2229,7 @@ export interface KeyMetadata {
    *          </ul>
    * @public
    */
-  MultiRegionConfiguration?: MultiRegionConfiguration;
+  MultiRegionConfiguration?: MultiRegionConfiguration | undefined;
 
   /**
    * <p>The waiting period before the primary key in a multi-Region key is deleted. This waiting
@@ -2246,7 +2246,7 @@ export interface KeyMetadata {
    *       and the deletion date appears in the <code>DeletionDate</code> field.</p>
    * @public
    */
-  PendingDeletionWindowInDays?: number;
+  PendingDeletionWindowInDays?: number | undefined;
 
   /**
    * <p>The message authentication code (MAC) algorithm that the HMAC KMS key supports.</p>
@@ -2254,7 +2254,7 @@ export interface KeyMetadata {
    *         <code>GENERATE_VERIFY_MAC</code>.</p>
    * @public
    */
-  MacAlgorithms?: MacAlgorithmSpec[];
+  MacAlgorithms?: MacAlgorithmSpec[] | undefined;
 
   /**
    * <p>Information about the external key that is associated with a KMS key in an external key
@@ -2263,7 +2263,7 @@ export interface KeyMetadata {
    *       <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  XksKeyConfiguration?: XksKeyConfigurationType;
+  XksKeyConfiguration?: XksKeyConfigurationType | undefined;
 }
 
 /**
@@ -2274,7 +2274,7 @@ export interface CreateKeyResponse {
    * <p>Metadata associated with the KMS key.</p>
    * @public
    */
-  KeyMetadata?: KeyMetadata;
+  KeyMetadata?: KeyMetadata | undefined;
 }
 
 /**
@@ -2446,14 +2446,14 @@ export interface XksProxyConfigurationType {
    *       service to communicate with KMS.</p>
    * @public
    */
-  Connectivity?: XksProxyConnectivityType;
+  Connectivity?: XksProxyConnectivityType | undefined;
 
   /**
    * <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access
    *       key.</p>
    * @public
    */
-  AccessKeyId?: string;
+  AccessKeyId?: string | undefined;
 
   /**
    * <p>The URI endpoint for the external key store proxy.</p>
@@ -2462,13 +2462,13 @@ export interface XksProxyConfigurationType {
    *       the private DNS name associated with the VPC endpoint service.</p>
    * @public
    */
-  UriEndpoint?: string;
+  UriEndpoint?: string | undefined;
 
   /**
    * <p>The path to the external key store proxy APIs.</p>
    * @public
    */
-  UriPath?: string;
+  UriPath?: string | undefined;
 
   /**
    * <p>The Amazon VPC endpoint service used to communicate with the external key store proxy. This
@@ -2476,7 +2476,7 @@ export interface XksProxyConfigurationType {
    *       communicate with KMS.</p>
    * @public
    */
-  VpcEndpointServiceName?: string;
+  VpcEndpointServiceName?: string | undefined;
 }
 
 /**
@@ -2488,13 +2488,13 @@ export interface CustomKeyStoresListEntry {
    * <p>A unique identifier for the custom key store.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 
   /**
    * <p>The user-specified friendly name for the custom key store.</p>
    * @public
    */
-  CustomKeyStoreName?: string;
+  CustomKeyStoreName?: string | undefined;
 
   /**
    * <p>A unique identifier for the CloudHSM cluster that is associated with an CloudHSM key store. This
@@ -2502,7 +2502,7 @@ export interface CustomKeyStoresListEntry {
    *       <code>AWS_CLOUDHSM</code>.</p>
    * @public
    */
-  CloudHsmClusterId?: string;
+  CloudHsmClusterId?: string | undefined;
 
   /**
    * <p>The trust anchor certificate of the CloudHSM cluster associated with an CloudHSM key store. When
@@ -2513,7 +2513,7 @@ export interface CustomKeyStoresListEntry {
    *         <code>AWS_CLOUDHSM</code>.</p>
    * @public
    */
-  TrustAnchorCertificate?: string;
+  TrustAnchorCertificate?: string | undefined;
 
   /**
    * <p>Indicates whether the custom key store is connected to its backing key store. For an CloudHSM
@@ -2536,7 +2536,7 @@ export interface CustomKeyStoresListEntry {
    *       <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  ConnectionState?: ConnectionStateType;
+  ConnectionState?: ConnectionStateType | undefined;
 
   /**
    * <p>Describes the connection error. This field appears in the response only when the
@@ -2724,13 +2724,13 @@ export interface CustomKeyStoresListEntry {
    *          </ul>
    * @public
    */
-  ConnectionErrorCode?: ConnectionErrorCodeType;
+  ConnectionErrorCode?: ConnectionErrorCodeType | undefined;
 
   /**
    * <p>The date and time when the custom key store was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>Indicates the type of the custom key store. <code>AWS_CLOUDHSM</code> indicates a custom
@@ -2738,7 +2738,7 @@ export interface CustomKeyStoresListEntry {
    *       store backed by an external key store proxy and external key manager outside of Amazon Web Services.</p>
    * @public
    */
-  CustomKeyStoreType?: CustomKeyStoreType;
+  CustomKeyStoreType?: CustomKeyStoreType | undefined;
 
   /**
    * <p>Configuration settings for the external key store proxy (XKS proxy). The external key
@@ -2749,7 +2749,7 @@ export interface CustomKeyStoresListEntry {
    *         <code>EXTERNAL_KEY_STORE</code>.</p>
    * @public
    */
-  XksProxyConfiguration?: XksProxyConfigurationType;
+  XksProxyConfiguration?: XksProxyConfigurationType | undefined;
 }
 
 /**
@@ -2813,14 +2813,14 @@ export interface RecipientInfo {
    *         <code>RSAES_OAEP_SHA_256</code>.</p>
    * @public
    */
-  KeyEncryptionAlgorithm?: KeyEncryptionMechanism;
+  KeyEncryptionAlgorithm?: KeyEncryptionMechanism | undefined;
 
   /**
    * <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's
    *       public key.</p>
    * @public
    */
-  AttestationDocument?: Uint8Array;
+  AttestationDocument?: Uint8Array | undefined;
 }
 
 /**
@@ -2843,7 +2843,7 @@ export interface DecryptRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>A list of grant tokens. </p>
@@ -2851,7 +2851,7 @@ export interface DecryptRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
@@ -2885,7 +2885,7 @@ export interface DecryptRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify
@@ -2896,7 +2896,7 @@ export interface DecryptRequest {
    *       algorithm that is valid for symmetric encryption KMS keys.</p>
    * @public
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-attestdoc">attestation
@@ -2912,14 +2912,14 @@ export interface DecryptRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  Recipient?: RecipientInfo;
+  Recipient?: RecipientInfo | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -2930,7 +2930,7 @@ export interface DecryptResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to decrypt the ciphertext.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2938,13 +2938,13 @@ export interface DecryptResponse {
    *         <code>Plaintext</code> field is null or empty.</p>
    * @public
    */
-  Plaintext?: Uint8Array;
+  Plaintext?: Uint8Array | undefined;
 
   /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    * @public
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>The plaintext data encrypted with the public key in the attestation document. </p>
@@ -2953,7 +2953,7 @@ export interface DecryptResponse {
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  CiphertextForRecipient?: Uint8Array;
+  CiphertextForRecipient?: Uint8Array | undefined;
 }
 
 /**
@@ -3179,14 +3179,14 @@ export interface DeriveSharedSecretRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
@@ -3207,7 +3207,7 @@ export interface DeriveSharedSecretRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  Recipient?: RecipientInfo;
+  Recipient?: RecipientInfo | undefined;
 }
 
 /**
@@ -3218,7 +3218,7 @@ export interface DeriveSharedSecretResponse {
    * <p>Identifies the KMS key used to derive the shared secret.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The raw secret derived from the specified key agreement algorithm, private key in the
@@ -3227,7 +3227,7 @@ export interface DeriveSharedSecretResponse {
    *       empty.</p>
    * @public
    */
-  SharedSecret?: Uint8Array;
+  SharedSecret?: Uint8Array | undefined;
 
   /**
    * <p>The plaintext shared secret encrypted with the public key in the attestation document.</p>
@@ -3236,13 +3236,13 @@ export interface DeriveSharedSecretResponse {
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  CiphertextForRecipient?: Uint8Array;
+  CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
    * <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
    * @public
    */
-  KeyAgreementAlgorithm?: KeyAgreementAlgorithmSpec;
+  KeyAgreementAlgorithm?: KeyAgreementAlgorithmSpec | undefined;
 
   /**
    * <p>The source of the key material for the specified KMS key.</p>
@@ -3253,7 +3253,7 @@ export interface DeriveSharedSecretResponse {
    *       <code>EXTERNAL_KEY_STORE</code>.</p>
    * @public
    */
-  KeyOrigin?: OriginType;
+  KeyOrigin?: OriginType | undefined;
 }
 
 /**
@@ -3268,7 +3268,7 @@ export interface DescribeCustomKeyStoresRequest {
    *       both.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 
   /**
    * <p>Gets only information about the specified custom key store. Enter the friendly name of the
@@ -3279,7 +3279,7 @@ export interface DescribeCustomKeyStoresRequest {
    *       both.</p>
    * @public
    */
-  CustomKeyStoreName?: string;
+  CustomKeyStoreName?: string | undefined;
 
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -3287,7 +3287,7 @@ export interface DescribeCustomKeyStoresRequest {
    *     return fewer.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -3295,7 +3295,7 @@ export interface DescribeCustomKeyStoresRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -3306,14 +3306,14 @@ export interface DescribeCustomKeyStoresResponse {
    * <p>Contains metadata about each custom key store.</p>
    * @public
    */
-  CustomKeyStores?: CustomKeyStoresListEntry[];
+  CustomKeyStores?: CustomKeyStoresListEntry[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -3322,7 +3322,7 @@ export interface DescribeCustomKeyStoresResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -3386,7 +3386,7 @@ export interface DescribeKeyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 }
 
 /**
@@ -3397,7 +3397,7 @@ export interface DescribeKeyResponse {
    * <p>Metadata associated with the key.</p>
    * @public
    */
-  KeyMetadata?: KeyMetadata;
+  KeyMetadata?: KeyMetadata | undefined;
 }
 
 /**
@@ -3527,7 +3527,7 @@ export interface EnableKeyRotationRequest {
    *          <p> </p>
    * @public
    */
-  RotationPeriodInDays?: number;
+  RotationPeriodInDays?: number | undefined;
 }
 
 /**
@@ -3582,7 +3582,7 @@ export interface EncryptRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3590,7 +3590,7 @@ export interface EncryptRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
@@ -3601,14 +3601,14 @@ export interface EncryptRequest {
    *          <p>The SM2PKE algorithm is only available in China Regions.</p>
    * @public
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3619,19 +3619,19 @@ export interface EncryptResponse {
    * <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  CiphertextBlob?: Uint8Array;
+  CiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to encrypt the plaintext.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
    * @public
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 }
 
 /**
@@ -3700,7 +3700,7 @@ export interface GenerateDataKeyRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a
@@ -3710,7 +3710,7 @@ export interface GenerateDataKeyRequest {
    *       parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
    * @public
    */
-  NumberOfBytes?: number;
+  NumberOfBytes?: number | undefined;
 
   /**
    * <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit
@@ -3719,7 +3719,7 @@ export interface GenerateDataKeyRequest {
    *       parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
    * @public
    */
-  KeySpec?: DataKeySpec;
+  KeySpec?: DataKeySpec | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3727,7 +3727,7 @@ export interface GenerateDataKeyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
@@ -3745,14 +3745,14 @@ export interface GenerateDataKeyRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  Recipient?: RecipientInfo;
+  Recipient?: RecipientInfo | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3763,7 +3763,7 @@ export interface GenerateDataKeyResponse {
    * <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  CiphertextBlob?: Uint8Array;
+  CiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of
@@ -3772,13 +3772,13 @@ export interface GenerateDataKeyResponse {
    *         <code>Plaintext</code> field is null or empty.</p>
    * @public
    */
-  Plaintext?: Uint8Array;
+  Plaintext?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The plaintext data key encrypted with the public key from the Nitro enclave. This
@@ -3788,7 +3788,7 @@ export interface GenerateDataKeyResponse {
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  CiphertextForRecipient?: Uint8Array;
+  CiphertextForRecipient?: Uint8Array | undefined;
 }
 
 /**
@@ -3808,7 +3808,7 @@ export interface GenerateDataKeyPairRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
@@ -3852,7 +3852,7 @@ export interface GenerateDataKeyPairRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
@@ -3872,14 +3872,14 @@ export interface GenerateDataKeyPairRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  Recipient?: RecipientInfo;
+  Recipient?: RecipientInfo | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3890,7 +3890,7 @@ export interface GenerateDataKeyPairResponse {
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  PrivateKeyCiphertextBlob?: Uint8Array;
+  PrivateKeyCiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3898,25 +3898,25 @@ export interface GenerateDataKeyPairResponse {
    *         <code>PrivateKeyPlaintext</code> field is null or empty.</p>
    * @public
    */
-  PrivateKeyPlaintext?: Uint8Array;
+  PrivateKeyPlaintext?: Uint8Array | undefined;
 
   /**
    * <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  PublicKey?: Uint8Array;
+  PublicKey?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The type of data key pair that was generated.</p>
    * @public
    */
-  KeyPairSpec?: DataKeyPairSpec;
+  KeyPairSpec?: DataKeyPairSpec | undefined;
 
   /**
    * <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This
@@ -3926,7 +3926,7 @@ export interface GenerateDataKeyPairResponse {
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  CiphertextForRecipient?: Uint8Array;
+  CiphertextForRecipient?: Uint8Array | undefined;
 }
 
 /**
@@ -3946,7 +3946,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
@@ -3990,14 +3990,14 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4008,25 +4008,25 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  PrivateKeyCiphertextBlob?: Uint8Array;
+  PrivateKeyCiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  PublicKey?: Uint8Array;
+  PublicKey?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The type of data key pair that was generated.</p>
    * @public
    */
-  KeyPairSpec?: DataKeyPairSpec;
+  KeyPairSpec?: DataKeyPairSpec | undefined;
 }
 
 /**
@@ -4074,14 +4074,14 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key,
    *       or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
    * @public
    */
-  KeySpec?: DataKeySpec;
+  KeySpec?: DataKeySpec | undefined;
 
   /**
    * <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
@@ -4089,7 +4089,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    *       we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
    * @public
    */
-  NumberOfBytes?: number;
+  NumberOfBytes?: number | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -4097,14 +4097,14 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4115,13 +4115,13 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
    * <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  CiphertextBlob?: Uint8Array;
+  CiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -4162,14 +4162,14 @@ export interface GenerateMacRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -4182,19 +4182,19 @@ export interface GenerateMacResponse {
    *          <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
    * @public
    */
-  Mac?: Uint8Array;
+  Mac?: Uint8Array | undefined;
 
   /**
    * <p>The MAC algorithm that was used to generate the HMAC.</p>
    * @public
    */
-  MacAlgorithm?: MacAlgorithmSpec;
+  MacAlgorithm?: MacAlgorithmSpec | undefined;
 
   /**
    * <p>The HMAC KMS key used in the operation.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -4205,7 +4205,7 @@ export interface GenerateRandomRequest {
    * <p>The length of the random byte string. This parameter is required.</p>
    * @public
    */
-  NumberOfBytes?: number;
+  NumberOfBytes?: number | undefined;
 
   /**
    * <p>Generates the random byte string in the CloudHSM cluster that is associated with the
@@ -4215,7 +4215,7 @@ export interface GenerateRandomRequest {
    *         <code>UnsupportedOperationException</code>.</p>
    * @public
    */
-  CustomKeyStoreId?: string;
+  CustomKeyStoreId?: string | undefined;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
@@ -4231,7 +4231,7 @@ export interface GenerateRandomRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  Recipient?: RecipientInfo;
+  Recipient?: RecipientInfo | undefined;
 }
 
 /**
@@ -4244,7 +4244,7 @@ export interface GenerateRandomResponse {
    *         <code>Plaintext</code> field is null or empty.</p>
    * @public
    */
-  Plaintext?: Uint8Array;
+  Plaintext?: Uint8Array | undefined;
 
   /**
    * <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This
@@ -4254,7 +4254,7 @@ export interface GenerateRandomResponse {
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  CiphertextForRecipient?: Uint8Array;
+  CiphertextForRecipient?: Uint8Array | undefined;
 }
 
 /**
@@ -4285,7 +4285,7 @@ export interface GetKeyPolicyRequest {
    *       the names of key policies, use <a>ListKeyPolicies</a>.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -4296,13 +4296,13 @@ export interface GetKeyPolicyResponse {
    * <p>A key policy document in JSON format.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 
   /**
    * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -4338,25 +4338,25 @@ export interface GetKeyRotationStatusResponse {
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
    * @public
    */
-  KeyRotationEnabled?: boolean;
+  KeyRotationEnabled?: boolean | undefined;
 
   /**
    * <p>Identifies the specified symmetric encryption KMS key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The number of days between each automatic rotation. The default value is 365 days.</p>
    * @public
    */
-  RotationPeriodInDays?: number;
+  RotationPeriodInDays?: number | undefined;
 
   /**
    * <p>The next date that KMS will automatically rotate the key material.</p>
    * @public
    */
-  NextRotationDate?: Date;
+  NextRotationDate?: Date | undefined;
 
   /**
    * <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
@@ -4367,7 +4367,7 @@ export interface GetKeyRotationStatusResponse {
    *       on-demand rotation.</p>
    * @public
    */
-  OnDemandRotationStartDate?: Date;
+  OnDemandRotationStartDate?: Date | undefined;
 }
 
 /**
@@ -4475,20 +4475,20 @@ export interface GetParametersForImportResponse {
    *       request.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The import token to send in a subsequent <a>ImportKeyMaterial</a>
    *       request.</p>
    * @public
    */
-  ImportToken?: Uint8Array;
+  ImportToken?: Uint8Array | undefined;
 
   /**
    * <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
    * @public
    */
-  PublicKey?: Uint8Array;
+  PublicKey?: Uint8Array | undefined;
 
   /**
    * <p>The time at which the import token and public key are no longer valid. After this time,
@@ -4496,7 +4496,7 @@ export interface GetParametersForImportResponse {
    *       another <code>GetParametersForImport</code> request to get new ones.</p>
    * @public
    */
-  ParametersValidTo?: Date;
+  ParametersValidTo?: Date | undefined;
 }
 
 /**
@@ -4536,7 +4536,7 @@ export interface GetPublicKeyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 }
 
 /**
@@ -4548,7 +4548,7 @@ export interface GetPublicKeyResponse {
    *       downloaded.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The exported public key. </p>
@@ -4557,7 +4557,7 @@ export interface GetPublicKeyResponse {
    *          <p></p>
    * @public
    */
-  PublicKey?: Uint8Array;
+  PublicKey?: Uint8Array | undefined;
 
   /**
    * @deprecated
@@ -4569,13 +4569,13 @@ export interface GetPublicKeyResponse {
    *       avoid breaking changes, KMS supports both fields.</p>
    * @public
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
 
   /**
    * <p>The type of the of the public key that was downloaded.</p>
    * @public
    */
-  KeySpec?: KeySpec;
+  KeySpec?: KeySpec | undefined;
 
   /**
    * <p>The permitted use of the public key. Valid values for asymmetric key pairs are <code>ENCRYPT_DECRYPT</code>,
@@ -4584,7 +4584,7 @@ export interface GetPublicKeyResponse {
    *       encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
    * @public
    */
-  KeyUsage?: KeyUsageType;
+  KeyUsage?: KeyUsageType | undefined;
 
   /**
    * <p>The encryption algorithms that KMS supports for this key. </p>
@@ -4594,7 +4594,7 @@ export interface GetPublicKeyResponse {
    *       is <code>ENCRYPT_DECRYPT</code>.</p>
    * @public
    */
-  EncryptionAlgorithms?: EncryptionAlgorithmSpec[];
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec[] | undefined;
 
   /**
    * <p>The signing algorithms that KMS supports for this key.</p>
@@ -4602,13 +4602,13 @@ export interface GetPublicKeyResponse {
    *       is <code>SIGN_VERIFY</code>.</p>
    * @public
    */
-  SigningAlgorithms?: SigningAlgorithmSpec[];
+  SigningAlgorithms?: SigningAlgorithmSpec[] | undefined;
 
   /**
    * <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
    * @public
    */
-  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[];
+  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[] | undefined;
 }
 
 /**
@@ -4620,25 +4620,25 @@ export interface GrantListEntry {
    * <p>The unique identifier for the KMS key to which the grant applies.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The unique identifier for the grant.</p>
    * @public
    */
-  GrantId?: string;
+  GrantId?: string | undefined;
 
   /**
    * <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The date and time when the grant was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The identity that gets the permissions in the grant.</p>
@@ -4649,32 +4649,32 @@ export interface GrantListEntry {
    *           principal</a>, which might represent several different grantee principals.</p>
    * @public
    */
-  GranteePrincipal?: string;
+  GranteePrincipal?: string | undefined;
 
   /**
    * <p>The principal that can retire the grant.</p>
    * @public
    */
-  RetiringPrincipal?: string;
+  RetiringPrincipal?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account under which the grant was issued.</p>
    * @public
    */
-  IssuingAccount?: string;
+  IssuingAccount?: string | undefined;
 
   /**
    * <p>The list of operations permitted by the grant.</p>
    * @public
    */
-  Operations?: GrantOperation[];
+  Operations?: GrantOperation[] | undefined;
 
   /**
    * <p>A list of key-value pairs that must be present in the encryption context of certain
    *       subsequent operations that the grant allows.</p>
    * @public
    */
-  Constraints?: GrantConstraints;
+  Constraints?: GrantConstraints | undefined;
 }
 
 /**
@@ -4736,7 +4736,7 @@ export interface ImportKeyMaterialRequest {
    *       current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
    * @public
    */
-  ValidTo?: Date;
+  ValidTo?: Date | undefined;
 
   /**
    * <p>Specifies whether the key material expires. The default is
@@ -4750,7 +4750,7 @@ export interface ImportKeyMaterialRequest {
    *       material.</p>
    * @public
    */
-  ExpirationModel?: ExpirationModelType;
+  ExpirationModel?: ExpirationModelType | undefined;
 }
 
 /**
@@ -4829,13 +4829,13 @@ export interface KeyListEntry {
    * <p>Unique identifier of the key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>ARN of the key.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 }
 
 /**
@@ -4906,7 +4906,7 @@ export interface ListAliasesRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -4916,7 +4916,7 @@ export interface ListAliasesRequest {
    *     and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -4924,7 +4924,7 @@ export interface ListAliasesRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -4935,14 +4935,14 @@ export interface ListAliasesResponse {
    * <p>A list of aliases.</p>
    * @public
    */
-  Aliases?: AliasListEntry[];
+  Aliases?: AliasListEntry[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -4951,7 +4951,7 @@ export interface ListAliasesResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -4966,7 +4966,7 @@ export interface ListGrantsRequest {
    *     and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -4974,7 +4974,7 @@ export interface ListGrantsRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns only grants for the specified KMS key. This parameter is required.</p>
@@ -5001,14 +5001,14 @@ export interface ListGrantsRequest {
    *       grant. </p>
    * @public
    */
-  GrantId?: string;
+  GrantId?: string | undefined;
 
   /**
    * <p>Returns only grants where the specified principal is the grantee principal for the
    *       grant.</p>
    * @public
    */
-  GranteePrincipal?: string;
+  GranteePrincipal?: string | undefined;
 }
 
 /**
@@ -5019,14 +5019,14 @@ export interface ListGrantsResponse {
    * <p>A list of grants.</p>
    * @public
    */
-  Grants?: GrantListEntry[];
+  Grants?: GrantListEntry[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -5035,7 +5035,7 @@ export interface ListGrantsResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -5070,7 +5070,7 @@ export interface ListKeyPoliciesRequest {
    *          <p>Only one policy can be attached to a key.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -5078,7 +5078,7 @@ export interface ListKeyPoliciesRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5089,14 +5089,14 @@ export interface ListKeyPoliciesResponse {
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -5105,7 +5105,7 @@ export interface ListKeyPoliciesResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -5139,7 +5139,7 @@ export interface ListKeyRotationsRequest {
    *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -5147,7 +5147,7 @@ export interface ListKeyRotationsRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5173,19 +5173,19 @@ export interface RotationsListEntry {
    * <p>Unique identifier of the key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>Date and time that the key material rotation completed. Formatted as Unix time.</p>
    * @public
    */
-  RotationDate?: Date;
+  RotationDate?: Date | undefined;
 
   /**
    * <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-on-demand">on-demand rotation</a>.</p>
    * @public
    */
-  RotationType?: RotationType;
+  RotationType?: RotationType | undefined;
 }
 
 /**
@@ -5196,14 +5196,14 @@ export interface ListKeyRotationsResponse {
    * <p>A list of completed key material rotations.</p>
    * @public
    */
-  Rotations?: RotationsListEntry[];
+  Rotations?: RotationsListEntry[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -5212,7 +5212,7 @@ export interface ListKeyRotationsResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -5227,7 +5227,7 @@ export interface ListKeysRequest {
    *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -5235,7 +5235,7 @@ export interface ListKeysRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5246,14 +5246,14 @@ export interface ListKeysResponse {
    * <p>A list of KMS keys.</p>
    * @public
    */
-  Keys?: KeyListEntry[];
+  Keys?: KeyListEntry[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -5262,7 +5262,7 @@ export interface ListKeysResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -5296,7 +5296,7 @@ export interface ListResourceTagsRequest {
    *       you do not include a value, it defaults to 50.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -5306,7 +5306,7 @@ export interface ListResourceTagsRequest {
    *       the truncated response you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -5320,7 +5320,7 @@ export interface ListResourceTagsResponse {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -5328,7 +5328,7 @@ export interface ListResourceTagsResponse {
    *          <p>Do not assume or infer any information from this value.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -5337,7 +5337,7 @@ export interface ListResourceTagsResponse {
    *     subsequent request.</p>
    * @public
    */
-  Truncated?: boolean;
+  Truncated?: boolean | undefined;
 }
 
 /**
@@ -5352,7 +5352,7 @@ export interface ListRetirableGrantsRequest {
    *     and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -5360,7 +5360,7 @@ export interface ListRetirableGrantsRequest {
    *     you just received.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The retiring principal for which to list grants. Enter a principal in your
@@ -5417,7 +5417,7 @@ export interface PutKeyPolicyRequest {
    * <p>The name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid value is <code>default</code>.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>The key policy to attach to the KMS key.</p>
@@ -5470,7 +5470,7 @@ export interface PutKeyPolicyRequest {
    *       request on the KMS key.</p>
    * @public
    */
-  BypassPolicyLockoutSafetyCheck?: boolean;
+  BypassPolicyLockoutSafetyCheck?: boolean | undefined;
 }
 
 /**
@@ -5493,7 +5493,7 @@ export interface ReEncryptRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  SourceEncryptionContext?: Record<string, string>;
+  SourceEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is
@@ -5528,7 +5528,7 @@ export interface ReEncryptRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    * @public
    */
-  SourceKeyId?: string;
+  SourceKeyId?: string | undefined;
 
   /**
    * <p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a
@@ -5575,7 +5575,7 @@ export interface ReEncryptRequest {
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DestinationEncryptionContext?: Record<string, string>;
+  DestinationEncryptionContext?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it
@@ -5587,7 +5587,7 @@ export interface ReEncryptRequest {
    *       key.</p>
    * @public
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has
@@ -5597,7 +5597,7 @@ export interface ReEncryptRequest {
    *       key.</p>
    * @public
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -5605,14 +5605,14 @@ export interface ReEncryptRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5623,32 +5623,32 @@ export interface ReEncryptResponse {
    * <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  CiphertextBlob?: Uint8Array;
+  CiphertextBlob?: Uint8Array | undefined;
 
   /**
    * <p>Unique identifier of the KMS key used to originally encrypt the data.</p>
    * @public
    */
-  SourceKeyId?: string;
+  SourceKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to reencrypt the data.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext before it was
    *       reencrypted.</p>
    * @public
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
    * <p>The encryption algorithm that was used to reencrypt the data.</p>
    * @public
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec;
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 }
 
 /**
@@ -5740,7 +5740,7 @@ export interface ReplicateKeyRequest {
    *             </i>.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 
   /**
    * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
@@ -5754,7 +5754,7 @@ export interface ReplicateKeyRequest {
    *       request on the KMS key.</p>
    * @public
    */
-  BypassPolicyLockoutSafetyCheck?: boolean;
+  BypassPolicyLockoutSafetyCheck?: boolean | undefined;
 
   /**
    * <p>A description of the KMS key. The default value is an empty string (no
@@ -5767,7 +5767,7 @@ export interface ReplicateKeyRequest {
    *       KMS does not synchronize this property.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it
@@ -5792,7 +5792,7 @@ export interface ReplicateKeyRequest {
    *               see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5805,21 +5805,21 @@ export interface ReplicateKeyResponse {
    *       replica keys.</p>
    * @public
    */
-  ReplicaKeyMetadata?: KeyMetadata;
+  ReplicaKeyMetadata?: KeyMetadata | undefined;
 
   /**
    * <p>The key policy of the new replica key. The value is a key policy document in JSON
    *       format.</p>
    * @public
    */
-  ReplicaPolicy?: string;
+  ReplicaPolicy?: string | undefined;
 
   /**
    * <p>The tags on the new replica key. The value is a list of tag key and tag value
    *       pairs.</p>
    * @public
    */
-  ReplicaTags?: Tag[];
+  ReplicaTags?: Tag[] | undefined;
 }
 
 /**
@@ -5834,7 +5834,7 @@ export interface RetireGrantRequest {
    *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantToken?: string;
+  GrantToken?: string | undefined;
 
   /**
    * <p>The key ARN KMS key associated with the grant. To find the key ARN, use the <a>ListKeys</a> operation.</p>
@@ -5842,7 +5842,7 @@ export interface RetireGrantRequest {
    *          </p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>Identifies the grant to retire. To get the grant ID, use <a>CreateGrant</a>,
@@ -5855,14 +5855,14 @@ export interface RetireGrantRequest {
    *          </ul>
    * @public
    */
-  GrantId?: string;
+  GrantId?: string | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5902,7 +5902,7 @@ export interface RevokeGrantRequest {
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5942,7 +5942,7 @@ export interface RotateKeyOnDemandResponse {
    *       on.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -5982,7 +5982,7 @@ export interface ScheduleKeyDeletionRequest {
    *       parameter.</p>
    * @public
    */
-  PendingWindowInDays?: number;
+  PendingWindowInDays?: number | undefined;
 }
 
 /**
@@ -5993,7 +5993,7 @@ export interface ScheduleKeyDeletionResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is scheduled.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The date and time after which KMS deletes the KMS key.</p>
@@ -6002,7 +6002,7 @@ export interface ScheduleKeyDeletionResponse {
    *       deleted.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 
   /**
    * <p>The current status of the KMS key.</p>
@@ -6010,7 +6010,7 @@ export interface ScheduleKeyDeletionResponse {
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  KeyState?: KeyState;
+  KeyState?: KeyState | undefined;
 
   /**
    * <p>The waiting period before the KMS key is deleted. </p>
@@ -6019,7 +6019,7 @@ export interface ScheduleKeyDeletionResponse {
    *       immediately.</p>
    * @public
    */
-  PendingWindowInDays?: number;
+  PendingWindowInDays?: number | undefined;
 }
 
 /**
@@ -6101,7 +6101,7 @@ export interface SignRequest {
    *          </ul>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -6109,7 +6109,7 @@ export interface SignRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Specifies the signing algorithm to use when signing the message. </p>
@@ -6125,7 +6125,7 @@ export interface SignRequest {
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6136,7 +6136,7 @@ export interface SignResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The cryptographic signature that was generated for the message. </p>
@@ -6157,13 +6157,13 @@ export interface SignResponse {
    *          <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    * @public
    */
-  Signature?: Uint8Array;
+  Signature?: Uint8Array | undefined;
 
   /**
    * <p>The signing algorithm that was used to sign the message.</p>
    * @public
    */
-  SigningAlgorithm?: SigningAlgorithmSpec;
+  SigningAlgorithm?: SigningAlgorithmSpec | undefined;
 }
 
 /**
@@ -6294,7 +6294,7 @@ export interface UpdateCustomKeyStoreRequest {
    *       be connected or disconnected.</p>
    * @public
    */
-  NewCustomKeyStoreName?: string;
+  NewCustomKeyStoreName?: string | undefined;
 
   /**
    * <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the CloudHSM
@@ -6305,7 +6305,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>To change this value, the CloudHSM key store must be disconnected.</p>
    * @public
    */
-  KeyStorePassword?: string;
+  KeyStorePassword?: string | undefined;
 
   /**
    * <p>Associates the custom key store with a related CloudHSM cluster. This parameter is valid only
@@ -6320,7 +6320,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>To change this value, the CloudHSM key store must be disconnected.</p>
    * @public
    */
-  CloudHsmClusterId?: string;
+  CloudHsmClusterId?: string | undefined;
 
   /**
    * <p>Changes the URI endpoint that KMS uses to connect to your external key store proxy (XKS
@@ -6337,7 +6337,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>To change this value, the external key store must be disconnected.</p>
    * @public
    */
-  XksProxyUriEndpoint?: string;
+  XksProxyUriEndpoint?: string | undefined;
 
   /**
    * <p>Changes the base path to the proxy APIs for this external key store. To find this value,
@@ -6353,7 +6353,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>You can change this value when the external key store is connected or disconnected.</p>
    * @public
    */
-  XksProxyUriPath?: string;
+  XksProxyUriPath?: string | undefined;
 
   /**
    * <p>Changes the name that KMS uses to identify the Amazon VPC endpoint service for your external
@@ -6363,7 +6363,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>To change this value, the external key store must be disconnected.</p>
    * @public
    */
-  XksProxyVpcEndpointServiceName?: string;
+  XksProxyVpcEndpointServiceName?: string | undefined;
 
   /**
    * <p>Changes the credentials that KMS uses to sign requests to the external key store proxy
@@ -6378,7 +6378,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>You can change this value when the external key store is connected or disconnected.</p>
    * @public
    */
-  XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType;
+  XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType | undefined;
 
   /**
    * <p>Changes the connectivity setting for the external key store. To indicate that the external
@@ -6393,7 +6393,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <p>To change this value, the external key store must be disconnected.</p>
    * @public
    */
-  XksProxyConnectivity?: XksProxyConnectivityType;
+  XksProxyConnectivity?: XksProxyConnectivityType | undefined;
 }
 
 /**
@@ -6551,7 +6551,7 @@ export interface VerifyRequest {
    *          </ul>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
    * <p>The signature that the <code>Sign</code> operation generated.</p>
@@ -6572,14 +6572,14 @@ export interface VerifyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6590,7 +6590,7 @@ export interface VerifyResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>A Boolean value that indicates whether the signature was verified. A value of
@@ -6600,13 +6600,13 @@ export interface VerifyResponse {
    *       operation fails with a <code>KMSInvalidSignatureException</code> exception. </p>
    * @public
    */
-  SignatureValid?: boolean;
+  SignatureValid?: boolean | undefined;
 
   /**
    * <p>The signing algorithm that was used to verify the signature.</p>
    * @public
    */
-  SigningAlgorithm?: SigningAlgorithmSpec;
+  SigningAlgorithm?: SigningAlgorithmSpec | undefined;
 }
 
 /**
@@ -6654,14 +6654,14 @@ export interface VerifyMacRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  GrantTokens?: string[];
+  GrantTokens?: string[] | undefined;
 
   /**
    * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
    *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -6672,7 +6672,7 @@ export interface VerifyMacResponse {
    * <p>The HMAC KMS key used in the verification.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code>
@@ -6684,13 +6684,13 @@ export interface VerifyMacResponse {
    *       the inputs changed since the HMAC was computed.</p>
    * @public
    */
-  MacValid?: boolean;
+  MacValid?: boolean | undefined;
 
   /**
    * <p>The MAC algorithm used in the verification.</p>
    * @public
    */
-  MacAlgorithm?: MacAlgorithmSpec;
+  MacAlgorithm?: MacAlgorithmSpec | undefined;
 }
 
 /**

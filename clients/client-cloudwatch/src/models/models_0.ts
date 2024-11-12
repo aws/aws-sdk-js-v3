@@ -56,37 +56,37 @@ export interface AlarmHistoryItem {
    * <p>The descriptive name for the alarm.</p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 
   /**
    * <p>The type of alarm, either metric alarm or composite alarm.</p>
    * @public
    */
-  AlarmType?: AlarmType;
+  AlarmType?: AlarmType | undefined;
 
   /**
    * <p>The time stamp for the alarm history item.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The type of alarm history item.</p>
    * @public
    */
-  HistoryItemType?: HistoryItemType;
+  HistoryItemType?: HistoryItemType | undefined;
 
   /**
    * <p>A summary of the alarm history, in text format.</p>
    * @public
    */
-  HistorySummary?: string;
+  HistorySummary?: string | undefined;
 
   /**
    * <p>Data about the alarm, in JSON format.</p>
    * @public
    */
-  HistoryData?: string;
+  HistoryData?: string | undefined;
 }
 
 /**
@@ -123,7 +123,7 @@ export interface AnomalyDetectorConfiguration {
    * 			deployments, aren't used when CloudWatch creates the model.</p>
    * @public
    */
-  ExcludedTimeRanges?: Range[];
+  ExcludedTimeRanges?: Range[] | undefined;
 
   /**
    * <p>The time zone to use for the metric. This is useful to enable the model to automatically
@@ -133,7 +133,7 @@ export interface AnomalyDetectorConfiguration {
    * 			see <a href="https://en.wikipedia.org/wiki/Tz_database">tz database</a>.</p>
    * @public
    */
-  MetricTimezone?: string;
+  MetricTimezone?: string | undefined;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface MetricCharacteristics {
    * 			as anomalies.</p>
    * @public
    */
-  PeriodicSpikes?: boolean;
+  PeriodicSpikes?: boolean | undefined;
 }
 
 /**
@@ -189,19 +189,19 @@ export interface Metric {
    * <p>The namespace of the metric.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The name of the metric. This is a required field.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The dimensions for the metric.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface MetricStat {
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 }
 
 /**
@@ -333,7 +333,7 @@ export interface MetricDataQuery {
    * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
-  MetricStat?: MetricStat;
+  MetricStat?: MetricStat | undefined;
 
   /**
    * <p>This field can contain either a Metrics Insights query, or a metric math expression to be performed on the
@@ -350,7 +350,7 @@ export interface MetricDataQuery {
    * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A human-readable label for this metric or expression. This is especially useful
@@ -362,7 +362,7 @@ export interface MetricDataQuery {
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
@@ -374,7 +374,7 @@ export interface MetricDataQuery {
    * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
    * @public
    */
-  ReturnData?: boolean;
+  ReturnData?: boolean | undefined;
 
   /**
    * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a
@@ -384,7 +384,7 @@ export interface MetricDataQuery {
    * 			stored by a <code>PutMetricData</code> operation that includes a <code>StorageResolution of 1 second</code>.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>The ID of the account where the metrics are located.</p>
@@ -394,7 +394,7 @@ export interface MetricDataQuery {
    * 			which account contains the metric that the alarm is watching.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -419,7 +419,7 @@ export interface MetricMathAnomalyDetector {
    * 			a single time series.</p>
    * @public
    */
-  MetricDataQueries?: MetricDataQuery[];
+  MetricDataQueries?: MetricDataQuery[] | undefined;
 }
 
 /**
@@ -435,31 +435,31 @@ export interface SingleMetricAnomalyDetector {
    * 		the current account is used.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The name of the metric to create the anomaly detection model for.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The metric dimensions to create the anomaly detection model for.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The statistic to use for the metric and anomaly detection model.</p>
    * @public
    */
-  Stat?: string;
+  Stat?: string | undefined;
 }
 
 /**
@@ -492,7 +492,7 @@ export interface AnomalyDetector {
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * @deprecated
@@ -500,7 +500,7 @@ export interface AnomalyDetector {
    * <p>The name of the metric associated with the anomaly detection model.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * @deprecated
@@ -508,7 +508,7 @@ export interface AnomalyDetector {
    * <p>The metric dimensions associated with the anomaly detection model.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * @deprecated
@@ -516,7 +516,7 @@ export interface AnomalyDetector {
    * <p>The statistic associated with the anomaly detection model.</p>
    * @public
    */
-  Stat?: string;
+  Stat?: string | undefined;
 
   /**
    * <p>The configuration specifies details about how the
@@ -525,13 +525,13 @@ export interface AnomalyDetector {
    * 		the metric.</p>
    * @public
    */
-  Configuration?: AnomalyDetectorConfiguration;
+  Configuration?: AnomalyDetectorConfiguration | undefined;
 
   /**
    * <p>The current status of the anomaly detector's training.</p>
    * @public
    */
-  StateValue?: AnomalyDetectorStateValue;
+  StateValue?: AnomalyDetectorStateValue | undefined;
 
   /**
    * <p>This object includes parameters that you can use to provide information about your metric to
@@ -539,19 +539,19 @@ export interface AnomalyDetector {
    * 			the <code>PeriodicSpikes</code> parameter.</p>
    * @public
    */
-  MetricCharacteristics?: MetricCharacteristics;
+  MetricCharacteristics?: MetricCharacteristics | undefined;
 
   /**
    * <p>The CloudWatch metric and statistic for this anomaly detector.</p>
    * @public
    */
-  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector | undefined;
 
   /**
    * <p>The CloudWatch metric math expression for this anomaly detector.</p>
    * @public
    */
-  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector | undefined;
 }
 
 /**
@@ -578,25 +578,25 @@ export interface PartialFailure {
    * <p>The specified rule that could not be deleted.</p>
    * @public
    */
-  FailureResource?: string;
+  FailureResource?: string | undefined;
 
   /**
    * <p>The type of error.</p>
    * @public
    */
-  ExceptionType?: string;
+  ExceptionType?: string | undefined;
 
   /**
    * <p>The code of the error.</p>
    * @public
    */
-  FailureCode?: string;
+  FailureCode?: string | undefined;
 
   /**
    * <p>A description of the error.</p>
    * @public
    */
-  FailureDescription?: string;
+  FailureDescription?: string | undefined;
 }
 
 /**
@@ -642,79 +642,79 @@ export interface CompositeAlarm {
    * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
    * @public
    */
-  ActionsEnabled?: boolean;
+  ActionsEnabled?: boolean | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  AlarmActions?: string[];
+  AlarmActions?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    * @public
    */
-  AlarmArn?: string;
+  AlarmArn?: string | undefined;
 
   /**
    * <p>The time stamp of the last update to the alarm configuration.</p>
    * @public
    */
-  AlarmConfigurationUpdatedTimestamp?: Date;
+  AlarmConfigurationUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The description of the alarm.</p>
    * @public
    */
-  AlarmDescription?: string;
+  AlarmDescription?: string | undefined;
 
   /**
    * <p>The name of the alarm.</p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 
   /**
    * <p>The rule that this alarm uses to evaluate its alarm state.</p>
    * @public
    */
-  AlarmRule?: string;
+  AlarmRule?: string | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  InsufficientDataActions?: string[];
+  InsufficientDataActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  OKActions?: string[];
+  OKActions?: string[] | undefined;
 
   /**
    * <p>An explanation for the alarm state, in text format.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 
   /**
    * <p>An explanation for the alarm state, in JSON format.</p>
    * @public
    */
-  StateReasonData?: string;
+  StateReasonData?: string | undefined;
 
   /**
    * <p>Tracks the timestamp of any state update, even if <code>StateValue</code> doesn't change.</p>
    * @public
    */
-  StateUpdatedTimestamp?: Date;
+  StateUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The state value for the alarm.</p>
    * @public
    */
-  StateValue?: StateValue;
+  StateValue?: StateValue | undefined;
 
   /**
    * <p>
@@ -724,7 +724,7 @@ export interface CompositeAlarm {
    * 		</p>
    * @public
    */
-  StateTransitionedTimestamp?: Date;
+  StateTransitionedTimestamp?: Date | undefined;
 
   /**
    * <p>
@@ -758,7 +758,7 @@ export interface CompositeAlarm {
    * 		</p>
    * @public
    */
-  ActionsSuppressedBy?: ActionsSuppressedBy;
+  ActionsSuppressedBy?: ActionsSuppressedBy | undefined;
 
   /**
    * <p>
@@ -766,7 +766,7 @@ export interface CompositeAlarm {
    * 		</p>
    * @public
    */
-  ActionsSuppressedReason?: string;
+  ActionsSuppressedReason?: string | undefined;
 
   /**
    * <p>
@@ -778,7 +778,7 @@ export interface CompositeAlarm {
    * 		</p>
    * @public
    */
-  ActionsSuppressor?: string;
+  ActionsSuppressor?: string | undefined;
 
   /**
    * <p>
@@ -800,7 +800,7 @@ export interface CompositeAlarm {
    *          </important>
    * @public
    */
-  ActionsSuppressorWaitPeriod?: number;
+  ActionsSuppressorWaitPeriod?: number | undefined;
 
   /**
    * <p>
@@ -821,7 +821,7 @@ export interface CompositeAlarm {
    *          </important>
    * @public
    */
-  ActionsSuppressorExtensionPeriod?: number;
+  ActionsSuppressorExtensionPeriod?: number | undefined;
 }
 
 /**
@@ -831,7 +831,7 @@ export interface CompositeAlarm {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -855,26 +855,26 @@ export interface DashboardEntry {
    * <p>The name of the dashboard.</p>
    * @public
    */
-  DashboardName?: string;
+  DashboardName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    * @public
    */
-  DashboardArn?: string;
+  DashboardArn?: string | undefined;
 
   /**
    * <p>The time stamp of when the dashboard was last modified, either by an API call or
    * 			through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The size of the dashboard, in bytes.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 }
 
 /**
@@ -886,13 +886,13 @@ export interface DashboardValidationMessage {
    * <p>The data path related to the message.</p>
    * @public
    */
-  DataPath?: string;
+  DataPath?: string | undefined;
 
   /**
    * <p>A message describing the error or warning.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -902,7 +902,7 @@ export interface DashboardValidationMessage {
 export class DashboardInvalidInputError extends __BaseException {
   readonly name: "DashboardInvalidInputError" = "DashboardInvalidInputError";
   readonly $fault: "client" = "client";
-  dashboardValidationMessages?: DashboardValidationMessage[];
+  dashboardValidationMessages?: DashboardValidationMessage[] | undefined;
   /**
    * @internal
    */
@@ -946,50 +946,50 @@ export interface Datapoint {
    * <p>The time stamp used for the data point.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The number of metric values that contributed to the aggregate value of this
    * 			data point.</p>
    * @public
    */
-  SampleCount?: number;
+  SampleCount?: number | undefined;
 
   /**
    * <p>The average of the metric values that correspond to the data point.</p>
    * @public
    */
-  Average?: number;
+  Average?: number | undefined;
 
   /**
    * <p>The sum of the metric values for the data point.</p>
    * @public
    */
-  Sum?: number;
+  Sum?: number | undefined;
 
   /**
    * <p>The minimum metric value for the data point.</p>
    * @public
    */
-  Minimum?: number;
+  Minimum?: number | undefined;
 
   /**
    * <p>The maximum metric value for the data point.</p>
    * @public
    */
-  Maximum?: number;
+  Maximum?: number | undefined;
 
   /**
    * <p>The standard unit for the data point.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 
   /**
    * <p>The percentile statistic for the data point.</p>
    * @public
    */
-  ExtendedStatistics?: Record<string, number>;
+  ExtendedStatistics?: Record<string, number> | undefined;
 }
 
 /**
@@ -1033,7 +1033,7 @@ export interface DeleteAnomalyDetectorInput {
    * <p>The namespace associated with the anomaly detection model to delete.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * @deprecated
@@ -1041,7 +1041,7 @@ export interface DeleteAnomalyDetectorInput {
    * <p>The metric name associated with the anomaly detection model to delete.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * @deprecated
@@ -1049,7 +1049,7 @@ export interface DeleteAnomalyDetectorInput {
    * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * @deprecated
@@ -1057,7 +1057,7 @@ export interface DeleteAnomalyDetectorInput {
    * <p>The statistic associated with the anomaly detection model to delete.</p>
    * @public
    */
-  Stat?: string;
+  Stat?: string | undefined;
 
   /**
    * <p>A single metric anomaly detector to be deleted.</p>
@@ -1092,7 +1092,7 @@ export interface DeleteAnomalyDetectorInput {
    * 			as part of the <code>SingleMetricAnomalyDetector</code> property.</p>
    * @public
    */
-  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector | undefined;
 
   /**
    * <p>The metric math anomaly detector to be deleted.</p>
@@ -1126,7 +1126,7 @@ export interface DeleteAnomalyDetectorInput {
    * 			<code>MetricMathAnomalyDetector</code> property.</p>
    * @public
    */
-  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector | undefined;
 }
 
 /**
@@ -1145,7 +1145,7 @@ export class InternalServiceFault extends __BaseException {
    * <p></p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1227,9 +1227,9 @@ export class MissingRequiredParameterException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  ResourceType?: string;
-  ResourceId?: string;
-  Message?: string;
+  ResourceType?: string | undefined;
+  ResourceId?: string | undefined;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1281,7 +1281,7 @@ export interface DeleteInsightRulesOutput {
    * <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
    * @public
    */
-  Failures?: PartialFailure[];
+  Failures?: PartialFailure[] | undefined;
 }
 
 /**
@@ -1322,52 +1322,52 @@ export interface DescribeAlarmHistoryInput {
    * <p>The name of the alarm.</p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 
   /**
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
    * 			only metric alarms are returned.</p>
    * @public
    */
-  AlarmTypes?: AlarmType[];
+  AlarmTypes?: AlarmType[] | undefined;
 
   /**
    * <p>The type of alarm histories to retrieve.</p>
    * @public
    */
-  HistoryItemType?: HistoryItemType;
+  HistoryItemType?: HistoryItemType | undefined;
 
   /**
    * <p>The starting date to retrieve alarm history.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The ending date to retrieve alarm history.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>The maximum number of alarm history records to retrieve.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>The token returned by a previous call to indicate that there is more data
    * 			available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest
    * 		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
    * @public
    */
-  ScanBy?: ScanBy;
+  ScanBy?: ScanBy | undefined;
 }
 
 /**
@@ -1378,13 +1378,13 @@ export interface DescribeAlarmHistoryOutput {
    * <p>The alarm histories, in JSON format.</p>
    * @public
    */
-  AlarmHistoryItems?: AlarmHistoryItem[];
+  AlarmHistoryItems?: AlarmHistoryItem[] | undefined;
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1415,7 +1415,7 @@ export interface DescribeAlarmsInput {
    * <p>The names of the alarms to retrieve information about.</p>
    * @public
    */
-  AlarmNames?: string[];
+  AlarmNames?: string[] | undefined;
 
   /**
    * <p>An alarm name prefix. If you specify this parameter, you receive information about all alarms that have names
@@ -1424,7 +1424,7 @@ export interface DescribeAlarmsInput {
    * 			is specified, you cannot specify <code>AlarmNames</code>.</p>
    * @public
    */
-  AlarmNamePrefix?: string;
+  AlarmNamePrefix?: string | undefined;
 
   /**
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you
@@ -1436,7 +1436,7 @@ export interface DescribeAlarmsInput {
    * 			alarms, and does not return any metric alarms.</p>
    * @public
    */
-  AlarmTypes?: AlarmType[];
+  AlarmTypes?: AlarmType[] | undefined;
 
   /**
    * <p>If you use this parameter and specify the name of a composite alarm, the operation returns
@@ -1458,7 +1458,7 @@ export interface DescribeAlarmsInput {
    *          </note>
    * @public
    */
-  ChildrenOfAlarmName?: string;
+  ChildrenOfAlarmName?: string | undefined;
 
   /**
    * <p>If you use this parameter and specify the name of a metric or composite alarm, the operation returns
@@ -1477,13 +1477,13 @@ export interface DescribeAlarmsInput {
    *          </note>
    * @public
    */
-  ParentsOfAlarmName?: string;
+  ParentsOfAlarmName?: string | undefined;
 
   /**
    * <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
    * @public
    */
-  StateValue?: StateValue;
+  StateValue?: StateValue | undefined;
 
   /**
    * <p>Use this parameter to filter the results of the operation to only those alarms that
@@ -1491,20 +1491,20 @@ export interface DescribeAlarmsInput {
    * 		alarms that send notifications to that topic.</p>
    * @public
    */
-  ActionPrefix?: string;
+  ActionPrefix?: string | undefined;
 
   /**
    * <p>The maximum number of alarm descriptions to retrieve.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>The token returned by a previous call to indicate that there is more data
    * 			available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1546,147 +1546,147 @@ export interface MetricAlarm {
    * <p>The name of the alarm.</p>
    * @public
    */
-  AlarmName?: string;
+  AlarmName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    * @public
    */
-  AlarmArn?: string;
+  AlarmArn?: string | undefined;
 
   /**
    * <p>The description of the alarm.</p>
    * @public
    */
-  AlarmDescription?: string;
+  AlarmDescription?: string | undefined;
 
   /**
    * <p>The time stamp of the last update to the alarm configuration.</p>
    * @public
    */
-  AlarmConfigurationUpdatedTimestamp?: Date;
+  AlarmConfigurationUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
    * @public
    */
-  ActionsEnabled?: boolean;
+  ActionsEnabled?: boolean | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>OK</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  OKActions?: string[];
+  OKActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  AlarmActions?: string[];
+  AlarmActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    * @public
    */
-  InsufficientDataActions?: string[];
+  InsufficientDataActions?: string[] | undefined;
 
   /**
    * <p>The state value for the alarm.</p>
    * @public
    */
-  StateValue?: StateValue;
+  StateValue?: StateValue | undefined;
 
   /**
    * <p>An explanation for the alarm state, in text format.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 
   /**
    * <p>An explanation for the alarm state, in JSON format.</p>
    * @public
    */
-  StateReasonData?: string;
+  StateReasonData?: string | undefined;
 
   /**
    * <p>The time stamp of the last update to the value of either the
    * 			<code>StateValue</code> or <code>EvaluationState</code> parameters.</p>
    * @public
    */
-  StateUpdatedTimestamp?: Date;
+  StateUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The name of the metric associated with the alarm, if this is an alarm
    * 		based on a single metric.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The namespace of the metric associated with the alarm.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The statistic for the metric associated with the alarm, other than percentile.
    * 		    For percentile statistics, use <code>ExtendedStatistic</code>.</p>
    * @public
    */
-  Statistic?: Statistic;
+  Statistic?: Statistic | undefined;
 
   /**
    * <p>The percentile statistic for the metric associated with the alarm. Specify a value between
    * 			p0.0 and p100.</p>
    * @public
    */
-  ExtendedStatistic?: string;
+  ExtendedStatistic?: string | undefined;
 
   /**
    * <p>The dimensions for the metric associated with the alarm.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The period, in seconds, over which the statistic is applied.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>The unit of the metric associated with the alarm.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold.</p>
    * @public
    */
-  EvaluationPeriods?: number;
+  EvaluationPeriods?: number | undefined;
 
   /**
    * <p>The number of data points that must be breaching to trigger the alarm.</p>
    * @public
    */
-  DatapointsToAlarm?: number;
+  DatapointsToAlarm?: number | undefined;
 
   /**
    * <p>The value to compare with the specified statistic.</p>
    * @public
    */
-  Threshold?: number;
+  Threshold?: number | undefined;
 
   /**
    * <p>The arithmetic operation to use when comparing the specified
    * 			statistic and threshold. The specified statistic value is used as the first operand.</p>
    * @public
    */
-  ComparisonOperator?: ComparisonOperator;
+  ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
    * <p>Sets how this alarm is to handle missing data points. The valid values
@@ -1697,7 +1697,7 @@ export interface MetricAlarm {
    *         	behavior of <code>missing</code> is used.</p>
    * @public
    */
-  TreatMissingData?: string;
+  TreatMissingData?: string | undefined;
 
   /**
    * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change
@@ -1706,7 +1706,7 @@ export interface MetricAlarm {
    * 			how many data points are available.</p>
    * @public
    */
-  EvaluateLowSampleCountPercentile?: string;
+  EvaluateLowSampleCountPercentile?: string | undefined;
 
   /**
    * <p>An array of MetricDataQuery structures, used in an alarm based on a
@@ -1718,7 +1718,7 @@ export interface MetricAlarm {
    * 			true.</p>
    * @public
    */
-  Metrics?: MetricDataQuery[];
+  Metrics?: MetricDataQuery[] | undefined;
 
   /**
    * <p>In an alarm based on an anomaly detection model, this is the ID of the
@@ -1726,7 +1726,7 @@ export interface MetricAlarm {
    * 			used as the threshold for the alarm.</p>
    * @public
    */
-  ThresholdMetricId?: string;
+  ThresholdMetricId?: string | undefined;
 
   /**
    * <p>If the value of this field is
@@ -1736,13 +1736,13 @@ export interface MetricAlarm {
    * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
    * @public
    */
-  EvaluationState?: EvaluationState;
+  EvaluationState?: EvaluationState | undefined;
 
   /**
    * <p>The date and time that the alarm's <code>StateValue</code> most recently changed.</p>
    * @public
    */
-  StateTransitionedTimestamp?: Date;
+  StateTransitionedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1753,19 +1753,19 @@ export interface DescribeAlarmsOutput {
    * <p>The information about any composite alarms returned by the operation.</p>
    * @public
    */
-  CompositeAlarms?: CompositeAlarm[];
+  CompositeAlarms?: CompositeAlarm[] | undefined;
 
   /**
    * <p>The information about any metric alarms returned by the operation.</p>
    * @public
    */
-  MetricAlarms?: MetricAlarm[];
+  MetricAlarms?: MetricAlarm[] | undefined;
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1789,33 +1789,33 @@ export interface DescribeAlarmsForMetricInput {
    * 		    For percentile statistics, use <code>ExtendedStatistics</code>.</p>
    * @public
    */
-  Statistic?: Statistic;
+  Statistic?: Statistic | undefined;
 
   /**
    * <p>The percentile statistic for the metric. Specify a value between
    * 		    p0.0 and p100.</p>
    * @public
    */
-  ExtendedStatistic?: string;
+  ExtendedStatistic?: string | undefined;
 
   /**
    * <p>The dimensions associated with the metric. If the metric has any associated
    * 			dimensions, you must specify them in order for the call to succeed.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The period, in seconds, over which the statistic is applied.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>The unit for the metric.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 }
 
 /**
@@ -1826,7 +1826,7 @@ export interface DescribeAlarmsForMetricOutput {
    * <p>The information for each alarm with the specified metric.</p>
    * @public
    */
-  MetricAlarms?: MetricAlarm[];
+  MetricAlarms?: MetricAlarm[] | undefined;
 }
 
 /**
@@ -1837,7 +1837,7 @@ export interface DescribeAnomalyDetectorsInput {
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in one operation. The maximum
@@ -1846,14 +1846,14 @@ export interface DescribeAnomalyDetectorsInput {
    * 			<code>NextToken</code> value. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Limits the results to only the anomaly detection models that
    * 			are associated with the specified namespace.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>Limits the results to only the anomaly detection models that are associated with the
@@ -1861,7 +1861,7 @@ export interface DescribeAnomalyDetectorsInput {
    * 			namespaces that have anomaly detection models, they're all returned.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>Limits the results to only the anomaly detection models that are associated with the
@@ -1869,14 +1869,14 @@ export interface DescribeAnomalyDetectorsInput {
    * 			and have anomaly detection models associated, they're all returned.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
    * 			If empty, defaults to <code>SINGLE_METRIC</code>.</p>
    * @public
    */
-  AnomalyDetectorTypes?: AnomalyDetectorType[];
+  AnomalyDetectorTypes?: AnomalyDetectorType[] | undefined;
 }
 
 /**
@@ -1887,14 +1887,14 @@ export interface DescribeAnomalyDetectorsOutput {
    * <p>The list of anomaly detection models returned by the operation.</p>
    * @public
    */
-  AnomalyDetectors?: AnomalyDetector[];
+  AnomalyDetectors?: AnomalyDetector[] | undefined;
 
   /**
    * <p>A token that you can use in a subsequent operation to
    * 		retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1905,14 +1905,14 @@ export interface DescribeInsightRulesInput {
    * <p>Include this value, if it was returned by the previous operation, to get the next set of rules.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in one operation. If you omit this
    * 		parameter, the default of 500 is used.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1960,7 +1960,7 @@ export interface InsightRule {
    * 		</p>
    * @public
    */
-  ManagedRule?: boolean;
+  ManagedRule?: boolean | undefined;
 }
 
 /**
@@ -1971,13 +1971,13 @@ export interface DescribeInsightRulesOutput {
    * <p>If this parameter is present, it is a token that marks the start of the next batch of returned results.      </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The rules returned by the operation.</p>
    * @public
    */
-  InsightRules?: InsightRule[];
+  InsightRules?: InsightRule[] | undefined;
 }
 
 /**
@@ -1995,7 +1995,7 @@ export interface DimensionFilter {
    * <p>The value of the dimension to be matched.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2028,7 +2028,7 @@ export interface DisableInsightRulesOutput {
    * <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
    * @public
    */
-  Failures?: PartialFailure[];
+  Failures?: PartialFailure[] | undefined;
 }
 
 /**
@@ -2061,7 +2061,7 @@ export interface EnableInsightRulesOutput {
    * <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
    * @public
    */
-  Failures?: PartialFailure[];
+  Failures?: PartialFailure[] | undefined;
 }
 
 /**
@@ -2071,7 +2071,7 @@ export interface EnableInsightRulesOutput {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2105,7 +2105,7 @@ export interface GetDashboardOutput {
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    * @public
    */
-  DashboardArn?: string;
+  DashboardArn?: string | undefined;
 
   /**
    * <p>The detailed information about the dashboard, including what widgets are included and their location
@@ -2113,13 +2113,13 @@ export interface GetDashboardOutput {
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html">Dashboard Body Structure and Syntax</a>. </p>
    * @public
    */
-  DashboardBody?: string;
+  DashboardBody?: string | undefined;
 
   /**
    * <p>The name of the dashboard.</p>
    * @public
    */
-  DashboardName?: string;
+  DashboardName?: string | undefined;
 }
 
 /**
@@ -2158,7 +2158,7 @@ export interface GetInsightRuleReportInput {
    * <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
    * @public
    */
-  MaxContributorCount?: number;
+  MaxContributorCount?: number | undefined;
 
   /**
    * <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more
@@ -2199,13 +2199,13 @@ export interface GetInsightRuleReportInput {
    *          </ul>
    * @public
    */
-  Metrics?: string[];
+  Metrics?: string[] | undefined;
 
   /**
    * <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
    * @public
    */
-  OrderBy?: string;
+  OrderBy?: string | undefined;
 }
 
 /**
@@ -2272,7 +2272,7 @@ export interface InsightRuleMetricDatapoint {
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  UniqueContributors?: number;
+  UniqueContributors?: number | undefined;
 
   /**
    * <p>The maximum value provided by one contributor during this timestamp. Each timestamp is evaluated separately,
@@ -2281,42 +2281,42 @@ export interface InsightRuleMetricDatapoint {
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  MaxContributorValue?: number;
+  MaxContributorValue?: number | undefined;
 
   /**
    * <p>The number of occurrences that matched the rule during this data point.</p>
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  SampleCount?: number;
+  SampleCount?: number | undefined;
 
   /**
    * <p>The average value from all contributors during the time period represented by that data point.</p>
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  Average?: number;
+  Average?: number | undefined;
 
   /**
    * <p>The sum of the values from all contributors during the time period represented by that data point.</p>
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  Sum?: number;
+  Sum?: number | undefined;
 
   /**
    * <p>The minimum value from a single contributor during the time period represented by that data point.</p>
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  Minimum?: number;
+  Minimum?: number | undefined;
 
   /**
    * <p>The maximum value from a single occurence from a single contributor during the time period represented by that data point.</p>
    *          <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    * @public
    */
-  Maximum?: number;
+  Maximum?: number | undefined;
 }
 
 /**
@@ -2328,38 +2328,38 @@ export interface GetInsightRuleReportOutput {
    * 			If the rule contains more than one key, then each unique combination of values for the keys is counted as a unique contributor.</p>
    * @public
    */
-  KeyLabels?: string[];
+  KeyLabels?: string[] | undefined;
 
   /**
    * <p>Specifies whether this rule aggregates contributor data by COUNT or SUM.</p>
    * @public
    */
-  AggregationStatistic?: string;
+  AggregationStatistic?: string | undefined;
 
   /**
    * <p>The sum of the values from all individual contributors that match the rule.</p>
    * @public
    */
-  AggregateValue?: number;
+  AggregateValue?: number | undefined;
 
   /**
    * <p>An approximate count of the unique contributors found by this rule in this time period.</p>
    * @public
    */
-  ApproximateUniqueCount?: number;
+  ApproximateUniqueCount?: number | undefined;
 
   /**
    * <p>An array of the unique contributors found by this rule in this time period. If the rule contains multiple keys, each combination of values
    * 		for the keys counts as a unique contributor.</p>
    * @public
    */
-  Contributors?: InsightRuleContributor[];
+  Contributors?: InsightRuleContributor[] | undefined;
 
   /**
    * <p>A time series of metric data points that matches the time period in the rule request.</p>
    * @public
    */
-  MetricDatapoints?: InsightRuleMetricDatapoint[];
+  MetricDatapoints?: InsightRuleMetricDatapoint[] | undefined;
 }
 
 /**
@@ -2381,7 +2381,7 @@ export interface LabelOptions {
    * 			and 30 minutes ahead of UTC. The default is +0000. </p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 }
 
 /**
@@ -2449,7 +2449,7 @@ export interface GetMetricDataInput {
    * 			to get the next set of data points.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The order in which data points should be returned. <code>TimestampDescending</code> returns the newest data first and paginates
@@ -2458,14 +2458,14 @@ export interface GetMetricDataInput {
    *          <p>If you omit this parameter, the default of <code>TimestampDescending</code> is used.</p>
    * @public
    */
-  ScanBy?: ScanBy;
+  ScanBy?: ScanBy | undefined;
 
   /**
    * <p>The maximum number of data points the request should return before paginating. If you omit
    * 			this, the default of 100,800 is used.</p>
    * @public
    */
-  MaxDatapoints?: number;
+  MaxDatapoints?: number | undefined;
 
   /**
    * <p>This structure includes the <code>Timezone</code> parameter, which you can use
@@ -2474,7 +2474,7 @@ export interface GetMetricDataInput {
    * 			for your time zone. </p>
    * @public
    */
-  LabelOptions?: LabelOptions;
+  LabelOptions?: LabelOptions | undefined;
 }
 
 /**
@@ -2490,13 +2490,13 @@ export interface MessageData {
    * <p>The error code or status code associated with the message.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The message text.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2526,13 +2526,13 @@ export interface MetricDataResult {
    * <p>The short name you specified to represent this metric.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The human-readable label associated with the data.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The timestamps for the data points, formatted in Unix timestamp format. The number of
@@ -2540,7 +2540,7 @@ export interface MetricDataResult {
    * 			Values[x].</p>
    * @public
    */
-  Timestamps?: Date[];
+  Timestamps?: Date[] | undefined;
 
   /**
    * <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of
@@ -2548,7 +2548,7 @@ export interface MetricDataResult {
    * 			Timestamps[x].</p>
    * @public
    */
-  Values?: number[];
+  Values?: number[] | undefined;
 
   /**
    * <p>The status of the returned data. <code>Complete</code> indicates that all data points in the requested time range were returned.
@@ -2558,13 +2558,13 @@ export interface MetricDataResult {
    * 			indicates that an error occurred. Retry your request using <code>NextToken</code>, if present.</p>
    * @public
    */
-  StatusCode?: StatusCode;
+  StatusCode?: StatusCode | undefined;
 
   /**
    * <p>A list of messages with additional information about the data returned.</p>
    * @public
    */
-  Messages?: MessageData[];
+  Messages?: MessageData[] | undefined;
 }
 
 /**
@@ -2575,13 +2575,13 @@ export interface GetMetricDataOutput {
    * <p>The metrics that are returned, including the metric name, namespace, and dimensions.</p>
    * @public
    */
-  MetricDataResults?: MetricDataResult[];
+  MetricDataResults?: MetricDataResult[] | undefined;
 
   /**
    * <p>A token that marks the next batch of returned results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Contains a message about this <code>GetMetricData</code> operation, if the operation results in such a message.
@@ -2592,7 +2592,7 @@ export interface GetMetricDataOutput {
    * 			about a specific metric returned by the operation appears in the <code>MetricDataResult</code> object returned for that metric.</p>
    * @public
    */
-  Messages?: MessageData[];
+  Messages?: MessageData[] | undefined;
 }
 
 /**
@@ -2620,7 +2620,7 @@ export interface GetMetricStatisticsInput {
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The time stamp that determines the first data point to return. Start times are
@@ -2690,7 +2690,7 @@ export interface GetMetricStatisticsInput {
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
    * @public
    */
-  Statistics?: Statistic[];
+  Statistics?: Statistic[] | undefined;
 
   /**
    * <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must
@@ -2698,7 +2698,7 @@ export interface GetMetricStatisticsInput {
    * 			available for metrics when any of the metric values are negative numbers.</p>
    * @public
    */
-  ExtendedStatistics?: string[];
+  ExtendedStatistics?: string[] | undefined;
 
   /**
    * <p>The unit for a given metric.
@@ -2707,7 +2707,7 @@ export interface GetMetricStatisticsInput {
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 }
 
 /**
@@ -2718,13 +2718,13 @@ export interface GetMetricStatisticsOutput {
    * <p>A label for the specified metric.</p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>The data points for the specified metric.</p>
    * @public
    */
-  Datapoints?: Datapoint[];
+  Datapoints?: Datapoint[] | undefined;
 }
 
 /**
@@ -2755,7 +2755,7 @@ export interface MetricStreamFilter {
    * 			contain at least one non-whitespace character.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The names of the metrics to either include or exclude from the metric stream. </p>
@@ -2765,7 +2765,7 @@ export interface MetricStreamFilter {
    * 			Each metric name must contain at least one non-whitespace character.</p>
    * @public
    */
-  MetricNames?: string[];
+  MetricNames?: string[] | undefined;
 }
 
 /**
@@ -2847,13 +2847,13 @@ export interface GetMetricStreamOutput {
    * <p>The ARN of the metric stream.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the metric stream.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If this array of metric namespaces is present, then these
@@ -2861,7 +2861,7 @@ export interface GetMetricStreamOutput {
    * 		metric namespaces that are streamed by this metric stream.</p>
    * @public
    */
-  IncludeFilters?: MetricStreamFilter[];
+  IncludeFilters?: MetricStreamFilter[] | undefined;
 
   /**
    * <p>If this array of metric namespaces is present, then these namespaces are the only
@@ -2869,39 +2869,39 @@ export interface GetMetricStreamOutput {
    * 		the account are streamed by this metric stream.</p>
    * @public
    */
-  ExcludeFilters?: MetricStreamFilter[];
+  ExcludeFilters?: MetricStreamFilter[] | undefined;
 
   /**
    * <p>The ARN of the Amazon Kinesis Data Firehose delivery stream that is used by this metric
    * 			stream.</p>
    * @public
    */
-  FirehoseArn?: string;
+  FirehoseArn?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that is used by this metric stream.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The state of the metric stream. The possible values are <code>running</code>
    * 		and <code>stopped</code>.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The date that the metric stream was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date of the most recent update to the metric stream's configuration.</p>
    * @public
    */
-  LastUpdateDate?: Date;
+  LastUpdateDate?: Date | undefined;
 
   /**
    * <p>The output format for the stream.
@@ -2910,7 +2910,7 @@ export interface GetMetricStreamOutput {
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">Metric streams output formats</a>.</p>
    * @public
    */
-  OutputFormat?: MetricStreamOutputFormat;
+  OutputFormat?: MetricStreamOutputFormat | undefined;
 
   /**
    * <p>Each entry in this array displays information about one or more metrics that include additional statistics
@@ -2919,14 +2919,14 @@ export interface GetMetricStreamOutput {
    * 				CloudWatch statistics definitions</a>. </p>
    * @public
    */
-  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[] | undefined;
 
   /**
    * <p>If this is <code>true</code> and this metric stream is in a monitoring account, then the stream includes
    * 			metrics from source accounts that the monitoring account is linked to.</p>
    * @public
    */
-  IncludeLinkedAccountsMetrics?: boolean;
+  IncludeLinkedAccountsMetrics?: boolean | undefined;
 }
 
 /**
@@ -2987,7 +2987,7 @@ export interface GetMetricWidgetImageInput {
    * 			and the body of the response is a PNG image. </p>
    * @public
    */
-  OutputFormat?: string;
+  OutputFormat?: string | undefined;
 }
 
 /**
@@ -2998,7 +2998,7 @@ export interface GetMetricWidgetImageOutput {
    * <p>The image of the graph, in the output format specified. The output is base64-encoded.</p>
    * @public
    */
-  MetricWidgetImage?: Uint8Array;
+  MetricWidgetImage?: Uint8Array | undefined;
 }
 
 /**
@@ -3013,13 +3013,13 @@ export interface ListDashboardsInput {
    * 		</p>
    * @public
    */
-  DashboardNamePrefix?: string;
+  DashboardNamePrefix?: string | undefined;
 
   /**
    * <p>The token returned by a previous call to indicate that there is more data available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3030,13 +3030,13 @@ export interface ListDashboardsOutput {
    * <p>The list of matching dashboards.</p>
    * @public
    */
-  DashboardEntries?: DashboardEntry[];
+  DashboardEntries?: DashboardEntry[] | undefined;
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3064,7 +3064,7 @@ export interface ListManagedInsightRulesInput {
    * 		</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -3078,7 +3078,7 @@ export interface ListManagedInsightRulesInput {
    * 		</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3129,7 +3129,7 @@ export interface ManagedRuleDescription {
    * 		</p>
    * @public
    */
-  TemplateName?: string;
+  TemplateName?: string | undefined;
 
   /**
    * <p>
@@ -3139,7 +3139,7 @@ export interface ManagedRuleDescription {
    * 		</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 
   /**
    * <p>
@@ -3153,7 +3153,7 @@ export interface ManagedRuleDescription {
    * 		</p>
    * @public
    */
-  RuleState?: ManagedRuleState;
+  RuleState?: ManagedRuleState | undefined;
 }
 
 /**
@@ -3168,7 +3168,7 @@ export interface ListManagedInsightRulesOutput {
    * 		</p>
    * @public
    */
-  ManagedRules?: ManagedRuleDescription[];
+  ManagedRules?: ManagedRuleDescription[] | undefined;
 
   /**
    * <p>
@@ -3181,7 +3181,7 @@ export interface ListManagedInsightRulesOutput {
    * 		</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3206,28 +3206,28 @@ export interface ListMetricsInput {
    * 		will be returned.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The name of the metric to filter against. Only the metrics with names that match exactly
    * 			will be returned.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The dimensions to filter against.  Only the dimensions that match exactly
    * 			will be returned.</p>
    * @public
    */
-  Dimensions?: DimensionFilter[];
+  Dimensions?: DimensionFilter[] | undefined;
 
   /**
    * <p>The token returned by a previous call to indicate that there is more data
    * 			available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>To filter the results to show only metrics that have had data points published
@@ -3239,7 +3239,7 @@ export interface ListMetricsInput {
    * 		data as much as 40 minutes more than the specified time interval.</p>
    * @public
    */
-  RecentlyActive?: RecentlyActive;
+  RecentlyActive?: RecentlyActive | undefined;
 
   /**
    * <p>If you are using this operation in a monitoring account,
@@ -3247,7 +3247,7 @@ export interface ListMetricsInput {
    *          <p>The default is <code>false</code>.</p>
    * @public
    */
-  IncludeLinkedAccounts?: boolean;
+  IncludeLinkedAccounts?: boolean | undefined;
 
   /**
    * <p>When you use this operation in a monitoring account, use this field to return metrics only from one source account.
@@ -3255,7 +3255,7 @@ export interface ListMetricsInput {
    * 		specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</p>
    * @public
    */
-  OwningAccount?: string;
+  OwningAccount?: string | undefined;
 }
 
 /**
@@ -3266,13 +3266,13 @@ export interface ListMetricsOutput {
    * <p>The metrics that match your request. </p>
    * @public
    */
-  Metrics?: Metric[];
+  Metrics?: Metric[] | undefined;
 
   /**
    * <p>The token that marks the start of the next batch of returned results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>If you are using this operation in a monitoring account, this array contains the account IDs of the source
@@ -3281,7 +3281,7 @@ export interface ListMetricsOutput {
    *          <p>This field is a 1:1 mapping between each metric that is returned and the ID of the owning account.</p>
    * @public
    */
-  OwningAccounts?: string[];
+  OwningAccounts?: string[] | undefined;
 }
 
 /**
@@ -3292,13 +3292,13 @@ export interface ListMetricStreamsInput {
    * <p>Include this value, if it was returned by the previous call, to get the next set of metric streams.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in one operation.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3310,37 +3310,37 @@ export interface MetricStreamEntry {
    * <p>The ARN of the metric stream.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date that the metric stream was originally created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date that the configuration of this metric stream was most recently updated.</p>
    * @public
    */
-  LastUpdateDate?: Date;
+  LastUpdateDate?: Date | undefined;
 
   /**
    * <p>The name of the metric stream.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the Kinesis Firehose devlivery stream that is used for this metric stream.</p>
    * @public
    */
-  FirehoseArn?: string;
+  FirehoseArn?: string | undefined;
 
   /**
    * <p>The current state of this stream. Valid values are <code>running</code> and <code>stopped</code>.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>The output format of this metric stream. Valid values are
@@ -3348,7 +3348,7 @@ export interface MetricStreamEntry {
    * 			and <code>opentelemetry0.7</code>.</p>
    * @public
    */
-  OutputFormat?: MetricStreamOutputFormat;
+  OutputFormat?: MetricStreamOutputFormat | undefined;
 }
 
 /**
@@ -3360,13 +3360,13 @@ export interface ListMetricStreamsOutput {
    * 		token in a subsequent operation to get the next batch of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The array of metric stream information.</p>
    * @public
    */
-  Entries?: MetricStreamEntry[];
+  Entries?: MetricStreamEntry[] | undefined;
 }
 
 /**
@@ -3418,7 +3418,7 @@ export interface ListTagsForResourceOutput {
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3431,7 +3431,7 @@ export interface PutAnomalyDetectorInput {
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * @deprecated
@@ -3439,7 +3439,7 @@ export interface PutAnomalyDetectorInput {
    * <p>The name of the metric to create the anomaly detection model for.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * @deprecated
@@ -3447,7 +3447,7 @@ export interface PutAnomalyDetectorInput {
    * <p>The metric dimensions to create the anomaly detection model for.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * @deprecated
@@ -3455,7 +3455,7 @@ export interface PutAnomalyDetectorInput {
    * <p>The statistic to use for the metric and the anomaly detection model.</p>
    * @public
    */
-  Stat?: string;
+  Stat?: string | undefined;
 
   /**
    * <p>The configuration specifies details about how the
@@ -3466,7 +3466,7 @@ export interface PutAnomalyDetectorInput {
    * 			the metric.</p>
    * @public
    */
-  Configuration?: AnomalyDetectorConfiguration;
+  Configuration?: AnomalyDetectorConfiguration | undefined;
 
   /**
    * <p>Use this object to include parameters to provide information about your metric to
@@ -3474,7 +3474,7 @@ export interface PutAnomalyDetectorInput {
    * 			the <code>PeriodicSpikes</code> parameter.</p>
    * @public
    */
-  MetricCharacteristics?: MetricCharacteristics;
+  MetricCharacteristics?: MetricCharacteristics | undefined;
 
   /**
    * <p>A single metric anomaly detector to be created.</p>
@@ -3510,7 +3510,7 @@ export interface PutAnomalyDetectorInput {
    * 			as part of the property <code>SingleMetricAnomalyDetector</code>.</p>
    * @public
    */
-  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector | undefined;
 
   /**
    * <p>The metric math anomaly detector to be created.</p>
@@ -3545,7 +3545,7 @@ export interface PutAnomalyDetectorInput {
    * 			as part of the property <code>MetricMathAnomalyDetector</code>.</p>
    * @public
    */
-  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector | undefined;
 }
 
 /**
@@ -3582,7 +3582,7 @@ export interface PutCompositeAlarmInput {
    * 			<code>TRUE</code>.</p>
    * @public
    */
-  ActionsEnabled?: boolean;
+  ActionsEnabled?: boolean | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
@@ -3624,13 +3624,13 @@ export interface PutCompositeAlarmInput {
    *          </p>
    * @public
    */
-  AlarmActions?: string[];
+  AlarmActions?: string[] | undefined;
 
   /**
    * <p>The description for the composite alarm.</p>
    * @public
    */
-  AlarmDescription?: string;
+  AlarmDescription?: string | undefined;
 
   /**
    * <p>The name for the composite alarm. This name must be unique within the Region.</p>
@@ -3739,7 +3739,7 @@ export interface PutCompositeAlarmInput {
    *          </ul>
    * @public
    */
-  InsufficientDataActions?: string[];
+  InsufficientDataActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
@@ -3774,7 +3774,7 @@ export interface PutCompositeAlarmInput {
    *          </ul>
    * @public
    */
-  OKActions?: string[];
+  OKActions?: string[] | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
@@ -3789,7 +3789,7 @@ export interface PutCompositeAlarmInput {
    * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -3801,7 +3801,7 @@ export interface PutCompositeAlarmInput {
    * 		</p>
    * @public
    */
-  ActionsSuppressor?: string;
+  ActionsSuppressor?: string | undefined;
 
   /**
    * <p>
@@ -3823,7 +3823,7 @@ export interface PutCompositeAlarmInput {
    *          </important>
    * @public
    */
-  ActionsSuppressorWaitPeriod?: number;
+  ActionsSuppressorWaitPeriod?: number | undefined;
 
   /**
    * <p>
@@ -3844,7 +3844,7 @@ export interface PutCompositeAlarmInput {
    *          </important>
    * @public
    */
-  ActionsSuppressorExtensionPeriod?: number;
+  ActionsSuppressorExtensionPeriod?: number | undefined;
 }
 
 /**
@@ -3881,7 +3881,7 @@ export interface PutDashboardOutput {
    *          <p>If this result includes error messages, the input was not valid and the operation failed.</p>
    * @public
    */
-  DashboardValidationMessages?: DashboardValidationMessage[];
+  DashboardValidationMessages?: DashboardValidationMessage[] | undefined;
 }
 
 /**
@@ -3898,7 +3898,7 @@ export interface PutInsightRuleInput {
    * <p>The state of the rule. Valid values are ENABLED and DISABLED.</p>
    * @public
    */
-  RuleState?: string;
+  RuleState?: string | undefined;
 
   /**
    * <p>The definition of the rule, as a JSON object. For details on the valid syntax, see
@@ -3922,7 +3922,7 @@ export interface PutInsightRuleInput {
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3992,7 +3992,7 @@ export interface ManagedRule {
    * 		</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4022,7 +4022,7 @@ export interface PutManagedInsightRulesOutput {
    * 		</p>
    * @public
    */
-  Failures?: PartialFailure[];
+  Failures?: PartialFailure[] | undefined;
 }
 
 /**
@@ -4041,14 +4041,14 @@ export interface PutMetricAlarmInput {
    * <p>The description for the alarm.</p>
    * @public
    */
-  AlarmDescription?: string;
+  AlarmDescription?: string | undefined;
 
   /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state. The default is
    * 			<code>TRUE</code>.</p>
    * @public
    */
-  ActionsEnabled?: boolean;
+  ActionsEnabled?: boolean | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
@@ -4159,7 +4159,7 @@ export interface PutMetricAlarmInput {
    *          </ul>
    * @public
    */
-  OKActions?: string[];
+  OKActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
@@ -4270,7 +4270,7 @@ export interface PutMetricAlarmInput {
    *          </ul>
    * @public
    */
-  AlarmActions?: string[];
+  AlarmActions?: string[] | undefined;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
@@ -4381,7 +4381,7 @@ export interface PutMetricAlarmInput {
    *          </ul>
    * @public
    */
-  InsufficientDataActions?: string[];
+  InsufficientDataActions?: string[] | undefined;
 
   /**
    * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
@@ -4392,13 +4392,13 @@ export interface PutMetricAlarmInput {
    * 		all this information in the <code>Metrics</code> array.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The statistic for the metric specified in <code>MetricName</code>, other than percentile.
@@ -4407,7 +4407,7 @@ export interface PutMetricAlarmInput {
    * 		specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
    * @public
    */
-  Statistic?: Statistic;
+  Statistic?: Statistic | undefined;
 
   /**
    * <p>The extended statistic for the metric specified in <code>MetricName</code>. When you
@@ -4476,13 +4476,13 @@ export interface PutMetricAlarmInput {
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
    * @public
    */
-  ExtendedStatistic?: string;
+  ExtendedStatistic?: string | undefined;
 
   /**
    * <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is
@@ -4501,7 +4501,7 @@ export interface PutMetricAlarmInput {
    * 		be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>The unit of measure for the statistic. For example, the units for the Amazon EC2
@@ -4524,7 +4524,7 @@ export interface PutMetricAlarmInput {
    * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold. If you are
@@ -4544,7 +4544,7 @@ export interface PutMetricAlarmInput {
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    * @public
    */
-  DatapointsToAlarm?: number;
+  DatapointsToAlarm?: number | undefined;
 
   /**
    * <p>The value against which the specified statistic is compared.</p>
@@ -4552,7 +4552,7 @@ export interface PutMetricAlarmInput {
    * 		not be used for alarms based on anomaly detection models.</p>
    * @public
    */
-  Threshold?: number;
+  Threshold?: number | undefined;
 
   /**
    * <p> The arithmetic operation to use when comparing the specified statistic and
@@ -4577,7 +4577,7 @@ export interface PutMetricAlarmInput {
    *          </note>
    * @public
    */
-  TreatMissingData?: string;
+  TreatMissingData?: string | undefined;
 
   /**
    * <p> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the alarm state does not change during periods with too few data points to be
@@ -4587,7 +4587,7 @@ export interface PutMetricAlarmInput {
    *          </p>
    * @public
    */
-  EvaluateLowSampleCountPercentile?: string;
+  EvaluateLowSampleCountPercentile?: string | undefined;
 
   /**
    * <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a
@@ -4603,7 +4603,7 @@ export interface PutMetricAlarmInput {
    * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
    * @public
    */
-  Metrics?: MetricDataQuery[];
+  Metrics?: MetricDataQuery[] | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
@@ -4618,7 +4618,7 @@ export interface PutMetricAlarmInput {
    * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If this is an alarm based on an anomaly detection model, make this value match
@@ -4630,7 +4630,7 @@ export interface PutMetricAlarmInput {
    *          <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
    * @public
    */
-  ThresholdMetricId?: string;
+  ThresholdMetricId?: string | undefined;
 }
 
 /**
@@ -4679,13 +4679,13 @@ export interface MetricDatum {
    * <p>The dimensions associated with the metric. </p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The value for the metric.</p>
@@ -4694,13 +4694,13 @@ export interface MetricDatum {
    * 			are not supported.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 
   /**
    * <p>The statistical values for the metric.</p>
    * @public
    */
-  StatisticValues?: StatisticSet;
+  StatisticValues?: StatisticSet | undefined;
 
   /**
    * <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
@@ -4712,7 +4712,7 @@ export interface MetricDatum {
    * 			-Infinity) are not supported.</p>
    * @public
    */
-  Values?: number[];
+  Values?: number[] | undefined;
 
   /**
    * <p>Array of numbers that is used along with the <code>Values</code> array. Each number in the <code>Count</code> array
@@ -4721,7 +4721,7 @@ export interface MetricDatum {
    * 		include a <code>Counts</code> array, it must include the same amount of values as the <code>Values</code> array.</p>
    * @public
    */
-  Counts?: number[];
+  Counts?: number[] | undefined;
 
   /**
    * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
@@ -4729,7 +4729,7 @@ export interface MetricDatum {
    * 		a <code>Get</code> operation, this displays the unit that is used for the metric.</p>
    * @public
    */
-  Unit?: StandardUnit;
+  Unit?: StandardUnit | undefined;
 
   /**
    * <p>Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with
@@ -4742,7 +4742,7 @@ export interface MetricDatum {
    *          <p>This field is optional, if you do not specify it the default of 60 is used.</p>
    * @public
    */
-  StorageResolution?: number;
+  StorageResolution?: number | undefined;
 }
 
 /**
@@ -4786,7 +4786,7 @@ export interface PutMetricStreamInput {
    * 		in the same operation.</p>
    * @public
    */
-  IncludeFilters?: MetricStreamFilter[];
+  IncludeFilters?: MetricStreamFilter[] | undefined;
 
   /**
    * <p>If you specify this parameter, the stream sends metrics from all
@@ -4795,7 +4795,7 @@ export interface PutMetricStreamInput {
    * 			the same operation.</p>
    * @public
    */
-  ExcludeFilters?: MetricStreamFilter[];
+  ExcludeFilters?: MetricStreamFilter[] | undefined;
 
   /**
    * <p>The ARN of the Amazon Kinesis Data Firehose delivery stream to use for this metric stream.
@@ -4843,7 +4843,7 @@ export interface PutMetricStreamInput {
    * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
@@ -4860,14 +4860,14 @@ export interface PutMetricStreamInput {
    * 			p99.9, and so on.</p>
    * @public
    */
-  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[] | undefined;
 
   /**
    * <p>If you are creating a metric stream in a monitoring account,
    * 			specify <code>true</code> to include metrics from source accounts in the metric stream.</p>
    * @public
    */
-  IncludeLinkedAccountsMetrics?: boolean;
+  IncludeLinkedAccountsMetrics?: boolean | undefined;
 }
 
 /**
@@ -4878,7 +4878,7 @@ export interface PutMetricStreamOutput {
    * <p>The ARN of the metric stream.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -4929,7 +4929,7 @@ export interface SetAlarmStateInput {
    * 		alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.</p>
    * @public
    */
-  StateReasonData?: string;
+  StateReasonData?: string | undefined;
 }
 
 /**
