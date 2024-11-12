@@ -23,7 +23,7 @@
   "dependencies": {
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
-    "@smithy/chunked-blob-reader": "^3.0.0",
+    "@smithy/chunked-blob-reader": "^4.0.0",
     "@smithy/protocol-http": "^4.1.5",
     "@smithy/types": "^3.6.0",
     "@smithy/util-hex-encoding": "^3.0.0",

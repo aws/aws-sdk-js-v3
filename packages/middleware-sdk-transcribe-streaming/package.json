@@ -27,7 +27,7 @@
     "@aws-sdk/util-format-url": "*",
     "@smithy/eventstream-serde-browser": "^3.0.11",
     "@smithy/protocol-http": "^4.1.5",
-    "@smithy/signature-v4": "^4.2.0",
+    "@smithy/signature-v4": "^4.2.1",
     "@smithy/types": "^3.6.0",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
