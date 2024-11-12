@@ -21,7 +21,7 @@
     "rollup": "^3.26.3",
     "rollup-plugin-terser": "^7.0.2",
     "semver": "^7.3.7",
-    "webpack": "^5.88.2"
+    "webpack": "^5.94.0"
   },
   "author": "",
   "license": "UNLICENSED"
