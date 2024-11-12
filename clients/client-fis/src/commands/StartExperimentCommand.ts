@@ -134,6 +134,38 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * //       actionsMode: "skip-all" || "run-all",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentReportConfiguration
+ * //       outputs: { // ExperimentReportConfigurationOutputs
+ * //         s3Configuration: { // ExperimentReportConfigurationOutputsS3Configuration
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
+ * //     experimentReport: { // ExperimentReport
+ * //       state: { // ExperimentReportState
+ * //         status: "pending" || "running" || "completed" || "cancelled" || "failed",
+ * //         reason: "STRING_VALUE",
+ * //         error: { // ExperimentReportError
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       s3Reports: [ // ExperimentReportS3ReportList
+ * //         { // ExperimentReportS3Report
+ * //           arn: "STRING_VALUE",
+ * //           reportType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

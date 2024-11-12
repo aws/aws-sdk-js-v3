@@ -122,6 +122,23 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *     accountTargeting: "single-account" || "multi-account",
  *     emptyTargetResolutionMode: "fail" || "skip",
  *   },
+ *   experimentReportConfiguration: { // CreateExperimentTemplateReportConfigurationInput
+ *     outputs: { // ExperimentTemplateReportConfigurationOutputsInput
+ *       s3Configuration: { // ReportConfigurationS3OutputInput
+ *         bucketName: "STRING_VALUE",
+ *         prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     dataSources: { // ExperimentTemplateReportConfigurationDataSourcesInput
+ *       cloudWatchDashboards: [ // ReportConfigurationCloudWatchDashboardInputList
+ *         { // ReportConfigurationCloudWatchDashboardInput
+ *           dashboardIdentifier: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     preExperimentDuration: "STRING_VALUE",
+ *     postExperimentDuration: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateExperimentTemplateCommand(input);
  * const response = await client.send(command);
@@ -195,6 +212,23 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * //       emptyTargetResolutionMode: "fail" || "skip",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentTemplateReportConfiguration
+ * //       outputs: { // ExperimentTemplateReportConfigurationOutputs
+ * //         s3Configuration: { // ReportConfigurationS3Output
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentTemplateReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentTemplateReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentTemplateReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

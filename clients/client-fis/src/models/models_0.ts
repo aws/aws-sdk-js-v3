@@ -231,6 +231,90 @@ export interface CreateExperimentTemplateExperimentOptionsInput {
 }
 
 /**
+ * <p>Specifies the CloudWatch dashboard for the experiment report.</p>
+ * @public
+ */
+export interface ReportConfigurationCloudWatchDashboardInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
+   * @public
+   */
+  dashboardIdentifier?: string;
+}
+
+/**
+ * <p>Specifies the data sources for the experiment report.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfigurationDataSourcesInput {
+  /**
+   * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
+   * @public
+   */
+  cloudWatchDashboards?: ReportConfigurationCloudWatchDashboardInput[];
+}
+
+/**
+ * <p>Specifies the S3 destination for the experiment report.</p>
+ * @public
+ */
+export interface ReportConfigurationS3OutputInput {
+  /**
+   * <p>The name of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  prefix?: string;
+}
+
+/**
+ * <p>Specifies the outputs for the experiment templates.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfigurationOutputsInput {
+  /**
+   * <p>The S3 destination for the experiment report.</p>
+   * @public
+   */
+  s3Configuration?: ReportConfigurationS3OutputInput;
+}
+
+/**
+ * <p>Specifies the configuration for experiment reports.</p>
+ * @public
+ */
+export interface CreateExperimentTemplateReportConfigurationInput {
+  /**
+   * <p>The output destinations of the experiment report. </p>
+   * @public
+   */
+  outputs?: ExperimentTemplateReportConfigurationOutputsInput;
+
+  /**
+   * <p>The data sources for the experiment report.</p>
+   * @public
+   */
+  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput;
+
+  /**
+   * <p>The duration before the experiment start time for the data sources to include in the report. </p>
+   * @public
+   */
+  preExperimentDuration?: string;
+
+  /**
+   * <p>The duration after the experiment end time for the data sources to include in the report. </p>
+   * @public
+   */
+  postExperimentDuration?: string;
+}
+
+/**
  * <p>Specifies the configuration for experiment logging to Amazon CloudWatch Logs.</p>
  * @public
  */
@@ -440,6 +524,12 @@ export interface CreateExperimentTemplateRequest {
    * @public
    */
   experimentOptions?: CreateExperimentTemplateExperimentOptionsInput;
+
+  /**
+   * <p>The experiment report configuration for the experiment template.</p>
+   * @public
+   */
+  experimentReportConfiguration?: CreateExperimentTemplateReportConfigurationInput;
 }
 
 /**
@@ -494,6 +584,90 @@ export interface ExperimentTemplateExperimentOptions {
    * @public
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+}
+
+/**
+ * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfigurationCloudWatchDashboard {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
+   * @public
+   */
+  dashboardIdentifier?: string;
+}
+
+/**
+ * <p>Describes the data sources for the experiment report.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfigurationDataSources {
+  /**
+   * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
+   * @public
+   */
+  cloudWatchDashboards?: ExperimentTemplateReportConfigurationCloudWatchDashboard[];
+}
+
+/**
+ * <p>Describes the S3 destination for the experiment report.</p>
+ * @public
+ */
+export interface ReportConfigurationS3Output {
+  /**
+   * <p>The name of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  prefix?: string;
+}
+
+/**
+ * <p>The output destinations of the experiment report.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfigurationOutputs {
+  /**
+   * <p>The S3 destination for the experiment report.</p>
+   * @public
+   */
+  s3Configuration?: ReportConfigurationS3Output;
+}
+
+/**
+ * <p>Describes the experiment report configuration. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration">Experiment report configurations for AWS FIS</a>.</p>
+ * @public
+ */
+export interface ExperimentTemplateReportConfiguration {
+  /**
+   * <p>Describes the output destinations of the experiment report.</p>
+   * @public
+   */
+  outputs?: ExperimentTemplateReportConfigurationOutputs;
+
+  /**
+   * <p>The data sources for the experiment report.</p>
+   * @public
+   */
+  dataSources?: ExperimentTemplateReportConfigurationDataSources;
+
+  /**
+   * <p>The duration before the experiment start time for the data sources to include in the report.</p>
+   * @public
+   */
+  preExperimentDuration?: string;
+
+  /**
+   * <p>The duration after the experiment end time for the data sources to include in the report.</p>
+   * @public
+   */
+  postExperimentDuration?: string;
 }
 
 /**
@@ -710,6 +884,12 @@ export interface ExperimentTemplate {
    * @public
    */
   targetAccountConfigurationsCount?: number;
+
+  /**
+   * <p>Describes the report configuration for the experiment template.</p>
+   * @public
+   */
+  experimentReportConfiguration?: ExperimentTemplateReportConfiguration;
 }
 
 /**
@@ -1021,6 +1201,179 @@ export interface ExperimentOptions {
 }
 
 /**
+ * <p>Describes the S3 destination for the report.</p>
+ * @public
+ */
+export interface ExperimentReportS3Report {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the generated report.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>The report type for the experiment report.</p>
+   * @public
+   */
+  reportType?: string;
+}
+
+/**
+ * <p>Describes the error when experiment report generation has failed.</p>
+ * @public
+ */
+export interface ExperimentReportError {
+  /**
+   * <p>The error code for the failed experiment report generation.</p>
+   * @public
+   */
+  code?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentReportStatus = {
+  cancelled: "cancelled",
+  completed: "completed",
+  failed: "failed",
+  pending: "pending",
+  running: "running",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentReportStatus = (typeof ExperimentReportStatus)[keyof typeof ExperimentReportStatus];
+
+/**
+ * <p>Describes the state of the experiment report generation.</p>
+ * @public
+ */
+export interface ExperimentReportState {
+  /**
+   * <p>The state of the experiment report generation.</p>
+   * @public
+   */
+  status?: ExperimentReportStatus;
+
+  /**
+   * <p>The reason for the state of the experiment report generation.</p>
+   * @public
+   */
+  reason?: string;
+
+  /**
+   * <p>The error information of the experiment when the experiment report generation has failed.</p>
+   * @public
+   */
+  error?: ExperimentReportError;
+}
+
+/**
+ * <p>Describes the experiment report.</p>
+ * @public
+ */
+export interface ExperimentReport {
+  /**
+   * <p>The state of the experiment report.</p>
+   * @public
+   */
+  state?: ExperimentReportState;
+
+  /**
+   * <p>The S3 destination of the experiment report.</p>
+   * @public
+   */
+  s3Reports?: ExperimentReportS3Report[];
+}
+
+/**
+ * <p>Specifies the CloudWatch dashboard to include in the experiment report. The dashboard widgets will be captured as  snapshot graphs within the report.</p>
+ * @public
+ */
+export interface ExperimentReportConfigurationCloudWatchDashboard {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
+   * @public
+   */
+  dashboardIdentifier?: string;
+}
+
+/**
+ * <p>Describes the data sources for the experiment report.</p>
+ * @public
+ */
+export interface ExperimentReportConfigurationDataSources {
+  /**
+   * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
+   * @public
+   */
+  cloudWatchDashboards?: ExperimentReportConfigurationCloudWatchDashboard[];
+}
+
+/**
+ * <p>Specifies the S3 destination for the experiment report.</p>
+ * @public
+ */
+export interface ExperimentReportConfigurationOutputsS3Configuration {
+  /**
+   * <p>The name of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
+   * @public
+   */
+  prefix?: string;
+}
+
+/**
+ * <p>Describes the output destinations of the experiment report.</p>
+ * @public
+ */
+export interface ExperimentReportConfigurationOutputs {
+  /**
+   * <p>The S3 destination for the experiment report.</p>
+   * @public
+   */
+  s3Configuration?: ExperimentReportConfigurationOutputsS3Configuration;
+}
+
+/**
+ * <p>Describes the report configuration for the experiment. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration">Experiment report configurations for AWS FIS</a>.</p>
+ * @public
+ */
+export interface ExperimentReportConfiguration {
+  /**
+   * <p>The output destinations of the experiment report.</p>
+   * @public
+   */
+  outputs?: ExperimentReportConfigurationOutputs;
+
+  /**
+   * <p>The data sources for the experiment report.</p>
+   * @public
+   */
+  dataSources?: ExperimentReportConfigurationDataSources;
+
+  /**
+   * <p>The duration before the experiment start time for the data sources to include in the report.</p>
+   * @public
+   */
+  preExperimentDuration?: string;
+
+  /**
+   * <p>The duration after the experiment end time for the data sources to include in the report.</p>
+   * @public
+   */
+  postExperimentDuration?: string;
+}
+
+/**
  * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
  * @public
  */
@@ -1314,6 +1667,18 @@ export interface Experiment {
    * @public
    */
   targetAccountConfigurationsCount?: number;
+
+  /**
+   * <p>The experiment report configuration for the experiment.</p>
+   * @public
+   */
+  experimentReportConfiguration?: ExperimentReportConfiguration;
+
+  /**
+   * <p>The experiment report for the experiment.</p>
+   * @public
+   */
+  experimentReport?: ExperimentReport;
 }
 
 /**
@@ -2260,6 +2625,37 @@ export interface UpdateExperimentTemplateExperimentOptionsInput {
 }
 
 /**
+ * <p>
+ *          Specifies the input for the experiment report configuration.</p>
+ * @public
+ */
+export interface UpdateExperimentTemplateReportConfigurationInput {
+  /**
+   * <p>Describes the output destinations of the experiment report. </p>
+   * @public
+   */
+  outputs?: ExperimentTemplateReportConfigurationOutputsInput;
+
+  /**
+   * <p>The data sources for the experiment report.</p>
+   * @public
+   */
+  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput;
+
+  /**
+   * <p>The duration before the experiment start time for the data sources to include in the report. </p>
+   * @public
+   */
+  preExperimentDuration?: string;
+
+  /**
+   * <p>The duration after the experiment end time for the data sources to include in the report. </p>
+   * @public
+   */
+  postExperimentDuration?: string;
+}
+
+/**
  * <p>Specifies the configuration for experiment logging.</p>
  * @public
  */
@@ -2396,6 +2792,12 @@ export interface UpdateExperimentTemplateRequest {
    * @public
    */
   experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput;
+
+  /**
+   * <p>The experiment report configuration for the experiment template.</p>
+   * @public
+   */
+  experimentReportConfiguration?: UpdateExperimentTemplateReportConfigurationInput;
 }
 
 /**

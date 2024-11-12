@@ -110,6 +110,23 @@ export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplat
  * //       emptyTargetResolutionMode: "fail" || "skip",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentTemplateReportConfiguration
+ * //       outputs: { // ExperimentTemplateReportConfigurationOutputs
+ * //         s3Configuration: { // ReportConfigurationS3Output
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentTemplateReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentTemplateReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentTemplateReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

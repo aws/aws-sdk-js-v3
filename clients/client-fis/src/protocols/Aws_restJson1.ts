@@ -108,6 +108,7 @@ import {
   CreateExperimentTemplateActionInput,
   CreateExperimentTemplateExperimentOptionsInput,
   CreateExperimentTemplateLogConfigurationInput,
+  CreateExperimentTemplateReportConfigurationInput,
   CreateExperimentTemplateStopConditionInput,
   CreateExperimentTemplateTargetInput,
   Experiment,
@@ -115,15 +116,20 @@ import {
   ExperimentSummary,
   ExperimentTemplate,
   ExperimentTemplateCloudWatchLogsLogConfigurationInput,
+  ExperimentTemplateReportConfigurationDataSourcesInput,
+  ExperimentTemplateReportConfigurationOutputsInput,
   ExperimentTemplateS3LogConfigurationInput,
   ExperimentTemplateSummary,
   ExperimentTemplateTargetInputFilter,
+  ReportConfigurationCloudWatchDashboardInput,
+  ReportConfigurationS3OutputInput,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   StartExperimentExperimentOptionsInput,
   UpdateExperimentTemplateActionInputItem,
   UpdateExperimentTemplateExperimentOptionsInput,
   UpdateExperimentTemplateLogConfigurationInput,
+  UpdateExperimentTemplateReportConfigurationInput,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
   UpdateSafetyLeverStateInput,
@@ -149,6 +155,7 @@ export const se_CreateExperimentTemplateCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       experimentOptions: (_) => _json(_),
+      experimentReportConfiguration: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
@@ -588,6 +595,7 @@ export const se_UpdateExperimentTemplateCommand = async (
       actions: (_) => _json(_),
       description: [],
       experimentOptions: (_) => _json(_),
+      experimentReportConfiguration: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
@@ -1306,6 +1314,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateExperimentTemplateLogConfigurationInput omitted.
 
+// se_CreateExperimentTemplateReportConfigurationInput omitted.
+
 // se_CreateExperimentTemplateStopConditionInput omitted.
 
 // se_CreateExperimentTemplateStopConditionInputList omitted.
@@ -1322,6 +1332,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExperimentTemplateCloudWatchLogsLogConfigurationInput omitted.
 
+// se_ExperimentTemplateReportConfigurationDataSourcesInput omitted.
+
+// se_ExperimentTemplateReportConfigurationOutputsInput omitted.
+
 // se_ExperimentTemplateS3LogConfigurationInput omitted.
 
 // se_ExperimentTemplateTargetFilterInputList omitted.
@@ -1331,6 +1345,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExperimentTemplateTargetInputFilter omitted.
 
 // se_ExperimentTemplateTargetParameterMap omitted.
+
+// se_ReportConfigurationCloudWatchDashboardInput omitted.
+
+// se_ReportConfigurationCloudWatchDashboardInputList omitted.
+
+// se_ReportConfigurationS3OutputInput omitted.
 
 // se_ResourceArnList omitted.
 
@@ -1345,6 +1365,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_UpdateExperimentTemplateExperimentOptionsInput omitted.
 
 // se_UpdateExperimentTemplateLogConfigurationInput omitted.
+
+// se_UpdateExperimentTemplateReportConfigurationInput omitted.
 
 // se_UpdateExperimentTemplateStopConditionInput omitted.
 
@@ -1380,6 +1402,8 @@ const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     experimentOptions: _json,
+    experimentReport: _json,
+    experimentReportConfiguration: _json,
     experimentTemplateId: __expectString,
     id: __expectString,
     logConfiguration: _json,
@@ -1437,6 +1461,28 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
 // de_ExperimentLogConfiguration omitted.
 
 // de_ExperimentOptions omitted.
+
+// de_ExperimentReport omitted.
+
+// de_ExperimentReportConfiguration omitted.
+
+// de_ExperimentReportConfigurationCloudWatchDashboard omitted.
+
+// de_ExperimentReportConfigurationCloudWatchDashboardList omitted.
+
+// de_ExperimentReportConfigurationDataSources omitted.
+
+// de_ExperimentReportConfigurationOutputs omitted.
+
+// de_ExperimentReportConfigurationOutputsS3Configuration omitted.
+
+// de_ExperimentReportError omitted.
+
+// de_ExperimentReportS3Report omitted.
+
+// de_ExperimentReportS3ReportList omitted.
+
+// de_ExperimentReportState omitted.
 
 // de_ExperimentS3LogConfiguration omitted.
 
@@ -1501,6 +1547,7 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     experimentOptions: _json,
+    experimentReportConfiguration: _json,
     id: __expectString,
     lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     logConfiguration: _json,
@@ -1527,6 +1574,16 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
 // de_ExperimentTemplateExperimentOptions omitted.
 
 // de_ExperimentTemplateLogConfiguration omitted.
+
+// de_ExperimentTemplateReportConfiguration omitted.
+
+// de_ExperimentTemplateReportConfigurationCloudWatchDashboard omitted.
+
+// de_ExperimentTemplateReportConfigurationCloudWatchDashboardList omitted.
+
+// de_ExperimentTemplateReportConfigurationDataSources omitted.
+
+// de_ExperimentTemplateReportConfigurationOutputs omitted.
 
 // de_ExperimentTemplateS3LogConfiguration omitted.
 
@@ -1571,6 +1628,8 @@ const de_ExperimentTemplateSummaryList = (output: any, context: __SerdeContext):
 // de_ExperimentTemplateTargetMap omitted.
 
 // de_ExperimentTemplateTargetParameterMap omitted.
+
+// de_ReportConfigurationS3Output omitted.
 
 // de_ResolvedTarget omitted.
 
