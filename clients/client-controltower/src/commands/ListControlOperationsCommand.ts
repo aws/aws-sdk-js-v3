@@ -50,7 +50,7 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  *       "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  *     ],
  *     controlOperationTypes: [ // ControlOperationTypes
- *       "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ *       "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  *     ],
  *   },
  *   nextToken: "STRING_VALUE",
@@ -61,7 +61,7 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  * // { // ListControlOperationsOutput
  * //   controlOperations: [ // ControlOperations // required
  * //     { // ControlOperationSummary
- * //       operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ * //       operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
  * //       status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",

@@ -757,6 +757,14 @@ ResetEnabledBaseline
 </details>
 <details>
 <summary>
+ResetEnabledControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ResetEnabledControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetEnabledControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetEnabledControlCommandOutput/)
+
+</details>
+<details>
+<summary>
 ResetLandingZone
 </summary>
 

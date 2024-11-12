@@ -46,7 +46,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * const response = await client.send(command);
  * // { // GetControlOperationOutput
  * //   controlOperation: { // ControlOperation
- * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",

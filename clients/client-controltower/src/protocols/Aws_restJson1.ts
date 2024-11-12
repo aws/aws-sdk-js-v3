@@ -72,6 +72,10 @@ import {
   ResetEnabledBaselineCommandInput,
   ResetEnabledBaselineCommandOutput,
 } from "../commands/ResetEnabledBaselineCommand";
+import {
+  ResetEnabledControlCommandInput,
+  ResetEnabledControlCommandOutput,
+} from "../commands/ResetEnabledControlCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "../commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -587,6 +591,28 @@ export const se_ResetEnabledBaselineCommand = async (
   body = JSON.stringify(
     take(input, {
       enabledBaselineIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResetEnabledControlCommand
+ */
+export const se_ResetEnabledControlCommand = async (
+  input: ResetEnabledControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reset-enabled-control");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledControlIdentifier: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1166,6 +1192,27 @@ export const de_ResetEnabledBaselineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetEnabledBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResetEnabledControlCommand
+ */
+export const de_ResetEnabledControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetEnabledControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }

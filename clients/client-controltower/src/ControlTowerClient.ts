@@ -101,6 +101,10 @@ import {
   ResetEnabledBaselineCommandInput,
   ResetEnabledBaselineCommandOutput,
 } from "./commands/ResetEnabledBaselineCommand";
+import {
+  ResetEnabledControlCommandInput,
+  ResetEnabledControlCommandOutput,
+} from "./commands/ResetEnabledControlCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "./commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -149,6 +153,7 @@ export type ServiceInputTypes =
   | ListLandingZonesCommandInput
   | ListTagsForResourceCommandInput
   | ResetEnabledBaselineCommandInput
+  | ResetEnabledControlCommandInput
   | ResetLandingZoneCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -181,6 +186,7 @@ export type ServiceOutputTypes =
   | ListLandingZonesCommandOutput
   | ListTagsForResourceCommandOutput
   | ResetEnabledBaselineCommandOutput
+  | ResetEnabledControlCommandOutput
   | ResetLandingZoneCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

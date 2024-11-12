@@ -104,6 +104,11 @@ import {
   ResetEnabledBaselineCommandOutput,
 } from "./commands/ResetEnabledBaselineCommand";
 import {
+  ResetEnabledControlCommand,
+  ResetEnabledControlCommandInput,
+  ResetEnabledControlCommandOutput,
+} from "./commands/ResetEnabledControlCommand";
+import {
   ResetLandingZoneCommand,
   ResetLandingZoneCommandInput,
   ResetLandingZoneCommandOutput,
@@ -153,6 +158,7 @@ const commands = {
   ListLandingZonesCommand,
   ListTagsForResourceCommand,
   ResetEnabledBaselineCommand,
+  ResetEnabledControlCommand,
   ResetLandingZoneCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -493,6 +499,23 @@ export interface ControlTower {
     args: ResetEnabledBaselineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ResetEnabledBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetEnabledControlCommand}
+   */
+  resetEnabledControl(
+    args: ResetEnabledControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetEnabledControlCommandOutput>;
+  resetEnabledControl(
+    args: ResetEnabledControlCommandInput,
+    cb: (err: any, data?: ResetEnabledControlCommandOutput) => void
+  ): void;
+  resetEnabledControl(
+    args: ResetEnabledControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetEnabledControlCommandOutput) => void
   ): void;
 
   /**

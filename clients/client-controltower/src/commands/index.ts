@@ -20,6 +20,7 @@ export * from "./ListLandingZoneOperationsCommand";
 export * from "./ListLandingZonesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ResetEnabledBaselineCommand";
+export * from "./ResetEnabledControlCommand";
 export * from "./ResetLandingZoneCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

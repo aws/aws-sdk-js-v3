@@ -336,6 +336,7 @@ export interface GetControlOperationInput {
 export const ControlOperationType = {
   DISABLE_CONTROL: "DISABLE_CONTROL",
   ENABLE_CONTROL: "ENABLE_CONTROL",
+  RESET_ENABLED_CONTROL: "RESET_ENABLED_CONTROL",
   UPDATE_ENABLED_CONTROL: "UPDATE_ENABLED_CONTROL",
 } as const;
 
@@ -1340,6 +1341,28 @@ export interface ListEnabledControlsOutput {
    * @public
    */
   nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResetEnabledControlInput {
+  /**
+   * <p>The ARN of the enabled control to be reset.</p>
+   * @public
+   */
+  enabledControlIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEnabledControlOutput {
+  /**
+   * <p> The operation identifier for this <code>ResetEnabledControl</code> operation. </p>
+   * @public
+   */
+  operationIdentifier: string | undefined;
 }
 
 /**
