@@ -1,9 +1,11 @@
+import { afterEach, describe, expect, test as it, vi } from "vitest";
+
 import { PreviouslyResolved } from "./configuration";
 import { ResponseChecksumValidation } from "./constants";
 import { flexibleChecksumsInputMiddleware } from "./flexibleChecksumsInputMiddleware";
 
 describe(flexibleChecksumsInputMiddleware.name, () => {
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
   const mockMiddlewareConfig = {
     requestValidationModeMember: "requestValidationModeMember",
   };
@@ -13,7 +15,7 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
 
   afterEach(() => {
     expect(mockNext).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("sets input.requestValidationModeMember", () => {
