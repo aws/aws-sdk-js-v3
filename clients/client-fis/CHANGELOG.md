@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
+
+
+### Features
+
+* **client-fis:** This release adds support for generating experiment reports with the experiment report configuration ([eeb1195](https://github.com/aws/aws-sdk-js-v3/commit/eeb11951e3d8cb93b7bef214d3bf3a856886efce))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-fis

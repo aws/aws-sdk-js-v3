@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift releases container fleets support for general availability. Deploy Linux-based containerized game server software for hosting on Amazon GameLift. ([eb000c7](https://github.com/aws/aws-sdk-js-v3/commit/eb000c75d02ef2627e25e4ca5e783614c33cff7a))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

@@ -173,6 +173,58 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * // example id: to-update-a-function-1699751865053
  * ```
  *
+ * @example To update a function
+ * ```javascript
+ * // Use the following command to update a function.
+ * const input = {
+ *   "FunctionCode": "function-code-changed.js",
+ *   "FunctionConfig": {
+ *     "Comment": "my-changed-comment",
+ *     "KeyValueStoreAssociations": {
+ *       "Items": [
+ *         {
+ *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *         }
+ *       ],
+ *       "Quantity": 1
+ *     },
+ *     "Runtime": "cloudfront-js-2.0"
+ *   },
+ *   "IfMatch": "ETVPDKIKX0DER",
+ *   "Name": "my-function-name"
+ * };
+ * const command = new UpdateFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "E3UN6WX5RRO2AG",
+ *   "FunctionSummary": {
+ *     "FunctionConfig": {
+ *       "Comment": "my-changed-comment",
+ *       "KeyValueStoreAssociations": {
+ *         "Items": [
+ *           {
+ *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           }
+ *         ],
+ *         "Quantity": 1
+ *       },
+ *       "Runtime": "cloudfront-js-2.0"
+ *     },
+ *     "FunctionMetadata": {
+ *       "CreatedTime": "2023-11-07T19:53:50.334Z",
+ *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       "LastModifiedTime": "2023-11-07T20:01:37.174Z",
+ *       "Stage": "DEVELOPMENT"
+ *     },
+ *     "Name": "my-function-name",
+ *     "Status": "UNPUBLISHED"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateFunctionCommand extends $Command
   .classBuilder<

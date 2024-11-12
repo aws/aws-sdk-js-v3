@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
+
+
+### Features
+
+* **client-payment-cryptography:** Updated ListAliases API with KeyArn filter. ([34a0ede](https://github.com/aws/aws-sdk-js-v3/commit/34a0edee6e0bdf0e3f0ab87d1508a1c1731cec05))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

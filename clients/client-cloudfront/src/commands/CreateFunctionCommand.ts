@@ -178,6 +178,58 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * // example id: to-create-a-function-1699737558249
  * ```
  *
+ * @example To create a function
+ * ```javascript
+ * // Use the following command to create a function.
+ * const input = {
+ *   "FunctionCode": "function-code.js",
+ *   "FunctionConfig": {
+ *     "Comment": "my-function-comment",
+ *     "KeyValueStoreAssociations": {
+ *       "Items": [
+ *         {
+ *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *         }
+ *       ],
+ *       "Quantity": 1
+ *     },
+ *     "Runtime": "cloudfront-js-2.0"
+ *   },
+ *   "Name": "my-function-name"
+ * };
+ * const command = new CreateFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "ETVPDKIKX0DER",
+ *   "FunctionSummary": {
+ *     "FunctionConfig": {
+ *       "Comment": "my-function-comment",
+ *       "KeyValueStoreAssociations": {
+ *         "Items": [
+ *           {
+ *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           }
+ *         ],
+ *         "Quantity": 1
+ *       },
+ *       "Runtime": "cloudfront-js-2.0"
+ *     },
+ *     "FunctionMetadata": {
+ *       "CreatedTime": "2023-11-07T19:53:50.334Z",
+ *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       "LastModifiedTime": "2023-11-07T19:53:50.334Z",
+ *       "Stage": "DEVELOPMENT"
+ *     },
+ *     "Name": "my-function-name",
+ *     "Status": "UNPUBLISHED"
+ *   },
+ *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/function/arn:aws:cloudfront::123456789012:function/my-function-name"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateFunctionCommand extends $Command
   .classBuilder<

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports non-containerized Linux and Windows builds on Reserved Capacity. ([1661962](https://github.com/aws/aws-sdk-js-v3/commit/16619628b3ad1baaaf085ccc02c1744cb231131e))
+* **client-controltower:** Added ResetEnabledControl API. ([580cabc](https://github.com/aws/aws-sdk-js-v3/commit/580cabcd598a7e467412a1d333f347930e87fbde))
+* **client-fis:** This release adds support for generating experiment reports with the experiment report configuration ([eeb1195](https://github.com/aws/aws-sdk-js-v3/commit/eeb11951e3d8cb93b7bef214d3bf3a856886efce))
+* **client-gamelift:** Amazon GameLift releases container fleets support for general availability. Deploy Linux-based containerized game server software for hosting on Amazon GameLift. ([eb000c7](https://github.com/aws/aws-sdk-js-v3/commit/eb000c75d02ef2627e25e4ca5e783614c33cff7a))
+* **client-payment-cryptography:** Updated ListAliases API with KeyArn filter. ([34a0ede](https://github.com/aws/aws-sdk-js-v3/commit/34a0edee6e0bdf0e3f0ab87d1508a1c1731cec05))
+* **clients:** update client endpoints as of 2024-11-12 ([0965c10](https://github.com/aws/aws-sdk-js-v3/commit/0965c1012b0d81383ee92af8684c361821267d3b))
+
+
+
+
+
 # [3.689.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.688.0...v3.689.0) (2024-11-11)
 
 
