@@ -903,12 +903,15 @@ export interface RegistryCredential {
  */
 export const EnvironmentType = {
   ARM_CONTAINER: "ARM_CONTAINER",
+  ARM_EC2: "ARM_EC2",
   ARM_LAMBDA_CONTAINER: "ARM_LAMBDA_CONTAINER",
   LINUX_CONTAINER: "LINUX_CONTAINER",
+  LINUX_EC2: "LINUX_EC2",
   LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
   LINUX_LAMBDA_CONTAINER: "LINUX_LAMBDA_CONTAINER",
   MAC_ARM: "MAC_ARM",
   WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
+  WINDOWS_EC2: "WINDOWS_EC2",
   WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
 } as const;
 
@@ -3166,7 +3169,21 @@ export interface Fleet {
    *                     EU (Frankfurt), and South America (São Paulo).</p>
    *             </li>
    *             <li>
+   *                <p>The environment type <code>ARM_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
    *                <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>LINUX_EC2</code> is available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
    *                     EU (Frankfurt), Asia Pacific (Tokyo),
    *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
@@ -3185,6 +3202,13 @@ export interface Fleet {
    *             <li>
    *                <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in
    *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>WINDOWS_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
    *             </li>
    *             <li>
    *                <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions
@@ -4844,7 +4868,21 @@ export interface CreateFleetInput {
    *                     EU (Frankfurt), and South America (São Paulo).</p>
    *             </li>
    *             <li>
+   *                <p>The environment type <code>ARM_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
    *                <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>LINUX_EC2</code> is available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
    *                     EU (Frankfurt), Asia Pacific (Tokyo),
    *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
@@ -4863,6 +4901,13 @@ export interface CreateFleetInput {
    *             <li>
    *                <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in
    *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>WINDOWS_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
    *             </li>
    *             <li>
    *                <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions
@@ -8112,7 +8157,21 @@ export interface UpdateFleetInput {
    *                     EU (Frankfurt), and South America (São Paulo).</p>
    *             </li>
    *             <li>
+   *                <p>The environment type <code>ARM_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
    *                <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>LINUX_EC2</code> is available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
    *                     EU (Frankfurt), Asia Pacific (Tokyo),
    *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
@@ -8131,6 +8190,13 @@ export interface UpdateFleetInput {
    *             <li>
    *                <p>The environment type <code>MAC_ARM</code> is available for Large fleets only in
    *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</p>
+   *             </li>
+   *             <li>
+   *                <p>The environment type <code>WINDOWS_EC2</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and
+   *                     Asia Pacific (Mumbai).</p>
    *             </li>
    *             <li>
    *                <p>The environment type <code>WINDOWS_SERVER_2019_CONTAINER</code> is available only in regions
