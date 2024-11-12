@@ -17,6 +17,7 @@ export const localPublishChangedPackages = async (): Promise<string> => {
   console.info(`the package versions will be the actual version up with a patch version and preid "ci".`);
   await exec("yarn", ["local-publish"], {
     cwd: PROJECT_ROOT,
+    stdio: "inherit",
   });
   console.info(`published ${readdirSync(join(PROJECT_ROOT, "verdaccio", "storage", "@aws-sdk")).length} packages`);
   return join(PROJECT_ROOT, "verdaccio", "config.yaml");

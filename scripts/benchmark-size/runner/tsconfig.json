@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
-    "module": "ESNext", // to run ts-node with ESM dependencies
+    "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
-  },
-  "ts-node": {
-    // Tell ts-node CLI to install the --loader automatically, explained below
-    "esm": true
   }
 }
